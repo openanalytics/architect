@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="eu.openanalytics.architect.application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="eu.openanalytics.architect.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="eu.openanalytics.architect.application"
+            description="OpenAnalytics R GUI and IDE"
+            name="Architect">
+         <property
+               name="windowImages"
+               value="icons/icon_16.png,icons/icon_32.png,icons/icon_48.png,icons/icon_64.png,icons/icon_128.png">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="FFFFFF">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,330,610,15">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="15,310,400,20">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="appName"
+               value="Architect">
+         </property>
+         <property
+               name="aboutText"
+               value="Architect is a graphical user interface and integrated development &#x0A;environment for statistical programming and analysis developed by &#x0A;OpenAnalytics BVBA - http://www.openanalytics.eu &#x0A;&#x0A;It combines the strengths of the Eclipse platform (Eclipse Foundation), &#x0A;the StatET plug-ins for R development (WalWare) and R (R Foundation), &#x0A;the leading open source solution for statistical analysis and visualization.">
+         </property>
+         <property
+               name="aboutImage"
+               value="about_architect.png">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="eu.openanalytics.architect.ui.ArchitectPerspective"
+            icon="icons/icon_16.png"
+            id="eu.openanalytics.architect.ui.ArchitectPerspective"
+            name="Architect">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.elementFactories">
+      <factory
+            class="eu.openanalytics.architect.workspace.NavigatorRoot"
+            id="eu.openanalytics.architect.workspace.NavigatorRoot">
+      </factory>
+   </extension>
+   <extension
+         point="org.eclipse.core.variables.dynamicVariables">
+      <variable
+            description="The selected resource, or its parent if the resource is a file."
+            name="architect_wd"
+            resolver="eu.openanalytics.architect.variable.ArchitectResourceResolver"
+            supportsArgument="false">
+      </variable>
+   </extension>
+
+</plugin>
