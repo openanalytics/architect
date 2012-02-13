@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Embedded R Server
+Bundle-SymbolicName: eu.openanalytics.architect.r.server;singleton:=true
+Bundle-Version: 0.5.0.qualifier
+Bundle-Activator: eu.openanalytics.architect.r.server.Activator
+Bundle-Vendor: OpenAnalytics
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ de.walware.rj.server;bundle-version="0.5.5"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

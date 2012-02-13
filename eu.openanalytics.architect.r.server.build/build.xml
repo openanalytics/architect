@@ -1,0 +1,58 @@
+<project name="eu.openanalytics.architect.r.server.build" default="build">
+
+	<property file="build.properties" />
+
+	<path id="equinox.launcher.path">
+		<fileset dir="${baseLocation}/plugins">
+			<include name="org.eclipse.equinox.launcher_*.jar" />
+		</fileset>
+	</path>
+	<property name="equinox.launcher" refid="equinox.launcher.path" />
+
+	<path id="pde.build.dir.path">
+		<dirset dir="${baseLocation}/plugins">
+			<include name="org.eclipse.pde.build_*" />
+		</dirset>
+	</path>
+	<property name="pde.build.dir" refid="pde.build.dir.path" />
+
+	<target name="clean">
+		<delete dir="${buildDirectory}" />
+	</target>
+		
+	<target name="copy-sources">
+		<mkdir dir="${buildDirectory}" />
+		<mkdir dir="${buildDirectory}/plugins" />
+		<mkdir dir="${buildDirectory}/features" />
+		<copy todir="${buildDirectory}/plugins">
+			<fileset dir="../">
+				<include name="eu.openanalytics.architect.r.server/**" />
+				<include name="eu.openanalytics.architect.r.libs.user/**" />
+				<include name="eu.openanalytics.architect.r.libs.user.win32.win32/**" />
+				<include name="eu.openanalytics.architect.r.libs.user.cocoa.macosx.x86_64/**" />
+				<include name="eu.openanalytics.architect.r.server.win32.win32/**" />
+				<include name="eu.openanalytics.architect.r.server.cocoa.macosx.x86_64/**" />
+			</fileset>
+		</copy>
+		<copy todir="${buildDirectory}/features/eu.openanalytics.architect.r.server">
+			<fileset dir="../eu.openanalytics.architect.r.server-feature">
+				<include name="*/**" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="pde-build">
+		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
+			<arg value="-application" />
+			<arg value="org.eclipse.ant.core.antRunner" />
+			<arg value="-buildfile" />
+			<arg value="${pde.build.dir}/scripts/build.xml" />
+			<arg value="-Dtimestamp=${timestamp}" />
+			<classpath>
+				<pathelement location="${equinox.launcher}" />
+			</classpath>
+		</java>
+	</target>
+	
+	<target name="build" depends="clean, copy-sources, pde-build" />
+</project>

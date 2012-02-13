@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: R Packages rj and rj.gd Win32
+Bundle-SymbolicName: eu.openanalytics.architect.r.libs.rj.win32.win32
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: OpenAnalytics
+Fragment-Host: eu.openanalytics.architect.r.libs.rj;bundle-version="0.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-PlatformFilter: (& (osgi.ws=win32)(osgi.os=win32))

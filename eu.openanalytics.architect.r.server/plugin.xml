@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.walware.rj.rSetups">
+      <base
+            location="R/"
+            setupId="eu.openanalytics.r.server">
+      </base>
+      <setup
+            id="eu.openanalytics.r.server"
+            name="Embedded R Server"
+            version="2.14.0">
+      </setup>
+   </extension>
+
+</plugin>

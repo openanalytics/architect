@@ -1,0 +1,110 @@
+<project name="eu.openanalytics.r.server.build" default="all">
+
+	<property file="build.properties" />
+	
+	<target name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="${output.dir}" />
+	</target>
+	
+	<target name="init">
+		<mkdir dir="${build.dir}/i386" />
+		<mkdir dir="${build.dir}/x64" />
+		<mkdir dir="${build.dir}/tmp-rtools" />
+		<mkdir dir="${output.dir}" />
+	</target>
+	
+	<target name="prepare.sources">
+		<untar src="${src.archive}" dest="${build.dir}/${platform}" compression="gzip" />
+		<copy todir="${build.dir}/${platform}/${r.version}">
+			<fileset dir="${src.dir.extra}/${platform}">
+				<include name="*/**" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="apply.patches">
+		<apply executable="${patcher.exe}" dir="${build.dir}/${platform}/${r.version}" addsourcefile="false" failonerror="true">
+			<arg value="-p0" />
+			<fileset dir="${src.dir.patch}">
+				<include name="*.patch"/>
+			</fileset>
+			<redirector>
+				<inputmapper type="glob" from="*" to="${src.dir.patch}/*"/>
+			</redirector>
+		</apply>
+	</target>
+	
+	<target name="build">
+		<antcall target="prepare.sources" />
+		
+		<antcall target="apply.patches" />
+		
+		<antcall target="modify.mkrules.x64" />
+		
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/src/gnuwin32" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="JAVA_HOME" value="${java.home}" />
+			<arg value="all" />
+			<arg value="recommended" />
+		</exec>
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/src/gnuwin32" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="JAVA_HOME" value="${java.home}" />
+			<arg value="bitmapdll" />
+		</exec>
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/src/gnuwin32" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="JAVA_HOME" value="${java.home}" />
+			<arg value="manuals" />
+		</exec>
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/doc/manual" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="JAVA_HOME" value="${java.home}" />
+			<arg value="-f" />
+			<arg value="Makefile.win" />
+			<arg value="info" />
+		</exec>
+	</target>
+	
+	<target name="modify.mkrules.x64" if="${isX64}">
+		<copy file="${build.dir}/x64/${r.version}/src/gnuwin32/MkRules.dist" tofile="${build.dir}/x64/${r.version}/src/gnuwin32/MkRules.local">
+			<filterchain>
+				<replacestring from="WIN = 32" to="WIN = 64" />
+			</filterchain>
+		</copy>
+	</target>
+	
+	<target name="merge.builds">
+		<copy todir="${build.dir}/x64/${r.version}" overwrite="true" force="true">
+			<fileset dir="${build.dir}/i386/${r.version}" />
+		</copy>
+		<delete dir="${build.dir}/x64/${r.version}/m4" />
+		<delete dir="${build.dir}/x64/${r.version}/po" />
+		<delete dir="${build.dir}/x64/${r.version}/src" />
+		<delete dir="${build.dir}/x64/${r.version}/tests" />
+		<delete dir="${build.dir}/x64/${r.version}/tools" />
+		<copy todir="${output.dir}">
+			<fileset dir="${build.dir}/x64" />
+		</copy>
+	</target>
+	
+	<target name="all" depends="clean,init">
+		<antcall target="build">
+			<param name="platform" value="i386" />
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/MinGW/bin;${rtools.dir}/MinGW/mingw32/bin;${java.home}/jre/bin;${java.home}/jre/bin/server;${miktex.dir}" />
+		</antcall>
+		
+		<antcall target="build">
+			<param name="platform" value="x64" />
+			<param name="isX64" value="true" />
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/MinGW64/bin;${rtools.dir}/MinGW64/x86_64-w64-mingw32/bin;${java.home}/jre/bin;${java.home}/jre/bin/server;${miktex.dir}" />
+		</antcall>
+		
+		<antcall target="merge.builds" />
+	</target>
+</project>

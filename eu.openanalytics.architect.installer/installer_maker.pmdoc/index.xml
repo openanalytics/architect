@@ -1,0 +1,7 @@
+<pkmkdoc spec="1.12"><properties><title>Architect</title><build>/Users/fmichielssen/Architect.pkg</build><organization>OpenAnalytics.eu</organization><userSees ui="easy"/><min-target os="2"/><domain anywhere="true"/></properties><distribution><versions min-spec="1.000000"/><scripts></scripts></distribution><description>Architect is a graphical user interface and integrated development 
+environment for statistical programming and analysis developed by 
+OpenAnalytics BVBA (http://www.openanalytics.eu). 
+
+It combines the strengths of the Eclipse platform (Eclipse Foundation), 
+the StatET plug-ins for R development (WalWare) and R (R Foundation), 
+the leading open source solution for statistical analysis and visualization.</description><contents><choice title="Architect" id="choice1" starts_selected="true" starts_enabled="true" starts_hidden="false"><pkgref id="OpenAnalytics.eu.architect.ArchitectApplication.pkg"/></choice></contents><resources bg-scale="none" bg-align="topleft"><locale lang="en"/></resources><flags/><item type="file">01architect.xml</item><mod>properties.title</mod><mod>description</mod></pkmkdoc>
