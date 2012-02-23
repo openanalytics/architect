@@ -20,7 +20,7 @@ the leading open source solution for statistical analysis and visualization.
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-XX:MaxPermSize=64m</vmArgs>
+      <vmArgs>-XX:MaxPermSize=128m</vmArgs>
       <vmArgsMac>-XX:MaxPermSize=128m -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 

@@ -33,7 +33,7 @@
 		</copy>
 		<copy todir="${buildDirectory}/features">
 			<fileset dir="../">
-				<include name="eu.openanalytics.architect-feature/**" />
+				<include name="eu.openanalytics.architect_feature/**" />
 			</fileset>
 		</copy>
 	</target>

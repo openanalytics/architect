@@ -32,7 +32,7 @@
 			</fileset>
 		</copy>
 		<copy todir="${buildDirectory}/features/eu.openanalytics.architect.r.libs.rj">
-			<fileset dir="../eu.openanalytics.architect.r.libs.rj-feature">
+			<fileset dir="../eu.openanalytics.architect.r.libs.rj_feature">
 				<include name="*/**" />
 			</fileset>
 		</copy>

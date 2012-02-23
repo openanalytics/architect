@@ -75,14 +75,24 @@
 		</copy>
 	</target>
 	
-	<target name="all">
+	<target name="full-build-stable" unless="${skip.stable.build}">
+		<echo message="Starting STABLE full-build..."/>
 		<antcall target="full-build">
 			<param name="dist.dir" value="${dist.dir.stable}" />
 			<param name="statet.repo.path" value="${statet.repo.path.stable}" />
 		</antcall>
+	</target>
+	
+	<target name="full-build-testing" unless="${skip.testing.build}">
+		<echo message="Starting TESTING full-build..."/>
 		<antcall target="full-build">
 			<param name="dist.dir" value="${dist.dir.testing}" />
 			<param name="statet.repo.path" value="${statet.repo.path.testing}" />
 		</antcall>
+	</target>
+	
+	<target name="all">
+		<antcall target="full-build-stable"/>
+		<antcall target="full-build-testing"/>
 	</target>
 </project>

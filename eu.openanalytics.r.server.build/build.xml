@@ -46,6 +46,7 @@
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
 			<env key="JAVA_HOME" value="${java.home}" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="all" />
 			<arg value="recommended" />
 		</exec>
@@ -53,18 +54,21 @@
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
 			<env key="JAVA_HOME" value="${java.home}" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="bitmapdll" />
 		</exec>
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/src/gnuwin32" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
 			<env key="JAVA_HOME" value="${java.home}" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="manuals" />
 		</exec>
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/doc/manual" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
 			<env key="JAVA_HOME" value="${java.home}" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="-f" />
 			<arg value="Makefile.win" />
 			<arg value="info" />
