@@ -1,6 +1,17 @@
-<project name="eu.openanalytics.architect.full-build" default="all">
+<project name="eu.openanalytics.architect.testing.master.build" default="full-build">
 
-	<property file="build.properties" />
+	<!--
+		The TESTING master build consists of the following steps:
+		
+		1. Compile R (win32)
+		2. Compile rj and rj.gd (win32)
+		3. Build features r.server and r.libs.rj
+		4. Build product Architect
+		5. Make Architect installers
+	-->
+	
+	<property file="stable.build.properties" />
+	<property file="testing.build.properties" />
 
 	<target name="compile-r" unless="${skip.r.compilation}">
 		<ant dir="../eu.openanalytics.r.server.build" inheritall="false">
@@ -55,7 +66,7 @@
 	</target>
 	
 	<target name="make-installers">
-		<ant dir="../eu.openanalytics.architect.build" inheritall="false" target="make-installer"/>
+		<ant dir="../eu.openanalytics.architect.installer" inheritall="false" target="make-installer"/>
 	</target>
 	
 	<target name="full-build">
@@ -73,26 +84,5 @@
 				<include name="*.zip"/>
 			</fileset>
 		</copy>
-	</target>
-	
-	<target name="full-build-stable" unless="${skip.stable.build}">
-		<echo message="Starting STABLE full-build..."/>
-		<antcall target="full-build">
-			<param name="dist.dir" value="${dist.dir.stable}" />
-			<param name="statet.repo.path" value="${statet.repo.path.stable}" />
-		</antcall>
-	</target>
-	
-	<target name="full-build-testing" unless="${skip.testing.build}">
-		<echo message="Starting TESTING full-build..."/>
-		<antcall target="full-build">
-			<param name="dist.dir" value="${dist.dir.testing}" />
-			<param name="statet.repo.path" value="${statet.repo.path.testing}" />
-		</antcall>
-	</target>
-	
-	<target name="all">
-		<antcall target="full-build-stable"/>
-		<antcall target="full-build-testing"/>
 	</target>
 </project>
