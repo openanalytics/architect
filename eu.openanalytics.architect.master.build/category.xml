@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/eu.openanalytics.architect_0.5.0.qualifier.jar" id="eu.openanalytics.architect" version="0.5.0.qualifier" os="macosx,win32" ws="cocoa,win32" arch="x86,x86_64">
+      <category name="eu.openanalytics.architect"/>
+   </feature>
+   <feature url="features/eu.openanalytics.architect.r.libs.rj_0.5.0.qualifier.jar" id="eu.openanalytics.architect.r.libs.rj" version="0.5.0.qualifier">
+      <category name="eu.openanalytics.architect"/>
+   </feature>
+   <feature url="features/eu.openanalytics.architect.r.server_0.5.0.qualifier.jar" id="eu.openanalytics.architect.r.server" version="0.5.0.qualifier">
+      <category name="eu.openanalytics.architect"/>
+   </feature>
+   <category-def name="eu.openanalytics.architect" label="Architect">
+      <description>
+         This category contains all updateable features that are included in the Architect product.
+      </description>
+   </category-def>
+</site>
