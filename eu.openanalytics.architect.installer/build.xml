@@ -1,7 +1,7 @@
 <project name="eu.openanalytics.architect.installer" default="make-installer">
 	
 	<property file="build.properties" />
-	<property file="../eu.openanalytics.architect.build/build.properties" />
+	<property file="../eu.openanalytics.architect.product.build/build.properties" />
 		
 	<target name="clean">
 		<delete dir="${deployDirectory}" />
@@ -19,7 +19,7 @@
 		</unzip>
 		<rename src="${deployDirectory}/${archivePrefix}" dest="${deployDirectory}/${archivePrefix}_x86"/>
 		<copy todir="${deployDirectory}/${archivePrefix}_x86">
-			<fileset dir=".">
+			<fileset dir="../eu.openanalytics.architect.product.build">
 				<include name="workspace/**" />
 			</fileset>
 		</copy>
@@ -31,7 +31,7 @@
 		</unzip>
 		<rename src="${deployDirectory}/${archivePrefix}" dest="${deployDirectory}/${archivePrefix}_x86_64"/>
 		<copy todir="${deployDirectory}/${archivePrefix}_x86_64">
-			<fileset dir=".">
+			<fileset dir="../eu.openanalytics.architect.product.build">
 				<include name="workspace/**" />
 			</fileset>
 		</copy>

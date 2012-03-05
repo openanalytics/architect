@@ -10,8 +10,8 @@
 		5. Make Architect installers
 	-->
 	
-	<property file="stable.build.properties" />
 	<property file="testing.build.properties" />
+	<property file="master.build.properties" />
 
 	<target name="compile-r" unless="${skip.r.compilation}">
 		<ant dir="../eu.openanalytics.r.server.build" inheritall="false">
@@ -39,7 +39,7 @@
 		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj/about.ini" match="Version: rj(.*)" replace="Version: rj ${rj.version}; rj.gd ${rj.gd.version}\\\\n\\\\" />
 	</target>
 		
-	<target name="build-r-features">
+	<target name="build-architect-features">
 		<delete dir="${architect.build.dir}"/>
 		
 		<!-- Workaround: for some reason <property> tags are ignored in the ant calls below. -->
@@ -55,14 +55,20 @@
 		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
 		
 		<ant dir="../eu.openanalytics.architect.r.libs.rj.build" inheritall="false"/>
-	</target>
-	
-	<target name="build-architect">
+		
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
 		
 		<ant dir="../eu.openanalytics.architect.build" inheritall="false"/>
+	</target>
+	
+	<target name="build-architect-product">
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
+		
+		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false"/>
 	</target>
 	
 	<target name="make-installers">
@@ -72,8 +78,8 @@
 	<target name="full-build">
 		<antcall target="compile-r"/>
 		<antcall target="compile-rj"/>
-		<antcall target="build-r-features"/>
-		<antcall target="build-architect"/>
+		<antcall target="build-architect-features"/>
+		<antcall target="build-architect-product"/>
 		<antcall target="make-installers"/>
 		
 		<delete dir="${dist.dir}"/>

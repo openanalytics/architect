@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.5.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.6.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/eu.openanalytics.architect/about_architect.png"/>
@@ -20,7 +20,7 @@ the leading open source solution for statistical analysis and visualization.
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-XX:MaxPermSize=128m</vmArgs>
+      <vmArgs>-XX:MaxPermSize=128m -Declipse.p2.unsignedPolicy=allow</vmArgs>
       <vmArgsMac>-XX:MaxPermSize=128m -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
@@ -93,7 +93,6 @@ version 2.1.
    </plugins>
 
    <features>
-      <feature id="eu.openanalytics.architect" version="0.5.0.qualifier"/>
       <feature id="org.eclipse.jdt" version="3.7.1.r371_v20110810-0800-7z8gFcoFMLfTabvKsR5Qm9rBGEBK"/>
       <feature id="org.eclipse.platform" version="3.7.1.r37x_v20110729-9gF7UHOxFtniV7mI3T556iZN9AU8bEZ1lHMcVK"/>
    </features>

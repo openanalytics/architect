@@ -29,9 +29,9 @@
 				<include name="eu.openanalytics.architect/**" />
 			</fileset>
 		</copy>
-		<copy todir="${buildDirectory}/features">
-			<fileset dir="../">
-				<include name="eu.openanalytics.architect_feature/**" />
+		<copy todir="${buildDirectory}/features/eu.openanalytics.architect">
+			<fileset dir="../eu.openanalytics.architect_feature">
+				<include name="*/**" />
 			</fileset>
 		</copy>
 	</target>
@@ -41,7 +41,7 @@
 			<arg value="-application" />
 			<arg value="org.eclipse.ant.core.antRunner" />
 			<arg value="-buildfile" />
-			<arg value="${pde.build.dir}/scripts/productBuild/productBuild.xml" />
+			<arg value="${pde.build.dir}/scripts/build.xml" />
 			<arg value="-Dtimestamp=${timestamp}" />
 			<classpath>
 				<pathelement location="${equinox.launcher}" />

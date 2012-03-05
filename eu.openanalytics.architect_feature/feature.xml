@@ -17,7 +17,7 @@
    </copyright>
 
    <license url="%licenseURL">
-      %license_text
+	%license_text 
    </license>
 
    <requires>
