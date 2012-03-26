@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.osgi.util.NLS;
+import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
@@ -26,10 +27,14 @@ import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
+import org.eclipse.ui.internal.ide.EditorAreaDropAdapter;
 import org.eclipse.ui.internal.ide.IDEInternalPreferences;
 import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.internal.ide.WorkbenchActionBuilder;
+import org.eclipse.ui.part.EditorInputTransfer;
+import org.eclipse.ui.part.MarkerTransfer;
+import org.eclipse.ui.part.ResourceTransfer;
 
 @SuppressWarnings("restriction")
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
@@ -63,18 +68,28 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
 	public void preWindowOpen() {
 		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
+		
 		configurer.setInitialSize(new Point(1024, 768));
 		configurer.setShowCoolBar(true);
 		configurer.setShowStatusLine(true);
 		configurer.setShowMenuBar(true);
 		configurer.setShowPerspectiveBar(true);
-		
+
+		// add the drag and drop support for the editor area
+		configurer.addEditorAreaTransfer(EditorInputTransfer.getInstance());
+		configurer.addEditorAreaTransfer(ResourceTransfer.getInstance());
+		configurer.addEditorAreaTransfer(FileTransfer.getInstance());
+		configurer.addEditorAreaTransfer(MarkerTransfer.getInstance());
+		configurer.configureEditorAreaDropListener(new EditorAreaDropAdapter(
+				configurer.getWindow()));
+				
 		hookTitleUpdateListeners(configurer);
 	}
 
 	@Override
 	public void postWindowOpen() {
 		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
+		
 		configurer.getWindow().getShell().setMaximized(true); 
 	}
 
