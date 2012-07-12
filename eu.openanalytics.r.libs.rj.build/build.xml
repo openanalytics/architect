@@ -38,7 +38,7 @@
 		<antcall target="build">
 			<param name="platform" value="i386" />
 			<param name="java.path" value="${java.path.i386}" />
-			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/MinGW/bin;${rtools.dir}/MinGW/mingw32/bin;${java.path.i386}/jre/bin;${java.path.i386}/jre/bin/server" />
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin32;${java.path.i386}/jre/bin;${java.path.i386}/jre/bin/server" />
 		</antcall>
 		
 		<copy todir="${output.dir}" overwrite="true" force="true">
@@ -48,7 +48,7 @@
 		<antcall target="build">
 			<param name="platform" value="x64" />
 			<param name="java.path" value="${java.path.x64}" />
-			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/MinGW64/bin;${rtools.dir}/MinGW64/x86_64-w64-mingw32/bin;${java.path.x64}/jre/bin;${java.path.x64}/jre/bin/server" />
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin64;${java.path.x64}/jre/bin;${java.path.x64}/jre/bin/server" />
 		</antcall>
 		
 		<copy todir="${output.dir}" overwrite="true" force="true">

@@ -40,12 +40,13 @@
 		
 		<antcall target="apply.patches" />
 		
+		<antcall target="modify.mkrules.i386" />
 		<antcall target="modify.mkrules.x64" />
 		
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/src/gnuwin32" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.home}" />
+			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="all" />
 			<arg value="recommended" />
@@ -53,32 +54,50 @@
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/src/gnuwin32" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.home}" />
+			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="bitmapdll" />
 		</exec>
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/src/gnuwin32" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.home}" />
+			<env key="JAVA_HOME" value="${java.path}" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
+			<arg value="cairodevices" />
+		</exec>
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/src/gnuwin32" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="manuals" />
 		</exec>
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/doc/manual" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.home}" />
+			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="-f" />
 			<arg value="Makefile.win" />
 			<arg value="info" />
 		</exec>
 	</target>
-	
+
+	<target name="modify.mkrules.i386" unless="${isX64}">
+		<copy file="${build.dir}/i386/${r.version}/src/gnuwin32/MkRules.dist" tofile="${build.dir}/i386/${r.version}/src/gnuwin32/MkRules.local">
+			<filterchain>
+				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
+				<replacestring from="MULTI =" to="MULTI = 32" />
+			</filterchain>
+		</copy>
+	</target>
+		
 	<target name="modify.mkrules.x64" if="${isX64}">
 		<copy file="${build.dir}/x64/${r.version}/src/gnuwin32/MkRules.dist" tofile="${build.dir}/x64/${r.version}/src/gnuwin32/MkRules.local">
 			<filterchain>
+				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="WIN = 32" to="WIN = 64" />
+				<replacestring from="MULTI =" to="MULTI = 64" />
 			</filterchain>
 		</copy>
 	</target>
@@ -100,13 +119,15 @@
 	<target name="all" depends="clean,init">
 		<antcall target="build">
 			<param name="platform" value="i386" />
-			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/MinGW/bin;${rtools.dir}/MinGW/mingw32/bin;${java.home}/jre/bin;${java.home}/jre/bin/server;${miktex.dir}" />
+			<param name="java.path" value="${java.path.i386}" />
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin32;${java.path.i386}/jre/bin;${java.path.i386}/jre/bin/server;${miktex.dir}" />
 		</antcall>
 		
 		<antcall target="build">
 			<param name="platform" value="x64" />
 			<param name="isX64" value="true" />
-			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/MinGW64/bin;${rtools.dir}/MinGW64/x86_64-w64-mingw32/bin;${java.home}/jre/bin;${java.home}/jre/bin/server;${miktex.dir}" />
+			<param name="java.path" value="${java.path.x64}" />
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin64;${java.path.x64}/jre/bin;${java.path.x64}/jre/bin/server;${miktex.dir}" />
 		</antcall>
 		
 		<antcall target="merge.builds" />
