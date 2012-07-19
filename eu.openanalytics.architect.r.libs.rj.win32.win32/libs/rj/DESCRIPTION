@@ -1,0 +1,17 @@
+Encoding: UTF-8
+Package: rj
+Version: 1.1.0-1
+Title: RJ - R Package for high-level Java-R library RJ
+Author: Stephan Wahlbrink, Tobias Verbeke, low-level R binding based on the JRI library by Simon Urbanek
+Maintainer: Stephan Wahlbrink <stephan.wahlbrink@walware.de>
+Depends: R (>= 2.11.0)
+Suggests: rj.gd
+SystemRequirements: java
+Description: Server implementation and R functions for the high-level Java-R library RJ.  The
+  package also includes callback functions for StatET.  It is shipped with an adapted version of
+  the JRI library.
+  The package can be use only when R was loaded via RJ.
+License: LGPL (>= 2.1)
+URL: http://www.walware.de/goto/opensource
+Packaged: 2012-02-21 11:19:06 UTC; build
+Built: R 2.14.2; x86_64-pc-mingw32; 2012-05-21 20:54:34 UTC; windows

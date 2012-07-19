@@ -1,0 +1,16 @@
+Encoding: UTF-8
+Package: rj.gd
+Version: 1.1.0-1
+Title: RJ Graphics Device
+Author: Stephan Wahlbrink, R binding based on the JavaGD package by Simon Urbanek
+Maintainer: Stephan Wahlbrink <stephan.wahlbrink@walware.de>
+Depends: R (>= 2.11.0)
+Imports: rj (>= 1.1)
+SystemRequirements: java
+Description: Graphics device implementation for the high-level Java-R library RJ.
+  The package can be use only when R was loaded via RJ.
+License: GPL (>= 3) + LGPL (== 2.1)
+URL: http://www.walware.de/goto/opensource
+Packaged: 2012-02-21 11:19:09 UTC; build
+Built: R 2.14.2; x86_64-pc-mingw32; 2012-05-21 20:54:41 UTC; windows
+Archs: x64

@@ -1,0 +1,57 @@
+ NEWS/Changelog for JavaGD
+---------------------------
+
+0.5-4	2011-06-21
+    o	copies WinRegistry.dll in the build directory so
+	it can be picked up by multi-arch installs.
+
+0.5-3	2010-10-18
+    o	substitute $(JAVA_HOME) when testing JNI
+
+    o	add UTF-8 conversion from native strings where
+	TextUTF8 is not used
+
+    o	add a work-around for Windows where the Symbol font is
+	handled incorrectly and cannot be used directly.
+
+	This behavior can also be overridden by the
+	javagd.usesymbolfont property which can be set to true/false
+	(the default is false on Windows and true elsewhere).
+
+    o	add support for multi-arch builds and Win64
+
+0.5-2	2008-10-17
+    o	adapt to changes in R-devel (2.9.0-to-be)
+
+0.5-1	2008-04-03
+    o	adapt to even more changes in R 2.7.0
+
+0.5-0	2008-03-14
+    o	adapt to changes in R 2.7.0
+
+    o	use Java configuration from R
+
+0.4-3	2007-08-22
+    o	adapt to changes in R 2.5.0
+
+    o	improve Windows compatibility
+
+0.4-2	2007-05-21
+    o	fix a memory handling bug in MetricInfo
+
+0.4-1	2007-05-01
+    o	minor fixes
+
+0.4-0	2007-04-24
+    o	use rJava to load Java classes if native version fails
+
+    o	minor memory leak fixes and cleanups
+
+    o	rename functions to avoid conflicts with JavaGD
+
+0.3-6	2007-03-06
+    o	Text using symbols (fontface=5) is re-coded to unicode in
+	UTF-8 encoding before it's passed to Java. The back-end now
+	displays symbols correctly.
+
+0.3-5	2006-09-15

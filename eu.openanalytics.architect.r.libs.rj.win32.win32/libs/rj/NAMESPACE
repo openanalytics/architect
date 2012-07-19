@@ -1,0 +1,5 @@
+export(.rj.originals, .rj.tmp, .rj.nextId)
+export(.rj_ui.loadHistory, .rj_ui.saveHistory, .rj_ui.addtoHistory)
+export(.statet.captureStr, .statet.initDebug)
+export(statet.help, statet.help.start, .statet.reassignHelp)
+export(statet.openInEditor, statet.chooseFile, statet.showHistory)
