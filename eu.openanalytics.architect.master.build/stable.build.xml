@@ -40,7 +40,6 @@
 	</target>
 		
 	<target name="build-architect-features">
-		<delete dir="${architect.build.dir}"/>
 		
 		<!-- Workaround: for some reason <property> tags are ignored in the ant calls below. -->
 		
@@ -76,6 +75,7 @@
 	</target>
 	
 	<target name="full-build">
+		<delete dir="${architect.build.dir}"/>
 		<antcall target="compile-r"/>
 		<antcall target="compile-rj"/>
 		<antcall target="build-architect-features"/>
@@ -85,9 +85,8 @@
 		<delete dir="${dist.dir}"/>
 		<mkdir dir="${dist.dir}"/>
 		<copy todir="${dist.dir}">
-			<fileset dir="${architect.build.dir}/deploy">
+			<fileset dir="${architect.build.dir}/installers">
 				<include name="*.exe"/>
-				<include name="*.zip"/>
 			</fileset>
 		</copy>
 	</target>
