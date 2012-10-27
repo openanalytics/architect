@@ -87,6 +87,7 @@
 		<copy todir="${dist.dir}">
 			<fileset dir="${architect.build.dir}/installers">
 				<include name="*.exe"/>
+				<include name="*.zip"/>
 			</fileset>
 		</copy>
 	</target>
