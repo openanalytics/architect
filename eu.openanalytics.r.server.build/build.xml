@@ -88,6 +88,7 @@
 			<filterchain>
 				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="MULTI =" to="MULTI = 32" />
+				<replacestring from="# JPEGDIR = jpeg-8d" to="JPEGDIR = ${jpeg.version}" />
 			</filterchain>
 		</copy>
 	</target>
@@ -98,6 +99,7 @@
 				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="WIN = 32" to="WIN = 64" />
 				<replacestring from="MULTI =" to="MULTI = 64" />
+				<replacestring from="# JPEGDIR = jpeg-8d" to="JPEGDIR = ${jpeg.version}" />
 			</filterchain>
 		</copy>
 	</target>

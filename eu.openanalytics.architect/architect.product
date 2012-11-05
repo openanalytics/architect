@@ -68,7 +68,7 @@ version 2.1.
 
    <plugins>
       <plugin id="com.ibm.icu"/>
-      <plugin id="eu.openanalytics.architect.branding" fragment=""/>
+      <plugin id="eu.openanalytics.architect.branding"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
@@ -93,8 +93,8 @@ version 2.1.
    </plugins>
 
    <features>
-      <feature id="org.eclipse.jdt" version="3.7.1.r371_v20110810-0800-7z8gFcoFMLfTabvKsR5Qm9rBGEBK"/>
-      <feature id="org.eclipse.platform" version="3.7.1.r37x_v20110729-9gF7UHOxFtniV7mI3T556iZN9AU8bEZ1lHMcVK"/>
+      <feature id="org.eclipse.jdt" version="3.8.1.v20120814-104540-8-8nFqpFNOfwKDRVz-tXOcL5d_83"/>
+      <feature id="org.eclipse.platform" version="4.2.1.v20120814-120134-9JF7BHVGFyMveli1uX6aTH0q-eAap6PAgOP5mO"/>
    </features>
 
 
