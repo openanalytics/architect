@@ -1,0 +1,113 @@
+\initial {#}
+\entry {\code {\code {#}}}{46}
+\initial {$}
+\entry {\code {$}}{16, 50}
+\initial {.}
+\entry {\code {.C}}{40}
+\entry {\code {.Call}}{40}
+\entry {\code {.External}}{40}
+\entry {\code {.Fortran}}{40}
+\entry {\code {.Internal}}{41}
+\entry {\code {.Primitive}}{41}
+\initial {[}
+\entry {\code {[}}{16, 50}
+\entry {\code {[[}}{16, 50}
+\initial {A}
+\entry {\code {as.call}}{3}
+\entry {\code {as.character}}{4}
+\entry {\code {as.function}}{4}
+\entry {\code {as.list}}{3}
+\entry {\code {as.name}}{4}
+\entry {\code {assign}}{47}
+\entry {\code {attr}}{6}
+\entry {\code {attr<-}}{6}
+\entry {\code {attributes}}{6}
+\entry {\code {attributes<-}}{6}
+\initial {B}
+\entry {\code {baseenv}}{5}
+\entry {\code {basename}}{40}
+\entry {\code {body}}{4, 38}
+\entry {\code {body<-}}{38}
+\entry {\code {break}}{13}
+\entry {\code {browser}}{43}
+\initial {D}
+\entry {\code {debug}}{43}
+\entry {\code {dirname}}{40}
+\entry {\code {do.call}}{38}
+\initial {E}
+\entry {\code {emptyenv}}{5}
+\entry {\code {environment}}{4, 38}
+\entry {\code {environment<-}}{38}
+\entry {\code {eval}}{35}
+\initial {F}
+\entry {\code {file.access}}{40}
+\entry {\code {file.append}}{40}
+\entry {\code {file.choose}}{40}
+\entry {\code {file.copy}}{40}
+\entry {\code {file.create}}{40}
+\entry {\code {file.exists}}{40}
+\entry {\code {file.info}}{40}
+\entry {\code {file.path}}{40}
+\entry {\code {file.remove}}{40}
+\entry {\code {file.rename}}{40}
+\entry {\code {file.show}}{40}
+\entry {\code {for}}{13}
+\entry {\code {formals}}{4, 38}
+\entry {\code {formals<-}}{38}
+\initial {G}
+\entry {\code {get}}{47}
+\initial {I}
+\entry {\code {is.na}}{15}
+\entry {\code {is.nan}}{15}
+\initial {M}
+\entry {\code {match.arg}}{23}
+\entry {\code {match.call}}{23, 37}
+\entry {\code {match.fun}}{23}
+\entry {\code {missing}}{15}
+\entry {\code {mode}}{2}
+\initial {N}
+\entry {\code {NA}}{15, 17}
+\entry {\code {names}}{7}
+\entry {\code {names<-}}{7}
+\entry {\code {NaN}}{15}
+\entry {\code {new.env}}{6}
+\entry {\code {next}}{13}
+\entry {\code {NextMethod}}{29}
+\entry {\code {NULL}}{4}
+\initial {O}
+\entry {\code {on.exit}}{42}
+\initial {P}
+\entry {\code {pairlist}}{6}
+\entry {\code {path.expand}}{40}
+\entry {\code {proc.time}}{40}
+\initial {Q}
+\entry {\code {quote}}{3}
+\initial {R}
+\entry {\code {repeat}}{13}
+\initial {S}
+\entry {\code {stop}}{42}
+\entry {\code {storage.mode}}{2}
+\entry {\code {substitute}}{33}
+\entry {\code {switch}}{14}
+\entry {\code {Sys.getenv}}{40}
+\entry {\code {Sys.getlocale}}{40}
+\entry {\code {Sys.localeconv}}{40}
+\entry {\code {Sys.putenv}}{40}
+\entry {\code {Sys.putlocale}}{40}
+\entry {\code {Sys.time}}{40}
+\entry {\code {Sys.timezone}}{40}
+\entry {\code {system}}{40}
+\entry {\code {system.time}}{40}
+\initial {T}
+\entry {\code {trace}}{44}
+\entry {\code {traceback}}{44}
+\entry {\code {typeof}}{2}
+\initial {U}
+\entry {\code {undebug}}{43}
+\entry {\code {unlink}}{40}
+\entry {\code {untrace}}{44}
+\entry {\code {UseMethod}}{28}
+\initial {W}
+\entry {\code {warning}}{42}
+\entry {\code {warnings}}{42}
+\entry {\code {while}}{13}

@@ -1,0 +1,3419 @@
+
+\chapter{The \texttt{tools} package}
+\HeaderA{tools-package}{Tools for Package Development}{tools.Rdash.package}
+\aliasA{tools}{tools-package}{tools}
+\keyword{package}{tools-package}
+\keyword{programming}{tools-package}
+\keyword{documentation}{tools-package}
+%
+\begin{Description}\relax
+Tools for package development, administration and documentation.
+\end{Description}
+%
+\begin{Details}\relax
+This package contains tools for manipulating R packages and their
+documentation.
+
+For a complete list of functions, use \code{library(help="tools")}.
+
+\end{Details}
+%
+\begin{Author}\relax
+Kurt Hornik and Friedrich Leisch
+
+Maintainer: R Core Team \email{R-core@r-project.org}
+\end{Author}
+\HeaderA{add\_datalist}{Add a \file{datalist} File to a Package}{add.Rul.datalist}
+\keyword{utilities}{add\_datalist}
+%
+\begin{Description}\relax
+The \code{\LinkA{data}{data}()} command with no arguments lists all the
+datasets available via \code{data} in attached packages, and to do so a
+per-package list is installed.  Creating that list at install time can
+be slow for packages with huge datasets, and can be expedited by a
+supplying \file{data/datalist} file.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+add_datalist(pkgpath, force = FALSE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pkgpath}] The path to a (source) package.
+
+\item[\code{force}] logical: can an existing \file{data/datalist} file be
+over-written?
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\command{R CMD build} will call this function to add a data list to
+packages with 1MB or more of data.
+
+It is also helpful to give a \file{data/datalist} file in packages
+whose datasets have many dependencies, including loading the packages
+itself (and maybe others).
+\end{Details}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{data}{data}}.
+
+The `Writing R Extensions' manual.
+\end{SeeAlso}
+\HeaderA{bibstyle}{Select or define a bibliography style.}{bibstyle}
+\keyword{utilties}{bibstyle}
+\keyword{documentation}{bibstyle}
+%
+\begin{Description}\relax
+This function defines and registers styles for rendering \code{\LinkA{bibentry}{bibentry}} objects
+into Rd format, for later conversion to text, HTML, etc.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+bibstyle(style, envir, ..., .init = FALSE, .default = FALSE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{style}] 
+A character string naming the style.
+
+\item[\code{envir}] 
+(optional) An environment holding the functions to implement the style.
+
+\item[\code{...}] 
+Named arguments to add to the environment.
+
+\item[\code{.init}] 
+Whether to initialize the environment from the default style \code{"JSS"}.
+
+\item[\code{.default}] 
+Whether to set the specified style as the default style.
+
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Rendering of \code{\LinkA{bibentry}{bibentry}} objects may be done using routines
+modelled after those used by BibTeX.  This function allows environments
+to be created and manipulated to contain those routines.
+
+There are two ways to create a new style environment.  The easiest
+is to set \code{.init = TRUE}, in which case the environment will be
+initialized with a copy of the default \code{"JSS"} environment.  (This style
+is modelled after the \file{jss.bst} style used by the \emph{Journal 
+of Statistical Software}.)  Alternatively, the \code{envir} argument 
+can be used to specify a completely new style environment.
+
+To simply retrieve an existing style, specify \code{style}
+and no other arguments.  To modify an existing style, specify \code{style}
+and some named entries via \code{...}.  (Modifying the default
+\code{"JSS"} style is discouraged.)  Setting \code{style} to \code{NULL}
+or leaving it missing will retrieve the default style, but modifications
+will not be allowed.
+
+At a minimum, the environment should contain routines to render each
+of the 12 types of bibliographic entry supported by
+\code{\LinkA{bibentry}{bibentry}} as well as a routine to produce a sort key to
+sort the entries.  The former must be named \code{formatArticle},
+\code{formatBook}, \code{formatInbook}, \code{formatIncollection},
+\code{formatInProceedings}, \code{formatManual},
+\code{formatMastersthesis}, \code{formatMisc}, \code{formatPhdthesis},
+\code{formatProceedings}, \code{formatTechreport} and
+\code{formatUnpublished}.  Each of these takes one argument, a single
+\code{\LinkA{unclass}{unclass}}'ed entry from the \code{\LinkA{bibentry}{bibentry}} vector
+passed to the renderer, and should produce a single element character
+vector (possibly containing newlines).  The sort keys are produced
+by a function named \code{sortKeys}.  It is passed the original 
+\code{\LinkA{bibentry}{bibentry}} vector and should produce a sortable vector of 
+the same length to define the sort order.
+\end{Details}
+%
+\begin{Value}
+The environment which has been selected or created.
+\end{Value}
+%
+\begin{Author}\relax
+Duncan Murdoch
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{bibentry}{bibentry}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+
+refs <- 
+c(bibentry(bibtype = "manual",
+    title = "R: A Language and Environment for Statistical Computing",
+    author = person("R Core Team"),
+    organization = "R Foundation for Statistical Computing",
+    address = "Vienna, Austria",
+    year = 2010,
+    isbn = "3-900051-07-0",
+    url = "http://www.R-project.org"),  
+  bibentry(bibtype = "article",
+    author = c(person(c("George", "E", "P"), "Box"),
+               person(c("David",  "R"),      "Cox")),
+    year = 1964,
+    title = "An Analysis of Transformations",
+    journal = "Journal of the Royal Statistical Society, Series B",
+    volume = 26,
+    pages = "211-252"))
+bibstyle("unsorted", sortKeys = function(refs) seq_along(refs),
+       .init = TRUE)
+print(refs, .bibstyle = "unsorted")    
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{buildVignettes}{List and Build Package Vignettes}{buildVignettes}
+\aliasA{pkgVignettes}{buildVignettes}{pkgVignettes}
+\keyword{utilities}{buildVignettes}
+\keyword{documentation}{buildVignettes}
+%
+\begin{Description}\relax
+Run \code{\LinkA{Sweave}{Sweave}} and \code{\LinkA{texi2dvi}{texi2dvi}} on all vignettes
+of a package.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+buildVignettes(package, dir, lib.loc = NULL, quiet = TRUE, clean = TRUE)
+
+pkgVignettes(package, dir, lib.loc = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{package}] a character string naming an installed package.  If
+given, Sweave files are searched in subdirectory \file{doc}.
+\item[\code{dir}] a character string specifying the path to a package's root
+source directory.  This subdirectory \file{vignettes} (or if it
+does not exist \file{inst/doc}) is searched for Sweave files.
+\item[\code{lib.loc}] a character vector of directory names of \R{} libraries,
+or \code{NULL}.  The default value of \code{NULL} corresponds to all
+libraries currently known.  The specified library trees are used to
+search for \code{package}.
+\item[\code{quiet}] logical. Run \code{\LinkA{Sweave}{Sweave}} and
+\code{\LinkA{texi2pdf}{texi2pdf}} in quiet mode.
+\item[\code{clean}] Remove all files generated by the build, even if there
+were copies there before.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{buildVignettes} is used by \code{R CMD build} and \code{R CMD
+    check} to (re-)build vignette PDFs on the Sweave sources.
+\end{Details}
+%
+\begin{Value}
+\code{buildVignettes} is called for its side effect of creating the
+PDF versions of all vignettes.
+
+\code{pkgVignettes} returns an object of class \code{"pkgVignettes"}
+if a vignette directory is found, otherwise \code{NULL}.
+\end{Value}
+\HeaderA{charsets}{Conversion Tables between Character Sets}{charsets}
+\aliasA{Adobe\_glyphs}{charsets}{Adobe.Rul.glyphs}
+\aliasA{charset\_to\_Unicode}{charsets}{charset.Rul.to.Rul.Unicode}
+\keyword{datasets}{charsets}
+%
+\begin{Description}\relax
+\code{charset\_to\_Unicode} is a matrix of Unicode points with columns
+for the common 8-bit encodings.
+
+\code{Adobe\_glyphs} is a dataframe which gives Adobe glyph names for
+Unicode points. It has two character columns, \code{"adobe"} and
+\code{"unicode"} (a 4-digit hex representation).
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+charset_to_Unicode
+
+Adobe_glyphs
+\end{verbatim}
+\end{Usage}
+%
+\begin{Details}\relax
+\code{charset\_to\_Unicode} is an integer matrix of class
+\code{c("\LinkA{noquote}{noquote}", "\LinkA{hexmode}{hexmode}")} so prints in hexadecimal.
+The mappings are those used by \code{libiconv}: there are differences
+in the way quotes and minus/hyphen are mapped between sources (and the
+postscript encoding files use a different mapping).
+
+\code{Adobe\_glyphs} include all the Adobe glyph names which correspond to
+single Unicode characters.  It is sorted by Unicode point and within a
+point alphabetically on the glyph (there can be more than one name for
+a Unicode point).  The data are in the file
+\file{\var{\LinkA{R\_HOME}{R.Rul.HOME}}/share/encodings/Adobe\_glyphlist}.
+\end{Details}
+%
+\begin{Source}\relax
+\url{http://partners.adobe.com/public/developer/en/opentype/glyphlist.txt}
+\end{Source}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## find Adobe names for ISOLatin2 chars.
+latin2 <- charset_to_Unicode[, "ISOLatin2"]
+aUnicode <- as.numeric(paste("0x", Adobe_glyphs$unicode, sep=""))
+keep <- aUnicode %in% latin2
+aUnicode <- aUnicode[keep]
+aAdobe <- Adobe_glyphs[keep, 1]
+## first match
+aLatin2 <- aAdobe[match(latin2, aUnicode)]
+## all matches
+bLatin2 <- lapply(1:256, function(x) aAdobe[aUnicode == latin2[x]])
+format(bLatin2, justify="none")
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{checkFF}{Check Foreign Function Calls}{checkFF}
+\aliasA{print.checkFF}{checkFF}{print.checkFF}
+\keyword{programming}{checkFF}
+\keyword{utilities}{checkFF}
+%
+\begin{Description}\relax
+Performs checks on calls to compiled code from R code.  Currently only
+checks whether the interface functions such as \code{.C} and
+\code{.Fortran} are called with a \code{"\LinkA{NativeSymbolInfo}{NativeSymbolInfo}"}
+first argument or with argument \code{PACKAGE} specified, which is
+highly recommended to avoid name clashes in foreign function calls.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+checkFF(package, dir, file, lib.loc = NULL,
+        verbose = getOption("verbose"))
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{package}] a character string naming an installed package.  If
+given, the installed R code of the package is checked.
+\item[\code{dir}] a character string specifying the path to a package's root
+source directory.  This should contain the subdirectory \file{R}
+(for R code).  Only used if \code{package} is not given.
+\item[\code{file}] the name of a file containing R code to be checked.  Used
+if neither \code{package} nor \code{dir} are given.
+\item[\code{lib.loc}] a character vector of directory names of \R{} libraries,
+or \code{NULL}.  The default value of \code{NULL} corresponds to all
+libraries currently known.  The specified library trees are used to
+search for \code{package}.
+\item[\code{verbose}] a logical.  If \code{TRUE}, additional diagnostics are
+printed (and the result is returned invisibly).
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Note that we can only check if the \code{name} argument is a symbol or
+a character string, not what class of object the symbol resolves to
+at run-time.
+
+If the package has a namespace which contains a \code{useDynLib}
+directive, calls in top-level functions in the package are not
+reported as their symbols will be preferentially looked up in the DLL
+named in the first \code{useDynLib} directive.
+
+As from \R{} 2.15.2, this also checks that calls with \code{PACKAGE}
+specified are to the same package, and reports separately those which
+are in base packages and those which are in other packages (and if
+those packages are specified in the \file{DESCRIPTION} file).  Direct
+calls to the FORTRAN entry points for LINPACK in \R{} itself are not
+reported (but this does not include modifications of LINPACK routines
+such as \code{dqrls}).
+\end{Details}
+%
+\begin{Value}
+An object of class \code{"checkFF"}, which currently is a list of the
+(parsed) foreign function calls with a character first argument and
+no \code{PACKAGE} argument.
+
+There is a \code{print} method to display the information contained in
+such objects.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{.C}{.C}},
+\code{\LinkA{.Fortran}{.Fortran}};
+\code{\LinkA{Foreign}{Foreign}}.
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+ # order is pretty much random
+checkFF(package = "stats", verbose = TRUE)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{checkMD5sums}{Check and Create MD5 Checksum Files}{checkMD5sums}
+\keyword{utilities}{checkMD5sums}
+%
+\begin{Description}\relax
+\code{checkMD5sums} checks the files against a file \file{MD5}.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+checkMD5sums(package, dir)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{package}] the name of an installed package
+\item[\code{dir}] the path to the top-level directory of an installed
+package.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+The file \file{MD5} which is created is in a format which can be
+checked by \command{md5sum -c MD5} if a suitable command-line version
+of \command{md5sum} is available.  (For Windows, one is supplied in
+the bundle at \url{http://www.murdoch-sutherland.com/Rtools}.)
+
+If \code{dir} is missing, an installed package of name \code{package}
+is searched for.
+
+The private function \code{tools:::.installMD5sums} is used to create
+\code{MD5} files in the Windows build.
+\end{Details}
+%
+\begin{Value}
+\code{checkMD5sums} returns a logical, \code{NA} if there is no
+\file{MD5} file to be checked.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{md5sum}{md5sum}}
+\end{SeeAlso}
+\HeaderA{checkPoFiles}{Check translation files for inconsistent format strings.}{checkPoFiles}
+\aliasA{checkPoFile}{checkPoFiles}{checkPoFile}
+\keyword{utilities}{checkPoFiles}
+%
+\begin{Description}\relax
+These functions compare formats embedded in English messages
+with translated strings to check for consistency.  \code{checkPoFile}
+checks one file, while \code{checkPoFiles} checks all files for a specified
+language.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+checkPoFile(f, strictPlural = FALSE)
+checkPoFiles(language, dir=".")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{f}] a character string giving a single filepath.
+\item[\code{strictPlural}] whether to compare formats of singular and plural
+forms in a strict way.
+\item[\code{language}] a character string giving a language code.
+\item[\code{dir}] a path to a directory in which to check files.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+
+Part of \R{}'s internationalization depends on translations of messages
+in \file{.po} files.  In these files an `English' message taken
+from the \R{} sources is followed by a translation into another
+language.  Many of these messages are format strings for C or \R{}
+\code{\LinkA{sprintf}{sprintf}} and related functions.  In these cases, the
+translation must give a compatible format or an error will be
+generated when the message is displayed.
+
+The rules for compatibility differ between C and \R{} in several ways. C
+supports several conversions not supported by \R{}, namely \code{c, u,
+  p, n}.  It is allowed in C's \code{sprintf()} function to have more
+arguments than are needed by the format string, but in \R{} the counts
+must match exactly.  \R{} requires types of arguments to match, whereas
+C will do the display whether it makes sense or not.
+
+These functions compromise on the testing as follows.  The additional
+formats allowed in C are accepted, and all differences in argument
+type or count are reported.  As a consequence some reported
+differences are not errors.
+
+If the \code{strictPlural} argument is \code{TRUE}, then argument
+lists must agree exactly between singular and plural forms of messages; if
+\code{FALSE}, then translations only need to match one or the other
+of the two forms.  When \code{checkPoFiles} calls \code{checkPoFile}, 
+the \code{strictPlural} argument is set to \code{TRUE} for files with
+names starting \file{R-}, and to \code{FALSE} otherwise.
+
+Items marked as `fuzzy' in the \file{.po} file are not
+processed (as they are ignored by the message compiler).
+
+If a difference is found, the translated string is checked for variant
+percent signs (e.g. the wide percent sign \code{"\bsl{}uFF05"}).  Such signs
+will not be recognized as format specifiers, and are likely to be 
+errors.
+\end{Details}
+%
+\begin{Value}
+Both functions return an object of S3 class \code{"check\_po\_files"}.  A
+\code{print} method is defined for this class to display a report on
+the differences.
+\end{Value}
+%
+\begin{Author}\relax
+Duncan Murdoch
+\end{Author}
+%
+\begin{References}\relax
+See the GNU gettext manual for the \file{.po} file format:\\{}
+\url{http://www.gnu.org/software/gettext/manual/gettext.html}.
+\end{References}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{xgettext}{xgettext}}, \code{\LinkA{sprintf}{sprintf}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+checkPoFiles("de", "/path/to/R/src/directory")
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{checkRd}{ Check an Rd Object }{checkRd}
+\keyword{documentation}{checkRd}
+%
+\begin{Description}\relax
+Check an help file or the output of the \code{\LinkA{parse\_Rd}{parse.Rul.Rd}} function.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+checkRd(Rd, defines = .Platform$OS.type, stages = "render",
+        unknownOK = TRUE, listOK = TRUE, ..., def_enc = FALSE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{Rd}]  a filename or \code{Rd} object to use as input. 
+\item[\code{defines}]  string(s) to use in \AsIs{\#ifdef} tests. 
+\item[\code{stages}]  at which stage (\code{"build"}, \code{"install"}, or
+\code{"render"}) should \AsIs{\bsl{}Sexpr} macros be executed? See the
+notes below.
+\item[\code{unknownOK}]  unrecognized macros are treated as errors if
+\code{FALSE}, otherwise warnings. 
+\item[\code{listOK}]  unnecessary non-empty braces (e.g., around text, not as
+an argument) are treated as errors if \code{FALSE}, otherwise
+warnings.
+\item[\code{...}]  additional parameters to pass to \code{\LinkA{parse\_Rd}{parse.Rul.Rd}} when
+\code{Rd} is a filename.  One that is often useful is \code{encoding}.
+\item[\code{def\_enc}] logical: has the package declared an encoding, so tests
+for non-ASCII text are suppressed?
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{checkRd} performs consistency checks on an Rd file, confirming that
+required sections are present, etc.
+
+It accepts a filename for an Rd file, and will use
+\code{\LinkA{parse\_Rd}{parse.Rul.Rd}} to parse it before applying the checks.  If so,
+warnings from \code{parse\_Rd} are collected, together with those from
+the internal function \code{prepare\_Rd}, which does the
+\AsIs{\#ifdef} and \AsIs{\bsl{}Sexpr} processing, drops sections that
+would not be rendered or are duplicated (and should not be) and
+removes empty sections.
+
+An Rd object is passed through \code{prepare\_Rd}, but it may already
+have been (and installed Rd objects have).
+
+Warnings are given a `level': those from \code{prepare\_Rd} have
+level 0.  These include
+
+\Tabular{l}{
+All text must be in a section\\{}
+Only one \var{tag name} section is allowed: the first will be used\\{}
+Section \var{name} is unrecognized and will be dropped\\{}
+Dropping empty section \var{name}\\{}
+}
+\code{checkRd} itself can show
+
+\Tabular{rl}{
+7 & Tag \var{tag name} not recognized\\{}
+7 & \AsIs{\bsl{}tabular} format must be simple text\\{}
+7 & Unrecognized \AsIs{\bsl{}tabular} format: \ldots\\{}
+7 & Only \var{n} columns allowed in this table\\{}
+7 & Must have a \var{tag name}\\{}
+7 & Only one \var{tag name} is allowed\\{}
+7 & Tag \var{tag name} must not be empty\\{}
+7 & \AsIs{\bsl{}docType} must be plain text\\{}
+5 & Tag \AsIs{\bsl{}method} is only valid in \AsIs{\bsl{}usage}\\{}
+5 & Tag \AsIs{\bsl{}dontrun} is only valid in \AsIs{\bsl{}examples}\\{}
+5 & Tag \var{tag name} is invalid in a \var{block name} block\\{}
+5 & Title of \AsIs{\bsl{}section} must be non-empty plain text\\{}
+5 & \AsIs{\bsl{}title} content must be plain text\\{}
+3 & Empty section \var{tag name}\\{}
+-1 & Non-ASCII contents without declared encoding\\{}
+-1 & Non-ASCII contents in second part of \AsIs{\bsl{}enc}\\{} 
+-3 & Tag \AsIs{...} is not valid in a code block\\{}
+-3 & Apparent non-ASCII contents without declared encoding\\{}
+-3 & Apparent non-ASCII contents in second part of \AsIs{\bsl{}enc}\\{}
+-3 & Unnecessary braces at \ldots\\{}
+-3 & \AsIs{\bsl{}method} not valid outside a code block\\{}
+}
+and variations with \AsIs{\bsl{}method} replaced by \AsIs{\bsl{}S3method} or
+\AsIs{\bsl{}S4method}.
+
+Note that both \code{prepare\_Rd} and \code{checkRd} have tests for an
+empty section: that in \code{checkRd} is stricter (essentially that
+nothing is output).
+\end{Details}
+%
+\begin{Value}
+This may fail through an \R{} error, but otherwise warnings are
+collected as returned as an object of class \code{"checkRd"}, a
+character vector of messages.  This class has a \code{print} method
+which only prints unique messages, and has argument \code{minlevel}
+that can be used to select only more serious messages.  (This is set
+to \code{-1} in \command{R CMD check}.)
+
+Possible fatal errors are those from running the parser (e.g. a
+non-existent file, unclosed quoted string, non-ASCII input without a
+specified encoding) or from \code{prepare\_Rd} (multiple
+\AsIs{\bsl{}Rdversion} declarations, invalid \AsIs{\bsl{}encoding} or
+\AsIs{\bsl{}docType} or \AsIs{\bsl{}name} sections, and missing or duplicate
+\AsIs{\bsl{}name} or \AsIs{\bsl{}title} sections).
+\end{Value}
+%
+\begin{Author}\relax
+Duncan Murdoch, Brian Ripley
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{parse\_Rd}{parse.Rul.Rd}}, \code{\LinkA{Rd2HTML}{Rd2HTML}}.
+\end{SeeAlso}
+\HeaderA{checkRdaFiles}{Report on Details of Saved Images or Re-saves them}{checkRdaFiles}
+\aliasA{resaveRdaFiles}{checkRdaFiles}{resaveRdaFiles}
+\keyword{utilities}{checkRdaFiles}
+%
+\begin{Description}\relax
+This reports for each of the files produced by \code{save} the size,
+if it was saved in ASCII or XDR binary format, and if it was
+compressed (and if so in what format).
+
+Usually such files have extension \file{.rda} or \file{.RData}, hence
+the name of the function. 
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+checkRdaFiles(paths)
+resaveRdaFiles(paths, compress = c("auto", "gzip", "bzip2", "xz"),
+               compression_level)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{paths}] A character vector of paths to \code{save} files.  If
+this specifies a single directory, it is taken to refer to all
+\file{.rda} and \file{.RData} files in that directory.
+
+\item[\code{compress, compression\_level}] type and level of compression: see
+\code{\LinkA{save}{save}}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{compress = "auto"} asks \R{} to choose the compression and ignores
+\code{compression\_level}.  It will try \code{"gzip"}, \code{"bzip2"}
+and if the \code{"gzip"} compressed size is over 10Kb, \code{"xz"} and
+choose the smallest compressed file (but with a 10\% bias towards
+\code{"gzip"}).  This can be slow.
+\end{Details}
+%
+\begin{Value}
+For \code{checkRdaFiles}, a data frame with rows names \code{paths}
+and columns
+\begin{ldescription}
+\item[\code{size}] numeric: file size in bytes, \code{NA} if the file does
+not exist.
+\item[\code{ASCII}] logical: true for save(ASCII = TRUE), \code{NA} if the
+format is not that of an \R{} save file.
+\item[\code{compress}] character: type of compression.  One of \code{"gzip"},
+\code{"bzip2"}, \code{"xz"}, \code{"none"} or \code{"unknown"} (which
+means that if this is an \R{} save file it is from a later version of
+\R{}).
+\item[\code{version}] integer: the version of the save -- usually \code{2}
+but \code{1} for very old files, and \code{NA} for other files.
+\end{ldescription}
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+## from a package top-level source directory
+paths <- sort(Sys.glob(c("data/*.rda", "data/*.RData")))
+(res <- checkRdaFiles(paths))
+## pick out some that may need attention
+bad <- is.na(res$ASCII) | res$ASCII | (res$size > 1e4 & res$compress == "none")
+res[bad, ]
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{checkTnF}{Check R Packages or Code for T/F}{checkTnF}
+\aliasA{print.checkTnF}{checkTnF}{print.checkTnF}
+\keyword{utilities}{checkTnF}
+\keyword{documentation}{checkTnF}
+%
+\begin{Description}\relax
+Checks the specified R package or code file for occurrences of
+\code{T} or \code{F}, and gathers the expression containing these.
+This is useful as in R \code{T} and \code{F} are just variables which
+are set to the logicals \code{TRUE} and \code{FALSE} by default, but
+are not reserved words and hence can be overwritten by the user.
+Hence, one should always use \code{TRUE} and \code{FALSE} for the
+logicals.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+checkTnF(package, dir, file, lib.loc = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{package}] a character string naming an installed package.  If
+given, the installed R code and the examples in the documentation
+files of the package are checked.  R code installed as an image file
+cannot be checked.
+\item[\code{dir}] a character string specifying the path to a package's root
+source directory.  This must contain the subdirectory \file{R} (for
+R code), and should also contain \file{man} (for documentation).
+Only used if \code{package} is not given.  If used, the R code files
+and the examples in the documentation files are checked.
+\item[\code{file}] the name of a file containing R code to be checked.  Used
+if neither \code{package} nor \code{dir} are given.
+\item[\code{lib.loc}] a character vector of directory names of \R{} libraries,
+or \code{NULL}.  The default value of \code{NULL} corresponds to all
+libraries currently known.  The specified library trees are used to
+search for \code{package}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+An object of class \code{"checkTnF"} which is a list containing, for
+each file where occurrences of \code{T} or \code{F} were found, a list
+with the expressions containing these occurrences.  The names of the
+list are the corresponding file names.
+
+There is a \code{print} method for nicely displaying the information
+contained in such objects.
+\end{Value}
+\HeaderA{checkVignettes}{Check Package Vignettes}{checkVignettes}
+\aliasA{print.checkVignettes}{checkVignettes}{print.checkVignettes}
+\keyword{utilities}{checkVignettes}
+\keyword{documentation}{checkVignettes}
+%
+\begin{Description}\relax
+Check all \code{\LinkA{Sweave}{Sweave}} files of a package by running
+\code{\LinkA{Sweave}{Sweave}} and/or \code{\LinkA{Stangle}{Stangle}} on them. All
+R source code files found after the tangling step are
+\code{\LinkA{source}{source}}ed to check whether all code can be
+executed without errors.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+checkVignettes(package, dir, lib.loc = NULL,
+               tangle = TRUE, weave = TRUE, latex = FALSE,
+               workdir = c("tmp", "src", "cur"),
+               keepfiles = FALSE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{package}] a character string naming an installed package.  If
+given, Sweave files are searched in subdirectory \file{doc}.
+\item[\code{dir}] a character string specifying the path to a package's root
+source directory.  This subdirectory \file{inst/doc} is searched for
+Sweave files.
+\item[\code{lib.loc}] a character vector of directory names of \R{} libraries,
+or \code{NULL}.  The default value of \code{NULL} corresponds to all
+libraries currently known.  The specified library trees are used to
+search for \code{package}.
+\item[\code{tangle}] Perform a tangle and \code{\LinkA{source}{source}} the extracted code?
+\item[\code{weave}] Perform a weave?
+\item[\code{latex}] logical: if \code{weave} and \code{latex}
+are \code{TRUE} and there is no \file{Makefile} in the vignettes
+directory, run the weaved files through \command{pdflatex}.
+\item[\code{workdir}] Directory used as working directory while checking the
+vignettes. If \code{"tmp"} then a temporary directory is created,
+this is the default.  If \code{"src"} then the directory containing
+the vignettes itself is used, if \code{"cur"} then the current
+working directory of \R{} is used.
+
+\item[\code{keepfiles}] Delete files in the temporary directory?  This option is
+ignored when \code{workdir != "tmp"}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+A `vignette' is a file in the package's \file{inst/doc} directory
+with extension \file{.Rnw} (preferred), \file{.Snw}, \file{.Rtex} or
+\file{.Stex} (and lower-case versions are also accepted).
+
+If \code{tangle} is true, this function runs \code{\LinkA{Stangle}{Stangle}} to
+produce (one or more) \R{} code files from each vignette, then
+\code{source}s each code file in turn.
+
+If \code{weave} is true, the vignettes are run through
+\code{\LinkA{Sweave}{Sweave}}, which will produce a \file{.tex} file for each
+vignette.  If \code{latex} is also true, \code{\LinkA{texi2pdf}{texi2pdf}} is run
+on the \file{.tex} files from those vignettes which did not give
+errors in the previous steps.
+\end{Details}
+%
+\begin{Value}
+An object of class \code{"checkVignettes"}, which is a list with the
+error messages found during the tangle, source, weave and latex
+steps. There is a \code{print} method for displaying the
+information contained in such objects.
+\end{Value}
+%
+\begin{Note}\relax
+Prior to \R{} 2.13.0 this was the code used by \command{R CMD check},
+but the latter is now more careful, running the code for each vignette
+in a separate \R{} session.
+\end{Note}
+\HeaderA{codoc}{Check Code/Documentation Consistency}{codoc}
+\aliasA{codocClasses}{codoc}{codocClasses}
+\aliasA{codocData}{codoc}{codocData}
+\aliasA{print.codoc}{codoc}{print.codoc}
+\aliasA{print.codocClasses}{codoc}{print.codocClasses}
+\aliasA{print.codocData}{codoc}{print.codocData}
+\keyword{documentation}{codoc}
+%
+\begin{Description}\relax
+Find inconsistencies between actual and documented `structure'
+of \R{} objects in a package.  \code{codoc} compares names and
+optionally also corresponding positions and default values of the
+arguments of functions.  \code{codocClasses} and \code{codocData}
+compare slot names of S4 classes and variable names of data sets,
+respectively.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+codoc(package, dir, lib.loc = NULL,
+      use.values = NULL, verbose = getOption("verbose"))
+codocClasses(package, lib.loc = NULL)
+codocData(package, lib.loc = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{package}] a character string naming an installed package.
+\item[\code{dir}] a character string specifying the path to a package's root
+source directory.  This must contain the subdirectories \file{man}
+with \R{} documentation sources (in Rd format) and \file{R} with \R{}
+code.  Only used if \code{package} is not given.
+\item[\code{lib.loc}] a character vector of directory names of \R{} libraries,
+or \code{NULL}.  The default value of \code{NULL} corresponds to all
+libraries currently known.  The specified library trees are used to
+search for \code{package}.
+\item[\code{use.values}] if \code{FALSE}, do not use function default values
+when comparing code and docs.  Otherwise, compare \emph{all} default
+values if \code{TRUE}, and only the ones documented in the usage
+otherwise (default).
+\item[\code{verbose}] a logical.  If \code{TRUE}, additional diagnostics are
+printed.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+The purpose of \code{codoc} is to check whether the documented usage
+of function objects agrees with their formal arguments as defined in
+the \R{} code.  This is not always straightforward, in particular as the
+usage information for methods to generic functions often employs the
+name of the generic rather than the method.
+
+The following algorithm is used.  If an installed package is used, it
+is loaded (unless it is the \pkg{base} package), after possibly
+detaching an already loaded version of the package.  Otherwise, if the
+sources are used, the \R{} code files of the package are collected and
+sourced in a new environment.  Then, the usage sections of the Rd
+files are extracted and parsed `as much as possible' to give
+the formals documented.  For interpreted functions in the code
+environment, the formals are compared between code and documentation
+according to the values of the argument \code{use.values}.  Synopsis
+sections are used if present; their occurrence is reported if
+\code{verbose} is true.
+
+If a package has a namespace both exported and unexported objects are
+checked, as well as registered S3 methods.  (In the unlikely event of
+differences the order is exported objects in the package, registered
+S3 methods and finally objects in the namespace and only the first
+found is checked.)
+
+Currently, the R documentation format has no high-level markup for the
+basic `structure' of classes and data sets (similar to the usage
+sections for function synopses).  Variable names for data frames in
+documentation objects obtained by suitably editing `templates'
+created by \code{\LinkA{prompt}{prompt}} are recognized by \code{codocData}
+and used provided that the documentation object is for a single data
+frame (i.e., only has one alias).  \code{codocClasses} analogously
+handles slot names for classes in documentation objects obtained by
+editing shells created by \code{\LinkA{promptClass}{promptClass}}.
+
+Help files named \file{\var{pkgname}-defunct.Rd} for the
+appropriate \var{pkgname} are checked more loosely, as they may
+have undocumented arguments.
+\end{Details}
+%
+\begin{Value}
+\code{codoc} returns an object of class \code{"codoc"}.  Currently,
+this is a list which, for each Rd object in the package where an
+inconsistency was found, contains an element with a list of the
+mismatches (which in turn are lists with elements \code{code} and
+\code{docs}, giving the corresponding arguments obtained from the
+function's code and documented usage).
+
+\code{codocClasses} and \code{codocData} return objects of class
+\code{"codocClasses"} and \code{"codocData"}, respectively, with a
+structure similar to class \code{"codoc"}.
+
+There are \code{print} methods for nicely displaying the information
+contained in such objects.
+\end{Value}
+%
+\begin{Note}\relax
+The default for \code{use.values} has been changed from
+\code{FALSE} to \code{NULL}, for \R{} versions 1.9.0 and later.
+\end{Note}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{undoc}{undoc}}, \code{\LinkA{QC}{QC}}
+\end{SeeAlso}
+\HeaderA{compactPDF}{Compact PDF Files}{compactPDF}
+\aliasA{format.compactPDF}{compactPDF}{format.compactPDF}
+\keyword{utilities}{compactPDF}
+%
+\begin{Description}\relax
+Re-save PDF files (especially vignettes) more compactly.
+Support function for \command{R CMD build --compact-vignettes}.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+compactPDF(paths,
+           qpdf = Sys.which(Sys.getenv("R_QPDF", "qpdf")),
+           gs_cmd = Sys.getenv("R_GSCMD", ""),
+           gs_quality = Sys.getenv("GS_QUALITY", "none"),
+           gs_extras = character())
+
+## S3 method for class 'compactPDF'
+format(x, ratio = 0.9, diff = 1e4, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{paths}] A character vector of paths to PDF files, or a length-one
+character vector naming a directory, when all \file{.pdf} files in
+that directory will be used.
+\item[\code{qpdf}] Character string giving the path to the \command{qpdf}
+command.  If empty, \command{qpdf} will not be used.
+\item[\code{gs\_cmd}] Character string giving the path to the GhostScript
+executable, if that is to be used.  On Windows this is the path to
+\file{gswin32c.exe} or \file{gswin64c.exe}.  If \code{""}, the
+function will try to find a platform-specific path to GhostScript.
+\item[\code{gs\_quality}] A character string indicating the quality required:
+the options are \code{"none"} (so GhostScript is not used),
+\code{"printer"} (300dpi), \code{"ebook"} (150dpi) and
+\code{"screen"} (72dpi).
+\item[\code{gs\_extras}] An optional character vector of further options to be
+passed to GhostScript.
+\item[\code{x}] An object of class \code{"compactPDF"}.
+\item[\code{ratio, diff}] Limits for reporting: files are only reported whose
+sizes are reduced both by a factor of \code{ratio} and by
+\code{diff} bytes.
+\item[\code{...}] Further arguments to be passed to or from other methods.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This by default makes use of \command{qpdf}, available from
+\url{http://qpdf.sourceforge.net/} (including as a Windows binary) and
+included with the CRAN Mac OS X distribution of \R{}.  If \code{gs\_cmd}
+is non-empty and \code{gs\_quality != "none"}, GhostScript will used
+first, then \command{qpdf} if it is available.  If \code{gs\_quality !=
+  "none"} and \code{gs\_cmd} is empty, an attempt will be made to find a
+GhostScript executable.
+
+\command{qpdf} and/or \command{gs\_cmd} are run on all PDF files found,
+and those which are reduced in size by at least 10\% and 10Kb are
+replaced.
+
+The strategy of our use of \command{qpdf} is to (losslessly) compress
+both PDF streams and objects.  Ghostscript compresses streams and more
+(including downsampling and compressing embedded images) and
+consequently is much slower and may lose quality (but can also produce
+much smaller PDF files).  However, quality \code{"ebook"} is perfectly
+adequate for screen viewing and printing on laser printers.
+
+Where PDF files are changed they will become PDF version 1.5 files:
+these have been supported by Acrobat Reader since version 6 in 2003,
+so this is very unlikely to cause difficulties.
+
+Stream compression is what most often has large gains: \R{}'s
+\code{\LinkA{pdf}{pdf}} device prior to \R{} 2.14.0 did not use it, and
+older vignette PDFs often benefit from being re-generated.  Most PDF
+documents are generated with object compression, but this does not
+seem to be the default for MiKTeX's \command{pdflatex}.  For some PDF
+files (and especially package vignettes), using GhostScript can
+dramatically reduce the space taken by embedded images (often screenshots).
+
+Where both Ghostscript and \command{qpdf} are selected (when
+\code{gs\_quality != "none"} and both executables are found), they are
+run in that order and the size reductions apply to the total
+compression achieved.
+\end{Details}
+%
+\begin{Value}
+An object of class \code{c("compactPDF", "data.frame")}.
+This has two columns, the old and new sizes in bytes for the files
+that were changed.
+
+There are \code{format} and \code{print} methods: the latter passes
+\code{...} to the format method, so will accept \code{ratio} and
+\code{diff} arguments.
+\end{Value}
+%
+\begin{Note}\relax
+The external tools used may change in future releases.
+\end{Note}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{resaveRdaFiles}{resaveRdaFiles}}.
+
+Many other (and sometimes more effective) tools to compact PDF files
+are available, including Adobe Acrobat (not Reader).
+See the `Writing R Extensions' manual.
+\end{SeeAlso}
+\HeaderA{delimMatch}{Delimited Pattern Matching}{delimMatch}
+\keyword{character}{delimMatch}
+%
+\begin{Description}\relax
+Match delimited substrings in a character vector, with proper nesting.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+delimMatch(x, delim = c("{", "}"), syntax = "Rd")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] a character vector.
+\item[\code{delim}] a character vector of length 2 giving the start and end
+delimiters.  Future versions might allow for arbitrary regular
+expressions.
+\item[\code{syntax}] currently, always the string \code{"Rd"} indicating Rd
+syntax (i.e., \samp{\%} starts a comment extending till the end of
+the line, and \samp{\bsl{}} escapes).  Future versions might know about
+other syntax, perhaps via `syntax tables' allowing to
+flexibly specify comment, escape, and quote characters.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+An integer vector of the same length as \code{x} giving the starting
+position (in characters) of the first match, or \eqn{-1}{} if there is
+none, with attribute \code{"match.length"} giving the length (in
+characters) of the matched text (or \eqn{-1}{} for no match).
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{regexpr}{regexpr}} for `simple' pattern matching.
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+x <- c("\\value{foo}", "function(bar)")
+delimMatch(x)
+delimMatch(x, c("(", ")"))
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{dependsOnPkgs}{Find Reverse Dependencies}{dependsOnPkgs}
+\keyword{utilities}{dependsOnPkgs}
+%
+\begin{Description}\relax
+Find `reverse' dependencies of packages, that is those packages
+which depend on this one, and (optionally) so on recursively.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+dependsOnPkgs(pkgs,
+              dependencies = c("Depends", "Imports", "LinkingTo"),
+              recursive = TRUE, lib.loc = NULL,
+          installed = installed.packages(lib.loc, fields = "Enhances"))
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pkgs}] a character vector of package names.
+\item[\code{dependencies}] a character vector listing the types of
+dependencies, a subset of \code{c("Depends", "Imports", "LinkingTo",
+      "Suggests", "Enhances")}.  Character string \code{"all"} is
+shorthand for that vector.
+\item[\code{recursive}] logical: should reverse dependencies of reverse
+dependencies (and so on) be included?
+\item[\code{lib.loc}] a character vector of \R{} library trees, or \code{NULL}
+for all known trees (see \code{\LinkA{.libPaths}{.libPaths}}).
+\item[\code{installed}] a result of calling \code{\LinkA{installed.packages}{installed.packages}}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character vector of package names, which does not include any from
+\code{pkgs}.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## there are few dependencies in a vanilla R installation
+dependsOnPkgs("lattice")
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{encoded\_text\_to\_latex}{Translate non-ASCII Text to LaTeX Escapes}{encoded.Rul.text.Rul.to.Rul.latex}
+\keyword{utilities}{encoded\_text\_to\_latex}
+%
+\begin{Description}\relax
+Translate non-ASCII characters in text to LaTeX escape sequences.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+encoded_text_to_latex(x,
+                      encoding = c("latin1", "latin2", "latin9",
+                                   "UTF-8", "utf8"))
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] a character vector.
+\item[\code{encoding}] the encoding to be assumed.  \code{"latin9"} is
+officially ISO-8859-15 or Latin-9, but known as latin9 to LaTeX's
+\code{inputenc} package.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Non-ASCII characters in \code{x} are replaced by an appropriate LaTeX
+escape sequence, or \samp{?} if there is no appropriate sequence.
+
+Even if there is an appropriate sequence, it may not be supported by
+the font in use.  Hyphen is mapped to \samp{\bsl{}-}.
+\end{Details}
+%
+\begin{Value}
+A character vector of the same length as \code{x}.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{iconv}{iconv}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+x <- "fa\xE7ile"
+encoded_text_to_latex(x, "latin1")
+## Not run: 
+## create a tex file to show the upper half of 8-bit charsets
+x <- rawToChar(as.raw(160:255), multiple=TRUE)
+(x <- matrix(x, ncol=16, byrow=TRUE))
+xx <- x
+xx[] <- encoded_text_to_latex(x, "latin1") # or latin2 or latin9
+xx <- apply(xx, 1, paste, collapse="&")
+con <- file("test-encoding.tex", "w")
+header <- c(
+"\\documentclass{article}",
+"\\usepackage[T1]{fontenc}",
+"\\usepackage{Rd}",
+"\\begin{document}",
+"\\HeaderA{test}{}{test}",
+"\\begin{Details}\relax",
+"\\Tabular{cccccccccccccccc}{")
+trailer <- c("}", "\\end{Details}", "\\end{document}")
+writeLines(header, con)
+writeLines(paste(xx, "\\", sep=""), con)
+writeLines(trailer, con)
+close(con)
+## and some UTF_8 chars
+x <- intToUtf8(as.integer(
+    c(160:383,0x0192,0x02C6,0x02C7,0x02CA,0x02D8,
+      0x02D9, 0x02DD, 0x200C, 0x2018, 0x2019, 0x201C,
+      0x201D, 0x2020, 0x2022, 0x2026, 0x20AC)),
+               multiple=TRUE)
+x <- matrix(x, ncol=16, byrow=TRUE)
+xx <- x
+xx[] <- encoded_text_to_latex(x, "UTF-8")
+xx <- apply(xx, 1, paste, collapse="&")
+con <- file("test-utf8.tex", "w")
+writeLines(header, con)
+writeLines(paste(xx, "\\", sep=""), con)
+writeLines(trailer, con)
+close(con)
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{fileutils}{File Utilities}{fileutils}
+\aliasA{file\_ext}{fileutils}{file.Rul.ext}
+\aliasA{file\_path\_as\_absolute}{fileutils}{file.Rul.path.Rul.as.Rul.absolute}
+\aliasA{file\_path\_sans\_ext}{fileutils}{file.Rul.path.Rul.sans.Rul.ext}
+\aliasA{list\_files\_with\_exts}{fileutils}{list.Rul.files.Rul.with.Rul.exts}
+\aliasA{list\_files\_with\_type}{fileutils}{list.Rul.files.Rul.with.Rul.type}
+\keyword{file}{fileutils}
+%
+\begin{Description}\relax
+Utilities for listing files, and manipulating file paths.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+file_ext(x)
+file_path_as_absolute(x)
+file_path_sans_ext(x, compression = FALSE)
+
+list_files_with_exts(dir, exts, all.files = FALSE,
+                     full.names = TRUE)
+list_files_with_type(dir, type, all.files = FALSE,
+                     full.names = TRUE, OS_subdirs = .OStype())
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] character vector giving file paths.
+\item[\code{compression}] logical: should compression extension \file{.gz},
+\file{.bz2} or \file{.xz} be removed first?
+\item[\code{dir}] a character string with the path name to a directory.
+\item[\code{exts}] a character vector of possible file extensions.
+\item[\code{all.files}] a logical.  If \code{FALSE} (default), only visible
+files are considered; if \code{TRUE}, all files are used.
+\item[\code{full.names}] a logical indicating whether the full paths of the
+files found are returned (default), or just the file names.
+\item[\code{type}] a character string giving the `type' of the files
+to be listed, as characterized by their extensions.  Currently,
+possible values are \code{"code"} (R code), \code{"data"} (data
+sets), \code{"demo"} (demos), \code{"docs"} (R documentation), and
+\code{"vignette"} (vignettes).
+\item[\code{OS\_subdirs}] a character vector with the names of OS-specific
+subdirectories to possibly include in the listing of R code and
+documentation files.  By default, the value of the environment
+variable \env{R\_OSTYPE}, or if this is empty, the value of
+\code{\LinkA{.Platform}{.Platform}\$OS.type}, is used.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{file\_ext} returns the file (name) extensions.
+(Only purely alphanumeric extensions are recognized.)
+
+\code{file\_path\_as\_absolute} turns a possibly relative file path
+absolute, performing tilde expansion if necessary. As from \R{} 2.13.0
+this is a wrapper for \code{\LinkA{normalizePath}{normalizePath}}.  Currently,
+\code{x} must be a single existing path.
+
+\code{file\_path\_sans\_ext} returns the file paths without extensions.
+(Only purely alphanumeric extensions are recognized.)
+
+\code{list\_files\_with\_exts} returns the paths or names of the files in
+directory \code{dir} with extension matching one of the elements of
+\code{exts}.  Note that by default, full paths are returned, and that
+only visible files are used.
+
+\code{list\_files\_with\_type} returns the paths of the files in \code{dir}
+of the given `type', as determined by the extensions recognized
+by \R{}.  When listing R code and documentation files, files in
+OS-specific subdirectories are included if present according to the
+value of \code{OS\_subdirs}.  Note that by default, full paths are
+returned, and that only visible files are used.
+\end{Details}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{file.path}{file.path}},
+\code{\LinkA{file.info}{file.info}},
+\code{\LinkA{list.files}{list.files}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+
+dir <- file.path(R.home(), "library", "stats")
+list_files_with_exts(file.path(dir, "demo"), "R")
+list_files_with_type(file.path(dir, "demo"), "demo") # the same
+file_path_sans_ext(list.files(file.path(R.home("modules"))))
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{getDepList}{Functions to Retrieve Dependency Information}{getDepList}
+\aliasA{pkgDepends}{getDepList}{pkgDepends}
+\keyword{utilities}{getDepList}
+%
+\begin{Description}\relax
+Given a dependency matrix, will create a \code{DependsList} object for that
+package which will include the dependencies for that matrix, which
+ones are installed, which unresolved dependencies were found online,
+which unresolved dependencies were not found online, and any R dependencies.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+getDepList(depMtrx, instPkgs, recursive = TRUE, local = TRUE,
+           reduce = TRUE, lib.loc = NULL)
+
+pkgDepends(pkg, recursive = TRUE, local = TRUE, reduce = TRUE,
+           lib.loc = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{depMtrx}] A dependency matrix as from \code{package.dependencies}
+\item[\code{pkg}] The name of the package
+\item[\code{instPkgs}] A matrix specifying all packages installed on the
+local system, as from \code{installed.packages}
+\item[\code{recursive}] Whether or not to include indirect dependencies
+\item[\code{local}] Whether or not to search only locally
+\item[\code{reduce}] Whether or not to collapse all sets of dependencies to a
+minimal value
+\item[\code{lib.loc}] What libraries to use when looking for installed
+packages.  \code{NULL} indicates all library directories in the
+user's \code{.libPaths()}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+The function \code{pkgDepends} is a convenience function which wraps
+\code{getDepList} and takes as input a package name.  It will then
+query \code{\LinkA{installed.packages}{installed.packages}}
+and also generate a dependency
+matrix, calling \code{getDepList} with this information and returning
+the result.
+
+These functions will retrieve information about the dependencies of
+the matrix, resulting in a \code{DependsList} object.  This is a
+list with four elements:
+\begin{description}
+
+\item[Depends] A vector of the dependencies for this package.
+\item[Installed] A vector of the dependencies which have been
+satisfied by the currently installed packages.
+\item[Found] A list representing the dependencies which are not in
+\code{Installed} but were found online.  This list has element
+names which are the URLs for the repositories in which packages
+were found and the elements themselves are vectors of package
+names which were found in the respective repositories.  If
+\code{local=TRUE}, the \code{Found} element will always be empty.
+\item[R] Any R version dependencies.
+
+\end{description}
+
+
+If \code{recursive} is \code{TRUE}, any package that is specified as a
+dependency will in turn have its dependencies included (and so on),
+these are known as indirect dependencies.  If \code{recursive} is 
+\code{FALSE}, only the dependencies directly stated by the package will 
+be used.
+
+If \code{local} is \code{TRUE}, the system will only look at the user's local
+install and not online to find unresolved dependencies.
+
+If \code{reduce} is \code{TRUE}, the system will collapse the fields in the
+\code{DependsList} object such that a minimal set of dependencies
+are specified (for instance if there was
+\samp{foo, foo (>= 1.0.0), foo (>= 1.3.0)}, it would only return
+\samp{foo (>= 1.3.0)}).
+\end{Details}
+%
+\begin{Value}
+An object of class \code{"DependsList"}.
+\end{Value}
+%
+\begin{Author}\relax
+ Jeff Gentry 
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{installFoundDepends}{installFoundDepends}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+pkgDepends("tools", local = FALSE)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{HTMLheader}{Generate a standard HTML header for R help}{HTMLheader}
+\keyword{utilities}{HTMLheader}
+\keyword{documentation}{HTMLheader}
+%
+\begin{Description}\relax
+This function generates the standard HTML header used on R help pages.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+HTMLheader(title = "R", logo = TRUE, up = NULL,
+           top = file.path(Rhome, "doc/html/index.html"), 
+           Rhome = "",
+           css = file.path(Rhome, "doc/html/R.css"),
+           headerTitle = paste("R:", title),
+           outputEncoding = "UTF-8")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{title}] 
+The title to display and use in the HTML headers.  Should have had any
+HTML escaping already done.
+
+\item[\code{logo}] 
+Whether to display the \R{} logo after the title.
+
+\item[\code{up}] 
+Which page (if any) to link to on the ``up'' button.
+
+\item[\code{top}] 
+Which page (if any) to link to on the ``top'' button.
+
+\item[\code{Rhome}] 
+A \bold{relative} path to the R home directory.  See the `Details'.
+
+\item[\code{css}] 
+The relative URL for the Cascading Style Sheet.
+
+\item[\code{headerTitle}] 
+The title used in the headers.
+
+\item[\code{outputEncoding}] 
+The declared encoding for the whole page.
+
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+The \code{up} and \code{top} links should be relative to the current page.
+The \code{Rhome} path default works with dynamic help; for static help, a
+relative path (e.g. \file{../..}) to it should be used.
+\end{Details}
+%
+\begin{Value}
+A character vector containing the lines of an HTML header which can be used
+to start a page in the R help system.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+cat(HTMLheader("This is a sample header"), sep="\n")
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{HTMLlinks}{Collect HTML Links from Package Documentation}{HTMLlinks}
+\aliasA{findHTMLlinks}{HTMLlinks}{findHTMLlinks}
+\keyword{documentation}{HTMLlinks}
+%
+\begin{Description}\relax
+Compute relative file paths for URLs to other package's installed HTML
+documentation.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+findHTMLlinks(pkgDir = "", lib.loc = NULL, level = 0:2)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pkgDir}] the top-level directory of an installed package.  The
+default indicates no package.
+\item[\code{lib.loc}] character vector describing the location of \R{} library
+trees to scan: the default indicates \code{\LinkA{.libPaths}{.libPaths}()}.
+\item[\code{level}] Which level(s) to include.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{findHTMLlinks} tries to resolve links from one help page to
+another.  It uses in decreasing priority
+\begin{itemize}
+
+\item The package in \code{pkgDir}: this is used when converting
+HTML help for that package (level 0).
+\item The base and recommended packages (level 1).
+\item Other packages found in the library trees specified by
+\code{lib.loc} in the order of the trees and alphabetically within a
+library tree (level 2).
+
+\end{itemize}
+
+\end{Details}
+%
+\begin{Value}
+A named character vector of file paths, relative to the \file{html}
+directory of an installed package.  So these are of the form
+\file{"../../\var{somepkg}/html/\var{sometopic}.html"}.
+\end{Value}
+%
+\begin{Author}\relax
+Duncan Murdoch, Brian Ripley
+\end{Author}
+\HeaderA{installFoundDepends}{A function to install unresolved dependencies}{installFoundDepends}
+\keyword{utilities}{installFoundDepends}
+%
+\begin{Description}\relax
+This function will take the \code{Found} element of a
+\code{pkgDependsList} object and attempt to install 
+all of the listed packages from the specified repositories.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+installFoundDepends(depPkgList, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{depPkgList}] A \code{Found} element from a \code{pkgDependsList} object
+\item[\code{...}] Arguments to pass on to \code{\LinkA{install.packages}{install.packages}}
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This function takes as input the \code{Found} list from a
+\code{pkgDependsList} object.  This list will have element names being
+URLs corresponding to repositories and the elements will be vectors of
+package names.  For each element, \code{\LinkA{install.packages}{install.packages}} is
+called for that URL to install all packages listed in the vector.
+\end{Details}
+%
+\begin{Author}\relax
+Jeff Gentry
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{pkgDepends}{pkgDepends}}, \code{\LinkA{install.packages}{install.packages}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Set up a temporary directory to install packages to
+tmp <- tempfile()
+dir.create(tmp)
+
+pDL <- pkgDepends("tools",local=FALSE)
+installFoundDepends(pDL$Found, destdir=tmp)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{md5sum}{Compute MD5 Checksums}{md5sum}
+\keyword{utilities}{md5sum}
+%
+\begin{Description}\relax
+Compute the 32-byte MD5 checksums of one or more files.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+md5sum(files)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{files}] character. The paths of file(s) to be check-summed.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character vector of the same length as \code{files}, with names
+equal to \code{files}. The elements
+will be \code{NA} for non-existent or unreadable files, otherwise
+a 32-character string of hexadecimal digits.
+
+On Windows all files are read in binary mode (as the \code{md5sum}
+utilities there do): on other OSes the files are read in the default way.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{checkMD5sums}{checkMD5sums}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+as.vector(md5sum(dir(R.home(), pattern="^COPY", full.names=TRUE)))
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{package.dependencies}{Check Package Dependencies}{package.dependencies}
+\keyword{utilities}{package.dependencies}
+%
+\begin{Description}\relax
+Parses and checks the dependencies of a package against the currently
+installed version of R (and other packages). 
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+package.dependencies(x, check = FALSE,
+                     depLevel = c("Depends", "Imports", "Suggests"))
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] A matrix of package descriptions as returned by
+\code{\LinkA{available.packages}{available.packages}}.
+\item[\code{check}] If \code{TRUE}, return logical vector of check results.
+If \code{FALSE}, return parsed list of dependencies.
+\item[\code{depLevel}] Whether to look for \code{Depends} or \code{Suggests}
+level dependencies.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Currently we only check if the package conforms with the currently
+running version of R.  In the future we might add checks for 
+inter-package dependencies.
+\end{Details}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{update.packages}{update.packages}}
+\end{SeeAlso}
+\HeaderA{package\_dependencies}{Computations on the Dependency Hierarchy of Packages}{package.Rul.dependencies}
+\keyword{utilities}{package\_dependencies}
+%
+\begin{Description}\relax
+Find (recursively) dependencies or reverse dependencies of packages.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+package_dependencies(packages = NULL, db, 
+        which = c("Depends", "Imports", "LinkingTo"), 
+	recursive = FALSE, reverse = FALSE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{packages}] a character vector of package names.
+\item[\code{db}] character matrix as from available.packages(), or data frame variants thereof.
+Alternatively, a package database like the one available from
+\url{http://cran.R-project.org/web/packages/packages.rds}.
+
+\item[\code{which}] a character vector listing the types of
+dependencies, a subset of \code{c("Depends", "Imports", "LinkingTo",
+      "Suggests", "Enhances")}.  Character string \code{"all"} is
+shorthand for that vector, character string \code{"most"} 
+for the same vector without \code{"Enhances"}.
+
+\item[\code{recursive}] logical: should (reverse) dependencies of (reverse)
+dependencies (and so on) be included?
+
+\item[\code{reverse}] logical: if \code{FALSE} (default), regular dependencies are calculated,
+otherwise reverse dependencies.
+
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+Named list with one element for each package in argument \code{packages},
+each consists of a character vector naming the (recursive) (reverse) dependencies
+of that package.
+
+For given packages which are not found in the db, \code{NULL} entries are returned, 
+as opposed to \code{character(0)} entries which indicate no dependencies.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{dependsOnPkgs}{dependsOnPkgs}}, and \code{\LinkA{package.dependencies}{package.dependencies}} for checking
+dependencies
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+pdb <- available.packages()
+deps <- package_dependencies(packages = "MASS", pdb,
+                    which = c("Depends", "Imports", "LinkingTo", "Suggests"),
+                    recursive = TRUE, reverse = TRUE)
+length(deps$MASS)
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{parseLatex}{These experimental functions work with a subset of LaTeX code.}{parseLatex}
+\aliasA{deparseLatex}{parseLatex}{deparseLatex}
+\aliasA{latexToUtf8}{parseLatex}{latexToUtf8}
+\keyword{utilities}{parseLatex}
+\keyword{documentation}{parseLatex}
+%
+\begin{Description}\relax
+The \code{parseLatex} function parses LaTeX source, producing a
+structured object; \code{deparseLatex} reverses the process.  The
+\code{latexToUtf8} function takes a LaTeX object, and processes a number
+of different macros to convert them into the corresponding UTF-8
+characters.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+parseLatex(text, filename = deparse(substitute(text)), verbose = FALSE,
+           verbatim = c("verbatim", "verbatim*", "Sinput", "Soutput"))
+deparseLatex(x, dropBraces=FALSE)
+latexToUtf8(x)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{text}] 
+A character vector containing LaTeX source code.
+
+\item[\code{filename}] 
+A filename to use in syntax error messages.
+
+\item[\code{verbose}] 
+If \code{TRUE}, print debug error messages.
+
+\item[\code{verbatim}] 
+A character vector containing the names of LaTeX environments holding verbatim text.
+
+\item[\code{x}] 
+A \code{"LaTeX"} object.
+
+\item[\code{dropBraces}] 
+Drop unnecessary braces when displaying a \code{"LaTeX"} object.
+
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+
+The parser does not recognize all legal LaTeX code, only relatively
+simple examples.  It does not associate arguments with macros, that
+needs to be done after parsing, with knowledge of the definitions of
+each macro.  The main intention for this function is to process simple
+LaTeX code used in bibliographic references, not fully general LaTeX
+documents.
+
+Verbose text is allowed in two forms:  the \AsIs{\bsl{}verb} macro (with
+single character delimiters), and environments whose names are listed
+in the \code{verbatim} argument.
+
+\end{Details}
+%
+\begin{Value}
+The \code{parseLatex()} function returns a recursive object of class
+\code{"LaTeX"}.  Each of the entries in this object will have a \code{
+"latex\_tag"} attribute identifying its syntactic role.
+
+The \code{deparseLatex()} function returns a single element character
+vector, possibly containing embedded newlines.
+
+The \code{latexToUtf8()} function returns a modified version of the
+\code{"LaTeX"} object that was passed to it.
+\end{Value}
+%
+\begin{Author}\relax
+Duncan Murdoch
+\end{Author}
+%
+\begin{Examples}
+\begin{ExampleCode}
+
+latex <- parseLatex("fa\\c{c}ile")
+deparseLatex(latexToUtf8(latex))
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{parse\_Rd}{ Parse an Rd file }{parse.Rul.Rd}
+\aliasA{as.character.Rd}{parse\_Rd}{as.character.Rd}
+\aliasA{print.Rd}{parse\_Rd}{print.Rd}
+\keyword{utilities}{parse\_Rd}
+\keyword{documentation}{parse\_Rd}
+%
+\begin{Description}\relax
+This function reads an R documentation (Rd) file and parses it, for
+processing by other functions.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+parse_Rd(file, srcfile = NULL, encoding = "unknown",
+         verbose = FALSE, fragment = FALSE, warningCalls = TRUE)
+## S3 method for class 'Rd'
+print(x, deparse = FALSE, ...)
+## S3 method for class 'Rd'
+as.character(x, deparse = FALSE, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file}] A filename or text-mode connection.  At present filenames
+work best.
+\item[\code{srcfile}] \code{NULL}, or a \code{"srcfile"} object.  See the
+`Details' section.
+\item[\code{encoding}] Encoding to be assumed for input strings.
+\item[\code{verbose}] Logical indicating whether detailed parsing
+information should be printed.
+\item[\code{fragment}] Logical indicating whether file represents a complete
+Rd file, or a fragment.
+\item[\code{warningCalls}] Logical: should parser warnings include the call?
+\item[\code{x}] An object of class Rd.
+\item[\code{deparse}] If \code{TRUE}, attempt to reinstate the escape characters
+so that the resulting characters will parse to the same object.
+\item[\code{...}] Further arguments to be passed to or from other methods.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This function parses \file{Rd} files according to the specification given
+in \url{http://developer.r-project.org/parseRd.pdf}.
+
+It generates a warning for each parse error and attempts to continue
+parsing.  In order to continue, it is generally necessary to drop some
+parts of the file, so such warnings should not be ignored.
+\end{Details}
+%
+\begin{Value}
+\code{parse\_Rd} returns an object of class \code{"Rd"}.  The
+internal format of this object is subject to change.  The
+\code{as.character()} and \code{print()} methods defined for the
+class return character vectors and print them, respectively.
+
+Files without a marked encoding are by default assumed to be in the
+native encoding.  An alternate default can be set using the
+\code{encoding} argument.  All text in files is translated to the
+UTF-8 encoding in the parsed object.
+\end{Value}
+%
+\begin{Author}\relax
+ Duncan Murdoch 
+\end{Author}
+%
+\begin{References}\relax
+ \url{http://developer.r-project.org/parseRd.pdf} 
+\end{References}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{Rd2HTML}{Rd2HTML}} for the converters that use the output of
+\code{parse\_Rd()}.
+\end{SeeAlso}
+\HeaderA{pskill}{Kill a Process}{pskill}
+\aliasA{SIGCHLD}{pskill}{SIGCHLD}
+\aliasA{SIGCONT}{pskill}{SIGCONT}
+\aliasA{SIGHUP}{pskill}{SIGHUP}
+\aliasA{SIGINT}{pskill}{SIGINT}
+\aliasA{SIGKILL}{pskill}{SIGKILL}
+\aliasA{SIGQUIT}{pskill}{SIGQUIT}
+\aliasA{SIGSTOP}{pskill}{SIGSTOP}
+\aliasA{SIGTERM}{pskill}{SIGTERM}
+\aliasA{SIGTSTP}{pskill}{SIGTSTP}
+\aliasA{SIGUSR1}{pskill}{SIGUSR1}
+\aliasA{SIGUSR2}{pskill}{SIGUSR2}
+\keyword{utilities}{pskill}
+%
+\begin{Description}\relax
+\code{pskill} sends a signal to a process, usually to terminate it.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+pskill(pid, signal = SIGTERM)
+
+SIGHUP
+SIGINT
+SIGQUIT
+SIGKILL
+SIGTERM
+SIGSTOP
+SIGTSTP
+SIGCHLD
+SIGUSR1
+SIGUSR2
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pid}] positive integers: one or more process IDs as returned by
+\code{\LinkA{Sys.getpid}{Sys.getpid}}.
+\item[\code{signal}] integer, most often one of the symbolic constants.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Signals are a C99 concept, but only a small number are required to be
+supported (of those listed, only \code{SIGINT} and \code{SIGTERM}).
+They are much more widely used on POSIX operating systems (which
+should define all of those listed here), which also support a
+\code{kill} system call to send a signal to a process, most often to
+terminate it.  Function \code{pskill} provides a wrapper: it silently
+ignores invalid values of its arguments, including zero or negative pids.
+
+In normal use on a Unix-alike, \kbd{Ctrl-C} sends \code{SIGINT},
+\kbd{Ctrl-\bsl{}} sends \code{SIGQUIT} and \kbd{Ctrl-Z} sends
+\code{SIGTSTP}: that and \code{SIGSTOP} suspend a process which can be
+resumed by \code{SIGCONT}.
+
+The signals are small integers, but the actual numeric values are not
+standardized (and most do differ between OSes).  The \code{SIG*}
+objects contain the appropriate integer values for the current platform
+(or \code{NA\_INTEGER\_} if the signal is not defined).
+
+Only \code{SIGINT} and \code{SIGKILL} will be defined on Windows, and
+\code{pskill} will always use the Windows system call
+\code{TerminateProcess}.
+\end{Details}
+%
+\begin{Value}
+A logical vector of the same length as \code{pid},
+\code{TRUE} (for success) or \code{FALSE}, invisibly.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Package \pkg{parallel} has several means to launch child processes
+which record the process IDs.
+
+\code{\LinkA{psnice}{psnice}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+pskill(c(237, 245), SIGKILL)
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{psnice}{Get or Set the Priority (Niceness) of a Process}{psnice}
+\keyword{utility}{psnice}
+%
+\begin{Description}\relax
+Get or set the `niceness' of the current process, or one or
+more other processes.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+psnice(pid = Sys.getpid(), value = NA_integer_)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pid}] positive integers: the process IDs of one of more
+processes: defaults to the \R{} session process.
+\item[\code{value}] The niceness to be set, or \code{NA} for an enquiry.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+POSIX operating systems have a concept of process priorities, usually
+from 0 to 39 (or 40) with 20 being a normal priority and (somewhat
+confusingly) larger numeric values denoting lower priority.  To add to
+the confusion, there is a `niceness' value, the amount by which
+the priority numerically exceeds 20 (which can be negative).
+Processes with high niceness will receive less CPU time than those
+with normal priority.  On some OSes, processes with niceness
+\code{+19} are only run when the system would otherwise be idle.
+
+On many OSes utilities such as \command{top} report the priority and
+not the niceness.  Niceness is used by the utility
+\file{/usr/bin/renice}: \file{/usr/bin/nice} (and
+\command{/usr/bin/renice -n}) specifies an \emph{increment} in niceness.
+
+Only privileged users (usually super-users) can lower the niceness.
+
+Windows has a slightly different concept of `priority
+classes'.  We have mapped the idle priority to niceness \code{19},
+`below normal' to \code{15}, normal to \code{0}, `above
+normal' to \code{-5} and `realtime' to \code{-10}.  Unlike
+Unix-alikes, a non-privileged user can increase the priority class on
+Windows (but using `realtime' is inadvisable).
+\end{Details}
+%
+\begin{Value}
+An integer vector of \emph{previous} niceness values,
+\code{NA} if unknown for any reason.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+Various functions in package \pkg{parallel} create child processes
+whose priority may need to be changed.
+
+\code{\LinkA{pskill}{pskill}}.
+\end{SeeAlso}
+\HeaderA{QC}{QC Checks for R Code and/or Documentation}{QC}
+\aliasA{checkDocFiles}{QC}{checkDocFiles}
+\aliasA{checkDocStyle}{QC}{checkDocStyle}
+\aliasA{checkReplaceFuns}{QC}{checkReplaceFuns}
+\aliasA{checkS3methods}{QC}{checkS3methods}
+\aliasA{print.checkDocFiles}{QC}{print.checkDocFiles}
+\aliasA{print.checkDocStyle}{QC}{print.checkDocStyle}
+\aliasA{print.checkReplaceFuns}{QC}{print.checkReplaceFuns}
+\aliasA{print.checkS3methods}{QC}{print.checkS3methods}
+\keyword{utilities}{QC}
+\keyword{documentation}{QC}
+%
+\begin{Description}\relax
+Functions for performing various quality checks.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+checkDocFiles(package, dir, lib.loc = NULL)
+checkDocStyle(package, dir, lib.loc = NULL)
+checkReplaceFuns(package, dir, lib.loc = NULL)
+checkS3methods(package, dir, lib.loc = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{package}] a character string naming an installed package.
+\item[\code{dir}] a character string specifying the path to a package's root
+source directory.  This should contain the subdirectories \file{R}
+(for R code) and \file{man} with \R{} documentation sources (in Rd
+format).  Only used if \code{package} is not given.
+\item[\code{lib.loc}] a character vector of directory names of \R{} libraries,
+or \code{NULL}.  The default value of \code{NULL} corresponds to all
+libraries currently known.  The specified library trees are used to
+search for \code{package}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{checkDocFiles} checks, for all Rd files in a package, whether all
+arguments shown in the usage sections of the Rd file are documented in
+its arguments section.  It also reports duplicated entries in the
+arguments section, and `over-documented' arguments which are
+given in the arguments section but not in the usage.  Note that the
+match is for the usage section and not a possibly existing synopsis
+section, as the usage is what gets displayed.
+
+\code{checkDocStyle} investigates how (S3) methods are shown in the
+usages of the Rd files in a package.  It reports the methods shown by
+their full name rather than using the Rd \AsIs{\bsl{}method} markup for
+indicating S3 methods.  Earlier versions of \R{} also reported about
+methods shown along with their generic, which typically caused
+problems for the documentation of the primary argument in the generic
+and its methods.  With \AsIs{\bsl{}method} now being expanded in a way
+that class information is preserved, joint documentation is
+no longer necessarily a problem.  (The corresponding information is
+still contained in the object returned by \code{checkDocStyle}.)
+
+\code{checkReplaceFuns} checks whether replacement functions or S3/S4
+replacement methods in the package R code have their final argument
+named \code{value}.
+
+\code{checkS3methods} checks whether all S3 methods defined in the
+package R code have all arguments of the corresponding generic, with
+positional arguments of the generics in the same positions for the
+method.  As an exception, the first argument of a formula method
+\emph{may} be called \code{formula} even if this is not the name used
+by the generic.  The rules when \code{...} is involved are subtle:
+see the source code.  Functions recognized as S3 generics are those
+with a call to \code{UseMethod} in their body, internal S3 generics
+(see \LinkA{InternalMethods}{InternalMethods}), and S3 group generics (see
+\code{\LinkA{Math}{S3groupGeneric}}).  Possible dispatch under a
+different name is not taken into account.  The generics are sought
+first in the given package, then in the \pkg{base} package and
+(currently) the packages \pkg{graphics}, \pkg{stats}, and \pkg{utils}
+added in R 1.9.0 by splitting the former \pkg{base}, and, if an
+installed package is tested, also in the loaded namespaces/packages
+listed in the package's \file{DESCRIPTION} Depends field.
+
+If using an installed package, the checks needing access to all R
+objects of the package will load the package (unless it is the
+\pkg{base} package), after possibly detaching an already loaded
+version of the package.
+\end{Details}
+%
+\begin{Value}
+The functions return objects of class the same as the respective
+function names containing the information about problems detected.
+There are \code{print} methods for nicely displaying the information
+contained in such objects.
+\end{Value}
+\HeaderA{Rd2HTML}{ Rd Converters }{Rd2HTML}
+\aliasA{Rd2ex}{Rd2HTML}{Rd2ex}
+\aliasA{Rd2latex}{Rd2HTML}{Rd2latex}
+\aliasA{Rd2txt}{Rd2HTML}{Rd2txt}
+\keyword{documentation}{Rd2HTML}
+%
+\begin{Description}\relax
+These functions take the output of the \code{\LinkA{parse\_Rd}{parse.Rul.Rd}} function
+and produce a help page from it.  As they are mainly
+intended for internal use, their interfaces are subject to change.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+Rd2HTML(Rd, out = "", package = "", defines = .Platform$OS.type,
+        Links = NULL, Links2 = NULL,
+        stages = "render", outputEncoding = "UTF-8", 
+        dynamic = FALSE, no_links = FALSE, fragment = FALSE,
+        stylesheet = "R.css", ...)
+
+Rd2txt(Rd, out = "", package = "", defines = .Platform$OS.type,
+       stages = "render", outputEncoding = "",
+       fragment = FALSE, options, ...)
+
+Rd2latex(Rd, out = "", defines = .Platform$OS.type,
+         stages = "render", outputEncoding = "ASCII",
+         fragment = FALSE, ..., writeEncoding = TRUE)
+
+Rd2ex(Rd, out = "", defines = .Platform$OS.type,
+      stages = "render", outputEncoding = "UTF-8", ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{Rd}]  a filename or \code{Rd} object to use as input. 
+\item[\code{out}]  a filename or connection object to which to write the output. 
+\item[\code{package}]  the package to list in the output. 
+\item[\code{defines}]  string(s) to use in \AsIs{\#ifdef} tests. 
+\item[\code{stages}]  at which stage (\code{"build"}, \code{"install"}, or
+\code{"render"}) should \AsIs{\bsl{}Sexpr} macros be executed? See the
+notes below.
+\item[\code{outputEncoding}]  see the `Encodings' section below.
+\item[\code{dynamic}] logical: set links for render-time resolution by
+dynamic help system.
+\item[\code{no\_links}] logical: suppress hyperlinks to other help topics.
+Used by \command{R CMD \LinkA{Rdconv}{Rdconv}}.
+\item[\code{fragment}] logical:  should fragments of Rd files be accepted?  See the
+notes below.
+\item[\code{stylesheet}] character: a URL for a stylesheet to be used in the header
+of the HTML output page.
+\item[\code{Links, Links2}] \code{NULL} or a named (by topics) character vector of
+links, as returned by \code{\LinkA{findHTMLlinks}{findHTMLlinks}}.
+\item[\code{options}] An optional named list of options to pass to
+\code{\LinkA{Rd2txt\_options}{Rd2txt.Rul.options}}.
+\item[\code{...}]  additional parameters to pass to \code{\LinkA{parse\_Rd}{parse.Rul.Rd}} when
+\code{Rd} is a filename. 
+\item[\code{writeEncoding}] should \AsIs{\bsl{}inputencoding} lines be written in
+the file for non-ASCII encodings?
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+These functions convert help documents: \code{Rd2HTML} produces HTML,
+\code{Rd2txt} produces plain text, \code{Rd2latex} produces LaTeX.
+\code{Rd2ex} extracts the examples in the format used by
+\code{\LinkA{example}{example}} and \R{} utilities.
+
+Each of the functions accepts a filename for an Rd file, and
+will use \code{\LinkA{parse\_Rd}{parse.Rul.Rd}} to parse it before applying the
+conversions or checks.
+
+The difference between arguments \code{Link} and \code{Link2} is that
+links are looked in them in turn, so lazy-evaluation can be used to
+only do a second-level search for links if required.
+
+Note that the default for \code{Rd2latex} is to output ASCII,
+including using the second option of \AsIs{\bsl{}enc} markup.  This was
+chosen because use of UTF-8 in LaTeX requires version
+`2005/12/01' or later, and even with that version the coverage
+of UTF-8 glyphs is not extensive (and not even as complete as
+Latin-1).
+
+\code{Rd2txt} will format text paragraphs to a width determined by
+\code{width}, with appropriate margins.  The default is to be close to
+the rendering in versions of \R{} < 2.10.0.
+
+\code{Rd2txt} will use directional quotes (see \code{\LinkA{sQuote}{sQuote}})
+if option \code{"useFancyQuotes"} is true (the default) and
+the current locale uses a single-byte encoding (except C).
+(Directional quotes are not attempted in CJK locales as they are
+usually double-width, which looks wrong with English text.)
+
+Various aspects of formatting by \code{Rd2txt} are controlled by the
+\code{options} argument, documented with the \code{\LinkA{Rd2txt\_options}{Rd2txt.Rul.options}}
+function. Changes made using \code{options} are temporary, those
+made with \code{\LinkA{Rd2txt\_options}{Rd2txt.Rul.options}} are persistent.
+
+When \code{fragment = TRUE}, the \code{Rd} file will be rendered
+with no processing of \AsIs{\bsl{}Sexpr} elements or conditional defines
+using \AsIs{\#ifdef} or \AsIs{\#ifndef}.  Normally a fragment represents
+text within a section, but if the first element of the fragment
+is a section macro, the whole fragment will be rendered as 
+a series of sections, without the usual sorting.
+\end{Details}
+%
+\begin{Value}
+These functions are executed mainly for the side effect of
+writing the converted help page.  Their value is the name of the output
+file (invisibly).  For \code{Rd2latex}, the output name is given an
+attribute \code{"latexEncoding"} giving the encoding of the file in a
+form suitable for use with the LaTeX \samp{inputenc} package.
+\end{Value}
+%
+\begin{Section}{Encodings}
+Rd files are normally intended to be rendered on a wide variety of
+systems, so care must be taken in the encoding of non-ASCII
+characters.  In general, any such encoding should be declared using
+the \samp{encoding} section for there to be any hope of correct
+rendering.
+
+For output, the \code{outputEncoding} argument will be used:
+\code{outputEncoding = ""} will choose the native encoding for the
+current system.
+
+If the text cannot be converted to the \code{outputEncoding}, byte
+substitution will be used (see \code{\LinkA{iconv}{iconv}}): \code{Rd2latex}
+and \code{Rd2ex} give a warning. 
+\end{Section}
+%
+\begin{Note}\relax
+The \AsIs{\bsl{}Sexpr} macro is a new addition to Rd files.  It includes
+\R{} code that will be executed at one of three times: \emph{build} time
+(when a package's source code is built into a tarball), 
+\emph{install} time (when the package is installed or
+built into a binary package), and \emph{render} time (when the man
+page is converted to a readable format).
+
+For example, this man page was:
+\begin{enumerate}
+
+\item built on
+2012-11-03 at 18:12:38,
+\item installed on
+2012-11-03 at 18:12:38, and
+\item rendered on
+2012-11-03 at 18:18:46.
+
+\end{enumerate}
+
+\end{Note}
+%
+\begin{Author}\relax
+Duncan Murdoch, Brian Ripley
+\end{Author}
+%
+\begin{References}\relax
+ \url{http://developer.r-project.org/parseRd.pdf} 
+\end{References}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{parse\_Rd}{parse.Rul.Rd}}, \code{\LinkA{checkRd}{checkRd}},
+\code{\LinkA{findHTMLlinks}{findHTMLlinks}}, \code{\LinkA{Rd2txt\_options}{Rd2txt.Rul.options}}.
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+
+
+## Not run: 
+## Simulate install and rendering of this page in HTML and text format:
+
+Rd <- file.path("src/library/tools/man/Rd2HTML.Rd")
+
+outfile <- tempfile(fileext = ".html")
+browseURL(Rd2HTML(Rd, outfile, package = "tools",
+          stages = c("install", "render")))
+
+outfile <- tempfile(fileext = ".txt")
+file.show(Rd2txt(Rd, outfile, package = "tools",
+          stages = c("install", "render")))
+
+checkRd(Rd) # A stricter test than Rd2HTML uses
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{Rd2txt\_options}{Set formatting options for text help}{Rd2txt.Rul.options}
+\keyword{documentation}{Rd2txt\_options}
+%
+\begin{Description}\relax
+This function sets various options for displaying text help.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+Rd2txt_options(...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{...}] A list containing named options, or 
+options passed as individual named arguments.  
+See below for currently defined ones.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This function persistently sets various formatting options for the
+\code{\LinkA{Rd2txt}{Rd2txt}} function which is used in displaying text format
+help.  Currently defined options are:
+\begin{description}
+
+\item[width] (default 80):  The width of the output page.
+\item[minIndent] (default 10):  The minimum indent to use in a list.
+\item[extraIndent] (default 4):  The extra indent to use in each
+level of nested lists.
+\item[sectionIndent] (default 5):  The indent level for a section.
+\item[sectionExtra] (default 2):  The extra indentation for each
+nested section level.
+\item[itemBullet] (default \code{"* "}, with the asterisk replaced by a
+Unicode bullet in UTF-8 and most Windows locales):
+The symbol to use as a bullet in itemized lists.
+\item[enumFormat] :  A function to format item numbers in enumerated lists.
+\item[showURLs] (default \code{FALSE}):  Whether to show URLs when
+expanding \AsIs{\bsl{}href} tags.
+\item[code\_quote] (default \code{TRUE}):  Whether to render
+\AsIs{\bsl{}code} and similar with single quotes.
+\item[underline\_titles] default \code{TRUE}):  Whether to render
+section titles with underlines (via backspacing).
+
+\end{description}
+
+\end{Details}
+%
+\begin{Value}
+ 
+If called with no arguments, returns all option settings in a list.
+Otherwise, it changes the named settings and invisibly returns their
+previous values.
+\end{Value}
+%
+\begin{Author}\relax
+Duncan Murdoch
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{Rd2txt}{Rd2txt}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+saveOpts <- Rd2txt_options()
+saveOpts
+Rd2txt_options(minIndent=4)
+Rd2txt_options()
+Rd2txt_options(saveOpts)
+Rd2txt_options()
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{Rdiff}{Difference R Output Files}{Rdiff}
+\keyword{utilities}{Rdiff}
+%
+\begin{Description}\relax
+Given two \R{} output files, compute differences ignoring headers,
+footers and some other differences.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+Rdiff(from, to, useDiff = FALSE, forEx = FALSE, nullPointers = TRUE,
+      Log = FALSE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{from, to}] filepaths to be compared
+\item[\code{useDiff}] should \command{diff} always be used to compare
+results?
+\item[\code{forEx}] logical: extra pruning for \file{-Ex.Rout} files to
+exclude the header.
+\item[\code{nullPointers}] logical: should the displayed addresses of
+pointers be set to \code{0x00000000} before comparison?
+\item[\code{Log}] logical: should the returned value include a log of
+differences found?
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+The \R{} startup banner and any timing information from \command{R CMD
+BATCH} are removed from both files, together with lines about loading
+packages.  UTF-8 fancy quotes (see \code{\LinkA{sQuote}{sQuote}}) and on
+Windows, Windows' so-called `smart quotes' are mapped to a
+simple quote.  Addresses of environments, compiled bytecode and other
+exotic types expressed as hex addresses (e.g. \code{<environment:
+    0x12345678>}) are mapped to \code{0x00000000}.  The files are then
+compared line-by-line.  If there are the same number of lines and
+\code{useDiff} is false, a simple \command{diff}-like display of
+differences is printed, otherwise \command{diff -bw} is called on the
+edited files.
+
+As from \R{} 2.14.0 this can compare uncompressed PDF files, ignoring
+differences in creation and modification dates.
+\end{Details}
+%
+\begin{Value}
+If \code{Log} is true, a list with components \code{status} (see
+below) and \code{out}, a character vector of descriptions of
+differences, possibly of zero length.
+
+Otherwise, a status indicator, \code{0L} if and only if no differences
+were found.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+The shell script run as \command{R CMD Rdiff}.
+\end{SeeAlso}
+\HeaderA{Rdindex}{Generate Index from Rd Files}{Rdindex}
+\keyword{documentation}{Rdindex}
+\keyword{utilities}{Rdindex}
+%
+\begin{Description}\relax
+Print a 2-column index table with names and titles from given
+R documentation files to a given output file or connection.  The
+titles are nicely formatted between two column positions (typically 25
+and 72, respectively).
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+Rdindex(RdFiles, outFile = "", type = NULL,
+        width = 0.9 * getOption("width"), indent = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{RdFiles}] a character vector specifying the Rd files to be used
+for creating the index, either by giving the paths to the files, or
+the path to a single directory with the sources of a package.
+\item[\code{outFile}] a connection, or a character string naming the output
+file to print to.  \code{""} (the default) indicates output to the
+console.
+\item[\code{type}] a character string giving the documentation type of the Rd
+files to be included in the index, or \code{NULL} (the default).
+The type of an Rd file is typically specified via the
+\AsIs{\bsl{}docType} tag; if \code{type} is \code{"data"}, Rd files
+whose \emph{only} keyword is \code{datasets} are included as well.
+\item[\code{width}] a positive integer giving the target column for wrapping
+lines in the output.
+\item[\code{indent}] a positive integer specifying the indentation of the
+second column.  Must not be greater than \code{width/2}, and
+defaults to \code{width/3}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+If a name is not a valid alias, the first alias (or the empty string
+if there is none) is used instead.
+\end{Details}
+\HeaderA{RdTextFilter}{Select text in an Rd file.}{RdTextFilter}
+\keyword{utilities}{RdTextFilter}
+\keyword{documentation}{RdTextFilter}
+%
+\begin{Description}\relax
+This function blanks out all non-text in an Rd file, 
+for spell checking or other uses.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+RdTextFilter(ifile, encoding = "unknown", keepSpacing = TRUE,
+             drop = character(), keep = character())
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{ifile}] 
+An input file specified as a filename or connection, or an \code{"Rd"} object
+from \code{\LinkA{parse\_Rd}{parse.Rul.Rd}}.
+
+\item[\code{encoding}] 
+An encoding name to pass to \code{\LinkA{parse\_Rd}{parse.Rul.Rd}}.
+
+\item[\code{keepSpacing}] 
+Whether to try to leave the text in the same lines and columns
+as in the original file.
+
+\item[\code{drop}] 
+Additional sections of the Rd to drop.
+
+\item[\code{keep}] 
+Sections of the Rd file to keep.
+
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This function parses the Rd file, then walks through it, element by
+element.  Items with tag \code{"TEXT"} are kept in the same position as
+they appeared in the original file, while other parts of the file are
+replaced with blanks, so a spell checker such as \code{\LinkA{aspell}{aspell}}
+can check only the text and report the position in the original file.
+(If \code{keepSpacing} is \code{FALSE}, blank filling will not occur,
+and text will not be output in its original location.)
+
+By default, the tags \AsIs{\bsl{}S3method}, \AsIs{\bsl{}S4method},
+\AsIs{\bsl{}command}, \AsIs{\bsl{}docType}, \AsIs{\bsl{}email}, \AsIs{\bsl{}encoding},
+\AsIs{\bsl{}file}, \AsIs{\bsl{}keyword}, \AsIs{\bsl{}link}, \AsIs{\bsl{}linkS4class},
+\AsIs{\bsl{}method}, \AsIs{\bsl{}pkg}, and \AsIs{\bsl{}var} are skipped.  Additional
+tags can be skipped by listing them in the \code{drop} argument;
+listing tags in the \code{keep} argument will stop them from being
+skipped.  It is also possible to \code{keep} any of the
+\code{c("RCODE", "COMMENT", "VERB")} tags, which correspond to R-like
+code, comments, and verbatim text respectively, or to drop
+\code{"TEXT"}.
+\end{Details}
+%
+\begin{Value}
+A character vector which if written to a file, one element per line, would 
+duplicate the text elements of the original Rd file.
+\end{Value}
+%
+\begin{Note}\relax
+The filter attempts to merge text elements into single words when markup in
+the Rd file is used to highlight just the start of a word.
+\end{Note}
+%
+\begin{Author}\relax
+Duncan Murdoch
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{aspell}{aspell}}, for which this is an acceptable \code{filter}.
+\end{SeeAlso}
+\HeaderA{Rdutils}{Rd Utilities}{Rdutils}
+\aliasA{Rd\_db}{Rdutils}{Rd.Rul.db}
+\keyword{utilities}{Rdutils}
+\keyword{documentation}{Rdutils}
+%
+\begin{Description}\relax
+Utilities for computing on the information in Rd objects.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+Rd_db(package, dir, lib.loc = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{package}] a character string naming an installed package.
+\item[\code{dir}] a character string specifying the path to a package's root
+source directory.  This should contain the subdirectory \file{man}
+with \R{} documentation sources (in Rd format).  Only used if
+\code{package} is not given.
+\item[\code{lib.loc}] a character vector of directory names of \R{} libraries,
+or \code{NULL}.  The default value of \code{NULL} corresponds to all
+libraries currently known.  The specified library trees are used to
+search for \code{package}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{Rd\_db} builds a simple database of all Rd objects in a package,
+as a list of the results of running \code{\LinkA{parse\_Rd}{parse.Rul.Rd}} on the Rd
+source files in the package and processing platform conditionals.
+\end{Details}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{parse\_Rd}{parse.Rul.Rd}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+
+## Build the Rd db for the (installed) base package.
+db <- Rd_db("base")
+
+## Keyword metadata per Rd object.
+keywords <- lapply(db, tools:::.Rd_get_metadata, "keyword")
+## Tabulate the keyword entries.
+kw_table <- sort(table(unlist(keywords)))
+## The 5 most frequent ones:
+rev(kw_table)[1 : 5]
+## The "most informative" ones:
+kw_table[kw_table == 1]
+
+## Concept metadata per Rd file.
+concepts <- lapply(db, tools:::.Rd_get_metadata, "concept")
+## How many files already have \concept metadata?
+sum(sapply(concepts, length) > 0)
+## How many concept entries altogether?
+length(unlist(concepts))
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{read.00Index}{Read 00Index-style Files}{read.00Index}
+\keyword{file}{read.00Index}
+\keyword{connection}{read.00Index}
+%
+\begin{Description}\relax
+Read item/description information from \file{00Index}-like files.  Such
+files are description lists rendered in tabular form, and currently
+used for the \file{INDEX} and \file{demo/00Index} files of add-on
+packages.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+read.00Index(file)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file}] the name of a file to read data values from.  If the
+specified file is \code{""}, then input is taken from the keyboard
+(in this case input can be terminated by a blank line).
+Alternatively, \code{file} can be a \code{\LinkA{connection}{connection}}, which
+will be opened if necessary, and if so closed at the end of the
+function call.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character matrix with 2 columns named \code{"Item"} and
+\code{"Description"} which hold the items and descriptions.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{formatDL}{formatDL}} for the inverse operation of creating a
+00Index-style file from items and their descriptions.
+\end{SeeAlso}
+\HeaderA{readNEWS}{Read R's NEWS file or a similar one}{readNEWS}
+\aliasA{checkNEWS}{readNEWS}{checkNEWS}
+\keyword{file}{readNEWS}
+\keyword{documentation}{readNEWS}
+%
+\begin{Description}\relax
+Read/check \R{}'s \file{NEWS} file or a similarly formatted one.
+This was an experimental feature added in \R{} 2.4.0: as from
+\R{} 2.12.0 the preferred format is \file{NEWS.Rd}.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+readNEWS(file = file.path(R.home(), "NEWS"), trace = FALSE,
+         chop = c("first", "1", "par1", "keepAll"))
+checkNEWS(file = file.path(R.home(), "NEWS"))
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file}] the name of the file which the data are to be read from.
+Alternatively, \code{file} can be a \code{\LinkA{connection}{connection}}, which
+will be opened if necessary, and can also be a complete URL.  For
+more details, see the \code{file} argument of \code{\LinkA{read.table}{read.table}}.
+\item[\code{trace}] logical indicating if the recursive reading should be
+traced, i.e., print what it is doing.
+\item[\code{chop}] a character string specifying how the news entries should
+be \emph{chopped}; \code{chop = "keepAll"} saves the full entries.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{readNEWS()} reads a pre-\R{}-2.12.0-style \file{NEWS} file;
+\code{checkNEWS()} checks for common errors in formatting.  Currently it
+detects an incorrect number of spaces before the \code{"o"} item marker.
+
+If non-ASCII characters are needed, the \file{NEWS} file may be encoded in
+UTF-8 with a byte-order mark (BOM) at the beginning, which
+\code{readNEWS()} will recognize.  Other encodings will display
+incorrectly on some systems.  However, BOMs are discouraged on many
+systems and not all editors recognize them, so \file{NEWS} files should
+normally be written in ASCII.
+\end{Details}
+%
+\begin{Value}
+\code{readNEWS()} returns an (S3) object of class \code{"newsTree"};
+effectively a \code{\LinkA{list}{list}} of lists which is a tree of NEWS
+entries.
+
+\code{checkNEWS()} returns \code{TRUE} if no suspected errors are found,
+or prints a message for each suspected error and returns \code{FALSE}.
+
+Note that this was only ever experimental and may be removed soon,
+since the NEWS-file format is not longer supported (but there are
+examples \file{ONEWS}, \file{OONEWS} and perhaps in packages).
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+
+NEWStr  <- readNEWS(trace = TRUE)# chop = "first" ( = "first non-empty")
+## keep the full NEWS entry text i.e. "no chopping":
+NEWStrA <- readNEWS(chop = "keepAll")
+object.size(NEWStr)
+object.size(NEWStrA) ## (no chopping) ==> about double the size
+
+str(NEWStr, max.level = 3)
+
+str(NEWStr[[c("2.3", "2.3.1")]], max.level=2, vec.len=1)
+
+NEWStr [[c("2.3", "2.3.1", "NEW FEATURES")]]
+NEWStrA[[c("2.4", "2.4.0", "NEW FEATURES")]]
+
+# Check the current NEWS file
+
+stopifnot(checkNEWS())
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{showNonASCII}{Pick Out Non-ASCII Characters}{showNonASCII}
+\aliasA{showNonASCIIfile}{showNonASCII}{showNonASCIIfile}
+\keyword{utilities}{showNonASCII}
+%
+\begin{Description}\relax
+This function prints elements of a character vector which contain
+non-ASCII bytes, printing such bytes as a escape like \samp{<fc>}.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+showNonASCII(x)
+
+showNonASCIIfile(file)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] a character vector.
+\item[\code{file}] path to a file.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This was originally written to help detect non-portable text in
+files in packages.
+
+It prints all element of \code{x} which contain non-ASCII characters,
+preceded by the element number and with non-ASCII bytes highlighted
+\emph{via} \code{\LinkA{iconv}{iconv}(sub = "byte")}.
+\end{Details}
+%
+\begin{Value}
+The elements of \code{x} containing non-ASCII characters will be returned 
+invisibly.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+out <- c(
+"fa\xE7ile test of showNonASCII():",
+"\\details{",
+"   This is a good line",
+"   This has an \xfcmlaut in it.",
+"   OK again.",
+"}")
+f <- tempfile()
+cat(out, file = f, sep = "\n")
+
+showNonASCIIfile(f)
+unlink(f)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{startDynamicHelp}{Start the Dynamic HTML Help System}{startDynamicHelp}
+\aliasA{help.ports}{startDynamicHelp}{help.ports}
+\keyword{documentation}{startDynamicHelp}
+%
+\begin{Description}\relax
+This function starts the internal help server, so that HTML help pages
+are rendered when requested.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+startDynamicHelp(start=TRUE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{start}] logical: whether to start or shut down the dynamic help
+system.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This function starts the internal HTTP server, which runs on the
+loopback interface (\code{127.0.0.1}).  If \code{options("help.ports")}
+is set to a vector of integer values, \code{startDynamicHelp} will try
+those ports in order; otherwise, it tries up to 10 random ports to
+find one not in use.  It can be disabled by setting the environment
+variable \env{R\_DISABLE\_HTTPD} to a non-empty value.
+
+\code{startDynamicHelp} is called by functions that need to use the
+server, so would rarely be called directly by a user.
+
+Note that \code{options(help\_type="html")} must be set to actually make use
+of HTML help, although it might be the default for an \R{} installation.
+
+If the server cannot be started or is disabled,
+\code{\LinkA{help.start}{help.start}} will be unavailable and requests for HTML
+help will give text help (with a warning).
+
+The browser in use does need to be able to connect to the loopback
+interface: occasionally it is set to use a proxy for HTTP on all
+interfaces, which will not work -- the solution is to add an exception
+for \code{127.0.0.1}.
+\end{Details}
+%
+\begin{Value}
+The chosen port number is returned invisibly (which will be \code{0}
+if the server has been stopped).
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{help.start}{help.start}} and \code{\LinkA{help}{help}(help\_type = "html")}
+will attempt to start the HTTP server if required
+
+\code{\LinkA{Rd2HTML}{Rd2HTML}} is used to render the package help pages.
+\end{SeeAlso}
+\HeaderA{SweaveTeXFilter}{Strip R code out of Sweave file}{SweaveTeXFilter}
+\keyword{utilities}{SweaveTeXFilter}
+\keyword{documentation}{SweaveTeXFilter}
+%
+\begin{Description}\relax
+This function blanks out code chunks and Noweb markup in an Sweave input file, 
+for spell checking or other uses.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+SweaveTeXFilter(ifile, encoding = "unknown")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{ifile}] 
+Input file or connection.
+
+\item[\code{encoding}] 
+Text encoding to pass to \code{\LinkA{readLines}{readLines}}.
+
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This function blanks out all Noweb markup and code chunks from an Sweave input 
+file, leaving behind the LaTeX source, so that a LaTeX-aware spelling checker
+can check it and report errors in their original locations.
+\end{Details}
+%
+\begin{Value}
+A character vector which if written to a file, one element per line, would 
+duplicate the text elements of the original Rd file.
+\end{Value}
+%
+\begin{Author}\relax
+Duncan Murdoch
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{aspell}{aspell}}, for which this is used with \code{filter="Sweave"}.
+\end{SeeAlso}
+\HeaderA{testInstalledPackage}{Test Installed Packages}{testInstalledPackage}
+\aliasA{testInstalledBasic}{testInstalledPackage}{testInstalledBasic}
+\aliasA{testInstalledPackages}{testInstalledPackage}{testInstalledPackages}
+\keyword{utilities}{testInstalledPackage}
+%
+\begin{Description}\relax
+These functions allow an installed package to be tested, or all base
+and recommended packages.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+testInstalledPackage(pkg, lib.loc = NULL, outDir = ".",
+                     types = c("examples", "tests", "vignettes"),
+                     srcdir = NULL, Ropts = "")
+
+testInstalledPackages(outDir = ".", errorsAreFatal = TRUE,
+                      scope = c("both", "base", "recommended"),
+                      types = c("examples", "tests", "vignettes"),
+                      srcdir = NULL, Ropts = "")
+
+testInstalledBasic(scope = c("basic", "devel", "both"))
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{pkg}] name of an installed package.
+\item[\code{lib.loc}] library path(s) in which to look for the package.  See
+\code{\LinkA{library}{library}}.
+\item[\code{outDir}] the directory into which to write the output files: this
+should already exist.
+\item[\code{types}] type(s) of tests to be done.
+\item[\code{errorsAreFatal}] logical: should testing terminate at the first
+error?
+\item[\code{srcdir}] Optional directory to look for \code{.save} files.
+\item[\code{Ropts}] Additional options such as \option{-d valgrind} to be
+passed to \command{R CMD BATCH} when running examples or tests.
+\item[\code{scope}] Which set(s) should be tested?
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+These tests depend on having the package example files installed (which
+is the default).  If package-specific tests are found in a
+\file{tests} directory they can be tested: these are not
+installed by default, but will be if
+\command{R CMD INSTALL --install-tests} was used.  Finally, the \R{}
+code in any vignettes can be extracted and tested.
+
+Package tests are run in a \file{\var{pkg}-tests} subdirectory of
+\file{outDir}, and leave their output there.
+
+\code{testInstalledBasic} runs the basic tests, if installed.  This
+should be run with \code{LC\_COLLATE=C} set: the function tries to set
+this by it may not work on all OSes.  For non-English locales it may
+be desirable to set environment variables \env{LANGUAGE} to \samp{en}
+and \env{LC\_TIME} to \samp{C} to reduce the number of differences from
+reference results.
+
+The package-specific tests for the base and recommended packages are
+an optional part of the install.
+Currently testing requires a Unix-like \code{diff} for a full report
+if more than simple differences are found.
+\end{Details}
+%
+\begin{Value}
+Invisibly \code{0L} for success, \code{1L} for failure.
+\end{Value}
+\HeaderA{texi2dvi}{Compile LaTeX Files}{texi2dvi}
+\aliasA{texi2pdf}{texi2dvi}{texi2pdf}
+\keyword{utilities}{texi2dvi}
+%
+\begin{Description}\relax
+Run \code{latex} and \code{bibtex} until all cross-references are
+resolved and create either a dvi or PDF file.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+texi2dvi(file, pdf = FALSE, clean = FALSE, quiet = TRUE,
+         texi2dvi = getOption("texi2dvi"),
+         texinputs = NULL, index = TRUE)
+
+texi2pdf(file, clean = FALSE, quiet = TRUE,
+         texi2dvi = getOption("texi2dvi"),
+         texinputs = NULL, index = TRUE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file}] character.  Name of LaTeX source file.
+\item[\code{pdf}] logical.  If \code{TRUE}, a PDF file is produced instead of
+the default dvi file (\code{texi2dvi} command line option \option{--pdf}).
+\item[\code{clean}] logical.  If \code{TRUE}, all auxiliary files are removed
+(\code{texi2dvi} command line option \option{--clean}).  May not work on
+some platforms.
+\item[\code{quiet}] logical.  No output unless an error occurs.  Ignored if
+emulation (see the \code{texi2dvi} argument) is used.
+\item[\code{texi2dvi}] character (or \code{NULL}).  Script or program used to
+compile a TeX file to dvi or PDF, respectively.
+The default (selected by \code{""} or \code{NULL}) is to look for an
+executable on the search path and otherwise emulate the script with
+\code{system} calls.
+\item[\code{texinputs}] \code{NULL} or a character vector of paths to add to
+the LaTeX and bibtex input search paths.
+\item[\code{index}] logical: should indices be prepared?
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{texi2pdf} is a wrapper for the common case of
+\code{texi2dvi(pdf = TRUE)}.
+
+Despite the name, this is used in \R{} to compile LaTeX files,
+specifically those generated from vignettes.  It
+ensures that the \file{\var{\LinkA{R\_HOME}{R.Rul.HOME}}/share/texmf} directory is
+in the \env{TEXINPUTS} path, so \R{} style files such as \file{Sweave}
+and \file{Rd} will be found.  The search path used is first the
+existing \env{TEXINPUTS} setting (or the current directory if unset),
+then elements of \code{texinputs}, then
+\file{\var{R\_HOME}/share/texmf} and finally the default
+path.  Analogous changes are made to \env{BIBINPUTS} and
+\env{BSTINPUTS} settings.
+
+MiKTeX has a \code{texi2dvi} executable but no other Windows TeX
+installation that we know of does, so emulation is used on e.g. TeXLive
+installations on Windows.
+
+Occasionally indices contain special characters which cause indexing
+to fail (particularly when using the \samp{hyperref} LaTeX package)
+even on valid input.  The argument \code{index = FALSE} is provided to
+allow package manuals to be made when this happens: it uses emulation.
+\end{Details}
+%
+\begin{Value}
+Invisible \code{NULL}.  Used for the side effect of creating a dvi or
+PDF file in the current working directory (and maybe other files,
+especially if \code{clean = FALSE}). 
+\end{Value}
+%
+\begin{Note}\relax
+There are various versions of the \command{texi2dvi} script on
+Unix-alikes and quite a number of bugs have been seen, some of which
+this \R{} wrapper works around.
+
+One that is current is that it may not work correctly for paths which
+contain spaces, nor even if the absolute path to a file would contain
+spaces.
+
+The three possible approaches all have their quirks.  For example the
+Unix-alike \code{texi2dvi} script removes ancillary files that already
+exist but the other two approaches do not (and may get confused by
+such files). 
+\end{Note}
+%
+\begin{Author}\relax
+Originally Achim Zeileis but largely rewritten by R-core.
+\end{Author}
+\HeaderA{toHTML}{Display an object in HTML.}{toHTML}
+\methaliasA{toHTML.news\_db}{toHTML}{toHTML.news.Rul.db}
+\methaliasA{toHTML.packageIQR}{toHTML}{toHTML.packageIQR}
+\keyword{utilities}{toHTML}
+\keyword{documentation}{toHTML}
+%
+\begin{Description}\relax
+This generic function generates a complete HTML page from an object.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+toHTML(x, ...)
+## S3 method for class 'packageIQR'
+toHTML(x, ...)
+## S3 method for class 'news_db'
+toHTML(x, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}]  An object to display. 
+\item[\code{...}]  Optional parameters for methods; the \code{"packageIQR"} and
+\code{"news\_db"} methods pass these to \code{\LinkA{HTMLheader}{HTMLheader}}. 
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character vector to display the object \code{x}.  The \code{"packageIQR"} method
+is designed to display lists in the \R{} help system.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{HTMLheader}{HTMLheader}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+cat(toHTML(demo(package="base")), sep="\n")
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{tools-deprecated}{Deprecated Objects in Package \pkg{tools}}{tools.Rdash.deprecated}
+\keyword{misc}{tools-deprecated}
+%
+\begin{Description}\relax
+The functions or variables listed here are provided for compatibility
+with older versions of \R{} only, and may be defunct as soon as of the
+next release.
+\end{Description}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{Deprecated}{Deprecated}},
+\code{\LinkA{Defunct}{Defunct}}
+\end{SeeAlso}
+\HeaderA{toRd}{Generic function to convert object to a fragment of Rd code.}{toRd}
+\methaliasA{toRd.bibentry}{toRd}{toRd.bibentry}
+\methaliasA{toRd.default}{toRd}{toRd.default}
+\keyword{utilities}{toRd}
+\keyword{documentation}{toRd}
+%
+\begin{Description}\relax
+Methods for this function render their associated classes as a fragment of Rd
+code, which can then be rendered into text, HTML, or LaTeX.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+toRd(obj, ...)
+## S3 method for class 'bibentry'
+toRd(obj, style = NULL, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{obj}] 
+The object to be rendered.
+
+\item[\code{style}] 
+The style to be used in converting a \code{\LinkA{bibentry}{bibentry}} object.  
+
+\item[\code{...}] 
+Additional arguments used by methods.
+
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+See \code{\LinkA{bibstyle}{bibstyle}} for a discussion of styles.  The default \code{style = NULL} value
+gives the default style.
+\end{Details}
+%
+\begin{Value}
+Returns a character vector containing a fragment of Rd code that could
+be parsed and rendered.  The default method converts \code{obj} to mode \code{character},
+then escapes any Rd markup within it.  The \code{bibentry} method converts an
+object of that class to markup appropriate for use in a bibliography.
+\end{Value}
+\HeaderA{undoc}{Find Undocumented Objects}{undoc}
+\aliasA{print.undoc}{undoc}{print.undoc}
+\keyword{documentation}{undoc}
+%
+\begin{Description}\relax
+Finds the objects in a package which are undocumented, in the sense
+that they are visible to the user (or data objects or S4 classes
+provided by the package), but no documentation entry exists.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+undoc(package, dir, lib.loc = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{package}] a character string naming an installed package.
+\item[\code{dir}] a character string specifying the path to a package's root
+source directory.  This must contain the subdirectory \file{man}
+with \R{} documentation sources (in Rd format), and at least one of
+the \file{R} or \file{data} subdirectories with \R{} code or data
+objects, respectively.
+\item[\code{lib.loc}] a character vector of directory names of \R{} libraries,
+or \code{NULL}.  The default value of \code{NULL} corresponds to all
+libraries currently known.  The specified library trees are used to
+search for \code{package}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This function is useful for package maintainers mostly.  In principle,
+\emph{all} user-level \R{} objects should be documented.
+
+The \pkg{base} package is special as it contains the primitives and
+these do not have definitions available at code level.  We provide
+equivalent closures in environments \code{.ArgsEnv} and
+\code{.GenericArgsEnv} in the \pkg{base} package that are used
+for various purposes: \code{undoc("base")} checks that all the
+primitives that are not language constructs are prototyped in those
+environments and no others are.
+\end{Details}
+%
+\begin{Value}
+An object of class \code{"undoc"} which is a list of character vectors
+containing the names of the undocumented objects split according to
+documentation type.
+
+There is a \code{print} method for nicely displaying the information
+contained in such objects.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{codoc}{codoc}}, \code{\LinkA{QC}{QC}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+undoc("tools")                  # Undocumented objects in 'tools'
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{vignetteDepends}{Retrieve Dependency Information for a Vignette}{vignetteDepends}
+\keyword{utilities}{vignetteDepends}
+%
+\begin{Description}\relax
+Given a vignette name, will create a \code{DependsList} object that
+reports information about the packages the vignette depends on.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+vignetteDepends(vignette, recursive = TRUE, reduce = TRUE,
+                local = TRUE, lib.loc = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{vignette}] The path to the vignette source
+\item[\code{recursive}] Whether or not to include indirect dependencies
+\item[\code{reduce}] Whether or not to collapse all sets of dependencies to a
+minimal value
+\item[\code{local}] Whether or not to search only locally
+\item[\code{lib.loc}] What libraries to search in locally
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+If \code{recursive} is \code{TRUE}, any package that is specified as a
+dependency will in turn have its dependencies included (and so on),
+these are known as indirect dependencies.  If recursive is
+\code{FALSE}, only the dependencies directly named by the vignette
+will be used.
+
+If \code{local} is \code{TRUE}, the system will only look at the
+user's local machine and not online to find dependencies.
+
+If \code{reduce} is \code{TRUE}, the system will collapse the fields in the
+\code{DependsList} object such that a minimal set of dependencies
+are specified (for instance if there was
+\samp{foo, foo (>= 1.0.0), foo (>= 1.3.0}, it would only return
+\samp{foo (>= 1.3.0)}).
+\end{Details}
+%
+\begin{Value}
+An object of class \code{"DependsList"}.
+\end{Value}
+%
+\begin{Author}\relax
+ Jeff Gentry 
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{pkgDepends}{pkgDepends}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## This may not be installed
+gridEx <- system.file("doc", "grid.Rnw", package = "grid")
+vignetteDepends(gridEx)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{write\_PACKAGES}{Generate PACKAGES files}{write.Rul.PACKAGES}
+\keyword{file}{write\_PACKAGES}
+\keyword{utilities}{write\_PACKAGES}
+%
+\begin{Description}\relax
+Generate \file{PACKAGES} and \file{PACKAGES.gz} files for a
+repository of source or Mac/Windows binary packages.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+write_PACKAGES(dir = ".", fields = NULL,
+               type = c("source", "mac.binary", "win.binary"),
+               verbose = FALSE, unpacked = FALSE, subdirs = FALSE,
+               latestOnly = TRUE, addFiles = FALSE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{dir}] Character vector describing the location of the repository
+(directory including source or binary packages) to generate the
+\file{PACKAGES} and \file{PACKAGES.gz} files from and write them to.
+
+\item[\code{fields}] 
+a character vector giving the fields to be used in the
+\file{PACKAGES} and \file{PACKAGES.gz} files in addition to the
+default ones, or \code{NULL} (default).  The default corresponds to
+the fields needed by \code{\LinkA{available.packages}{available.packages}}:
+\code{"Package"}, \code{"Version"}, \code{"Priority"},
+\code{"Depends"}, \code{"Imports"}, \code{"LinkingTo"},
+\code{"Suggests"}, \code{"Enhances"}, \code{"OS\_type"},
+\code{"License"} and \code{"Archs"}, and those fields will always
+be included, plus
+the file name in field \code{"File"} if \code{addFile = TRUE}
+and the path to the subdirectory in field \code{"Path"} if subdirectories
+are used.
+
+\item[\code{type}] 
+Type of packages: currently source \file{.tar.gz} archives, and Mac
+or Windows binary (\file{.tgz} or \file{.zip}, respectively)
+packages are supported.  Defaults to \code{"win.binary"} on Windows
+and to \code{"source"} otherwise.
+
+\item[\code{verbose}] logical.  Should packages be listed as they are
+processed?
+\item[\code{unpacked}] a logical indicating whether the package contents are
+available in unpacked form or not (default).
+\item[\code{subdirs}] either logical (to indicate if subdirectories should be
+included, recursively) or a character vector of name of subdirectories
+to include.
+\item[\code{latestOnly}] logical: if multiple versions of a package are
+available should only the latest version be included?
+\item[\code{addFiles}] logical: should the filenames be included as field
+\samp{File} in the \file{PACKAGES} file.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{write\_PACKAGES} scans the named directory for R packages,
+extracts information from each package's \file{DESCRIPTION} file, and
+writes this information into the \file{PACKAGES} and
+\file{PACKAGES.gz} files.
+
+Including non-latest versions of packages is only useful if they have
+less constraining version requirements, so for example
+\code{latestOnly = FALSE} could be used for a source repository when
+\samp{foo\_1.0} depends on \samp{R >= 2.15.0} but \samp{foo\_0.9} is
+available which depends on \samp{R >= 2.11.0}.
+
+Support for repositories with subdirectories and hence for
+\code{subdirs != FALSE} was added in \R{} 2.7.0: this depends on
+recording a \code{"Path"} field in the \file{PACKAGES} file.
+
+Support for more general file names (e.g. other types of compression)
+\emph{via} a \code{"File"} field in the \file{PACKAGES} file was added
+in \R{} 2.10.0 and can be used by \code{\LinkA{download.packages}{download.packages}}.  If
+the file names are not of the standard form, use
+\code{addFiles = TRUE}.
+
+\code{type = "win.binary"} uses \code{\LinkA{unz}{unz}} connections to read
+all \file{DESCRIPTION} files contained in the (zipped) binary packages
+for Windows in the given directory \code{dir}, and builds files
+\file{PACKAGES} and \file{PACKAGES.gz} files from this information.
+\end{Details}
+%
+\begin{Value}
+Invisibly returns the number of packages described in the resulting
+\file{PACKAGES} and \file{PACKAGES.gz} files.  If \code{0}, no
+packages were found and no files were written.
+\end{Value}
+%
+\begin{Note}\relax
+Processing \file{.tar.gz} archives to extract the \file{DESCRIPTION}
+files is quite slow.
+
+This function can be useful on other OSes to prepare a repository to
+be accessed by Windows machines, so \code{type = "win.binary"} should
+work on all OSes.
+\end{Note}
+%
+\begin{Author}\relax
+Uwe Ligges and R-core.
+\end{Author}
+%
+\begin{SeeAlso}\relax
+See \code{\LinkA{read.dcf}{read.dcf}} and \code{\LinkA{write.dcf}{write.dcf}} for reading
+\file{DESCRIPTION} files and writing the \file{PACKAGES} and
+\file{PACKAGES.gz} files.
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+write_PACKAGES("c:/myFolder/myRepository")  # on Windows
+write_PACKAGES("/pub/RWin/bin/windows/contrib/2.9",
+               type="win.binary")  # on Linux
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{xgettext}{Extract Translatable Messages from R Files in a Package}{xgettext}
+\aliasA{xgettext2pot}{xgettext}{xgettext2pot}
+\aliasA{xngettext}{xgettext}{xngettext}
+\keyword{utilities}{xgettext}
+%
+\begin{Description}\relax
+For each file in the \file{R} directory (including system-specific
+subdirectories) of a package, extract the unique arguments passed
+to \code{\LinkA{stop}{stop}}, \code{\LinkA{warning}{warning}}, \code{\LinkA{message}{message}},
+\code{\LinkA{gettext}{gettext}} and \code{\LinkA{gettextf}{gettextf}}, or to
+\code{\LinkA{ngettext}{ngettext}}.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+xgettext(dir, verbose = FALSE, asCall = TRUE)
+
+xngettext(dir, verbose = FALSE)
+
+xgettext2pot(dir, potFile)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{dir}] the directory of a source package.
+\item[\code{verbose}] logical: should each file be listed as it is processed?
+\item[\code{asCall}] logical: if \code{TRUE} each argument is returned whole,
+otherwise the strings within each argument are extracted.
+
+\item[\code{potFile}] name of \code{po} template file to be produced.
+Defaults to \file{R-\var{pkgname}.pot} where
+\var{pkgname} is the basename of \file{dir}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Leading and trailing white space (space, tab and linefeed) is removed
+for calls to \code{gettext}, \code{gettextf}, \code{stop},
+\code{warning}, and \code{message}, as it is by the internal code that
+passes strings for translation.
+
+We look to see if these functions were called with \code{domain = NA}
+and if so omit the call if \code{asCall = TRUE}: note that the
+call might contain a call to \code{gettext} which would be visible if
+\code{asCall = FALSE}.
+
+\code{xgettext2pot} calls \code{xgettext} and then \code{xngettext},
+and writes a PO template file for use with the \pkg{GNU Gettext}
+tools.  This ensures that the strings for simple translation are
+unique in the file (as \pkg{GNU Gettext} requires), but does not do so
+for \code{ngettext} calls (and the rules are not stated in the Gettext
+manual).
+
+If applied to the \pkg{base} package, this also looks in the \file{.R}
+files in \file{\var{\LinkA{R\_HOME}{R.Rul.HOME}}/share/R}.
+\end{Details}
+%
+\begin{Value}
+For \code{xgettext}, a list of objects of class \code{"xgettext"}
+(which has a \code{print} method), one per source file that
+potentially contains translatable strings.
+
+For \code{xngettext}, a list of objects of class \code{"xngettext"},
+which are themselves lists of length-2 character strings.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: ## in a source-directory build of R:
+xgettext(file.path(R.home(), "src", "library", "splines"))
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\clearpage

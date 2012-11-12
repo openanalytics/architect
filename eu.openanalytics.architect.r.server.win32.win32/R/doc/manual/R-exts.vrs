@@ -1,0 +1,292 @@
+\initial {*}
+\entry {\code {*Riconv_open}}{128}
+\initial {.}
+\entry {\code {.C}}{82}
+\entry {\code {.Call}}{94, 103}
+\entry {\code {.External}}{94, 104}
+\entry {\code {.Fortran}}{82}
+\entry {\code {.Last.lib}}{36}
+\entry {\code {.onAttach}}{36}
+\entry {\code {.onLoad}}{36}
+\entry {\code {.onUnload}}{36}
+\entry {\code {.Random.seed}}{119}
+\initial {{\tt \indexbackslash }}
+\entry {\code {{\tt \backslashcurfont }acronym}}{57}
+\entry {\code {{\tt \backslashcurfont }alias}}{49}
+\entry {\code {{\tt \backslashcurfont }arguments}}{51}
+\entry {\code {{\tt \backslashcurfont }author}}{52}
+\entry {\code {{\tt \backslashcurfont }bold}}{55}
+\entry {\code {{\tt \backslashcurfont }cite}}{57}
+\entry {\code {{\tt \backslashcurfont }code}}{56}
+\entry {\code {{\tt \backslashcurfont }command}}{57}
+\entry {\code {{\tt \backslashcurfont }concept}}{60}
+\entry {\code {{\tt \backslashcurfont }cr}}{55}
+\entry {\code {{\tt \backslashcurfont }deqn}}{58}
+\entry {\code {{\tt \backslashcurfont }describe}}{57}
+\entry {\code {{\tt \backslashcurfont }description}}{50}
+\entry {\code {{\tt \backslashcurfont }details}}{51}
+\entry {\code {{\tt \backslashcurfont }dfn}}{57}
+\entry {\code {{\tt \backslashcurfont }dontrun}}{52}
+\entry {\code {{\tt \backslashcurfont }dontshow}}{52}
+\entry {\code {{\tt \backslashcurfont }dots}}{59}
+\entry {\code {{\tt \backslashcurfont }dQuote}}{55}
+\entry {\code {{\tt \backslashcurfont }email}}{56}
+\entry {\code {{\tt \backslashcurfont }emph}}{55}
+\entry {\code {{\tt \backslashcurfont }enc}}{60}
+\entry {\code {{\tt \backslashcurfont }enumerate}}{57}
+\entry {\code {{\tt \backslashcurfont }env}}{57}
+\entry {\code {{\tt \backslashcurfont }eqn}}{58}
+\entry {\code {{\tt \backslashcurfont }examples}}{52}
+\entry {\code {{\tt \backslashcurfont }figure}}{59}
+\entry {\code {{\tt \backslashcurfont }file}}{56}
+\entry {\code {{\tt \backslashcurfont }format}}{54}
+\entry {\code {{\tt \backslashcurfont }href}}{56}
+\entry {\code {{\tt \backslashcurfont }if}}{61}
+\entry {\code {{\tt \backslashcurfont }ifelse}}{61}
+\entry {\code {{\tt \backslashcurfont }itemize}}{57}
+\entry {\code {{\tt \backslashcurfont }kbd}}{56}
+\entry {\code {{\tt \backslashcurfont }keyword}}{53}
+\entry {\code {{\tt \backslashcurfont }ldots}}{59}
+\entry {\code {{\tt \backslashcurfont }link}}{58}
+\entry {\code {{\tt \backslashcurfont }method}}{50}
+\entry {\code {{\tt \backslashcurfont }name}}{49}
+\entry {\code {{\tt \backslashcurfont }newcommand}}{62}
+\entry {\code {{\tt \backslashcurfont }note}}{52}
+\entry {\code {{\tt \backslashcurfont }option}}{57}
+\entry {\code {{\tt \backslashcurfont }out}}{61}
+\entry {\code {{\tt \backslashcurfont }pkg}}{56}
+\entry {\code {{\tt \backslashcurfont }preformatted}}{56}
+\entry {\code {{\tt \backslashcurfont }R}}{59}
+\entry {\code {{\tt \backslashcurfont }RdOpts}}{61}
+\entry {\code {{\tt \backslashcurfont }references}}{52}
+\entry {\code {{\tt \backslashcurfont }renewcommand}}{62}
+\entry {\code {{\tt \backslashcurfont }S3method}}{51}
+\entry {\code {{\tt \backslashcurfont }samp}}{56}
+\entry {\code {{\tt \backslashcurfont }section}}{55}
+\entry {\code {{\tt \backslashcurfont }seealso}}{52}
+\entry {\code {{\tt \backslashcurfont }Sexpr}}{61}
+\entry {\code {{\tt \backslashcurfont }source}}{54}
+\entry {\code {{\tt \backslashcurfont }sQuote}}{55}
+\entry {\code {{\tt \backslashcurfont }strong}}{55}
+\entry {\code {{\tt \backslashcurfont }tabular}}{57}
+\entry {\code {{\tt \backslashcurfont }title}}{50}
+\entry {\code {{\tt \backslashcurfont }url}}{56}
+\entry {\code {{\tt \backslashcurfont }usage}}{50}
+\entry {\code {{\tt \backslashcurfont }value}}{51}
+\entry {\code {{\tt \backslashcurfont }var}}{56}
+\entry {\code {{\tt \backslashcurfont }verb}}{56}
+\initial {B}
+\entry {\code {bessel_i}}{123}
+\entry {\code {bessel_j}}{123}
+\entry {\code {bessel_k}}{123}
+\entry {\code {bessel_y}}{123}
+\entry {\code {beta}}{123}
+\entry {\code {BLAS_LIBS}}{16}
+\entry {\code {browser}}{71}
+\initial {C}
+\entry {\code {Calloc}}{118}
+\entry {\code {CAR}}{105}
+\entry {\code {CDR}}{105}
+\entry {\code {cgmin}}{125}
+\entry {\code {choose}}{123}
+\entry {\code {CITATION}}{11, 46}
+\entry {\code {cPsort}}{127}
+\initial {D}
+\entry {\code {debug}}{74}
+\entry {\code {debugger}}{73}
+\entry {\code {defineVar}}{101}
+\entry {\code {digamma}}{122}
+\entry {\code {dump.frames}}{73}
+\entry {\code {duplicate}}{102}
+\entry {\code {dyn.load}}{84}
+\entry {\code {dyn.unload}}{84}
+\initial {E}
+\entry {\code {exp_rand}}{119}
+\entry {\code {expm1}}{123}
+\entry {\code {export}}{35}
+\entry {\code {exportClasses}}{39}
+\entry {\code {exportClassPattern}}{39}
+\entry {\code {exportMethods}}{39}
+\entry {\code {exportPattern}}{35, 39}
+\initial {F}
+\entry {\code {FALSE}}{125}
+\entry {\code {findInterval}}{127}
+\entry {\code {findVar}}{101}
+\entry {\code {FLIBS}}{16}
+\entry {\code {fmax2}}{124}
+\entry {\code {fmin2}}{124}
+\entry {\code {fprec}}{124}
+\entry {\code {Free}}{118}
+\entry {\code {fround}}{124}
+\entry {\code {fsign}}{124}
+\entry {\code {ftrunc}}{124}
+\initial {G}
+\entry {\code {gammafn}}{122}
+\entry {\code {gctorture}}{76}
+\entry {\code {getAttrib}}{99}
+\entry {\code {getCharCE}}{116}
+\entry {\code {GetRNGstate}}{119}
+\initial {H}
+\entry {\code {hsv2rgb}}{128}
+\initial {I}
+\entry {\code {imax2}}{124}
+\entry {\code {imin2}}{124}
+\entry {\code {import}}{35}
+\entry {\code {importClassesFrom}}{40}
+\entry {\code {importFrom}}{35}
+\entry {\code {importMethodsFrom}}{40}
+\entry {\code {install}}{99}
+\entry {\code {iPsort}}{127}
+\entry {\code {ISNA}}{106, 119}
+\entry {\code {ISNAN}}{106, 119}
+\initial {L}
+\entry {\code {LAPACK_LIBS}}{16}
+\entry {\code {lbeta}}{123}
+\entry {\code {lbfgsb}}{125}
+\entry {\code {lchoose}}{123}
+\entry {\code {lgamma1p}}{123}
+\entry {\code {lgammafn}}{122}
+\entry {\code {library.dynam}}{9, 84}
+\entry {\code {log1p}}{123}
+\entry {\code {log1pexp}}{123}
+\entry {\code {log1pmx}}{123}
+\entry {\code {logspace_add}}{124}
+\entry {\code {logspace_sub}}{124}
+\initial {M}
+\entry {\code {M_E}}{124}
+\entry {\code {M_PI}}{124}
+\entry {\code {mkChar}}{101}
+\entry {\code {mkCharCE}}{116}
+\entry {\code {mkCharLen}}{101}
+\entry {\code {mkCharLenCE}}{116}
+\initial {N}
+\entry {\code {NA_REAL}}{119}
+\entry {\code {nmmin}}{125}
+\entry {\code {norm_rand}}{119}
+\initial {O}
+\entry {\code {OBJECTS}}{17, 89}
+\initial {P}
+\entry {\code {pentagamma}}{122}
+\entry {\code {PKG_CFLAGS}}{89}
+\entry {\code {PKG_CPPFLAGS}}{89}
+\entry {\code {PKG_CXXFLAGS}}{89}
+\entry {\code {PKG_FCFLAGS}}{89}
+\entry {\code {PKG_FFLAGS}}{89}
+\entry {\code {PKG_LIBS}}{89}
+\entry {\code {PKG_OBJCFLAGS}}{89}
+\entry {\code {prompt}}{49}
+\entry {\code {PROTECT}}{95}
+\entry {\code {PROTECT_WITH_INDEX}}{96}
+\entry {\code {psigamma}}{122, 123}
+\entry {\code {PutRNGstate}}{119}
+\initial {Q}
+\entry {\code {qsort3}}{127}
+\entry {\code {qsort4}}{127}
+\initial {R}
+\entry {\code {R CMD build}}{26}
+\entry {\code {R CMD check}}{23}
+\entry {\code {R CMD config}}{14}
+\entry {\code {R CMD Rd2pdf}}{63}
+\entry {\code {R CMD Rdconv}}{63}
+\entry {\code {R CMD SHLIB}}{89}
+\entry {\code {R CMD Stangle}}{63}
+\entry {\code {R CMD Sweave}}{63}
+\entry {\code {R_addhistory}}{138}
+\entry {\code {R_alloc}}{117}
+\entry {\code {R_Busy}}{137}
+\entry {\code {R_ChooseFile}}{138}
+\entry {\code {R_CleanUp}}{139}
+\entry {\code {R_ClearErrConsole}}{137}
+\entry {\code {R_csort}}{127}
+\entry {\code {R_EditFile}}{138}
+\entry {\code {R_ExpandFileName}}{128}
+\entry {\code {R_FINITE}}{119}
+\entry {\code {R_FlushConsole}}{137}
+\entry {\code {R_GetCCallable}}{88}
+\entry {\code {R_GetCurrentSrcref}}{113}
+\entry {\code {R_GetSrcFilename}}{113}
+\entry {\code {R_INLINE}}{129}
+\entry {\code {R_IsNaN}}{119}
+\entry {\code {R_isort}}{127}
+\entry {\code {R_LIBRARY_DIR}}{15}
+\entry {\code {R_loadhistory}}{138}
+\entry {\code {R_max_col}}{127}
+\entry {\code {R_NegInf}}{119}
+\entry {\code {R_PACKAGE_DIR}}{15}
+\entry {\code {R_PACKAGE_NAME}}{15}
+\entry {\code {R_ParseVector}}{113}
+\entry {\code {R_PosInf}}{119}
+\entry {\code {R_pow}}{123}
+\entry {\code {R_pow_di}}{123}
+\entry {\code {R_qsort}}{127}
+\entry {\code {R_qsort_I}}{127}
+\entry {\code {R_qsort_int}}{127}
+\entry {\code {R_qsort_int_I}}{127}
+\entry {\code {R_ReadConsole}}{137}
+\entry {\code {R_RegisterCCallable}}{88}
+\entry {\code {R_registerRoutines}}{86}
+\entry {\code {R_ResetConsole}}{137}
+\entry {\code {R_rsort}}{127}
+\entry {\code {R_savehistory}}{138}
+\entry {\code {R_ShowFiles}}{138}
+\entry {\code {R_ShowMessage}}{137}
+\entry {\code {R_Srcref}}{113}
+\entry {\code {R_Suicide}}{139}
+\entry {\code {R_tmpnam}}{128}
+\entry {\code {R_tmpnam2}}{128}
+\entry {\code {R_Version}}{129}
+\entry {\code {R_WriteConsole}}{137}
+\entry {\code {R_WriteConsoleEx}}{137}
+\entry {\code {Rdqagi}}{126}
+\entry {\code {Rdqags}}{126}
+\entry {\code {Realloc}}{118}
+\entry {\code {recover}}{74}
+\entry {\code {reEnc}}{116}
+\entry {\code {REprintf}}{120}
+\entry {\code {REPROTECT}}{96}
+\entry {\code {REvprintf}}{120}
+\entry {\code {revsort}}{127}
+\entry {\code {rgb2hsv}}{128}
+\entry {\code {Riconv}}{128}
+\entry {\code {Riconv_close}}{128}
+\entry {\code {Rprintf}}{120}
+\entry {\code {Rprof}}{65, 67}
+\entry {\code {Rprofmem}}{68}
+\entry {\code {rPsort}}{127}
+\entry {\code {rsort_with_index}}{127}
+\entry {\code {Rvprintf}}{120}
+\initial {S}
+\entry {\code {S_alloc}}{117}
+\entry {\code {S_realloc}}{117}
+\entry {\code {S3method}}{35}
+\entry {\code {SAFE_FFLAGS}}{17}
+\entry {\code {samin}}{125}
+\entry {\code {seed_in}}{119}
+\entry {\code {seed_out}}{119}
+\entry {\code {setAttrib}}{99}
+\entry {\code {setVar}}{101}
+\entry {\code {sign}}{124}
+\entry {\code {summaryRprof}}{67}
+\entry {\code {system}}{82}
+\entry {\code {system.time}}{82}
+\entry {\code {system2}}{82}
+\initial {T}
+\entry {\code {tetragamma}}{122}
+\entry {\code {trace}}{75}
+\entry {\code {traceback}}{72}
+\entry {\code {tracemem}}{68}
+\entry {\code {translateChar}}{116}
+\entry {\code {translateCharUTF8}}{116}
+\entry {\code {trigamma}}{122}
+\entry {\code {TRUE}}{125}
+\initial {U}
+\entry {\code {undebug}}{75}
+\entry {\code {unif_rand}}{119}
+\entry {\code {UNPROTECT}}{95}
+\entry {\code {UNPROTECT_PTR}}{96}
+\entry {\code {untracemem}}{68}
+\entry {\code {useDynLib}}{36}
+\initial {V}
+\entry {\code {vmaxget}}{117}
+\entry {\code {vmaxset}}{117}
+\entry {\code {vmmin}}{125}

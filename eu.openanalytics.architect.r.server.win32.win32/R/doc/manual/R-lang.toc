@@ -1,0 +1,119 @@
+@numchapentry{Introduction}{1}{Introduction}{1}
+@numchapentry{Objects}{2}{Objects}{2}
+@numsecentry{Basic types}{2.1}{Basic types}{3}
+@numsubsecentry{Vectors}{2.1.1}{Vector objects}{3}
+@numsubsecentry{Lists}{2.1.2}{List objects}{3}
+@numsubsecentry{Language objects}{2.1.3}{Language objects}{3}
+@numsubsubsecentry{Symbol objects}{2.1.3.1}{Symbol objects}{4}
+@numsubsecentry{Expression objects}{2.1.4}{Expression objects}{4}
+@numsubsecentry{Function objects}{2.1.5}{Function objects}{4}
+@numsubsecentry{NULL}{2.1.6}{NULL object}{4}
+@numsubsecentry{Builtin objects and special forms}{2.1.7}{Builtin objects and special forms}{5}
+@numsubsecentry{Promise objects}{2.1.8}{Promise objects}{5}
+@numsubsecentry{Dot-dot-dot}{2.1.9}{Dot-dot-dot}{5}
+@numsubsecentry{Environments}{2.1.10}{Environment objects}{5}
+@numsubsecentry{Pairlist objects}{2.1.11}{Pairlist objects}{6}
+@numsubsecentry{The ``Any'' type}{2.1.12}{Any-type}{6}
+@numsecentry{Attributes}{2.2}{Attributes}{6}
+@numsubsecentry{Names}{2.2.1}{Names}{6}
+@numsubsecentry{Dimensions}{2.2.2}{Dimensions}{7}
+@numsubsecentry{Dimnames}{2.2.3}{Dimnames}{7}
+@numsubsecentry{Classes}{2.2.4}{Classes}{7}
+@numsubsecentry{Time series attributes}{2.2.5}{Time series attributes}{7}
+@numsubsecentry{Copying of attributes}{2.2.6}{Copying of attributes}{7}
+@numsecentry{Special compound objects}{2.3}{Special compound objects}{8}
+@numsubsecentry{Factors}{2.3.1}{Factors}{8}
+@numsubsecentry{Data frame objects}{2.3.2}{Data frame objects}{8}
+@numchapentry{Evaluation of expressions}{3}{Evaluation of expressions}{9}
+@numsecentry{Simple evaluation}{3.1}{Simple evaluation}{9}
+@numsubsecentry{Constants}{3.1.1}{Constants}{9}
+@numsubsecentry{Symbol lookup}{3.1.2}{Symbol lookup}{9}
+@numsubsecentry{Function calls}{3.1.3}{Function calls}{9}
+@numsubsecentry{Operators}{3.1.4}{Operators}{10}
+@numsecentry{Control structures}{3.2}{Control structures}{11}
+@numsubsecentry{if}{3.2.1}{if}{12}
+@numsubsecentry{Looping}{3.2.2}{Looping}{13}
+@numsubsecentry{repeat}{3.2.3}{repeat}{13}
+@numsubsecentry{while}{3.2.4}{while}{13}
+@numsubsecentry{for}{3.2.5}{for}{13}
+@numsubsecentry{switch}{3.2.6}{switch}{14}
+@numsecentry{Elementary arithmetic operations}{3.3}{Elementary arithmetic operations}{14}
+@numsubsecentry{Recycling rules}{3.3.1}{Recycling rules}{15}
+@numsubsecentry{Propagation of names}{3.3.2}{Propagation of names}{15}
+@numsubsecentry{Dimensional attributes}{3.3.3}{Dimensional attributes}{15}
+@numsubsecentry{NA handling}{3.3.4}{NA handling}{15}
+@numsecentry{Indexing}{3.4}{Indexing}{16}
+@numsubsecentry{Indexing by vectors}{3.4.1}{Indexing by vectors}{16}
+@numsubsecentry{Indexing matrices and arrays}{3.4.2}{Indexing matrices and arrays}{17}
+@numsubsecentry{Indexing other structures}{3.4.3}{Indexing other structures}{18}
+@numsubsecentry{Subset assignment}{3.4.4}{Subset assignment}{18}
+@numsecentry{Scope of variables}{3.5}{Scope of variables}{20}
+@numsubsecentry{Global environment}{3.5.1}{Global environment}{20}
+@numsubsecentry{Lexical environment}{3.5.2}{Lexical environment}{20}
+@numsubsecentry{The call stack}{3.5.3}{Stacks}{20}
+@numsubsecentry{Search path}{3.5.4}{Search path}{21}
+@numchapentry{Functions}{4}{Functions}{22}
+@numsecentry{Writing functions}{4.1}{Writing functions}{22}
+@numsubsecentry{Syntax and examples}{4.1.1}{Syntax and examples}{22}
+@numsubsecentry{Arguments}{4.1.2}{Arguments}{22}
+@numsecentry{Functions as objects}{4.2}{Functions as objects}{22}
+@numsecentry{Evaluation}{4.3}{Evaluation}{23}
+@numsubsecentry{Evaluation environment}{4.3.1}{Evaluation environment}{23}
+@numsubsecentry{Argument matching}{4.3.2}{Argument matching}{23}
+@numsubsecentry{Argument evaluation}{4.3.3}{Argument evaluation}{23}
+@numsubsecentry{Scope}{4.3.4}{Scope}{24}
+@numchapentry{Object-oriented programming}{5}{Object-oriented programming}{26}
+@numsecentry{Definition}{5.1}{Definition}{26}
+@numsecentry{Inheritance}{5.2}{Inheritance}{28}
+@numsecentry{Method dispatching}{5.3}{Method dispatching}{28}
+@numsecentry{UseMethod}{5.4}{UseMethod}{28}
+@numsecentry{NextMethod}{5.5}{NextMethod}{29}
+@numsecentry{Group methods}{5.6}{Group methods}{30}
+@numsecentry{Writing methods}{5.7}{Writing methods}{30}
+@numchapentry{Computing on the language}{6}{Computing on the language}{32}
+@numsecentry{Direct manipulation of language objects}{6.1}{Direct manipulation of language objects}{32}
+@numsecentry{Substitutions}{6.2}{Substitutions}{33}
+@numsecentry{More on evaluation}{6.3}{More on evaluation}{35}
+@numsecentry{Evaluation of expression objects}{6.4}{Evaluation of expression objects}{36}
+@numsecentry{Manipulation of function calls}{6.5}{Manipulation of function calls}{36}
+@numsecentry{Manipulation of functions}{6.6}{Manipulation of functions}{38}
+@numchapentry{System and foreign language interfaces}{7}{System and foreign language interfaces}{40}
+@numsecentry{Operating system access}{7.1}{Operating system access}{40}
+@numsecentry{Foreign language interfaces}{7.2}{Foreign language interfaces}{40}
+@numsecentry{.Internal and .Primitive}{7.3}{.Internal and .Primitive}{41}
+@numchapentry{Exception handling}{8}{Exception handling}{42}
+@numsecentry{stop}{8.1}{stop}{42}
+@numsecentry{warning}{8.2}{warning}{42}
+@numsecentry{on.exit}{8.3}{on.exit}{42}
+@numsecentry{Error options}{8.4}{Error options}{42}
+@numchapentry{Debugging}{9}{Debugging}{43}
+@numsecentry{browser}{9.1}{browser}{43}
+@numsecentry{debug/undebug}{9.2}{debug/undebug}{43}
+@numsecentry{trace/untrace}{9.3}{trace/untrace}{44}
+@numsecentry{traceback}{9.4}{traceback}{44}
+@numchapentry{Parser}{10}{Parser}{45}
+@numsecentry{The parsing process}{10.1}{The parsing process}{45}
+@numsubsecentry{Modes of parsing}{10.1.1}{Modes of parsing}{45}
+@numsubsecentry{Internal representation}{10.1.2}{Internal representation}{45}
+@numsubsecentry{Deparsing}{10.1.3}{Deparsing}{45}
+@numsecentry{Comments}{10.2}{Comments}{46}
+@numsecentry{Tokens}{10.3}{Tokens}{46}
+@numsubsecentry{Constants}{10.3.1}{Literal constants}{46}
+@numsubsecentry{Identifiers}{10.3.2}{Identifiers}{47}
+@numsubsecentry{Reserved words}{10.3.3}{Reserved words}{48}
+@numsubsecentry{Special operators}{10.3.4}{Special operators}{48}
+@numsubsecentry{Separators}{10.3.5}{Separators}{48}
+@numsubsecentry{Operator tokens}{10.3.6}{Operator tokens}{48}
+@numsubsecentry{Grouping}{10.3.7}{Grouping}{48}
+@numsubsecentry{Indexing tokens}{10.3.8}{Indexing tokens}{49}
+@numsecentry{Expressions}{10.4}{Expressions}{49}
+@numsubsecentry{Function calls}{10.4.1}{Function calls (expressions)}{49}
+@numsubsecentry{Infix and prefix operators}{10.4.2}{Infix and prefix operators}{49}
+@numsubsecentry{Index constructions}{10.4.3}{Index constructions}{50}
+@numsubsecentry{Compound expressions}{10.4.4}{Compound expressions}{50}
+@numsubsecentry{Flow control elements}{10.4.5}{Flow control elements}{50}
+@numsubsecentry{Function definitions}{10.4.6}{Function definitions}{51}
+@numsecentry{Directives}{10.5}{Directives}{51}
+@unnchapentry{Function and Variable Index}{10001}{Function and Variable Index}{52}
+@unnchapentry{Concept Index}{10002}{Concept Index}{54}
+@appentry{References}{A}{References}{55}

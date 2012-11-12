@@ -1,0 +1,126 @@
+\initial {.}
+\entry {\code {.Device}}{19}
+\entry {\code {.Devices}}{19}
+\entry {\code {.Internal}}{22}
+\entry {\code {.Last.value}}{19}
+\entry {\code {.Options}}{19}
+\entry {\code {.Primitive}}{22}
+\entry {\code {.Random.seed}}{19}
+\entry {\code {.SavedPlots}}{19}
+\entry {\code {.Traceback}}{19}
+\initial {_}
+\entry {\code {_R_CHECK_ALL_NON_ISO_C_}}{41}
+\entry {\code {_R_CHECK_ALWAYS_LOG_VIGNETTE_OUTPUT_}}{43}
+\entry {\code {_R_CHECK_ASCII_CODE_}}{42}
+\entry {\code {_R_CHECK_ASCII_DATA_}}{43}
+\entry {\code {_R_CHECK_CLEAN_VIGN_TEST_}}{43}
+\entry {\code {_R_CHECK_CODETOOLS_PROFILE_}}{44}
+\entry {\code {_R_CHECK_CODOC_S4_METHODS_}}{42}
+\entry {\code {_R_CHECK_COMPACT_DATA_}}{43}
+\entry {\code {_R_CHECK_CRAN_INCOMING_}}{44}
+\entry {\code {_R_CHECK_DEPENDS_ONLY_}}{44}
+\entry {\code {_R_CHECK_DOC_SIZES_}}{43}
+\entry {\code {_R_CHECK_DOC_SIZES2_}}{43}
+\entry {\code {_R_CHECK_DOT_INTERNAL_}}{42}
+\entry {\code {_R_CHECK_EXECUTABLES_}}{42}
+\entry {\code {_R_CHECK_EXECUTABLES_EXCLUSIONS_}}{42}
+\entry {\code {_R_CHECK_FF_CALLS_}}{42}
+\entry {\code {_R_CHECK_FORCE_SUGGESTS_}}{41}
+\entry {\code {_R_CHECK_INSTALL_DEPENDS_}}{44}
+\entry {\code {_R_CHECK_LICENSE_}}{42}
+\entry {\code {_R_CHECK_NO_RECOMMENDED_}}{44}
+\entry {\code {_R_CHECK_PERMISSIONS_}}{42}
+\entry {\code {_R_CHECK_PKG_SIZES_}}{43}
+\entry {\code {_R_CHECK_RD_CHECKRD_MINLEVEL_}}{42}
+\entry {\code {_R_CHECK_RD_CONTENTS_}}{41}
+\entry {\code {_R_CHECK_RD_EXAMPLES_T_AND_F_}}{42}
+\entry {\code {_R_CHECK_RD_STYLE_}}{41}
+\entry {\code {_R_CHECK_RD_XREFS_}}{41}
+\entry {\code {_R_CHECK_REPLACING_IMPORTS_}}{43}
+\entry {\code {_R_CHECK_SKIP_ARCH_}}{43}
+\entry {\code {_R_CHECK_SKIP_EXAMPLES_ARCH_}}{43}
+\entry {\code {_R_CHECK_SKIP_TESTS_ARCH_}}{43}
+\entry {\code {_R_CHECK_SRC_MINUS_W_IMPLICIT_}}{42}
+\entry {\code {_R_CHECK_SRC_MINUS_W_UNUSED_}}{42}
+\entry {\code {_R_CHECK_SUBDIRS_NOCASE_}}{41}
+\entry {\code {_R_CHECK_SUBDIRS_STRICT_}}{41}
+\entry {\code {_R_CHECK_SUGGESTS_ONLY_}}{44}
+\entry {\code {_R_CHECK_TIMINGS_}}{44}
+\entry {\code {_R_CHECK_UNSAFE_CALLS_}}{43}
+\entry {\code {_R_CHECK_USE_CODETOOLS_}}{41}
+\entry {\code {_R_CHECK_USE_INSTALL_LOG_}}{41}
+\entry {\code {_R_CHECK_VC_DIRS_}}{43}
+\entry {\code {_R_CHECK_VIGNETTES_NLINES_}}{42}
+\entry {\code {_R_CHECK_WALL_FORTRAN_}}{42}
+\entry {\code {_R_CHECK_XREFS_REPOSITORIES_}}{42}
+\entry {\code {_R_CHECK_XREFS_USE_ALIASES_FROM_CRAN_}}{44}
+\entry {\code {_R_SHLIB_BUILD_OBJECTS_SYMBOL_TABLES_}}{44}
+\initial {A}
+\entry {\code {alloca}}{18}
+\entry {\code {ARGSUSED}}{3}
+\entry {\code {ATTRIB}}{7}
+\entry {\code {attribute_hidden}}{20}
+\initial {C}
+\entry {\code {Calloc}}{18}
+\entry {\code {copyMostAttributes}}{7}
+\initial {D}
+\entry {\code {DDVAL}}{3}
+\entry {\code {debug bit}}{2}
+\entry {\code {DispatchGeneric}}{10}
+\entry {\code {DispatchOrEval}}{10}
+\entry {\code {dump.frames}}{19}
+\entry {\code {DUPLICATE_ATTRIB}}{7}
+\initial {E}
+\entry {\code {emacs}}{47}
+\entry {\code {error}}{15}
+\entry {\code {errorcall}}{15}
+\initial {F}
+\entry {\code {Free}}{18}
+\initial {G}
+\entry {\code {gp bits}}{3}
+\initial {I}
+\entry {\code {invisible}}{11}
+\initial {L}
+\entry {\code {last.warning}}{19}
+\entry {\code {LEVELS}}{3}
+\initial {M}
+\entry {\code {make}}{46}
+\entry {\code {makeinfo}}{46}
+\entry {\code {MISSING}}{3, 10}
+\entry {\code {mkChar}}{15}
+\entry {\code {mkCharLenCE}}{15}
+\initial {N}
+\entry {\code {NAMED}}{2, 9, 23}
+\entry {\code {named bit}}{2}
+\initial {P}
+\entry {\code {Perl}}{46}
+\entry {\code {PRIMPRINT}}{11}
+\entry {\code {PRSEEN}}{3}
+\initial {R}
+\entry {\code {R_alloc}}{18}
+\entry {\code {R_AllocStringBuffer}}{18}
+\entry {\code {R_BaseNamespace}}{6}
+\entry {\code {R_CheckStack}}{18}
+\entry {\code {R_FreeStringBuffer}}{18}
+\entry {\code {R_FreeStringBufferL}}{18}
+\entry {\code {R_MissingArg}}{10}
+\entry {\code {R_Visible}}{11}
+\entry {\code {Rdll.hide}}{20}
+\entry {\code {Realloc}}{18}
+\initial {S}
+\entry {\code {SET_ARGUSED}}{3}
+\entry {\code {SET_ATTRIB}}{7}
+\entry {\code {SET_DDVAL}}{3}
+\entry {\code {SET_MISSING}}{3}
+\entry {\code {SET_NAMED}}{2}
+\entry {\code {SETLEVELS}}{3}
+\initial {T}
+\entry {\code {trace bit}}{2}
+\initial {U}
+\entry {\code {UseMethod}}{9}
+\initial {V}
+\entry {\code {vmaxget}}{18}
+\entry {\code {vmaxset}}{18}
+\initial {W}
+\entry {\code {warning}}{15}
+\entry {\code {warningcall}}{15}

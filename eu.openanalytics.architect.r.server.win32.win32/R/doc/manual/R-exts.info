@@ -1,0 +1,267 @@
+This is R-exts.info, produced by makeinfo version 4.13 from R-exts.texi.
+
+INFO-DIR-SECTION Programming
+START-INFO-DIR-ENTRY
+* R Extensions: (R-exts).      Writing R Extensions.
+END-INFO-DIR-ENTRY
+
+
+Indirect:
+R-exts.info-1: 197
+R-exts.info-2: 299806
+
+Tag Table:
+(Indirect)
+Node: Top197
+Node: Acknowledgements1604
+Node: Creating R packages1944
+Ref: Creating R packages-Footnote-16940
+Node: Package structure7156
+Ref: Package structure-Footnote-111276
+Ref: Package structure-Footnote-211380
+Node: The DESCRIPTION file11460
+Ref: The DESCRIPTION file-Footnote-129799
+Node: The INDEX file30377
+Node: Package subdirectories31164
+Ref: Package subdirectories-Footnote-143000
+Ref: Package subdirectories-Footnote-243202
+Ref: Package subdirectories-Footnote-343322
+Ref: Package subdirectories-Footnote-443375
+Ref: Package subdirectories-Footnote-544134
+Ref: Package subdirectories-Footnote-644257
+Ref: Package subdirectories-Footnote-744627
+Ref: Package subdirectories-Footnote-844704
+Ref: Package subdirectories-Footnote-944787
+Ref: Package subdirectories-Footnote-1044855
+Ref: Package subdirectories-Footnote-1144895
+Node: Package bundles45162
+Node: Data in packages45386
+Ref: Data in packages-Footnote-149268
+Node: Non-R scripts in packages49318
+Node: Configure and cleanup50729
+Node: Using Makevars59269
+Ref: Using Makevars-Footnote-168144
+Ref: Using Makevars-Footnote-268212
+Node: OpenMP support68355
+Ref: OpenMP support-Footnote-170551
+Ref: OpenMP support-Footnote-270671
+Node: Using pthreads70777
+Ref: Using pthreads-Footnote-173023
+Node: Compiling in sub-directories73092
+Node: Configure example75417
+Node: Using F95 code80042
+Ref: Using F95 code-Footnote-181905
+Node: Checking and building packages82000
+Ref: Checking and building packages-Footnote-183806
+Node: Checking packages83937
+Ref: Checking packages-Footnote-195090
+Ref: Checking packages-Footnote-295187
+Ref: Checking packages-Footnote-395249
+Ref: Checking packages-Footnote-495321
+Ref: Checking packages-Footnote-595496
+Ref: Checking packages-Footnote-695682
+Ref: Checking packages-Footnote-795905
+Node: Building package tarballs95949
+Ref: Building package tarballs-Footnote-1101313
+Ref: Building package tarballs-Footnote-2101352
+Ref: Building package tarballs-Footnote-3101466
+Ref: Building package tarballs-Footnote-4101572
+Ref: Building package tarballs-Footnote-5101600
+Node: Building binary packages101679
+Node: Writing package vignettes104354
+Ref: Writing package vignettes-Footnote-1110700
+Ref: Writing package vignettes-Footnote-2110811
+Ref: Writing package vignettes-Footnote-3110893
+Ref: Writing package vignettes-Footnote-4111025
+Node: Encodings and vignettes111199
+Ref: Encodings and vignettes-Footnote-1114130
+Node: Submitting a package to CRAN114223
+Ref: Submitting a package to CRAN-Footnote-1120900
+Ref: Submitting a package to CRAN-Footnote-2121137
+Ref: Submitting a package to CRAN-Footnote-3121344
+Ref: Submitting a package to CRAN-Footnote-4121394
+Node: PDF size121493
+Ref: PDF size-Footnote-1124041
+Node: Package timing124191
+Node: Windows external software125436
+Node: Package namespaces126961
+Node: Specifying imports and exports130110
+Node: Registering S3 methods133011
+Node: Load hooks134057
+Ref: Load hooks-Footnote-1135490
+Node: useDynLib135561
+Ref: useDynLib-Footnote-1141637
+Ref: useDynLib-Footnote-2141744
+Node: An example141868
+Node: Summary -- converting an existing package143163
+Node: Namespaces with S4 classes and methods144276
+Ref: Namespaces with S4 classes and methods-Footnote-1148337
+Node: Writing portable packages148480
+Ref: Writing portable packages-Footnote-1155185
+Ref: Writing portable packages-Footnote-2155288
+Node: Encoding issues155411
+Ref: Encoding issues-Footnote-1158490
+Node: Binary distribution158613
+Node: Diagnostic messages159979
+Node: Internationalization163380
+Node: C-level messages164196
+Node: R messages166222
+Node: Installing translations167747
+Node: Makefile support168799
+Node: CITATION files170358
+Node: Package types172856
+Node: Frontend173266
+Node: Services173980
+Node: Writing R documentation files175078
+Node: Rd format175583
+Ref: Rd format-Footnote-1180740
+Node: Documenting functions180796
+Ref: Documenting functions-Footnote-1192126
+Ref: Documenting functions-Footnote-2192284
+Ref: Documenting functions-Footnote-3192438
+Node: Documenting data sets192532
+Node: Documenting S4 classes and methods194923
+Node: Documenting packages197202
+Node: Sectioning198568
+Node: Marking text200097
+Ref: Marking text-Footnote-1204349
+Node: Lists and tables204488
+Node: Cross-references206742
+Ref: Cross-references-Footnote-1209188
+Node: Mathematics209253
+Node: Figures210711
+Node: Insertions212631
+Ref: Insertions-Footnote-1214323
+Ref: Insertions-Footnote-2214650
+Node: Indices214722
+Node: Platform-specific sections215939
+Node: Conditional text216852
+Node: Dynamic pages218287
+Node: User-defined macros221844
+Node: Encoding223688
+Ref: Encoding-Footnote-1226124
+Node: Processing Rd format226358
+Node: Editing Rd files227861
+Node: Tidying and profiling R code228826
+Node: Tidying R code229357
+Node: Profiling R code for speed231697
+Ref: Profiling R code for speed-Footnote-1236040
+Ref: Profiling R code for speed-Footnote-2236136
+Node: Profiling R code for memory use236226
+Node: Memory statistics from Rprof238747
+Node: Tracking memory allocations240013
+Node: Tracing copies of an object240870
+Node: Profiling compiled code243147
+Node: Linux243673
+Node: Solaris246498
+Node: Mac OS X246750
+Node: Debugging247078
+Node: Browsing247905
+Ref: Browsing-Footnote-1250356
+Node: Debugging R code250489
+Node: Using gctorture and valgrind263058
+Node: Using gctorture263698
+Node: Using valgrind266002
+Node: Debugging compiled code271375
+Node: Finding entry points274605
+Node: Inspecting R objects275683
+Node: System and foreign language interfaces279894
+Node: Operating system access280564
+Node: Interface functions .C and .Fortran281400
+Ref: Interface functions .C and .Fortran-Footnote-1288807
+Node: dyn.load and dyn.unload288911
+Node: Registering native routines293632
+Ref: Registering native routines-Footnote-1299766
+Node: Speed considerations299806
+Node: Linking to native routines in other packages302424
+Node: Creating shared objects304470
+Node: Interfacing C++ code308865
+Node: Fortran I/O311835
+Node: Linking to other packages313072
+Node: Unix-alikes313820
+Ref: Unix-alikes-Footnote-1316533
+Node: Windows316593
+Node: Handling R objects in C318907
+Ref: Handling R objects in C-Footnote-1323901
+Ref: Handling R objects in C-Footnote-2323974
+Node: Garbage Collection324067
+Node: Allocating storage328821
+Node: Details of R types329643
+Node: Attributes332826
+Node: Classes336714
+Node: Handling lists337505
+Node: Handling character data338848
+Node: Finding and setting variables340463
+Ref: Finding and setting variables-Footnote-1342360
+Node: Some convenience functions342488
+Node: Semi-internal convenience functions344934
+Node: Named objects and copying345522
+Node: Interface functions .Call and .External348336
+Node: Calling .Call349007
+Node: Calling .External350930
+Node: Missing and special values354396
+Node: Evaluating R expressions from C356057
+Node: Zero-finding360057
+Node: Calculating numerical derivatives362027
+Ref: Calculating numerical derivatives-Footnote-1368586
+Node: Parsing R code from C368672
+Ref: Parsing R code from C-Footnote-1371209
+Node: Accessing source references371296
+Node: External pointers and weak references372329
+Node: An external pointer example376753
+Node: Vector accessor functions378799
+Node: Character encoding issues379718
+Node: The R API382294
+Ref: The R API-Footnote-1385359
+Node: Memory allocation385439
+Node: Transient385811
+Node: User-controlled387453
+Node: Error handling388711
+Node: Error handling from FORTRAN389796
+Node: Random numbers390268
+Node: Missing and IEEE values391449
+Node: Printing392659
+Node: Printing from FORTRAN393822
+Node: Calling C from FORTRAN and vice versa394850
+Node: Numerical analysis subroutines396768
+Node: Distribution functions397884
+Node: Mathematical functions401772
+Node: Numerical Utilities403532
+Node: Mathematical constants406785
+Node: Optimization409205
+Node: Integration411910
+Node: Utility functions414925
+Node: Re-encoding420173
+Node: Allowing interrupts421621
+Node: Platform and version information422409
+Ref: Platform and version information-Footnote-1424059
+Node: Inlining C functions424110
+Node: Controlling visibility425165
+Node: Standalone Mathlib427480
+Node: Organization of header files428778
+Node: Generic functions and methods431987
+Node: Adding new generics435895
+Node: Linking GUIs and other front-ends to R437646
+Node: Embedding R under Unix-alikes438781
+Ref: Embedding R under Unix-alikes-Footnote-1443641
+Ref: Embedding R under Unix-alikes-Footnote-2443757
+Node: Compiling against the R library443843
+Node: Setting R callbacks444520
+Node: Registering symbols451435
+Node: Meshing event loops452328
+Node: Threading issues455156
+Ref: Threading issues-Footnote-1456766
+Node: Embedding R under Windows456947
+Node: Using (D)COM457391
+Node: Calling R.dll directly459025
+Ref: Calling R.dll directly-Footnote-1465447
+Node: Finding R_HOME465596
+Node: Function and variable index468719
+Node: Concept index497144
+
+End Tag Table
+
+
+Local Variables:
+coding: iso-8859-1
+End:

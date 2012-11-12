@@ -1,0 +1,140 @@
+@unnchapentry{Preface}{10001}{Preface}{1}
+@numchapentry{Introduction and preliminaries}{1}{Introduction and preliminaries}{2}
+@numsecentry{The R environment}{1.1}{The R environment}{2}
+@numsecentry{Related software and documentation}{1.2}{Related software and documentation}{2}
+@numsecentry{R and statistics}{1.3}{R and statistics}{2}
+@numsecentry{R and the window system}{1.4}{R and the window system}{3}
+@numsecentry{Using R interactively}{1.5}{Using R interactively}{3}
+@numsecentry{An introductory session}{1.6}{}{4}
+@numsecentry{Getting help with functions and features}{1.7}{Getting help}{4}
+@numsecentry{R commands, case sensitivity, etc.}{1.8}{R commands; case sensitivity etc}{4}
+@numsecentry{Recall and correction of previous commands}{1.9}{Recall and correction of previous commands}{5}
+@numsecentry{Executing commands from or diverting output to a file}{1.10}{Executing commands from or diverting output to a file}{5}
+@numsecentry{Data permanency and removing objects}{1.11}{Data permanency and removing objects}{5}
+@numchapentry{Simple manipulations; numbers and vectors}{2}{Simple manipulations numbers and vectors}{7}
+@numsecentry{Vectors and assignment}{2.1}{Vectors and assignment}{7}
+@numsecentry{Vector arithmetic}{2.2}{Vector arithmetic}{7}
+@numsecentry{Generating regular sequences}{2.3}{Generating regular sequences}{8}
+@numsecentry{Logical vectors}{2.4}{Logical vectors}{9}
+@numsecentry{Missing values}{2.5}{Missing values}{9}
+@numsecentry{Character vectors}{2.6}{Character vectors}{10}
+@numsecentry{Index vectors; selecting and modifying subsets of a data set}{2.7}{Index vectors}{10}
+@numsecentry{Other types of objects}{2.8}{Other types of objects}{11}
+@numchapentry{Objects, their modes and attributes}{3}{Objects}{13}
+@numsecentry{Intrinsic attributes: mode and length}{3.1}{The intrinsic attributes mode and length}{13}
+@numsecentry{Changing the length of an object}{3.2}{Changing the length of an object}{14}
+@numsecentry{Getting and setting attributes}{3.3}{Getting and setting attributes}{14}
+@numsecentry{The class of an object}{3.4}{The class of an object}{14}
+@numchapentry{Ordered and unordered factors}{4}{Factors}{16}
+@numsecentry{A specific example}{4.1}{}{16}
+@numsecentry{The function @code {tapply()} and ragged arrays}{4.2}{The function tapply() and ragged arrays}{16}
+@numsecentry{Ordered factors}{4.3}{Ordered factors}{17}
+@numchapentry{Arrays and matrices}{5}{Arrays and matrices}{18}
+@numsecentry{Arrays}{5.1}{Arrays}{18}
+@numsecentry{Array indexing. Subsections of an array}{5.2}{Array indexing}{18}
+@numsecentry{Index matrices}{5.3}{Index matrices}{19}
+@numsecentry{The @code {array()} function}{5.4}{The array() function}{20}
+@numsubsecentry{Mixed vector and array arithmetic. The recycling rule}{5.4.1}{The recycling rule}{20}
+@numsecentry{The outer product of two arrays}{5.5}{The outer product of two arrays}{21}
+@numsecentry{Generalized transpose of an array}{5.6}{Generalized transpose of an array}{21}
+@numsecentry{Matrix facilities}{5.7}{Matrix facilities}{22}
+@numsubsecentry{Matrix multiplication}{5.7.1}{Multiplication}{22}
+@numsubsecentry{Linear equations and inversion}{5.7.2}{Linear equations and inversion}{22}
+@numsubsecentry{Eigenvalues and eigenvectors}{5.7.3}{Eigenvalues and eigenvectors}{23}
+@numsubsecentry{Singular value decomposition and determinants}{5.7.4}{Singular value decomposition and determinants}{23}
+@numsubsecentry{Least squares fitting and the QR decomposition}{5.7.5}{Least squares fitting and the QR decomposition}{23}
+@numsecentry{Forming partitioned matrices, @code {cbind()} and @code {rbind()}}{5.8}{Forming partitioned matrices}{24}
+@numsecentry{The concatenation function, @code {c()}, with arrays}{5.9}{The concatenation function c() with arrays}{24}
+@numsecentry{Frequency tables from factors}{5.10}{Frequency tables from factors}{25}
+@numchapentry{Lists and data frames}{6}{Lists and data frames}{26}
+@numsecentry{Lists}{6.1}{Lists}{26}
+@numsecentry{Constructing and modifying lists}{6.2}{Constructing and modifying lists}{26}
+@numsubsecentry{Concatenating lists}{6.2.1}{Concatenating lists}{27}
+@numsecentry{Data frames}{6.3}{Data frames}{27}
+@numsubsecentry{Making data frames}{6.3.1}{Making data frames}{27}
+@numsubsecentry{@code {attach() and @code {detach()}}}{6.3.2}{attach() and detach()}{27}
+@numsubsecentry{Working with data frames}{6.3.3}{Working with data frames}{28}
+@numsubsecentry{Attaching arbitrary lists}{6.3.4}{Attaching arbitrary lists}{28}
+@numsubsecentry{Managing the search path}{6.3.5}{Managing the search path}{29}
+@numchapentry{Reading data from files}{7}{Reading data from files}{30}
+@numsecentry{The @code {read.table()} function}{7.1}{The read.table() function}{30}
+@numsecentry{The @code {scan()} function}{7.2}{The scan() function}{31}
+@numsecentry{Accessing builtin datasets}{7.3}{Accessing builtin datasets}{31}
+@numsubsecentry{Loading data from other R packages}{7.3.1}{}{31}
+@numsecentry{Editing data}{7.4}{Editing data}{32}
+@numchapentry{Probability distributions}{8}{Probability distributions}{33}
+@numsecentry{R as a set of statistical tables}{8.1}{R as a set of statistical tables}{33}
+@numsecentry{Examining the distribution of a set of data}{8.2}{Examining the distribution of a set of data}{34}
+@numsecentry{One- and two-sample tests}{8.3}{One- and two-sample tests}{36}
+@numchapentry{Grouping, loops and conditional execution}{9}{Loops and conditional execution}{40}
+@numsecentry{Grouped expressions}{9.1}{Grouped expressions}{40}
+@numsecentry{Control statements}{9.2}{Control statements}{40}
+@numsubsecentry{Conditional execution: @code {if} statements}{9.2.1}{Conditional execution}{40}
+@numsubsecentry{Repetitive execution: @code {for} loops, @code {repeat} and @code {while}}{9.2.2}{Repetitive execution}{40}
+@numchapentry{Writing your own functions}{10}{Writing your own functions}{42}
+@numsecentry{Simple examples}{10.1}{Simple examples}{42}
+@numsecentry{Defining new binary operators}{10.2}{Defining new binary operators}{43}
+@numsecentry{Named arguments and defaults}{10.3}{Named arguments and defaults}{43}
+@numsecentry{The @samp {@dots {}} argument}{10.4}{The three dots argument}{44}
+@numsecentry{Assignments within functions}{10.5}{Assignment within functions}{44}
+@numsecentry{More advanced examples}{10.6}{More advanced examples}{44}
+@numsubsecentry{Efficiency factors in block designs}{10.6.1}{Efficiency factors in block designs}{44}
+@numsubsecentry{Dropping all names in a printed array}{10.6.2}{Dropping all names in a printed array}{45}
+@numsubsecentry{Recursive numerical integration}{10.6.3}{Recursive numerical integration}{45}
+@numsecentry{Scope}{10.7}{Scope}{46}
+@numsecentry{Customizing the environment}{10.8}{Customizing the environment}{48}
+@numsecentry{Classes, generic functions and object orientation}{10.9}{Object orientation}{48}
+@numchapentry{Statistical models in R}{11}{Statistical models in R}{50}
+@numsecentry{Defining statistical models; formulae}{11.1}{Formulae for statistical models}{50}
+@numsubsecentry{Contrasts}{11.1.1}{Contrasts}{52}
+@numsecentry{Linear models}{11.2}{Linear models}{53}
+@numsecentry{Generic functions for extracting model information}{11.3}{Generic functions for extracting model information}{53}
+@numsecentry{Analysis of variance and model comparison}{11.4}{Analysis of variance and model comparison}{54}
+@numsubsecentry{ANOVA tables}{11.4.1}{ANOVA tables}{54}
+@numsecentry{Updating fitted models}{11.5}{Updating fitted models}{54}
+@numsecentry{Generalized linear models}{11.6}{Generalized linear models}{55}
+@numsubsecentry{Families}{11.6.1}{Families}{56}
+@numsubsecentry{The @code {glm()} function}{11.6.2}{The glm() function}{56}
+@numsecentry{Nonlinear least squares and maximum likelihood models}{11.7}{Nonlinear least squares and maximum likelihood models}{58}
+@numsubsecentry{Least squares}{11.7.1}{Least squares}{58}
+@numsubsecentry{Maximum likelihood}{11.7.2}{Maximum likelihood}{59}
+@numsecentry{Some non-standard models}{11.8}{Some non-standard models}{60}
+@numchapentry{Graphical procedures}{12}{Graphics}{62}
+@numsecentry{High-level plotting commands}{12.1}{High-level plotting commands}{62}
+@numsubsecentry{The @code {plot()} function}{12.1.1}{The plot() function}{62}
+@numsubsecentry{Displaying multivariate data}{12.1.2}{Displaying multivariate data}{63}
+@numsubsecentry{Display graphics}{12.1.3}{Display graphics}{63}
+@numsubsecentry{Arguments to high-level plotting functions}{12.1.4}{Arguments to high-level plotting functions}{64}
+@numsecentry{Low-level plotting commands}{12.2}{Low-level plotting commands}{65}
+@numsubsecentry{Mathematical annotation}{12.2.1}{Mathematical annotation}{66}
+@numsubsecentry{Hershey vector fonts}{12.2.2}{Hershey vector fonts}{66}
+@numsecentry{Interacting with graphics}{12.3}{Interacting with graphics}{66}
+@numsecentry{Using graphics parameters}{12.4}{Using graphics parameters}{67}
+@numsubsecentry{Permanent changes: The @code {par()} function}{12.4.1}{The par() function}{67}
+@numsubsecentry{Temporary changes: Arguments to graphics functions}{12.4.2}{Arguments to graphics functions}{68}
+@numsecentry{Graphics parameters list}{12.5}{Graphics parameters}{68}
+@numsubsecentry{Graphical elements}{12.5.1}{Graphical elements}{69}
+@numsubsecentry{Axes and tick marks}{12.5.2}{Axes and tick marks}{70}
+@numsubsecentry{Figure margins}{12.5.3}{Figure margins}{70}
+@numsubsecentry{Multiple figure environment}{12.5.4}{Multiple figure environment}{72}
+@numsecentry{Device drivers}{12.6}{Device drivers}{73}
+@numsubsecentry{PostScript diagrams for typeset documents}{12.6.1}{PostScript diagrams for typeset documents}{73}
+@numsubsecentry{Multiple graphics devices}{12.6.2}{Multiple graphics devices}{74}
+@numsecentry{Dynamic graphics}{12.7}{Dynamic graphics}{75}
+@numchapentry{Packages}{13}{Packages}{76}
+@numsecentry{Standard packages}{13.1}{Standard packages}{76}
+@numsecentry{Contributed packages and @acronym {CRAN}}{13.2}{Contributed packages and CRAN}{76}
+@numsecentry{Namespaces}{13.3}{Namespaces}{76}
+@appentry{A sample session}{A}{A sample session}{78}
+@appentry{Invoking R}{B}{Invoking R}{81}
+@appsecentry{Invoking R from the command line}{B.1}{Invoking R from the command line}{81}
+@appsecentry{Invoking R under Windows}{B.2}{Invoking R under Windows}{85}
+@appsecentry{Invoking R under Mac OS X}{B.3}{Invoking R under Mac OS X}{86}
+@appsecentry{Scripting with R}{B.4}{Scripting with R}{86}
+@appentry{The command-line editor}{C}{The command-line editor}{88}
+@appsecentry{Preliminaries}{C.1}{}{88}
+@appsecentry{Editing actions}{C.2}{}{88}
+@appsecentry{Command-line editor summary}{C.3}{}{88}
+@appentry{Function and variable index}{D}{Function and variable index}{90}
+@appentry{Concept index}{E}{Concept index}{93}
+@appentry{References}{F}{References}{95}

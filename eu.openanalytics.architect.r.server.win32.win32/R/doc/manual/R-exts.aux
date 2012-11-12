@@ -1,0 +1,501 @@
+@xrdef{Acknowledgements-title}{Acknowledgements}
+@xrdef{Acknowledgements-snt}{}
+@xrdef{Acknowledgements-pg}{1}
+@xrdef{Creating R packages-title}{Creating R packages}
+@xrdef{Creating R packages-snt}{Chapter@tie 1}
+@xrdef{Creating R packages-pg}{2}
+@xrdef{Package structure-title}{Package structure}
+@xrdef{Package structure-snt}{Section@tie 1.1}
+@xrdef{Package structure-pg}{3}
+@xrdef{The DESCRIPTION file-title}{The @file {DESCRIPTION} file}
+@xrdef{The DESCRIPTION file-snt}{Section@tie 1.1.1}
+@xrdef{The DESCRIPTION file-pg}{4}
+@xrdef{The INDEX file-title}{The @file {INDEX} file}
+@xrdef{The INDEX file-snt}{Section@tie 1.1.2}
+@xrdef{The INDEX file-pg}{8}
+@xrdef{Package subdirectories-title}{Package subdirectories}
+@xrdef{Package subdirectories-snt}{Section@tie 1.1.3}
+@xrdef{Package subdirectories-pg}{9}
+@xrdef{Package bundles-title}{Package bundles}
+@xrdef{Package bundles-snt}{Section@tie 1.1.4}
+@xrdef{Data in packages-title}{Data in packages}
+@xrdef{Data in packages-snt}{Section@tie 1.1.5}
+@xrdef{Package bundles-pg}{12}
+@xrdef{Data in packages-pg}{12}
+@xrdef{Non-R scripts in packages-title}{Non-R scripts in packages}
+@xrdef{Non-R scripts in packages-snt}{Section@tie 1.1.6}
+@xrdef{Configure and cleanup-title}{Configure and cleanup}
+@xrdef{Configure and cleanup-snt}{Section@tie 1.2}
+@xrdef{Non-R scripts in packages-pg}{13}
+@xrdef{Configure and cleanup-pg}{13}
+@xrdef{Using Makevars-title}{Using @file {Makevars}}
+@xrdef{Using Makevars-snt}{Section@tie 1.2.1}
+@xrdef{Using Makevars-pg}{16}
+@xrdef{OpenMP support-title}{OpenMP support}
+@xrdef{OpenMP support-snt}{Section@tie 1.2.1.1}
+@xrdef{Using pthreads-title}{Using pthreads}
+@xrdef{Using pthreads-snt}{Section@tie 1.2.1.2}
+@xrdef{OpenMP support-pg}{19}
+@xrdef{Using pthreads-pg}{19}
+@xrdef{Compiling in sub-directories-title}{Compiling in sub-directories}
+@xrdef{Compiling in sub-directories-snt}{Section@tie 1.2.1.3}
+@xrdef{Configure example-title}{Configure example}
+@xrdef{Configure example-snt}{Section@tie 1.2.2}
+@xrdef{Compiling in sub-directories-pg}{20}
+@xrdef{Configure example-pg}{21}
+@xrdef{Using F95 code-title}{Using F95 code}
+@xrdef{Using F95 code-snt}{Section@tie 1.2.3}
+@xrdef{Using F95 code-pg}{22}
+@xrdef{Checking and building packages-title}{Checking and building packages}
+@xrdef{Checking and building packages-snt}{Section@tie 1.3}
+@xrdef{Checking packages-title}{Checking packages}
+@xrdef{Checking packages-snt}{Section@tie 1.3.1}
+@xrdef{Checking and building packages-pg}{23}
+@xrdef{Checking packages-pg}{23}
+@xrdef{Building package tarballs-title}{Building package tarballs}
+@xrdef{Building package tarballs-snt}{Section@tie 1.3.2}
+@xrdef{Building package tarballs-pg}{26}
+@xrdef{Building binary packages-title}{Building binary packages}
+@xrdef{Building binary packages-snt}{Section@tie 1.3.3}
+@xrdef{Writing package vignettes-title}{Writing package vignettes}
+@xrdef{Writing package vignettes-snt}{Section@tie 1.4}
+@xrdef{Building binary packages-pg}{28}
+@xrdef{Writing package vignettes-pg}{28}
+@xrdef{Encodings and vignettes-title}{Encodings and vignettes}
+@xrdef{Encodings and vignettes-snt}{Section@tie 1.4.1}
+@xrdef{Encodings and vignettes-pg}{30}
+@xrdef{Submitting a package to CRAN-title}{Submitting a package to @acronym {CRAN}}
+@xrdef{Submitting a package to CRAN-snt}{Section@tie 1.5}
+@xrdef{Submitting a package to CRAN-pg}{31}
+@xrdef{PDF size-title}{PDF size}
+@xrdef{PDF size-snt}{Section@tie 1.5.1}
+@xrdef{Package timing-title}{Package timing}
+@xrdef{Package timing-snt}{Section@tie 1.5.2}
+@xrdef{Windows external software-title}{Windows external software}
+@xrdef{Windows external software-snt}{Section@tie 1.5.3}
+@xrdef{PDF size-pg}{33}
+@xrdef{Package timing-pg}{33}
+@xrdef{Package namespaces-title}{Package namespaces}
+@xrdef{Package namespaces-snt}{Section@tie 1.6}
+@xrdef{Windows external software-pg}{34}
+@xrdef{Package namespaces-pg}{34}
+@xrdef{Specifying imports and exports-title}{Specifying imports and exports}
+@xrdef{Specifying imports and exports-snt}{Section@tie 1.6.1}
+@xrdef{Registering S3 methods-title}{Registering S3 methods}
+@xrdef{Registering S3 methods-snt}{Section@tie 1.6.2}
+@xrdef{Specifying imports and exports-pg}{35}
+@xrdef{Registering S3 methods-pg}{35}
+@xrdef{Load hooks-title}{Load hooks}
+@xrdef{Load hooks-snt}{Section@tie 1.6.3}
+@xrdef{useDynLib-title}{useDynLib}
+@xrdef{useDynLib-snt}{Section@tie 1.6.4}
+@xrdef{Load hooks-pg}{36}
+@xrdef{useDynLib-pg}{36}
+@xrdef{An example-title}{An example}
+@xrdef{An example-snt}{Section@tie 1.6.5}
+@xrdef{An example-pg}{38}
+@xrdef{Summary -- converting an existing package-title}{Summary -- converting an existing package}
+@xrdef{Summary -- converting an existing package-snt}{Section@tie 1.6.6}
+@xrdef{Namespaces with S4 classes and methods-title}{Namespaces with S4 classes and methods}
+@xrdef{Namespaces with S4 classes and methods-snt}{Section@tie 1.6.7}
+@xrdef{Summary -- converting an existing package-pg}{39}
+@xrdef{Namespaces with S4 classes and methods-pg}{39}
+@xrdef{Writing portable packages-title}{Writing portable packages}
+@xrdef{Writing portable packages-snt}{Section@tie 1.7}
+@xrdef{Writing portable packages-pg}{40}
+@xrdef{Encoding issues-title}{Encoding issues}
+@xrdef{Encoding issues-snt}{Section@tie 1.7.1}
+@xrdef{Encoding issues-pg}{42}
+@xrdef{Binary distribution-title}{Binary distribution}
+@xrdef{Binary distribution-snt}{Section@tie 1.7.2}
+@xrdef{Diagnostic messages-title}{Diagnostic messages}
+@xrdef{Diagnostic messages-snt}{Section@tie 1.8}
+@xrdef{Binary distribution-pg}{43}
+@xrdef{Diagnostic messages-pg}{43}
+@xrdef{Internationalization-title}{Internationalization}
+@xrdef{Internationalization-snt}{Section@tie 1.9}
+@xrdef{C-level messages-title}{C-level messages}
+@xrdef{C-level messages-snt}{Section@tie 1.9.1}
+@xrdef{Internationalization-pg}{44}
+@xrdef{C-level messages-pg}{44}
+@xrdef{R messages-title}{R messages}
+@xrdef{R messages-snt}{Section@tie 1.9.2}
+@xrdef{Installing translations-title}{Installing translations}
+@xrdef{Installing translations-snt}{Section@tie 1.9.3}
+@xrdef{R messages-pg}{45}
+@xrdef{Installing translations-pg}{45}
+@xrdef{Makefile support-title}{Makefile support}
+@xrdef{Makefile support-snt}{Section@tie 1.9.4}
+@xrdef{CITATION files-title}{CITATION files}
+@xrdef{CITATION files-snt}{Section@tie 1.10}
+@xrdef{Makefile support-pg}{46}
+@xrdef{CITATION files-pg}{46}
+@xrdef{Package types-title}{Package types}
+@xrdef{Package types-snt}{Section@tie 1.11}
+@xrdef{Frontend-title}{Frontend}
+@xrdef{Frontend-snt}{Section@tie 1.11.1}
+@xrdef{Services-title}{Services}
+@xrdef{Services-snt}{Section@tie 1.12}
+@xrdef{Package types-pg}{47}
+@xrdef{Frontend-pg}{47}
+@xrdef{Services-pg}{47}
+@xrdef{Writing R documentation files-title}{Writing R documentation files}
+@xrdef{Writing R documentation files-snt}{Chapter@tie 2}
+@xrdef{Rd format-title}{Rd format}
+@xrdef{Rd format-snt}{Section@tie 2.1}
+@xrdef{Writing R documentation files-pg}{48}
+@xrdef{Rd format-pg}{48}
+@xrdef{Documenting functions-title}{Documenting functions}
+@xrdef{Documenting functions-snt}{Section@tie 2.1.1}
+@xrdef{Documenting functions-pg}{49}
+@xrdef{Documenting data sets-title}{Documenting data sets}
+@xrdef{Documenting data sets-snt}{Section@tie 2.1.2}
+@xrdef{Documenting data sets-pg}{53}
+@xrdef{Documenting S4 classes and methods-title}{Documenting S4 classes and methods}
+@xrdef{Documenting S4 classes and methods-snt}{Section@tie 2.1.3}
+@xrdef{Documenting packages-title}{Documenting packages}
+@xrdef{Documenting packages-snt}{Section@tie 2.1.4}
+@xrdef{Documenting S4 classes and methods-pg}{54}
+@xrdef{Documenting packages-pg}{54}
+@xrdef{Sectioning-title}{Sectioning}
+@xrdef{Sectioning-snt}{Section@tie 2.2}
+@xrdef{Marking text-title}{Marking text}
+@xrdef{Marking text-snt}{Section@tie 2.3}
+@xrdef{Sectioning-pg}{55}
+@xrdef{Marking text-pg}{55}
+@xrdef{Lists and tables-title}{Lists and tables}
+@xrdef{Lists and tables-snt}{Section@tie 2.4}
+@xrdef{Lists and tables-pg}{57}
+@xrdef{Cross-references-title}{Cross-references}
+@xrdef{Cross-references-snt}{Section@tie 2.5}
+@xrdef{Mathematics-title}{Mathematics}
+@xrdef{Mathematics-snt}{Section@tie 2.6}
+@xrdef{Cross-references-pg}{58}
+@xrdef{Mathematics-pg}{58}
+@xrdef{Figures-title}{Figures}
+@xrdef{Figures-snt}{Section@tie 2.7}
+@xrdef{Insertions-title}{Insertions}
+@xrdef{Insertions-snt}{Section@tie 2.8}
+@xrdef{Figures-pg}{59}
+@xrdef{Insertions-pg}{59}
+@xrdef{Indices-title}{Indices}
+@xrdef{Indices-snt}{Section@tie 2.9}
+@xrdef{Platform-specific sections-title}{Platform-specific documentation}
+@xrdef{Platform-specific sections-snt}{Section@tie 2.10}
+@xrdef{Conditional text-title}{Conditional text}
+@xrdef{Conditional text-snt}{Section@tie 2.11}
+@xrdef{Indices-pg}{60}
+@xrdef{Platform-specific sections-pg}{60}
+@xrdef{Dynamic pages-title}{Dynamic pages}
+@xrdef{Dynamic pages-snt}{Section@tie 2.12}
+@xrdef{Conditional text-pg}{61}
+@xrdef{Dynamic pages-pg}{61}
+@xrdef{User-defined macros-title}{User-defined macros}
+@xrdef{User-defined macros-snt}{Section@tie 2.13}
+@xrdef{Encoding-title}{Encoding}
+@xrdef{Encoding-snt}{Section@tie 2.14}
+@xrdef{User-defined macros-pg}{62}
+@xrdef{Encoding-pg}{62}
+@xrdef{Processing Rd format-title}{Processing Rd format}
+@xrdef{Processing Rd format-snt}{Section@tie 2.15}
+@xrdef{Editing Rd files-title}{Editing Rd files}
+@xrdef{Editing Rd files-snt}{Section@tie 2.16}
+@xrdef{Processing Rd format-pg}{63}
+@xrdef{Editing Rd files-pg}{64}
+@xrdef{Tidying and profiling R code-title}{Tidying and profiling R code}
+@xrdef{Tidying and profiling R code-snt}{Chapter@tie 3}
+@xrdef{Tidying R code-title}{Tidying R code}
+@xrdef{Tidying R code-snt}{Section@tie 3.1}
+@xrdef{Profiling R code for speed-title}{Profiling R code for speed}
+@xrdef{Profiling R code for speed-snt}{Section@tie 3.2}
+@xrdef{Tidying and profiling R code-pg}{65}
+@xrdef{Tidying R code-pg}{65}
+@xrdef{Profiling R code for speed-pg}{65}
+@xrdef{Profiling R code for memory use-title}{Profiling R code for memory use}
+@xrdef{Profiling R code for memory use-snt}{Section@tie 3.3}
+@xrdef{Memory statistics from Rprof-title}{Memory statistics from @code {Rprof}}
+@xrdef{Memory statistics from Rprof-snt}{Section@tie 3.3.1}
+@xrdef{Profiling R code for memory use-pg}{67}
+@xrdef{Memory statistics from Rprof-pg}{67}
+@xrdef{Tracking memory allocations-title}{Tracking memory allocations}
+@xrdef{Tracking memory allocations-snt}{Section@tie 3.3.2}
+@xrdef{Tracing copies of an object-title}{Tracing copies of an object}
+@xrdef{Tracing copies of an object-snt}{Section@tie 3.3.3}
+@xrdef{Profiling compiled code-title}{Profiling compiled code}
+@xrdef{Profiling compiled code-snt}{Section@tie 3.4}
+@xrdef{Linux-title}{Linux}
+@xrdef{Linux-snt}{Section@tie 3.4.1}
+@xrdef{Tracking memory allocations-pg}{68}
+@xrdef{Tracing copies of an object-pg}{68}
+@xrdef{Profiling compiled code-pg}{68}
+@xrdef{Linux-pg}{69}
+@xrdef{Solaris-title}{Solaris}
+@xrdef{Solaris-snt}{Section@tie 3.4.2}
+@xrdef{Mac OS X-title}{Mac OS X}
+@xrdef{Mac OS X-snt}{Section@tie 3.4.3}
+@xrdef{Solaris-pg}{70}
+@xrdef{Mac OS X-pg}{70}
+@xrdef{Debugging-title}{Debugging}
+@xrdef{Debugging-snt}{Chapter@tie 4}
+@xrdef{Browsing-title}{Browsing}
+@xrdef{Browsing-snt}{Section@tie 4.1}
+@xrdef{Debugging-pg}{71}
+@xrdef{Browsing-pg}{71}
+@xrdef{Debugging R code-title}{Debugging R code}
+@xrdef{Debugging R code-snt}{Section@tie 4.2}
+@xrdef{Debugging R code-pg}{72}
+@xrdef{Using gctorture and valgrind-title}{Using gctorture and valgrind}
+@xrdef{Using gctorture and valgrind-snt}{Section@tie 4.3}
+@xrdef{Using gctorture-title}{Using gctorture}
+@xrdef{Using gctorture-snt}{Section@tie 4.3.1}
+@xrdef{Using valgrind-title}{Using valgrind}
+@xrdef{Using valgrind-snt}{Section@tie 4.3.2}
+@xrdef{Using gctorture and valgrind-pg}{76}
+@xrdef{Using gctorture-pg}{76}
+@xrdef{Using valgrind-pg}{76}
+@xrdef{Debugging compiled code-title}{Debugging compiled code}
+@xrdef{Debugging compiled code-snt}{Section@tie 4.4}
+@xrdef{Debugging compiled code-pg}{78}
+@xrdef{Finding entry points-title}{Finding entry points in dynamically loaded code}
+@xrdef{Finding entry points-snt}{Section@tie 4.4.1}
+@xrdef{Inspecting R objects-title}{Inspecting R objects when debugging}
+@xrdef{Inspecting R objects-snt}{Section@tie 4.4.2}
+@xrdef{Finding entry points-pg}{79}
+@xrdef{Inspecting R objects-pg}{79}
+@xrdef{System and foreign language interfaces-title}{System and foreign language interfaces}
+@xrdef{System and foreign language interfaces-snt}{Chapter@tie 5}
+@xrdef{Operating system access-title}{Operating system access}
+@xrdef{Operating system access-snt}{Section@tie 5.1}
+@xrdef{Interface functions .C and .Fortran-title}{Interface functions @code {.C} and @code {.Fortran}}
+@xrdef{Interface functions .C and .Fortran-snt}{Section@tie 5.2}
+@xrdef{System and foreign language interfaces-pg}{82}
+@xrdef{Operating system access-pg}{82}
+@xrdef{Interface functions .C and .Fortran-pg}{82}
+@xrdef{dyn.load and dyn.unload-title}{@code {dyn.load} and @code {dyn.unload}}
+@xrdef{dyn.load and dyn.unload-snt}{Section@tie 5.3}
+@xrdef{dyn.load and dyn.unload-pg}{84}
+@xrdef{Registering native routines-title}{Registering native routines}
+@xrdef{Registering native routines-snt}{Section@tie 5.4}
+@xrdef{Registering native routines-pg}{85}
+@xrdef{Speed considerations-title}{Speed considerations}
+@xrdef{Speed considerations-snt}{Section@tie 5.4.1}
+@xrdef{Speed considerations-pg}{87}
+@xrdef{Linking to native routines in other packages-title}{Linking to native routines in other packages}
+@xrdef{Linking to native routines in other packages-snt}{Section@tie 5.4.2}
+@xrdef{Linking to native routines in other packages-pg}{88}
+@xrdef{Creating shared objects-title}{Creating shared objects}
+@xrdef{Creating shared objects-snt}{Section@tie 5.5}
+@xrdef{Creating shared objects-pg}{89}
+@xrdef{Interfacing C++ code-title}{Interfacing C++ code}
+@xrdef{Interfacing C++ code-snt}{Section@tie 5.6}
+@xrdef{Interfacing C++ code-pg}{90}
+@xrdef{Fortran I/O-title}{Fortran I/O}
+@xrdef{Fortran I/O-snt}{Section@tie 5.7}
+@xrdef{Fortran I/O-pg}{91}
+@xrdef{Linking to other packages-title}{Linking to other packages}
+@xrdef{Linking to other packages-snt}{Section@tie 5.8}
+@xrdef{Unix-alikes-title}{Unix-alikes}
+@xrdef{Unix-alikes-snt}{Section@tie 5.8.1}
+@xrdef{Linking to other packages-pg}{92}
+@xrdef{Unix-alikes-pg}{92}
+@xrdef{Windows-title}{Windows}
+@xrdef{Windows-snt}{Section@tie 5.8.2}
+@xrdef{Handling R objects in C-title}{Handling R objects in C}
+@xrdef{Handling R objects in C-snt}{Section@tie 5.9}
+@xrdef{Windows-pg}{93}
+@xrdef{Handling R objects in C-pg}{94}
+@xrdef{Garbage Collection-title}{Handling the effects of garbage collection}
+@xrdef{Garbage Collection-snt}{Section@tie 5.9.1}
+@xrdef{Garbage Collection-pg}{95}
+@xrdef{Allocating storage-title}{Allocating storage}
+@xrdef{Allocating storage-snt}{Section@tie 5.9.2}
+@xrdef{Details of R types-title}{Details of R types}
+@xrdef{Details of R types-snt}{Section@tie 5.9.3}
+@xrdef{Allocating storage-pg}{96}
+@xrdef{Attributes-title}{Attributes}
+@xrdef{Attributes-snt}{Section@tie 5.9.4}
+@xrdef{Details of R types-pg}{97}
+@xrdef{Attributes-pg}{98}
+@xrdef{Classes-title}{Classes}
+@xrdef{Classes-snt}{Section@tie 5.9.5}
+@xrdef{Classes-pg}{99}
+@xrdef{Handling lists-title}{Handling lists}
+@xrdef{Handling lists-snt}{Section@tie 5.9.6}
+@xrdef{Handling character data-title}{Handling character data}
+@xrdef{Handling character data-snt}{Section@tie 5.9.7}
+@xrdef{Handling lists-pg}{100}
+@xrdef{Handling character data-pg}{100}
+@xrdef{Finding and setting variables-title}{Finding and setting variables}
+@xrdef{Finding and setting variables-snt}{Section@tie 5.9.8}
+@xrdef{Some convenience functions-title}{Some convenience functions}
+@xrdef{Some convenience functions-snt}{Section@tie 5.9.9}
+@xrdef{Finding and setting variables-pg}{101}
+@xrdef{Some convenience functions-pg}{101}
+@xrdef{Semi-internal convenience functions-title}{Semi-internal convenience functions}
+@xrdef{Semi-internal convenience functions-snt}{Section@tie 5.9.9.1}
+@xrdef{Named objects and copying-title}{Named objects and copying}
+@xrdef{Named objects and copying-snt}{Section@tie 5.9.10}
+@xrdef{Semi-internal convenience functions-pg}{102}
+@xrdef{Named objects and copying-pg}{102}
+@xrdef{Interface functions .Call and .External-title}{Interface functions @code {.Call} and @code {.External}}
+@xrdef{Interface functions .Call and .External-snt}{Section@tie 5.10}
+@xrdef{Calling .Call-title}{Calling @code {.Call}}
+@xrdef{Calling .Call-snt}{Section@tie 5.10.1}
+@xrdef{Interface functions .Call and .External-pg}{103}
+@xrdef{Calling .Call-pg}{103}
+@xrdef{Calling .External-title}{Calling @code {.External}}
+@xrdef{Calling .External-snt}{Section@tie 5.10.2}
+@xrdef{Calling .External-pg}{104}
+@xrdef{Missing and special values-title}{Missing and special values}
+@xrdef{Missing and special values-snt}{Section@tie 5.10.3}
+@xrdef{Evaluating R expressions from C-title}{Evaluating R expressions from C}
+@xrdef{Evaluating R expressions from C-snt}{Section@tie 5.11}
+@xrdef{Missing and special values-pg}{106}
+@xrdef{Evaluating R expressions from C-pg}{106}
+@xrdef{Zero-finding-title}{Zero-finding}
+@xrdef{Zero-finding-snt}{Section@tie 5.11.1}
+@xrdef{Zero-finding-pg}{108}
+@xrdef{Calculating numerical derivatives-title}{Calculating numerical derivatives}
+@xrdef{Calculating numerical derivatives-snt}{Section@tie 5.11.2}
+@xrdef{Calculating numerical derivatives-pg}{109}
+@xrdef{Parsing R code from C-title}{Parsing R code from C}
+@xrdef{Parsing R code from C-snt}{Section@tie 5.12}
+@xrdef{Parsing R code from C-pg}{112}
+@xrdef{Accessing source references-title}{Accessing source references}
+@xrdef{Accessing source references-snt}{Section@tie 5.12.1}
+@xrdef{External pointers and weak references-title}{External pointers and weak references}
+@xrdef{External pointers and weak references-snt}{Section@tie 5.13}
+@xrdef{Accessing source references-pg}{113}
+@xrdef{External pointers and weak references-pg}{114}
+@xrdef{An external pointer example-title}{An example}
+@xrdef{An external pointer example-snt}{Section@tie 5.13.1}
+@xrdef{Vector accessor functions-title}{Vector accessor functions}
+@xrdef{Vector accessor functions-snt}{Section@tie 5.14}
+@xrdef{An external pointer example-pg}{115}
+@xrdef{Vector accessor functions-pg}{115}
+@xrdef{Character encoding issues-title}{Character encoding issues}
+@xrdef{Character encoding issues-snt}{Section@tie 5.15}
+@xrdef{Character encoding issues-pg}{116}
+@xrdef{The R API-title}{The R @acronym {API}: entry points for C code}
+@xrdef{The R API-snt}{Chapter@tie 6}
+@xrdef{Memory allocation-title}{Memory allocation}
+@xrdef{Memory allocation-snt}{Section@tie 6.1}
+@xrdef{Transient-title}{Transient storage allocation}
+@xrdef{Transient-snt}{Section@tie 6.1.1}
+@xrdef{The R API-pg}{117}
+@xrdef{Memory allocation-pg}{117}
+@xrdef{Transient-pg}{117}
+@xrdef{User-controlled-title}{User-controlled memory}
+@xrdef{User-controlled-snt}{Section@tie 6.1.2}
+@xrdef{Error handling-title}{Error handling}
+@xrdef{Error handling-snt}{Section@tie 6.2}
+@xrdef{User-controlled-pg}{118}
+@xrdef{Error handling-pg}{118}
+@xrdef{Error handling from FORTRAN-title}{Error handling from FORTRAN}
+@xrdef{Error handling from FORTRAN-snt}{Section@tie 6.2.1}
+@xrdef{Random numbers-title}{Random number generation}
+@xrdef{Random numbers-snt}{Section@tie 6.3}
+@xrdef{Missing and IEEE values-title}{Missing and @acronym {IEEE} special values}
+@xrdef{Missing and IEEE values-snt}{Section@tie 6.4}
+@xrdef{Error handling from FORTRAN-pg}{119}
+@xrdef{Random numbers-pg}{119}
+@xrdef{Missing and IEEE values-pg}{119}
+@xrdef{Printing-title}{Printing}
+@xrdef{Printing-snt}{Section@tie 6.5}
+@xrdef{Printing from FORTRAN-title}{Printing from FORTRAN}
+@xrdef{Printing from FORTRAN-snt}{Section@tie 6.5.1}
+@xrdef{Calling C from FORTRAN and vice versa-title}{Calling C from FORTRAN and vice versa}
+@xrdef{Calling C from FORTRAN and vice versa-snt}{Section@tie 6.6}
+@xrdef{Printing-pg}{120}
+@xrdef{Printing from FORTRAN-pg}{120}
+@xrdef{Calling C from FORTRAN and vice versa-pg}{120}
+@xrdef{Numerical analysis subroutines-title}{Numerical analysis subroutines}
+@xrdef{Numerical analysis subroutines-snt}{Section@tie 6.7}
+@xrdef{Distribution functions-title}{Distribution functions}
+@xrdef{Distribution functions-snt}{Section@tie 6.7.1}
+@xrdef{Numerical analysis subroutines-pg}{121}
+@xrdef{Distribution functions-pg}{121}
+@xrdef{Mathematical functions-title}{Mathematical functions}
+@xrdef{Mathematical functions-snt}{Section@tie 6.7.2}
+@xrdef{Mathematical functions-pg}{122}
+@xrdef{Numerical Utilities-title}{Numerical Utilities}
+@xrdef{Numerical Utilities-snt}{Section@tie 6.7.3}
+@xrdef{Numerical Utilities-pg}{123}
+@xrdef{Mathematical constants-title}{Mathematical constants}
+@xrdef{Mathematical constants-snt}{Section@tie 6.7.4}
+@xrdef{Mathematical constants-pg}{124}
+@xrdef{Optimization-title}{Optimization}
+@xrdef{Optimization-snt}{Section@tie 6.8}
+@xrdef{Optimization-pg}{125}
+@xrdef{Integration-title}{Integration}
+@xrdef{Integration-snt}{Section@tie 6.9}
+@xrdef{Integration-pg}{126}
+@xrdef{Utility functions-title}{Utility functions}
+@xrdef{Utility functions-snt}{Section@tie 6.10}
+@xrdef{Utility functions-pg}{127}
+@xrdef{Re-encoding-title}{Re-encoding}
+@xrdef{Re-encoding-snt}{Section@tie 6.11}
+@xrdef{Allowing interrupts-title}{Allowing interrupts}
+@xrdef{Allowing interrupts-snt}{Section@tie 6.12}
+@xrdef{Re-encoding-pg}{128}
+@xrdef{Platform and version information-title}{Platform and version information}
+@xrdef{Platform and version information-snt}{Section@tie 6.13}
+@xrdef{Inlining C functions-title}{Inlining C functions}
+@xrdef{Inlining C functions-snt}{Section@tie 6.14}
+@xrdef{Allowing interrupts-pg}{129}
+@xrdef{Platform and version information-pg}{129}
+@xrdef{Inlining C functions-pg}{129}
+@xrdef{Controlling visibility-title}{Controlling visibility}
+@xrdef{Controlling visibility-snt}{Section@tie 6.15}
+@xrdef{Standalone Mathlib-title}{Using these functions in your own C code}
+@xrdef{Standalone Mathlib-snt}{Section@tie 6.16}
+@xrdef{Controlling visibility-pg}{130}
+@xrdef{Standalone Mathlib-pg}{130}
+@xrdef{Organization of header files-title}{Organization of header files}
+@xrdef{Organization of header files-snt}{Section@tie 6.17}
+@xrdef{Organization of header files-pg}{131}
+@xrdef{Generic functions and methods-title}{Generic functions and methods}
+@xrdef{Generic functions and methods-snt}{Chapter@tie 7}
+@xrdef{Generic functions and methods-pg}{133}
+@xrdef{Adding new generics-title}{Adding new generics}
+@xrdef{Adding new generics-snt}{Section@tie 7.1}
+@xrdef{Adding new generics-pg}{134}
+@xrdef{Linking GUIs and other front-ends to R-title}{Linking GUIs and other front-ends to R}
+@xrdef{Linking GUIs and other front-ends to R-snt}{Chapter@tie 8}
+@xrdef{Embedding R under Unix-alikes-title}{Embedding R under Unix-alikes}
+@xrdef{Embedding R under Unix-alikes-snt}{Section@tie 8.1}
+@xrdef{Linking GUIs and other front-ends to R-pg}{135}
+@xrdef{Embedding R under Unix-alikes-pg}{135}
+@xrdef{Compiling against the R library-title}{Compiling against the R library}
+@xrdef{Compiling against the R library-snt}{Section@tie 8.1.1}
+@xrdef{Setting R callbacks-title}{Setting R callbacks}
+@xrdef{Setting R callbacks-snt}{Section@tie 8.1.2}
+@xrdef{Compiling against the R library-pg}{137}
+@xrdef{Setting R callbacks-pg}{137}
+@xrdef{Registering symbols-title}{Registering symbols}
+@xrdef{Registering symbols-snt}{Section@tie 8.1.3}
+@xrdef{Meshing event loops-title}{Meshing event loops}
+@xrdef{Meshing event loops-snt}{Section@tie 8.1.4}
+@xrdef{Registering symbols-pg}{140}
+@xrdef{Meshing event loops-pg}{140}
+@xrdef{Threading issues-title}{Threading issues}
+@xrdef{Threading issues-snt}{Section@tie 8.1.5}
+@xrdef{Embedding R under Windows-title}{Embedding R under Windows}
+@xrdef{Embedding R under Windows-snt}{Section@tie 8.2}
+@xrdef{Using (D)COM-title}{Using (D)COM}
+@xrdef{Using (D)COM-snt}{Section@tie 8.2.1}
+@xrdef{Calling R.dll directly-title}{Calling R.dll directly}
+@xrdef{Calling R.dll directly-snt}{Section@tie 8.2.2}
+@xrdef{Threading issues-pg}{141}
+@xrdef{Embedding R under Windows-pg}{141}
+@xrdef{Using (D)COM-pg}{141}
+@xrdef{Calling R.dll directly-pg}{141}
+@xrdef{Finding R_HOME-title}{Finding R_HOME}
+@xrdef{Finding R_HOME-snt}{Section@tie 8.2.3}
+@xrdef{Finding R_HOME-pg}{144}
+@xrdef{Function and variable index-title}{Function and variable index}
+@xrdef{Function and variable index-snt}{}
+@xrdef{Function and variable index-pg}{146}
+@xrdef{Concept index-title}{Concept index}
+@xrdef{Concept index-snt}{}
+@xrdef{Concept index-pg}{149}

@@ -1,0 +1,71 @@
+@numchapentry{R Internal Structures}{1}{R Internal Structures}{1}
+@numsecentry{SEXPs}{1.1}{SEXPs}{1}
+@numsubsecentry{SEXPTYPEs}{1.1.1}{SEXPTYPEs}{1}
+@numsubsecentry{Rest of header}{1.1.2}{Rest of header}{2}
+@numsubsecentry{The `data'}{1.1.3}{The 'data'}{3}
+@numsubsecentry{Allocation classes}{1.1.4}{Allocation classes}{5}
+@numsecentry{Environments and variable lookup}{1.2}{Environments and variable lookup}{5}
+@numsubsecentry{Search paths}{1.2.1}{Search paths}{6}
+@numsubsecentry{Namespaces}{1.2.2}{Namespaces}{6}
+@numsubsecentry{Hash table}{1.2.3}{Hash table}{6}
+@numsecentry{Attributes}{1.3}{Attributes}{7}
+@numsecentry{Contexts}{1.4}{Contexts}{8}
+@numsecentry{Argument evaluation}{1.5}{Argument evaluation}{9}
+@numsubsecentry{Missingness}{1.5.1}{Missingness}{10}
+@numsubsecentry{Dot-dot-dot arguments}{1.5.2}{Dot-dot-dot arguments}{11}
+@numsecentry{Autoprinting}{1.6}{Autoprinting}{11}
+@numsecentry{The write barrier and the garbage collector}{1.7}{The write barrier}{12}
+@numsecentry{Serialization Formats}{1.8}{Serialization Formats}{12}
+@numsecentry{Encodings for CHARSXPs}{1.9}{Encodings for CHARSXPs}{13}
+@numsecentry{The CHARSXP cache}{1.10}{The CHARSXP cache}{15}
+@numsecentry{Warnings and errors}{1.11}{Warnings and errors}{15}
+@numsecentry{S4 objects}{1.12}{S4 objects}{15}
+@numsubsecentry{Representation of S4 objects}{1.12.1}{Representation of S4 objects}{15}
+@numsubsecentry{S4 classes}{1.12.2}{S4 classes}{16}
+@numsubsecentry{S4 methods}{1.12.3}{S4 methods}{16}
+@numsubsecentry{Mechanics of S4 dispatch}{1.12.4}{Mechanics of S4 dispatch}{16}
+@numsecentry{Memory allocators}{1.13}{Memory allocators}{17}
+@numsubsecentry{Internals of R_alloc}{1.13.1}{Internals of R_alloc}{19}
+@numsecentry{Internal use of global and base environments}{1.14}{Internal use of global and base environments}{19}
+@numsubsecentry{Base environment}{1.14.1}{Base environment}{19}
+@numsubsecentry{Global environment}{1.14.2}{Global environment}{19}
+@numsecentry{Modules}{1.15}{Modules}{19}
+@numsecentry{Visibility}{1.16}{Visibility}{20}
+@numsubsecentry{Hiding C entry points}{1.16.1}{Hiding C entry points}{20}
+@numsubsecentry{Variables in Windows DLLs}{1.16.2}{Variables in Windows DLLs}{20}
+@numsecentry{Lazy loading}{1.17}{Lazy loading}{21}
+@numchapentry{@code {.Internal} vs @code {.Primitive}}{2}{.Internal vs .Primitive}{22}
+@numsecentry{Special primitives}{2.1}{Special primitives}{24}
+@numsecentry{Special internals}{2.2}{Special internals}{24}
+@numsecentry{Prototypes for primitives}{2.3}{Prototypes for primitives}{25}
+@numchapentry{Internationalization in the R sources}{3}{Internationalization in the R sources}{26}
+@numsecentry{R code}{3.1}{R code}{26}
+@numsecentry{Main C code}{3.2}{Main C code}{26}
+@numsecentry{Windows-GUI-specific code}{3.3}{Windows-GUI-specific code}{26}
+@numsecentry{Mac OS X GUI}{3.4}{Mac OS X GUI}{27}
+@numsecentry{Updating}{3.5}{Updating}{27}
+@numchapentry{Structure of an Installed Package}{4}{Package Structure}{28}
+@numsecentry{Metadata}{4.1}{Metadata}{28}
+@numsecentry{Help}{4.2}{Help}{29}
+@numchapentry{Files}{5}{Files}{30}
+@numchapentry{Graphics}{6}{Graphics Devices}{31}
+@numsecentry{Graphics Devices}{6.1}{Graphics devices}{32}
+@numsubsecentry{Device structures}{6.1.1}{Device structures}{32}
+@numsubsecentry{Device capabilities}{6.1.2}{Device capabilities}{34}
+@numsubsecentry{Handling text}{6.1.3}{Handling text}{34}
+@numsubsecentry{Conventions}{6.1.4}{Conventions}{36}
+@numsubsecentry{`Mode'}{6.1.5}{'Mode'}{37}
+@numsubsecentry{Graphics events}{6.1.6}{Graphics events}{37}
+@numsubsecentry{Specific devices}{6.1.7}{Specific devices}{37}
+@numsubsubsecentry{X11()}{6.1.7.1}{X11()}{37}
+@numsubsubsecentry{windows()}{6.1.7.2}{windows()}{38}
+@numsecentry{Colours}{6.2}{Colours}{39}
+@numsecentry{Base graphics}{6.3}{Base graphics}{40}
+@numsecentry{Grid graphics}{6.4}{Grid graphics}{40}
+@numchapentry{Tools}{7}{Tools}{41}
+@numchapentry{R coding standards}{8}{R coding standards}{46}
+@numchapentry{Testing R code}{9}{Testing R code}{48}
+@numchapentry{Use of TeX dialects}{10}{Use of TeX dialects}{49}
+@numchapentry{Future directions}{11}{Future directions}{50}
+@unnchapentry{Function and variable index}{10001}{Function and variable index}{51}
+@unnchapentry{Concept index}{10002}{Concept index}{53}

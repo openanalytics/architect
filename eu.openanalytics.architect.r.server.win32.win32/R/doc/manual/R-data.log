@@ -1,0 +1,236 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdftex 2011.12.5)  3 NOV 2012 18:19
+entering extended mode
+**C:/Users/FREDER?1/AppData/Local/Temp/mik23820/_xtr/R-data.texi
+(C:/Users/FREDER~1/AppData/Local/Temp/mik23820/_xtr/R-data.texi
+(d:\dev\tools\MiKTeX\tex\texinfo\base\texinfo.tex
+Loading texinfo [version 2011-05-23.16]:
+\bindingoffset=\dimen16
+\normaloffset=\dimen17
+\pagewidth=\dimen18
+\pageheight=\dimen19
+\outerhsize=\dimen20
+\outervsize=\dimen21
+\cornerlong=\dimen22
+\cornerthick=\dimen23
+\topandbottommargin=\dimen24
+\headlinebox=\box16
+\footlinebox=\box17
+\margin=\insert252
+\EMsimple=\toks12
+\groupbox=\box18
+\groupinvalidhelp=\toks13
+\mil=\dimen25
+\exdentamount=\skip18
+\inmarginspacing=\skip19
+ pdf,
+\tempnum=\count26
+\lnkcount=\count27
+\filename=\toks14
+\filenamelength=\count28
+\pgn=\count29
+\toksA=\toks15
+\toksB=\toks16
+\toksC=\toks17
+\toksD=\toks18
+\boxA=\box19
+\countA=\count30
+\nopdfimagehelp=\toks19
+ fonts,
+\sffam=\fam8
+\textleading=\dimen26
+ markup,
+\fontdepth=\count31
+ glyphs,
+\errorbox=\box20
+
+page headings,
+\titlepagetopglue=\skip20
+\titlepagebottomglue=\skip21
+\evenheadline=\toks20
+\oddheadline=\toks21
+\evenfootline=\toks22
+\oddfootline=\toks23
+ tables,
+\tableindent=\dimen27
+\itemindent=\dimen28
+\itemmargin=\dimen29
+\itemmax=\dimen30
+\itemno=\count32
+\multitableparskip=\skip22
+\multitableparindent=\skip23
+\multitablecolspace=\dimen31
+\multitablelinespace=\skip24
+\colcount=\count33
+\everytab=\toks24
+ conditionals,
+\doignorecount=\count34
+ indexing,
+\whatsitskip=\skip25
+\whatsitpenalty=\count35
+\secondaryindent=\skip26
+\partialpage=\box21
+\doublecolumnhsize=\dimen32
+ sectioning,
+\unnumberedno=\count36
+\chapno=\count37
+\secno=\count38
+\subsecno=\count39
+\subsubsecno=\count40
+\appendixno=\count41
+\absseclevel=\count42
+\secbase=\count43
+\chapheadingskip=\skip27
+\secheadingskip=\skip28
+\subsecheadingskip=\skip29
+ toc,
+\tocfile=\write0
+\contentsrightmargin=\skip30
+\savepageno=\count44
+\lastnegativepageno=\count45
+\tocindent=\dimen33
+ environments,
+\lispnarrowing=\skip31
+\envskipamount=\skip32
+\circthick=\dimen34
+\cartouter=\dimen35
+\cartinner=\dimen36
+\normbskip=\skip33
+\normpskip=\skip34
+\normlskip=\skip35
+\lskip=\skip36
+\rskip=\skip37
+\nonfillparindent=\dimen37
+\tabw=\dimen38
+\verbbox=\box22
+
+defuns,
+\defbodyindent=\skip38
+\defargsindent=\skip39
+\deflastargmargin=\skip40
+\defunpenalty=\count46
+\parencount=\count47
+\brackcount=\count48
+ macros,
+\paramno=\count49
+\macname=\toks25
+ cross references,
+\auxfile=\write1
+\savesfregister=\count50
+ insertions,
+\footnoteno=\count51
+\SAVEfootins=\box23
+\SAVEmargin=\box24
+
+(C:\architect-build\temp\r\i386\R-2.15.2\doc\manual\epsf.tex
+This is `epsf.tex' v2.7.4 <14 February 2011>
+\epsffilein=\read0
+\epsfframemargin=\dimen39
+\epsfframethickness=\dimen40
+\epsfrsize=\dimen41
+\epsftmp=\dimen42
+\epsftsize=\dimen43
+\epsfxsize=\dimen44
+\epsfysize=\dimen45
+\pspoints=\dimen46
+)
+\noepsfhelp=\toks26
+ localization,
+\nolanghelp=\toks27
+\countUTFx=\count52
+\countUTFy=\count53
+\countUTFz=\count54
+ formatting,
+\defaultparindent=\dimen47
+ and turning on texinfo input format.)
+(C:\architect-build\temp\r\i386\R-2.15.2\doc\manual\R-data.aux)
+@cpindfile=@write2
+@fnindfile=@write3
+@vrindfile=@write4
+@tpindfile=@write5
+@kyindfile=@write6
+@pgindfile=@write7
+texinfo.tex: doing @include of R-defs.texi
+
+
+(C:\architect-build\temp\r\i386\R-2.15.2\doc\manual\R-defs.texi
+(d:\dev\tools\MiKTeX\tex\texinfo\base\txi-en.tex))
+texinfo.tex: doing @include of version.texi
+
+
+(C:\architect-build\temp\r\i386\R-2.15.2\doc\manual\version.texi) [1{C:/Program
+Data/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+(C:\architect-build\temp\r\i386\R-2.15.2\doc\manual\R-data.toc [-1]) [-2]
+(C:\architect-build\temp\r\i386\R-2.15.2\doc\manual\R-data.toc)
+(C:\architect-build\temp\r\i386\R-2.15.2\doc\manual\R-data.toc)
+(Acknowledgements)
+Overfull \hbox (8.53186pt too wide) in paragraph at lines 95--95
+ [][]@textbf dataframes2xls[][]| 
+
+@hbox(9.34993+3.85005)x91.90059
+.@glue(@leftskip) 28.90755
+.@pdfliteral{0.50 0.09 0.12 rg 0.50 0.09 0.12 RG}
+.@pdfstartlink(*+*)x* attr{/Border [0 0 0]} action user{/Subtype /Link /A << /S
+ /URI /URI (http://CRAN.R-project.org/package=@ETC.}
+.@textbf d
+.@textbf a
+.etc.
+
+
+Overfull \hbox (2.70708pt too wide) in paragraph at lines 106--106
+ [][]@textbf RPostgreSQL[][]| 
+
+@hbox(9.34993+3.85005)x91.90059
+.@glue(@leftskip) 28.90755
+.@pdfliteral{0.50 0.09 0.12 rg 0.50 0.09 0.12 RG}
+.@pdfstartlink(*+*)x* attr{/Border [0 0 0]} action user{/Subtype /Link /A << /S
+ /URI /URI (http://CRAN.R-project.org/package=@ETC.}
+.@textbf R
+.@textbf P
+.etc.
+
+
+Overfull \hbox (2.49414pt too wide) in paragraph at lines 113--113
+ [][]@textbf xlsReadWrite[][]| 
+
+@hbox(9.34993+3.85005)x91.90059
+.@glue(@leftskip) 28.90755
+.@pdfliteral{0.50 0.09 0.12 rg 0.50 0.09 0.12 RG}
+.@pdfstartlink(*+*)x* attr{/Border [0 0 0]} action user{/Subtype /Link /A << /S
+ /URI /URI (http://CRAN.R-project.org/package=@ETC.}
+.@textbf x
+.@textbf l
+.etc.
+
+Chapter 1 [1] [2] [3] [4] Chapter 2 [5] [6] [7] [8] [9] [10] Chapter 3 [11]
+[12] Chapter 4 [13] [14] [15] [16] [17] [18] Chapter 5 [19] Chapter 6 [20]
+[21] [22] [23] Chapter 7 [24] Chapter 8 [25] Appendix A [26]
+(Function and variable index) [27]
+(C:\architect-build\temp\r\i386\R-2.15.2\doc\manual\R-data.vrs [28])
+(Concept index) [29]
+(C:\architect-build\temp\r\i386\R-2.15.2\doc\manual\R-data.cps) [30] ) 
+Here is how much of TeX's memory you used:
+ 2120 strings out of 497533
+ 27798 string characters out of 3209590
+ 105364 words of memory out of 3000000
+ 3009 multiletter control sequences out of 15000+200000
+ 32127 words of font info for 112 fonts, out of 3000000 for 9000
+ 51 hyphenation exceptions out of 8191
+ 12i,6n,17p,313b,593s stack positions out of 5000i,500n,10000p,200000b,50000s
+<d:/dev/t
+ools/MiKTeX/fonts/type1/public/amsfonts/cm/cmb10.pfb><d:/dev/tools/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmbx12.pfb><d:/dev/tools/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmmi10.pfb><d:/dev/tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12
+.pfb><d:/dev/tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><d:/dev/tool
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/dev/tools/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr7.pfb><d:/dev/tools/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmr9.pfb><d:/dev/tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmsltt10.pfb>
+<d:/dev/tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/dev/tools/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/dev/tools/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmtt10.pfb><d:/dev/tools/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmtt12.pfb><d:/dev/tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on R-data.pdf (34 pages, 387939 bytes).
+PDF statistics:
+ 751 PDF objects out of 1000 (max. 8388607)
+ 75 named destinations out of 1000 (max. 500000)
+ 357 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,1391 @@
+
+\chapter{The \texttt{tcltk} package}
+\HeaderA{tcltk-package}{Tcl/Tk Interface}{tcltk.Rdash.package}
+\aliasA{tcltk}{tcltk-package}{tcltk}
+\keyword{package}{tcltk-package}
+%
+\begin{Description}\relax
+Interface and language bindings to Tcl/Tk GUI elements.
+\end{Description}
+%
+\begin{Details}\relax
+This package provides access to the platform-independent Tcl scripting
+language and Tk GUI elements.  See \LinkA{TkWidgets}{TkWidgets} for a list of
+supported widgets, \LinkA{TkWidgetcmds}{TkWidgetcmds} for commands to work with them,
+and references in those files for more.  
+
+The Tcl/Tk documentation is in
+the directory \file{\var{\LinkA{R\_HOME}{R.Rul.HOME}}/Tcl/doc}.
+
+For a complete list of functions, use \code{ls("package:tcltk")}.
+
+\end{Details}
+%
+\begin{Author}\relax
+R Core Team
+
+Maintainer: R Core Team \email{R-core@r-project.org}
+\end{Author}
+\HeaderA{TclInterface}{Low-level Tcl/Tk Interface}{TclInterface}
+\aliasA{\$.tclArray}{TclInterface}{.Rdol..tclArray}
+\aliasA{\$<\Rdash.tclArray}{TclInterface}{.Rdol.<.Rdash..tclArray}
+\aliasA{.Tcl}{TclInterface}{.Tcl}
+\methaliasA{.Tcl.args}{TclInterface}{.Tcl.args}
+\methaliasA{.Tcl.args.objv}{TclInterface}{.Tcl.args.objv}
+\methaliasA{.Tcl.callback}{TclInterface}{.Tcl.callback}
+\methaliasA{.Tcl.objv}{TclInterface}{.Tcl.objv}
+\aliasA{.Tk.ID}{TclInterface}{.Tk.ID}
+\aliasA{.Tk.newwin}{TclInterface}{.Tk.newwin}
+\aliasA{.Tk.subwin}{TclInterface}{.Tk.subwin}
+\aliasA{.TkRoot}{TclInterface}{.TkRoot}
+\aliasA{addTclPath}{TclInterface}{addTclPath}
+\aliasA{as.character.tclObj}{TclInterface}{as.character.tclObj}
+\aliasA{as.character.tclVar}{TclInterface}{as.character.tclVar}
+\aliasA{as.double.tclObj}{TclInterface}{as.double.tclObj}
+\aliasA{as.integer.tclObj}{TclInterface}{as.integer.tclObj}
+\aliasA{as.logical.tclObj}{TclInterface}{as.logical.tclObj}
+\aliasA{as.raw.tclObj}{TclInterface}{as.raw.tclObj}
+\aliasA{as.tclObj}{TclInterface}{as.tclObj}
+\aliasA{is.tclObj}{TclInterface}{is.tclObj}
+\aliasA{is.tkwin}{TclInterface}{is.tkwin}
+\aliasA{length.tclArray}{TclInterface}{length.tclArray}
+\aliasA{length<\Rdash.tclArray}{TclInterface}{length<.Rdash..tclArray}
+\aliasA{names.tclArray}{TclInterface}{names.tclArray}
+\aliasA{names<\Rdash.tclArray}{TclInterface}{names<.Rdash..tclArray}
+\aliasA{print.tclObj}{TclInterface}{print.tclObj}
+\aliasA{tclArray}{TclInterface}{tclArray}
+\aliasA{tclObj}{TclInterface}{tclObj}
+\methaliasA{tclObj.tclVar}{TclInterface}{tclObj.tclVar}
+\aliasA{tclObj<\Rdash}{TclInterface}{tclObj<.Rdash.}
+\methaliasA{tclObj<\Rdash.tclVar}{TclInterface}{tclObj<.Rdash..tclVar}
+\aliasA{tclRequire}{TclInterface}{tclRequire}
+\aliasA{tclvalue}{TclInterface}{tclvalue}
+\methaliasA{tclvalue.default}{TclInterface}{tclvalue.default}
+\methaliasA{tclvalue.tclObj}{TclInterface}{tclvalue.tclObj}
+\methaliasA{tclvalue.tclVar}{TclInterface}{tclvalue.tclVar}
+\aliasA{tclvalue<\Rdash}{TclInterface}{tclvalue<.Rdash.}
+\methaliasA{tclvalue<\Rdash.default}{TclInterface}{tclvalue<.Rdash..default}
+\methaliasA{tclvalue<\Rdash.tclVar}{TclInterface}{tclvalue<.Rdash..tclVar}
+\aliasA{tclVar}{TclInterface}{tclVar}
+\aliasA{tclvar}{TclInterface}{tclvar}
+\aliasA{tkdestroy}{TclInterface}{tkdestroy}
+\aliasA{[[.tclArray}{TclInterface}{[[.tclArray}
+\aliasA{[[<\Rdash.tclArray}{TclInterface}{[[<.Rdash..tclArray}
+\keyword{misc}{TclInterface}
+%
+\begin{Description}\relax
+These functions and variables provide the basic glue between \R{} and the
+Tcl interpreter and Tk GUI toolkit. Tk
+windows may be represented via \R{} objects. Tcl variables can be accessed
+via objects of class \code{tclVar} and the C level interface to Tcl
+objects is accessed via objects of class \code{tclObj}.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+.Tcl(...)
+.Tcl.objv(objv)
+.Tcl.args(...)
+.Tcl.args.objv(...)
+.Tcl.callback(...)
+.Tk.ID(win)
+.Tk.newwin(ID)
+.Tk.subwin(parent)
+.TkRoot
+
+tkdestroy(win)
+is.tkwin(x)
+
+tclvalue(x)
+tclvalue(x) <- value
+
+tclVar(init="")
+## S3 method for class 'tclVar'
+as.character(x, ...)
+## S3 method for class 'tclVar'
+tclvalue(x)
+## S3 replacement method for class 'tclVar'
+tclvalue(x) <- value
+
+tclArray()
+## S3 method for class 'tclArray'
+x[[...]]
+## S3 replacement method for class 'tclArray'
+x[[...]] <- value
+## S3 method for class 'tclArray'
+x$i
+## S3 replacement method for class 'tclArray'
+x$i <- value
+
+## S3 method for class 'tclArray'
+names(x)
+## S3 method for class 'tclArray'
+length(x)
+
+tclObj(x)
+tclObj(x) <- value
+## S3 method for class 'tclVar'
+tclObj(x)
+## S3 replacement method for class 'tclVar'
+tclObj(x) <- value
+
+as.tclObj(x, drop=FALSE)
+is.tclObj(x)
+
+## S3 method for class 'tclObj'
+as.character(x, ...)
+## S3 method for class 'tclObj'
+as.integer(x, ...)
+## S3 method for class 'tclObj'
+as.double(x, ...)
+## S3 method for class 'tclObj'
+as.logical(x, ...)
+## S3 method for class 'tclObj'
+as.raw(x, ...)
+## S3 method for class 'tclObj'
+tclvalue(x)
+
+## Default S3 method:
+tclvalue(x)
+## Default S3 replacement method:
+tclvalue(x) <- value
+
+
+addTclPath(path = ".")
+tclRequire(package, warn = TRUE)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{objv}] a named vector of Tcl objects
+\item[\code{win}] a window structure
+\item[\code{x}] an object
+\item[\code{i}] character or (unquoted) name
+\item[\code{drop}] logical. Indicates whether a single-element vector should
+be made into a simple Tcl object or a list of length one
+\item[\code{value}] For \code{tclvalue} assignments, a character string. For
+\code{tclObj} assignments, an object of class \code{tclObj}
+\item[\code{ID}] a window ID
+\item[\code{parent}] a window which becomes the parent of the resulting window
+\item[\code{path}] path to a directory containing Tcl packages
+\item[\code{package}] a Tcl package name
+\item[\code{warn}] logical. Warn if not found?
+\item[\code{...}] Additional arguments. See below.
+\item[\code{init}] initialization value
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Many of these functions are not intended for general use but are used
+internally by the commands that create and manipulate Tk widgets and
+Tcl objects.  At the lowest level \code{.Tcl} sends a command as a text
+string to the Tcl interpreter and returns the result as an object of
+class \code{tclObj} (see below).  A newer variant \code{.Tcl.objv}
+accepts arguments in the form of a named list of \code{tclObj}
+objects. 
+
+\code{.Tcl.args} converts an R argument list of \code{tag=value} pairs
+to the Tcl \code{-option value} style, thus
+enabling a simple translation between the two languages. To send a
+value with no preceding option flag to Tcl, just use an untagged
+argument. In the rare case one needs an option with no subsequent
+value \code{tag=NULL} can be used. Most values are just converted to
+character mode and inserted in the command string, but window objects
+are passed using their ID string, and callbacks are passed via the
+result of \code{.Tcl.callback}. Tags are converted to option flags
+simply by prepending a \code{-}
+
+\code{.Tcl.args.objv} serves a similar purpose as \code{.Tcl.args} but
+produces a list of \code{tclObj} objects suitable for passing to
+\code{.Tcl.objv}. The names of the list are converted to Tcl option
+style internally by \code{.Tcl.objv}. 
+
+Callbacks can be either \emph{atomic callbacks} handled by
+\code{.Tcl.callback} or expressions. An expression is treated as a
+list of atomic callbacks, with the following exceptions: if an
+element is a name, it is first evaluated in the callers frame, and
+likewise if it is an explicit function definition; the \code{break}
+expression is translated directly to the Tcl counterpart.
+\code{.Tcl.callback} converts \R{} functions and unevaluated calls to
+Tcl command strings.  The argument must be either a function closure
+or an object of mode \code{"call"} followed by an environment.  The
+return value in the first case is of the form \code{R\_call
+  0x408b94d4} in which the hexadecimal number is the memory address of
+the function. In the second case it will be of the form
+\code{R\_call\_lang 0x8a95904 0x819bfd0}. For expressions, a sequence
+of similar items is generated, separated by
+semicolons. \code{.Tcl.args} takes special precautions to ensure
+that functions or calls will continue to exist at the specified
+address by assigning the
+callback into the relevant window environment (see below).
+
+Tk windows are represented as objects of class \code{tkwin} which are
+lists containing  a \code{ID} field and an \code{env} field which is
+an \R{} environments, enclosed in the global environment.  The value of
+the \code{ID} field is identical to the Tk window name. The \code{env}
+environment contains a \code{parent} variable and a \code{num.subwin}
+variable.  If the window obtains sub-windows and  callbacks, they are
+added as variables to the environment.   \code{.TkRoot} is the top
+window with ID "."; this window is not  displayed in order to avoid
+ill effects of closing it via window  manager controls. The
+\code{parent} variable is undefined for \code{.TkRoot}.
+
+\code{.Tk.ID} extracts the \code{ID} of a window,
+\code{.Tk.newwin} creates a new window environment with a given ID and
+\code{.Tk.subwin} creates a new window which is a sub-window of a given
+parent window.
+
+\code{tkdestroy} destroys a window and also removes the reference to a
+window from its parent.
+
+\code{is.tkwin} can be used to test whether a given object is a window
+environment.
+
+\code{tclVar} creates a new Tcl variable and initializes it to
+\code{init}.  An R object of class \code{tclVar} is created to
+represent it.  Using \code{as.character} on the object returns the Tcl
+variable name.  Accessing the Tcl variable from R is done using the 
+\code{tclvalue} function, which can also occur on the left-hand side of
+assignments.  If \code{tclvalue} is passed an argument which is not a
+\code{tclVar} object, then it will assume that it is a character string
+explicitly naming global Tcl variable. Tcl variables created by 
+\code{tclVar} are uniquely named and automatically unset by the
+garbage collector when the representing object is no longer in use. 
+
+\code{tclArray} creates a new Tcl array and initializes it to the empty
+array.  An R object of class \code{tclArray} and inheriting from class
+\code{tclVar} is created to represent it. You can access elements of
+the Tcl array using indexing with \code{[[} or \code{\$}, which also
+allow replacement forms.  Notice that Tcl arrays are associative by
+nature and hence unordered; indexing with a numeric index \code{i}
+refers to the element with the \emph{name}
+\code{as.character(i)}.  Multiple indices are pasted together separated
+by commas to form a single name.  You can query the
+length and the set of names in an array using methods for
+\code{length} and \code{names}, respectively; these cannot
+meaningfully be set so assignment forms exist only to print an error
+message. 
+
+It is possible to access Tcl's `dual-ported' objects directly,
+thus avoiding parsing and deparsing of their string representation.
+This works by using objects of class \code{tclObj}.  The string
+representation of such objects can be extracted (but not set) using
+\code{tclvalue} and conversion to vectors of mode \code{"character"},
+\code{"double"}, \code{"integer"}, \code{"logical"}.  Conversely, such
+vectors can be converted using \code{as.tclObj}.  There is an
+ambiguity as to what should happen for length one vectors, controlled
+by the \code{drop} argument; there are cases where the distinction
+matters to Tcl, although mostly it treats them equivalently.  Notice
+that \code{tclvalue} and \code{as.character} differ on an object whose
+string representation has embedded spaces, the former is sometimes to
+be preferred, in particular when applied to the result of
+\code{tclread}, \code{tkgetOpenFile}, and similar functions.  The
+\code{as.raw} method returns a raw vector or a list of raw vectors and
+can be used to return binary data from Tcl.
+
+The object behind a \code{tclVar} object is extracted using
+\code{tclObj(x)} which also allows an assignment form, in which the
+right hand side of the assignment is automatically converted using
+\code{as.tclObj}.  There is a print method for \code{tclObj} objects;
+it prints \code{<Tcl>} followed by the string representation of the
+object.  Notice that \code{as.character} on a \code{tclVar} object is
+the \emph{name} of the corresponding Tcl variable and not the value.
+
+Tcl packages can be loaded with \code{tclRequire}; it may be necessary
+to add the directory where they are found to the Tcl search path with
+\code{addTclPath}.  The return value is a class \code{"tclObj"} object
+if it succeeds, or \code{FALSE} if it fails (when a warning is issued).
+\end{Details}
+%
+\begin{Note}\relax
+ Strings containing unbalanced braces are currently not handled
+well in many circumstances.
+\end{Note}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{TkWidgets}{TkWidgets}},
+\code{\LinkA{TkCommands}{TkCommands}},
+\code{\LinkA{TkWidgetcmds}{TkWidgetcmds}}.
+
+\code{\LinkA{capabilities}{capabilities}("tcltk")} to see if Tcl/Tk support was
+compiled into this build of \R{}.
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+## These cannot be run by example() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+.Tcl("format \"%s\n\" \"Hello, World!\"")
+f <- function()cat("HI!\n")
+.Tcl.callback(f)
+.Tcl.args(text="Push!", command=f) # NB: Different address
+
+xyzzy <- tclVar(7913)
+tclvalue(xyzzy)
+tclvalue(xyzzy) <- "foo"
+as.character(xyzzy)
+tcl("set", as.character(xyzzy))
+
+top <- tktoplevel() # a Tk widget, see Tk-widgets
+ls(envir=top$env, all=TRUE)
+ls(envir=.TkRoot$env, all=TRUE)# .Tcl.args put a callback ref in here
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{tclServiceMode}{ Allow Tcl events to be serviced or not }{tclServiceMode}
+\keyword{misc}{tclServiceMode}
+%
+\begin{Description}\relax
+This function controls or reports on the Tcl service mode,
+i.e. whether Tcl will respond to events.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tclServiceMode(on = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{on}] (logical) Whether event servicing is turned on. 
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+If called with \code{on == NULL} (the default), no change is made.
+
+Note that this blocks all Tcl/Tk activity, including for widgets from
+other packages.  It may be better to manage mapping of windows individually.
+\end{Details}
+%
+\begin{Value}
+The value of the Tcl service mode before the call.
+\end{Value}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## see demo(tkcanvas) for an example
+## Not run:     
+oldmode <- tclServiceMode(FALSE)
+# Do some work to create a nice picture.
+# Nothing will be displayed until...
+tclServiceMode(oldmode)
+
+## End(Not run)
+## another idea is to use tkwm.withdraw() ... tkwm.deiconify()
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{TkCommands}{Tk non-widget commands}{TkCommands}
+\aliasA{tcl}{TkCommands}{tcl}
+\aliasA{tclclose}{TkCommands}{tclclose}
+\aliasA{tclfile.dir}{TkCommands}{tclfile.dir}
+\aliasA{tclfile.tail}{TkCommands}{tclfile.tail}
+\aliasA{tclopen}{TkCommands}{tclopen}
+\aliasA{tclputs}{TkCommands}{tclputs}
+\aliasA{tclread}{TkCommands}{tclread}
+\aliasA{tkbell}{TkCommands}{tkbell}
+\aliasA{tkbind}{TkCommands}{tkbind}
+\aliasA{tkbindtags}{TkCommands}{tkbindtags}
+\aliasA{tkchooseDirectory}{TkCommands}{tkchooseDirectory}
+\aliasA{tkclipboard.append}{TkCommands}{tkclipboard.append}
+\aliasA{tkclipboard.clear}{TkCommands}{tkclipboard.clear}
+\aliasA{tkdialog}{TkCommands}{tkdialog}
+\aliasA{tkevent.add}{TkCommands}{tkevent.add}
+\aliasA{tkevent.delete}{TkCommands}{tkevent.delete}
+\aliasA{tkevent.generate}{TkCommands}{tkevent.generate}
+\aliasA{tkevent.info}{TkCommands}{tkevent.info}
+\aliasA{tkfocus}{TkCommands}{tkfocus}
+\aliasA{tkfont.actual}{TkCommands}{tkfont.actual}
+\aliasA{tkfont.configure}{TkCommands}{tkfont.configure}
+\aliasA{tkfont.create}{TkCommands}{tkfont.create}
+\aliasA{tkfont.delete}{TkCommands}{tkfont.delete}
+\aliasA{tkfont.families}{TkCommands}{tkfont.families}
+\aliasA{tkfont.measure}{TkCommands}{tkfont.measure}
+\aliasA{tkfont.metrics}{TkCommands}{tkfont.metrics}
+\aliasA{tkfont.names}{TkCommands}{tkfont.names}
+\aliasA{tkgetOpenFile}{TkCommands}{tkgetOpenFile}
+\aliasA{tkgetSaveFile}{TkCommands}{tkgetSaveFile}
+\aliasA{tkgrab}{TkCommands}{tkgrab}
+\methaliasA{tkgrab.current}{TkCommands}{tkgrab.current}
+\methaliasA{tkgrab.release}{TkCommands}{tkgrab.release}
+\methaliasA{tkgrab.set}{TkCommands}{tkgrab.set}
+\methaliasA{tkgrab.status}{TkCommands}{tkgrab.status}
+\aliasA{tkgrid}{TkCommands}{tkgrid}
+\methaliasA{tkgrid.bbox}{TkCommands}{tkgrid.bbox}
+\methaliasA{tkgrid.columnconfigure}{TkCommands}{tkgrid.columnconfigure}
+\methaliasA{tkgrid.configure}{TkCommands}{tkgrid.configure}
+\methaliasA{tkgrid.forget}{TkCommands}{tkgrid.forget}
+\methaliasA{tkgrid.info}{TkCommands}{tkgrid.info}
+\methaliasA{tkgrid.location}{TkCommands}{tkgrid.location}
+\methaliasA{tkgrid.propagate}{TkCommands}{tkgrid.propagate}
+\methaliasA{tkgrid.remove}{TkCommands}{tkgrid.remove}
+\methaliasA{tkgrid.rowconfigure}{TkCommands}{tkgrid.rowconfigure}
+\methaliasA{tkgrid.size}{TkCommands}{tkgrid.size}
+\methaliasA{tkgrid.slaves}{TkCommands}{tkgrid.slaves}
+\aliasA{tkimage.cget}{TkCommands}{tkimage.cget}
+\aliasA{tkimage.configure}{TkCommands}{tkimage.configure}
+\aliasA{tkimage.create}{TkCommands}{tkimage.create}
+\aliasA{tkimage.names}{TkCommands}{tkimage.names}
+\aliasA{tklower}{TkCommands}{tklower}
+\aliasA{tkmessageBox}{TkCommands}{tkmessageBox}
+\aliasA{tkpack}{TkCommands}{tkpack}
+\methaliasA{tkpack.configure}{TkCommands}{tkpack.configure}
+\methaliasA{tkpack.forget}{TkCommands}{tkpack.forget}
+\methaliasA{tkpack.info}{TkCommands}{tkpack.info}
+\methaliasA{tkpack.propagate}{TkCommands}{tkpack.propagate}
+\methaliasA{tkpack.slaves}{TkCommands}{tkpack.slaves}
+\aliasA{tkplace}{TkCommands}{tkplace}
+\methaliasA{tkplace.configure}{TkCommands}{tkplace.configure}
+\methaliasA{tkplace.forget}{TkCommands}{tkplace.forget}
+\methaliasA{tkplace.info}{TkCommands}{tkplace.info}
+\methaliasA{tkplace.slaves}{TkCommands}{tkplace.slaves}
+\aliasA{tkpopup}{TkCommands}{tkpopup}
+\aliasA{tkraise}{TkCommands}{tkraise}
+\aliasA{tktitle}{TkCommands}{tktitle}
+\aliasA{tktitle<\Rdash}{TkCommands}{tktitle<.Rdash.}
+\aliasA{tkwait.variable}{TkCommands}{tkwait.variable}
+\aliasA{tkwait.visibility}{TkCommands}{tkwait.visibility}
+\aliasA{tkwait.window}{TkCommands}{tkwait.window}
+\aliasA{tkwinfo}{TkCommands}{tkwinfo}
+\aliasA{tkwm.aspect}{TkCommands}{tkwm.aspect}
+\aliasA{tkwm.client}{TkCommands}{tkwm.client}
+\aliasA{tkwm.colormapwindows}{TkCommands}{tkwm.colormapwindows}
+\aliasA{tkwm.command}{TkCommands}{tkwm.command}
+\aliasA{tkwm.deiconify}{TkCommands}{tkwm.deiconify}
+\aliasA{tkwm.focusmodel}{TkCommands}{tkwm.focusmodel}
+\aliasA{tkwm.frame}{TkCommands}{tkwm.frame}
+\aliasA{tkwm.geometry}{TkCommands}{tkwm.geometry}
+\aliasA{tkwm.grid}{TkCommands}{tkwm.grid}
+\aliasA{tkwm.group}{TkCommands}{tkwm.group}
+\aliasA{tkwm.iconbitmap}{TkCommands}{tkwm.iconbitmap}
+\aliasA{tkwm.iconify}{TkCommands}{tkwm.iconify}
+\aliasA{tkwm.iconmask}{TkCommands}{tkwm.iconmask}
+\aliasA{tkwm.iconname}{TkCommands}{tkwm.iconname}
+\aliasA{tkwm.iconposition}{TkCommands}{tkwm.iconposition}
+\aliasA{tkwm.iconwindow}{TkCommands}{tkwm.iconwindow}
+\aliasA{tkwm.maxsize}{TkCommands}{tkwm.maxsize}
+\aliasA{tkwm.minsize}{TkCommands}{tkwm.minsize}
+\aliasA{tkwm.overrideredirect}{TkCommands}{tkwm.overrideredirect}
+\aliasA{tkwm.positionfrom}{TkCommands}{tkwm.positionfrom}
+\aliasA{tkwm.protocol}{TkCommands}{tkwm.protocol}
+\aliasA{tkwm.resizable}{TkCommands}{tkwm.resizable}
+\aliasA{tkwm.sizefrom}{TkCommands}{tkwm.sizefrom}
+\aliasA{tkwm.state}{TkCommands}{tkwm.state}
+\aliasA{tkwm.title}{TkCommands}{tkwm.title}
+\aliasA{tkwm.transient}{TkCommands}{tkwm.transient}
+\aliasA{tkwm.withdraw}{TkCommands}{tkwm.withdraw}
+\aliasA{tkXselection.clear}{TkCommands}{tkXselection.clear}
+\aliasA{tkXselection.get}{TkCommands}{tkXselection.get}
+\aliasA{tkXselection.handle}{TkCommands}{tkXselection.handle}
+\aliasA{tkXselection.own}{TkCommands}{tkXselection.own}
+\keyword{misc}{TkCommands}
+%
+\begin{Description}\relax
+These functions interface to Tk non-widget commands, such as the
+window manager interface commands and the geometry managers.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tcl(...)
+tktitle(x)
+
+tktitle(x) <- value
+
+tkbell(...)
+tkbind(...)
+tkbindtags(...)
+tkfocus(...)
+tklower(...)
+tkraise(...)
+
+tkclipboard.append(...)
+tkclipboard.clear(...)
+
+tkevent.add(...)
+tkevent.delete(...)
+tkevent.generate(...)
+tkevent.info(...)
+
+tkfont.actual(...)
+tkfont.configure(...)
+tkfont.create(...)
+tkfont.delete(...)
+tkfont.families(...)
+tkfont.measure(...)
+tkfont.metrics(...)
+tkfont.names(...)
+
+tkgrab(...)
+tkgrab.current(...)
+tkgrab.release(...)
+tkgrab.set(...)
+tkgrab.status(...)
+
+tkimage.cget(...)
+tkimage.configure(...)
+tkimage.create(...)
+tkimage.names(...)
+
+## NB: some widgets also have a selection.clear command,
+## hence the "X".
+
+tkXselection.clear(...)
+tkXselection.get(...)
+tkXselection.handle(...)
+tkXselection.own(...)
+
+tkwait.variable(...)
+tkwait.visibility(...)
+tkwait.window(...)
+
+## winfo actually has a large number of subcommands,
+## but it's rarely used,
+## so use tkwinfo("atom", ...) etc. instead.
+
+tkwinfo(...)
+
+# Window manager interface
+
+tkwm.aspect(...)
+tkwm.client(...)
+tkwm.colormapwindows(...)
+tkwm.command(...)
+tkwm.deiconify(...)
+tkwm.focusmodel(...)
+tkwm.frame(...)
+tkwm.geometry(...)
+tkwm.grid(...)
+tkwm.group(...)
+tkwm.iconbitmap(...)
+tkwm.iconify(...)
+tkwm.iconmask(...)
+tkwm.iconname(...)
+tkwm.iconposition(...)
+tkwm.iconwindow(...)
+tkwm.maxsize(...)
+tkwm.minsize(...)
+tkwm.overrideredirect(...)
+tkwm.positionfrom(...)
+tkwm.protocol(...)
+tkwm.resizable(...)
+tkwm.sizefrom(...)
+tkwm.state(...)
+tkwm.title(...)
+tkwm.transient(...)
+tkwm.withdraw(...)
+
+
+### Geometry managers
+
+tkgrid(...)
+tkgrid.bbox(...)
+tkgrid.columnconfigure(...)
+tkgrid.configure(...)
+tkgrid.forget(...)
+tkgrid.info(...)
+tkgrid.location(...)
+tkgrid.propagate(...)
+tkgrid.rowconfigure(...)
+tkgrid.remove(...)
+tkgrid.size(...)
+tkgrid.slaves(...)
+
+tkpack(...)
+tkpack.configure(...)
+tkpack.forget(...)
+tkpack.info(...)
+tkpack.propagate(...)
+tkpack.slaves(...)
+
+tkplace(...)
+tkplace.configure(...)
+tkplace.forget(...)
+tkplace.info(...)
+tkplace.slaves(...)
+
+## Standard dialogs
+tkgetOpenFile(...)
+tkgetSaveFile(...)
+tkchooseDirectory(...)
+tkmessageBox(...)
+tkdialog(...)
+tkpopup(...)
+
+
+## File handling functions
+tclfile.tail(...)
+tclfile.dir(...)
+tclopen(...)
+tclclose(...)
+tclputs(...)
+tclread(...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{x}] A window object
+\item[\code{value}] For \code{tktitle} assignments, a character string.
+\item[\code{...}] Handled via \code{.Tcl.args}
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+
+\code{tcl} provides a generic interface to calling any Tk or Tcl
+command by simply running \code{.Tcl.args.objv} on the argument list
+and passing the
+result to \code{.Tcl.objv}.  Most of the other commands simply call
+\code{tcl} with a particular
+first argument and sometimes also a second argument giving the
+subcommand.
+
+\code{tktitle} and its assignment form provides an alternate interface
+to Tk's \code{wm title}
+
+There are far too many of these commands to describe them and their
+arguments in full.  Please refer to the Tcl/Tk documentation for details.
+With a few exceptions, the pattern is that Tk subcommands like
+\code{pack configure} are converted to function names like
+\code{tkpack.configure}, and Tcl subcommands are like
+\code{tclfile.dir}.  
+\end{Details}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{TclInterface}{TclInterface}}, \code{\LinkA{TkWidgets}{TkWidgets}},
+\code{\LinkA{TkWidgetcmds}{TkWidgetcmds}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+## These cannot be run by examples() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+
+tt <- tktoplevel()
+tkpack(l1<-tklabel(tt,text="Heave"), l2<-tklabel(tt,text="Ho"))
+tkpack.configure(l1, side="left")
+
+## Try stretching the window and then
+
+tkdestroy(tt)
+
+## End(Not run)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{tkpager}{Page file using Tk text widget}{tkpager}
+\keyword{misc}{tkpager}
+%
+\begin{Description}\relax
+This plugs into \code{file.show}, showing files in separate windows. 
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tkpager(file, header, title, delete.file)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{file}] character vector containing the names of the
+files to be displayed
+\item[\code{header}] headers to use for each file
+\item[\code{title}] common title to use for the window(s). Pasted together
+with the \code{header} to form actual window title.
+\item[\code{delete.file}] logical. Should file(s) be deleted after display?
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Note}\relax
+  The \code{"\bsl{}b\_"} string used for underlining is currently
+quietly removed. The font and background colour are currently
+hardcoded to Courier and gray90.
+\end{Note}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{file.show}{file.show}}
+\end{SeeAlso}
+\HeaderA{tkProgressBar}{Progress Bars via Tk}{tkProgressBar}
+\aliasA{close.tkProgressBar}{tkProgressBar}{close.tkProgressBar}
+\aliasA{getTkProgressBar}{tkProgressBar}{getTkProgressBar}
+\aliasA{setTkProgressBar}{tkProgressBar}{setTkProgressBar}
+\keyword{utilities}{tkProgressBar}
+%
+\begin{Description}\relax
+Put up a Tk progress bar widget.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tkProgressBar(title = "R progress bar", label = "",
+              min = 0, max = 1, initial = 0, width = 300)
+
+getTkProgressBar(pb)
+setTkProgressBar(pb, value, title = NULL, label = NULL)
+## S3 method for class 'tkProgressBar'
+close(con, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{title, label}] character strings, giving the window title and the
+label on the dialog box respectively.
+\item[\code{min, max}] (finite) numeric values for the extremes of the
+progress bar.
+\item[\code{initial, value}] initial or new value for the progress bar.
+\item[\code{width}] the width of the progress bar in pixels: the dialog box
+will be 40 pixels wider (plus frame).
+\item[\code{pb, con}] an object of class \code{"tkProgressBar"}.
+\item[\code{...}] for consistency with the generic.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+\code{tkProgressBar} will display a widget containing a label and
+progress bar.
+
+\code{setTkProgessBar} will update the value and for non-\code{NULL}
+values, the title and label (provided there was one when the widget
+was created).  Missing (\code{\LinkA{NA}{NA}}) and out-of-range values of
+\code{value} will be (silently) ignored.
+
+The progress bar should be \code{close}d when finished with.
+
+This will use the \code{ttk::progressbar} widget for Tk version 8.5 or
+later, otherwise \R{}'s copy of BWidget's \code{progressbar}.
+\end{Details}
+%
+\begin{Value}
+For \code{tkProgressBar} an object of class \code{"tkProgressBar"}.
+
+For \code{getTkProgressBar} and \code{setTkProgressBar}, a
+length-one numeric vector giving the previous value (invisibly for
+\code{setTkProgressBar}).
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{txtProgressBar}{txtProgressBar}}  
+
+\code{\LinkA{winProgressBar}{winProgressBar}} for a version using Windows native
+controls (which this also does for Tk >= 8.5).
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+
+pb <- tkProgressBar("test progress bar", "Some information in %",
+                    0, 100, 50)
+Sys.sleep(0.5)
+u <- c(0, sort(runif(20, 0 ,100)), 100)
+for(i in u) {
+    Sys.sleep(0.1)
+    info <- sprintf("%d%% done", round(i))
+    setTkProgressBar(pb, i, sprintf("test (%s)", info), info)
+}
+Sys.sleep(5)
+close(pb)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{tkStartGUI}{Tcl/Tk GUI startup}{tkStartGUI}
+\keyword{misc}{tkStartGUI}
+%
+\begin{Description}\relax
+Starts up the Tcl/Tk GUI
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tkStartGUI()
+\end{verbatim}
+\end{Usage}
+%
+\begin{Details}\relax
+Starts a GUI console implemented via a Tk text widget. This should
+probably be called at most once per session. Also redefines the file
+pager (as used by \code{help()}) to be the Tk pager. 
+\end{Details}
+%
+\begin{Note}\relax
+This function is not usable under Windows.
+
+\code{tkStartGUI()} saves its evaluation environment as
+\code{.GUIenv}. This means that the user interface elements can be
+accessed in order to extend the interface. The three main objects are
+named \code{Term}, \code{Menu}, and \code{Toolbar}, and the various
+submenus and callback functions can be seen with
+\code{ls(envir=.GUIenv)}.
+\end{Note}
+%
+\begin{Author}\relax
+Peter Dalgaard
+\end{Author}
+\HeaderA{TkWidgetcmds}{Tk widget commands}{TkWidgetcmds}
+\aliasA{tkactivate}{TkWidgetcmds}{tkactivate}
+\aliasA{tkadd}{TkWidgetcmds}{tkadd}
+\aliasA{tkaddtag}{TkWidgetcmds}{tkaddtag}
+\aliasA{tkbbox}{TkWidgetcmds}{tkbbox}
+\aliasA{tkcanvasx}{TkWidgetcmds}{tkcanvasx}
+\aliasA{tkcanvasy}{TkWidgetcmds}{tkcanvasy}
+\aliasA{tkcget}{TkWidgetcmds}{tkcget}
+\aliasA{tkcompare}{TkWidgetcmds}{tkcompare}
+\aliasA{tkconfigure}{TkWidgetcmds}{tkconfigure}
+\aliasA{tkcoords}{TkWidgetcmds}{tkcoords}
+\aliasA{tkcreate}{TkWidgetcmds}{tkcreate}
+\aliasA{tkcurselection}{TkWidgetcmds}{tkcurselection}
+\aliasA{tkdchars}{TkWidgetcmds}{tkdchars}
+\aliasA{tkdebug}{TkWidgetcmds}{tkdebug}
+\aliasA{tkdelete}{TkWidgetcmds}{tkdelete}
+\aliasA{tkdelta}{TkWidgetcmds}{tkdelta}
+\aliasA{tkdeselect}{TkWidgetcmds}{tkdeselect}
+\aliasA{tkdlineinfo}{TkWidgetcmds}{tkdlineinfo}
+\aliasA{tkdtag}{TkWidgetcmds}{tkdtag}
+\aliasA{tkdump}{TkWidgetcmds}{tkdump}
+\aliasA{tkentrycget}{TkWidgetcmds}{tkentrycget}
+\aliasA{tkentryconfigure}{TkWidgetcmds}{tkentryconfigure}
+\aliasA{tkfind}{TkWidgetcmds}{tkfind}
+\aliasA{tkflash}{TkWidgetcmds}{tkflash}
+\aliasA{tkfraction}{TkWidgetcmds}{tkfraction}
+\aliasA{tkget}{TkWidgetcmds}{tkget}
+\aliasA{tkgettags}{TkWidgetcmds}{tkgettags}
+\aliasA{tkicursor}{TkWidgetcmds}{tkicursor}
+\aliasA{tkidentify}{TkWidgetcmds}{tkidentify}
+\aliasA{tkindex}{TkWidgetcmds}{tkindex}
+\aliasA{tkinsert}{TkWidgetcmds}{tkinsert}
+\aliasA{tkinvoke}{TkWidgetcmds}{tkinvoke}
+\aliasA{tkitembind}{TkWidgetcmds}{tkitembind}
+\aliasA{tkitemcget}{TkWidgetcmds}{tkitemcget}
+\aliasA{tkitemconfigure}{TkWidgetcmds}{tkitemconfigure}
+\aliasA{tkitemfocus}{TkWidgetcmds}{tkitemfocus}
+\aliasA{tkitemlower}{TkWidgetcmds}{tkitemlower}
+\aliasA{tkitemraise}{TkWidgetcmds}{tkitemraise}
+\aliasA{tkitemscale}{TkWidgetcmds}{tkitemscale}
+\aliasA{tkmark.gravity}{TkWidgetcmds}{tkmark.gravity}
+\aliasA{tkmark.names}{TkWidgetcmds}{tkmark.names}
+\aliasA{tkmark.next}{TkWidgetcmds}{tkmark.next}
+\aliasA{tkmark.previous}{TkWidgetcmds}{tkmark.previous}
+\aliasA{tkmark.set}{TkWidgetcmds}{tkmark.set}
+\aliasA{tkmark.unset}{TkWidgetcmds}{tkmark.unset}
+\aliasA{tkmove}{TkWidgetcmds}{tkmove}
+\aliasA{tknearest}{TkWidgetcmds}{tknearest}
+\aliasA{tkpost}{TkWidgetcmds}{tkpost}
+\aliasA{tkpostcascade}{TkWidgetcmds}{tkpostcascade}
+\aliasA{tkpostscript}{TkWidgetcmds}{tkpostscript}
+\aliasA{tkscan.dragto}{TkWidgetcmds}{tkscan.dragto}
+\aliasA{tkscan.mark}{TkWidgetcmds}{tkscan.mark}
+\aliasA{tksearch}{TkWidgetcmds}{tksearch}
+\aliasA{tksee}{TkWidgetcmds}{tksee}
+\aliasA{tkselect}{TkWidgetcmds}{tkselect}
+\aliasA{tkselection.adjust}{TkWidgetcmds}{tkselection.adjust}
+\aliasA{tkselection.anchor}{TkWidgetcmds}{tkselection.anchor}
+\aliasA{tkselection.clear}{TkWidgetcmds}{tkselection.clear}
+\aliasA{tkselection.from}{TkWidgetcmds}{tkselection.from}
+\aliasA{tkselection.includes}{TkWidgetcmds}{tkselection.includes}
+\aliasA{tkselection.present}{TkWidgetcmds}{tkselection.present}
+\aliasA{tkselection.range}{TkWidgetcmds}{tkselection.range}
+\aliasA{tkselection.set}{TkWidgetcmds}{tkselection.set}
+\aliasA{tkselection.to}{TkWidgetcmds}{tkselection.to}
+\aliasA{tkset}{TkWidgetcmds}{tkset}
+\aliasA{tksize}{TkWidgetcmds}{tksize}
+\aliasA{tktag.add}{TkWidgetcmds}{tktag.add}
+\aliasA{tktag.bind}{TkWidgetcmds}{tktag.bind}
+\aliasA{tktag.cget}{TkWidgetcmds}{tktag.cget}
+\aliasA{tktag.configure}{TkWidgetcmds}{tktag.configure}
+\aliasA{tktag.delete}{TkWidgetcmds}{tktag.delete}
+\aliasA{tktag.lower}{TkWidgetcmds}{tktag.lower}
+\aliasA{tktag.names}{TkWidgetcmds}{tktag.names}
+\aliasA{tktag.nextrange}{TkWidgetcmds}{tktag.nextrange}
+\aliasA{tktag.prevrange}{TkWidgetcmds}{tktag.prevrange}
+\aliasA{tktag.raise}{TkWidgetcmds}{tktag.raise}
+\aliasA{tktag.ranges}{TkWidgetcmds}{tktag.ranges}
+\aliasA{tktag.remove}{TkWidgetcmds}{tktag.remove}
+\aliasA{tktoggle}{TkWidgetcmds}{tktoggle}
+\aliasA{tktype}{TkWidgetcmds}{tktype}
+\aliasA{tkunpost}{TkWidgetcmds}{tkunpost}
+\aliasA{tkwindow.cget}{TkWidgetcmds}{tkwindow.cget}
+\aliasA{tkwindow.configure}{TkWidgetcmds}{tkwindow.configure}
+\aliasA{tkwindow.create}{TkWidgetcmds}{tkwindow.create}
+\aliasA{tkwindow.names}{TkWidgetcmds}{tkwindow.names}
+\aliasA{tkxview}{TkWidgetcmds}{tkxview}
+\methaliasA{tkxview.moveto}{TkWidgetcmds}{tkxview.moveto}
+\methaliasA{tkxview.scroll}{TkWidgetcmds}{tkxview.scroll}
+\aliasA{tkyposition}{TkWidgetcmds}{tkyposition}
+\aliasA{tkyview}{TkWidgetcmds}{tkyview}
+\methaliasA{tkyview.moveto}{TkWidgetcmds}{tkyview.moveto}
+\methaliasA{tkyview.scroll}{TkWidgetcmds}{tkyview.scroll}
+\keyword{misc}{TkWidgetcmds}
+%
+\begin{Description}\relax
+These functions interface to Tk widget commands.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tkactivate(widget, ...)
+tkadd(widget, ...)
+tkaddtag(widget, ...)
+tkbbox(widget, ...)
+tkcanvasx(widget, ...)
+tkcanvasy(widget, ...)
+tkcget(widget, ...)
+tkcompare(widget, ...)
+tkconfigure(widget, ...)
+tkcoords(widget, ...)
+tkcreate(widget, ...)
+tkcurselection(widget,...)
+tkdchars(widget, ...)
+tkdebug(widget, ...)
+tkdelete(widget, ...)
+tkdelta(widget, ...)
+tkdeselect(widget, ...)
+tkdlineinfo(widget, ...)
+tkdtag(widget, ...)
+tkdump(widget, ...)
+tkentrycget(widget, ...)
+tkentryconfigure(widget, ...)
+tkfind(widget, ...)
+tkflash(widget, ...)
+tkfraction(widget, ...)
+tkget(widget, ...)
+tkgettags(widget, ...)
+tkicursor(widget, ...)
+tkidentify(widget, ...)
+tkindex(widget, ...)
+tkinsert(widget, ...)
+tkinvoke(widget, ...)
+tkitembind(widget, ...)
+tkitemcget(widget, ...)
+tkitemconfigure(widget, ...)
+tkitemfocus(widget, ...)
+tkitemlower(widget, ...)
+tkitemraise(widget, ...)
+tkitemscale(widget, ...)
+tkmark.gravity(widget, ...)
+tkmark.names(widget, ...)
+tkmark.next(widget, ...)
+tkmark.previous(widget, ...)
+tkmark.set(widget, ...)
+tkmark.unset(widget, ...)
+tkmove(widget, ...)
+tknearest(widget, ...)
+tkpost(widget, ...)
+tkpostcascade(widget, ...)
+tkpostscript(widget, ...)
+tkscan.mark(widget, ...)
+tkscan.dragto(widget, ...)
+tksearch(widget, ...)
+tksee(widget, ...)
+tkselect(widget, ...)
+tkselection.adjust(widget, ...)
+tkselection.anchor(widget, ...)
+tkselection.clear(widget, ...)
+tkselection.from(widget, ...)
+tkselection.includes(widget, ...)
+tkselection.present(widget, ...)
+tkselection.range(widget, ...)
+tkselection.set(widget, ...)
+tkselection.to(widget,...)
+tkset(widget, ...)
+tksize(widget, ...)
+tktoggle(widget, ...)
+tktag.add(widget, ...)
+tktag.bind(widget, ...)
+tktag.cget(widget, ...)
+tktag.configure(widget, ...)
+tktag.delete(widget, ...)
+tktag.lower(widget, ...)
+tktag.names(widget, ...)
+tktag.nextrange(widget, ...)
+tktag.prevrange(widget, ...)
+tktag.raise(widget, ...)
+tktag.ranges(widget, ...)
+tktag.remove(widget, ...)
+tktype(widget, ...)
+tkunpost(widget, ...)
+tkwindow.cget(widget, ...)
+tkwindow.configure(widget, ...)
+tkwindow.create(widget, ...)
+tkwindow.names(widget, ...)
+tkxview(widget, ...)
+tkxview.moveto(widget, ...)
+tkxview.scroll(widget, ...)
+tkyposition(widget, ...)
+tkyview(widget, ...)
+tkyview.moveto(widget, ...)
+tkyview.scroll(widget, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{widget}] The widget this applies to
+\item[\code{...}] Handled via \code{.Tcl.args}
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+There are far too many of these commands to describe them and their
+arguments in full. Please refer to the Tcl/Tk documentation for details.
+Except for a few exceptions, the pattern is that  Tcl widget commands
+possibly with subcommands like
+\code{.a.b selection clear} are converted to function names like
+\code{tkselection.clear} and the widget is given as the first argument. 
+\end{Details}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{TclInterface}{TclInterface}}, \code{\LinkA{TkWidgets}{TkWidgets}},
+\code{\LinkA{TkCommands}{TkCommands}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+## These cannot be run by examples() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+
+tt <- tktoplevel()
+tkpack(txt.w <- tktext(tt))
+tkinsert(txt.w, "0.0", "plot(1:10)")
+
+# callback function 
+eval.txt <- function()
+   eval(parse(text=tclvalue(tkget(txt.w, "0.0", "end"))))
+tkpack(but.w <- tkbutton(tt,text="Submit", command=eval.txt))
+
+## Try pressing the button, edit the text and when finished:
+
+tkdestroy(tt)
+
+## End(Not run)
+
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{TkWidgets}{Tk widgets}{TkWidgets}
+\aliasA{tkbutton}{TkWidgets}{tkbutton}
+\aliasA{tkcanvas}{TkWidgets}{tkcanvas}
+\aliasA{tkcheckbutton}{TkWidgets}{tkcheckbutton}
+\aliasA{tkentry}{TkWidgets}{tkentry}
+\aliasA{tkframe}{TkWidgets}{tkframe}
+\aliasA{tklabel}{TkWidgets}{tklabel}
+\aliasA{tklistbox}{TkWidgets}{tklistbox}
+\aliasA{tkmenu}{TkWidgets}{tkmenu}
+\aliasA{tkmenubutton}{TkWidgets}{tkmenubutton}
+\aliasA{tkmessage}{TkWidgets}{tkmessage}
+\aliasA{tkradiobutton}{TkWidgets}{tkradiobutton}
+\aliasA{tkscale}{TkWidgets}{tkscale}
+\aliasA{tkscrollbar}{TkWidgets}{tkscrollbar}
+\aliasA{tktext}{TkWidgets}{tktext}
+\aliasA{tktoplevel}{TkWidgets}{tktoplevel}
+\aliasA{tkwidget}{TkWidgets}{tkwidget}
+\aliasA{ttkbutton}{TkWidgets}{ttkbutton}
+\aliasA{ttkcheckbutton}{TkWidgets}{ttkcheckbutton}
+\aliasA{ttkcombobox}{TkWidgets}{ttkcombobox}
+\aliasA{ttkentry}{TkWidgets}{ttkentry}
+\aliasA{ttkframe}{TkWidgets}{ttkframe}
+\aliasA{ttkimage}{TkWidgets}{ttkimage}
+\aliasA{ttklabel}{TkWidgets}{ttklabel}
+\aliasA{ttklabelframe}{TkWidgets}{ttklabelframe}
+\aliasA{ttkmenubutton}{TkWidgets}{ttkmenubutton}
+\aliasA{ttknotebook}{TkWidgets}{ttknotebook}
+\aliasA{ttkpanedwindow}{TkWidgets}{ttkpanedwindow}
+\aliasA{ttkprogressbar}{TkWidgets}{ttkprogressbar}
+\aliasA{ttkradiobutton}{TkWidgets}{ttkradiobutton}
+\aliasA{ttkscrollbar}{TkWidgets}{ttkscrollbar}
+\aliasA{ttkseparator}{TkWidgets}{ttkseparator}
+\aliasA{ttksizegrip}{TkWidgets}{ttksizegrip}
+\aliasA{ttktreeview}{TkWidgets}{ttktreeview}
+\keyword{misc}{TkWidgets}
+%
+\begin{Description}\relax
+Create Tk widgets and associated \R{} objects.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tkwidget(parent, type, ...)
+
+tkbutton(parent, ...)
+tkcanvas(parent, ...)
+tkcheckbutton(parent, ...)
+tkentry(parent, ...)
+ttkentry(parent, ...)
+tkframe(parent, ...)
+tklabel(parent, ...)
+tklistbox(parent, ...)
+tkmenu(parent, ...)
+tkmenubutton(parent, ...)
+tkmessage(parent, ...)
+tkradiobutton(parent, ...)
+tkscale(parent, ...)
+tkscrollbar(parent, ...)
+tktext(parent, ...)
+tktoplevel(parent = .TkRoot, ...)
+
+ttkbutton(parent, ...)
+ttkcheckbutton(parent, ...)
+ttkcombobox(parent, ...)
+ttkframe(parent, ...)
+ttkimage(parent, ...)
+ttklabel(parent, ...)
+ttklabelframe(parent, ...)
+ttkmenubutton(parent, ...)
+ttknotebook(parent, ...)
+ttkpanedwindow(parent, ...)
+ttkprogressbar(parent, ...)
+ttkradiobutton(parent, ...)
+ttkscrollbar(parent, ...)
+ttkseparator(parent, ...)
+ttksizegrip(parent, ...)
+ttktreeview(parent, ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{parent}] Parent of widget window.
+\item[\code{type}] string describing the type of widget desired.
+\item[\code{...}] handled via \code{\LinkA{.Tcl.args}{.Tcl.args}}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+These functions create Tk widgets.  \code{tkwidget} creates a widget of
+a given type, the others simply call \code{tkwidget} with the
+respective \code{type} argument.
+
+The functions starting \code{ttk} are for the themed widget set for Tk
+8.5 or later.  A tutorial can be found at \url{http://www.tkdocs.com}.
+
+It is not possible to describe the widgets and their arguments in
+full.  Please refer to the Tcl/Tk documentation.
+\end{Details}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{TclInterface}{TclInterface}}, \code{\LinkA{TkCommands}{TkCommands}},
+\code{\LinkA{TkWidgetcmds}{TkWidgetcmds}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+## These cannot be run by examples() but should be OK when pasted
+## into an interactive R session with the tcltk package loaded
+
+tt <- tktoplevel()
+label.widget <- tklabel(tt, text="Hello, World!")
+button.widget <- tkbutton(tt, text="Push",
+                          command=function()cat("OW!\n"))
+tkpack(label.widget, button.widget) # geometry manager
+                                    # see Tk-commands
+
+## Push the button and then...
+
+tkdestroy(tt)
+
+## test for themed widgets
+if(as.character(tcl("info", "tclversion")) >= "8.5") {
+  # make use of themed widgets
+  # list themes
+  as.character(tcl("ttk::style", "theme", "names"))
+  # select a theme -- here pre-XP windows
+  tcl("ttk::style", "theme use", "winnative")
+} else {
+  # use Tk 8.0 widgets
+}
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{tk\_choose.dir}{Choose a Folder Interactively}{tk.Rul.choose.dir}
+\keyword{file}{tk\_choose.dir}
+%
+\begin{Description}\relax
+Use a Tk widget to choose a directory interactively.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tk_choose.dir(default = "", caption = "Select directory")
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{default}] which directory to show initially.
+\item[\code{caption}] the caption on the selection dialog.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A length-one character vector, character \code{NA} if
+`Cancel' was selected. 
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{tk\_choose.files}{tk.Rul.choose.files}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+## Not run: 
+tk_choose.dir(getwd(), "Choose a suitable folder")
+
+## End(Not run)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{tk\_choose.files}{Choose a List of Files Interactively}{tk.Rul.choose.files}
+\keyword{file}{tk\_choose.files}
+%
+\begin{Description}\relax
+Use a Tk file dialog to choose a list of zero or more files 
+interactively.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tk_choose.files(default = "", caption = "Select files",
+                multi = TRUE, filters = NULL, index = 1)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{default}] which filename to show initially.
+\item[\code{caption}] the caption on the file selection dialog.
+\item[\code{multi}] whether to allow multiple files to be selected.
+\item[\code{filters}] two-column character matrix of filename filters.
+\item[\code{index}] unused.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+Unlike \code{\LinkA{file.choose}{file.choose}}, \code{tk\_choose.files} will always
+attempt to return a character vector giving a list of files.  If the
+user cancels the dialog, then zero files are returned, whereas
+\code{\LinkA{file.choose}{file.choose}} would signal an error.
+
+The format of \code{filters} can be seen from the example.  File
+patterns are specified via extensions, with \code{"*"} meaning any
+file, and \code{""} any file without an extension (a filename not
+containing a period).  (Other forms may work on specific platforms.)
+Note that the way to have multiple extensions for one file type is to
+have multiple rows with the same name in the first column, and that
+whether the extensions are named in file chooser widget is
+platform-specific. \bold{The format may change before release.}
+\end{Details}
+%
+\begin{Value}
+A character vector giving zero or more file paths.
+\end{Value}
+%
+\begin{Note}\relax
+A bug in Tk 8.5.0--8.5.4 prevented multiple selections being used.
+\end{Note}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{file.choose}{file.choose}}, \code{\LinkA{tk\_choose.dir}{tk.Rul.choose.dir}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+Filters <- matrix(c("R code", ".R", "R code", ".s",
+                    "Text", ".txt", "All files", "*"),
+                  4, 2, byrow = TRUE)
+Filters
+if(interactive()) tk_choose.files(filter = Filters)
+\end{ExampleCode}
+\end{Examples}
+\HeaderA{tk\_messageBox}{Tk Message Box}{tk.Rul.messageBox}
+\keyword{utilities}{tk\_messageBox}
+%
+\begin{Description}\relax
+An implementation of a generic message box using Tk
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tk_messageBox(type = c("ok", "okcancel", "yesno", "yesnocancel",
+                       "retrycancel", "aburtretrycancel"),
+              message, caption = "", default = "", ...)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{type}] character. The type of dialog box. It will have the
+buttons implied by its name.
+\item[\code{message}] character. The information field of the dialog box.
+\item[\code{caption}] the caption on the widget displayed.
+\item[\code{default}] character. The name of the button to be used as the
+default.
+\item[\code{...}] additional named arguments to be passed to the Tk
+function of this name.  An example is \code{icon="warning"}.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+A character string giving the name of the button pressed.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{tkmessageBox}{tkmessageBox}} for a `raw' interface.
+\end{SeeAlso}
+\HeaderA{tk\_select.list}{Select Items from a List}{tk.Rul.select.list}
+\keyword{utilities}{tk\_select.list}
+%
+\begin{Description}\relax
+Select item(s) from a character vector using a Tk listbox.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+tk_select.list(choices, preselect = NULL, multiple = FALSE, title = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{choices}] a character vector of items.
+\item[\code{preselect}] a character vector, or \code{NULL}.  If non-null and
+if the string(s) appear in the list, the item(s) are selected
+initially.
+\item[\code{multiple}] logical: can more than one item be selected?
+\item[\code{title}] optional character string for window title, or
+\code{NULL} for no title.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Details}\relax
+This is a version of \code{\LinkA{select.list}{select.list}} implemented as a Tk
+list box plus \code{OK} and \code{Cancel} buttons.  There will be a
+scrollbar if the list is too long to fit comfortably on the screen.
+
+The dialog box is \emph{modal}, so a selection must be made or
+cancelled before the \R{} session can proceed.  As from \R{} 2.10.1
+double-clicking on an item is equivalent to selecting it and then
+clicking \code{OK}.
+
+If Tk is version 8.5 or later, themed widgets will be used.
+\end{Details}
+%
+\begin{Value}
+A character vector of selected items.  If \code{multiple} is false and
+no item was selected (or \code{Cancel} was used), \code{""} is
+returned.   If \code{multiple} is true and no item was selected (or
+\code{Cancel} was used) then a character vector of length 0 is returned.
+\end{Value}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{select.list}{select.list}} (a text version except on Windows and the
+Mac OS X GUI),
+\code{\LinkA{menu}{menu}} (whose \code{graphics=TRUE} mode uses this
+on most Unix-alikes).
+\end{SeeAlso}
+\clearpage

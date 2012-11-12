@@ -1,0 +1,11 @@
+\entry{R_HOME}{3}{\code {R_HOME}}
+\entry{configure}{3}{\code {configure}}
+\entry{configure}{4}{\code {configure}}
+\entry{configure}{6}{\code {configure}}
+\entry{configure}{6}{\code {configure}}
+\entry{install.packages}{20}{\code {install.packages}}
+\entry{update.packages}{23}{\code {update.packages}}
+\entry{remove.packages}{23}{\code {remove.packages}}
+\entry{configure}{42}{\code {configure}}
+\entry{make}{43}{\code {make}}
+\entry{configure}{43}{\code {configure}}

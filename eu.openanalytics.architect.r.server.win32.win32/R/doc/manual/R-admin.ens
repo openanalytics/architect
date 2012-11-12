@@ -1,0 +1,50 @@
+\initial {B}
+\entry {\code {BLAS_LIBS}}{35}
+\initial {C}
+\entry {\code {CC}}{44}
+\entry {\code {CONFIG_SITE}}{42}
+\entry {\code {CPP}}{44}
+\entry {\code {CYGWIN}}{60}
+\initial {D}
+\entry {\code {DESTDIR}}{7, 30}
+\initial {F}
+\entry {\code {F2C}}{44}
+\entry {\code {F2CLIBS}}{44}
+\entry {\code {FPICFLAGS}}{44}
+\initial {J}
+\entry {\code {JAVA_HOME}}{35}
+\initial {L}
+\entry {\code {LANG}}{26}
+\entry {\code {LANGUAGE}}{26, 27}
+\entry {\code {LAPACK_LIBS}}{39}
+\entry {\code {LC_ALL}}{26}
+\entry {\code {LC_COLLATE}}{9}
+\entry {\code {LC_MESSAGES}}{26}
+\entry {\code {LD_LIBRARY_PATH}}{30, 37, 43, 45, 54}
+\initial {O}
+\entry {\code {OBJECT_MODE}}{56}
+\initial {P}
+\entry {\code {PAPERSIZE}}{42}
+\entry {\code {PATH}}{33, 43, 56, 59}
+\initial {R}
+\entry {\code {R_ARCH}}{8}
+\entry {\code {R_BROWSER}}{42}
+\entry {\code {R_DEFAULT_PACKAGES}}{19}
+\entry {\code {R_DISABLE_HTTPD}}{4}
+\entry {\code {R_GSCMD}}{34}
+\entry {\code {R_INSTALL_TAR}}{21}
+\entry {\code {R_JAVA_LD_LIBRARY_PATH}}{35}
+\entry {\code {R_LIBS}}{19}
+\entry {\code {R_LIBS_SITE}}{19}
+\entry {\code {R_LIBS_USER}}{19}
+\entry {\code {R_PAPERSIZE}}{5, 18, 42, 43}
+\entry {\code {R_PDFVIEWER}}{42}
+\entry {\code {R_RD4PDF}}{5, 43, 60}
+\entry {\code {R_SHELL}}{55}
+\entry {\code {R_USER}}{18}
+\initial {T}
+\entry {\code {TAR}}{33}
+\entry {\code {TAR_OPTIONS}}{1, 11}
+\entry {\code {TEMP}}{18}
+\entry {\code {TMP}}{18}
+\entry {\code {TMPDIR}}{3, 12, 18, 20}

@@ -1,0 +1,103 @@
+@numchapentry{Introduction}{1}{Introduction}{1}
+@numsecentry{Legalese}{1.1}{Legalese}{1}
+@numsecentry{Obtaining this document}{1.2}{Obtaining this document}{1}
+@numsecentry{Citing this document}{1.3}{Citing this document}{1}
+@numsecentry{Notation}{1.4}{Notation}{1}
+@numsecentry{Feedback}{1.5}{Feedback}{2}
+@numchapentry{R Basics}{2}{R Basics}{3}
+@numsecentry{What is R?}{2.1}{What is R?}{3}
+@numsecentry{What machines does R run on?}{2.2}{What machines does R run on?}{3}
+@numsecentry{What is the current version of R?}{2.3}{What is the current version of R?}{4}
+@numsecentry{How can R be obtained?}{2.4}{How can R be obtained?}{4}
+@numsecentry{How can R be installed?}{2.5}{How can R be installed?}{4}
+@numsubsecentry{How can R be installed (Unix-like)}{2.5.1}{How can R be installed (Unix-like)}{4}
+@numsubsecentry{How can R be installed (Windows)}{2.5.2}{How can R be installed (Windows)}{5}
+@numsubsecentry{How can R be installed (Macintosh)}{2.5.3}{How can R be installed (Macintosh)}{5}
+@numsecentry{Are there Unix-like binaries for R?}{2.6}{Are there Unix-like binaries for R?}{6}
+@numsecentry{What documentation exists for R?}{2.7}{What documentation exists for R?}{6}
+@numsecentry{Citing R}{2.8}{Citing R}{8}
+@numsecentry{What mailing lists exist for R?}{2.9}{What mailing lists exist for R?}{8}
+@numsecentry{What is @acronym {CRAN}?}{2.10}{What is CRAN?}{9}
+@numsecentry{Can I use R for commercial purposes?}{2.11}{Can I use R for commercial purposes?}{10}
+@numsecentry{Why is R named R?}{2.12}{Why is R named R?}{10}
+@numsecentry{What is the R Foundation?}{2.13}{What is the R Foundation?}{10}
+@numsecentry{What is R-Forge?}{2.14}{What is R-Forge?}{11}
+@numchapentry{R and S}{3}{R and S}{12}
+@numsecentry{What is S?}{3.1}{What is S?}{12}
+@numsecentry{What is @sc {S-Plus}?}{3.2}{What is S-PLUS?}{12}
+@numsecentry{What are the differences between R and S?}{3.3}{What are the differences between R and S?}{12}
+@numsubsecentry{Lexical scoping}{3.3.1}{Lexical scoping}{13}
+@numsubsecentry{Models}{3.3.2}{Models}{16}
+@numsubsecentry{Others}{3.3.3}{Others}{16}
+@numsecentry{Is there anything R can do that @sc {S-Plus} cannot?}{3.4}{Is there anything R can do that S-PLUS cannot?}{19}
+@numsecentry{What is R-plus?}{3.5}{What is R-plus?}{19}
+@numchapentry{R Web Interfaces}{4}{R Web Interfaces}{20}
+@numchapentry{R Add-On Packages}{5}{R Add-On Packages}{22}
+@numsecentry{Which add-on packages exist for R?}{5.1}{Which add-on packages exist for R?}{22}
+@numsubsecentry{Add-on packages in R}{5.1.1}{Add-on packages in R}{22}
+@numsubsecentry{Add-on packages from @acronym {CRAN}}{5.1.2}{Add-on packages from CRAN}{22}
+@numsubsecentry{Add-on packages from Omegahat}{5.1.3}{Add-on packages from Omegahat}{23}
+@numsubsecentry{Add-on packages from Bioconductor}{5.1.4}{Add-on packages from Bioconductor}{24}
+@numsubsecentry{Other add-on packages}{5.1.5}{Other add-on packages}{24}
+@numsecentry{How can add-on packages be installed?}{5.2}{How can add-on packages be installed?}{24}
+@numsecentry{How can add-on packages be used?}{5.3}{How can add-on packages be used?}{24}
+@numsecentry{How can add-on packages be removed?}{5.4}{How can add-on packages be removed?}{25}
+@numsecentry{How can I create an R package?}{5.5}{How can I create an R package?}{26}
+@numsecentry{How can I contribute to R?}{5.6}{How can I contribute to R?}{26}
+@numchapentry{R and Emacs}{6}{R and Emacs}{27}
+@numsecentry{Is there Emacs support for R?}{6.1}{Is there Emacs support for R?}{27}
+@numsecentry{Should I run R from within Emacs?}{6.2}{Should I run R from within Emacs?}{27}
+@numsecentry{Debugging R from within Emacs}{6.3}{Debugging R from within Emacs}{28}
+@numchapentry{R Miscellanea}{7}{R Miscellanea}{29}
+@numsecentry{How can I set components of a list to NULL?}{7.1}{How can I set components of a list to NULL?}{29}
+@numsecentry{How can I save my workspace?}{7.2}{How can I save my workspace?}{29}
+@numsecentry{How can I clean up my workspace?}{7.3}{How can I clean up my workspace?}{29}
+@numsecentry{How can I get eval() and D() to work?}{7.4}{How can I get eval() and D() to work?}{29}
+@numsecentry{Why do my matrices lose dimensions?}{7.5}{Why do my matrices lose dimensions?}{30}
+@numsecentry{How does autoloading work?}{7.6}{How does autoloading work?}{30}
+@numsecentry{How should I set options?}{7.7}{How should I set options?}{30}
+@numsecentry{How do file names work in Windows?}{7.8}{How do file names work in Windows?}{31}
+@numsecentry{Why does plotting give a color allocation error?}{7.9}{Why does plotting give a color allocation error?}{31}
+@numsecentry{How do I convert factors to numeric?}{7.10}{How do I convert factors to numeric?}{31}
+@numsecentry{Are Trellis displays implemented in R?}{7.11}{Are Trellis displays implemented in R?}{31}
+@numsecentry{What are the enclosing and parent environments?}{7.12}{What are the enclosing and parent environments?}{32}
+@numsecentry{How can I substitute into a plot label?}{7.13}{How can I substitute into a plot label?}{32}
+@numsecentry{What are valid names?}{7.14}{What are valid names?}{33}
+@numsecentry{Are GAMs implemented in R?}{7.15}{Are GAMs implemented in R?}{33}
+@numsecentry{Why is the output not printed when I source() a file?}{7.16}{Why is the output not printed when I source() a file?}{33}
+@numsecentry{Why does outer() behave strangely with my function?}{7.17}{Why does outer() behave strangely with my function?}{34}
+@numsecentry{Why does the output from anova() depend on the order of factors in the model?}{7.18}{Why does the output from anova() depend on the order of factors in the model?}{34}
+@numsecentry{How do I produce PNG graphics in batch mode?}{7.19}{How do I produce PNG graphics in batch mode?}{35}
+@numsecentry{How can I get command line editing to work?}{7.20}{How can I get command line editing to work?}{35}
+@numsecentry{How can I turn a string into a variable?}{7.21}{How can I turn a string into a variable?}{35}
+@numsecentry{Why do lattice/trellis graphics not work?}{7.22}{Why do lattice/trellis graphics not work?}{36}
+@numsecentry{How can I sort the rows of a data frame?}{7.23}{How can I sort the rows of a data frame?}{36}
+@numsecentry{Why does the help.start() search engine not work?}{7.24}{Why does the help.start() search engine not work?}{36}
+@numsecentry{Why did my .Rprofile stop working when I updated R?}{7.25}{Why did my .Rprofile stop working when I updated R?}{36}
+@numsecentry{Where have all the methods gone?}{7.26}{Where have all the methods gone?}{37}
+@numsecentry{How can I create rotated axis labels?}{7.27}{How can I create rotated axis labels?}{37}
+@numsecentry{Why is read.table() so inefficient?}{7.28}{Why is read.table() so inefficient?}{37}
+@numsecentry{What is the difference between package and library?}{7.29}{What is the difference between package and library?}{37}
+@numsecentry{I installed a package but the functions are not there}{7.30}{I installed a package but the functions are not there}{38}
+@numsecentry{Why doesn't R think these numbers are equal?}{7.31}{Why doesn't R think these numbers are equal?}{38}
+@numsecentry{How can I capture or ignore errors in a long simulation?}{7.32}{How can I capture or ignore errors in a long simulation?}{38}
+@numsecentry{Why are powers of negative numbers wrong?}{7.33}{Why are powers of negative numbers wrong?}{39}
+@numsecentry{How can I save the result of each iteration in a loop into a separate file?}{7.34}{How can I save the result of each iteration in a loop into a separate file?}{39}
+@numsecentry{Why are @math {p}-values not displayed when using lmer()?}{7.35}{Why are p-values not displayed when using lmer()?}{39}
+@numsecentry{Why are there unwanted borders, lines or grid-like artifacts when viewing a plot saved to a PS or PDF file?}{7.36}{Why are there unwanted borders}{39}
+@numsecentry{Why does backslash behave strangely inside strings?}{7.37}{Why does backslash behave strangely inside strings?}{40}
+@numsecentry{How can I put error bars or confidence bands on my plot?}{7.38}{How can I put error bars or confidence bands on my plot?}{41}
+@numsecentry{How do I create a plot with two y-axes?}{7.39}{How do I create a plot with two y-axes?}{41}
+@numsecentry{How do I access the source code for a function?}{7.40}{How do I access the source code for a function?}{41}
+@numsecentry{Why does summary() report strange results for the R^2 estimate when I fit a linear model with no intercept?}{7.41}{Why does summary() report strange results for the R^2 estimate when I fit a linear model with no intercept?}{42}
+@numsecentry{Why is R apparently not releasing memory?}{7.42}{Why is R apparently not releasing memory?}{42}
+@numchapentry{R Programming}{8}{R Programming}{44}
+@numsecentry{How should I write summary methods?}{8.1}{How should I write summary methods?}{44}
+@numsecentry{How can I debug dynamically loaded code?}{8.2}{How can I debug dynamically loaded code?}{44}
+@numsecentry{How can I inspect R objects when debugging?}{8.3}{How can I inspect R objects when debugging?}{44}
+@numsecentry{How can I change compilation flags?}{8.4}{How can I change compilation flags?}{44}
+@numsecentry{How can I debug S4 methods?}{8.5}{How can I debug S4 methods?}{44}
+@numchapentry{R Bugs}{9}{R Bugs}{45}
+@numsecentry{What is a bug?}{9.1}{What is a bug?}{45}
+@numsecentry{How to report a bug}{9.2}{How to report a bug}{45}
+@numchapentry{Acknowledgments}{10}{Acknowledgments}{47}
