@@ -1,10 +1,13 @@
 package eu.openanalytics.architect;
 
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
+
+import eu.openanalytics.architect.ws.updater.WorkspaceChecker;
 
 /**
  * This class controls all aspects of the application's execution
@@ -17,6 +20,10 @@ public class Application implements IApplication {
 	public Object start(IApplicationContext context) throws Exception {
 		Display display = PlatformUI.createDisplay();
 		try {
+			// Explicitly invoke the WorkspaceChecker here, before the workbench is created.
+			WorkspaceChecker checker = new WorkspaceChecker();
+			checker.run(new NullProgressMonitor());
+			
 			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
 			if (returnCode == PlatformUI.RETURN_RESTART)
 				return IApplication.EXIT_RESTART;
