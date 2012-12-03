@@ -1,0 +1,7 @@
+instructions.configure=\
+  addRepository(type:0,name:Architect,location:http${#58}//architect.openanalytics.eu/updates/4.2);\
+  addRepository(type:1,name:Architect,location:http${#58}//architect.openanalytics.eu/updates/4.2);\
+  addRepository(type:0,name:Juno,location:http${#58}//download.eclipse.org/releases/juno);\
+  addRepository(type:1,name:Juno,location:http${#58}//download.eclipse.org/releases/juno);\
+  addRepository(type:0,name:The Eclipse Project Updates,location:http${#58}//download.eclipse.org/eclipse/updates/4.2);\
+  addRepository(type:1,name:The Eclipse Project Updates,location:http${#58}//download.eclipse.org/eclipse/updates/4.2);
