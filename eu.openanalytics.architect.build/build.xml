@@ -27,6 +27,7 @@
 		<copy todir="${buildDirectory}/plugins">
 			<fileset dir="../">
 				<include name="eu.openanalytics.architect/**" />
+				<include name="eu.openanalytics.architect.ws.updater/**" />
 			</fileset>
 		</copy>
 		<copy todir="${buildDirectory}/features/eu.openanalytics.architect">
