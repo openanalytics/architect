@@ -4,8 +4,8 @@
       label="Architect"
       version="0.5.0.qualifier"
       provider-name="OpenAnalytics"
-      os="macosx,win32"
-      ws="cocoa,win32"
+      os="linux,macosx,win32"
+      ws="cocoa,gtk,win32"
       arch="x86,x86_64">
 
    <description>
