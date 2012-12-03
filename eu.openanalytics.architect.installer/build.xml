@@ -38,6 +38,8 @@
 		
 		<copy todir="${deployDirectory}">
 			<fileset dir="${buildDirectory}/${buildLabel}">
+				<include name="${buildId}-linux.gtk.x86.zip" />
+				<include name="${buildId}-linux.gtk.x86_64.zip" />
 				<include name="${buildId}-macosx.cocoa.x86_64.zip" />
 			</fileset>
 		</copy>

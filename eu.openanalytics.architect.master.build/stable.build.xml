@@ -66,10 +66,11 @@
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
-		
+		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:0,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
+		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:1,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
 		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false"/>
 	</target>
-	
+
 	<target name="make-installers">
 		<ant dir="../eu.openanalytics.architect.installer" inheritall="false" target="make-installer"/>
 	</target>
