@@ -30,8 +30,10 @@
 				<include name="eu.openanalytics.architect.r.libs.user/**" />
 				<include name="eu.openanalytics.architect.r.libs.user.win32.win32/**" />
 				<include name="eu.openanalytics.architect.r.libs.user.cocoa.macosx.x86_64/**" />
+				<include name="eu.openanalytics.architect.r.libs.user.gtk.linux/**" />
 				<include name="eu.openanalytics.architect.r.server.win32.win32/**" />
 				<include name="eu.openanalytics.architect.r.server.cocoa.macosx.x86_64/**" />
+				<include name="eu.openanalytics.architect.r.server.gtk.linux/**" />
 			</fileset>
 		</copy>
 		<copy todir="${buildDirectory}/features/eu.openanalytics.architect.r.server">
