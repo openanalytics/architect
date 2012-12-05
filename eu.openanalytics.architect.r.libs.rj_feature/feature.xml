@@ -14,7 +14,7 @@
    </copyright>
 
    <license url="%licenseURL">
-	%license_text 
+      %license_text
    </license>
 
    <requires>
@@ -44,6 +44,16 @@
          id="eu.openanalytics.architect.r.libs.rj.win32.win32"
          os="win32"
          ws="win32"
+         arch="x86,x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
+
+   <plugin
+         id="eu.openanalytics.architect.r.libs.rj.gtk.linux"
+         os="linux"
+         ws="gtk"
          arch="x86,x86_64"
          download-size="0"
          install-size="0"

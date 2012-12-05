@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Embedded R Server for Linux Gtk
+Bundle-SymbolicName: eu.openanalytics.architect.r.server.gtk.linux
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: OpenAnalytics
+Fragment-Host: eu.openanalytics.architect.r.server;bundle-version="0.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-PlatformFilter: (& (osgi.ws=gtk)(osgi.os=linux))

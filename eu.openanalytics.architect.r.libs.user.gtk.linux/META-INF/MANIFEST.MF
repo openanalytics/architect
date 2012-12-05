@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: R User Libs for Linux Gtk
+Bundle-SymbolicName: eu.openanalytics.architect.r.libs.user.gtk.linux
+Bundle-Version: 0.5.0.qualifier
+Bundle-Vendor: OpenAnalytics
+Fragment-Host: eu.openanalytics.architect.r.libs.user;bundle-version="0.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Eclipse-PlatformFilter: (& (osgi.ws=gtk)(osgi.os=linux))

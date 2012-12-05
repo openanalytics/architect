@@ -14,7 +14,7 @@
    </copyright>
 
    <license url="%licenseURL">
-	%license_text 
+      %license_text
    </license>
 
    <requires>
@@ -72,6 +72,26 @@
          os="macosx"
          ws="cocoa"
          arch="x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
+
+   <plugin
+         id="eu.openanalytics.architect.r.libs.user.gtk.linux"
+         os="linux"
+         ws="gtk"
+         arch="x86,x86_64"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"/>
+
+   <plugin
+         id="eu.openanalytics.architect.r.server.gtk.linux"
+         os="linux"
+         ws="gtk"
+         arch="x86,x86_64"
          download-size="0"
          install-size="0"
          version="0.0.0"
