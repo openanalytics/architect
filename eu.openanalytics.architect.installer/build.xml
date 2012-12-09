@@ -19,11 +19,6 @@
 		</unzip>
 		<rename src="${deployDirectory}/${archivePrefix}" dest="${deployDirectory}/${archivePrefix}_x86"/>
 		<mkdir dir="${deployDirectory}/${archivePrefix}_x86/workspace" />
-		<copy todir="${deployDirectory}/${archivePrefix}_x86/workspace">
-			<fileset dir="../eu.openanalytics.architect.ws.updater/workspace/default">
-				<include name="**" />
-			</fileset>
-		</copy>
 		
 		<unzip dest="${deployDirectory}">
 			<fileset dir="${buildDirectory}/${buildLabel}">
@@ -32,11 +27,6 @@
 		</unzip>
 		<rename src="${deployDirectory}/${archivePrefix}" dest="${deployDirectory}/${archivePrefix}_x86_64"/>
 		<mkdir dir="${deployDirectory}/${archivePrefix}_x86_64/workspace" />
-		<copy todir="${deployDirectory}/${archivePrefix}_x86_64/workspace">
-			<fileset dir="../eu.openanalytics.architect.ws.updater/workspace/default">
-				<include name="**" />
-			</fileset>
-		</copy>
 		
 		<copy todir="${deployDirectory}">
 			<fileset dir="${buildDirectory}/${buildLabel}">
