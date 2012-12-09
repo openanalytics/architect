@@ -59,6 +59,11 @@
 			<property name="p2.director.iu" value="${extraIUs}"/>
 			<property name="p2.director.installPath" value="${eclipse.base}"/>
 		</ant>
+		<ant antfile="${genericTargets}" target="runDirector" inheritAll="true">
+			<property name="p2.repo" value="${quickgit.repo.path}"/>
+			<property name="p2.director.iu" value="${quickgit.repo.iu}"/>
+			<property name="p2.director.installPath" value="${eclipse.base}"/>
+		</ant>
 	</target>
 	
 	<!-- ===================================================================== -->
