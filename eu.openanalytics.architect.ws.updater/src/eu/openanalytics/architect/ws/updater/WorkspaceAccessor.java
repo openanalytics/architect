@@ -27,6 +27,8 @@ public class WorkspaceAccessor {
 
 	private Location dataArea;
 	
+	private final static boolean IS_WIN32 = Platform.getOS().equalsIgnoreCase("win32");
+	
 	public WorkspaceAccessor() {
 		dataArea = Platform.getInstanceLocation();
 	}
@@ -102,7 +104,7 @@ public class WorkspaceAccessor {
 		while (relativePath.startsWith("/")) relativePath = relativePath.substring(1);
 		URL url = dataArea.getDataArea(relativePath);
 		String absolutePath = url.getFile();
-		while (absolutePath.startsWith("/")) absolutePath = absolutePath.substring(1);
+		while (IS_WIN32 && absolutePath.startsWith("/")) absolutePath = absolutePath.substring(1);
 		return absolutePath;
 	}
 	
