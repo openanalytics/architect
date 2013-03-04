@@ -51,43 +51,6 @@
          fragment="true"/>
 
    <plugin
-         id="eu.openanalytics.architect.r.libs.user"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="eu.openanalytics.architect.r.libs.user.win32.win32"
-         os="win32"
-         ws="win32"
-         arch="x86,x86_64"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"/>
-
-   <plugin
-         id="eu.openanalytics.architect.r.libs.user.cocoa.macosx.x86_64"
-         os="macosx"
-         ws="cocoa"
-         arch="x86_64"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"/>
-
-   <plugin
-         id="eu.openanalytics.architect.r.libs.user.gtk.linux"
-         os="linux"
-         ws="gtk"
-         arch="x86,x86_64"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         fragment="true"/>
-
-   <plugin
          id="eu.openanalytics.architect.r.server.gtk.linux"
          os="linux"
          ws="gtk"
