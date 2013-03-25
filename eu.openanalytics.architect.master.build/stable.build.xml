@@ -13,6 +13,13 @@
 	<property file="stable.build.properties" />
 	<property file="master.build.properties" />
 
+	<path id="equinox.launcher.path">
+		<fileset dir="${baseLocation}/plugins">
+			<include name="org.eclipse.equinox.launcher_*.jar" />
+		</fileset>
+	</path>
+	<property name="equinox.launcher" refid="equinox.launcher.path" />
+
 	<target name="compile-r" unless="${skip.r.compilation}">
 		<ant dir="../eu.openanalytics.r.server.build" inheritall="false">
 			<property name="r.version" value="${r.version}"/>
@@ -46,27 +53,50 @@
 		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
+		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
 		
 		<ant dir="../eu.openanalytics.architect.r.server.build" inheritall="false"/>
 
 		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
+		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
 		
 		<ant dir="../eu.openanalytics.architect.r.libs.rj.build" inheritall="false"/>
 		
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
+		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
 		
 		<ant dir="../eu.openanalytics.architect.build" inheritall="false"/>
+		
+		<ant target="categorize-architect-features" />
 	</target>
 	
+	<target name="categorize-architect-features">
+		<!-- Apply categorization to the p2 repository -->
+		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
+			<arg value="-application" />
+			<arg value="org.eclipse.equinox.p2.publisher.CategoryPublisher" />
+			<arg value="-metadataRepository" />
+			<arg value="${p2.build.repo}" />
+			<arg value="-categoryDefinition" />
+			<arg value="file:${basedir}/category.xml" />
+			<arg value="-categoryQualifier" />
+			<arg value="-compress" />
+			<classpath>
+				<pathelement location="${equinox.launcher}" />
+			</classpath>
+		</java>
+	</target>
+
 	<target name="build-architect-product">
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="extraIUs=(.*)" replace="extraIUs=${extraIUs}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="architect.repo.path=(.*)" replace="architect.repo.path=${p2.build.repo}" />
 		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:0,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
 		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:1,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
 		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false"/>
