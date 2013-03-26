@@ -71,7 +71,7 @@
 
 		<ant dir="../eu.openanalytics.architect.build" inheritall="false"/>
 
-		<ant target="categorize-architect-features" />
+		<antcall target="categorize-architect-features" />
 	</target>
 	
 	<target name="categorize-architect-features">
