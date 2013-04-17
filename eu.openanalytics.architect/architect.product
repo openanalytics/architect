@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.6.0" useFeatures="true" includeLaunchers="true">
+<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.9.1" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/eu.openanalytics.architect/about_architect.png"/>
@@ -93,8 +93,8 @@ version 2.1.
    </plugins>
 
    <features>
-      <feature id="org.eclipse.jdt" version="3.8.1.v20120814-104540-8-8nFqpFNOfwKDRVz-tXOcL5d_83"/>
-      <feature id="org.eclipse.platform" version="4.2.1.v20120814-120134-9JF7BHVGFyMveli1uX6aTH0q-eAap6PAgOP5mO"/>
+      <feature id="org.eclipse.jdt" version="3.8.2.v20130116-090414-8-8nFu3FNOfwKLRuqgXKIy9z0I83"/>
+      <feature id="org.eclipse.platform" version="4.2.1.v20130118-173121-9MF7GHYdG0B5kx4E_SkfZV-1mNjVATf67ZAb7"/>
    </features>
 
 
