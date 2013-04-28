@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="de.walware.statet.r.launchConfigurationTypes.RConsole">
-<stringAttribute key="de.walware.statet.r.debug/RConsole/arguments.options" value=""/>
+<stringAttribute key="de.walware.statet.r.debug/RConsole/arguments.options" value="--no-save --no-restore"/>
 <booleanAttribute key="de.walware.statet.r.debug/RConsole/console.pin" value="false"/>
 <stringAttribute key="de.walware.statet.r.debug/RConsole/type" value="local.rjs-rmi"/>
 <stringAttribute key="de.walware.statet.r.debug/REnv/REnvSetting" value="eplugin-local-eu.openanalytics.r.server;Embedded R Server"/>
