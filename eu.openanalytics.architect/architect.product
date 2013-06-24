@@ -20,8 +20,8 @@ the leading open source solution for statistical analysis and visualization.
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Xms1024m -Xmx2048m -XX:MaxPermSize=128m -Declipse.p2.unsignedPolicy=allow</vmArgs>
-      <vmArgsMac>-Xms1024m -Xmx2048m -XX:MaxPermSize=128m -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+      <vmArgs>-Xms1024m -Xmx2048m -XX:MaxPermSize=256m -Declipse.p2.unsignedPolicy=allow</vmArgs>
+      <vmArgsMac>-Xms1024m -Xmx2048m -XX:MaxPermSize=256m -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
    <windowImages i16="icons/icon_16.png" i32="icons/icon_32.png" i48="icons/icon_48.png" i64="icons/icon_64.png" i128="icons/icon_128.png"/>
