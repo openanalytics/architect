@@ -97,6 +97,7 @@
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="extraIUs=(.*)" replace="extraIUs=${extraIUs}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="architect.repo.path=(.*)" replace="architect.repo.path=${p2.build.repo}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="cdt.repo.path=(.*)" replace="cdt.repo.path=${cdt.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:0,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
 		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:1,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
 		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false"/>
@@ -107,7 +108,7 @@
 	</target>
 	
 	<target name="zip-p2-site">
-		<!-- First, install the StatET features into the p2 repo, so they are available on the update site -->
+		<!-- Install the StatET features into the p2 repo, so they are included in the archived update site -->
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
 			<arg value="-application" />
 			<arg value="org.eclipse.equinox.p2.publisher.FeaturesAndBundlesPublisher" />
@@ -117,6 +118,23 @@
 			<arg value="${p2.build.repo}" />
 			<arg value="-source" />
 			<arg value="${statet.repo.path}/site-statet/" />
+			<arg value="-compress" />
+			<arg value="-publishArtifacts" />
+			<arg value="-append" />
+			<classpath>
+				<pathelement location="${equinox.launcher}" />
+			</classpath>
+		</java>
+		<!-- Install the CDT features into the p2 repo, so they are included in the archived update site -->
+		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
+			<arg value="-application" />
+			<arg value="org.eclipse.equinox.p2.publisher.FeaturesAndBundlesPublisher" />
+			<arg value="-metadataRepository" />
+			<arg value="${p2.build.repo}" />
+			<arg value="-artifactRepository" />
+			<arg value="${p2.build.repo}" />
+			<arg value="-source" />
+			<arg value="${cdt.repo.path}/" />
 			<arg value="-compress" />
 			<arg value="-publishArtifacts" />
 			<arg value="-append" />
