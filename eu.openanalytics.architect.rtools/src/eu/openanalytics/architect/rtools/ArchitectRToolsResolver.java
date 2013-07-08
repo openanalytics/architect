@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
@@ -33,25 +34,22 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 	protected String findRToolsPath() {
 		try {
 			File bundleFile = FileLocator.getBundleFile(Activator.getContext().getBundle());
-			String bundlePath = bundleFile.getAbsolutePath();
+			File pluginsDir = bundleFile.getParentFile();
+			String bundleId = Activator.getContext().getBundle().getSymbolicName();
 			
-			// First, attempt to find the folder in the current plugin.
-			File rtoolsPath = new File(bundlePath + '/' + RTOOLS_DIR);
-			if (rtoolsPath.exists()) return rtoolsPath.getAbsolutePath();
-			
-			// If that fails, check for the existence of a plugin fragment.
 			String ws = Platform.getWS();
 			String os = Platform.getOS();
 			String arch = Platform.getOSArch();
 			
-			rtoolsPath = new File(bundlePath + '.' + ws + '/' + RTOOLS_DIR);
-			if (rtoolsPath.exists()) return rtoolsPath.getAbsolutePath();
+			String bundleRegex = bundleId.replace(".", "\\.") + "(\\." + ws + ")?" + "(\\." + os + ")?" + "(\\." + arch + ")?(_.*)";
+			Pattern bundlePattern = Pattern.compile(bundleRegex);
 			
-			rtoolsPath = new File(bundlePath + '.' + ws + '.' + os + '/' + RTOOLS_DIR);
-			if (rtoolsPath.exists()) return rtoolsPath.getAbsolutePath();
-			
-			rtoolsPath = new File(bundlePath + '.' + ws + '.' + os + '.' + arch + '/' + RTOOLS_DIR);
-			if (rtoolsPath.exists()) return rtoolsPath.getAbsolutePath();
+			for (File file: pluginsDir.listFiles()) {
+				if (bundlePattern.matcher(file.getName()).matches() && file.isDirectory()) {
+					File rtoolsPath = new File(file.getAbsolutePath() + '/' + RTOOLS_DIR);
+					if (rtoolsPath.exists()) return rtoolsPath.getAbsolutePath();
+				}
+			}
 		} catch (IOException e) {
 			return null;
 		}
