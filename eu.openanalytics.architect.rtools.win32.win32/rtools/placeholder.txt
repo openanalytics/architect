@@ -1,0 +1,1 @@
+This placeholder forces Git to commit the otherwise empty folder.
