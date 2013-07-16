@@ -28,6 +28,8 @@
 			<fileset dir="../">
 				<include name="eu.openanalytics.architect/**" />
 				<include name="eu.openanalytics.architect.ws.updater/**" />
+				<include name="eu.openanalytics.architect.rtools/**" />
+				<include name="eu.openanalytics.architect.rtools.win32.win32/**" />
 			</fileset>
 		</copy>
 		<copy todir="${buildDirectory}/features/eu.openanalytics.architect">
@@ -35,8 +37,12 @@
 				<include name="*/**" />
 			</fileset>
 		</copy>
+		<copy todir="${buildDirectory}/plugins/eu.openanalytics.architect.rtools.win32.win32/rtools">
+			<fileset dir="${rtools.dir}">
+			</fileset>
+		</copy>
 	</target>
-
+	
 	<target name="pde-build">
 		<java classname="org.eclipse.equinox.launcher.Main" fork="true" failonerror="true">
 			<arg value="-application" />
