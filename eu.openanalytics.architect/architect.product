@@ -20,7 +20,7 @@ the leading open source solution for statistical analysis and visualization.
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Xms1024m -Xmx2048m -XX:MaxPermSize=256m -Declipse.p2.unsignedPolicy=allow</vmArgs>
+      <vmArgs>-Xms512m -Xmx1024m -XX:MaxPermSize=256m -Declipse.p2.unsignedPolicy=allow</vmArgs>
       <vmArgsMac>-Xms1024m -Xmx2048m -XX:MaxPermSize=256m -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
    </launcherArgs>
 
