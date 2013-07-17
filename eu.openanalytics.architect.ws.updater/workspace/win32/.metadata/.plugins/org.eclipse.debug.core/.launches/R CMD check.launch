@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="de.walware.statet.r.launchConfigurationTypes.RCmdTool">
-<stringAttribute key="de.walware.statet.r.debug/RCmd/arguments.cmd" value="CMD INSTALL"/>
-<stringAttribute key="de.walware.statet.r.debug/RCmd/arguments.options" value="--build"/>
+<stringAttribute key="de.walware.statet.r.debug/RCmd/arguments.cmd" value="CMD check"/>
+<stringAttribute key="de.walware.statet.r.debug/RCmd/arguments.options" value="--as-cran"/>
 <stringAttribute key="de.walware.statet.r.debug/RCmd/arguments.resource" value="${resource_loc}"/>
 <stringAttribute key="de.walware.statet.r.debug/REnv/REnvSetting" value="default-workbench"/>
 <stringAttribute key="de.walware.statet.r.debug/REnv/workingDirectory" value="${container_loc}"/>
