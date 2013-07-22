@@ -18,7 +18,6 @@
 			</fileset>
 		</unzip>
 		<rename src="${deployDirectory}/${archivePrefix}" dest="${deployDirectory}/${archivePrefix}_x86"/>
-		<mkdir dir="${deployDirectory}/${archivePrefix}_x86/workspace" />
 		
 		<unzip dest="${deployDirectory}">
 			<fileset dir="${buildDirectory}/${buildLabel}">
@@ -26,7 +25,6 @@
 			</fileset>
 		</unzip>
 		<rename src="${deployDirectory}/${archivePrefix}" dest="${deployDirectory}/${archivePrefix}_x86_64"/>
-		<mkdir dir="${deployDirectory}/${archivePrefix}_x86_64/workspace" />
 		
 		<copy todir="${deployDirectory}">
 			<fileset dir="${buildDirectory}/${buildLabel}">
