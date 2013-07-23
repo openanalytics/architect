@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Embedded RTools win32
 Bundle-SymbolicName: eu.openanalytics.architect.rtools.win32.win32
-Bundle-Version: 0.9.2.qualifier
+Bundle-Version: 0.9.3.qualifier
 Bundle-Vendor: OpenAnalytics
 Fragment-Host: eu.openanalytics.architect.rtools
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
