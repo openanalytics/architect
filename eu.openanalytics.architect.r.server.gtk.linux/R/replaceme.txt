@@ -1,1 +1,0 @@
-Place Linux/gtk binaries for R 2.15.2 here.

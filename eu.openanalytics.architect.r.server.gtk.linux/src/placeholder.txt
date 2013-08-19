@@ -1,1 +1,0 @@
-egit doesn't want to commit an empty src folder, so here I am.

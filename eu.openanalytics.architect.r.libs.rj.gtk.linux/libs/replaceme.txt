@@ -1,1 +1,0 @@
-Place Linux/gtk binaries for rj and rj.gd libs here.
