@@ -98,13 +98,6 @@
       </perspectiveExtension>
    </extension>
    <extension
-         point="org.eclipse.ui.elementFactories">
-      <factory
-            class="eu.openanalytics.architect.workspace.NavigatorRoot"
-            id="eu.openanalytics.architect.workspace.NavigatorRoot">
-      </factory>
-   </extension>
-   <extension
          point="org.eclipse.core.variables.dynamicVariables">
       <variable
             description="The selected resource, or its parent if the resource is a file."

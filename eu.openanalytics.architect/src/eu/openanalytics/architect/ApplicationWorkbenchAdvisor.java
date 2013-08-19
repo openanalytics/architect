@@ -2,6 +2,7 @@ package eu.openanalytics.architect;
 
 import java.net.URL;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.Path;
@@ -17,7 +18,6 @@ import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.osgi.framework.Bundle;
 
 import eu.openanalytics.architect.ui.ArchitectPerspective;
-import eu.openanalytics.architect.workspace.NavigatorRoot;
 
 @SuppressWarnings("restriction")
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
@@ -36,7 +36,7 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
     @Override
     public IAdaptable getDefaultPageInput() {
-    	return new NavigatorRoot();
+    	return ResourcesPlugin.getWorkspace().getRoot();
     }
 
     @Override
