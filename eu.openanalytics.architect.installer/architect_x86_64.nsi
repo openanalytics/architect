@@ -1,4 +1,4 @@
-!define MULTIUSER_EXECUTIONLEVEL Standard
+!define MULTIUSER_EXECUTIONLEVEL Highest
 !define MULTIUSER_MUI
 !define MULTIUSER_INSTALLMODE_INSTDIR Architect
 
@@ -93,6 +93,15 @@ Section "Architect" SecInstall
   ; Give full control to everyone. Required for updates and temp folder usage.
   ; AccessControl::GrantOnFile "$INSTDIR" "(BU)" "FullAccess"
   
+  ; Write registry keys for file association
+  WriteRegStr HKCR ".r" "" "ArchitectFile"
+  WriteRegStr HKCR ".rnw" "" "ArchitectFile"
+  WriteRegStr HKCR ".rda" "" "ArchitectFile"
+  WriteRegStr HKCR ".rdata" "" "ArchitectFile"
+  WriteRegStr HKCR "ArchitectFile" "" "Architect File"
+  WriteRegStr HKCR "ArchitectFile\DefaultIcon" "" "$INSTDIR\architect.exe"
+  WriteRegStr HKCR "ArchitectFile\shell\Open\Command" "" '"$INSTDIR\architect.exe" "%1"'
+    
   ; Write registry keys for uninstallation
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Architect" "DisplayName" "Architect (remove only)"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Architect" "UninstallString" "$INSTDIR\uninstall.exe"

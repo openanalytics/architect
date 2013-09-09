@@ -1,3 +1,5 @@
 instructions.configure=\
   addRepository(type:0,name:Architect,location:http${#58}//architect.openanalytics.eu/updates/4.2);\
-  addRepository(type:1,name:Architect,location:http${#58}//architect.openanalytics.eu/updates/4.2);
+  addRepository(type:1,name:Architect,location:http${#58}//architect.openanalytics.eu/updates/4.2);\
+  addProgramArg(programArg:--launcher.defaultAction);\
+  addProgramArg(programArg:openFile)

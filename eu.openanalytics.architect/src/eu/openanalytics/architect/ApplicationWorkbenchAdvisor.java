@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.application.IWorkbenchConfigurer;
 import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchAdvisor;
@@ -22,6 +23,12 @@ import eu.openanalytics.architect.ui.ArchitectPerspective;
 @SuppressWarnings("restriction")
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
+	private OpenFileHandler openFileHandler;
+	
+	public ApplicationWorkbenchAdvisor(OpenFileHandler openFileHandler) {
+		this.openFileHandler = openFileHandler;
+	}
+	
 	@Override
     public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
         return new ApplicationWorkbenchWindowAdvisor(configurer);
@@ -44,6 +51,14 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 		return ArchitectPerspective.ID;
 	}
 	
+    @Override
+    public void eventLoopIdle(Display display) {
+    	if (openFileHandler != null) {
+    		openFileHandler.catchUp(display);
+    	}
+    	super.eventLoopIdle(display);
+    }
+    
 	// This method is required to circumvent issue https://bugs.eclipse.org/bugs/show_bug.cgi?id=234252
 	private void declareWorkbenchImages() {
 

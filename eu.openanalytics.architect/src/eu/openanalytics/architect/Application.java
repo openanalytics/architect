@@ -40,7 +40,10 @@ public class Application implements IApplication {
 			WorkspaceChecker checker = new WorkspaceChecker();
 			checker.run(new NullProgressMonitor());
 			
-			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor());
+			// Start listening for "open file" events.
+			OpenFileHandler openFileHandler = new OpenFileHandler(display);
+			
+			int returnCode = PlatformUI.createAndRunWorkbench(display, new ApplicationWorkbenchAdvisor(openFileHandler));
 			
 			if (returnCode != PlatformUI.RETURN_RESTART) {
 				return EXIT_OK;
