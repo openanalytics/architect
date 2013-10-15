@@ -116,8 +116,9 @@ public class OpenFileHandler implements Listener {
 		@Override
 		public void run() {
 			try {
-				String[] lines = {"load('" + path + "')"};
-				RCodeLaunching.runRCodeDirect(lines, true, new NullProgressMonitor());
+				List<String> lineList = new ArrayList<String>();
+				lineList.add("load('" + path + "')");
+				RCodeLaunching.runRCodeDirect(lineList, true, new NullProgressMonitor());
 			} catch (CoreException e) {
 				// Still no active session...
 				if (currentTry < maxTries) {
