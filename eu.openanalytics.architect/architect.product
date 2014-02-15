@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.9.3" useFeatures="true" includeLaunchers="true">
+<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.9.4" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/eu.openanalytics.architect/about_architect.png"/>
