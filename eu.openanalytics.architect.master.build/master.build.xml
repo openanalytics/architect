@@ -89,8 +89,7 @@
 	</target>
 
 	<target name="build-architect-product">
-		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:0,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
-		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:1,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
+		<echo file="../eu.openanalytics.architect/p2.inf" append="true">${preconfigured.update.sites}</echo>
 		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false">
 			<property name="statet.repo.path" value="${statet.repo.path}"/>
 			<property name="baseLocation" value="${baseLocation}"/>
