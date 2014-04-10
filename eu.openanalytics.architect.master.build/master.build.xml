@@ -23,6 +23,7 @@
 	<target name="compile-r" unless="${skip.r.compilation}">
 		<ant dir="../eu.openanalytics.r.server.build" inheritall="false">
 			<property name="r.version" value="${r.version}"/>
+			<property name="rtools.dir" value="${rtools.dir}"/>
 		</ant>
 		<delete dir="../eu.openanalytics.architect.r.server.win32.win32/R"/>
 		<mkdir dir="../eu.openanalytics.architect.r.server.win32.win32/R"/>
@@ -37,6 +38,7 @@
 			<property name="r.version" value="${r.version}"/>
 			<property name="rj.version" value="${rj.version}"/>
 			<property name="rj.gd.version" value="${rj.gd.version}"/>
+			<property name="rtools.dir" value="${rtools.dir}"/>
 		</ant>
 		<delete dir="../eu.openanalytics.architect.r.libs.rj.win32.win32/libs"/>
 		<mkdir dir="../eu.openanalytics.architect.r.libs.rj.win32.win32/libs"/>
@@ -47,29 +49,24 @@
 	</target>
 		
 	<target name="build-architect-features">
-		
-		<!-- Workaround: for some reason <property> tags are ignored in the ant calls below. -->
-		
-		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
-		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
-		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
-		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
-		
-		<ant dir="../eu.openanalytics.architect.r.server.build" inheritall="false"/>
+		<ant dir="../eu.openanalytics.architect.r.server.build" inheritall="false">
+			<property name="statet.repo.path" value="${statet.repo.path}"/>
+			<property name="baseLocation" value="${baseLocation}"/>
+			<property name="p2.build.repo" value="${p2.build.repo}"/>
+		</ant>
 
-		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
-		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
-		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
-		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
+		<ant dir="../eu.openanalytics.architect.r.libs.rj.build" inheritall="false">
+			<property name="statet.repo.path" value="${statet.repo.path}"/>
+			<property name="baseLocation" value="${baseLocation}"/>
+			<property name="p2.build.repo" value="${p2.build.repo}"/>
+		</ant>
 		
-		<ant dir="../eu.openanalytics.architect.r.libs.rj.build" inheritall="false"/>
-		
-		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
-		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
-		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
-		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
-		
-		<ant dir="../eu.openanalytics.architect.build" inheritall="false"/>
+		<ant dir="../eu.openanalytics.architect.build" inheritall="false">
+			<property name="statet.repo.path" value="${statet.repo.path}"/>
+			<property name="baseLocation" value="${baseLocation}"/>
+			<property name="p2.build.repo" value="${p2.build.repo}"/>
+			<property name="rtools.dir" value="${rtools.dir}"/>
+		</ant>
 		
 		<antcall target="categorize-architect-features" />
 	</target>
@@ -92,15 +89,15 @@
 	</target>
 
 	<target name="build-architect-product">
-		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="forceContextQualifier=(.*)" replace="forceContextQualifier=${forceContextQualifier}" />
-		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
-		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
-		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="extraIUs=(.*)" replace="extraIUs=${extraIUs}" />
-		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="architect.repo.path=(.*)" replace="architect.repo.path=${p2.build.repo}" />
-		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="cdt.repo.path=(.*)" replace="cdt.repo.path=${cdt.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:0,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
 		<replaceregexp file="../eu.openanalytics.architect/p2.inf" match="(  addRepository\(type:1,name:Architect,location:).*(\);.*)" replace="\1${architect.update.site}\2" />
-		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false"/>
+		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false">
+			<property name="statet.repo.path" value="${statet.repo.path}"/>
+			<property name="baseLocation" value="${baseLocation}"/>
+			<property name="extraIUs" value="${extraIUs}"/>
+			<property name="architect.repo.path" value="${architect.repo.path}"/>
+			<property name="cdt.repo.path" value="${cdt.repo.path}"/>
+		</ant>
 	</target>
 
 	<target name="make-installers">
