@@ -49,24 +49,23 @@
 	</target>
 		
 	<target name="build-architect-features">
-		<ant dir="../eu.openanalytics.architect.r.server.build" inheritall="false">
-			<property name="statet.repo.path" value="${statet.repo.path}"/>
-			<property name="baseLocation" value="${baseLocation}"/>
-			<property name="p2.build.repo" value="${p2.build.repo}"/>
-		</ant>
-
-		<ant dir="../eu.openanalytics.architect.r.libs.rj.build" inheritall="false">
-			<property name="statet.repo.path" value="${statet.repo.path}"/>
-			<property name="baseLocation" value="${baseLocation}"/>
-			<property name="p2.build.repo" value="${p2.build.repo}"/>
-		</ant>
+		<!-- Workaround: Modifying property files directly because <property> tags don't work when calling PDE build scripts. -->
 		
-		<ant dir="../eu.openanalytics.architect.build" inheritall="false">
-			<property name="statet.repo.path" value="${statet.repo.path}"/>
-			<property name="baseLocation" value="${baseLocation}"/>
-			<property name="p2.build.repo" value="${p2.build.repo}"/>
-			<property name="rtools.dir" value="${rtools.dir}"/>
-		</ant>
+		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
+		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
+		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
+		<ant dir="../eu.openanalytics.architect.r.server.build" inheritall="false"/>
+
+		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
+		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
+		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
+		<ant dir="../eu.openanalytics.architect.r.libs.rj.build" inheritall="false"/>
+		
+		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
+		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
+		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
+		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="rtools.dir=(.*)" replace="rtools.dir=${rtools.dir}" />
+		<ant dir="../eu.openanalytics.architect.build" inheritall="false"/>
 		
 		<antcall target="categorize-architect-features" />
 	</target>
