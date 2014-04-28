@@ -89,13 +89,12 @@
 
 	<target name="build-architect-product">
 		<echo file="../eu.openanalytics.architect/p2.inf" append="true">${preconfigured.update.sites}</echo>
-		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false">
-			<property name="statet.repo.path" value="${statet.repo.path}"/>
-			<property name="baseLocation" value="${baseLocation}"/>
-			<property name="extraIUs" value="${extraIUs}"/>
-			<property name="architect.repo.path" value="${architect.repo.path}"/>
-			<property name="cdt.repo.path" value="${cdt.repo.path}"/>
-		</ant>
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="extraIUs=(.*)" replace="extraIUs=${extraIUs}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="architect.repo.path=(.*)" replace="architect.repo.path=${architect.repo.path}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="cdt.repo.path=(.*)" replace="cdt.repo.path=${cdt.repo.path}" />
+		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false"/>
 	</target>
 
 	<target name="make-installers">
