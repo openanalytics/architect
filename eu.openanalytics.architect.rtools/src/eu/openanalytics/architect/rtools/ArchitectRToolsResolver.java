@@ -1,7 +1,10 @@
 package eu.openanalytics.architect.rtools;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -31,7 +34,7 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 		return path.toString();
 	}
 	
-	protected String findRToolsPath() {
+	private String findRToolsPath() {
 		try {
 			File bundleFile = FileLocator.getBundleFile(Activator.getContext().getBundle());
 			File pluginsDir = bundleFile.getParentFile();
@@ -39,24 +42,27 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 			
 			String ws = Platform.getWS();
 			String os = Platform.getOS();
-			String arch = Platform.getOSArch();
 			
-			String bundleRegex = bundleId.replace(".", "\\.") + "(\\." + ws + ")?" + "(\\." + os + ")?" + "(\\." + arch + ")?(_.*)";
+			String bundleRegex = bundleId.replace(".", "\\.") + "\\." + ws + "\\." + os + ".*";
 			Pattern bundlePattern = Pattern.compile(bundleRegex);
 			
-			for (File file: pluginsDir.listFiles()) {
-				if (bundlePattern.matcher(file.getName()).matches() && file.isDirectory()) {
-					File rtoolsPath = new File(file.getAbsolutePath() + '/' + RTOOLS_DIR);
-					if (rtoolsPath.exists()) return rtoolsPath.getAbsolutePath();
+			String rToolsPath = null;
+			for (File bundle: pluginsDir.listFiles()) {
+				if (bundlePattern.matcher(bundle.getName()).matches() && bundle.isDirectory()) {
+					boolean containsRTools = new File(bundle.getAbsolutePath() + '/' + RTOOLS_DIR).exists();
+					if (containsRTools) {
+						rToolsPath = getWindowsSafePath(pluginsDir, bundle.getName()) + '/' + RTOOLS_DIR;
+						break;
+					}
 				}
 			}
+			return rToolsPath;
 		} catch (IOException e) {
 			return null;
 		}
-		return null;
 	}
 	
-	protected String[] findBinPaths(String rToolsPath) {
+	private String[] findBinPaths(String rToolsPath) {
 		List<String> binPaths = new ArrayList<String>();
 		
 		File file = new File(rToolsPath + '/' + BIN_DIR);
@@ -81,5 +87,51 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 		}
 		
 		return binPaths.toArray(new String[binPaths.size()]);
+	}
+	
+	private String getWindowsSafePath(File pluginsDir, String pluginName) {
+		if (!"win32".equals(Platform.getOS())) return pluginsDir.getAbsolutePath() + "/" + pluginName;
+		
+		// Warning! Ugly workaround for Sys.which crashing on long path names (Windows only).
+		try {
+			// Execute a dir /x command to obtain the short name.
+			String[] cmd = { "cmd.exe", "/c", "dir", pluginsDir.getAbsolutePath(), "/x" };
+			Process process = new ProcessBuilder().command(cmd).start();
+			InputStream input = process.getInputStream();
+			ByteArrayOutputStream out = new ByteArrayOutputStream();
+			copyAndClose(input, out);
+			process.waitFor();
+			// Parse the short name from the return string.
+			String retVal = new String(out.toByteArray());
+			String[] lines = retVal.split(System.getProperty("line.separator"));
+			String matchingLine = null;
+			for (String line: lines) {
+				if (line.contains(pluginName)) {
+					matchingLine = line;
+					break;
+				}
+			}
+			if (matchingLine == null || !matchingLine.contains("<DIR>")) return null;
+			matchingLine = matchingLine.substring(matchingLine.indexOf("<DIR>")+5).trim();
+			matchingLine = matchingLine.substring(0, matchingLine.indexOf(' '));
+			return pluginsDir.getAbsolutePath() + "/" + matchingLine;
+			
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	private void copyAndClose(InputStream in, OutputStream out) throws IOException {
+		try {
+			byte[] buffer = new byte[4096];
+			int len = 0;
+			do {
+				len = in.read(buffer, 0, buffer.length);
+				if (len > 0) out.write(buffer, 0, len);
+			} while (len >= 0);
+		} finally {
+			if (in != null) try { in.close(); } catch	(IOException e) {}
+			if (out != null) try { out.close(); } catch	(IOException e) {}
+		}
 	}
 }
