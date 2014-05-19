@@ -111,8 +111,8 @@ public class OpenFileHandler implements Listener {
 		private String path;
 		private int currentTry;
 		private boolean tryLaunch;
-		private int maxTries = 5;
-		private int timeout = 1000;
+		private int maxTries = 8;
+		private int timeout = 2000;
 		
 		public DelayedLoad(String path, boolean tryLaunch) {
 			this.path = path;
@@ -123,6 +123,7 @@ public class OpenFileHandler implements Listener {
 		@Override
 		public void run() {
 			try {
+//				Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Attempting run R code"));
 				String parentPath = new File(path).getParentFile().getAbsolutePath().replace('\\', '/');
 				
 				List<String> lineList = new ArrayList<String>();
@@ -130,12 +131,14 @@ public class OpenFileHandler implements Listener {
 				lineList.add("load('" + path + "')");
 				RCodeLaunching.runRCodeDirect(lineList, true, new NullProgressMonitor());
 			} catch (CoreException e) {
+//				Activator.getDefault().getLog().log(new Status(IStatus.WARNING, Activator.PLUGIN_ID, "Failed to run R code"));
 				// Still no active session... keep trying.
 				if (currentTry < maxTries) {
 					currentTry++;
 					Display.getDefault().timerExec(timeout, this);
 				} else {
 					if (tryLaunch) {
+//						Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Launching R console to process " + path));
 						// Try launching the console that is specified in the autorun plugin.
 						launchConsole(new NullProgressMonitor());
 						new DelayedLoad(path, false).run();
