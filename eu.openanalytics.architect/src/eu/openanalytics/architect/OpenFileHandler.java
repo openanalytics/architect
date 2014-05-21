@@ -88,9 +88,9 @@ public class OpenFileHandler implements Listener {
 		}
 		
 		// If it's a data file, attempt to load it in an active console.
-		String safePath = path.toLowerCase().replace('\\', '/');
+		String safePath = path.replace('\\', '/');
 		for (String ext: DATA_FILE_EXTS) {
-			if (safePath.endsWith(ext)) {
+			if (safePath.toLowerCase().endsWith(ext)) {
 				new DelayedLoad(safePath, true).run();
 				return;
 			}
