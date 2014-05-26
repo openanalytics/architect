@@ -38,6 +38,7 @@ public class OpenFileHandler implements Listener {
 	private final static String[] DATA_FILE_EXTS = {".rdata", ".rda"};
 	
 	private List<String> filesToOpen = new ArrayList<String>();
+	private String openFileArg = null;
 	
 	public OpenFileHandler(Display display) {
 		display.addListener(SWT.OpenDocument, this);
@@ -49,8 +50,8 @@ public class OpenFileHandler implements Listener {
 			EnvironmentInfo envInfo = (EnvironmentInfo)ctx.getService(infoRef);
 			String[] args = envInfo.getCommandLineArgs();
 			for (String arg: args) {
-				File testFile = new File(arg);
-				if (testFile.isFile()) {
+				if (new File(arg).isFile()) {
+					openFileArg = arg.replace('\\', '/');
 					Event event = new Event();
 					event.text = arg;
 					handleEvent(event);
@@ -62,7 +63,7 @@ public class OpenFileHandler implements Listener {
 	@Override
 	public void handleEvent(Event event) {
 		String path = event.text;
-		filesToOpen.add(path);
+		if (!filesToOpen.contains(path)) filesToOpen.add(path);
 	}
 	
 	public void catchUp(Display display) {
@@ -110,49 +111,66 @@ public class OpenFileHandler implements Listener {
 		
 		private String path;
 		private int currentTry;
-		private boolean tryLaunch;
+		private boolean allowConsoleLaunch;
 		private int maxTries = 8;
 		private int timeout = 2000;
 		
-		public DelayedLoad(String path, boolean tryLaunch) {
+		public DelayedLoad(String path, boolean allowConsoleLaunch) {
 			this.path = path;
 			this.currentTry = 1;
-			this.tryLaunch = tryLaunch;
+			this.allowConsoleLaunch = allowConsoleLaunch;
 		}
 		
 		@Override
 		public void run() {
 			try {
-//				Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Attempting run R code"));
+//				Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Attempting to load R file..."));
 				String parentPath = new File(path).getParentFile().getAbsolutePath().replace('\\', '/');
-				
 				List<String> lineList = new ArrayList<String>();
 				lineList.add("setwd('" + parentPath + "')");
 				lineList.add("load('" + path + "')");
 				RCodeLaunching.runRCodeDirect(lineList, true, new NullProgressMonitor());
 			} catch (CoreException e) {
-//				Activator.getDefault().getLog().log(new Status(IStatus.WARNING, Activator.PLUGIN_ID, "Failed to run R code"));
-				// Still no active session... keep trying.
+//				Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Failed to load R file"));
+				boolean isOpenFileArg = path.equals(openFileArg);
+				if (isOpenFileArg) openFileArg = null; // Do this test only once.
+				
+				// Option 1: Architect was already running, but there's no active console.
+				if (!isOpenFileArg && allowConsoleLaunch) {
+//					Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Launching R console..."));
+					launchConsole(new NullProgressMonitor());
+					new DelayedLoad(path, false).run();
+					return;
+				}
+				
+				// Option 2: Architect is just starting up, without autorun
+				if (isOpenFileArg && !isAutoRunEnabled() && allowConsoleLaunch) {
+//					Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Launching R console..."));
+					launchConsole(new NullProgressMonitor());
+					new DelayedLoad(path, false).run();
+					return;
+				}
+				
+				// Option 3: A console is underway, need some patience
 				if (currentTry < maxTries) {
+//					Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Waiting a bit..."));
 					currentTry++;
 					Display.getDefault().timerExec(timeout, this);
 				} else {
-					if (tryLaunch) {
-//						Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Launching R console to process " + path));
-						// Try launching the console that is specified in the autorun plugin.
-						launchConsole(new NullProgressMonitor());
-						new DelayedLoad(path, false).run();
-					} else {
-						// Give up, and log an error message.
-						Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Cannot load " + path + ": " + e.getMessage()));
-					}
+					// All tries have been exhausted. Give up and log an error.
+					Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Cannot load " + path + ": " + e.getMessage()));
 				}
 			}
 		}
 		
-		@SuppressWarnings("deprecation")
+		private boolean isAutoRunEnabled() {
+			IEclipsePreferences node = getAutoRunPreferences();
+			String isEnabledString = node.get("enabled", "false");
+			return Boolean.valueOf(isEnabledString);
+		}
+		
 		private IStatus launchConsole(final IProgressMonitor monitor) {
-			final IEclipsePreferences node = new InstanceScope().getNode("de.walware.eutils.autorun");
+			IEclipsePreferences node = getAutoRunPreferences();
 			String key = node.get("config.id", null);
 			String mode = null;
 			if (key != null) mode = node.get("mode.id", ILaunchManager.RUN_MODE);
@@ -175,6 +193,11 @@ public class OpenFileHandler implements Listener {
 				return Status.OK_STATUS;
 			}
 			return Status.CANCEL_STATUS;
+		}
+		
+		@SuppressWarnings("deprecation")
+		private IEclipsePreferences getAutoRunPreferences() {
+			return new InstanceScope().getNode("de.walware.eutils.autorun");
 		}
 	}
 }
