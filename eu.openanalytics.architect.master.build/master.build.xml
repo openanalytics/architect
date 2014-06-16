@@ -94,6 +94,7 @@
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="extraIUs=(.*)" replace="extraIUs=${extraIUs}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="architect.repo.path=(.*)" replace="architect.repo.path=${p2.build.repo}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="cdt.repo.path=(.*)" replace="cdt.repo.path=${cdt.repo.path}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="mylyn.repo.path=(.*)" replace="mylyn.repo.path=${mylyn.repo.path}" />
 		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false"/>
 	</target>
 
