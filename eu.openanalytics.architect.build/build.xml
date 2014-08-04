@@ -41,6 +41,10 @@
 			<fileset dir="${rtools.dir}">
 			</fileset>
 		</copy>
+		<copy todir="${buildDirectory}/plugins/eu.openanalytics.architect.pandoc.win32.win32/pandoc">
+			<fileset dir="${pandoc.dir}">
+			</fileset>
+		</copy>
 	</target>
 	
 	<target name="pde-build">
