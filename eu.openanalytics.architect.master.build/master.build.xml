@@ -65,6 +65,7 @@
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="rtools.dir=(.*)" replace="rtools.dir=${rtools.dir}" />
+		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="pandoc.dir=(.*)" replace="pandoc.dir=${pandoc.dir}" />
 		<ant dir="../eu.openanalytics.architect.build" inheritall="false"/>
 		
 		<antcall target="categorize-architect-features" />

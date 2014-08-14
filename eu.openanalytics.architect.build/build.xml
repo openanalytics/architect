@@ -30,6 +30,8 @@
 				<include name="eu.openanalytics.architect.ws.updater/**" />
 				<include name="eu.openanalytics.architect.rtools/**" />
 				<include name="eu.openanalytics.architect.rtools.win32.win32/**" />
+				<include name="eu.openanalytics.architect.pandoc/**" />
+				<include name="eu.openanalytics.architect.pandoc.win32.win32/**" />
 			</fileset>
 		</copy>
 		<copy todir="${buildDirectory}/features/eu.openanalytics.architect">
@@ -39,6 +41,10 @@
 		</copy>
 		<copy todir="${buildDirectory}/plugins/eu.openanalytics.architect.rtools.win32.win32/rtools">
 			<fileset dir="${rtools.dir}">
+			</fileset>
+		</copy>
+		<copy todir="${buildDirectory}/plugins/eu.openanalytics.architect.pandoc.win32.win32/pandoc">
+			<fileset dir="${pandoc.dir}">
 			</fileset>
 		</copy>
 	</target>
