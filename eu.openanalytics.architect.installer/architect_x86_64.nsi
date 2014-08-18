@@ -1,24 +1,25 @@
-!define MULTIUSER_EXECUTIONLEVEL Highest
-!define MULTIUSER_MUI
-!define MULTIUSER_INSTALLMODE_INSTDIR Architect
-
-!include MultiUser.nsh
 !include MUI2.nsh
 !include LogicLib.nsh
 !include x64.nsh
 
+RequestExecutionLevel highest
+
 Function .onInit
-  !insertmacro MULTIUSER_INIT
-FunctionEnd
-
-Function un.onInit
-  !insertmacro MULTIUSER_UNINIT
-FunctionEnd
-
-Function setDirX64
-  ${If} $INSTDIR == "$PROGRAMFILES\${MULTIUSER_INSTALLMODE_INSTDIR}"
-	StrCpy $INSTDIR "$PROGRAMFILES64\${MULTIUSER_INSTALLMODE_INSTDIR}"
-  ${EndIf}
+  UserInfo::GetAccountType
+  Pop $1
+  IfSilent +5
+    ${if} "$1" == "Admin"
+	  StrCpy $INSTDIR "$PROGRAMFILES64\Architect"
+	${else}
+	  StrCpy $INSTDIR "$LOCALAPPDATA\Architect"
+	${endif}
+  ${if} "$INSTDIR" == ""
+    ${if} "$1" == "Admin"
+	  StrCpy $INSTDIR "$PROGRAMFILES64\Architect"
+	${else}
+	  StrCpy $INSTDIR "$LOCALAPPDATA\Architect"
+	${endif}
+  ${endif}
 FunctionEnd
 
 Function un.isEmptyDir
@@ -49,7 +50,6 @@ FunctionEnd
 ;--------------------------------
 Name "Architect"
 OutFile "setup_x86_64.exe"
-InstallDir "Architect"
 
 ;--------------------------------
 !define MUI_ICON "architect_48.ico"
@@ -62,7 +62,6 @@ InstallDir "Architect"
 ;Pages
 
 !insertmacro MUI_PAGE_WELCOME
-!define MUI_PAGE_CUSTOMFUNCTION_PRE setDirX64
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
