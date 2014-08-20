@@ -1,18 +1,25 @@
-!define MULTIUSER_EXECUTIONLEVEL Highest
-!define MULTIUSER_MUI
-!define MULTIUSER_INSTALLMODE_INSTDIR Architect
-
-!include MultiUser.nsh
 !include MUI2.nsh
 !include LogicLib.nsh
 !include x64.nsh
 
-Function .onInit
-  !insertmacro MULTIUSER_INIT
-FunctionEnd
+RequestExecutionLevel highest
 
-Function un.onInit
-  !insertmacro MULTIUSER_UNINIT
+Function .onInit
+  UserInfo::GetAccountType
+  Pop $1
+  IfSilent +5
+    ${if} "$1" == "Admin"
+	  StrCpy $INSTDIR "$PROGRAMFILES\Architect"
+	${else}
+	  StrCpy $INSTDIR "$LOCALAPPDATA\Architect"
+	${endif}
+  ${if} "$INSTDIR" == ""
+    ${if} "$1" == "Admin"
+	  StrCpy $INSTDIR "$PROGRAMFILES\Architect"
+	${else}
+	  StrCpy $INSTDIR "$LOCALAPPDATA\Architect"
+	${endif}
+  ${endif}
 FunctionEnd
 
 Function un.isEmptyDir
@@ -43,7 +50,6 @@ FunctionEnd
 ;--------------------------------
 Name "Architect"
 OutFile "setup_x86.exe"
-InstallDir "Architect"
 
 ;--------------------------------
 !define MUI_ICON "architect_48.ico"
