@@ -8,7 +8,7 @@
       <text>
          Architect is a graphical user interface and integrated development 
 environment for statistical programming and analysis developed by 
-OpenAnalytics BVBA - http://www.openanalytics.eu 
+Open Analytics NV - http://www.openanalytics.eu 
 
 It combines the strengths of the Eclipse platform (Eclipse Foundation), 
 the StatET plug-ins for R development (WalWare) and R (R Foundation), 
@@ -54,7 +54,7 @@ the leading open source solution for statistical analysis and visualization.
    <license>
         <url>http://www.eclipse.org/legal/epl-v10.html</url>
         <text>
-   The Architect product is released by OpenAnalytics BVBA under the terms 
+   The Architect product is released by Open Analytics NV under the terms 
 of the Eclipse Public License, version 1.0. The StatET libraries and plug-ins 
 for Eclipse are released by WalWare under the the terms of the
 WalWare.de Open Source Software User Agreement. The rj package is released under the
