@@ -2,7 +2,7 @@
 <feature
       id="eu.openanalytics.architect"
       label="Architect"
-      version="0.9.4.qualifier"
+      version="0.9.5.qualifier"
       provider-name="OpenAnalytics"
       os="linux,macosx,win32"
       ws="cocoa,gtk,win32"
