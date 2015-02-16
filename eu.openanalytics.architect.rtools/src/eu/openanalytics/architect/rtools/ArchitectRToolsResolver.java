@@ -17,8 +17,15 @@ import org.eclipse.core.variables.IDynamicVariableResolver;
 
 public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 
-	private final static String RTOOLS_DIR = "rtools";
-	private final static String BIN_DIR = "bin";
+	private static final String RTOOLS_DIR = "rtools";
+	private static final String BIN_DIR = "bin";
+	private static final String GCC_FILE = "gcc";
+	
+	private static final String OS_WIN32 = "win32";
+	private static final String ARCH_X64 = "x86_64";
+	
+	private static final char PATH_SEP_WIN = ';';
+	private static final char PATH_SEP_NIX = ':';
 	
 	@Override
 	public String resolveValue(IDynamicVariable variable, String argument) throws CoreException {
@@ -28,7 +35,7 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 			String[] binPaths = findBinPaths(rToolsPath);
 			for (String binPath: binPaths) {
 				path.append(binPath);
-				path.append(';');
+				path.append(isWindowsOS() ? PATH_SEP_WIN : PATH_SEP_NIX);
 			}
 		}
 		return path.toString();
@@ -70,7 +77,7 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 		
 		String gccName = null;
 		for (File child: new File(rToolsPath).listFiles()) {
-			if (child.getName().toLowerCase().contains("gcc")) {
+			if (child.getName().toLowerCase().contains(GCC_FILE)) {
 				gccName = child.getName();
 				break;
 			}
@@ -80,7 +87,7 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 			if (file.exists()) binPaths.add(file.getAbsolutePath());
 			
 			String binSuffix = "32";
-			if (Platform.getOSArch().equalsIgnoreCase("x86_64")) binSuffix = "64";
+			if (Platform.getOSArch().equalsIgnoreCase(ARCH_X64)) binSuffix = "64";
 			
 			file = new File(rToolsPath + '/' + gccName + '/' + BIN_DIR + binSuffix);
 			if (file.exists()) binPaths.add(file.getAbsolutePath());
@@ -90,7 +97,7 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 	}
 	
 	private String getWindowsSafePath(File pluginsDir, String pluginName) {
-		if (!"win32".equals(Platform.getOS())) return pluginsDir.getAbsolutePath() + "/" + pluginName;
+		if (!isWindowsOS()) return pluginsDir.getAbsolutePath() + "/" + pluginName;
 		
 		// Warning! Ugly workaround for Sys.which crashing on long path names (Windows only).
 		try {
@@ -133,5 +140,9 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 			if (in != null) try { in.close(); } catch	(IOException e) {}
 			if (out != null) try { out.close(); } catch	(IOException e) {}
 		}
+	}
+	
+	private boolean isWindowsOS() {
+		return OS_WIN32.equals(Platform.getOS());
 	}
 }
