@@ -99,6 +99,7 @@
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="ptp.repo.path=(.*)" replace="ptp.repo.path=${ptp.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="mylyn.repo.path=(.*)" replace="mylyn.repo.path=${mylyn.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="emf.repo.path=(.*)" replace="emf.repo.path=${emf.repo.path}" />
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="eclipsefonts.repo.path=(.*)" replace="eclipsefonts.repo.path=${eclipsefonts.repo.path}" />
 		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false"/>
 	</target>
 
