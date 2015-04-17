@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.9.5" useFeatures="true" includeLaunchers="true">
+<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.9.6" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/eu.openanalytics.architect/about_architect.png"/>
@@ -20,7 +20,7 @@ the leading open source solution for statistical analysis and visualization.
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Xms512m -Xmx1024m -XX:MaxPermSize=256m -Declipse.p2.unsignedPolicy=allow
+      <vmArgs>-Xms512m -Xmx1024m -XX:MaxPermSize=256m -Declipse.p2.unsignedPolicy=allow -Dosgi.requiredJavaVersion=1.7.0
       </vmArgs>
       <vmArgsMac>-Xms1024m -Xmx2048m -XX:MaxPermSize=256m -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -95,8 +95,8 @@ version 2.1.
    </plugins>
 
    <features>
-      <feature id="org.eclipse.jdt" version="3.10.0.v20140606-1536"/>
-      <feature id="org.eclipse.platform" version="4.4.0.v20140606-1558"/>
+      <feature id="org.eclipse.jdt" version="3.10.1.v20150204-1700"/>
+      <feature id="org.eclipse.platform" version="4.4.2.v20150204-1700"/>
    </features>
 
    <configurations>

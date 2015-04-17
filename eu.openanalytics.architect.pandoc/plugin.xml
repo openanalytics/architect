@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.variables.dynamicVariables">
+      <variable
+            description="The folder containing the embedded Pandoc binaries"
+            name="architect_pandoc"
+            resolver="eu.openanalytics.architect.pandoc.ArchitectPandocResolver"
+            supportsArgument="false">
+      </variable>
+   </extension>
+
+</plugin>

@@ -1,12 +1,10 @@
-package eu.openanalytics.architect.rtools;
+package eu.openanalytics.architect.pandoc;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 import org.eclipse.core.runtime.CoreException;
@@ -15,33 +13,21 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.variables.IDynamicVariable;
 import org.eclipse.core.variables.IDynamicVariableResolver;
 
-public class ArchitectRToolsResolver implements IDynamicVariableResolver {
+public class ArchitectPandocResolver implements IDynamicVariableResolver {
 
-	private static final String RTOOLS_DIR = "rtools";
-	private static final String BIN_DIR = "bin";
-	private static final String GCC_FILE = "gcc";
-	
-	private static final String OS_WIN32 = "win32";
-	private static final String ARCH_X64 = "x86_64";
-	
-	private static final char PATH_SEP_WIN = ';';
-	private static final char PATH_SEP_NIX = ':';
+	private final static String PANDOC_DIR = "pandoc";
 	
 	@Override
 	public String resolveValue(IDynamicVariable variable, String argument) throws CoreException {
 		StringBuilder path = new StringBuilder();
-		String rToolsPath = findRToolsPath();
-		if (rToolsPath != null) {
-			String[] binPaths = findBinPaths(rToolsPath);
-			for (String binPath: binPaths) {
-				path.append(binPath);
-				path.append(isWindowsOS() ? PATH_SEP_WIN : PATH_SEP_NIX);
-			}
+		String pandocPath = findPandocPath();
+		if (pandocPath != null) {
+			path.append(pandocPath);
 		}
 		return path.toString();
 	}
 	
-	private String findRToolsPath() {
+	private String findPandocPath() {
 		try {
 			File bundleFile = FileLocator.getBundleFile(Activator.getContext().getBundle());
 			File pluginsDir = bundleFile.getParentFile();
@@ -53,51 +39,24 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 			String bundleRegex = bundleId.replace(".", "\\.") + "\\." + ws + "\\." + os + ".*";
 			Pattern bundlePattern = Pattern.compile(bundleRegex);
 			
-			String rToolsPath = null;
+			String pandocPath = null;
 			for (File bundle: pluginsDir.listFiles()) {
 				if (bundlePattern.matcher(bundle.getName()).matches() && bundle.isDirectory()) {
-					boolean containsRTools = new File(bundle.getAbsolutePath() + '/' + RTOOLS_DIR).exists();
-					if (containsRTools) {
-						rToolsPath = getWindowsSafePath(pluginsDir, bundle.getName()) + '/' + RTOOLS_DIR;
+					boolean containsPandoc = new File(bundle.getAbsolutePath() + '/' + PANDOC_DIR).exists();
+					if (containsPandoc) {
+						pandocPath = getWindowsSafePath(pluginsDir, bundle.getName()) + '/' + PANDOC_DIR;
 						break;
 					}
 				}
 			}
-			return rToolsPath;
+			return pandocPath;
 		} catch (IOException e) {
 			return null;
 		}
 	}
 	
-	private String[] findBinPaths(String rToolsPath) {
-		List<String> binPaths = new ArrayList<String>();
-		
-		File file = new File(rToolsPath + '/' + BIN_DIR);
-		if (file.exists()) binPaths.add(file.getAbsolutePath());
-		
-		String gccName = null;
-		for (File child: new File(rToolsPath).listFiles()) {
-			if (child.getName().toLowerCase().contains(GCC_FILE)) {
-				gccName = child.getName();
-				break;
-			}
-		}
-		if (gccName != null) {
-			file = new File(rToolsPath + '/' + gccName + '/' + BIN_DIR);
-			if (file.exists()) binPaths.add(file.getAbsolutePath());
-			
-			String binSuffix = "32";
-			if (Platform.getOSArch().equalsIgnoreCase(ARCH_X64)) binSuffix = "64";
-			
-			file = new File(rToolsPath + '/' + gccName + '/' + BIN_DIR + binSuffix);
-			if (file.exists()) binPaths.add(file.getAbsolutePath());
-		}
-		
-		return binPaths.toArray(new String[binPaths.size()]);
-	}
-	
 	private String getWindowsSafePath(File pluginsDir, String pluginName) {
-		if (!isWindowsOS()) return pluginsDir.getAbsolutePath() + "/" + pluginName;
+		if (!"win32".equals(Platform.getOS())) return pluginsDir.getAbsolutePath() + "/" + pluginName;
 		
 		// Warning! Ugly workaround for Sys.which crashing on long path names (Windows only).
 		try {
@@ -140,9 +99,5 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 			if (in != null) try { in.close(); } catch	(IOException e) {}
 			if (out != null) try { out.close(); } catch	(IOException e) {}
 		}
-	}
-	
-	private boolean isWindowsOS() {
-		return OS_WIN32.equals(Platform.getOS());
 	}
 }
