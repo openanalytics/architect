@@ -91,6 +91,8 @@
 	<target name="modify.mkrules.i386" unless="${isX64}">
 		<copy file="${build.dir}/i386/${r.version}/src/gnuwin32/MkRules.dist" tofile="${build.dir}/i386/${r.version}/src/gnuwin32/MkRules.local">
 			<filterchain>
+				<replacestring from="# LOCAL_SOFT =" to="LOCAL_SOFT = " />
+				<replacestring from="# EXT_LIBS =" to="EXT_LIBS = " />
 				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="MULTI =" to="MULTI = 32" />
 				<replacestring from="# JPEGDIR = jpeg-8d" to="JPEGDIR = ${jpeg.version}" />
@@ -101,6 +103,8 @@
 	<target name="modify.mkrules.x64" if="${isX64}">
 		<copy file="${build.dir}/x64/${r.version}/src/gnuwin32/MkRules.dist" tofile="${build.dir}/x64/${r.version}/src/gnuwin32/MkRules.local">
 			<filterchain>
+				<replacestring from="# LOCAL_SOFT =" to="LOCAL_SOFT = " />
+				<replacestring from="# EXT_LIBS =" to="EXT_LIBS = " />
 				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="WIN = 32" to="WIN = 64" />
 				<replacestring from="MULTI =" to="MULTI = 64" />
