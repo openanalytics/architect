@@ -21,6 +21,11 @@
 				<include name="*/**" />
 			</fileset>
 		</copy>
+		<copy todir="${build.dir}/${platform}/${r.version}/extsoft">
+			<fileset dir="${localsoft.dir}">
+				<include name="*/**" />
+			</fileset>
+		</copy>
 	</target>
 
 	<target name="apply.patches">
