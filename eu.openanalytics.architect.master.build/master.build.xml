@@ -27,6 +27,7 @@
 			<property name="localsoft.dir" value="${localsoft.dir}"/>
 			<property name="icu.dir" value="${icu.dir}"/>
 			<property name="libcurl.dir" value="${libcurl.dir}"/>
+			<property name="perl.binary" value="${perl.binary}"/>
 			<property name="texinfo.dir" value="${texinfo.dir}"/>
 		</ant>
 		<delete dir="../eu.openanalytics.architect.r.server.win32.win32/R"/>
