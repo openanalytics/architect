@@ -21,11 +21,6 @@
 				<include name="*/**" />
 			</fileset>
 		</copy>
-		<copy todir="${build.dir}/${platform}/${r.version}/extsoft">
-			<fileset dir="${localsoft.dir}">
-				<include name="*/**" />
-			</fileset>
-		</copy>
 	</target>
 
 	<target name="apply.patches">
@@ -91,7 +86,7 @@
 	<target name="modify.mkrules.i386" unless="${isX64}">
 		<copy file="${build.dir}/i386/${r.version}/src/gnuwin32/MkRules.dist" tofile="${build.dir}/i386/${r.version}/src/gnuwin32/MkRules.local">
 			<filterchain>
-				<replacestring from="# LOCAL_SOFT = $(R_HOME)/extsoft" to="LOCAL_SOFT = $(R_HOME)/extsoft" />
+				<replacestring from="# LOCAL_SOFT = $(R_HOME)/extsoft" to="LOCAL_SOFT = ${localsoft.dir}" />
 				<replacestring from="# EXT_LIBS = $(LOCAL_SOFT)" to="EXT_LIBS = $(LOCAL_SOFT)" />
 				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="MULTI =" to="MULTI = 32" />
@@ -103,7 +98,7 @@
 	<target name="modify.mkrules.x64" if="${isX64}">
 		<copy file="${build.dir}/x64/${r.version}/src/gnuwin32/MkRules.dist" tofile="${build.dir}/x64/${r.version}/src/gnuwin32/MkRules.local">
 			<filterchain>
-				<replacestring from="# LOCAL_SOFT =" to="LOCAL_SOFT = " />
+				<replacestring from="# LOCAL_SOFT =" to="LOCAL_SOFT = ${localsoft.dir}" />
 				<replacestring from="# EXT_LIBS =" to="EXT_LIBS = " />
 				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="WIN = 32" to="WIN = 64" />
