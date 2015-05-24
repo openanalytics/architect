@@ -82,8 +82,14 @@
 			<filterchain>
 				<replacestring from="# LOCAL_SOFT = $(R_HOME)/extsoft" to="LOCAL_SOFT = ${localsoft.dir}" />
 				<replacestring from="# EXT_LIBS = $(LOCAL_SOFT)" to="EXT_LIBS = $(LOCAL_SOFT)" />
+				<replacestring from="# USE_ICU = YES" to="USE_ICU = YES" />
+				<replacestring from="# ICU_PATH =" to="ICU_PATH = ${icu.dir}" />
+				<replacestring from="# ICU_LIBS =" to="ICU_LIBS =" />
+				<replacestring from="# USE_LIBCURL = YES" to="USE_LIBCURL = YES" />
+				<replacestring from="# CURL_PATH =" to="CURL_PATH = ${libcurl.dir}" />
+				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm -lidn" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm -lidn" />
 				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
-				<replacestring from="MULTI =" to="MULTI = 32" />
+				<replacestring from="# MULTI =" to="MULTI = 32" />
 				<replacestring from="# JPEGDIR = jpeg-8d" to="JPEGDIR = ${jpeg.version}" />
 			</filterchain>
 		</copy>
@@ -94,6 +100,12 @@
 			<filterchain>
 				<replacestring from="# LOCAL_SOFT =" to="LOCAL_SOFT = ${localsoft.dir}" />
 				<replacestring from="# EXT_LIBS =" to="EXT_LIBS = " />
+				<replacestring from="# USE_ICU = YES" to="USE_ICU = YES" />
+				<replacestring from="# ICU_PATH =" to="ICU_PATH = ${icu.dir}" />
+				<replacestring from="# ICU_LIBS =" to="ICU_LIBS =" />
+				<replacestring from="# USE_LIBCURL = YES" to="USE_LIBCURL = YES" />
+				<replacestring from="# CURL_PATH =" to="CURL_PATH = ${libcurl.dir}" />
+				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" />				
 				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="WIN = 32" to="WIN = 64" />
 				<replacestring from="MULTI =" to="MULTI = 64" />
