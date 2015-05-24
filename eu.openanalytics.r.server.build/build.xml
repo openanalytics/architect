@@ -91,6 +91,7 @@
 				<replacestring from="# CURL_PATH =" to="CURL_PATH = ${libcurl.dir}" />
 				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm -lidn" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm -lidn" />
 				<replacestring from="# CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
+				<replacestring from="# TEXI2ANY = /path/to/perl -I/packages/texinfo =" to="TEXI2ANY = ${perl.biary} -Ic:/Architect-build/tools/texinfo/texinfo5 c:/Architect-build/tools/texinfo/texinfo5/texi2any" />
 			</filterchain>
 		</copy>
 	</target>
@@ -109,6 +110,7 @@
 				<replacestring from="# CURL_PATH =" to="CURL_PATH = ${libcurl.dir}" />
 				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" />				
 				<replacestring from="# CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
+                <replacestring from="# TEXI2ANY = /path/to/perl -I/packages/texinfo =" to="TEXI2ANY = ${perl.biary} -Ic:/Architect-build/tools/texinfo/texinfo5 c:/Architect-build/tools/texinfo/texinfo5/texi2any" />
 			</filterchain>
 		</copy>
 	</target>
