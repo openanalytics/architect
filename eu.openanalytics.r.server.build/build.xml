@@ -88,8 +88,9 @@
 				<replacestring from="# USE_LIBCURL = YES" to="USE_LIBCURL = YES" />
 				<replacestring from="# CURL_PATH =" to="CURL_PATH = ${libcurl.dir}" />
 				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm -lidn" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm -lidn" />
-				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
-				<replacestring from="# MULTI =" to="MULTI = 32" />
+				<replacestring from="# CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
+				<replacestring from="# WIN = 32" to="WIN = 32" />
+				<replacestring from="MULTI =" to="MULTI = 32" />
 				<replacestring from="# JPEGDIR = jpeg-8d" to="JPEGDIR = ${jpeg.version}" />
 			</filterchain>
 		</copy>
@@ -106,8 +107,8 @@
 				<replacestring from="# USE_LIBCURL = YES" to="USE_LIBCURL = YES" />
 				<replacestring from="# CURL_PATH =" to="CURL_PATH = ${libcurl.dir}" />
 				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" />				
-				<replacestring from="CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
-				<replacestring from="WIN = 32" to="WIN = 64" />
+				<replacestring from="# CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
+				<replacestring from="# WIN = 32" to="WIN = 64" />
 				<replacestring from="MULTI =" to="MULTI = 64" />
 				<replacestring from="# JPEGDIR = jpeg-8d" to="JPEGDIR = ${jpeg.version}" />
 			</filterchain>
