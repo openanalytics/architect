@@ -1,0 +1,27 @@
+<!--
+	This is a separate build file, because it contains custom ant commands which need to run in an Eclipse AntRunner.
+	
+	A composite repository is needed to work around a bug in runDirector IU installation.
+	See https://www.eclipse.org/forums/index.php/t/171649/
+-->
+<project name="eu.openanalytics.architect.create.composite.repo" default="create-repo">
+
+	<target name="create-repo">
+		<delete dir="${extraIURepo}"/>
+		<p2.composite.repository location="file://${extraIURepo}" >
+			<add>
+				<repository location="file://${p2.build.repo}"/>
+				<repository location="file://${statet.repo.path}/site-statet"/>
+				<repository location="file://c:/architect-build/dependencies/mylyn/mylyn-3.15.0.v20150331-1812" />
+				<repository location="file://c:/architect-build/dependencies/egit/egit-3.7.0"/>
+				<repository location="file://c:/architect-build/dependencies/ptp/ptp-8.1.1.201502031415"/>
+				<repository location="file://c:/architect-build/dependencies/emf/emf-runtime-2.10.2"/>
+				<repository location="file://c:/architect-build/dependencies/cdt/cdt-8.6.0"/>
+				<repository location="file://c:/architect-build/dependencies/fontsize"/>
+				<repository location="http://quickgit.openanalytics.eu/update/stable"/>
+				<repository location="http://download.eclipse.org/mpc/luna"/>
+			</add>
+		</p2.composite.repository>
+	</target>
+
+</project>
