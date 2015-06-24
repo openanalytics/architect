@@ -20,6 +20,7 @@
 				<repository location="file://c:/architect-build/dependencies/fontsize"/>
 				<repository location="http://quickgit.openanalytics.eu/update/stable"/>
 				<repository location="http://download.eclipse.org/mpc/luna"/>
+				<repository location="http://download.eclipse.org/releases/luna"/>
 			</add>
 		</p2.composite.repository>
 	</target>
