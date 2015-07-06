@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Pandoc Linux binaries
+Bundle-SymbolicName: eu.openanalytics.architect.pandoc.gtk.linux
+Bundle-Version: 0.9.7.qualifier
+Bundle-Vendor: OpenAnalytics
+Fragment-Host: eu.openanalytics.architect.pandoc
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
