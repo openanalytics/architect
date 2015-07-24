@@ -22,6 +22,7 @@
 
 	<target name="compile-r" unless="${skip.r.compilation}">
 		<ant dir="../eu.openanalytics.r.server.build" inheritall="false">
+			<property name="master.build.dir" value="${master.build.dir}"/>
 			<property name="r.version" value="${r.version}"/>
 			<property name="rtools.dir" value="${rtools.dir}"/>
 			<property name="localsoft.dir" value="${localsoft.dir}"/>
@@ -40,6 +41,7 @@
 	
 	<target name="compile-rj" unless="${skip.rj.compilation}">
 		<ant dir="../eu.openanalytics.r.libs.rj.build" inheritall="false">
+			<property name="master.build.dir" value="${master.build.dir}"/>
 			<property name="r.version" value="${r.version}"/>
 			<property name="rj.version" value="${rj.version}"/>
 			<property name="rj.gd.version" value="${rj.gd.version}"/>
@@ -55,17 +57,20 @@
 		
 	<target name="build-architect-features">
 		<!-- Workaround: Modifying property files directly because <property> tags don't work when calling PDE build scripts. -->
-		
+	
+		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="master.build.dir=(.*)" replace="master.build.dir=${master.build.dir}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.server.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
 		<ant dir="../eu.openanalytics.architect.r.server.build" inheritall="false"/>
 
+		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="master.build.dir=(.*)" replace="master.build.dir=${master.build.dir}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
 		<replaceregexp file="../eu.openanalytics.architect.r.libs.rj.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
 		<ant dir="../eu.openanalytics.architect.r.libs.rj.build" inheritall="false"/>
 		
+		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="master.build.dir=(.*)" replace="master.build.dir=${master.build.dir}" />
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="statet.repo.path=(.*)" replace="statet.repo.path=${statet.repo.path}" />
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
 		<replaceregexp file="../eu.openanalytics.architect.build/build.properties" match="p2.build.repo=(.*)" replace="p2.build.repo=${p2.build.repo}" />
@@ -110,6 +115,7 @@
 
 		<echo file="../eu.openanalytics.architect/p2.inf" append="true">${preconfigured.update.sites}</echo>
 		
+		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="master.build.dir=(.*)" replace="master.build.dir=${master.build.dir}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="baseLocation=(.*)" replace="baseLocation=${baseLocation}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="extraIUs=(.*)" replace="extraIUs=${extraIUs}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="extraIURepo=(.*)" replace="extraIURepo=${extraIURepo}" />
@@ -117,6 +123,7 @@
 	</target>
 
 	<target name="make-installers">
+		<replaceregexp file="../eu.openanalytics.architect.installer/build.properties" match="master.build.dir=(.*)" replace="master.build.dir=${master.build.dir}" />
 		<ant dir="../eu.openanalytics.architect.installer" inheritall="false" target="make-installer"/>
 	</target>
 	
