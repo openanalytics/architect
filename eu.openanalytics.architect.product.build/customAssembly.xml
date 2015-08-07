@@ -59,6 +59,8 @@
 			<property name="p2.director.iu" value="${extraIUs}"/>
 			<property name="p2.director.installPath" value="${eclipse.base}"/>
 		</ant>
+		<!-- Workaround Mac build issue, PDE scripts are not yet Mars ready -->
+		<mkdir dir="${eclipse.base}/Contents/MacOS"/>
 	</target>
 	
 	<!-- ===================================================================== -->
