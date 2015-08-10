@@ -73,6 +73,7 @@
 				<include name="Info.plist" />
 			</fileset>
 		</copy>
+		<replaceregexp file="${eclipse.base}/architect.ini" match="(../architect/plugins)" replace="../../../plugins" flags="g"/>
 		<move file="${eclipse.base}/architect.ini" tofile="${eclipse.base}/Architect.app/Contents/MacOS/architect.ini"/>
 	</target>
 	
