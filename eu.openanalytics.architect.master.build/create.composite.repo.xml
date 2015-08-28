@@ -16,7 +16,7 @@
 				<repository location="http://fontsize.openanalytics.eu/update"/>
 				<repository location="http://eclipse-color-theme.github.com/update"/>
 				<repository location="http://eclipse.jeeeyul.net/update"/>
-				<repository location="http://download.eclipse.org/mylyn/releases/3.15"/>
+				<repository location="http://download.eclipse.org/mylyn/releases/3.16"/>
 				<repository location="http://download.eclipse.org/tools/cdt/releases/8.7"/>
 				<repository location="http://download.eclipse.org/releases/mars"/>
 			</add>
