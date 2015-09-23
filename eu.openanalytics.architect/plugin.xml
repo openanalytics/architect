@@ -106,4 +106,46 @@
             supportsArgument="false">
       </variable>
    </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="eu.openanalytics.architect.ui.QuickLaunchPreferences">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="eu.openanalytics.architect.ui.ArchitectPreferencePage"
+            id="eu.openanalytics.architect"
+            name="Architect">
+      </page>
+      <page
+            category="eu.openanalytics.architect"
+            class="eu.openanalytics.architect.ui.QuickLaunchPreferencePage"
+            id="eu.openanalytics.architect.quickLaunch"
+            name="Quick Launch">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="eu.openanalytics.architect"
+            name="Architect">
+      </category>
+      <command
+            categoryId="eu.openanalytics.architect"
+            defaultHandler="eu.openanalytics.architect.ui.QuickLaunchCommandHandler"
+            id="eu.openanalytics.architect.quickLaunch"
+            name="Quick Launch">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="eu.openanalytics.architect.quickLaunch"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="CTRL+ALT+RETURN">
+      </key>
+   </extension>
 </plugin>
