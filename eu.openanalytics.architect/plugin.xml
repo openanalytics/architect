@@ -135,6 +135,7 @@
       <command
             categoryId="eu.openanalytics.architect"
             defaultHandler="eu.openanalytics.architect.ui.QuickLaunchCommandHandler"
+            description="Shortcut to execute a specific launch configuration immediately."
             id="eu.openanalytics.architect.quickLaunch"
             name="Quick Launch">
       </command>

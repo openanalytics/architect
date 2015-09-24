@@ -34,9 +34,9 @@ import eu.openanalytics.architect.Activator;
 public class QuickLaunchPreferencePage extends PreferencePage implements IWorkbenchPreferencePage {
 
 	private static final String[][] LAUNCH_MAPPINGS = {
-			{ "My first favorite Debug Configuration", QuickLaunchCommandHandler.LAUNCH_MAPPING_FAVORITE_DEBUG },
-			{ "My first favorite Run Configuration", QuickLaunchCommandHandler.LAUNCH_MAPPING_FAVORITE_RUN},
-			{ "My first favorite External Tool Configuration", QuickLaunchCommandHandler.LAUNCH_MAPPING_FAVORITE_EXT },
+			{ "My favorite Debug Configuration", QuickLaunchCommandHandler.LAUNCH_MAPPING_FAVORITE_DEBUG },
+			{ "My favorite Run Configuration", QuickLaunchCommandHandler.LAUNCH_MAPPING_FAVORITE_RUN},
+			{ "My favorite External Tool Configuration", QuickLaunchCommandHandler.LAUNCH_MAPPING_FAVORITE_EXT },
 			{ "This launch configuration:", QuickLaunchCommandHandler.LAUNCH_MAPPING_OTHER }
 	};
 
