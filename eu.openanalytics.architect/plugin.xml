@@ -139,6 +139,13 @@
             id="eu.openanalytics.architect.quickLaunch"
             name="Quick Launch">
       </command>
+      <command
+            categoryId="eu.openanalytics.architect"
+            defaultHandler="eu.openanalytics.architect.ui.RestartRCommandHandler"
+            description="Restart the currently running R session"
+            id="eu.openanalytics.architect.restartR"
+            name="Restart R">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.bindings">
@@ -148,5 +155,17 @@
             schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
             sequence="CTRL+ALT+RETURN">
       </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.console.ConsoleView?after=additions">
+         <command
+               commandId="eu.openanalytics.architect.restartR"
+               icon="icons/restart.png"
+               style="push">
+         </command>
+      </menuContribution>
    </extension>
 </plugin>
