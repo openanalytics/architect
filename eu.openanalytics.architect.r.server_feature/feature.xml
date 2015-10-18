@@ -2,7 +2,7 @@
 <feature
       id="eu.openanalytics.architect.r.server"
       label="Embedded R"
-      version="0.9.7.qualifier"
+      version="0.9.8.qualifier"
       provider-name="OpenAnalytics">
 
    <description>

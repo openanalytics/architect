@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Pandoc Win32 Binaries
 Bundle-SymbolicName: eu.openanalytics.architect.pandoc.win32.win32
-Bundle-Version: 0.9.7.qualifier
+Bundle-Version: 0.9.8.qualifier
 Bundle-Vendor: OpenAnalytics
 Fragment-Host: eu.openanalytics.architect.pandoc
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
