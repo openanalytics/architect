@@ -89,8 +89,8 @@ version 2.1.
    </plugins>
 
    <features>
-      <feature id="org.eclipse.jdt" version="3.11.0.v20150603-2000"/>
-      <feature id="org.eclipse.platform" version="4.5.0.v20150603-2358"/>
+      <feature id="org.eclipse.jdt" version="3.11.1.v20150904-0015"/>
+      <feature id="org.eclipse.platform" version="4.5.1.v20150904-0015"/>
    </features>
 
    <configurations>
