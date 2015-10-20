@@ -17,8 +17,8 @@
 				<repository location="http://eclipse-color-theme.github.com/update"/>
 				<repository location="http://eclipse.jeeeyul.net/update"/>
 				<repository location="http://download.eclipse.org/egit/updates"/>
-				<repository location="http://download.eclipse.org/mylyn/releases/3.16"/>
-				<repository location="http://download.eclipse.org/tools/cdt/releases/8.7"/>
+				<repository location="http://download.eclipse.org/mylyn/releases/3.17"/>
+				<repository location="http://download.eclipse.org/tools/cdt/releases/8.8"/>
 				<repository location="http://download.eclipse.org/releases/mars"/>
 			</add>
 		</p2.composite.repository>
