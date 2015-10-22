@@ -12,6 +12,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
+import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentListener;
@@ -102,37 +103,11 @@ public class RestartRCommandHandler extends AbstractHandler  {
 				}
 				
 				ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[] {console});
-				launchConfig.launch(launchMode, null);
-				new RetryingCmd("setwd('" + wd + "')").run();
+				ILaunchConfigurationWorkingCopy wc = launchConfig.getWorkingCopy();
+				wc.setAttribute("de.walware.statet.r.debug/REnv/workingDirectory", wd);
+				wc.launch(launchMode, null);
 			} catch (CoreException e) {
 				Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Failed to restart R session", e));
-			}
-		}
-	}
-	
-	private static class RetryingCmd implements Runnable {
-		
-		private String cmd;
-		private int currentTry;
-		private int maxTries = 8;
-		private int timeout = 2000;
-		
-		public RetryingCmd(String cmd) {
-			this.cmd = cmd;
-			this.currentTry = 1;
-		}
-		
-		@Override
-		public void run() {
-			try {
-				submitToConsole(cmd);
-			} catch (CoreException e) {
-				if (currentTry < maxTries) {
-					currentTry++;
-					Display.getDefault().timerExec(timeout, this);
-				} else {
-					Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Cannot execute " + cmd, e));
-				}
 			}
 		}
 	}
