@@ -2,6 +2,7 @@ package eu.openanalytics.architect;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.preferences.ConfigurationScope;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 import org.eclipse.osgi.service.datalocation.Location;
@@ -9,12 +10,17 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
+import org.osgi.service.prefs.BackingStoreException;
+import org.osgi.service.prefs.Preferences;
 
 import eu.openanalytics.architect.ws.updater.WorkspaceChecker;
 
 /**
  * This class controls all aspects of the application's execution
  */
+@SuppressWarnings({ "deprecation", "restriction" })
 public class Application implements IApplication {
 
 	private static final String PROP_EXIT_CODE = "eclipse.exitcode"; //$NON-NLS-1$
@@ -22,10 +28,14 @@ public class Application implements IApplication {
 	/* (non-Javadoc)
 	 * @see org.eclipse.equinox.app.IApplication#start(org.eclipse.equinox.app.IApplicationContext)
 	 */
-	@SuppressWarnings({ "deprecation", "restriction" })
 	public Object start(IApplicationContext context) throws Exception {
 		Display display = PlatformUI.createDisplay();
 		try {
+			// Override global prefs before a workspace is selected.
+	    	Preferences node = ConfigurationScope.INSTANCE.getNode(IDEWorkbenchPlugin.IDE_WORKBENCH);
+			node.putBoolean(IDE.Preferences.SHOW_WORKSPACE_SELECTION_DIALOG, false);
+			try { node.flush(); } catch (BackingStoreException e) {}
+			
 			// Call Eclipse IDE code to check instance area (prompt if needed, lock it, etc.)
 			IDEApplicationCompatibility ideComp = new IDEApplicationCompatibility();
 	    	Shell shell = ideComp.getShell(display);
