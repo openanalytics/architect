@@ -1,29 +1,22 @@
 package eu.openanalytics.architect.ui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
-import org.eclipse.jface.text.DocumentEvent;
-import org.eclipse.jface.text.IDocument;
-import org.eclipse.jface.text.IDocumentListener;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleManager;
 
+import de.walware.statet.nico.core.runtime.ToolWorkspace;
 import de.walware.statet.r.console.core.RProcess;
 import de.walware.statet.r.console.ui.RConsole;
-import de.walware.statet.r.launching.RCodeLaunching;
 import eu.openanalytics.architect.Activator;
 
 public class RestartRCommandHandler extends AbstractHandler  {
@@ -44,42 +37,14 @@ public class RestartRCommandHandler extends AbstractHandler  {
 		
 		final RConsole consoleToRestart = rConsole;
 		final ILaunch launch = ((RProcess) rConsole.getProcess()).getLaunch();
-		final IDocument doc = rConsole.getDocument();
 		
-		// Get session's working directory
-		//TODO Find a better way to get this information out of R
-		IDocumentListener listener = new IDocumentListener() {
-			@Override
-			public void documentChanged(DocumentEvent event) {
-				String text = event.getText();
-				String wd = text.substring(text.indexOf("[1]") + 4).trim();
-				if (wd.contains("\"")) wd = wd.substring(1, wd.length() - 1);
-				doc.removeDocumentListener(this);
-				Display.getDefault().asyncExec(new SessionRestarter(consoleToRestart, launch, wd));
-			}
-			@Override
-			public void documentAboutToBeChanged(DocumentEvent event) {
-				// Do nothing.
-			}
-		};
-		doc.addDocumentListener(listener);
-
-		try {
-			submitToConsole("getwd()");
-		} catch (CoreException e) {
-			doc.removeDocumentListener(listener);
-			Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Failed to restart R session", e));
-		}
-
+		ToolWorkspace ws = consoleToRestart.getProcess().getWorkspaceData();
+		String wd = ws.getWorkspaceDir().toString();
+		
+		Display.getDefault().asyncExec(new SessionRestarter(consoleToRestart, launch, wd));
 		return null;
 	}
 
-	private static void submitToConsole(String input) throws CoreException {
-		List<String> lineList = new ArrayList<String>();
-		lineList.add(input);
-		RCodeLaunching.runRCodeDirect(lineList, true, new NullProgressMonitor());
-	}
-	
 	private static class SessionRestarter implements Runnable {
 		
 		private RConsole console;
