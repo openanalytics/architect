@@ -24,10 +24,8 @@ public class ArchitectResourceResolver implements IDynamicVariableResolver {
 				File file = EFS.getStore(uri).toLocalFile(0, null);
 				if(file != null) {
 					if (file.isFile()) {
-						System.out.println("File selected: " + file.getAbsolutePath());
 						return file.getParentFile().getAbsolutePath();
 					} else {
-						System.out.println("Folder selected: " + file.getAbsolutePath());
 						return file.getAbsolutePath();
 					}
 				}

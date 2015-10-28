@@ -105,6 +105,12 @@
             resolver="eu.openanalytics.architect.variable.ArchitectResourceResolver"
             supportsArgument="false">
       </variable>
+      <variable
+            description="A variable that resolves to the dollar sign"
+            name="dollar"
+            resolver="eu.openanalytics.architect.variable.DollarVariableResolver"
+            supportsArgument="false">
+      </variable>
    </extension>
    <extension
          point="org.eclipse.core.runtime.preferences">
