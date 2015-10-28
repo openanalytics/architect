@@ -12,14 +12,14 @@
 			<add>
 				<repository location="${p2.build.repo}"/>
 				<repository location="file://${statet.repo.path}/site-statet"/>
-				<repository location="file://c:/architect-build/dependencies/mylyn/mylyn-3.16.0.v20150609-2039" />
-				<repository location="file://c:/architect-build/dependencies/egit/egit-4.0.1"/>
-				<repository location="file://c:/architect-build/dependencies/ptp/ptp-9.0.0.201506101404"/>
-				<repository location="file://c:/architect-build/dependencies/emf/emf-runtime-2.11.0"/>
-				<repository location="file://c:/architect-build/dependencies/cdt/cdt-8.7.0"/>
-				<repository location="file://c:/architect-build/dependencies/fontsize"/>
 				<repository location="http://quickgit.openanalytics.eu/update/stable"/>
 				<repository location="http://download.eclipse.org/mpc/mars"/>
+				<repository location="http://fontsize.openanalytics.eu/update"/>
+				<repository location="http://eclipse-color-theme.github.com/update"/>
+				<repository location="http://eclipse.jeeeyul.net/update"/>
+				<repository location="http://download.eclipse.org/egit/updates"/>
+				<repository location="http://download.eclipse.org/mylyn/releases/3.17"/>
+				<repository location="http://download.eclipse.org/tools/cdt/releases/8.8"/>
 				<repository location="http://download.eclipse.org/releases/mars"/>
 			</add>
 		</p2.composite.repository>

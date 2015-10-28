@@ -59,6 +59,28 @@
 			<property name="p2.director.iu" value="${extraIUs}"/>
 			<property name="p2.director.installPath" value="${eclipse.base}"/>
 		</ant>
+		<antcall target="workaround.mac.build"/>
+	</target>
+	
+	<target name="workaround.mac.build" depends="test.mac.build" if="is.mac.build">
+		<!-- Workaround Mac build issue, PDE scripts are not yet Mars ready -->
+		<mkdir dir="${eclipse.base}/Contents/MacOS"/>
+		<mkdir dir="${eclipse.base}/Architect.app/Contents"/>
+		<copy todir="${eclipse.base}/Architect.app/Contents">
+			<fileset dir="${eclipse.base}/..">
+				<include name="MacOS/**" />
+				<include name="Resources/**" />
+				<include name="Info.plist" />
+			</fileset>
+		</copy>
+		<replaceregexp file="${eclipse.base}/architect.ini" match="(../architect/plugins)" replace="../../../plugins" flags="g"/>
+		<move file="${eclipse.base}/architect.ini" tofile="${eclipse.base}/Architect.app/Contents/MacOS/architect.ini"/>
+	</target>
+	
+	<target name="test.mac.build">
+		<condition property="is.mac.build">
+			<equals arg1="${os}" arg2="macosx"/>
+		</condition>
 	</target>
 	
 	<!-- ===================================================================== -->
