@@ -13,7 +13,6 @@
 				<repository location="${p2.build.repo}"/>
 				<repository location="file://${statet.repo.path}/site-statet"/>
 				<repository location="http://quickgit.openanalytics.eu/update/stable"/>
-				<repository location="http://download.eclipse.org/mpc/mars"/>
 				<repository location="http://fontsize.openanalytics.eu/update"/>
 				<repository location="http://eclipse-color-theme.github.com/update"/>
 				<repository location="http://eclipse.jeeeyul.net/update"/>
