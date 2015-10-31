@@ -1,6 +1,0 @@
-<project name="eu.openanalytics.architect.testing.master.build" default="full-build">
-
-	<property file="testing.build.properties" />
-	<import file="master.build.xml" />
-
-</project>
