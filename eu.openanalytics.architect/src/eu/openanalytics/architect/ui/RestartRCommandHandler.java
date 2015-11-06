@@ -70,6 +70,7 @@ public class RestartRCommandHandler extends AbstractHandler  {
 				ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[] {console});
 				ILaunchConfigurationWorkingCopy wc = launchConfig.getWorkingCopy();
 				wc.setAttribute("de.walware.statet.r.debug/REnv/workingDirectory", wd);
+				wc.setAttribute("de.walware.statet.r/renv/WorkingDirectory", wd);
 				wc.launch(launchMode, null);
 			} catch (CoreException e) {
 				Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Failed to restart R session", e));
