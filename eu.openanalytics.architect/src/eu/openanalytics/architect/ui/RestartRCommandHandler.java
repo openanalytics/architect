@@ -10,9 +10,13 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
-import org.eclipse.ui.console.IConsoleManager;
+import org.eclipse.ui.console.IConsoleView;
 
 import de.walware.statet.nico.core.runtime.ToolWorkspace;
 import de.walware.statet.r.console.core.RProcess;
@@ -23,16 +27,17 @@ public class RestartRCommandHandler extends AbstractHandler  {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		// Get the current R session (and its launch config)
-		IConsoleManager consoleMgr = ConsolePlugin.getDefault().getConsoleManager();
-		IConsole[] consoles = consoleMgr.getConsoles();
 		RConsole rConsole = null;
-		for (int i = 0; i < consoles.length; i++) {
-			if (consoles[i] instanceof RConsole) {
-				rConsole = (RConsole) consoles[i];
-				break;
-			}
-		}
+		IWorkbenchWindow window= PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+        if (window != null) {
+            IWorkbenchPage page= window.getActivePage();
+            if (page != null) {
+            	IViewPart view = page.findView("org.eclipse.ui.console.ConsoleView");
+            	IConsole console = null;
+            	if (view instanceof IConsoleView) console = ((IConsoleView) view).getConsole();
+            	if (console instanceof RConsole) rConsole = (RConsole) console;
+            }
+        }
 		if (rConsole == null) return null;
 		
 		final RConsole consoleToRestart = rConsole;
