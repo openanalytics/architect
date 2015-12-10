@@ -91,6 +91,7 @@ version 2.1.
    <features>
       <feature id="org.eclipse.jdt" version="3.11.1.v20150904-0015"/>
       <feature id="org.eclipse.platform" version="4.5.1.v20150904-0015"/>
+      <feature id="eu.openanalytics.architect.jre" version="0.9.8.qualifier"/>
    </features>
 
    <configurations>
