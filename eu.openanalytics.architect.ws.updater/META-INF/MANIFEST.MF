@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Workspace Updater
 Bundle-SymbolicName: eu.openanalytics.architect.ws.updater;singleton:=true
-Bundle-Version: 0.9.8.qualifier
+Bundle-Version: 0.9.9.qualifier
 Bundle-Activator: eu.openanalytics.architect.ws.updater.Activator
 Bundle-Vendor: OpenAnalytics
 Require-Bundle: org.eclipse.ui,
