@@ -92,6 +92,8 @@
 				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm -lidn" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm -lidn" />
 				<replacestring from="# CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="# TEXI2ANY = /path/to/perl -I/packages/texinfo /packages/texinfo/texi2any" to="TEXI2ANY = ${perl.binary} -I${texinfo.dir} ${texinfo.dir}/texi2any" />
+				<replacestring from="# MIKTEX = TRUE" to="MIKTEX = TRUE" />
+				<replacestring from="# TEXI2DVI = TEXINDEX=/Rtools/bin/texindex.exe texify" to="TEXI2DVI = TEXINDEX=/Rtools/bin/texindex.exe texify" />
 			</filterchain>
 		</copy>
 	</target>
@@ -111,6 +113,8 @@
 				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" />				
 				<replacestring from="# CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="# TEXI2ANY = /path/to/perl -I/packages/texinfo /packages/texinfo/texi2any" to="TEXI2ANY = ${perl.binary} -I${texinfo.dir} ${texinfo.dir}/texi2any" />
+				<replacestring from="# MIKTEX = TRUE" to="MIKTEX = TRUE" />
+				<replacestring from="# TEXI2DVI = TEXINDEX=/Rtools/bin/texindex.exe texify" to="TEXI2DVI = TEXINDEX=/Rtools/bin/texindex.exe texify" />
 			</filterchain>
 		</copy>
 	</target>
