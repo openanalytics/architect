@@ -48,6 +48,7 @@
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
 			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
+            <env key="R_RD4PDF" value="times,hyper" />
 			<arg value="all" />
 			<arg value="recommended" />
 			<arg value="vignettes" />
@@ -72,6 +73,7 @@
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
 			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
+            <env key="R_RD4PDF" value="times,hyper" />
 			<arg value="-f" />
 			<arg value="Makefile.win" />
 			<arg value="info" />
