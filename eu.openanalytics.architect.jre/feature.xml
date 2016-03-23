@@ -3,7 +3,7 @@
       id="eu.openanalytics.architect.jre"
       label="Embedded JRE"
       version="0.9.9.qualifier"
-      provider-name="OpenAnalytics">
+      provider-name="Open Analytics">
 
    <description>
       %description
