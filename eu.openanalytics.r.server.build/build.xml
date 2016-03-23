@@ -8,10 +8,13 @@
 	</target>
 	
 	<target name="init">
+<!--  		
 		<mkdir dir="${build.dir}/i386" />
+ -->
 		<mkdir dir="${build.dir}/x64" />
 		<mkdir dir="${build.dir}/tmp-rtools" />
 		<mkdir dir="${output.dir}" />
+		
 	</target>
 	
 	<target name="prepare.sources">
@@ -39,8 +42,9 @@
 		<antcall target="prepare.sources" />
 		
 		<antcall target="apply.patches" />
-		
+<!-- 		
 		<antcall target="modify.mkrules.i386" />
+ -->		
 		<antcall target="modify.mkrules.x64" />
 		
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${platform}/${r.version}/src/gnuwin32" failonerror="true">
@@ -120,9 +124,11 @@
 	</target>
 	
 	<target name="merge.builds">
+<!-- 		
 		<copy todir="${build.dir}/x64/${r.version}" overwrite="true" force="true">
 			<fileset dir="${build.dir}/i386/${r.version}" />
 		</copy>
+ -->
 		<delete dir="${build.dir}/x64/${r.version}/m4" />
 		<delete dir="${build.dir}/x64/${r.version}/po" />
 		<delete dir="${build.dir}/x64/${r.version}/src" />
@@ -134,11 +140,15 @@
 	</target>
 	
 	<target name="all" depends="clean,init">
+		
+<!-- 		
 		<antcall target="build">
 			<param name="platform" value="i386" />
 			<param name="java.path" value="${java.path.i386}" />
 			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin32;${java.path.i386}/jre/bin;${java.path.i386}/jre/bin/server;${miktex.dir}" />
 		</antcall>
+
+ -->
 		
 		<antcall target="build">
 			<param name="platform" value="x64" />
@@ -148,5 +158,6 @@
 		</antcall>
 		
 		<antcall target="merge.builds" />
+		
 	</target>
 </project>

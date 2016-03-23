@@ -35,6 +35,8 @@
 	</target>
 	
 	<target name="all" depends="clean,init">
+		
+<!-- 		
 		<antcall target="build">
 			<param name="platform" value="i386" />
 			<param name="java.path" value="${java.path.i386}" />
@@ -44,6 +46,8 @@
 		<copy todir="${output.dir}" overwrite="true" force="true">
 			<fileset dir="${build.dir}" />
 		</copy>
+
+ -->
 		
 		<antcall target="build">
 			<param name="platform" value="x64" />
