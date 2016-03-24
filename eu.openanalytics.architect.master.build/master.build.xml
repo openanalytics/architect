@@ -120,11 +120,8 @@
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="extraIUs=(.*)" replace="extraIUs=${extraIUs}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="extraIURepo=(.*)" replace="extraIURepo=${extraIURepo}" />
 		
-		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="jre.path.win32.x86=(.*)" replace="jre.path.win32.x86=${jre.path.win32.x86}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="jre.path.win32.x86_64=(.*)" replace="jre.path.win32.x86_64=${jre.path.win32.x86_64}" />
-		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="jre.path.linux.x86=(.*)" replace="jre.path.linux.x86=${jre.path.linux.x86}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="jre.path.linux.x86_64=(.*)" replace="jre.path.linux.x86_64=${jre.path.linux.x86_64}" />
-		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="jre.path.macosx.x86=(.*)" replace="jre.path.macosx.x86=${jre.path.macosx.x86}" />
 		<replaceregexp file="../eu.openanalytics.architect.product.build/build.properties" match="jre.path.macosx.x86_64=(.*)" replace="jre.path.macosx.x86_64=${jre.path.macosx.x86_64}" />
 
 		<ant dir="../eu.openanalytics.architect.product.build" inheritall="false"/>

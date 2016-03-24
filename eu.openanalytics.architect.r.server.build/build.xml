@@ -29,7 +29,6 @@
 				<include name="eu.openanalytics.architect.r.server/**" />
 				<include name="eu.openanalytics.architect.r.server.win32.win32/**" />
 				<include name="eu.openanalytics.architect.r.server.cocoa.macosx.x86_64/**" />
-				<include name="eu.openanalytics.architect.r.server.gtk.linux.x86/**" />
 				<include name="eu.openanalytics.architect.r.server.gtk.linux.x86_64/**" />
 			</fileset>
 		</copy>

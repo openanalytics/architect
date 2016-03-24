@@ -1,1 +1,0 @@
-I'm an placeholder file because Git doesn't commit empty folders.
