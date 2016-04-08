@@ -1,0 +1,42 @@
+<project name="eu.openanalytics.r.libs.rj.build" default="all">
+
+	<property file="rj.build.properties" />
+	
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+	
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+	</target>
+	
+	<target name="build" depends="clean,init">
+		<exec executable="${r.home}/bin/x64/R.exe" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="JAVA_HOME" value="${jdk.dir}" />
+			<arg value="CMD" />
+			<arg value="INSTALL" />
+			<arg value="--library=${build.dir}" />
+			<arg value="${rj.src.archive}" />
+		</exec>
+		<exec executable="${r.home}/bin/x64/R.exe" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="JAVA_HOME" value="${jdk.dir}" />
+			<arg value="CMD" />
+			<arg value="INSTALL" />
+			<arg value="--library=${build.dir}" />
+			<arg value="${rj.gd.src.archive}" />
+		</exec>
+	</target>
+	
+	<target name="all" >
+		<antcall target="build">
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin64;${jdk.dir}/jre/bin;${jdk.dir}/jre/bin/server" />
+		</antcall>
+		<copy todir="${output.dir}" overwrite="true" force="true">
+			<fileset dir="${build.dir}" />
+		</copy>
+	</target>
+</project>

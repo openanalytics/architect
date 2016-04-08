@@ -1,6 +1,6 @@
 <project name="eu.openanalytics.r.server.build" default="all">
 
-	<property file="build.properties" />
+	<property file="r.build.properties" />
 	
 	<target name="clean">
 		<delete dir="${build.dir}" />
