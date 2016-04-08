@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Embedded R Server Win32
-Bundle-SymbolicName: eu.openanalytics.architect.r.server.win32.win32
-Bundle-Version: 0.9.9.qualifier
-Fragment-Host: eu.openanalytics.architect.r.server;bundle-version="0.9.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Eclipse-PlatformFilter: (& (osgi.ws=win32)(osgi.os=win32))
-Bundle-Vendor: OpenAnalytics

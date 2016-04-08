@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="eu.openanalytics.architect.targetdef" sequenceNumber="3">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.common.feature.group" version="2.11.0.v20150805-0538"/>
+<unit id="de.walware.3rdparty.jsch.feature.group" version="0.1.53.b201506290830sw"/>
+<unit id="de.walware.eutils.autonature.feature.group" version="0.1.1.b201502042000E38sw"/>
+<unit id="de.walware.ecommons.debug.core" version="1.1.0.b201511061600E44sw"/>
+<unit id="de.walware.rj.eclient.feature.group" version="2.0.4.b201511061600E44sw"/>
+<unit id="de.walware.3rdparty.lucene.feature.group" version="4.10.4.b201503051930sw"/>
+<unit id="de.walware.ecommons.databinding.core" version="1.0.0.b201511061600E44sw"/>
+<unit id="de.walware.3rdparty.commons.pool.feature.group" version="2.4.2.b201508040630sw"/>
+<unit id="de.walware.statet.rtm.ftable.feature.group" version="1.0.1.b201511061600E44sw"/>
+<unit id="de.walware.ecommons.debug.ui" version="1.1.0.b201511061600E44sw"/>
+<unit id="de.walware.statet.r.feature.group" version="3.5.1.b201511061600E44sw"/>
+<unit id="de.walware.statet.rtm.ggplot.feature.group" version="1.0.1.b201511061600E44sw"/>
+<unit id="org.eclipse.emf.common.ui.feature.group" version="2.10.0.v20150806-0404"/>
+<unit id="de.walware.3rdparty.snakeyaml.feature.group" version="1.15.0.b201505091900sw"/>
+<unit id="de.walware.ecommons.e.feature.group" version="1.6.0.b201511061600E44sw"/>
+<unit id="org.eclipse.emf.ecore.feature.group" version="2.11.1.v20150805-0538"/>
+<unit id="de.walware.eutils.autorun.feature.group" version="1.0.1.b201502042000E38sw"/>
+<unit id="de.walware.statet.redocs.wikitext.r.feature.group" version="3.5.1.b201511061600E44sw"/>
+<unit id="de.walware.ecommons.edb.feature.group" version="0.4.0.b201511061600E44sw"/>
+<unit id="de.walware.ecommons.ltk.feature.group" version="2.4.0.b201511061600E44sw"/>
+<unit id="org.eclipse.emf.edit.feature.group" version="2.11.1.v20150806-0404"/>
+<unit id="de.walware.3rdparty.commons.dbcp2.feature.group" version="2.1.1.b201509231400sw"/>
+<unit id="org.eclipse.emf.edit.ui.feature.group" version="2.11.0.v20150806-0404"/>
+<unit id="de.walware.statet.r.sweave.feature.group" version="3.5.1.b201511061600E44sw"/>
+<unit id="org.eclipse.emf.databinding.feature.group" version="1.4.0.v20150806-0404"/>
+<unit id="de.walware.rj.core.feature.group" version="2.0.4.b201511061600E44sw"/>
+<unit id="org.eclipse.emf.databinding.edit.feature.group" version="1.4.0.v20150806-0404"/>
+<unit id="de.walware.eutils.yaml.feature.group" version="1.1.0.b201511061600E44sw"/>
+<repository location="http://download.walware.de/eclipse-4.5"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.feature.group" version="4.5.2.v20160212-1500"/>
+<unit id="org.eclipse.pde.feature.group" version="3.11.2.v20160212-1500"/>
+<unit id="org.eclipse.equinox.executable.feature.group" version="3.6.200.v20150602-1417"/>
+<unit id="org.eclipse.rcp.feature.group" version="4.5.2.v20160212-1500"/>
+<unit id="org.eclipse.jdt.feature.group" version="3.11.2.v20160212-1500"/>
+<repository location="http://download.eclipse.org/releases/mars"/>
+</location>
+</locations>
+</target>

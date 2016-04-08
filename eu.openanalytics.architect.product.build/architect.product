@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.9.9" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/eu.openanalytics.architect/about_architect.png"/>
+      <text>
+         Architect is an Integrated Development Environment for Data Science developed by Open Analytics NV - http://www.openanalytics.eu
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgs>-Xms512m -Xmx1024m -XX:MaxPermSize=256m -Declipse.p2.unsignedPolicy=allow -Dosgi.requiredJavaVersion=1.7.0
+      </vmArgs>
+      <vmArgsMac>-Xms1024m -Xmx2048m -XX:MaxPermSize=256m -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/eu.openanalytics.architect/icons/icon_16.png" i32="/eu.openanalytics.architect/icons/icon_32.png" i48="/eu.openanalytics.architect/icons/icon_48.png" i64="/eu.openanalytics.architect/icons/icon_64.png" i128="/eu.openanalytics.architect/icons/icon_128.png"/>
+
+   <splash
+      location="eu.openanalytics.architect"
+      startupProgressRect="5,330,610,15"
+      startupMessageRect="15,310,400,20"
+      startupForegroundColor="FFFFFF" />
+   <launcher name="architect">
+      <macosx icon="icons/mac_icons.icns"/>
+      <solaris/>
+      <win useIco="false">
+         <bmp
+            winSmallHigh="icons/icon_16_32bit.bmp"
+            winSmallLow="icons/icon_16_8bit.bmp"
+            winMediumHigh="icons/icon_32_32bit.bmp"
+            winMediumLow="icons/icon_32_8bit.bmp"
+            winLargeHigh="icons/icon_48_32bit.bmp"
+            winLargeLow="icons/icon_48_8bit.bmp"/>
+      </win>
+   </launcher>
+
+   <vm>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6</windows>
+   </vm>
+
+   <license>
+        <url>http://www.eclipse.org/legal/epl-v10.html</url>
+        <text>
+   The Architect product is released by Open Analytics NV under the terms 
+of the Eclipse Public License, version 1.0. The StatET libraries and plug-ins 
+for Eclipse are released by WalWare under the the terms of the
+WalWare.de Open Source Software User Agreement. The rj package is released under the
+terms of the Lesser GNU General Public License, version 2.1 or above. The
+rj.gd package is released for certain parts under the terms of the GNU
+Public License version 3 or above and for other parts under the terms of
+the Lesser GNU General Public License, version 2.1. R is released by the 
+R Foundation under the terms of the GNU General Public license, version 2
+and for a small number of files under the Lesser GNU General Public License
+version 2.1.
+         </text>
+   </license>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="org.eclipse.platform" version="4.5.2.v20160212-1500"/>
+      <feature id="org.eclipse.jdt" version="3.11.2.v20160212-1500"/>
+      <feature id="eu.openanalytics.architect.jre" version="0.9.9.qualifier" installMode="root"/>
+      <feature id="eu.openanalytics.architect.base" version="0.9.9.qualifier" installMode="root"/>
+      <feature id="eu.openanalytics.architect.r" version="0.9.9.qualifier" installMode="root"/>
+      <feature id="eu.openanalytics.architect.rj" version="0.9.9.qualifier" installMode="root"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+      <property name="osgi.instance.area.default" value="@user.home/.architect/workspace" />
+   </configurations>
+
+</product>

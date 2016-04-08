@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: R User Libs Win32
-Bundle-SymbolicName: eu.openanalytics.architect.r.libs.user.win32.win32
-Bundle-Version: 0.9.0.qualifier
-Bundle-Vendor: OpenAnalytics
-Fragment-Host: eu.openanalytics.architect.r.libs.user;bundle-version="0.9.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Eclipse-PlatformFilter: (& (osgi.ws=win32)(osgi.os=win32))

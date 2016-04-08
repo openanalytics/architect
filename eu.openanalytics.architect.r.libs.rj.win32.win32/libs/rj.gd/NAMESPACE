@@ -1,3 +1,0 @@
-export(rj.GD)
-export(.rj.copyGD)
-export(.rj.setGDDisplayParameters)
