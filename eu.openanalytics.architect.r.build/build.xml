@@ -4,13 +4,11 @@
 	
 	<target name="clean">
 		<delete dir="${build.dir}" />
-		<delete dir="${output.dir}" />
 	</target>
 	
 	<target name="init">
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${build.dir}/tmp-rtools" />
-		<mkdir dir="${output.dir}" />
 	</target>
 	
 	<target name="prepare.sources">
@@ -43,14 +41,13 @@
 		</copy>
 	</target>
 
-	<target name="build">
+	<target name="build" depends="clean,init">
 		<antcall target="prepare.sources" />
 		<antcall target="modify.mkrules" />
 		
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="-j8" />
 			<arg value="all" />
@@ -58,7 +55,6 @@
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="-j8" />
 			<arg value="recommended" />
@@ -66,28 +62,24 @@
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="vignettes" />
 		</exec>			
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="cairodevices" />
 		</exec>
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="manuals" />
 		</exec>
 		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/doc/manual" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
-			<env key="JAVA_HOME" value="${java.path}" />
 			<env key="R_KEEP_PKG_SOURCE" value="yes" />
 			<arg value="-f" />
 			<arg value="Makefile.win" />
@@ -95,10 +87,9 @@
 		</exec>
 	</target>
 
-	<target name="all" depends="clean,init">
+	<target name="all">
 		<antcall target="build">
-			<param name="java.path" value="${java.dir}" />
-			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin64;${java.dir}/bin;${java.dir}/bin/server;${miktex.dir}/miktex/bin" />
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin64;${miktex.dir}/miktex/bin" />
 		</antcall>
 		<delete dir="${build.dir}/${r.version}/m4" />
 		<delete dir="${build.dir}/${r.version}/po" />
@@ -107,7 +98,7 @@
 		<delete dir="${build.dir}/${r.version}/tools" />
 		<delete dir="${build.dir}/tmp-rtools" />
 		<copy todir="${output.dir}">
-			<fileset dir="${build.dir}" />
+			<fileset dir="${build.dir}/${r.version}" />
 		</copy>
 	</target>
 </project>
