@@ -11,7 +11,7 @@
 	</target>
 	
 	<target name="build" depends="clean,init">
-		<exec executable="${r.home}/bin/x64/R.exe" failonerror="true">
+		<exec executable="${r.dir}/bin/x64/R.exe" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
 			<env key="JAVA_HOME" value="${jdk.dir}" />
@@ -20,7 +20,7 @@
 			<arg value="--library=${build.dir}" />
 			<arg value="${rj.src.archive}" />
 		</exec>
-		<exec executable="${r.home}/bin/x64/R.exe" failonerror="true">
+		<exec executable="${r.dir}/bin/x64/R.exe" failonerror="true">
 			<env key="PATH" path="${path.var}" />
 			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
 			<env key="JAVA_HOME" value="${jdk.dir}" />
