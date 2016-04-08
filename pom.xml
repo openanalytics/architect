@@ -9,9 +9,9 @@
 	<properties>
 		<tycho.version>0.24.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jre.path.win32>C:/Dev/Projects/Architect/build/jre/win32</jre.path.win32>
-		<jre.path.linux>C:/Dev/Projects/Architect/build/jre/linux</jre.path.linux>
-		<jre.path.macosx>C:/Dev/Projects/Architect/build/jre/macosx</jre.path.macosx>
+		<jre.path.win32>C:/Architect-build/tools/jre/win32</jre.path.win32>
+		<jre.path.linux>C:/Architect-build/tools/jre/linux</jre.path.linux>
+		<jre.path.macosx>C:/Architect-build/tools/jre/macosx</jre.path.macosx>
 	</properties>
 
 	<modules>
