@@ -87,7 +87,7 @@
 		</exec>
 	</target>
 
-	<target name="all">
+	<target name="all" unless="skip.build">
 		<antcall target="build">
 			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin64;${miktex.dir}/miktex/bin" />
 		</antcall>

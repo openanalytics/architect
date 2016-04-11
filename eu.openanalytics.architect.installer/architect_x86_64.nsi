@@ -81,7 +81,7 @@ Section "Architect" SecInstall
   SetOutPath $INSTDIR
   
   ; Unzip program files
-  File /r architect_x86_64\*.*
+  File /r f\*.*
 
   ; Create Desktop & Start Menu shortcuts
   CreateShortCut "$DESKTOP\Architect.lnk" "$INSTDIR\architect.exe" ""
