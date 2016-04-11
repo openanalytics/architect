@@ -18,6 +18,7 @@
 		<module>eu.openanalytics.architect.jre</module>
 		<module>eu.openanalytics.architect.targetdef</module>
 		<module>eu.openanalytics.architect.product.build</module>
+		<module>eu.openanalytics.architect.installer</module>
 		
 		<module>eu.openanalytics.architect.base</module>
 		<module>eu.openanalytics.architect</module>

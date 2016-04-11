@@ -49,7 +49,7 @@ FunctionEnd
 
 ;--------------------------------
 Name "Architect"
-OutFile "setup_x86_64.exe"
+OutFile "setup.exe"
 
 ;--------------------------------
 !define MUI_ICON "architect_48.ico"
