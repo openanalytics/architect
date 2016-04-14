@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="eu.openanalytics.architect.targetdef" sequenceNumber="3">
+<?pde version="3.8"?><target name="eu.openanalytics.architect.targetdef" sequenceNumber="10">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.common.feature.group" version="2.11.0.v20150805-0538"/>
@@ -33,11 +33,43 @@
 <repository location="http://download.walware.de/eclipse-4.5"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="eu.openanalytics.quickgit.feature.group" version="1.0.0.201301091820"/>
+<repository location="http://quickgit.openanalytics.eu/update/stable"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="eu.openanalytics.architect.fontsize.feature.group" version="1.0.0.201506202100"/>
+<repository location="http://fontsize.openanalytics.eu/update"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.github.eclipsecolortheme.feature.feature.group" version="1.0.0.201410260308"/>
+<repository location="http://eclipse-color-theme.github.com/update"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="net.jeeeyul.eclipse.themes.feature.feature.group" version="2.3.0.I20151022-090442"/>
+<unit id="net.jeeeyul.swtend.feature.feature.group" version="2.2.5.I20140918-144458"/>
+<repository location="http://eclipse.jeeeyul.net/update"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.cdt.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.cdt.gnu.multicorevisualizer.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.cdt.visualizer.feature.group" version="8.8.1.201602051005"/>
 <unit id="org.eclipse.platform.feature.group" version="4.5.2.v20160212-1500"/>
-<unit id="org.eclipse.pde.feature.group" version="3.11.2.v20160212-1500"/>
-<unit id="org.eclipse.equinox.executable.feature.group" version="3.6.200.v20150602-1417"/>
 <unit id="org.eclipse.rcp.feature.group" version="4.5.2.v20160212-1500"/>
+<unit id="org.eclipse.cdt.bupc.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.cdt.core.lrparser.feature.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.cdt.debug.gdbjtag.feature.group" version="8.8.1.201602051005"/>
 <unit id="org.eclipse.jdt.feature.group" version="3.11.2.v20160212-1500"/>
+<unit id="org.eclipse.cdt.build.crossgcc.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.cdt.msw.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.pde.feature.group" version="3.11.2.v20160212-1500"/>
+<unit id="org.eclipse.cdt.testsrunner.feature.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.cdt.autotools.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.epp.mpc.feature.group" version="1.4.2.v20160210-2005"/>
+<unit id="org.eclipse.cdt.docker.launcher.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.equinox.executable.feature.group" version="3.6.200.v20150602-1417"/>
+<unit id="org.eclipse.cdt.qt.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.cdt.debug.ui.memory.feature.group" version="8.8.1.201602051005"/>
+<unit id="org.eclipse.cdt.xlc.feature.feature.group" version="8.8.1.201602051005"/>
 <repository location="http://download.eclipse.org/releases/mars"/>
 </location>
 </locations>

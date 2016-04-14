@@ -67,11 +67,40 @@ version 2.1.
 
    <features>
       <feature id="org.eclipse.platform" version="4.5.2.v20160212-1500"/>
-      <feature id="org.eclipse.jdt" version="3.11.2.v20160212-1500"/>
+      <feature id="org.eclipse.jdt" version="3.11.2.v20160212-1500" installMode="root"/>
       <feature id="eu.openanalytics.architect.jre" version="0.9.9.qualifier" installMode="root"/>
       <feature id="eu.openanalytics.architect.base" version="0.9.9.qualifier" installMode="root"/>
       <feature id="eu.openanalytics.architect.r" version="0.9.9.qualifier" installMode="root"/>
       <feature id="eu.openanalytics.architect.rj" version="0.9.9.qualifier" installMode="root"/>
+      <feature id="eu.openanalytics.architect.fontsize" version="1.0.0.201506202100" installMode="root"/>
+      <feature id="eu.openanalytics.quickgit" version="1.0.0.201301091820" installMode="root"/>
+      <feature id="de.walware.statet.r" version="3.5.1.b201511061600E44sw" installMode="root"/>
+      <feature id="de.walware.3rdparty.jsch" version="0.1.53.b201506290830sw" installMode="root"/>
+      <feature id="de.walware.3rdparty.snakeyaml" version="1.15.0.b201505091900sw" installMode="root"/>
+      <feature id="de.walware.eutils.autonature" version="0.1.1.b201502042000E38sw" installMode="root"/>
+      <feature id="de.walware.eutils.autorun" version="1.0.1.b201502042000E38sw" installMode="root"/>
+      <feature id="de.walware.eutils.yaml" version="1.1.0.b201511061600E44sw" installMode="root"/>
+      <feature id="de.walware.statet.r.sweave" version="3.5.1.b201511061600E44sw" installMode="root"/>
+      <feature id="de.walware.statet.redocs.wikitext.r" version="3.5.1.b201511061600E44sw" installMode="root"/>
+      <feature id="de.walware.statet.rtm.ftable" version="1.0.1.b201511061600E44sw" installMode="root"/>
+      <feature id="de.walware.statet.rtm.ggplot" version="1.0.1.b201511061600E44sw" installMode="root"/>
+      <feature id="org.eclipse.cdt" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.autotools" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.build.crossgcc" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.bupc" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.core.lrparser.feature" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.debug.gdbjtag" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.debug.ui.memory" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.gnu.multicorevisualizer" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.msw" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.testsrunner.feature" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.visualizer" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="org.eclipse.cdt.xlc.feature" version="8.8.1.201602051005" installMode="root"/>
+      <feature id="net.jeeeyul.eclipse.themes.feature" version="2.3.0.I20151022-090442" installMode="root"/>
+      <feature id="net.jeeeyul.swtend.feature" version="2.2.5.I20140918-144458" installMode="root"/>
+      <feature id="com.github.eclipsecolortheme.feature" version="1.0.0.201410260308" installMode="root"/>
+      <feature id="org.eclipse.mylyn_feature" version="3.18.0.v20151211-2235" installMode="root"/>
+      <feature id="org.eclipse.epp.mpc" version="1.4.2.v20160210-2005"/>
    </features>
 
    <configurations>
