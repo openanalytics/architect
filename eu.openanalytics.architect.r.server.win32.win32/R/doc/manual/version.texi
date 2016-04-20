@@ -1,4 +1,0 @@
-@set VERSIONno 2.15.2
-@set VERSION 2.15.2 (2012-10-26)
-@set RWVERSION R-2.15.2
-@afourpaper

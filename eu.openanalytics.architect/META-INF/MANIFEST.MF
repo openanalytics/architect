@@ -2,9 +2,9 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architect
 Bundle-SymbolicName: eu.openanalytics.architect;singleton:=true
-Bundle-Version: 0.9.8.qualifier
+Bundle-Version: 0.9.9.qualifier
 Bundle-Activator: eu.openanalytics.architect.Activator
-Bundle-Vendor: OpenAnalytics
+Bundle-Vendor: Open Analytics
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.ui.console,

@@ -1,0 +1,12 @@
+<project name="eu.openanalytics.pandoc.build" default="copy-files">
+	
+	<property file="pandoc.build.properties" />
+	
+	<target name="copy-files">
+		<copy todir="./pandoc">
+            <fileset dir="${pandoc.dir}">
+            </fileset>
+        </copy>
+	</target>
+
+</project>

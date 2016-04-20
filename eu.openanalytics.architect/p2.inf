@@ -1,3 +1,0 @@
-instructions.configure=\
-addProgramArg(programArg:--launcher.defaultAction);\
-addProgramArg(programArg:openFile);\

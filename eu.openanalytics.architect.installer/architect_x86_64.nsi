@@ -49,7 +49,7 @@ FunctionEnd
 
 ;--------------------------------
 Name "Architect"
-OutFile "setup_x86_64.exe"
+OutFile "setup.exe"
 
 ;--------------------------------
 !define MUI_ICON "architect_48.ico"
@@ -81,7 +81,7 @@ Section "Architect" SecInstall
   SetOutPath $INSTDIR
   
   ; Unzip program files
-  File /r architect_x86_64\*.*
+  File /r f\*.*
 
   ; Create Desktop & Start Menu shortcuts
   CreateShortCut "$DESKTOP\Architect.lnk" "$INSTDIR\architect.exe" ""
@@ -128,6 +128,7 @@ Section "Uninstall"
   RMDir /r "$INSTDIR\plugins"
   RMDir /r "$INSTDIR\readme"
   RMDir /r "$INSTDIR\workspace"
+  RMDir /r "$INSTDIR\jre"
   delete "$INSTDIR\architect.exe"
   delete "$INSTDIR\architect.ini"
   delete "$INSTDIR\artifacts.xml"

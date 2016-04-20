@@ -1,0 +1,104 @@
+<project name="eu.openanalytics.r.server.build" default="all">
+
+	<property file="r.build.properties" />
+	
+	<target name="clean">
+		<delete dir="${build.dir}" />
+	</target>
+	
+	<target name="init">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.dir}/tmp-rtools" />
+	</target>
+	
+	<target name="prepare.sources">
+		<untar src="${src.archive}" dest="${build.dir}" compression="gzip" />
+		<copy todir="${build.dir}/${r.version}">
+			<fileset dir="${src.dir.extra}">
+				<include name="*/**" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="modify.mkrules">
+		<copy file="${build.dir}/${r.version}/src/gnuwin32/MkRules.dist" tofile="${build.dir}/${r.version}/src/gnuwin32/MkRules.local">
+			<filterchain>
+				<replacestring from="# LOCAL_SOFT = $(R_HOME)/extsoft" to="LOCAL_SOFT = ${localsoft.dir}" />
+				<replacestring from="# EXT_LIBS =" to="EXT_LIBS = " />
+				<replacestring from="# MULTI =" to="MULTI = 64" />
+                <replacestring from="# WIN = 32" to="WIN = 64" />
+				<replacestring from="# USE_ICU = YES" to="USE_ICU = YES" />
+				<replacestring from="# ICU_PATH =" to="ICU_PATH = ${icu.dir}" />
+				<replacestring from="# ICU_LIBS =" to="ICU_LIBS =" />
+				<replacestring from="# USE_LIBCURL = YES" to="USE_LIBCURL = YES" />
+				<replacestring from="# CURL_PATH =" to="CURL_PATH = ${libcurl.dir}" />
+				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" />				
+				<replacestring from="# CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
+				<replacestring from="# TEXI2ANY = /path/to/perl -I/packages/texinfo /packages/texinfo/texi2any" to="TEXI2ANY = ${perl.binary} -I${texinfo.dir} ${texinfo.dir}/texi2any" />
+			    <replacestring from="# MIKTEX = TRUE" to="MIKTEX = TRUE" />
+				<replacestring from="# TEXI2DVI = TEXINDEX=/Rtools/bin/texindex.exe texify" to="TEXI2DVI = TEXINDEX=${rtools.dir}/bin/texindex.exe texify" />
+			</filterchain>
+		</copy>
+	</target>
+
+	<target name="build" depends="clean,init">
+		<antcall target="prepare.sources" />
+		<antcall target="modify.mkrules" />
+		
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
+			<arg value="-j8" />
+			<arg value="all" />
+		</exec>
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
+			<arg value="-j8" />
+			<arg value="recommended" />
+		</exec>
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
+			<arg value="vignettes" />
+		</exec>			
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
+			<arg value="cairodevices" />
+		</exec>
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/src/gnuwin32" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
+			<arg value="manuals" />
+		</exec>
+		<exec executable="${rtools.dir}/bin/make.exe" dir="${build.dir}/${r.version}/doc/manual" failonerror="true">
+			<env key="PATH" path="${path.var}" />
+			<env key="TMPDIR" value="${build.dir}/tmp-rtools" />
+			<env key="R_KEEP_PKG_SOURCE" value="yes" />
+			<arg value="-f" />
+			<arg value="Makefile.win" />
+			<arg value="info" />
+		</exec>
+	</target>
+
+	<target name="all" unless="skip.build">
+		<antcall target="build">
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin64;${miktex.dir}/miktex/bin" />
+		</antcall>
+		<delete dir="${build.dir}/${r.version}/m4" />
+		<delete dir="${build.dir}/${r.version}/po" />
+		<delete dir="${build.dir}/${r.version}/src" />
+		<delete dir="${build.dir}/${r.version}/tests" />
+		<delete dir="${build.dir}/${r.version}/tools" />
+		<delete dir="${build.dir}/tmp-rtools" />
+		<copy todir="${output.dir}">
+			<fileset dir="${build.dir}/${r.version}" />
+		</copy>
+	</target>
+</project>

@@ -10,6 +10,7 @@
 <mapAttribute key="org.eclipse.debug.core.environmentVariables">
 <mapEntry key="PATH" value="${architect_pandoc}:${env_var:PATH}"/>
 <mapEntry key="R_KEEP_PKG_SOURCE" value="yes"/>
+<mapEntry key="R_ZIPCMD" value="zip"/>
 </mapAttribute>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.ui.externaltools.launchGroup"/>
