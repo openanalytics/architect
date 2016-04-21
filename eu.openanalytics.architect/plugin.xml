@@ -44,7 +44,7 @@
          </property>
          <property
                name="aboutText"
-               value="Architect is a graphical user interface and integrated development environment for statistical programming and analysis developed by Open Analytics NV - http://www.openanalytics.eu &#x0A;It combines the strengths of the Eclipse platform (Eclipse Foundation), the StatET plug-ins for R development (WalWare) and R (R Foundation), the leading open source solution for statistical analysis and visualization.">
+               value="Architect is an Integrated Development Environment for Data Science developed by Open Analytics NV - http://www.openanalytics.eu\n\nVersion: 0.9.9">
          </property>
          <property
                name="aboutImage"
