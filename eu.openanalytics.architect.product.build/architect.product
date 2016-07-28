@@ -70,8 +70,8 @@ version 2.1.
       <feature id="eu.openanalytics.architect.base" version="0.9.9.qualifier" installMode="root"/>
       <feature id="eu.openanalytics.architect.r" version="0.9.9.qualifier" installMode="root"/>
       <feature id="eu.openanalytics.architect.rj" version="0.9.9.qualifier" installMode="root"/>
-      <feature id="eu.openanalytics.architect.fontsize" version="1.0.0.201506202100" installMode="root"/>
-      <feature id="eu.openanalytics.quickgit" version="1.0.0.201301091820" installMode="root"/>
+      <feature id="eu.openanalytics.architect.fontsize" installMode="root"/>
+      <feature id="eu.openanalytics.quickgit" installMode="root"/>
       <feature id="org.eclipse.cdt" installMode="root"/>
       <feature id="org.eclipse.cdt.autotools" installMode="root"/>
       <feature id="org.eclipse.cdt.build.crossgcc" installMode="root"/>
@@ -105,10 +105,10 @@ version 2.1.
       <feature id="de.walware.statet.redocs.wikitext.r" installMode="root"/>
       <feature id="de.walware.statet.rtm.ftable" installMode="root"/>
       <feature id="de.walware.statet.rtm.ggplot" installMode="root"/>
-      <feature id="org.eclipse.platform" version="4.6.0.v20160606-1342"/>
-      <feature id="org.eclipse.jdt" version="3.12.0.v20160606-1100"/>
-      <feature id="org.eclipse.mylyn_feature" version="3.19.0.v20160331-1842"/>
-      <feature id="org.eclipse.epp.mpc" version="1.5.0.v20160608-1804"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.jdt"/>
+      <feature id="org.eclipse.mylyn_feature"/>
+      <feature id="org.eclipse.epp.mpc"/>
    </features>
 
    <configurations>
