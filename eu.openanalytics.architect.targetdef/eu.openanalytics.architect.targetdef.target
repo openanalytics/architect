@@ -3,23 +3,23 @@
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="de.walware.3rdparty.jsch.feature.group" version="0.1.53.b201506290830sw"/>
-<unit id="de.walware.statet.redocs.wikitext.r.feature.group" version="3.5.2.b201603221822E44sw"/>
-<unit id="de.walware.eutils.autonature.feature.group" version="0.1.1.b201502042000E38sw"/>
+<unit id="de.walware.statet.redocs.wikitext.r.feature.group" version="3.5.2.b201609130945E44sw"/>
+<unit id="de.walware.eutils.autonature.feature.group" version="0.2.0.b201609130945E44sw"/>
 <unit id="de.walware.3rdparty.snakeyaml.feature.group" version="1.15.0.b201505091900sw"/>
-<unit id="de.walware.statet.r.sweave.feature.group" version="3.5.2.b201603221822E44sw"/>
+<unit id="de.walware.statet.r.sweave.feature.group" version="3.5.2.b201609130945E44sw"/>
 <unit id="de.walware.eutils.autorun.feature.group" version="1.0.1.b201502042000E38sw"/>
-<unit id="de.walware.ecommons.e.feature.group" version="1.6.0.b201603221822E44sw"/>
-<unit id="de.walware.statet.r.feature.group" version="3.6.0.b201603221822E44sw"/>
-<unit id="de.walware.rj.core.feature.group" version="2.1.0.b201603221822E44sw"/>
-<unit id="de.walware.statet.rtm.ftable.feature.group" version="1.0.2.b201603221822E44sw"/>
-<unit id="de.walware.statet.rtm.ggplot.feature.group" version="1.0.2.b201603221822E44sw"/>
-<unit id="de.walware.ecommons.edb.feature.group" version="0.4.0.b201603221822E44sw"/>
+<unit id="de.walware.ecommons.e.feature.group" version="1.6.0.b201609130945E44sw"/>
+<unit id="de.walware.statet.r.feature.group" version="3.6.0.b201609130945E44sw"/>
+<unit id="de.walware.rj.core.feature.group" version="2.1.0.b201609130945E44sw"/>
+<unit id="de.walware.statet.rtm.ftable.feature.group" version="1.0.2.b201609130945E44sw"/>
+<unit id="de.walware.statet.rtm.ggplot.feature.group" version="1.0.2.b201609130945E44sw"/>
+<unit id="de.walware.ecommons.edb.feature.group" version="0.4.0.b201609130945E44sw"/>
 <unit id="de.walware.3rdparty.commons.dbcp2.feature.group" version="2.1.1.b201509231400sw"/>
-<unit id="de.walware.ecommons.ltk.feature.group" version="2.5.0.b201603221822E44sw"/>
-<unit id="de.walware.eutils.yaml.feature.group" version="1.1.1.b201603221822E44sw"/>
+<unit id="de.walware.ecommons.ltk.feature.group" version="2.5.0.b201609130945E44sw"/>
+<unit id="de.walware.eutils.yaml.feature.group" version="1.1.1.b201609130945E44sw"/>
 <unit id="de.walware.3rdparty.commons.pool.feature.group" version="2.4.2.b201508040630sw"/>
 <unit id="de.walware.3rdparty.lucene.feature.group" version="4.10.4.b201511172030sw"/>
-<unit id="de.walware.rj.eclient.feature.group" version="2.1.0.b201603221822E44sw"/>
+<unit id="de.walware.rj.eclient.feature.group" version="2.1.0.b201609130945E44sw"/>
 <repository location="jar:file:/C:/Architect-build/tools/walware/statet-3.6.0.zip!/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
