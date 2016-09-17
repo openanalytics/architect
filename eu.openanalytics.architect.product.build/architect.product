@@ -96,19 +96,19 @@ version 2.1.
       <feature id="de.walware.3rdparty.jsch" version="0.1.53.b201506290830sw" installMode="root"/>
       <feature id="de.walware.3rdparty.lucene" version="4.10.4.b201511172030sw" installMode="root"/>
       <feature id="de.walware.3rdparty.snakeyaml" version="1.15.0.b201505091900sw" installMode="root"/>
-      <feature id="de.walware.ecommons.e" version="1.6.0.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.ecommons.edb" version="0.4.0.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.ecommons.ltk" version="2.5.0.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.eutils.autonature" version="0.1.1.b201502042000E38sw" installMode="root"/>
+      <feature id="de.walware.ecommons.e" version="1.6.0.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.ecommons.edb" version="0.4.0.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.ecommons.ltk" version="2.5.0.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.eutils.autonature" version="0.2.0.b201609130945E44sw" installMode="root"/>
       <feature id="de.walware.eutils.autorun" version="1.0.1.b201502042000E38sw" installMode="root"/>
-      <feature id="de.walware.eutils.yaml" version="1.1.1.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.rj.core" version="2.1.0.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.rj.eclient" version="2.1.0.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.statet.r" version="3.6.0.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.statet.r.sweave" version="3.5.2.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.statet.redocs.wikitext.r" version="3.5.2.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.statet.rtm.ftable" version="1.0.2.b201603221822E44sw" installMode="root"/>
-      <feature id="de.walware.statet.rtm.ggplot" version="1.0.2.b201603221822E44sw" installMode="root"/>
+      <feature id="de.walware.eutils.yaml" version="1.1.1.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.rj.core" version="2.1.0.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.rj.eclient" version="2.1.0.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.statet.r.sweave" version="3.5.2.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.statet.r" version="3.6.0.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.statet.redocs.wikitext.r" version="3.5.2.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.statet.rtm.ftable" version="1.0.2.b201609130945E44sw" installMode="root"/>
+      <feature id="de.walware.statet.rtm.ggplot" version="1.0.2.b201609130945E44sw" installMode="root"/>
    </features>
 
    <configurations>
