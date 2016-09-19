@@ -2,63 +2,63 @@
 <?pde version="3.8"?><target name="eu.openanalytics.architect.targetdef" sequenceNumber="16">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="de.walware.3rdparty.jsch.feature.group" />
-<unit id="de.walware.statet.redocs.wikitext.r.feature.group" />
-<unit id="de.walware.eutils.autonature.feature.group" />
-<unit id="de.walware.3rdparty.snakeyaml.feature.group" />
-<unit id="de.walware.statet.r.sweave.feature.group" />
-<unit id="de.walware.eutils.autorun.feature.group" />
-<unit id="de.walware.ecommons.e.feature.group" />
-<unit id="de.walware.statet.r.feature.group" />
-<unit id="de.walware.rj.core.feature.group" />
-<unit id="de.walware.statet.rtm.ftable.feature.group" />
-<unit id="de.walware.statet.rtm.ggplot.feature.group" />
-<unit id="de.walware.ecommons.edb.feature.group" />
-<unit id="de.walware.3rdparty.commons.dbcp2.feature.group" />
-<unit id="de.walware.ecommons.ltk.feature.group" />
-<unit id="de.walware.eutils.yaml.feature.group" />
-<unit id="de.walware.3rdparty.commons.pool.feature.group" />
-<unit id="de.walware.3rdparty.lucene.feature.group" />
-<unit id="de.walware.rj.eclient.feature.group" />
+<unit id="de.walware.3rdparty.jsch.feature.group" version="0.0.0"/>
+<unit id="de.walware.statet.redocs.wikitext.r.feature.group" version="0.0.0"/>
+<unit id="de.walware.eutils.autonature.feature.group" version="0.0.0"/>
+<unit id="de.walware.3rdparty.snakeyaml.feature.group" version="0.0.0"/>
+<unit id="de.walware.statet.r.sweave.feature.group" version="0.0.0"/>
+<unit id="de.walware.eutils.autorun.feature.group" version="0.0.0"/>
+<unit id="de.walware.ecommons.e.feature.group" version="0.0.0"/>
+<unit id="de.walware.statet.r.feature.group" version="0.0.0"/>
+<unit id="de.walware.rj.core.feature.group" version="0.0.0"/>
+<unit id="de.walware.statet.rtm.ftable.feature.group" version="0.0.0"/>
+<unit id="de.walware.statet.rtm.ggplot.feature.group" version="0.0.0"/>
+<unit id="de.walware.ecommons.edb.feature.group" version="0.0.0"/>
+<unit id="de.walware.3rdparty.commons.dbcp2.feature.group" version="0.0.0"/>
+<unit id="de.walware.ecommons.ltk.feature.group" version="0.0.0"/>
+<unit id="de.walware.eutils.yaml.feature.group" version="0.0.0"/>
+<unit id="de.walware.3rdparty.commons.pool.feature.group" version="0.0.0"/>
+<unit id="de.walware.3rdparty.lucene.feature.group" version="0.0.0"/>
+<unit id="de.walware.rj.eclient.feature.group" version="0.0.0"/>
 <repository location="jar:file:/C:/Architect-build/tools/walware/statet-3.6.0.zip!/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="eu.openanalytics.architect.fontsize.feature.group" />
+<unit id="eu.openanalytics.architect.fontsize.feature.group" version="0.0.0"/>
 <repository location="http://fontsize.openanalytics.eu/update"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="net.jeeeyul.eclipse.themes.feature.feature.group" />
-<unit id="net.jeeeyul.swtend.feature.feature.group" />
+<unit id="net.jeeeyul.eclipse.themes.feature.feature.group" version="0.0.0"/>
+<unit id="net.jeeeyul.swtend.feature.feature.group" version="0.0.0"/>
 <repository location="http://eclipse.jeeeyul.net/update"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="eu.openanalytics.quickgit.feature.group" />
+<unit id="eu.openanalytics.quickgit.feature.group" version="0.0.0"/>
 <repository location="http://quickgit.openanalytics.eu/update/stable"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="com.github.eclipsecolortheme.feature.feature.group" />
+<unit id="com.github.eclipsecolortheme.feature.feature.group" version="0.0.0"/>
 <repository location="http://eclipse-color-theme.github.com/update"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.platform.feature.group" />
-<unit id="org.eclipse.cdt.bupc.feature.group" />
-<unit id="org.eclipse.jdt.feature.group" />
-<unit id="org.eclipse.cdt.visualizer.feature.group" />
-<unit id="org.eclipse.cdt.gnu.multicorevisualizer.feature.group" />
-<unit id="org.eclipse.cdt.core.lrparser.feature.feature.group" />
-<unit id="org.eclipse.cdt.feature.group" />
-<unit id="org.eclipse.cdt.build.crossgcc.feature.group" />
-<unit id="org.eclipse.cdt.debug.gdbjtag.feature.group" />
-<unit id="org.eclipse.cdt.msw.feature.group" />
-<unit id="org.eclipse.equinox.executable.feature.group" />
-<unit id="org.eclipse.cdt.testsrunner.feature.feature.group" />
-<unit id="org.eclipse.cdt.docker.launcher.feature.group" />
-<unit id="org.eclipse.cdt.autotools.feature.group" />
-<unit id="org.eclipse.epp.mpc.feature.group" />
-<unit id="org.eclipse.pde.feature.group" />
-<unit id="org.eclipse.cdt.debug.ui.memory.feature.group" />
-<unit id="org.eclipse.cdt.xlc.feature.feature.group" />
-<unit id="org.eclipse.rcp.feature.group" />
+<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.bupc.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.visualizer.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.gnu.multicorevisualizer.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.core.lrparser.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.build.crossgcc.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.debug.gdbjtag.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.msw.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.testsrunner.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.docker.launcher.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.autotools.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.epp.mpc.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.debug.ui.memory.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.xlc.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/releases/neon"/>
 </location>
 </locations>
