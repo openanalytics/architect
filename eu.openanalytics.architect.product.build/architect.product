@@ -66,10 +66,10 @@ version 2.1.
    </plugins>
 
    <features>
-      <feature id="eu.openanalytics.architect.jre" version="0.9.9.qualifier" installMode="root"/>
-      <feature id="eu.openanalytics.architect.base" version="0.9.9.qualifier" installMode="root"/>
-      <feature id="eu.openanalytics.architect.r" version="0.9.9.qualifier" installMode="root"/>
-      <feature id="eu.openanalytics.architect.rj" version="0.9.9.qualifier" installMode="root"/>
+      <feature id="eu.openanalytics.architect.jre" installMode="root"/>
+      <feature id="eu.openanalytics.architect.base" installMode="root"/>
+      <feature id="eu.openanalytics.architect.r" installMode="root"/>
+      <feature id="eu.openanalytics.architect.rj" installMode="root"/>
       <feature id="eu.openanalytics.architect.fontsize" installMode="root"/>
       <feature id="eu.openanalytics.quickgit" installMode="root"/>
       <feature id="org.eclipse.cdt" installMode="root"/>
@@ -117,6 +117,7 @@ version 2.1.
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+      <property name="org.eclipse.update.reconcile" value="false" />
       <property name="osgi.instance.area.default" value="@user.home/.architect/workspace" />
    </configurations>
 
