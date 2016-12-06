@@ -2,6 +2,7 @@
 <launchConfiguration type="de.walware.statet.r.launchConfigurationTypes.RConsole">
 <stringAttribute key="de.walware.statet.r.debug/RConsole/arguments.options" value="--no-save --no-restore"/>
 <booleanAttribute key="de.walware.statet.r.debug/RConsole/console.pin" value="false"/>
+<stringAttribute key="de.walware.statet.r.debug/RConsole/init.script.snippet" value="# to avoid issue with transparency in ggplot2 with png in Architect&#10;options(bitmapType = &quot;cairo&quot;)"/>
 <stringAttribute key="de.walware.statet.r.debug/RConsole/type" value="local.rjs-rmi"/>
 <stringAttribute key="de.walware.statet.r.debug/REnv/REnvSetting" value="eplugin-local-eu.openanalytics.r.server;Embedded R Server"/>
 <stringAttribute key="de.walware.statet.r.debug/REnv/workingDirectory" value="${architect_wd}"/>
