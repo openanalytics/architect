@@ -44,7 +44,7 @@
          </property>
          <property
                name="aboutText"
-               value="Architect is an Integrated Development Environment for Data Science developed by Open Analytics NV - http://www.openanalytics.eu - Version: 0.9.9.qualifier">
+               value="Architect is an Integrated Development Environment for Data Science developed by Open Analytics NV - http://www.openanalytics.eu - Version: 0.9.9">
          </property>
          <property
                name="aboutImage"
