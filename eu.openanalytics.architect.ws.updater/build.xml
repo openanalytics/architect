@@ -1,0 +1,16 @@
+<project name="eu.openanalytics.architect.ws.updater.build" default="copy-files">
+	
+	<!-- Workaround for https://projects.openanalytics.eu/issues/9746 -->
+	
+	<target name="copy-files">
+		<unzip src ="${project.build.directory}/eu.openanalytics.architect.ws.updater-${project.version}.jar" dest="${project.build.directory}/unzipped">
+		</unzip>
+		<copy todir="${project.build.directory}/unzipped/workspace">
+            <fileset dir="./workspace"/>
+        </copy>
+		<zip destfile="${project.build.directory}/eu.openanalytics.architect.ws.updater-${project.version}.jar">
+			<fileset dir="${project.build.directory}/unzipped"/>
+		</zip>
+	</target>
+
+</project>

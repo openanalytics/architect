@@ -4,7 +4,7 @@ Bundle-Name: Pandoc
 Bundle-SymbolicName: eu.openanalytics.architect.pandoc;singleton:=true
 Bundle-Version: 0.9.9.qualifier
 Bundle-Activator: eu.openanalytics.architect.pandoc.Activator
-Bundle-Vendor: OpenAnalytics
+Bundle-Vendor: Open Analytics
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.variables;bundle-version="3.2.500"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

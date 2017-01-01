@@ -4,7 +4,7 @@ Bundle-Name: Embedded R Server
 Bundle-SymbolicName: eu.openanalytics.architect.r.server;singleton:=true
 Bundle-Version: 0.9.9.qualifier
 Bundle-Activator: eu.openanalytics.architect.r.server.Activator
-Bundle-Vendor: OpenAnalytics
+Bundle-Vendor: Open Analytics
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  de.walware.rj.server;bundle-version="0.5.5"

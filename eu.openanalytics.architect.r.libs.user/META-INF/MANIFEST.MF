@@ -4,7 +4,7 @@ Bundle-Name: R User Libs
 Bundle-SymbolicName: eu.openanalytics.architect.r.libs.user;singleton:=true
 Bundle-Version: 0.9.0.qualifier
 Bundle-Activator: eu.openanalytics.architect.r.libs.user.Activator
-Bundle-Vendor: OpenAnalytics
+Bundle-Vendor: Open Analytics
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  de.walware.rj.server;bundle-version="1.0.0"

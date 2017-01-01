@@ -4,7 +4,7 @@ Bundle-Name: Workspace Updater
 Bundle-SymbolicName: eu.openanalytics.architect.ws.updater;singleton:=true
 Bundle-Version: 0.9.9.qualifier
 Bundle-Activator: eu.openanalytics.architect.ws.updater.Activator
-Bundle-Vendor: OpenAnalytics
+Bundle-Vendor: Open Analytics
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources;bundle-version="3.8.1"

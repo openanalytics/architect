@@ -3,10 +3,8 @@ addProgramArg(programArg:--launcher.defaultAction);\
 addProgramArg(programArg:openFile);\
 addRepository(type:0,name:DBeaver,location:http${#58}//dbeaver.jkiss.org/update/latest);\
 addRepository(type:1,name:DBeaver,location:http${#58}//dbeaver.jkiss.org/update/latest);\
-addRepository(type:0,name:Dockerfile Editor,location:http${#58}//docker-editor.openanalytics.eu/update);\
-addRepository(type:1,name:Dockerfile Editor,location:http${#58}//docker-editor.openanalytics.eu/update);\
-addRepository(type:0,name:Mars,location:http${#58}//download.eclipse.org/releases/mars);\
-addRepository(type:1,name:Mars,location:http${#58}//download.eclipse.org/releases/mars);\
+addRepository(type:0,name:Neon,location:http${#58}//download.eclipse.org/releases/neon);\
+addRepository(type:1,name:Neon,location:http${#58}//download.eclipse.org/releases/neon);\
 addRepository(type:0,name:Mylyn,location:http${#58}//download.eclipse.org/mylyn/releases/latest);\
 addRepository(type:1,name:Mylyn,location:http${#58}//download.eclipse.org/mylyn/releases/latest);\
 addRepository(type:0,name:Pydev,location:http${#58}//pydev.org/updates);\
