@@ -3,7 +3,7 @@
       id="eu.openanalytics.architect.base"
       label="Architect"
       version="0.9.9.qualifier"
-      provider-name="OpenAnalytics"
+      provider-name="Open Analytics"
       plugin="eu.openanalytics.architect"
       os="linux,macosx,win32"
       ws="cocoa,gtk,win32"

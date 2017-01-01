@@ -16,7 +16,7 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="eu.openanalytics.architect.application"
-            description="OpenAnalytics R GUI and IDE"
+            description="Open Analytics IDE for Data Science"
             name="Architect">
          <property
                name="windowImages"
