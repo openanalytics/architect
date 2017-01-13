@@ -1,5 +1,8 @@
 package eu.openanalytics.architect.ui;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -74,8 +77,13 @@ public class RestartRCommandHandler extends AbstractHandler  {
 				
 				ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[] {console});
 				ILaunchConfigurationWorkingCopy wc = launchConfig.getWorkingCopy();
-				wc.setAttribute("de.walware.statet.r.debug/REnv/workingDirectory", wd);
-				wc.setAttribute("de.walware.statet.r/renv/WorkingDirectory", wd);
+				if (Files.exists(Paths.get(wd))) {
+					wc.setAttribute("de.walware.statet.r.debug/REnv/workingDirectory", wd);
+					wc.setAttribute("de.walware.statet.r/renv/WorkingDirectory", wd);
+				} else {
+					String msg = "Restarting in default directory because previous working directory no longer exists: " + wd;
+					Activator.getDefault().getLog().log(new Status(IStatus.WARNING, Activator.PLUGIN_ID, msg));
+				}
 				wc.launch(launchMode, null);
 			} catch (CoreException e) {
 				Activator.getDefault().getLog().log(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Failed to restart R session", e));
