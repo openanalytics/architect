@@ -8,6 +8,7 @@ Bundle-Vendor: Open Analytics
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.ui.console,
+ org.eclipse.core.expressions,
  org.eclipse.core.filesystem,
  org.eclipse.core.runtime,
  org.eclipse.core.variables,
