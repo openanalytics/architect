@@ -84,6 +84,8 @@ version 2.1.
       <feature id="org.eclipse.cdt.testsrunner.feature" installMode="root"/>
       <feature id="org.eclipse.cdt.visualizer" installMode="root"/>
       <feature id="org.eclipse.cdt.xlc.feature" installMode="root"/>
+      <feature id="org.eclipse.egit" installMode="root"/>
+      <feature id="org.eclipse.jgit" installMode="root"/>
       <feature id="net.jeeeyul.eclipse.themes.feature" installMode="root"/>
       <feature id="net.jeeeyul.swtend.feature" installMode="root"/>
       <feature id="com.github.eclipsecolortheme.feature" installMode="root"/>
