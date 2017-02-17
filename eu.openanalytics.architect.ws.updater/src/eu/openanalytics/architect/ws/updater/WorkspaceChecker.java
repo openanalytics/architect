@@ -34,26 +34,26 @@ public class WorkspaceChecker {
 			Version wsVersion = Version.parseVersion(wsVersionString);
 			String latestVersionString = getPluginWorkspaceVersion();
 			Version latestVersion = Version.parseVersion(latestVersionString);
-			boolean updateRequired = (latestVersion.compareTo(wsVersion) > 0);
 			
-			if (updateRequired) {
-				Logger.info("Workspace update required: " + latestVersion + " > "+ wsVersion);
-				
-				if (monitor.isCanceled()) return Status.CANCEL_STATUS;
-				
-				monitor.subTask("Installing new workspace resources");
-				wsAccessor.replaceWorkspaceFolder(WorkspaceConstants.DEFAULT_PLUGIN_WS_PATH, "/");
-				
-				String[] extras = getPlatformSpecificWorkspaces();
-				for (String extra: extras) {
-					wsAccessor.replaceWorkspaceFolder(extra, "/");
-				}
-				
-				monitor.subTask("Setting new workspace version");
-				wsAccessor.setWorkspaceVersion(latestVersion.toString());
-			} else {
-				Logger.info("No workspace update needed: version " + wsVersion + " is up-to-date.");
+			if (wsVersion.equals(Version.emptyVersion)) {
+				// No version present yet: copy the initial files.
+				Logger.info("Workspace is unversioned: copying initial files");
+				copyResources("workspace.initial", wsAccessor);
 			}
+			
+			if (latestVersion.compareTo(wsVersion) > 0) {
+				// Older version found: copy the controlled.versioned files.
+				Logger.info("Workspace update required: " + latestVersion + " > "+ wsVersion);
+				if (monitor.isCanceled()) return Status.CANCEL_STATUS;
+				copyResources("workspace.controlled.versioned", wsAccessor);
+				wsAccessor.setWorkspaceVersion(latestVersion.toString());				
+			} else {
+				Logger.info("Workspace version is up-to-date: " + wsVersion);
+			}
+			
+			// Copy controlled.auto files, if any.
+			copyResources("workspace.controlled.auto", wsAccessor);
+			
 		} catch (IOException e) {
 			return new Status(IStatus.ERROR, Activator.PLUGIN_ID, "Failed to update workspace: " + e.getMessage(), e);
 		}
@@ -69,8 +69,14 @@ public class WorkspaceChecker {
 	 * **********
 	 */
 	
+	private void copyResources(String workspaceName, WorkspaceAccessor wsAccessor) throws IOException {
+		wsAccessor.replaceWorkspaceFolder("/" + workspaceName + "/default/.metadata/.plugins", "/");
+		String[] extras = getPlatformSpecificWorkspaces("/" + workspaceName + "/");
+		for (String extra: extras) wsAccessor.replaceWorkspaceFolder(extra, "/");
+	}
+	
 	private String getPluginWorkspaceVersion() throws IOException {
-		URL entry = Activator.getDefault().getBundle().getEntry("/workspace/" + WorkspaceConstants.VERSIONFILE_NAME);
+		URL entry = Activator.getDefault().getBundle().getEntry("/workspace.controlled.versioned/" + WorkspaceConstants.VERSIONFILE_NAME);
 		if (entry == null) return null;
 		InputStream input = entry.openStream();
 		ByteArrayOutputStream output = new ByteArrayOutputStream();
@@ -78,7 +84,7 @@ public class WorkspaceChecker {
 		return output.toString();
 	}
 	
-	private String[] getPlatformSpecificWorkspaces() {
+	private String[] getPlatformSpecificWorkspaces(String workspacePath) {
 		
 		List<String> components = new ArrayList<String>();
 		
@@ -86,15 +92,15 @@ public class WorkspaceChecker {
 		String ws = Platform.getWS();
 		String arch = Platform.getOSArch();
 		
-		addPlatformSpecificWorkspaces(components, ws);
-		addPlatformSpecificWorkspaces(components, ws + "." + os);
-		addPlatformSpecificWorkspaces(components, ws + "." + os + "." + arch);
+		addPlatformSpecificWorkspaces(workspacePath, components, ws);
+		addPlatformSpecificWorkspaces(workspacePath, components, ws + "." + os);
+		addPlatformSpecificWorkspaces(workspacePath, components, ws + "." + os + "." + arch);
 		
 		return components.toArray(new String[components.size()]);
 	}
 	
-	private void addPlatformSpecificWorkspaces(List<String> components, String wsName) {
-		String searchPath = "/workspace/";
+	private void addPlatformSpecificWorkspaces(String workspacePath, List<String> components, String wsName) {
+		String searchPath = workspacePath;
 		Enumeration<URL> entries = Activator.getDefault().getBundle().findEntries(searchPath, wsName, false);
 		while (entries != null && entries.hasMoreElements()) {
 			URL entry = entries.nextElement();
