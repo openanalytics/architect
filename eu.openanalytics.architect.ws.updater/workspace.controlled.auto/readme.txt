@@ -1,0 +1,1 @@
+This files will be copied into the user's workspace on every Architect launch.
