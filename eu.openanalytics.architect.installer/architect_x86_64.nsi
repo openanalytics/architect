@@ -136,6 +136,7 @@ Section "Uninstall"
   delete "$INSTDIR\notice.html"
   delete "$INSTDIR\.eclipseproduct"
   delete "$INSTDIR\uninstall.exe"
+  delete "$INSTDIR\eclipsec.exe"
       
   RMDir /r "$SMPROGRAMS\Architect"
   delete "$DESKTOP\Architect.lnk"

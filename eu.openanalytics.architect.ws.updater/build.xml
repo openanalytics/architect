@@ -5,8 +5,14 @@
 	<target name="copy-files">
 		<unzip src ="${project.build.directory}/eu.openanalytics.architect.ws.updater-${project.version}.jar" dest="${project.build.directory}/unzipped">
 		</unzip>
-		<copy todir="${project.build.directory}/unzipped/workspace">
-            <fileset dir="./workspace"/>
+		<copy todir="${project.build.directory}/unzipped/workspace.initial">
+            <fileset dir="./workspace.initial"/>
+        </copy>
+		<copy todir="${project.build.directory}/unzipped/workspace.controlled.versioned">
+            <fileset dir="./workspace.controlled.versioned"/>
+        </copy>
+		<copy todir="${project.build.directory}/unzipped/workspace.controlled.auto">
+            <fileset dir="./workspace.controlled.auto"/>
         </copy>
 		<zip destfile="${project.build.directory}/eu.openanalytics.architect.ws.updater-${project.version}.jar">
 			<fileset dir="${project.build.directory}/unzipped"/>

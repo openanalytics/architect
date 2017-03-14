@@ -16,9 +16,4 @@ public class WorkspaceConstants {
 	 * The path inside the workspace referring to the version file.
 	 */
 	public final static String WS_VERSIONFILE_PATH = WS_PLUGINS_PATH + "/" + Activator.PLUGIN_ID + "/" + VERSIONFILE_NAME;
-	
-	/**
-	 * The path inside this plugin containing up-to-date workspace files.
-	 */
-	public final static String DEFAULT_PLUGIN_WS_PATH = "/workspace/default/" + WS_PLUGINS_PATH;
 }

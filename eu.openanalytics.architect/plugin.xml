@@ -119,6 +119,16 @@
       </initializer>
    </extension>
    <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="eu.openanalytics.architect.ui.ActiveConsoleTester"
+            id="eu.openanalytics.architect.activeConsole"
+            namespace="eu.openanalytics.architect"
+            properties="activeConsole"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
          point="org.eclipse.ui.preferencePages">
       <page
             class="eu.openanalytics.architect.ui.ArchitectPreferencePage"
@@ -171,6 +181,16 @@
                commandId="eu.openanalytics.architect.restartR"
                icon="icons/restart.png"
                style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activePart">
+                  <test
+                        property="eu.openanalytics.architect.activeConsole"
+                        value="de.walware.statet.r.console.ui.RConsole">
+                  </test>
+               </with>
+            </visibleWhen>
          </command>
       </menuContribution>
    </extension>
