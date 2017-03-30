@@ -97,7 +97,8 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 	}
 	
 	private String getWindowsSafePath(File pluginsDir, String pluginName) {
-		if (!isWindowsOS()) return pluginsDir.getAbsolutePath() + "/" + pluginName;
+		String safePath = pluginsDir.getAbsolutePath() + "/" + pluginName;
+		if (!isWindowsOS()) return safePath;
 		
 		// Warning! Ugly workaround for Sys.which crashing on long path names (Windows only).
 		try {
@@ -118,14 +119,14 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 					break;
 				}
 			}
-			if (matchingLine == null || !matchingLine.contains("<DIR>")) return null;
-			matchingLine = matchingLine.substring(matchingLine.indexOf("<DIR>")+5).trim();
-			matchingLine = matchingLine.substring(0, matchingLine.indexOf(' '));
-			return pluginsDir.getAbsolutePath() + "/" + matchingLine;
-			
-		} catch (Exception e) {
-			return null;
-		}
+			if (matchingLine != null && matchingLine.contains("<DIR>")) {
+				matchingLine = matchingLine.substring(matchingLine.indexOf("<DIR>")+5).trim();
+				matchingLine = matchingLine.substring(0, matchingLine.indexOf(' ')).trim();
+				if (!matchingLine.isEmpty()) safePath = pluginsDir.getAbsolutePath() + "/" + matchingLine;
+			}
+		} catch (Exception e) {}
+		
+		return safePath;
 	}
 	
 	private void copyAndClose(InputStream in, OutputStream out) throws IOException {
