@@ -1,6 +1,2 @@
 #Sun Aug 07 16:18:59 CEST 2011
-PREF_VM_INSTALL_SYSTEM_PROPERTY.org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType.1312400348485.java.vm.name=Java HotSpot(TM) 64-Bit Server VM
 eclipse.preferences.version=1
-PREF_VM_INSTALL_SYSTEM_PROPERTY.org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType.1312400348485.sun.arch.data.model=64
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1312400348485" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1312400348485" name\="jre6" path\="C\:\\Program Files\\Java\\jre6"/>\r\n</vmType>\r\n</vmSettings>\r\n
-PREF_VM_INSTALL_SYSTEM_PROPERTY.org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType.1312400348485.os.arch=amd64
