@@ -7,14 +7,17 @@ RequestExecutionLevel highest
 Function .onInit
   UserInfo::GetAccountType
   Pop $1
-  IfSilent +5
+  GetFullPathName /SHORT $2 $PROGRAMFILES64
+  IfSilent +6
     ${if} "$1" == "Admin"
+    ${andifnot} "$2" == ""
 	  StrCpy $INSTDIR "$PROGRAMFILES64\Architect"
 	${else}
 	  StrCpy $INSTDIR "$LOCALAPPDATA\Architect"
 	${endif}
   ${if} "$INSTDIR" == ""
     ${if} "$1" == "Admin"
+    ${andifnot} "$2" == ""
 	  StrCpy $INSTDIR "$PROGRAMFILES64\Architect"
 	${else}
 	  StrCpy $INSTDIR "$LOCALAPPDATA\Architect"
