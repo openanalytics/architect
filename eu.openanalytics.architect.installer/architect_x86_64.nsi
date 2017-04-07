@@ -7,17 +7,18 @@ RequestExecutionLevel highest
 Function .onInit
   UserInfo::GetAccountType
   Pop $1
-  GetFullPathName /SHORT $2 $PROGRAMFILES64
+  Call supportsShortPaths
+  Pop $2
   IfSilent +6
     ${if} "$1" == "Admin"
-    ${andifnot} "$2" == ""
+    ${andif} "$2" == "1"
 	  StrCpy $INSTDIR "$PROGRAMFILES64\Architect"
 	${else}
 	  StrCpy $INSTDIR "$LOCALAPPDATA\Architect"
 	${endif}
   ${if} "$INSTDIR" == ""
     ${if} "$1" == "Admin"
-    ${andifnot} "$2" == ""
+    ${andif} "$2" == "1"
 	  StrCpy $INSTDIR "$PROGRAMFILES64\Architect"
 	${else}
 	  StrCpy $INSTDIR "$LOCALAPPDATA\Architect"
@@ -50,6 +51,68 @@ Function un.isEmptyDir
   _end:
 FunctionEnd
 
+Function supportsShortPaths
+ Push $0
+ GetFullPathName /SHORT $0 $PROGRAMFILES64
+ 
+ #MessageBox MB_OK "$0"
+ Push $0
+ Call checkForSpaces
+ Pop $0
+
+ ${if} "$0" == "0"
+   StrCpy $0 1
+ ${else}
+   StrCpy $0 0
+ ${endif}
+ Exch $0
+FunctionEnd
+
+Function checkForSpaces
+ Exch $0
+ Push $1
+ Push $2
+ Push $3
+ StrCpy $1 -1
+ StrCpy $3 $0
+ StrCpy $0 0
+ loop:
+   StrCpy $2 $3 1 $1
+   IntOp $1 $1 - 1
+   StrCmp $2 "" done
+   StrCmp $2 " " 0 loop
+   IntOp $0 $0 + 1
+ Goto loop
+ done:
+ Pop $3
+ Pop $2
+ Pop $1
+ Exch $0
+FunctionEnd
+
+Function onDirectoryLeave
+ 
+  Call supportsShortPaths
+  Pop $0
+  StrCmp $0 1 NoSpaces
+  
+  Push $INSTDIR
+  Call checkForSpaces
+  Pop $0
+  StrCmp $0 0 NoSpaces
+ 
+  StrCmp $0 1 0 +3
+    StrCpy $1 ""
+  Goto +2
+    StrCpy $1 "s"
+ 
+  MessageBox MB_OK|MB_ICONEXCLAMATION "If you install Architect into a path with spaces on this system, R will not function properly."
+  Abort
+ 
+  NoSpaces:
+ 
+FunctionEnd
+
 ;--------------------------------
 Name "Architect"
 OutFile "setup.exe"
@@ -60,11 +123,11 @@ OutFile "setup.exe"
 !define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_BITMAP "architect.bmp"
 !define MUI_ABORTWARNING
-
 ;--------------------------------
 ;Pages
 
 !insertmacro MUI_PAGE_WELCOME
+!define MUI_PAGE_CUSTOMFUNCTION_LEAVE "onDirectoryLeave"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
