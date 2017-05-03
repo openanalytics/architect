@@ -175,7 +175,7 @@
          point="org.eclipse.ui.menus">
       <menuContribution
             allPopups="false"
-            locationURI="toolbar:org.eclipse.ui.console.ConsoleView?after=additions">
+            locationURI="toolbar:org.eclipse.ui.console.ConsoleView?after=launchGroup">
          <command
                commandId="eu.openanalytics.architect.restartR"
                icon="icons/restart.png"
