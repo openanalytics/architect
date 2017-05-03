@@ -157,7 +157,6 @@
       </command>
       <command
             categoryId="eu.openanalytics.architect"
-            defaultHandler="eu.openanalytics.architect.ui.RestartRCommandHandler"
             description="Restart the currently running R session"
             id="eu.openanalytics.architect.restartR"
             name="Restart R">
@@ -181,17 +180,23 @@
                commandId="eu.openanalytics.architect.restartR"
                icon="icons/restart.png"
                style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <with
-                     variable="activePart">
-                  <test
-                        property="eu.openanalytics.architect.activeConsole"
-                        value="de.walware.statet.r.console.ui.RConsole">
-                  </test>
-               </with>
-            </visibleWhen>
          </command>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="eu.openanalytics.architect.ui.RestartRCommandHandler"
+            commandId="eu.openanalytics.architect.restartR">
+         <enabledWhen>
+            <with
+                  variable="activePart">
+               <test
+                     property="eu.openanalytics.architect.activeConsole"
+                     value="de.walware.statet.r.console.ui.RConsole">
+               </test>
+            </with>
+         </enabledWhen>
+      </handler>
    </extension>
 </plugin>
