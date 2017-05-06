@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Embedded RTools
 Bundle-SymbolicName: eu.openanalytics.architect.rtools;singleton:=true
-Bundle-Version: 0.9.9.qualifier
+Bundle-Version: 0.9.10.qualifier
 Bundle-Activator: eu.openanalytics.architect.rtools.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.variables;bundle-version="3.2.500",
