@@ -20,7 +20,7 @@
 <unit id="de.walware.3rdparty.commons.pool.feature.group" version="0.0.0"/>
 <unit id="de.walware.3rdparty.lucene.feature.group" version="0.0.0"/>
 <unit id="de.walware.rj.eclient.feature.group" version="0.0.0"/>
-<repository location="jar:file:/C:/Architect-build/tools/walware/statet-3.6.1.zip!/"/>
+<repository location="jar:file:/C:/Architect-build/tools/walware/statet-3.6.2.zip!/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="eu.openanalytics.architect.fontsize.feature.group" version="0.0.0"/>
