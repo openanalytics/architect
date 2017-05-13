@@ -2,7 +2,7 @@
 <feature
       id="eu.openanalytics.architect.r"
       label="Embedded R"
-      version="0.9.10.qualifier"
+      version="0.9.11.qualifier"
       provider-name="Open Analytics"
       plugin="eu.openanalytics.architect.r.server">
 

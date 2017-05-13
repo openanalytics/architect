@@ -2,7 +2,7 @@
 <feature
       id="eu.openanalytics.architect.jre"
       label="Embedded JRE"
-      version="0.9.10.qualifier"
+      version="0.9.11.qualifier"
       provider-name="Open Analytics">
 
    <description>
