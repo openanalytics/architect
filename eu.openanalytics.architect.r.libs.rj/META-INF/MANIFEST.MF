@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: R Packages rj and rj.gd
 Bundle-SymbolicName: eu.openanalytics.architect.r.libs.rj;singleton:=true
-Bundle-Version: 0.9.11.qualifier
+Bundle-Version: 0.9.12.qualifier
 Bundle-Activator: eu.openanalytics.architect.r.libs.rj.Activator
 Bundle-Vendor: Open Analytics
 Require-Bundle: org.eclipse.ui,
