@@ -21,7 +21,7 @@
    <requires>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="de.walware.rj.server" version="0.5.5" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.statet.rj.server"/>
    </requires>
 
    <plugin

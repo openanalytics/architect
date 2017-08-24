@@ -54,6 +54,7 @@
 <unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.mylyn_feature.feature.group" version="0.0.0"/>
 <repository location="http://nexus.openanalytics.eu/nexus/content/groups/p2"/>
 </location>
 </locations>
