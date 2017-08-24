@@ -59,12 +59,9 @@
 <unit id="org.eclipse.cdt.debug.ui.memory.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.cdt.xlc.feature.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
-<repository location="http://download.eclipse.org/releases/neon"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.jgit.feature.group" version="0.0.0"/>
-<repository location="http://download.eclipse.org/egit/updates/"/>
+<repository location="https://nexus.openanalytics.eu/nexus/content/groups/p2"/>
 </location>
 </locations>
 </target>
