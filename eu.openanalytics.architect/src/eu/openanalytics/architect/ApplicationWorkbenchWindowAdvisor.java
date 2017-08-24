@@ -29,7 +29,6 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 import org.eclipse.ui.internal.ide.EditorAreaDropAdapter;
 import org.eclipse.ui.internal.ide.IDEInternalPreferences;
-import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 import org.eclipse.ui.internal.ide.IDEWorkbenchPlugin;
 import org.eclipse.ui.internal.ide.WorkbenchActionBuilder;
 import org.eclipse.ui.part.EditorInputTransfer;
@@ -222,39 +221,16 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		if (currentPage != null) {
 			if (activeEditor != null) {
 				lastEditorTitle = activeEditor.getTitleToolTip();
-				title = NLS.bind(
-						IDEWorkbenchMessages.WorkbenchWindow_shellTitle,
-						lastEditorTitle, title);
+				title = NLS.bind("{0} - {1}", lastEditorTitle, title);
 			}
-//			IPerspectiveDescriptor persp = currentPage.getPerspective();
-//			String label = ""; //$NON-NLS-1$
-//			if (persp != null) {
-//				label = persp.getLabel();
-//			}
-//			IAdaptable input = currentPage.getInput();
-//			if (input != null) {
-//				label = currentPage.getLabel();
-//			}
-//			if (label != null && !label.equals("")) { //$NON-NLS-1$
-//				title = NLS.bind(
-//						IDEWorkbenchMessages.WorkbenchWindow_shellTitle, label,
-//						title);
-//			}
 		}
 
-//		String workspaceLocation = wbAdvisor.getWorkspaceLocation();
-//		if (workspaceLocation != null) {
-//			title = NLS.bind(IDEWorkbenchMessages.WorkbenchWindow_shellTitle,
-//					title, workspaceLocation);
-//		}
-		
 		// Bug 284447: Prepend workspace name to the title
 		String workspaceName = IDEWorkbenchPlugin.getDefault()
 				.getPreferenceStore().getString(
 						IDEInternalPreferences.WORKSPACE_NAME);
 		if (workspaceName != null && workspaceName.length() > 0) {
-			title = NLS.bind(IDEWorkbenchMessages.WorkbenchWindow_shellTitle,
-					workspaceName, title);
+			title = NLS.bind("{0} - {1}", workspaceName, title);
 		}
 
 		return title;

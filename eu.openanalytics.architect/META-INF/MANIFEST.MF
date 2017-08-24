@@ -15,8 +15,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.debug.ui,
  org.eclipse.text,
  eu.openanalytics.architect.ws.updater,
- de.walware.statet.r.ui,
- de.walware.statet.r.console.ui,
- de.walware.statet.nico.ui
+ org.eclipse.statet.nico.ui,
+ org.eclipse.statet.r.console.ui,
+ org.eclipse.statet.r.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

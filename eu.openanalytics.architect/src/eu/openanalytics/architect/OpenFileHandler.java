@@ -31,8 +31,6 @@ import org.eclipse.ui.statushandlers.StatusManager;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
-import de.walware.statet.r.launching.RCodeLaunching;
-
 public class OpenFileHandler implements Listener {
 	
 	private final static String[] DATA_FILE_EXTS = {".rdata", ".rda"};
@@ -129,7 +127,9 @@ public class OpenFileHandler implements Listener {
 				List<String> lineList = new ArrayList<String>();
 				lineList.add("setwd('" + parentPath + "')");
 				lineList.add("load('" + path + "')");
-				RCodeLaunching.runRCodeDirect(lineList, true, new NullProgressMonitor());
+				//FIXME find new way of launching direct code.
+//				RCodeLaunching.runRCodeDirect(lineList, true, new NullProgressMonitor());
+				throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "TODO implement"));
 			} catch (CoreException e) {
 //				Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Failed to load R file"));
 				boolean isOpenFileArg = path.equals(openFileArg);
