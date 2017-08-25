@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<launchConfiguration type="de.walware.statet.r.launchConfigurationTypes.RweaveTexCreation">
-<stringAttribute key="de.walware.statet.r.debug/DocPreview/Viewer.code" value="ide"/>
-<stringAttribute key="de.walware.statet.r.debug/Rweave/SweaveProcessing" value="console:library(knitr)&#10;knit(input = &quot;${resource_loc:${source_file_path}}&quot;)"/>
-<stringAttribute key="de.walware.statet.r.debug/Rweave/sweave.folder" value="${container_path:${source_file_path}}"/>
-<stringAttribute key="de.walware.statet.r.debug/Tex/BuildTex.format" value="pdf"/>
-<stringAttribute key="de.walware.statet.r.debug/Tex/BuildTex.outputDir" value=""/>
-<stringAttribute key="de.walware.statet.r.debug/Tex/BuildTex.rCommands" value="require(tools)&#10;texi2dvi(file = &quot;${resource_loc:${latex_file_path}}&quot;, pdf = TRUE)"/>
-<intAttribute key="de.walware.statet.r.debug/Tex/BuildTex.type" value="2"/>
-<intAttribute key="de.walware.statet.r.debug/Tex/OpenTex.enabled" value="-1"/>
+<launchConfiguration type="org.eclipse.statet.r.launchConfigurations.RweaveTexCreation">
+<stringAttribute key="org.eclipse.statet.r.debug/DocPreview/Viewer.code" value="ide"/>
+<stringAttribute key="org.eclipse.statet.r.debug/Rweave/SweaveProcessing" value="console:library(knitr)&#10;knit(input = &quot;${resource_loc:${source_file_path}}&quot;)"/>
+<stringAttribute key="org.eclipse.statet.r.debug/Rweave/sweave.folder" value="${container_path:${source_file_path}}"/>
+<stringAttribute key="org.eclipse.statet.r.debug/Tex/BuildTex.format" value="pdf"/>
+<stringAttribute key="org.eclipse.statet.r.debug/Tex/BuildTex.outputDir" value=""/>
+<stringAttribute key="org.eclipse.statet.r.debug/Tex/BuildTex.rCommands" value="require(tools)&#10;texi2dvi(file = &quot;${resource_loc:${latex_file_path}}&quot;, pdf = TRUE)"/>
+<intAttribute key="org.eclipse.statet.r.debug/Tex/BuildTex.type" value="2"/>
+<intAttribute key="org.eclipse.statet.r.debug/Tex/OpenTex.enabled" value="-1"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.ui.externaltools.launchGroup"/>
 </listAttribute>
