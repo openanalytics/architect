@@ -2,31 +2,9 @@
 <?pde version="3.8"?><target name="eu.openanalytics.architect.targetdef" sequenceNumber="17">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.statet.eutils.autonature.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.eutils.autorun.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.ltk.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.r.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.redocs.tex.r.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.redocs.wikitext.r.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.rj.core.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.rj.eclient.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.rtm.ftable.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.rtm.ggplot.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.yaml.feature.group" version="0.0.0"/>
-<repository location="jar:file:/C:/Architect-build/tools/walware/de.walware.statet-repo-3.6.2-b201708231955E47sw.zip!/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="eu.openanalytics.architect.fontsize.feature.group" version="0.0.0"/>
-<repository location="http://fontsize.openanalytics.eu/update"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="net.jeeeyul.eclipse.themes.feature.feature.group" version="0.0.0"/>
 <unit id="net.jeeeyul.swtend.feature.feature.group" version="0.0.0"/>
 <repository location="http://eclipse.jeeeyul.net/update"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="eu.openanalytics.quickgit.feature.group" version="0.0.0"/>
-<repository location="http://quickgit.openanalytics.eu/update/stable"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="com.github.eclipsecolortheme.feature.feature.group" version="0.0.0"/>
@@ -55,6 +33,18 @@
 <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.mylyn_feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.eutils.autonature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.eutils.autorun.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.ltk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.r.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.redocs.tex.r.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.redocs.wikitext.r.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.rj.core.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.rj.eclient.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.rtm.ftable.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.rtm.ggplot.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.yaml.feature.group" version="0.0.0"/>
+<unit id="eu.openanalytics.architect.fontsize.feature.group" version="0.0.0"/>
 <repository location="http://nexus.openanalytics.eu/nexus/content/groups/p2"/>
 </location>
 </locations>
