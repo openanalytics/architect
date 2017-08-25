@@ -74,26 +74,26 @@
       <perspectiveExtension
             targetID="eu.openanalytics.architect.ui.ArchitectPerspective">
          <newWizardShortcut
-               id="de.walware.statet.r.newWizards.RProjectCreation">
+               id="org.eclipse.statet.r.newWizards.RProjectCreation">
          </newWizardShortcut>
          <newWizardShortcut
-               id="de.walware.statet.r.newWizards.RPkgProjectCreation">
+               id="org.eclipse.statet.r.newWizards.RPkgProjectCreation">
          </newWizardShortcut>
          <newWizardShortcut
-               id="de.walware.statet.r.newWizards.RFileCreation">
+               id="org.eclipse.statet.r.newWizards.RFileCreation">
          </newWizardShortcut>
          <actionSet
-               id="de.walware.statet.r.actionSets.RToolbarSet">
+               id="org.eclipse.statet.r.actionSets.RToolbarSet">
          </actionSet>
          <view
-               id="de.walware.statet.r.views.RHelp"
+               id="org.eclipse.statet.r.views.RHelp"
                minimized="true"
                relationship="stack"
-               relative="de.walware.statet.nico.views.ObjectBrowser"
+               relative="org.eclipse.statet.nico.views.ObjectBrowser"
                visible="true">
          </view>
          <actionSet
-               id="de.walware.statet.r.actionSets.RMainMenu">
+               id="org.eclipse.statet.r.actionSets.RMainMenu">
          </actionSet>
       </perspectiveExtension>
    </extension>
@@ -193,7 +193,7 @@
                   variable="activePart">
                <test
                      property="eu.openanalytics.architect.activeConsole"
-                     value="de.walware.statet.r.console.ui.RConsole">
+                     value="org.eclipse.statet.r.console.ui.RConsole">
                </test>
             </with>
          </enabledWhen>

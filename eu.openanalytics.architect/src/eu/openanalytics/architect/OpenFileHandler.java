@@ -18,6 +18,7 @@ import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchManager;
 import org.eclipse.osgi.service.environment.EnvironmentInfo;
+import org.eclipse.statet.r.launching.RCodeLaunching;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
@@ -122,22 +123,18 @@ public class OpenFileHandler implements Listener {
 		@Override
 		public void run() {
 			try {
-//				Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Attempting to load R file..."));
 				String parentPath = new File(path).getParentFile().getAbsolutePath().replace('\\', '/');
 				List<String> lineList = new ArrayList<String>();
 				lineList.add("setwd('" + parentPath + "')");
 				lineList.add("load('" + path + "')");
-				//FIXME find new way of launching direct code.
-//				RCodeLaunching.runRCodeDirect(lineList, true, new NullProgressMonitor());
+				RCodeLaunching.runRCodeDirect(lineList, true, new NullProgressMonitor());
 				throw new CoreException(new Status(IStatus.ERROR, Activator.PLUGIN_ID, "TODO implement"));
 			} catch (CoreException e) {
-//				Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Failed to load R file"));
 				boolean isOpenFileArg = path.equals(openFileArg);
 				if (isOpenFileArg) openFileArg = null; // Do this test only once.
 				
 				// Option 1: Architect was already running, but there's no active console.
 				if (!isOpenFileArg && allowConsoleLaunch) {
-//					Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Launching R console..."));
 					launchConsole(new NullProgressMonitor());
 					new DelayedLoad(path, false).run();
 					return;
@@ -145,7 +142,6 @@ public class OpenFileHandler implements Listener {
 				
 				// Option 2: Architect is just starting up, without autorun
 				if (isOpenFileArg && !isAutoRunEnabled() && allowConsoleLaunch) {
-//					Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Launching R console..."));
 					launchConsole(new NullProgressMonitor());
 					new DelayedLoad(path, false).run();
 					return;
@@ -153,7 +149,6 @@ public class OpenFileHandler implements Listener {
 				
 				// Option 3: A console is underway, need some patience
 				if (currentTry < maxTries) {
-//					Activator.getDefault().getLog().log(new Status(IStatus.INFO, Activator.PLUGIN_ID, "Waiting a bit..."));
 					currentTry++;
 					Display.getDefault().timerExec(timeout, this);
 				} else {
