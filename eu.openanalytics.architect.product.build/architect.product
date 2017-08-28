@@ -71,6 +71,7 @@ version 2.1.
       <feature id="eu.openanalytics.architect.r" installMode="root"/>
       <feature id="eu.openanalytics.architect.rj" installMode="root"/>
       <feature id="eu.openanalytics.architect.fontsize_feature" installMode="root"/>
+      <feature id="eu.openanalytics.sasviewer_feature" installMode="root"/>
       <feature id="org.eclipse.cdt" installMode="root"/>
       <feature id="org.eclipse.cdt.autotools" installMode="root"/>
       <feature id="org.eclipse.cdt.build.crossgcc" installMode="root"/>
