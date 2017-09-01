@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<launchConfiguration type="org.eclipse.statet.r.launchConfigurations.RweaveTexCreation">
-<stringAttribute key="org.eclipse.statet.r.debug/DocPreview/Viewer.code" value="ide"/>
-<stringAttribute key="org.eclipse.statet.r.debug/Rweave/SweaveProcessing" value="console:library(knitr)&#10;knit(input = &quot;${resource_loc:${source_file_path}}&quot;)"/>
-<stringAttribute key="org.eclipse.statet.r.debug/Rweave/sweave.folder" value="${container_path:${source_file_path}}"/>
-<stringAttribute key="org.eclipse.statet.r.debug/Tex/BuildTex.format" value="pdf"/>
-<stringAttribute key="org.eclipse.statet.r.debug/Tex/BuildTex.outputDir" value=""/>
-<stringAttribute key="org.eclipse.statet.r.debug/Tex/BuildTex.rCommands" value="require(tools)&#10;texi2dvi(file = &quot;${resource_loc:${latex_file_path}}&quot;, pdf = TRUE)"/>
-<intAttribute key="org.eclipse.statet.r.debug/Tex/BuildTex.type" value="2"/>
-<intAttribute key="org.eclipse.statet.r.debug/Tex/OpenTex.enabled" value="-1"/>
-<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
-<listEntry value="org.eclipse.ui.externaltools.launchGroup"/>
-</listAttribute>
+<launchConfiguration type="org.eclipse.statet.redocs.launchConfigurations.TexRweaveDocProcessing">
+<stringAttribute key="org.eclipse.statet.docmlet.base/main/WorkingDirectory.path" value="${container_path}"/>
+<stringAttribute key="org.eclipse.statet.docmlet.base/preview/Operation.id" value="org.eclipse.statet.docmlet.base.docProcessing.OpenUsingEclipseOperation"/>
+<booleanAttribute key="org.eclipse.statet.docmlet.base/preview/Run.enabled" value="true"/>
+<stringAttribute key="org.eclipse.statet.redocs/produce/Operation.id" value="org.eclipse.statet.redocs.docProcessing.RunRConsoleSnippetOperation"/>
+<mapAttribute key="org.eclipse.statet.redocs/produce/Operation.settings">
+<mapEntry key="org.eclipse.statet.redocs.docProcessing.RunRConsoleSnippetOperation/RSnippet.code" value="tools::texi2dvi(file = &quot;${resource_loc}&quot;, pdf = TRUE)"/>
+</mapAttribute>
+<stringAttribute key="org.eclipse.statet.redocs/produce/Output.File.path" value="${file_name_base}.${out_file_ext}"/>
+<stringAttribute key="org.eclipse.statet.redocs/produce/Output.Format.key" value="ext:pdf"/>
+<booleanAttribute key="org.eclipse.statet.redocs/produce/Run.enabled" value="true"/>
+<stringAttribute key="org.eclipse.statet.redocs/weave/Operation.id" value="org.eclipse.statet.redocs.docProcessing.RunRConsoleSnippetOperation"/>
+<mapAttribute key="org.eclipse.statet.redocs/weave/Operation.settings">
+<mapEntry key="org.eclipse.statet.redocs.docProcessing.RunRConsoleSnippetOperation/RSnippet.code" value="knitr::knit(input = &quot;${resource_loc:${source_file_path}}&quot;, encoding = &quot;${resource_enc}&quot;)"/>
+</mapAttribute>
+<stringAttribute key="org.eclipse.statet.redocs/weave/Output.File.path" value="${file_name_base}.${out_file_ext}"/>
+<stringAttribute key="org.eclipse.statet.redocs/weave/Output.Format.key" value="ext:tex"/>
+<booleanAttribute key="org.eclipse.statet.redocs/weave/Run.enabled" value="true"/>
 </launchConfiguration>
