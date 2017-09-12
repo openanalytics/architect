@@ -38,15 +38,15 @@
 <unit id="org.eclipse.statet.rtm.ftable.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.rtm.ggplot.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.yaml.feature.group" version="0.0.0"/>
-<repository location="http://nexus.openanalytics.eu/nexus/content/repositories/statet"/>
+<repository location="http://nexus.openanalytics.eu/nexus/service/local/route/p2/thirdparty/de.walware.statet/de.walware.statet-repo/latest"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="eu.openanalytics.architect.fontsize_feature.feature.group" version="0.0.0"/>
-<repository location="http://nexus.openanalytics.eu/nexus/content/unzip/snapshots_p2/eu/openanalytics/architect/eu.openanalytics.architect.fontsize.p2repo/1.0.0-SNAPSHOT/eu.openanalytics.architect.fontsize.p2repo-1.0.0-SNAPSHOT.zip-unzip/"/>
+<repository location="http://nexus.openanalytics.eu/nexus/service/local/route/p2/snapshots/eu.openanalytics.architect/eu.openanalytics.architect.fontsize.p2repo/latest"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="eu.openanalytics.sasviewer_feature.feature.group" version="0.0.0"/>
-<repository location="http://nexus.openanalytics.eu/nexus/content/unzip/snapshots_p2/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.0.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.0.0-SNAPSHOT.zip-unzip"/>
+<repository location="http://nexus.openanalytics.eu/nexus/service/local/route/p2/snapshots/eu.openanalytics.sasviewer/eu.openanalytics.sasviewer.p2repo/latest"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="net.jeeeyul.eclipse.themes.feature.feature.group" version="0.0.0"/>
