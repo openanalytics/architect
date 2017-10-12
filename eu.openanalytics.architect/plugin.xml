@@ -199,4 +199,29 @@
          </enabledWhen>
       </handler>
    </extension>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="eu.openanalytics.architect.rmi.WebSocketRConsoleLaunchDelegate"
+            id="eu.openanalytics.architect.rmi.WebSocketRConsoleLaunchDelegate"
+            modes="run"
+            name="WebSocket R Console">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="eu.openanalytics.architect.rmi.WebSocketRConsoleLaunchTabGroup"
+            id="eu.openanalytics.architect.rmi.WebSocketRConsoleLaunchTabGroup"
+            type="eu.openanalytics.architect.rmi.WebSocketRConsoleLaunchDelegate">
+      </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="eu.openanalytics.architect.rmi.WebSocketRConsoleLaunchDelegate"
+            icon="icons/icon_16.png"
+            id="eu.openanalytics.architect.rmi.WebSocketRConsoleLaunchDelegate">
+      </launchConfigurationTypeImage>
+   </extension>
 </plugin>

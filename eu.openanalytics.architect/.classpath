@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/commons-codec-1.9.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-logging-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/fluent-hc-4.5.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/httpclient-4.5.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/httpclient-cache-4.5.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/httpclient-win-4.5.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/httpcore-4.4.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/httpmime-4.5.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jna-4.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jna-platform-4.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax-websocket-client-impl-9.4.7.v20170914.jar" sourcepath="/home/frederick/.m2/repository/org/eclipse/jetty/websocket/javax-websocket-client-impl/9.4.7.v20170914/javax-websocket-client-impl-9.4.7.v20170914-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/javax.websocket-client-api-1.0.jar" sourcepath="/home/frederick/.m2/repository/javax/websocket/javax.websocket-client-api/1.0/javax.websocket-client-api-1.0-sources.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-client-9.4.7.v20170914.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-http-9.4.7.v20170914.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-io-9.4.7.v20170914.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-util-9.4.7.v20170914.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jetty-xml-9.4.7.v20170914.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/websocket-api-9.4.7.v20170914.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/websocket-client-9.4.7.v20170914.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/websocket-common-9.4.7.v20170914.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
