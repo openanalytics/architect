@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Unit tests for Architect
+Bundle-SymbolicName: eu.openanalytics.architect.tests
+Bundle-Version: 0.9.12.qualifier
+Fragment-Host: eu.openanalytics.architect;bundle-version="0.9.12"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.swtbot.eclipse.finder,
+ org.eclipse.swtbot.forms.finder,
+ org.eclipse.swtbot.junit4_x,
+ org.junit
