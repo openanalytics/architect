@@ -12,13 +12,22 @@
 		<jre.path.win32>C:/Architect-build/tools/jre/win32</jre.path.win32>
 		<jre.path.linux>C:/Architect-build/tools/jre/linux</jre.path.linux>
 		<jre.path.macosx>C:/Architect-build/tools/jre/macosx</jre.path.macosx>
+		<maven.install.skip>true</maven.install.skip>
+		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>oa-nexus-snapshots</id>
+			<name>OpenAnalytics Snapshots Repository</name>
+			<url>http://nexus.openanalytics.eu/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<modules>
 		<module>eu.openanalytics.architect.jre</module>
 		<module>eu.openanalytics.architect.targetdef</module>
 		<module>eu.openanalytics.architect.product.build</module>
-		<module>eu.openanalytics.architect.installer</module>
 		
 		<module>eu.openanalytics.architect.base</module>
 		<module>eu.openanalytics.architect</module>
@@ -49,6 +58,10 @@
 	
 	<build>
 		<plugins>
+			<plugin>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
