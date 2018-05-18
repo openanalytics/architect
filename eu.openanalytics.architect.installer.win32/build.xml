@@ -4,11 +4,12 @@
 	
 	<target name="prepare-installer">
 		<delete dir="${build.dir}" />
+		<mkdir dir="${build.dir}"/>
+		<get src="${product.url}" dest="${build.dir}/product.zip"/>
 		<unzip dest="${build.dir}/f">
-			<fileset dir="${product.dir}">
-				<include name="*-win32.win32.x86_64.zip" />
-			</fileset>
+			<fileset file="${build.dir}/product.zip"/>
 		</unzip>
+		<delete file="${build.dir}/product.zip" />
 	</target>
 	
 	<target name="make-installer" depends="prepare-installer">
@@ -19,7 +20,7 @@
 				<include name="*.bmp" />
 			</fileset>
 		</copy>
-		<exec executable="${nsisMaker}" dir="${build.dir}">
+		<exec executable="${nsisMaker}" dir="${build.dir}" failonerror="true">
 			<arg value="architect_x86_64.nsi" />
 		</exec>
 		<delete dir="${build.dir}/f" />
@@ -27,5 +28,5 @@
 		    <fileset dir="${build.dir}"/>
 		</move>
 	</target>
-	
+
 </project>
