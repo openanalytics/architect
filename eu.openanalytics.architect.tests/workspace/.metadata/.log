@@ -1,238 +1,21 @@
-!SESSION 2018-05-22 14:45:10.045 -----------------------------------------------
+!SESSION 2018-05-22 14:52:53.734 -----------------------------------------------
 eclipse.buildId=unknown
 java.version=1.8.0_171
 java.vendor=Oracle Corporation
 BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
-Framework arguments:  -version 3 -port 34199 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -testpluginname eu.openanalytics.architect
-Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog -version 3 -port 34199 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -data /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace -dev file:/home/bvanbruggen/workspace/.metadata/.plugins/org.eclipse.pde.core/pde-junit/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog -testpluginname eu.openanalytics.architect
+Framework arguments:  -version 3 -port 36125 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -testpluginname eu.openanalytics.architect
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog -version 3 -port 36125 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -data /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace -dev file:/home/bvanbruggen/workspace/.metadata/.plugins/org.eclipse.pde.core/pde-junit/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog -testpluginname eu.openanalytics.architect
 
-!ENTRY eu.openanalytics.architect.ws.updater 1 0 2018-05-22 14:45:14.013
+!ENTRY eu.openanalytics.architect.ws.updater 1 0 2018-05-22 14:52:57.601
 !MESSAGE Workspace is unversioned: copying initial files
 
-!ENTRY eu.openanalytics.architect.ws.updater 1 0 2018-05-22 14:45:14.071
+!ENTRY eu.openanalytics.architect.ws.updater 1 0 2018-05-22 14:52:57.660
 !MESSAGE Workspace update required: 0.6.7 > 0.0.0
 
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:45:19.287
+!ENTRY org.eclipse.ui 4 4 2018-05-22 14:53:02.680
 !MESSAGE Referenced part does not exist yet: org.eclipse.statet.nico.views.ObjectBrowser.
 
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:45:25.510
-!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelAll: {org.eclipse.statet.nico.ui.actions.CancelHandler@5e16e521} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@51a4472d}
-
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:45:25.511
-!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrent: {org.eclipse.statet.nico.ui.actions.CancelHandler@564b221e} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@72e36d0f}
-
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:45:25.512
-!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrentAndPause: {org.eclipse.statet.nico.ui.actions.CancelHandler@7d1cdebf} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@25b7ccfc}
-
-!ENTRY org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.136
-!MESSAGE Indexing: 'Embedded R Server'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.137
-!MESSAGE Beginning batch (index directory= '/home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace/.metadata/.plugins/org.eclipse.statet.r.core/renv/eplugin-local-eu.openanalytics.r.server/shared/index').
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.137
-!MESSAGE Setting doc dir to: '/home/bvanbruggen/git/architect/eu.openanalytics.architect.r.server/R/doc'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.137
-!MESSAGE Beginning package: 'base'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.137
-!MESSAGE Beginning package: 'boot'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.137
-!MESSAGE Beginning package: 'class'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.137
-!MESSAGE Beginning package: 'cluster'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.137
-!MESSAGE Beginning package: 'codetools'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.138
-!MESSAGE Beginning package: 'compiler'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.138
-!MESSAGE Beginning package: 'datasets'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.138
-!MESSAGE Beginning package: 'foreign'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.138
-!MESSAGE Beginning package: 'graphics'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.138
-!MESSAGE Beginning package: 'grDevices'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.138
-!MESSAGE Beginning package: 'grid'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.138
-!MESSAGE Beginning package: 'KernSmooth'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.138
-!MESSAGE Beginning package: 'lattice'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.139
-!MESSAGE Beginning package: 'MASS'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.139
-!MESSAGE Beginning package: 'Matrix'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.139
-!MESSAGE Beginning package: 'methods'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.139
-!MESSAGE Beginning package: 'mgcv'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.139
-!MESSAGE Beginning package: 'nlme'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.139
-!MESSAGE Beginning package: 'nnet'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.140
-!MESSAGE Beginning package: 'parallel'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.140
-!MESSAGE Beginning package: 'rj'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.140
-!MESSAGE Beginning package: 'rj.gd'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.140
-!MESSAGE Beginning package: 'rpart'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.140
-!MESSAGE Beginning package: 'spatial'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.140
-!MESSAGE Beginning package: 'splines'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.141
-!MESSAGE Beginning package: 'stats'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.141
-!MESSAGE Beginning package: 'stats4'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.141
-!MESSAGE Beginning package: 'survival'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.141
-!MESSAGE Beginning package: 'tcltk'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.141
-!MESSAGE Beginning package: 'tools'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 0 2018-05-22 14:46:13.141
-!MESSAGE Beginning package: 'utils'.
-!SUBENTRY 1 org.eclipse.statet.r.core 1 -1 2018-05-22 14:46:13.142
-!MESSAGE Finishing batch.
-!SESSION 2018-05-22 14:46:30.511 -----------------------------------------------
-eclipse.buildId=unknown
-java.version=1.8.0_171
-java.vendor=Oracle Corporation
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
-Framework arguments:  -version 3 -port 43223 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -testpluginname eu.openanalytics.architect
-Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog -version 3 -port 43223 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -data /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace -dev file:/home/bvanbruggen/workspace/.metadata/.plugins/org.eclipse.pde.core/pde-junit/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog -testpluginname eu.openanalytics.architect
-
-!ENTRY eu.openanalytics.architect.ws.updater 1 0 2018-05-22 14:46:35.159
-!MESSAGE Workspace version is up-to-date: 0.6.7
-
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:46:47.506
-!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelAll: {org.eclipse.statet.nico.ui.actions.CancelHandler@5fe1b8d2} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@597ef918}
-
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:46:47.507
-!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrent: {org.eclipse.statet.nico.ui.actions.CancelHandler@45c3cf0c} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@58cd7486}
-
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:46:47.507
-!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrentAndPause: {org.eclipse.statet.nico.ui.actions.CancelHandler@10db002c} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@581661d6}
-
-!ENTRY org.eclipse.statet.nico.ui 4 0 2018-05-22 14:48:30.668
-!MESSAGE FrameworkEvent ERROR
-!STACK 0
-org.osgi.framework.BundleException: Exception in org.eclipse.statet.internal.nico.ui.NicoUIPlugin.stop() of bundle org.eclipse.statet.nico.ui.
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:855)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:947)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:314)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
-	at org.eclipse.osgi.container.Module.stop(Module.java:498)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1675)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1594)
-	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:270)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:147)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
-	at org.eclipse.osgi.container.Module.stop(Module.java:498)
-	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:202)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:165)
-	at java.lang.Thread.run(Thread.java:748)
-Caused by: org.eclipse.swt.SWTException: Device is disposed
-	at org.eclipse.swt.SWT.error(SWT.java:4533)
-	at org.eclipse.swt.SWT.error(SWT.java:4448)
-	at org.eclipse.swt.SWT.error(SWT.java:4419)
-	at org.eclipse.swt.widgets.Display.error(Display.java:1289)
-	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:779)
-	at org.eclipse.statet.ecommons.ui.actions.WindowContributionsProvider.dispose(WindowContributionsProvider.java:116)
-	at org.eclipse.statet.internal.nico.ui.NicoUIPlugin.stop(NicoUIPlugin.java:102)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:835)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:828)
-	... 13 more
-Root exception:
-org.eclipse.swt.SWTException: Device is disposed
-	at org.eclipse.swt.SWT.error(SWT.java:4533)
-	at org.eclipse.swt.SWT.error(SWT.java:4448)
-	at org.eclipse.swt.SWT.error(SWT.java:4419)
-	at org.eclipse.swt.widgets.Display.error(Display.java:1289)
-	at org.eclipse.swt.widgets.Display.asyncExec(Display.java:779)
-	at org.eclipse.statet.ecommons.ui.actions.WindowContributionsProvider.dispose(WindowContributionsProvider.java:116)
-	at org.eclipse.statet.internal.nico.ui.NicoUIPlugin.stop(NicoUIPlugin.java:102)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:835)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$4.run(BundleContextImpl.java:1)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.stop(BundleContextImpl.java:828)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle.stopWorker0(EquinoxBundle.java:947)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.stopWorker(EquinoxBundle.java:314)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
-	at org.eclipse.osgi.container.Module.stop(Module.java:498)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.decStartLevel(ModuleContainer.java:1675)
-	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1594)
-	at org.eclipse.osgi.container.SystemModule.stopWorker(SystemModule.java:270)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule.stopWorker(EquinoxBundle.java:147)
-	at org.eclipse.osgi.container.Module.doStop(Module.java:636)
-	at org.eclipse.osgi.container.Module.stop(Module.java:498)
-	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:202)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:165)
-	at java.lang.Thread.run(Thread.java:748)
-
-!ENTRY org.eclipse.statet.nico.core 4 100 2018-05-22 14:48:31.268
-!MESSAGE Error of unexpected type occured, when writing to console stream.
-!STACK 0
-java.io.IOException: Output Stream is closed
-	at org.eclipse.statet.nico.ui.console.NIConsoleOutputStream.write(NIConsoleOutputStream.java:203)
-	at org.eclipse.statet.nico.ui.console.NIConsole$3.streamAppended(NIConsole.java:276)
-	at org.eclipse.statet.nico.core.runtime.ToolStreamMonitor.append(ToolStreamMonitor.java:91)
-	at org.eclipse.statet.nico.core.runtime.ToolController.doBeforeSubmitL(ToolController.java:1904)
-	at org.eclipse.statet.nico.core.runtime.ToolController.submitToConsole(ToolController.java:1896)
-	at org.eclipse.statet.r.nico.AbstractRDbgController.submitToConsole(AbstractRDbgController.java:783)
-	at org.eclipse.statet.r.console.core.AbstractRController.doQuitL(AbstractRController.java:233)
-	at org.eclipse.statet.r.nico.AbstractRDbgController.doQuitL(AbstractRDbgController.java:575)
-	at org.eclipse.statet.nico.core.runtime.ToolController$QuitRunnable.run(ToolController.java:391)
-	at org.eclipse.statet.nico.core.runtime.ToolController.loopRunTask(ToolController.java:1244)
-	at org.eclipse.statet.nico.core.runtime.ToolController.loopTopLevel(ToolController.java:1041)
-	at org.eclipse.statet.nico.core.runtime.ToolController.run(ToolController.java:613)
-	at org.eclipse.statet.nico.core.runtime.ToolRunner.run(ToolRunner.java:85)
-	at org.eclipse.statet.nico.core.runtime.ToolRunner.access$0(ToolRunner.java:83)
-	at org.eclipse.statet.nico.core.runtime.ToolRunner$1.run(ToolRunner.java:97)
-
-!ENTRY org.eclipse.statet.nico.core 4 100 2018-05-22 14:48:31.269
-!MESSAGE Error of unexpected type occured, when writing to console stream.
-!STACK 0
-java.io.IOException: Output Stream is closed
-	at org.eclipse.statet.nico.ui.console.NIConsoleOutputStream.write(NIConsoleOutputStream.java:203)
-	at org.eclipse.statet.nico.ui.console.NIConsole$3.streamAppended(NIConsole.java:276)
-	at org.eclipse.statet.nico.core.runtime.ToolStreamMonitor.append(ToolStreamMonitor.java:91)
-	at org.eclipse.statet.nico.core.runtime.ToolController.doBeforeSubmitL(ToolController.java:1906)
-	at org.eclipse.statet.nico.core.runtime.ToolController.submitToConsole(ToolController.java:1896)
-	at org.eclipse.statet.r.nico.AbstractRDbgController.submitToConsole(AbstractRDbgController.java:783)
-	at org.eclipse.statet.r.console.core.AbstractRController.doQuitL(AbstractRController.java:233)
-	at org.eclipse.statet.r.nico.AbstractRDbgController.doQuitL(AbstractRDbgController.java:575)
-	at org.eclipse.statet.nico.core.runtime.ToolController$QuitRunnable.run(ToolController.java:391)
-	at org.eclipse.statet.nico.core.runtime.ToolController.loopRunTask(ToolController.java:1244)
-	at org.eclipse.statet.nico.core.runtime.ToolController.loopTopLevel(ToolController.java:1041)
-	at org.eclipse.statet.nico.core.runtime.ToolController.run(ToolController.java:613)
-	at org.eclipse.statet.nico.core.runtime.ToolRunner.run(ToolRunner.java:85)
-	at org.eclipse.statet.nico.core.runtime.ToolRunner.access$0(ToolRunner.java:83)
-	at org.eclipse.statet.nico.core.runtime.ToolRunner$1.run(ToolRunner.java:97)
-
-!ENTRY org.eclipse.statet.nico.core 4 100 2018-05-22 14:48:31.269
-!MESSAGE Error of unexpected type occured, when writing to console stream.
-!STACK 0
-java.io.IOException: Output Stream is closed
-	at org.eclipse.statet.nico.ui.console.NIConsoleOutputStream.write(NIConsoleOutputStream.java:203)
-	at org.eclipse.statet.nico.ui.console.NIConsole$3.streamAppended(NIConsole.java:276)
-	at org.eclipse.statet.nico.core.runtime.ToolStreamMonitor.append(ToolStreamMonitor.java:91)
-	at org.eclipse.statet.nico.core.runtime.ToolController.doBeforeSubmitL(ToolController.java:1908)
-	at org.eclipse.statet.nico.core.runtime.ToolController.submitToConsole(ToolController.java:1896)
-	at org.eclipse.statet.r.nico.AbstractRDbgController.submitToConsole(AbstractRDbgController.java:783)
-	at org.eclipse.statet.r.console.core.AbstractRController.doQuitL(AbstractRController.java:233)
-	at org.eclipse.statet.r.nico.AbstractRDbgController.doQuitL(AbstractRDbgController.java:575)
-	at org.eclipse.statet.nico.core.runtime.ToolController$QuitRunnable.run(ToolController.java:391)
-	at org.eclipse.statet.nico.core.runtime.ToolController.loopRunTask(ToolController.java:1244)
-	at org.eclipse.statet.nico.core.runtime.ToolController.loopTopLevel(ToolController.java:1041)
-	at org.eclipse.statet.nico.core.runtime.ToolController.run(ToolController.java:613)
-	at org.eclipse.statet.nico.core.runtime.ToolRunner.run(ToolRunner.java:85)
-	at org.eclipse.statet.nico.core.runtime.ToolRunner.access$0(ToolRunner.java:83)
-	at org.eclipse.statet.nico.core.runtime.ToolRunner$1.run(ToolRunner.java:97)
-
-!ENTRY org.eclipse.statet.nico.core 4 100 2018-05-22 14:48:31.315
+!ENTRY org.eclipse.statet.nico.core 4 100 2018-05-22 14:53:24.183
 !MESSAGE Error of unexpected type occured, when writing to console stream.
 !STACK 0
 java.io.IOException: Output Stream is closed
@@ -243,38 +26,89 @@ java.io.IOException: Output Stream is closed
 	at org.eclipse.statet.internal.nico.ui.AbstractConsoleCommandHandler.execute(AbstractConsoleCommandHandler.java:32)
 	at org.eclipse.statet.nico.core.runtime.ToolController.executeHandler(ToolController.java:1732)
 	at org.eclipse.statet.nico.core.runtime.ToolController.handleStatus(ToolController.java:1719)
-	at org.eclipse.statet.r.nico.impl.RjsController$NicoComClient.handleStatus(RjsController.java:402)
-	at org.eclipse.statet.r.nico.impl.RjsController$NicoComClient.handleServerStatus(RjsController.java:395)
-	at org.eclipse.statet.rj.server.client.AbstractRJComClient.runMainLoop(AbstractRJComClient.java:972)
-	at org.eclipse.statet.rj.server.client.AbstractRJComClient.answerConsole(AbstractRJComClient.java:1168)
-	at org.eclipse.statet.r.nico.impl.RjsController.doSubmitL(RjsController.java:1116)
-	at org.eclipse.statet.nico.core.runtime.ToolController.submitToConsole(ToolController.java:1897)
-	at org.eclipse.statet.r.nico.AbstractRDbgController.submitToConsole(AbstractRDbgController.java:783)
-	at org.eclipse.statet.r.console.core.AbstractRController.doQuitL(AbstractRController.java:233)
-	at org.eclipse.statet.r.nico.AbstractRDbgController.doQuitL(AbstractRDbgController.java:575)
-	at org.eclipse.statet.nico.core.runtime.ToolController$QuitRunnable.run(ToolController.java:391)
+	at org.eclipse.statet.r.console.ui.tools.REnvIndexAutoUpdater$UpdateRunnable.run(REnvIndexAutoUpdater.java:120)
+	at org.eclipse.statet.r.console.core.AbstractRDataRunnable.run(AbstractRDataRunnable.java:58)
 	at org.eclipse.statet.nico.core.runtime.ToolController.loopRunTask(ToolController.java:1244)
 	at org.eclipse.statet.nico.core.runtime.ToolController.loopTopLevel(ToolController.java:1041)
 	at org.eclipse.statet.nico.core.runtime.ToolController.run(ToolController.java:613)
 	at org.eclipse.statet.nico.core.runtime.ToolRunner.run(ToolRunner.java:85)
 	at org.eclipse.statet.nico.core.runtime.ToolRunner.access$0(ToolRunner.java:83)
 	at org.eclipse.statet.nico.core.runtime.ToolRunner$1.run(ToolRunner.java:97)
-!SESSION 2018-05-22 14:49:06.534 -----------------------------------------------
+!SESSION 2018-05-22 14:53:44.192 -----------------------------------------------
 eclipse.buildId=unknown
 java.version=1.8.0_171
 java.vendor=Oracle Corporation
 BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
-Framework arguments:  -version 3 -port 43875 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -testpluginname eu.openanalytics.architect
-Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog -version 3 -port 43875 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -data /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace -dev file:/home/bvanbruggen/workspace/.metadata/.plugins/org.eclipse.pde.core/pde-junit/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog -testpluginname eu.openanalytics.architect
+Framework arguments:  -version 3 -port 43591 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -testpluginname eu.openanalytics.architect
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog -version 3 -port 43591 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -data /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace -dev file:/home/bvanbruggen/workspace/.metadata/.plugins/org.eclipse.pde.core/pde-junit/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog -testpluginname eu.openanalytics.architect
 
-!ENTRY eu.openanalytics.architect.ws.updater 1 0 2018-05-22 14:49:10.562
+!ENTRY eu.openanalytics.architect.ws.updater 1 0 2018-05-22 14:53:48.357
 !MESSAGE Workspace version is up-to-date: 0.6.7
 
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:49:21.329
-!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelAll: {org.eclipse.statet.nico.ui.actions.CancelHandler@53d782b0} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@f4deb35}
+!ENTRY org.eclipse.ui 4 4 2018-05-22 14:53:59.163
+!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelAll: {org.eclipse.statet.nico.ui.actions.CancelHandler@5fe1b8d2} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@597ef918}
 
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:49:21.335
-!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrent: {org.eclipse.statet.nico.ui.actions.CancelHandler@3e6b8b27} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@7e199cec}
+!ENTRY org.eclipse.ui 4 4 2018-05-22 14:53:59.164
+!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrent: {org.eclipse.statet.nico.ui.actions.CancelHandler@45c3cf0c} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@58cd7486}
 
-!ENTRY org.eclipse.ui 4 4 2018-05-22 14:49:21.335
-!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrentAndPause: {org.eclipse.statet.nico.ui.actions.CancelHandler@5b95a754} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@500341c4}
+!ENTRY org.eclipse.ui 4 4 2018-05-22 14:53:59.164
+!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrentAndPause: {org.eclipse.statet.nico.ui.actions.CancelHandler@10db002c} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@581661d6}
+
+!ENTRY org.eclipse.statet.nico.core 4 100 2018-05-22 14:54:19.954
+!MESSAGE Error of unexpected type occured, when writing to console stream.
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.statet.nico.ui.console.NIConsoleOutputStream.write(NIConsoleOutputStream.java:203)
+	at org.eclipse.statet.nico.ui.console.NIConsole$3.streamAppended(NIConsole.java:276)
+	at org.eclipse.statet.nico.core.runtime.ToolStreamMonitor.append(ToolStreamMonitor.java:91)
+	at org.eclipse.statet.nico.ui.util.ReportStatusHandler.execute(ReportStatusHandler.java:71)
+	at org.eclipse.statet.internal.nico.ui.AbstractConsoleCommandHandler.execute(AbstractConsoleCommandHandler.java:32)
+	at org.eclipse.statet.nico.core.runtime.ToolController.executeHandler(ToolController.java:1732)
+	at org.eclipse.statet.nico.core.runtime.ToolController.handleStatus(ToolController.java:1719)
+	at org.eclipse.statet.r.console.ui.tools.REnvIndexAutoUpdater$UpdateRunnable.run(REnvIndexAutoUpdater.java:120)
+	at org.eclipse.statet.r.console.core.AbstractRDataRunnable.run(AbstractRDataRunnable.java:58)
+	at org.eclipse.statet.nico.core.runtime.ToolController.loopRunTask(ToolController.java:1244)
+	at org.eclipse.statet.nico.core.runtime.ToolController.loopTopLevel(ToolController.java:1041)
+	at org.eclipse.statet.nico.core.runtime.ToolController.run(ToolController.java:613)
+	at org.eclipse.statet.nico.core.runtime.ToolRunner.run(ToolRunner.java:85)
+	at org.eclipse.statet.nico.core.runtime.ToolRunner.access$0(ToolRunner.java:83)
+	at org.eclipse.statet.nico.core.runtime.ToolRunner$1.run(ToolRunner.java:97)
+!SESSION 2018-05-22 14:54:23.597 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_171
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -version 3 -port 34245 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -testpluginname eu.openanalytics.architect
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -consoleLog -version 3 -port 34245 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames eu.openanalytics.arichitect.r.tests.ArchitectTest -application org.eclipse.swtbot.eclipse.core.swtbottestapplication -product eu.openanalytics.architect.product -data /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace -dev file:/home/bvanbruggen/workspace/.metadata/.plugins/org.eclipse.pde.core/pde-junit/dev.properties -os linux -ws gtk -arch x86_64 -consoleLog -testpluginname eu.openanalytics.architect
+
+!ENTRY eu.openanalytics.architect.ws.updater 1 0 2018-05-22 14:54:27.646
+!MESSAGE Workspace version is up-to-date: 0.6.7
+
+!ENTRY org.eclipse.ui 4 4 2018-05-22 14:54:39.886
+!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelAll: {org.eclipse.statet.nico.ui.actions.CancelHandler@1080234b} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@28e2d3ed}
+
+!ENTRY org.eclipse.ui 4 4 2018-05-22 14:54:39.887
+!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrent: {org.eclipse.statet.nico.ui.actions.CancelHandler@1160c54b} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@363b7709}
+
+!ENTRY org.eclipse.ui 4 4 2018-05-22 14:54:39.888
+!MESSAGE Conflicting handlers for org.eclipse.statet.nico.commands.CancelCurrentAndPause: {org.eclipse.statet.nico.ui.actions.CancelHandler@4baf3987} vs {org.eclipse.statet.nico.ui.actions.CancelHandler@7fef485d}
+
+!ENTRY org.eclipse.statet.nico.core 4 100 2018-05-22 14:54:57.791
+!MESSAGE Error of unexpected type occured, when writing to console stream.
+!STACK 0
+java.io.IOException: Output Stream is closed
+	at org.eclipse.statet.nico.ui.console.NIConsoleOutputStream.write(NIConsoleOutputStream.java:203)
+	at org.eclipse.statet.nico.ui.console.NIConsole$3.streamAppended(NIConsole.java:276)
+	at org.eclipse.statet.nico.core.runtime.ToolStreamMonitor.append(ToolStreamMonitor.java:91)
+	at org.eclipse.statet.nico.ui.util.ReportStatusHandler.execute(ReportStatusHandler.java:71)
+	at org.eclipse.statet.internal.nico.ui.AbstractConsoleCommandHandler.execute(AbstractConsoleCommandHandler.java:32)
+	at org.eclipse.statet.nico.core.runtime.ToolController.executeHandler(ToolController.java:1732)
+	at org.eclipse.statet.nico.core.runtime.ToolController.handleStatus(ToolController.java:1719)
+	at org.eclipse.statet.r.console.ui.tools.REnvIndexAutoUpdater$UpdateRunnable.run(REnvIndexAutoUpdater.java:120)
+	at org.eclipse.statet.r.console.core.AbstractRDataRunnable.run(AbstractRDataRunnable.java:58)
+	at org.eclipse.statet.nico.core.runtime.ToolController.loopRunTask(ToolController.java:1244)
+	at org.eclipse.statet.nico.core.runtime.ToolController.loopTopLevel(ToolController.java:1041)
+	at org.eclipse.statet.nico.core.runtime.ToolController.run(ToolController.java:613)
+	at org.eclipse.statet.nico.core.runtime.ToolRunner.run(ToolRunner.java:85)
+	at org.eclipse.statet.nico.core.runtime.ToolRunner.access$0(ToolRunner.java:83)
+	at org.eclipse.statet.nico.core.runtime.ToolRunner$1.run(ToolRunner.java:97)
