@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+r.environments/default_configuration.name=eplugin-local-eu.openanalytics.r.server
+r.environments/eplugin-local-eu.openanalytics.r.server/CheckedR.version=3.4.4
+r.environments/version=2

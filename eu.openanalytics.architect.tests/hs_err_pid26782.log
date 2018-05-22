@@ -1,0 +1,118 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007ff70541ad74, pid=26782, tid=0x00007ff6cfcfc700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_162-b12) (build 1.8.0_162-8u162-b12-0ubuntu0.16.04.2-b12)
+# Java VM: OpenJDK 64-Bit Server VM (25.162-b12 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# V  [libjvm.so+0x5a8d74]
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007ff700081800):  VMThread [stack: 0x00007ff6cfbfc000,0x00007ff6cfcfd000] [id=26796]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 2 (SEGV_ACCERR), si_addr: 0x00007ff6e90ddf18
+
+Registers:
+RAX=0x00007ff6e90ddf10, RBX=0x00007ff705d99400, RCX=0x0000000000000018, RDX=0x0000000005a1ba80
+RSP=0x00007ff6cfcfb6f0, RBP=0x00007ff6cfcfb720, RSI=0x0000000001205880, RDI=0x00007ff705d99400
+R8 =0x00007ff705d99400, R9 =0x0000000000000001, R10=0x00007ff6cfcfb6c0, R11=0x00075eb02c36d8c4
+R12=0x00000000012056c0, R13=0x0000004addfbadd0, R14=0x0000000000000002, R15=0x00007ff70595a534
+RIP=0x00007ff70541ad74, EFLAGS=0x0000000000010202, CSGSFS=0x002b000000000033, ERR=0x0000000000000006
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007ff6cfcfb6f0)
+0x00007ff6cfcfb6f0:   00007ff6cfcfb760 00007ff6cfcfb840
+0x00007ff6cfcfb700:   00007ff70595a534 0000000000000005
+0x00007ff6cfcfb710:   00007ff6cfcfb858 00007ff6cfcfb820
+0x00007ff6cfcfb720:   00007ff6cfcfb750 00007ff70541faf2
+0x00007ff6cfcfb730:   00007ff70007de80 00007ff700080bd0
+0x00007ff6cfcfb740:   0000000000000008 00007ff6cfcfb800
+0x00007ff6cfcfb750:   00007ff6cfcfb8a0 00007ff705795cac
+0x00007ff6cfcfb760:   00007ff6cfcfb7e0 00007ff705d993c0
+0x00007ff6cfcfb770:   00007ff6cfcfb840 bd8882c9440bfe00
+0x00007ff6cfcfb780:   00007ff6cfcfb7a0 00007ff70588fa11
+0x00007ff6cfcfb790:   00007ff6cfcfb7c0 00007ff7056a03f8
+0x00007ff6cfcfb7a0:   0000000000000010 0000000000000028
+0x00007ff6cfcfb7b0:   00007ff705cd8628 00007ff70007de80
+0x00007ff6cfcfb7c0:   00007ff705cd8640 00007ffd5cf73c00
+0x00007ff6cfcfb7d0:   00007ff70007de80 00000001002e7668
+0x00007ff6cfcfb7e0:   00007ff70595a526 00007ffd5cf70100
+0x00007ff6cfcfb7f0:   00007ff705d99400 0000004addfae8d4
+0x00007ff6cfcfb800:   00007ff705cd99c0 0000000000000008
+0x00007ff6cfcfb810:   00007ff70007d430 00007ff700000000
+0x00007ff6cfcfb820:   00007ff6cfcfb860 00007ff706506876
+0x00007ff6cfcfb830:   00007ff6cfcfb800 00007ff706506876
+0x00007ff6cfcfb840:   00007ff70595a534 00007ff6cfcf0100
+0x00007ff6cfcfb850:   00007ff705d99400 0000004addfbadd0
+0x00007ff6cfcfb860:   00000000000195d7 bd8882c9440bfe00
+0x00007ff6cfcfb870:   00007ff6cfcfb880 00007ff7000191f0
+0x00007ff6cfcfb880:   00007ff700080bd0 00007ff705d99000
+0x00007ff6cfcfb890:   00007ff70007de80 00007ff705d60ec0
+0x00007ff6cfcfb8a0:   00007ff6cfcfbb50 00007ff70579743d
+0x00007ff6cfcfb8b0:   00007ff705d99010 00007ff70001e0c0
+0x00007ff6cfcfb8c0:   00007ff700019690 0000000000000000
+0x00007ff6cfcfb8d0:   00007ff700019720 00007ff6cfcfba50
+0x00007ff6cfcfb8e0:   00007ff7000193e0 00000000000003d8 
+
+Instructions: (pc=0x00007ff70541ad74)
+0x00007ff70541ad54:   34 24 41 3b 74 24 04 74 53 8d 46 01 41 89 04 24
+0x00007ff70541ad64:   48 63 c6 48 8d 14 80 49 8b 44 24 18 48 8d 04 d0
+0x00007ff70541ad74:   4c 89 78 08 44 89 70 10 4c 89 68 18 48 c7 40 20
+0x00007ff70541ad84:   00 00 00 00 48 63 53 34 48 89 d0 89 74 93 20 83 
+
+Register to memory mapping:
+
+RAX=0x00007ff6e90ddf10 is an unknown value
+RBX=0x00007ff705d99400: <offset 0xf27400> in /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so at 0x00007ff704e72000
+RCX=0x0000000000000018 is an unknown value
+RDX=0x0000000005a1ba80 is an unknown value
+RSP=0x00007ff6cfcfb6f0 is an unknown value
+RBP=0x00007ff6cfcfb720 is an unknown value
+RSI=0x0000000001205880 is an unknown value
+RDI=0x00007ff705d99400: <offset 0xf27400> in /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so at 0x00007ff704e72000
+R8 =0x00007ff705d99400: <offset 0xf27400> in /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so at 0x00007ff704e72000
+R9 =0x0000000000000001 is an unknown value
+R10=0x00007ff6cfcfb6c0 is an unknown value
+R11=0x00075eb02c36d8c4 is an unknown value
+R12=0x00000000012056c0 is an unknown value
+R13=0x0000004addfbadd0 is an unknown value
+R14=0x0000000000000002 is an unknown value
+R15=0x00007ff70595a534: <offset 0xae8534> in /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so at 0x00007ff704e72000
+
+
+Stack: [0x00007ff6cfbfc000,0x00007ff6cfcfd000],  sp=0x00007ff6cfcfb6f0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x5a8d74]
+V  [libjvm.so+0x5adaf2]
+V  [libjvm.so+0x923cac]
+V  [libjvm.so+0x92543d]
+V  [libjvm.so+0x925dec]
+V  [libjvm.so+0xa6ed05]
+V  [libjvm.so+0xa73fd7]
+V  [libjvm.so+0xa716d7]
+V  [libjvm.so+0xa72b5f]
+V  [libjvm.so+0xa73051]
+V  [libjvm.so+0x8b7222]
+
+VM_Operation (0x00007ff64bdfb830): ParallelGCSystemGC, mode: safepoint, requested by thread 0x00007ff65c011800
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007ff65c011800 JavaThread "Thread-1" [_thread_blocked, id=26877, stack(0x00007ff64bcfc000,0x00007ff64bdfd000)]
+  0x00007ff6ac001000 JavaThread "SIGTERM handler" daemon [_thread_blocked, id=26874, stack(0x00007ff688029000,0x00007ff68812a000)]
+  0x00007ff670004800 JavaThread "RMI TCP Connection(13)-127.0.0.1" daemon [_thread_in_native, id=26872, stack(0x00007ff66a942000,0x00007ff66aa43000)]
+  0x00007ff670006000 JavaThread "RMI TCP Connection(14)-127.0.0.1" daemon [_thread_blocked, id=26871, stack(0x00007ff66b854000,0x00007ff66b955000)]
+  0x00007ff65001f000 JavaThread "RMI RenewClean-[127.0.0.1:34475]" daemon [_thread_blocked, id=26846, stack(0x00007ff66b00e000,0x00007ff66b10f000)]
+  0x00007ff655ebe000 JavaThread "OutPipe-5" daemon [_thread_blocked, id=26828, stack(0x00007ff66ae82000,0x00007ff66af83000)]
+  0x00007ff650005000 JavaThread "Rengine Thread" daemon [_thread_in_native, id=26827, stack(0x00007ff64bfff000,0x00007ff650000000)]
+  0x00007ff670003000

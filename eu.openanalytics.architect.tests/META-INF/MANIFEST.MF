@@ -8,4 +8,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.swtbot.eclipse.finder,
  org.eclipse.swtbot.forms.finder,
  org.eclipse.swtbot.junit4_x,
- org.junit
+ org.junit,
+ org.apache.log4j;bundle-version="1.2.15"

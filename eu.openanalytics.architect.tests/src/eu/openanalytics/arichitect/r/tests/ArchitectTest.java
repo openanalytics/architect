@@ -1,5 +1,6 @@
 package eu.openanalytics.arichitect.r.tests;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -11,15 +12,21 @@ import java.net.URL;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEclipseEditor;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
+import org.eclipse.swtbot.swt.finder.waits.WaitForObjectCondition;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotStyledText;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTable;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarButton;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.osgi.framework.Bundle;
+
 
 public class ArchitectTest {
 
@@ -34,73 +41,211 @@ public class ArchitectTest {
 	public static void beforeClass() {
 		bot = new SWTWorkbenchBot();
 
-		// Bundle testBundle =
-		// Platform.getBundle(ArchitectTest.class.getPackage().getName());
-		// URL workspaceURL = FileLocator.find(testBundle, new Path(PROJECT_PATH),
-		// null);
-		// try {
-		// resolvedWorkspacePath = new
-		// File(FileLocator.toFileURL(workspaceURL).toURI()).getAbsolutePath();
-		// } catch (IOException | URISyntaxException e) {
-		// fail("Cannot resolve test data: " + PROJECT_PATH);
-		// }
+//		Bundle testBundle = Platform.getBundle(ArchitectTest.class.getPackage().getName());
+//		URL workspaceURL = FileLocator.find(testBundle, new Path(PROJECT_PATH), null);
+//		try {
+//			resolvedWorkspacePath = new File(FileLocator.toFileURL(workspaceURL).toURI()).getAbsolutePath();
+//		} catch (IOException | URISyntaxException e) {
+//			fail("Cannot resolve test data: " + PROJECT_PATH);
+//		}
+//		
+//		SWTBotShell wb = bot.activeShell();
+//		wb.activate();
+//		bot.menu("File").menu("Open Projects from File System...").click();
+//		bot.shell("Import Projects from File System or Archive").activate();
+//		bot.comboBoxWithLabel("Import source:").setText(resolvedWorkspacePath);
+//		try {
+//			bot.button("Finish").click();
+//		} catch (Exception e) {
+//			// This may fail if multiple tests run in the same workspace: the project is already imported
+//			bot.button("Cancel").click();
+//		}
 	}
 
 	@Test
 	public void testArchitect() {
+		System.out.println("----------------start tests----------------------");
 		SWTBotShell wb = bot.activeShell();
-
 		wb.activate();
 		try {Thread.sleep(5000);} catch (InterruptedException e) {}
 		// TODO wait until console view has a page for R
-
-		System.out.println("--------------------------------------");
 		SWTBotView view = bot.viewById("org.eclipse.ui.console.ConsoleView");
-		System.out.println(view.bot().styledText());
 		SWTBotStyledText text = view.bot().styledText();
-		text.typeText("plot(1)\n");
-		text.typeText("??c\n"); // the first question mark is ignored
-		text.typeText("c?\n");
-		try {Thread.sleep(5000);} catch (InterruptedException e) {}
-		text.typeText("q()\n");
-		System.out.println("--------------------------------------");
-		wb.activate();
-		bot.menu("Window").menu("Show View").menu("Other...").click();
-		bot.shell("Show View").activate();
-		bot.text().setText("navigator");
-		bot.button("Open").click();
 		
-		System.out.println(bot.views());
-		for (SWTBotView views : bot.views()) {
-			System.out.println(views.getTitle());
-		}
-		
-		view = bot.viewByTitle("Project Explorer");
-		view.show();
-		System.out.println(view.getToolbarButtons());
-
-		SWTBotTreeItem projectItem = null;
-		for (SWTBotTreeItem item : view.bot().tree().getAllItems()) {
-			if (item.getText().contains(PROJECT_NAME))
-				projectItem = item;
-		}
-		SWTBotTreeItem testFileItem = null;
-		for (SWTBotTreeItem item : view.bot().tree().expandNode(projectItem.getText()).getItems()) {
-			if (item.getText().contains(TEST_FILE_NAME))
-				testFileItem = item;
-		}
-		testFileItem.doubleClick();
-		try {Thread.sleep(3000);} catch (InterruptedException e) {}
-		view.getToolbarButtons().get(0).click();
-		
-		SWTBotEclipseEditor editor = bot.editorByTitle(TEST_FILE_NAME).toTextEditor();
-		editor.setFocus();
-		System.out.println(editor.getReference().getId());
-		editor.close();
-		
-		System.out.println("--------------------------------------");
-
+//		text.typeText("2+2\n");
+//		try {Thread.sleep(2000);} catch (InterruptedException e) {}
+//		assertTrue(text.getText().endsWith("[1] 4\n"));
+//		
+//		text.typeText("plot(rnorm(100))\n");
+//		try {Thread.sleep(500);} catch (InterruptedException e) {}
+//		boolean viewPresent = false;
+//		for (SWTBotView views : bot.views()) {
+//			if (views.getReference().getId().equals("org.eclipse.statet.r.views.RGraphic")) {
+//				viewPresent = true;
+//				break;
+//			}
+//		}
+//		bot.viewById("org.eclipse.statet.r.views.RGraphic").close();
+//		assertTrue(viewPresent);
+//		
+//		text.typeText("??lm\n");
+//		SWTBotView helpView = bot.viewById("org.eclipse.statet.r.views.RHelp");
+//		try {Thread.sleep(500);} catch (InterruptedException e) {}
+//		viewPresent = false;
+//		for (SWTBotView views : bot.views()) {
+//			if (views.getReference().getId().equals("org.eclipse.statet.r.views.RHelp")) {
+//				viewPresent = true;
+//				break;
+//			}
+//		}
+//		bot.viewById("org.eclipse.statet.r.views.RHelp").close();
+//		assertTrue(viewPresent);
+//		
+//		try {Thread.sleep(100000);} catch (InterruptedException e) {}
+//		view.getToolbarButtons().get(2).click();
+		System.out.println("----------------RScript Fresh Install start----------------------");
 		try {Thread.sleep(100000);} catch (InterruptedException e) {}
-		assertTrue(true);
+		bot.menu("File").menu("Open Projects from File System...").click();
+		bot.shell("Import Projects from File System or Archive").activate();
+		bot.comboBoxWithLabel("Import source:").setText("/home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace");
+		try {
+			bot.button("Finish").click();
+		} catch (Exception e) {
+			// This may fail if multiple tests run in the same workspace: the project is already imported
+			bot.button("Cancel").click();
+		}		
+		
+		
+		try {Thread.sleep(100000);} catch (InterruptedException e) {}
+		System.out.println("----------------RScript start----------------------");
+//		view = bot.viewByTitle("Project Explorer");
+//		view.show();
+//		System.out.println(view.getToolbarButtons());
+//
+//		SWTBotTreeItem projectItem = null;
+//		for (SWTBotTreeItem item : view.bot().tree().getAllItems()) {
+//			if (item.getText().contains(PROJECT_NAME))
+//				projectItem = item;
+//		}
+//		SWTBotTreeItem testFileItem = null;
+//		for (SWTBotTreeItem item : view.bot().tree().expandNode(projectItem.getText()).getItems()) {
+//			if (item.getText().contains("random.R"))
+//				testFileItem = item;
+//		}
+//		testFileItem.doubleClick();
+//		
+//		SWTBotEclipseEditor editor = bot.editorByTitle("random.R").toTextEditor();
+//		editor.setFocus();
+//		
+//		editor.navigateTo(6, 1);
+//		editor.pressShortcut(SWT.CTRL, 'r');
+//		editor.pressShortcut(SWT.CTRL, 'r');
+//		System.out.println("----------------PackageManager start----------------------");
+////		view.bot().buttonWithTooltip("View Menu").click();
+////		for (SWTBotToolbarButton button : view.getToolbarButtons()) {
+////			System.out.println("id: " + button.getId() + " text: " + button.getText() + " toolTipText: " + button.getToolTipText());
+////		}
+//		try {Thread.sleep(300000);} catch (InterruptedException e) {}
+//		System.out.println("----------------installPackages start----------------------");
+////		System.out.println(view.bot().styledText());
+////		try {Thread.sleep(100000);} catch (InterruptedException e) {}
+//		for (SWTBotShell shell : bot.shells()) {
+//			System.out.println("id: " + shell.getId() + " text: " + shell.getText() + " string: " + shell.toString());
+//		}
+//		text.typeText("install.packages(\"RApiDatetime\")\n");
+//		try {Thread.sleep(10000);} catch (InterruptedException e) {}
+//		for (SWTBotShell shell : bot.shells()) {
+//			System.out.println("id: " + shell.getId() + " text: " + shell.getText() + " string: " + shell.toString());
+//		}
+////		text.typeText("chooseCRANmirror(graphics = FALSE)\n");
+////		try {Thread.sleep(1000);} catch (InterruptedException e) {}
+////		text.typeText("8\n");
+//		
+////		try {Thread.sleep(10000);} catch (InterruptedException e) {}
+////		text.typeText("install.packages(\"gtable\", repos = \"https://cloud.r-project.org\")\n");
+//		System.out.println("----------------installPackages end----------------------");
+////		System.out.println(text.getText());
+//		try {Thread.sleep(300000);} catch (InterruptedException e) {}
+//		
+//		System.out.println("------------------autocomplete start--------------------");
+//		text.typeText("med");
+//		try {Thread.sleep(5000);} catch (InterruptedException e) {}
+//		text = view.bot().styledText("med");
+//		text.pressShortcut(SWT.CTRL, ' ');
+//		try {Thread.sleep(5000);} catch (InterruptedException e) {}
+////		SWTBotShell autocompletShell = bot.activeShell();
+////		autocompletShell.activate();
+////		System.out.println(autocompletShell.getText());
+////		try {Thread.sleep(100000);} catch (InterruptedException e) {}
+//		for (SWTBotShell shell : bot.shells()) {
+//			Shell shellWidget = shell.widget;
+//			if (shell.getText().equals("")) {
+//				System.out.println(shellWidget.getText());
+//			}
+////			System.out.println(shellWidget.getText());
+////			System.out.println(shellWidget.getChildren().toString());
+//			
+//			System.out.println("id: " + shell.getId() + " text: " + shell.getText() + " string: " + shell.toString());
+//		}
+//		SWTBotShell autoCompletShell = bot.shell("Quick Access");
+//		autoCompletShell.close();
+//		try {Thread.sleep(5000);} catch (InterruptedException e) {}
+//		text.typeText("med");
+////		SWTBotShell autoComplete = bot.activeShell();
+////		System.out.println(autoComplete.toString());
+//		System.out.println("--------------------------------------");
+//		wb.activate();
+//		
+//		System.out.println(bot.views());
+//		for (SWTBotView views : bot.views()) {
+//			System.out.println(views.getTitle());
+//		}
+//		
+//		view = bot.viewByTitle("Project Explorer");
+//		view.show();
+//		System.out.println(view.getToolbarButtons());
+//
+//		projectItem = null;
+//		for (SWTBotTreeItem item : view.bot().tree().getAllItems()) {
+//			if (item.getText().contains(PROJECT_NAME))
+//				projectItem = item;
+//		}
+//		testFileItem = null;
+//		for (SWTBotTreeItem item : view.bot().tree().expandNode(projectItem.getText()).getItems()) {
+//			if (item.getText().contains(TEST_FILE_NAME))
+//				testFileItem = item;
+//		}
+//		testFileItem.doubleClick();
+//		try {Thread.sleep(3000);} catch (InterruptedException e) {}
+//		view.getToolbarButtons().get(0).click();
+//		
+//		editor = bot.editorByTitle(TEST_FILE_NAME).toTextEditor();
+//		editor.setFocus();
+//		System.out.println(editor.getReference().getId());
+//		editor.close();
+//		
+//		view.show();
+//		projectItem = null;
+//		for (SWTBotTreeItem item : view.bot().tree().getAllItems()) {
+//			if (item.getText().contains(PROJECT_NAME))
+//				projectItem = item;
+//		}
+//		testFileItem = null;
+//		for (SWTBotTreeItem item : view.bot().tree().expandNode(projectItem.getText()).getItems()) {
+//			if (item.getText().contains("A3.R"))
+//				testFileItem = item;
+//		}
+//		testFileItem.doubleClick();
+//		try {Thread.sleep(3000);} catch (InterruptedException e) {}
+//		
+//		editor = bot.editorByTitle("A3.R").toTextEditor();
+//		editor.setFocus();
+//		System.out.println(editor.getReference().getId());
+//		editor.close();
+//		
+//		System.out.println("--------------------------------------");
+//
+//		try {Thread.sleep(10000);} catch (InterruptedException e) {}
+//		assertTrue(true);
 	}
 }

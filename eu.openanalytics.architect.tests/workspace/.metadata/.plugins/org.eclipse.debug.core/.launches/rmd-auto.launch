@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.statet.redocs.launchConfigurations.WikitextRweaveDocProcessing">
+<stringAttribute key="org.eclipse.statet.docmlet.base/main/WorkingDirectory.path" value="${container_path}"/>
+<stringAttribute key="org.eclipse.statet.docmlet.base/preview/Operation.id" value="org.eclipse.statet.docmlet.base.docProcessing.OpenUsingEclipseOperation"/>
+<booleanAttribute key="org.eclipse.statet.docmlet.base/preview/Run.enabled" value="true"/>
+<stringAttribute key="org.eclipse.statet.redocs/produce/Operation.id" value="org.eclipse.statet.redocs.docProcessing.RunRConsoleSnippetOperation"/>
+<mapAttribute key="org.eclipse.statet.redocs/produce/Operation.settings">
+<mapEntry key="org.eclipse.statet.redocs.docProcessing.RunRConsoleSnippetOperation/RSnippet.code" value="rmarkdown::render(input= &quot;${resource_loc}&quot;, output_dir= &quot;${container_loc:${out_file_path}}&quot;, encoding= &quot;${resource_enc}&quot;)"/>
+</mapAttribute>
+<stringAttribute key="org.eclipse.statet.redocs/produce/Output.File.path" value="${file_name_base}.${out_file_ext}"/>
+<stringAttribute key="org.eclipse.statet.redocs/produce/Output.Format.key" value="auto:by-indoc-yaml"/>
+<booleanAttribute key="org.eclipse.statet.redocs/produce/Run.enabled" value="true"/>
+<stringAttribute key="org.eclipse.statet.redocs/weave/Operation.id" value="org.eclipse.statet.redocs.docProcessing.RunRConsoleSnippetOperation"/>
+<mapAttribute key="org.eclipse.statet.redocs/weave/Operation.settings">
+<mapEntry key="org.eclipse.statet.redocs.docProcessing.RunRConsoleSnippetOperation/RSnippet.code" value="rmarkdown::render(input= &quot;${resource_loc}&quot;, output_format= &quot;md_document&quot;, output_file= &quot;${resource_loc:${out_file_path}}&quot;, encoding= &quot;${resource_enc}&quot;)"/>
+</mapAttribute>
+<stringAttribute key="org.eclipse.statet.redocs/weave/Output.File.path" value="${file_name_base}.${out_file_ext}"/>
+<stringAttribute key="org.eclipse.statet.redocs/weave/Output.Format.key" value="auto:wikitext"/>
+<booleanAttribute key="org.eclipse.statet.redocs/weave/Run.enabled" value="false"/>
+</launchConfiguration>
