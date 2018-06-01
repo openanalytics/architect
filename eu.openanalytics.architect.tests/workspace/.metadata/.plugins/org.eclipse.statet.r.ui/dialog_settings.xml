@@ -2,10 +2,11 @@
 <section name="Workbench">
 	<section name="NewElementWizard">
 		<item value="true" key="org.eclipse.statet.NewElementWizard.ContainerFilter"/>
-	</section>
-	<section name="RContentAssist.Proposal.size">
+		<item value="true" key="org.eclipse.statet.base.NewElementWizard.ContainerFilter"/>
 	</section>
 	<section name="ROutlineView">
+	</section>
+	<section name="RContentAssist.Proposal.size">
 	</section>
 	<section name="ObjectBrowser">
 		<item value="true" key="filter.only_userspace.enabled"/>

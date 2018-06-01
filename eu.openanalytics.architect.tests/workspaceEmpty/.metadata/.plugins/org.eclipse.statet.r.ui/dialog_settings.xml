@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewElementWizard">
+		<item value="true" key="org.eclipse.statet.NewElementWizard.ContainerFilter"/>
+	</section>
+	<section name="ROutlineView">
+	</section>
+	<section name="RContentAssist.Proposal.size">
+	</section>
+	<section name="ObjectBrowser">
+		<item value="true" key="filter.only_userspace.enabled"/>
+	</section>
+</section>

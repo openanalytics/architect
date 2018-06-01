@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.statet.r.launchConfigurations.RCmdTool">
+<stringAttribute key="org.eclipse.statet.r.debug/RCmd/arguments.cmd" value="CMD check"/>
+<stringAttribute key="org.eclipse.statet.r.debug/RCmd/arguments.options" value=""/>
+<stringAttribute key="org.eclipse.statet.r.debug/RCmd/arguments.resource" value="${resource_loc}"/>
+<stringAttribute key="org.eclipse.statet.r.debug/REnv/REnvSetting" value="default-workbench"/>
+<stringAttribute key="org.eclipse.statet.r.debug/REnv/workingDirectory" value="${container_loc}"/>
+<stringAttribute key="org.eclipse.statet.r/renv/REnvCode" value="default-workbench"/>
+<stringAttribute key="org.eclipse.statet.r/renv/WorkingDirectory" value="${container_loc}"/>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables">
+<mapEntry key="PATH" value="${architect_pandoc}:${env_var:PATH}"/>
+<mapEntry key="R_KEEP_PKG_SOURCE" value="yes"/>
+<mapEntry key="R_ZIPCMD" value="zip"/>
+</mapAttribute>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.ui.externaltools.launchGroup"/>
+</listAttribute>
+</launchConfiguration>
