@@ -13,7 +13,7 @@
 	
 	<target name="prepare.sources">
 		<untar src="${src.archive}" dest="${build.dir}" compression="gzip" />
-		<mkdir dir="${build.dir}/${r.version}/Tcl64" />
+		<mkdir dir="${build.dir}/${r.version}/Tcl" />
 		<copy todir="${build.dir}/${r.version}/Tcl64">
 			<fileset dir="${src.dir.extra}">
 				<include name="*/**" />
