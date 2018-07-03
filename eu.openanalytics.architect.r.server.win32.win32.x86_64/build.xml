@@ -4,11 +4,13 @@
 	
 	<target name="clean">
 		<delete dir="${build.dir}" />
+		<delete dir="${output.dir}" />
 	</target>
 	
 	<target name="init">
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${build.dir}/tmp-rtools" />
+		<mkdir dir="${output.dir}" />
 	</target>
 	
 	<target name="prepare.sources">
