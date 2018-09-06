@@ -1,26 +1,26 @@
 ----------------------------------------------------------------
-Fri Jun 01 14:12:09 CEST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0163-bb43-250f-00001f7d8caf 
-on database directory /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace/.metadata/.plugins/org.eclipse.statet.r.core/db with class loader org.eclipse.osgi.internal.loader.EquinoxClassLoader@67eb43a0[org.apache.derby:10.11.1.1_v201605202053(id=80)] 
+Wed Aug 08 11:02:06 CEST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0165-18c5-9553-00001f7d8caf 
+on database directory /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace/.metadata/.plugins/org.eclipse.statet.r.core/db with class loader org.eclipse.osgi.internal.loader.EquinoxClassLoader@6fefaeba[org.apache.derby:10.11.1.1_v201605202053(id=80)] 
 Loaded from file:/home/bvanbruggen/workspace/.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.apache.derby_10.11.1.1_v201605202053.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_171-8u171-b11-0ubuntu0.16.04.1-b11
 user.dir=/home/bvanbruggen/git/architect/eu.openanalytics.architect.tests
 os.name=Linux
 os.arch=amd64
-os.version=4.13.0-41-generic
+os.version=4.13.0-45-generic
 derby.system.home=/home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace/.metadata/.plugins/org.eclipse.statet.ecommons.edb.core
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri Jun 01 14:12:13 CEST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 004b0019-0163-bb43-250f-00001f7d8caf 
-on database directory /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace/.metadata/.plugins/org.eclipse.statet.r.core/renv/eplugin-local-eu.openanalytics.r.server/db with class loader org.eclipse.osgi.internal.loader.EquinoxClassLoader@67eb43a0[org.apache.derby:10.11.1.1_v201605202053(id=80)] 
+Wed Aug 08 11:02:10 CEST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 004b0019-0165-18c5-9553-00001f7d8caf 
+on database directory /home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace/.metadata/.plugins/org.eclipse.statet.r.core/renv/eplugin-local-eu.openanalytics.r.server/db with class loader org.eclipse.osgi.internal.loader.EquinoxClassLoader@6fefaeba[org.apache.derby:10.11.1.1_v201605202053(id=80)] 
 Loaded from file:/home/bvanbruggen/workspace/.metadata/.plugins/org.eclipse.pde.core/.bundle_pool/plugins/org.apache.derby_10.11.1.1_v201605202053.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_171-8u171-b11-0ubuntu0.16.04.1-b11
 user.dir=/home/bvanbruggen/git/architect/eu.openanalytics.architect.tests
 os.name=Linux
 os.arch=amd64
-os.version=4.13.0-41-generic
+os.version=4.13.0-45-generic
 derby.system.home=/home/bvanbruggen/git/architect/eu.openanalytics.architect.tests/workspace/.metadata/.plugins/org.eclipse.statet.ecommons.edb.core
 Database Class Loader started - derby.database.classpath=''
