@@ -139,4 +139,18 @@
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="org.apache.lucene.core"
+         download-size="0"
+         install-size="0"
+         version="7.4.0.v20180821-2005"
+         unpack="false"/>
+
+   <plugin
+         id="org.apache.lucene.analyzers-common"
+         download-size="0"
+         install-size="0"
+         version="7.4.0.v20180821-2005"
+         unpack="false"/>
+
 </feature>
