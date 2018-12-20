@@ -18,6 +18,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.statet.nico.ui,
  org.eclipse.statet.r.console.ui,
  org.eclipse.statet.r.core,
- org.eclipse.statet.r.ui
+ org.eclipse.statet.r.ui,
+ org.eclipse.equinox.ds
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
