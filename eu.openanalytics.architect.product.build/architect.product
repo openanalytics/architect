@@ -46,7 +46,7 @@
    </vm>
 
    <license>
-        <url>http://www.eclipse.org/legal/epl-v10.html</url>
+        <url>https://www.eclipse.org/legal/epl-v20.html</url>
         <text>
    The Architect product is released by Open Analytics NV under the terms 
 of the Eclipse Public License, version 2.0. The StatET libraries and plug-ins 
