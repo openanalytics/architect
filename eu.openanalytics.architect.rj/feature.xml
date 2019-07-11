@@ -2,7 +2,7 @@
 <feature
       id="eu.openanalytics.architect.rj"
       label="R Packages rj and rj.gd"
-      version="0.9.11.qualifier"
+      version="0.9.12.qualifier"
       provider-name="Open Analytics"
       plugin="eu.openanalytics.architect.r.libs.rj">
 
@@ -21,7 +21,7 @@
    <requires>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="de.walware.rj.server" version="0.5.5" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.statet.rj.server"/>
    </requires>
 
    <plugin

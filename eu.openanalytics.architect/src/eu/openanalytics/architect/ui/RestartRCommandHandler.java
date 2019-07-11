@@ -12,6 +12,10 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+import org.eclipse.statet.nico.core.runtime.ToolWorkspace;
+import org.eclipse.statet.r.console.core.RProcess;
+import org.eclipse.statet.r.console.ui.RConsole;
+import org.eclipse.statet.r.launching.core.RLaunching;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPage;
@@ -21,9 +25,6 @@ import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.IConsoleView;
 
-import de.walware.statet.nico.core.runtime.ToolWorkspace;
-import de.walware.statet.r.console.core.RProcess;
-import de.walware.statet.r.console.ui.RConsole;
 import eu.openanalytics.architect.Activator;
 
 public class RestartRCommandHandler extends AbstractHandler  {
@@ -78,8 +79,7 @@ public class RestartRCommandHandler extends AbstractHandler  {
 				ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[] {console});
 				ILaunchConfigurationWorkingCopy wc = launchConfig.getWorkingCopy();
 				if (Files.exists(Paths.get(wd))) {
-					wc.setAttribute("de.walware.statet.r.debug/REnv/workingDirectory", wd);
-					wc.setAttribute("de.walware.statet.r/renv/WorkingDirectory", wd);
+					wc.setAttribute(RLaunching.ATTR_WORKING_DIRECTORY, wd);
 				} else {
 					String msg = "Restarting in default directory because previous working directory no longer exists: " + wd;
 					Activator.getDefault().getLog().log(new Status(IStatus.WARNING, Activator.PLUGIN_ID, msg));

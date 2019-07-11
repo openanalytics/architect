@@ -33,7 +33,7 @@
 	
 	<target name="all" unless="skip.build">
 		<antcall target="build">
-			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin64;${jdk.dir}/jre/bin;${jdk.dir}/jre/bin/server" />
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/mingw_64/bin;${jdk.dir}/jre/bin;${jdk.dir}/jre/bin/server" />
 		</antcall>
 		<copy todir="${output.dir}" overwrite="true" force="true">
 			<fileset dir="${build.dir}" />

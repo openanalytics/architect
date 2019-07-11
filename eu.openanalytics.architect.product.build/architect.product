@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.9.11" useFeatures="true" includeLaunchers="true">
+<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.9.12" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/eu.openanalytics.architect/about_architect.png"/>
       <text>
-         Architect is an Integrated Development Environment for Data Science developed by Open Analytics NV - http://www.openanalytics.eu
+         Architect is an Integrated Development Environment for Data Science developed by Open Analytics NV - https://www.openanalytics.eu
       </text>
    </aboutInfo>
 
@@ -46,19 +46,14 @@
    </vm>
 
    <license>
-        <url>http://www.eclipse.org/legal/epl-v10.html</url>
+        <url>https://www.eclipse.org/legal/epl-v20.html</url>
         <text>
    The Architect product is released by Open Analytics NV under the terms 
-of the Eclipse Public License, version 1.0. The StatET libraries and plug-ins 
-for Eclipse are released by WalWare under the the terms of the
-WalWare.de Open Source Software User Agreement. The rj package is released under the
-terms of the Lesser GNU General Public License, version 2.1 or above. The
-rj.gd package is released for certain parts under the terms of the GNU
-Public License version 3 or above and for other parts under the terms of
-the Lesser GNU General Public License, version 2.1. R is released by the 
-R Foundation under the terms of the GNU General Public license, version 2
-and for a small number of files under the Lesser GNU General Public License
-version 2.1.
+of the Eclipse Public License, version 2.0. The StatET libraries and plug-ins 
+for Eclipse are released under the the terms of the Apache License, version 2.0
+and the Eclipse Public License, version 2.0. The rj and rj.gd packages are released
+under the terms of GNU General Public license, version 3 with API made available under the 
+Lesser GNU General Public License, version 3.0.
          </text>
    </license>
 
@@ -70,8 +65,8 @@ version 2.1.
       <feature id="eu.openanalytics.architect.base" installMode="root"/>
       <feature id="eu.openanalytics.architect.r" installMode="root"/>
       <feature id="eu.openanalytics.architect.rj" installMode="root"/>
-      <feature id="eu.openanalytics.architect.fontsize" installMode="root"/>
-      <feature id="eu.openanalytics.quickgit" installMode="root"/>
+      <feature id="eu.openanalytics.architect.fontsize_feature" installMode="root"/>
+      <feature id="eu.openanalytics.sasviewer_feature" installMode="root"/>
       <feature id="org.eclipse.cdt" installMode="root"/>
       <feature id="org.eclipse.cdt.autotools" installMode="root"/>
       <feature id="org.eclipse.cdt.build.crossgcc" installMode="root"/>
@@ -89,24 +84,17 @@ version 2.1.
       <feature id="net.jeeeyul.eclipse.themes.feature" installMode="root"/>
       <feature id="net.jeeeyul.swtend.feature" installMode="root"/>
       <feature id="com.github.eclipsecolortheme.feature" installMode="root"/>
-      <feature id="de.walware.3rdparty.commons.dbcp2" installMode="root"/>
-      <feature id="de.walware.3rdparty.commons.pool" installMode="root"/>
-      <feature id="de.walware.3rdparty.jsch" installMode="root"/>
-      <feature id="de.walware.3rdparty.lucene" installMode="root"/>
-      <feature id="de.walware.3rdparty.snakeyaml" installMode="root"/>
-      <feature id="de.walware.ecommons.e" installMode="root"/>
-      <feature id="de.walware.ecommons.edb" installMode="root"/>
-      <feature id="de.walware.ecommons.ltk" installMode="root"/>
-      <feature id="de.walware.eutils.autonature" installMode="root"/>
-      <feature id="de.walware.eutils.autorun" installMode="root"/>
-      <feature id="de.walware.eutils.yaml" installMode="root"/>
-      <feature id="de.walware.rj.core" installMode="root"/>
-      <feature id="de.walware.rj.eclient" installMode="root"/>
-      <feature id="de.walware.statet.r" installMode="root"/>
-      <feature id="de.walware.statet.r.sweave" installMode="root"/>
-      <feature id="de.walware.statet.redocs.wikitext.r" installMode="root"/>
-      <feature id="de.walware.statet.rtm.ftable" installMode="root"/>
-      <feature id="de.walware.statet.rtm.ggplot" installMode="root"/>
+      <feature id="org.eclipse.statet.eutils.autonature" installMode="root"/>
+      <feature id="org.eclipse.statet.eutils.autorun" installMode="root"/>
+      <feature id="org.eclipse.statet.ltk" installMode="root"/>
+      <feature id="org.eclipse.statet.r" installMode="root"/>
+      <feature id="org.eclipse.statet.redocs.tex.r" installMode="root"/>
+      <feature id="org.eclipse.statet.redocs.wikitext.r" installMode="root"/>
+      <feature id="org.eclipse.statet.rj.core" installMode="root"/>
+      <feature id="org.eclipse.statet.rj.eclient" installMode="root"/>
+      <feature id="org.eclipse.statet.rtm.ftable" installMode="root"/>
+      <feature id="org.eclipse.statet.rtm.ggplot" installMode="root"/>
+      <feature id="org.eclipse.statet.yaml" installMode="root"/>
       <feature id="org.eclipse.platform"/>
       <feature id="org.eclipse.jdt"/>
       <feature id="org.eclipse.mylyn_feature"/>

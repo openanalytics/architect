@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="de.walware.rj.rSetups">
+         point="org.eclipse.statet.rj.RSetups">
       <library
             group="R_LIBS_SITE"
             location="libs/"

@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<launchConfiguration type="de.walware.statet.r.launchConfigurationTypes.RConsole">
-<stringAttribute key="de.walware.statet.r.debug/RConsole/arguments.options" value="--no-save --no-restore"/>
-<booleanAttribute key="de.walware.statet.r.debug/RConsole/console.pin" value="false"/>
-<stringAttribute key="de.walware.statet.r.debug/RConsole/init.script.snippet" value="# to avoid issue with transparency in ggplot2 with png in Architect&#10;options(bitmapType = &quot;cairo&quot;)"/>
-<stringAttribute key="de.walware.statet.r.debug/RConsole/type" value="local.rjs-rmi"/>
-<stringAttribute key="de.walware.statet.r.debug/REnv/REnvSetting" value="eplugin-local-eu.openanalytics.r.server;Embedded R Server"/>
-<stringAttribute key="de.walware.statet.r.debug/REnv/workingDirectory" value="${architect_wd}"/>
-<stringAttribute key="de.walware.statet.r/renv/REnvCode" value="eplugin-local-eu.openanalytics.r.server;Embedded R Server"/>
-<stringAttribute key="de.walware.statet.r/renv/WorkingDirectory" value="${architect_wd}"/>
+<launchConfiguration type="org.eclipse.statet.r.launchConfigurations.RConsole">
+<stringAttribute key="org.eclipse.statet.r.debug/RConsole/arguments.options" value="--no-save --no-restore"/>
+<booleanAttribute key="org.eclipse.statet.r.debug/RConsole/console.pin" value="false"/>
+<stringAttribute key="org.eclipse.statet.r.debug/RConsole/type" value="local.rjs-rmi"/>
+<stringAttribute key="org.eclipse.statet.r.debug/REnv/REnvSetting" value="eplugin-local-eu.openanalytics.r.server;Embedded R Server"/>
+<stringAttribute key="org.eclipse.statet.r.debug/REnv/workingDirectory" value="${architect_wd}"/>
+<stringAttribute key="org.eclipse.statet.r/renv/REnvCode" value="eplugin-local-eu.openanalytics.r.server;Embedded R Server"/>
+<stringAttribute key="org.eclipse.statet.r/renv/WorkingDirectory" value="${architect_wd}"/>
 <mapAttribute key="org.eclipse.debug.core.environmentVariables">
-<mapEntry key="JAVA_HOME" value="/opt/architect/architect-unstable/jre/jre"/>
-<mapEntry key="LD_LIBRARY_PATH" value="/opt/architect/architect-unstable/jre/jre/lib/amd64:/opt/architect/architect-unstable/jre/jre/lib/amd64/server:${env_var:LD_LIBRARY_PATH}"/>
+<mapEntry key="JAVA_HOME" value="/opt/architect/jre"/>
+<mapEntry key="LD_LIBRARY_PATH" value="/opt/architect/jre/jre/lib/amd64:/opt/architect/jre/jre/lib/amd64/server:${env_var:LD_LIBRARY_PATH}"/>
 <mapEntry key="PATH" value="${architect_pandoc}:${env_var:PATH}"/>
 <mapEntry key="R_KEEP_PKG_SOURCE" value="yes"/>
 <mapEntry key="R_ZIPCMD" value="zip"/>
 </mapAttribute>
-<stringAttribute key="org.eclipse.debug.core.source_locator_id" value="de.walware.statet.r.sourceLocators.RSourceLocator"/>
-<stringAttribute key="org.eclipse.debug.core.source_locator_memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;sourceLookupDirector&gt;&#13;&#10;&lt;sourceContainers duplicates=&quot;false&quot;&gt;&#13;&#10;&lt;container memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;de.walware.statet.r.sourceContainers.AllRProjectsType/&amp;gt;&amp;#13;&amp;#10;&quot; typeId=&quot;de.walware.statet.r.sourceContainers.AllRProjectsType&quot;/&gt;&#13;&#10;&lt;container memento=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;default/&amp;gt;&amp;#13;&amp;#10;&quot; typeId=&quot;org.eclipse.debug.core.containerType.default&quot;/&gt;&#13;&#10;&lt;/sourceContainers&gt;&#13;&#10;&lt;/sourceLookupDirector&gt;&#13;&#10;"/>
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_CONSOLE_OUTPUT_ON" value="false"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
 </listAttribute>
-<stringAttribute key="process_factory_id" value="de.walware.statet.nico.LogRuntimeProcessFactory"/>
+<stringAttribute key="process_factory_id" value="org.eclipse.statet.nico.LogRuntimeProcessFactory"/>
 </launchConfiguration>

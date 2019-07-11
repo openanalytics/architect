@@ -4,16 +4,19 @@
 	
 	<target name="clean">
 		<delete dir="${build.dir}" />
+		<delete dir="${output.dir}" />
 	</target>
 	
 	<target name="init">
 		<mkdir dir="${build.dir}" />
 		<mkdir dir="${build.dir}/tmp-rtools" />
+		<mkdir dir="${output.dir}" />
 	</target>
 	
 	<target name="prepare.sources">
 		<untar src="${src.archive}" dest="${build.dir}" compression="gzip" />
-		<copy todir="${build.dir}/${r.version}">
+		<mkdir dir="${build.dir}/${r.version}/Tcl" />
+		<copy todir="${build.dir}/${r.version}/Tcl">
 			<fileset dir="${src.dir.extra}">
 				<include name="*/**" />
 			</fileset>
@@ -32,7 +35,7 @@
 				<replacestring from="# ICU_LIBS =" to="ICU_LIBS =" />
 				<replacestring from="# USE_LIBCURL = YES" to="USE_LIBCURL = YES" />
 				<replacestring from="# CURL_PATH =" to="CURL_PATH = ${libcurl.dir}" />
-				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" />				
+				<replacestring from="# CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm" to="CURL_LIBS = -lcurl -lrtmp -lssl -lssh2 -lcrypto -lgdi32 -lcrypt32 -lz -lws2_32 -lgdi32 -lcrypt32 -lwldap32 -lwinmm -lidn -lintl" />				
 				<replacestring from="# CAIRO_HOME =" to="CAIRO_HOME = ${cairo.dir}" />
 				<replacestring from="# TEXI2ANY = /path/to/perl -I/packages/texinfo /packages/texinfo/texi2any" to="TEXI2ANY = ${perl.binary} -I${texinfo.dir} ${texinfo.dir}/texi2any" />
 			    <replacestring from="# MIKTEX = TRUE" to="MIKTEX = TRUE" />
@@ -89,7 +92,7 @@
 
 	<target name="all" unless="skip.build">
 		<antcall target="build">
-			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/gcc-4.6.3/bin;${rtools.dir}/gcc-4.6.3/bin64;${miktex.dir}/miktex/bin" />
+			<param name="path.var" value="${rtools.dir}/bin;${rtools.dir}/mingw_64/bin;${miktex.dir}/miktex/bin" />
 		</antcall>
 		<delete dir="${build.dir}/${r.version}/m4" />
 		<delete dir="${build.dir}/${r.version}/po" />

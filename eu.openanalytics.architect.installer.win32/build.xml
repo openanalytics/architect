@@ -1,0 +1,32 @@
+<project name="eu.openanalytics.architect.installer" default="make-installer">
+	
+	<property file="build.properties" />
+	
+	<target name="prepare-installer">
+		<delete dir="${build.dir}" />
+		<mkdir dir="${build.dir}"/>
+		<get src="${product.url}" dest="${build.dir}/product.zip"/>
+		<unzip dest="${build.dir}/f">
+			<fileset file="${build.dir}/product.zip"/>
+		</unzip>
+		<delete file="${build.dir}/product.zip" />
+	</target>
+	
+	<target name="make-installer" depends="prepare-installer">
+		<copy todir="${build.dir}">
+			<fileset dir=".">
+				<include name="*.nsi" />
+				<include name="*.ico" />
+				<include name="*.bmp" />
+			</fileset>
+		</copy>
+		<exec executable="${nsisMaker}" dir="${build.dir}" failonerror="true">
+			<arg value="architect_x86_64.nsi" />
+		</exec>
+		<delete dir="${build.dir}/f" />
+		<move todir="${project.build.directory}">
+		    <fileset dir="${build.dir}"/>
+		</move>
+	</target>
+
+</project>

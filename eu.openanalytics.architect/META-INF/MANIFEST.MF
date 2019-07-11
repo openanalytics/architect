@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architect
 Bundle-SymbolicName: eu.openanalytics.architect;singleton:=true
-Bundle-Version: 0.9.11.qualifier
+Bundle-Version: 0.9.12.qualifier
 Bundle-Activator: eu.openanalytics.architect.Activator
 Bundle-Vendor: Open Analytics
 Require-Bundle: org.eclipse.ui,
@@ -15,8 +15,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.debug.ui,
  org.eclipse.text,
  eu.openanalytics.architect.ws.updater,
- de.walware.statet.r.ui,
- de.walware.statet.r.console.ui,
- de.walware.statet.nico.ui
+ org.eclipse.statet.nico.ui,
+ org.eclipse.statet.r.console.ui,
+ org.eclipse.statet.r.core,
+ org.eclipse.statet.r.ui,
+ org.eclipse.equinox.ds
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
