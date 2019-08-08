@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>architect</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.statet.r.resourceProjects.RBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.statet.ide.resourceProjects.Statet</nature>
+		<nature>org.eclipse.statet.r.resourceProjects.R</nature>
+	</natures>
+</projectDescription>
