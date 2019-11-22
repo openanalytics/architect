@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Pandoc MacOSX binaries
 Bundle-SymbolicName: eu.openanalytics.architect.pandoc.cocoa.macosx.x86_64
-Bundle-Version: 0.9.12.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Open Analytics
 Fragment-Host: eu.openanalytics.architect.pandoc
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
