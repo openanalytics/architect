@@ -6,7 +6,7 @@
 		<copy todir="./rtools">
             <fileset dir="${rtools.dir}">
             </fileset>
-        </copy>
+    </copy>
 	</target>
 
 </project>
