@@ -25,7 +25,7 @@
 <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.equinox.ds" version="0.0.0"/>
-<repository location="http://nexus.openanalytics.eu/nexus/content/repositories/eclipse_2018_12_mirror"/>
+<repository location="http://nexus.openanalytics.eu/nexus/content/repositories/eclipse_2019_12_mirror"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.statet.eutils.autonature.feature.group" version="0.0.0"/>
