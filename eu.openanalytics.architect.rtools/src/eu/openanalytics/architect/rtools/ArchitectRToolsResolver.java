@@ -18,6 +18,7 @@ import org.eclipse.core.variables.IDynamicVariableResolver;
 public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 
 	private static final String RTOOLS_DIR = "rtools";
+	private static final String MINGW_DIR = "mingw_64"
 	private static final String BIN_DIR = "bin";
 	private static final String GCC_FILE = "gcc";
 	
@@ -75,23 +76,8 @@ public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 		File file = new File(rToolsPath + '/' + BIN_DIR);
 		if (file.exists()) binPaths.add(file.getAbsolutePath());
 		
-		String gccName = null;
-		for (File child: new File(rToolsPath).listFiles()) {
-			if (child.getName().toLowerCase().contains(GCC_FILE)) {
-				gccName = child.getName();
-				break;
-			}
-		}
-		if (gccName != null) {
-			file = new File(rToolsPath + '/' + gccName + '/' + BIN_DIR);
-			if (file.exists()) binPaths.add(file.getAbsolutePath());
-			
-			String binSuffix = "32";
-			if (Platform.getOSArch().equalsIgnoreCase(ARCH_X64)) binSuffix = "64";
-			
-			file = new File(rToolsPath + '/' + gccName + '/' + BIN_DIR + binSuffix);
-			if (file.exists()) binPaths.add(file.getAbsolutePath());
-		}
+		file = new File(rToolsPath + '/' + MINGW_DIR + '/' + BIN_DIR);
+		if (file.exists()) binPaths.add(file.getAbsolutePath());
 		
 		return binPaths.toArray(new String[binPaths.size()]);
 	}
