@@ -18,7 +18,7 @@ import org.eclipse.core.variables.IDynamicVariableResolver;
 public class ArchitectRToolsResolver implements IDynamicVariableResolver {
 
 	private static final String RTOOLS_DIR = "rtools";
-	private static final String MINGW_DIR = "mingw_64"
+	private static final String MINGW_DIR = "mingw_64";
 	private static final String BIN_DIR = "bin";
 	private static final String GCC_FILE = "gcc";
 	
