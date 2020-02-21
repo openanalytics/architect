@@ -14,12 +14,12 @@ public class ArchitectPerspective implements IPerspectiveFactory {
 	private static final String ID_ERROR_VIEW = "org.eclipse.pde.runtime.LogView"; //$NON-NLS-1$
 	private static final String ID_OUTLINE_VIEW = "org.eclipse.ui.views.ContentOutline"; //$NON-NLS-1$
 	
-	private static final String ID_NICO_CMDHISTORY_VIEW = "de.walware.statet.nico.views.HistoryView"; //$NON-NLS-1$
-	private static final String ID_NICO_OBJECTBROWSER_VIEW = "de.walware.statet.nico.views.ObjectBrowser"; //$NON-NLS-1$
+	private static final String ID_NICO_CMDHISTORY_VIEW = "org.eclipse.statet.nico.views.HistoryView"; //$NON-NLS-1$
+	private static final String ID_NICO_OBJECTBROWSER_VIEW = "org.eclipse.statet.nico.views.ObjectBrowser"; //$NON-NLS-1$
 
-	private static final String ID_R_GRAPHICS = "de.walware.statet.r.views.RGraphic"; //$NON-NLS-1$
+	private static final String ID_R_GRAPHICS = "org.eclipse.statet.r.views.RGraphic"; //$NON-NLS-1$
 
-	private static final String ID_R_HELP = "de.walware.statet.r.views.RHelp"; //$NON-NLS-1$
+	private static final String ID_R_HELP = "org.eclipse.statet.r.views.RHelp"; //$NON-NLS-1$
 	
 	@Override
 	public void createInitialLayout(IPageLayout layout) {
