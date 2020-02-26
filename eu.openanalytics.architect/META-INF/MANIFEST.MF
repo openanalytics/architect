@@ -3,8 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Architect
 Bundle-SymbolicName: eu.openanalytics.architect;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: eu.openanalytics.architect.Activator
 Bundle-Vendor: Open Analytics
+Bundle-Activator: eu.openanalytics.architect.Activator
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.ui.console,
@@ -20,5 +22,3 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.statet.r.core,
  org.eclipse.statet.r.ui,
  org.eclipse.equinox.ds
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-ActivationPolicy: lazy
