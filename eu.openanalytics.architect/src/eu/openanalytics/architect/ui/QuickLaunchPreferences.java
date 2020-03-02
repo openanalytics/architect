@@ -13,7 +13,7 @@ public class QuickLaunchPreferences extends AbstractPreferenceInitializer {
 	@Override
 	public void initializeDefaultPreferences() {
 		getStore().setDefault(PREF_LAUNCH_MAPPING, QuickLaunchCommandHandler.LAUNCH_MAPPING_FAVORITE_DEBUG);
-		getStore().setDefault(PREF_LAUNCH_NAME, null);
+//		getStore().setDefault(PREF_LAUNCH_NAME, null);
 	}
 	
 	public static IPreferenceStore getStore() {
