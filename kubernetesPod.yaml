@@ -6,8 +6,14 @@ metadata:
     ci: architect-build
 spec:
   containers:
-   - name: architect-build
+   - name: architect-build-focal
      image: 196229073436.dkr.ecr.eu-west-1.amazonaws.com/openanalytics/architect-build:focal
      securityContext:
       privileged: true  
      tty: true
+   - name: architect-build-bionic
+     image: 196229073436.dkr.ecr.eu-west-1.amazonaws.com/openanalytics/architect-build:bionic
+     securityContext:
+      privileged: true  
+     tty: true
+

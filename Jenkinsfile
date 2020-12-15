@@ -13,7 +13,7 @@ pipeline {
         stage('Build and Deploy to nexus') {
             steps {
                 configFileProvider([configFile(fileId: 'maven-settings-rsb', variable: 'MAVEN_SETTINGS_RSB')]) {
-                    container('architect-build') {
+                    container('architect-build-focal') {
                         sh 'mvn -s $MAVEN_SETTINGS_RSB clean deploy'
                     }
                 }
