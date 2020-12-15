@@ -6,6 +6,11 @@ metadata:
     ci: architect-build
 spec:
   containers:
+   - name: maven
+     image: maven:3-openjdk-11
+     command:
+     - cat
+     tty: true
    - name: architect-build-focal
      image: 196229073436.dkr.ecr.eu-west-1.amazonaws.com/openanalytics/architect-build:focal
      securityContext:
