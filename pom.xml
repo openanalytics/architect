@@ -9,9 +9,7 @@
 	<properties>
 		<tycho.version>1.5.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jre.path.win32>C:/Architect-build/tools/jre/win32</jre.path.win32>
-		<jre.path.linux>C:/Architect-build/tools/jre/linux</jre.path.linux>
-		<jre.path.macosx>C:/Architect-build/tools/jre/macosx</jre.path.macosx>
+		<build.tools.url>https://nexus.openanalytics.eu/repository/architect_build_tools/</build.tools.url>
 		<maven.install.skip>true</maven.install.skip>
 		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
@@ -20,12 +18,12 @@
 		<snapshotRepository>
 			<id>oa-nexus-snapshots</id>
 			<name>OpenAnalytics Snapshots Repository</name>
-			<url>http://nexus.openanalytics.eu/nexus/content/repositories/snapshots</url>
+			<url>https://nexus.openanalytics.eu/repository/snapshots/</url>
 		</snapshotRepository>
 		<repository>
 			<id>oa-nexus-releases</id>
 			<name>OpenAnalytics Release Repository</name>
-			<url>http://nexus.openanalytics.eu/nexus/content/repositories/releases</url>
+			<url>https://nexus.openanalytics.eu/repository/releases/</url>
 		</repository>
 	</distributionManagement>
 
