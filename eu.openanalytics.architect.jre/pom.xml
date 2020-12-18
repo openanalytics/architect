@@ -22,11 +22,11 @@
 						<phase>process-resources</phase>
 						<configuration>
 							<target>
-								<get src="${build.tools.url}/linux/jre.zip" dest="${project.build.directory}/jre-linux.zip" />
+								<get src="${build.tools.url}/linux/jdk.zip" dest="${project.build.directory}/jre-linux.zip" />
 								<unzip src="${project.build.directory}/jre-linux.zip" dest="${project.build.directory}/linux/jre"/>
-								<get src="${build.tools.url}/macosx/jre.zip" dest="${project.build.directory}/jre-macosx.zip" />
+								<get src="${build.tools.url}/macosx/jdk.zip" dest="${project.build.directory}/jre-macosx.zip" />
 								<unzip src="${project.build.directory}/jre-macosx.zip" dest="${project.build.directory}/macosx/jre"/>
-								<get src="${build.tools.url}/win32/jre.zip" dest="${project.build.directory}/jre-win32.zip" />
+								<get src="${build.tools.url}/win32/jdk.zip" dest="${project.build.directory}/jre-win32.zip" />
 								<unzip src="${project.build.directory}/jre-win32.zip" dest="${project.build.directory}/win32/jre"/>
 							</target>
 						</configuration>
