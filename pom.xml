@@ -9,7 +9,7 @@
 	<properties>
 		<tycho.version>1.5.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<build.tools.url>https://nexus.openanalytics.eu/repository/architect_build_tools/</build.tools.url>
+		<build.tools.url>https://nexus.openanalytics.eu/repository/architect_build_tools</build.tools.url>
 		<maven.install.skip>true</maven.install.skip>
 		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
