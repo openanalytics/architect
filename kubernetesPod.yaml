@@ -8,6 +8,11 @@ spec:
   containers:
    - name: maven
      image: maven:3-openjdk-11
+     resources:
+         requests: 
+             memory: "1024Mi"
+         limits:
+             memory: "1536Mi"
      command:
      - cat
      tty: true
@@ -21,4 +26,3 @@ spec:
      securityContext:
       privileged: true  
      tty: true
-
