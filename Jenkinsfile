@@ -14,7 +14,7 @@ pipeline {
             steps {
                 configFileProvider([configFile(fileId: 'maven-settings-rsb', variable: 'MAVEN_SETTINGS_RSB')]) {
                         dir ("eu.openanalytics.architect.installer.win32") {
-                        bat 'mvn -s $MAVEN_SETTINGS_RSB clean deploy'
+                        bat "mvn -s $MAVEN_SETTINGS_RSB clean deploy"
                     }
                 }
             }
