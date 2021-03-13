@@ -6,15 +6,17 @@ pipeline {
     }
 
     stages {
-        stage('Windows Build and Deploy to nexus') {
+        stage('Build and Deploy to nexus') {
         	agent {
-        		label 'windows'
+        		kubernetes {
+            		yamlFile 'kubernetesPod.yaml'
+        		}
     		}
         
             steps {
                 configFileProvider([configFile(fileId: 'maven-settings-rsb', variable: 'MAVEN_SETTINGS_RSB')]) {
-                        dir ("eu.openanalytics.architect.installer.win32") {
-                        bat "mvn -s $MAVEN_SETTINGS_RSB clean deploy"
+                    container('maven') {
+                        sh 'mvn -s $MAVEN_SETTINGS_RSB clean deploy'
                     }
                 }
             }
