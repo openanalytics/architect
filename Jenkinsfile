@@ -29,6 +29,7 @@ pipeline {
         
             steps {
                 configFileProvider([configFile(fileId: 'maven-settings-rsb', variable: 'MAVEN_SETTINGS_RSB')]) {
+                		echo "Current workspace is ${env.WORKSPACE}"
                         dir ("eu.openanalytics.architect.installer.win32") {
                         bat "mvn -s $MAVEN_SETTINGS_RSB clean deploy"
                     }
