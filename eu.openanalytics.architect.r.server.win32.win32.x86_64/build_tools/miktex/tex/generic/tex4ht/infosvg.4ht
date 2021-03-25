@@ -1,0 +1,566 @@
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[1]44...//
+
+% infosvg.4ht (2019-03-18-15:25), generated from tex4ht-info-svg.tex
+% Copyright 2009-2017 TeX Users Group
+% Copyright 2000-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-03-18-15:25}
+{          \catcode`\@=0 \catcode`\\=11 @relax
+  @gdef@infoIVht[#1]#2//{%
+    @ifnum #1>1
+      @def@infoIVht[##1]##2//{%
+        @ifnum ##1>1 @ifnum ##1<#1
+           @bgroup
+             @no:catcodes0{255}{11}%
+             @no:catcodes{91}{91}{12}% [
+             @no:catcodes{47}{47}{12}% /
+             @newlinechar13 %
+             @long@def@infoIVht####1\ifx\infoIVht####2infoIVht[####3//{%
+               @def@infoIVht{******************************************}%
+               @immediate@write-1{@infoIVht}%
+               @immediate@write-1{****** @csname :Hin@endcsname.4ht}%
+               @immediate@write-1{@infoIVht}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup
+               @immediate@write-1{####1}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup
+               @immediate@write-1{@infoIVht}%
+             @egroup}%
+           @expandafter@expandafter@expandafter@infoIVht
+     @fi@fi }%
+  @fi }
+}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[1]44//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[30]608...//
+
+\exit:ifnot{tex4ht}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[30]608//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[30]608...//
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]103...//
+
+
+The output or pictures in SVG format can be requested using following command
+line options:
+
+svg
+---
+
+Include pictures as external images. Existing configuration for SVG images is
+used. This is preffered way in modern documents.
+
+svg-object
+----------
+
+Include pictures using <object> elements.
+
+svg-
+----
+
+This configuration is simillar to the previous one
+
+svg-inline
+----------
+
+Include the pictures directly to the XML document.
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]103//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[20]137...//
+
+SVG
+---
+
+ Configured through IMG
+
+  Example:
+    \Configure{IMG}
+      {\special{t4ht=<object type="image/svg+xml"  data="}}
+      {\special{t4ht=" name="}}
+      {" }
+      {\special{t4ht=" }}
+      {\special{t4ht=></object>}}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[20]137//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[30]608//
+
+

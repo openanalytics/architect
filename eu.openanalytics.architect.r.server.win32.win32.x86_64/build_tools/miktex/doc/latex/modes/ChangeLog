@@ -1,0 +1,535 @@
+2020-09-08  Karl Berry  <karl@freefriends.org>
+
+	* version 4.2.
+	* modes.mf (hitexlaptop, hitexmobile): new modes from Martin Ruckert,
+	for HINT (hitex).
+	* GNUmakefile (badnames): don't restrict names to <= 8 chars.
+	* GNUmakefile (version): 4.2.
+
+2020-01-30  Karl Berry  <karl@freefriends.org>
+
+	* version 4.1.
+	* modes.mf (mode_include_extra_info_available): new boolean,
+	so we can test for it using MF's known primitive in
+	mktextfm. known only works on primaries, not definitions.
+
+2020-01-28  Karl Berry  <karl@freefriends.org>
+
+	* version 4.0 (skipping 3.9).  First normal upload to CTAN.
+
+	* modes.mf (mode_include_extra_info): new macro to arrange
+	for the Xerox-world information to be included, by redefining end.
+	This is now invoked by mktextfm if the envvar MF_MODE_EXTRA_INFO
+	is set; still not done by default, per Knuth.
+	Save and restore end and bye to make the definition,
+	including inner/outer-ness.
+	
+	This stems from a report to tex-k by Julian Gilbey:
+	https://tug.org/pipermail/tex-k/2019-October/003048.html
+	
+	* modes.mf: typos, other doc fixes and updates.
+
+2008-02-20  Karl Berry  <karl@gnu.org>
+
+	* version 3.8.
+	* modes.mf: no trailing _ on mode_extra_info.
+	* modes.mf: remove redefinition of the end primitive per DEK.
+	* modes.mf: dpdfezzz: use 4000 * 2, since 8000 is too large.
+
+2005-01-17  Karl Berry  <karl@gnu.org>
+
+	* version 3.7.
+	* modes.mf (dpdfezzz): 8000, not 2400.
+
+2004-03-30  Karl Berry  <karl@gnu.org>
+
+	* modes.mf: remove trailing whitespace.
+	* modes.mf (bjtzzl): need to call bjtzzs.
+	(newddl, epstypml, lviewl, phasertl): new modes
+	from "Hippocrates Sendoukas" <hsendoukas@hotmail.com> for dviwin.
+	* modes.mf: 2004
+
+2004-03-19  Karl Berry  <karl@gnu.org>
+
+	* modes.mf (xpstzz): new mode.
+
+2002-02-26    <karl@gnu.org>
+
+	* modes.mf: version 3.5.
+	(epsmed[l], epslo[l]): new modes.
+	correct email addresses.
+
+2001-04-06    <karl@gnu.org>
+
+	* modes.mf: 0 not .0
+
+Mon Aug 10 14:29:36 1998  Karl Berry  <karl@cs.umb.edu>
+
+	* modes.mf: Remove trailing spaces.
+
+	* modes.mf: Add new phaserfs mode for Phaser 560, from
+ 		metod.kozelj@rzs-hm.si.
+
+Wed Jul 29 17:49:07 1998  Karl Berry  <karl@cs.umb.edu>
+
+	* modes.mf (mode_common_setup_): Only set tracingtitles if dpi > 1200.
+	(lexmarks): New mode, Klaus Guntermann.
+	(ljfzzfr): New mode, Nicolai Langfeldt.
+	(pixpt): New mode, Aries Arditi.
+	(stylewr): Correct name to stylewri.
+
+	* modes.mf: stylewr -> stylewri.  From: akt@netspace.net.au
+ 		(Andrew Trevorrow)
+
+Fri Jan 16 16:10:19 1998  Karl Berry  <karl@cs.umb.edu>
+
+	* Version 3.3.
+	* modes.mf: Fix indentation of list items.
+
+Thu Nov  7 14:56:14 1996  Karl Berry  <karl@cs.umb.edu>
+
+	* Version 3.2.
+
+	* Include dpi comments in various modes.  From Thomas.
+
+	* (EpsonStylusPro, EpsonStyleProLow, EpsonStylusProMed): These
+	aliases were defined to old (undefined) names.
+	From: Giuseppe Ghibo' <ghibo@galileo.polito.it>.
+
+	* (esphi): Change o_correction to 1.
+	
+	* (lnotr): New name for LNOthreR (retain as an alias).
+	From Thomas.
+	
+	* Verbatim fix from Ulrik.
+
+Sat Oct 12 15:10:25 1996  Karl Berry  <karl@cs.umb.edu>
+
+	* Version 3.1.
+
+	* Many changes for TeX prettiness.
+
+Thu Oct 10 14:34:44 1996  Karl Berry  <karl@cs.umb.edu>
+
+	* modes.mf (onezz, OneZeroZero): Aliases for amiga.  From ghibo.
+	(epsonseq, epstypro, epstyplo, epstypmd, esphi): New modes.
+	(LNOthreR): New mode.
+	(qmstftf): New mode.
+	(stylewr): New mode.
+	(lqmedres): Correct typo from lqmredres.
+
+Sat Jun  1 15:22:50 1996  Karl Berry  <karl@cs.umb.edu>
+
+	* modes.mf: Use kb@mail.tug.org.
+
+Mon Jan  8 14:22:56 1996  Karl Berry  <karl@cs.umb.edu>
+
+	* Version 3.0.
+        * New modetest.tex from Matt.
+
+Sat Dec 30 17:32:22 1995  Karl Berry  <karl@cs.umb.edu>
+
+        * modes.mf: (FourFour, EightThree, OneZeroZero, OneTwoZero): New
+        modes for the ShowDVI Amiga previewer. From
+        ghibo@galileo.polito.it}, for the Amiga ShowDVI
+        Improve formatting. From Ulrik.
+        * modetest.tex: New file. From: swift@acs.bu.edu.
+
+Wed Dec 27 14:47:30 1995  Karl Berry  <karl@cs.umb.edu>
+
+        * modes.mf (localfont): Change to ljfour.
+        (screen_rows, screen_cols): Interchange values to match plain.mf.
+          From: Christian Jonsson <cj@isy.liu.se>.
+        (modes_mf): Define this to the version, and avoid reading twice.
+          From: wgs@maths.ucd.ie (Wayne G. Sullivan).
+        (agfatzz): New mode. From: "Eric Picheral- CRI/CICB Rennes
+          99.84.71.23" <Eric.Picheral@univ-rennes1.fr>.
+        (lexmarkr): New mode. From: Michael Covington <mcovingt@ai.uga.edu>.
+        (canonbjc): New mode. From: Yves Arrouye <Yves.Arrouye@imag.fr>.
+        (ljfive): New mode. From: swift@acs.bu.edu.
+        (highfax): New mode. From: ron@mlfarm.com (Ronald Florence).
+        (pcprevw, neclm, nectzo): New modes.
+          From: FUKUI Rei <fkr@tooyoo1.l.u-tokyo.ac.jp>
+
+Sun Apr 16 07:43:01 1995  Karl Berry  <karl@cs.umb.edu>
+
+        * Version 2.3. (The 2.2 release was confused.)
+
+Tue Feb 14 13:44:45 1995  Karl Berry  <karl@cs.umb.edu>
+
+        * lwpro: New mode, from Pierre.Soille@ipk.fhg.de.
+
+Thu Feb  9 15:57:26 1995  Karl Berry  <karl@cs.umb.edu>
+
+        * modes.mf (epstylus): New mode, from Tobias.Guenzler@uni-konstanz.de.
+
+Sun Nov  6 15:52:35 1994  Karl Berry  <karl@cs.umb.edu>
+
+        * modes.mf (sparcptr): Fix sample code, example for config.ps from
+        simpson@math.psu.edu.
+
+Tue Aug 30 11:01:19 1994  Karl Berry  (karl@cs.umb.edu)
+
+        * Version 2.1.
+
+        * Add landscape modes for nonsquare aspect ratios, rename to <8
+        chars as necessary.
+        
+        * Add Xerox 4700 == Xerox 4050 from Bart.
+
+Sat Aug 27 12:15:19 1994  Karl Berry  (karl@cs.umb.edu)
+
+        * linosuper, linothreee, LinotypeThree...: Make aliases
+        for the new real name, linotzzh.
+        * aselect: new mode, same as ljfour.
+
+Wed Jul 20 15:01:42 1994  Karl Berry  (karl@cs.umb.edu)
+
+	* Version 2.0.
+
+Tue Jul 19 15:01:42 1994  Karl Berry  (karl@cs.umb.edu)
+
+        * modes.mf: Change primary names to <= 8 chars, and lowercase.
+
+Sun Jun  5 14:01:29 1994  Karl Berry  (karl@cs.umb.edu)
+
+        * modes.mf (nullmode): Set pixels_per_inch to 101.
+
+Tue May 24 13:35:47 1994  Karl Berry  (karl@cs.umb.edu)
+
+        * Version 1.3.
+
+        * modes.mf (gtfaxhi): Change resolution to 204x196.
+        (gtfaxlo): New mode.
+        These from dak@pool.informatik.rwth-aachen.de.
+
+Sun Feb 13 11:12:28 1994  Karl Berry  (karl@cs.umb.edu)
+
+        * modes.mf (bjtenex): New mode from sjwright@cix.compulink.co.uk.
+
+Sat Dec 18 12:57:06 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* modes.mf (CanonEX): New values from ajcarr@ccvax.ucd.ie.
+
+Thu Dec  2 16:26:06 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* EpsonAction: New mode (renamed to epsonact).
+
+Thu Nov 25 17:27:04 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* Version 1.2.
+
+	* laserjetfour: Really install the new values.
+
+Fri Nov 19 13:37:32 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* Version 1.1.
+
+Thu Nov  4 14:59:41 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* modes.mf (IBMFourZeroOneNine): New mode.
+
+Thu Oct 28 17:53:05 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* laserjetfour: New values from mbr@research.nj.nec.com.
+
+Tue Oct 19 11:37:09 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* Changes so it again runs through TeX.
+
+Sun Sep 26 13:32:47 1993  Karl Berry  (karl@cs.umb.edu)
+	
+	* Version 1.0.
+	
+	* Define eight-character or less abbreviations for all modes.
+
+	* HPrugged: New mode.
+	* QMS 1725: New mode.
+	
+	* QMS 1700: Use o_correction=1, not 0.
+
+	* IBMFourZeroOneNine: Define after RicohA.
+
+Fri Aug 27 09:25:00 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* Mention ftp.cs.umb.edu as canonical location.
+
+Fri Aug 20 16:37:38 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* HPLaserJetIIISi: New mode from stsmith@ll.mit.edu.
+
+	* deskjet: Synonym for HDeskJet.
+
+Thu May 27 17:40:25 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* Version 0.13.
+
+Wed May 26 05:57:25 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* XeroxDocutech: No write/white.
+
+Thu May 13 14:40:09 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* XeroxDocutech: New mode from smith@phoneme.harvard.edu.
+
+Fri Apr 30 14:30:12 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* null: New mode from Jurgen Botz.
+
+Thu Apr 15 19:40:25 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* CanonEX: New mode from swartz@cs.wisc.edu.
+
+Tue Apr  6 19:47:04 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* Doc fix.
+
+Thu Mar 25 16:51:05 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* QMS1700: New mode from queinnec@geant.cenatls.cena.dgac.fr.
+
+Sun Feb 14 11:28:27 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* (laserjetfour): Rename from laserjetIV.
+
+Tue Feb  2 12:52:53 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* (LPSTwoZero): New mode from hammond@jila.Colorado.EDU.
+
+Fri Jan 15 14:11:52 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* Version 0.12.
+        
+	* (lasermaster): New mode, from Pierre.
+
+Thu Jan 14 07:57:35 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* (laserjetIV, ljiv): New mode.
+
+Wed Jan 13 09:16:56 1993  Karl Berry  (karl@cs.umb.edu)
+
+	* (phaser): New mode.
+
+Wed Dec 30 17:07:46 1992  Karl Berry  (karl@cs.umb.edu)
+
+	* (DECsmall, DEClarge): New modes.
+
+Sun Dec 27 10:59:51 1992  Karl Berry  (karl@cs.umb.edu)
+
+	* (NCD): New mode.
+
+Sat Dec  5 10:10:57 1992  Karl Berry  (karl@cs.umb.edu)
+
+	* (epsdraft, epsfast): New defns from metcalf.
+        (epsonlo): Make vertical dpi 216.
+
+Sun Nov 22 11:18:58 1992  Karl Berry  (karl@cs.umb.edu)
+
+	* (SparcPrinter): Doc fix.
+
+Mon Oct 26 17:27:10 1992  Karl Berry  (karl@cs.umb.edu)
+
+	* Remove mode_write_white_setup from high-resolution mode_def's,
+	as it doesn't have any effect.
+
+	* (SparcPrinter): Add more comments, from carlos.
+
+Tue Oct  6 08:37:50 1992  Karl Berry  (karl@cs.umb.edu)
+
+	* Version 0.11.
+
+Thu Aug 20 10:13:34 1992  Karl Berry  (karl@hayley)
+
+        * (SparcPrinterWhite): remove.
+        (SparcPrinterBlack): rename to just `SparcPrinter'.
+
+Fri Jul 31 19:25:33 1992  Karl Berry  (karl@hayley)
+
+        * Change `name=' to `jobname=', and change `identifier ' and
+          `codingscheme ' to `fontid=' and `codingscheme=', for
+          semi-consistency.
+
+Sat Jun  6 08:34:09 1992  Karl Berry  (karl@hayley)
+
+        * Don't append a ; to the special with the mode name; prepend
+          `name=' to the jobname.
+
+Fri Jun  5 11:42:07 1992  Karl Berry  (karl@hayley)
+
+        * Mention Pierre's RIDT article, and README.WRITE-W.
+
+Sat May 16 07:24:14 1992  Karl Berry  (karl@hayley)
+
+        * (IBM 4019): synonym for RicohA.
+
+        * (Varityper 4300P): blacker now 3.5.
+
+Wed May 13 10:32:29 1992  Karl Berry  (karl@hayley)
+
+        * Version 0.10.
+
+Thu Apr 30 07:22:18 1992  Karl Berry  (karl@hayley)
+
+        * (Local variables): lose the form feed, since some gateways
+          mangle it.
+
+Sun Apr 19 10:08:36 1992  Karl Berry  (karl@hayley)
+
+        * (mode_output_specials_): as below, for `mode'.
+
+Wed Mar 18 14:58:52 1992  Karl Berry  (karl at hayley)
+
+        * (mode_special_): in fact, use `=', not `:='.
+
+Sat Mar 14 09:00:01 1992  Karl Berry  (karl at hayley)
+
+        * IBM 4029: change o_correction to .85 (from
+          plotkin@theory.stanford.edu).
+
+        * ibm_a: new mode, an alternative to rocky's IBMD.
+
+        * Compugraphic 9600: new mode, from wagman%muse.hepnet@Csa2.LBL.Gov.
+
+Fri Mar  6 09:09:02 1992  Karl Berry  (karl at hayley)
+
+        * (Varityper 4300{Lo,Hi}): new modes from mjm@as.arizona.edu.
+
+        * (IBM 4029-30): same as IBM 4250.
+
+        * (AtariNineFive): new mode.  May as well provide all three
+          resolutions that people use for the Atari.
+
+Sat Feb 22 12:48:50 1992  Karl Berry  (karl at hayley)
+
+        * (mode_special_): omit spaces and semicolon from the special we
+          output, to save a little space.
+
+Thu Feb 20 13:36:09 1992  Karl Berry  (karl at claude.cs.umb.edu)
+
+        * Version 0.9.
+
+        * These changes from issue@vax.oxford.ac.uk:
+
+        * (Prism): synonym for ultre.
+        (LPSFourZero): new mode.
+
+Thu Feb 13 07:36:33 1992  Karl Berry  (karl at hayley)
+
+        * These changes from issue@vax.oxford.ac.uk:
+
+        * (qms, LN01): make write-white.
+
+        * (OCE6750PS): make fillin zero.
+
+        * (lqrores): had two definitions.
+
+        * (linothree, linosuper): define as LinotypeThreeZeroZeroHi.
+
+        * (landscape): call fix_units.
+
+Fri Dec 13 09:03:13 1991  Karl Berry  (karl at hayley)
+
+        * (IBMSixOneFiveFour): change `pixels_per_inch' to 118.  From
+          erikjan@icce.rug.nl.
+
+Sun Dec  8 08:20:34 1991  Karl Berry  (karl at hayley)
+
+        * (EpsonLQFiveZeroZero{Lo,Med}): add mode_common_setup_.  From
+          schwab@ls5.informatik.uni-dortmund.de.
+
+        * (SparcPrinterWhite): ok, let's have both.
+        (SparcPrinter): rename to SparcPrinterBlack.
+
+        * (AtariNineSix): new mode from w.spit@fys.ruu.nl.
+
+Tue Nov 19 06:45:39 1991  Karl Berry  (karl at hayley)
+
+        * (LinotypeOneZeroZero): change o_correction to 1 (from
+          jcb@dcs.edinburgh.ac.uk).
+
+Thu Nov  7 10:15:49 1991  Karl Berry  (karl at hayley)
+
+        * (IBMThreeOne{SevenNine,NineThree}): new modes from
+          schoepf@sc.zib-berlin.de.
+
+Wed Oct 30 07:22:11 1991  Karl Berry  (karl at hayley)
+
+        * Version 0.8.
+
+Thu Oct 24 11:29:12 1991  Karl Berry  (karl at hayley)
+
+        * (IBMEGA): new mode, from melvin@math.psu.edu.
+
+Thu Sep  5 08:46:24 1991  Karl Berry  (karl at hayley)
+
+        * (EpsonFiveZeroZero): new modes from emtex via
+          cudat@csv.warwick.ac.uk.
+
+        * (SparcPrinter): better values, from andy@vlsi.cs.caltech.edu.
+
+Mon Aug 26 17:01:04 1991  Karl Berry  (karl at hayley)
+
+        * (VarityperFourTwoZeroZero): new mode, from erikjan again.
+
+Fri Aug 16 06:17:43 1991  Karl Berry  (karl at hayley)
+
+        * (IBMProPrinter, IBMSixOneFiveFour): new definitions, from
+          erikjan@icce.rug.nl.
+
+Sat Aug 10 08:33:25 1991  Karl Berry  (karl at hayley)
+
+        * (mode_write_white_setup_): let itself = to relax at the end of
+          the definition, so that mode_setup can be called more than once
+          without harm (reported by he@stollmann.de).
+
+Sun Aug  4 09:55:04 1991  Karl Berry  (karl at hayley)
+
+        * Change rocky@ibm.com to rocky@watson.ibm.com throughout.
+
+Thu Aug  1 13:36:27 1991  Karl Berry  (karl at hayley)
+
+        * (CItoh8510A): new definition from local.mf via
+          cudat@cu.warwick.ac.uk.
+
+        * (hplaser, kyocera): synonyms for CanonCX.
+        * (epsonfx): synonym for EpsonMXFX.
+        * (lqhires): synonym for NEChi.
+        * (lqlores): synonym for NEC.
+
+        * (DataDiscNew, epsonlo, LinotypeOneZeroZeroLo, NEChi, Newgen,
+          NeXTprinter): do the mode_param first, since otherwise it's
+          ignored.  From schwab@julien.informatik.uni-dortmund.de, et al.
+        (linethreelo, truemac): correct synonym names.
+
+Thu Jul 25 12:01:32 1991  Karl Berry  (karl at hayley)
+
+        * (CanonSX): remove.  Use CanonCX.  From ogawa@orion.arc.nasa.gov.
+
+        * (PrintwareSevenTwoZeroIQ): remove nonsquare aspect ratio.  From
+          mis@apsedoff.bitnet.
+
+Tue Jul 23 13:44:31 1991  Karl Berry  (karl at hayley)
+
+        * Version 0.7.
+
+        * logo.mf: copy standard one, but include a title.
+
+        * (CanonCX): additional printers apply.  From
+          ogawa@orion.arc.nasa.gov.
+
+        * (mode_write_write_setup_): remove the `save black_setup', so
+          that this works again.  From ramey@csc.ti.com.
+
+Thu Jul 18 08:01:03 1991  Karl Berry  (karl at hayley)
+
+        * Version 0.6.
+
+        * (mode_common_setup_): fix typo.  Sigh.
+
+        * (Varityper5060W): new entry, from rocky@watson.ibm.com.
+
+Sun Jul  7 09:19:08 1991  Karl Berry  (karl at hayley)
+
+        * Version 0.5.
+
+(This file public domain.)

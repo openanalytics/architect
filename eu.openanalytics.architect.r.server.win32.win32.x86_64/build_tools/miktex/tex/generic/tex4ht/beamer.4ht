@@ -1,0 +1,165 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% beamer.4ht                            2009-05-21-09:32 %
+% Copyright (C) 2003--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\NewConfigure{titlepage}{2}
+\NewConfigure{title}{2}
+\NewConfigure{author}{2}
+\NewConfigure{institute}{2}
+\NewConfigure{date}{2}
+\NewConfigure{titlegraphic}{2}
+\NewConfigure{andtitle}{1}
+\NewConfigure{inst}{2}
+
+\let\o:@section:\@section
+\def\@section[#1]#2{%
+   \expandafter\global\expandafter\sl:toks\expandafter
+   {\the\sl:toks\leavevmode \o:@section:[#1]{#2}%
+    \add:toc{section}{\thesection}{\secname}}%
+   \expandafter\ifx\csname a:sec@slide\endcsname\relax
+   \expandafter\ifx\csname b:sec@slide\endcsname\relax
+       \the\sl:toks \global\sl:toks={}%
+\fi\fi
+%
+}
+
+
+\let\o:untitledsubsection:\untitledsubsection
+\def\untitledsubsection#1{%
+   \expandafter\global\expandafter\sl:toks\expandafter
+   {\the\sl:toks\leavevmode \o:untitledsubsection:}%
+   \expandafter\ifx\csname a:sec@slide\endcsname\relax
+   \expandafter\ifx\csname b:sec@slide\endcsname\relax
+       \the\sl:toks \global\sl:toks={}%
+\fi\fi
+%
+}
+
+\newtoks\sl:toks
+\NewConfigure{sec@slide}{2}
+
+\def\addtocontents#1#2{%
+   \add:toc{#1}{}{#2}%
+}
+\def\add:toc#1#2#3{{%
+   \csname if:toc\endcsname{
+      \def\protect{\noexpand\noexpand\noexpand}%
+      \edef\:tempa{\the\:tokwrite{\string\doTocEntry
+   \string\toc#1{#2}{%
+      \string\csname\space a:TocLink\string\endcsname
+            {\FileNumber}{\cur:th\@currentlabel}{}{#3}%
+   }{}\relax
+}%
+}\:tempa
+   }%
+}}
+\def\tableofcontents{\futurelet\:temp\:TOC}
+\def\:TOC{\ifx [\:temp \expandafter\:TableOfContents
+          \else \:TableOfContents[toc]\fi}
+
+\pend:defI\alert{\a:alert}
+\append:defI\alert{\b:alert}
+\NewConfigure{alert}{2}
+\pend:defI\structure{\a:structure}
+\append:defI\structure{\b:structure}
+\NewConfigure{structure}{2}
+
+
+\ifx \beamer@version\:UnDef
+   
+   \ifx \insertinstituteshort\:UnDef
+      \append:def\beamer@andtitle{\a:andtitle}
+\def\beamer@insttitle#1{\a:inst$\sp{#1}$\b:inst}
+\def\beamer@instinst#1{\a:inst$\sp{#1}$\b:inst\ignorespaces}
+\pend:def\titlepage{%
+   \a:titlepage
+   \pend:def\inserttitle{\a:title}%
+   \append:def\inserttitle{\b:title}%
+   \pend:def\insertauthor{\a:author}%
+   \append:def\insertauthor{\b:author}%
+   \pend:def\insertinstitute{\a:institute}%
+   \append:def\insertinstitute{\b:institute}%
+   \pend:def\insertdate{\a:date}%
+   \append:def\insertdate{\b:date}%
+   \pend:def\inserttitlegraphic{\a:titlegraphic}%
+   \append:def\inserttitlegraphic{\b:titlegraphic}%
+}
+\append:def\titlepage{\b:titlepage}
+\let\o:@subsection:\@subsection
+\def\@subsection[#1]#2{%
+   \expandafter\global\expandafter\sl:toks\expandafter
+   {\the\sl:toks\leavevmode \o:@subsection:[#1]{#2}%
+    \add:toc{subsection}{\thesection.\thesubsection}{#2}}%
+   \expandafter\ifx\csname a:sec@slide\endcsname\relax
+   \expandafter\ifx\csname b:sec@slide\endcsname\relax
+       \the\sl:toks \global\sl:toks={}%
+\fi\fi
+%
+}
+\let\be:frameslide\frameslide
+\def\frameslide{\a:sec@slide\the\sl:toks\b:sec@slide
+   \global\sl:toks={}\be:frameslide}
+
+   \else
+      \append:def\andtitle{\a:andtitle}
+\def\insttitle#1{\a:inst$\sp{#1}$\b:inst}
+\def\instinst#1{\a:inst$\sp{#1}$\b:inst\ignorespaces}
+\pend:def\titlepage{%
+   \a:titlepage
+   \pend:def\inserttitletitle{\a:title}%
+   \append:def\inserttitletitle{\b:title}%
+   \pend:def\insertauthortitle{\a:author}%
+   \append:def\insertauthortitle{\b:author}%
+   \pend:def\insertinstitute{\a:institute}%
+   \append:def\insertinstitute{\b:institute}%
+   \pend:def\insertdate{\a:date}%
+   \append:def\insertdate{\b:date}%
+   \pend:def\inserttitlegraphic{\a:titlegraphic}%
+   \append:def\inserttitlegraphic{\b:titlegraphic}%
+}
+\append:def\titlepage{\b:titlepage}
+\let\o:subsection:\subsection
+\def\subsection#1{%
+   \expandafter\global\expandafter\sl:toks\expandafter
+   {\the\sl:toks\leavevmode \o:subsection:{#1}%
+    \add:toc{subsection}{\thesection.\thesubsection}{#1}}%
+   \expandafter\ifx\csname a:sec@slide\endcsname\relax
+   \expandafter\ifx\csname b:sec@slide\endcsname\relax
+       \the\sl:toks \global\sl:toks={}%
+\fi\fi
+%
+}
+\pend:def\slide{\a:sec@slide\the\sl:toks\b:sec@slide
+   \global\sl:toks={}}
+
+   \fi
+\else
+   
+\fi
+\Hinput{beamer}
+\endinput
+

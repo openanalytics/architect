@@ -1,0 +1,198 @@
+% The Computer Modern Roman family of fonts (by D. E. Knuth, 1979--1985) 
+% 8-bit characters with Czech accents (Petr Novak) 
+% revised and edited 1992-93 (Karel Horak)
+% european quotes and special hyphenchar added
+% revised and maintaned by Petr Olsak (1993--) <olsak@math.feld.cvut.cz>
+
+if ligs>1: font_coding_scheme:="TeX cs text";
+ spanish_shriek=oct"074"; spanish_query=oct"076";
+else: font_coding_scheme:=if ligs=0: "TeX cs typewriter text"
+  else: "TeX cs text without f-ligatures" fi;
+ spanish_shriek=oct"016"; spanish_query=oct"017"; fi
+
+mode_setup; font_setup;
+
+if driver_name="sroman": input sromanu  % upper case (majuscules), SliTeX
+   else:                 input romanu fi ;   % upper case (majuscules)
+input romanl;  % lower case (minuscules)
+input greeku;  % upper case Greek letters
+input romand;  % numerals
+input romanp;  % ampersand, question marks, currency sign
+input romspl;  % lowercase specials (dotless \i, ligature \ae, etc.)
+input romspu;  % uppercase specials (\AE, \OE, \O)
+input punct;  % punctuation symbols common to roman and italic text
+input accent;  % accents common to roman and italic text
+
+% Czech accented letters
+input csaccent;  % czech and slovak accents definitions
+input csacutl; % lowercase letters with acute accent
+input csacutu; % uppercase latters with acute accent
+input cshachel; % lowercase letters with hachek accent
+input cshacheu; % uppercase letters with hachek accent
+input csotherl; % lowercase letters with other accents
+input csotheru; % uppercase letters with other accents
+input csadded; % european quotes, oneperthousand
+input cshyph;  % allows made \hyphenchar\font=156
+
+
+if ligs>1: input romlig; fi  % letter ligatures
+if ligs>0: input comlig; fi  % ligatures common with italic text
+if ligs<=1: input romsub; fi  % substitutes for ligatures
+
+
+ligtable "!": "`" =: spanish_shriek;
+ligtable "?": "`" =: spanish_query;
+font_slant slant; font_x_height x_height#;
+if monospace: font_normal_space 9u#; % no stretching or shrinking
+ font_quad 18u#;
+ font_extra_space 9u#;
+else: font_normal_space 6u#+2letter_fit#;
+ font_normal_stretch 3u#; font_normal_shrink 2u#;
+ font_quad 18u#+4letter_fit#;
+ font_extra_space 2u#;
+
+ k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
+
+% the following kerns should have been added:
+%  - between opening quotes and some letters
+%  - between |"."| and |"."| (...)
+%  - between |"A"| and |"v"| (Average)
+%  - between |"A"| and |"w"| (Awkward or Lem's Awruk)
+%  - between |"F"|, |"P"|, |"T"|, |"V"|, |"W"|, |"Y"| and |"."|, |","|
+% but for the sake of compatibility with CM's they would have been
+% inserted only if |improve_kerns=true| (by default |improve_kerns=true|).
+
+if improve_kerns: ligtable ".": "." kern -kkk#; fi
+ ligtable "k": if serifs: "v":
+ if improve_kerns:
+           "a" kern k#, cs_aa kern k#,
+           cs_ae kern k#, cs_ax kern k#, 
+ else:
+           "a" kern -u#, cs_aa kern -u#,
+           cs_ae kern -u#, cs_ax kern -u#, 
+ fi fi\\"w":
+           "e" kern k#, cs_ee kern k#, cs_ie kern k#,
+           "a" kern k#, cs_aa kern k#, cs_ae kern k#, cs_ax kern k#,
+           "o" kern k#, cs_oo kern k#, cs_uo kern k#, cs_oe kern k#,
+           "c" kern k#, cs_cz kern k#;
+ ligtable "P": 
+ if improve_kerns: "." kern k#, "," kern k#, fi
+          "A" kern kk#, cs_AA kern kk#, cs_AX kern kk#,  cs_AE kern kk#,
+          "y": cs_yy: 
+               "o" kern k#, cs_oo kern k#, 
+               "e" kern k#, cs_ee kern k#, cs_ie kern k#,
+               "a" kern k#, cs_aa kern k#, cs_ae kern k#, cs_ax kern k#,
+               "." kern kk#, "," kern kk#;
+ % Sep 20, 1996: Some kerns reduced by P. Olsak (T\v r, for example)
+ ligtable "F": "V": "W": 
+ if improve_kerns: "." kern -u#, "," kern -u#, fi
+            if serifs:
+               "o" kern kk#, cs_oo kern kk#, cs_oe kern kk#,
+               "e" kern kk#, cs_ee kern kk#, cs_ie kern k#,
+               "u" kern kk#, cs_uu kern kk#, cs_ou kern kk#, cs_ue kern k#,
+               "r" kern kk#, cs_rr kern kk#,
+               "a" kern kk#, cs_aa kern kk#, cs_ae kern kk#, cs_ax kern kk#,
+               "A" kern kkk#, cs_AA kern kkk#,
+               cs_AE kern kkk#, cs_AX kern kkk#,
+               if improve_kerns:
+                 "c" kern kk#, cs_cz kern k#, %% P.O. 6.97
+               fi
+           else: "o" kern k#, cs_oo kern k#, cs_ou kern k#, cs_oe kern k#,
+               "e" kern k#, cs_ee kern k#, cs_ie kern k#,
+               "u" kern k#, cs_uu kern k#, cs_ue kern k#, cs_ou kern k#,
+               "r" kern k#, cs_rz kern k#, cs_rr kern k#,
+               "a" kern k#, cs_aa kern k#, cs_ae kern k#, cs_ax kern k#,
+               "A" kern kk#, cs_AA kern kk#,
+                 cs_AE kern kk#, cs_AX kern kk#,
+           fi
+           "K": "X": "O" kern k#, cs_OO kern k#,
+                 cs_UO kern k#, cs_OE kern k#,
+               "C" kern k#, cs_CZ kern k#,
+               "G" kern k#, "Q" kern k#;
+ ligtable "T": cs_TJ : if serifs: "y" kern k#, cs_yy kern k#
+                               else: "y" kern kk#, cs_yy kern kk# fi,
+          "Y": cs_YY:
+               "e" kern kk#, cs_ee kern -u#, cs_ie kern k#,
+               "o" kern kk#, cs_oo kern -u#, 
+               "r" kern kk#, cs_rr kern k#,
+               "a" kern kk#, cs_aa kern -u#, 
+               "A" kern kk#, cs_AA kern kk#,
+               cs_AE kern kk#, cs_AX kern kk#,
+               "u" kern kk#, cs_uu kern -u#,  cs_ou kern -u# 
+               if improve_kerns:, 
+                  "." kern k#, "," kern k#,
+                  "c" kern kk#, cs_cz kern k#  % P.O. 6.97
+               fi;
+ ligtable "O": cs_OO: "D": cs_DJ:
+               "X" kern k#, "W" kern k#,
+               "A" kern k#, cs_AA kern k#, cs_AE kern k#,
+                   cs_AX kern k#,
+               "V" kern k#, "Y" kern k#, cs_YY kern k#;
+ if serifs: ligtable "h": "m": "n": cs_nj:
+               "t" kern k#, cs_tj kern k#,
+               "u" kern k#, cs_uu kern k#, cs_ue kern k#, cs_ou kern k#,
+               "b" kern k#, "y" kern k#, cs_yy kern k#,
+               "v" kern k#, "w" kern k#;
+ ligtable "c": cs_cz: "h" kern k#, "k" kern k#; fi
+ ligtable "o": cs_oo: cs_uo: cs_oe: "b": "p":
+               "e" kern -k#, cs_ee kern -k#, cs_ie kern -k#,
+               "o" kern -k#, cs_oo kern -k#, cs_ou kern -k#, cs_oe kern -k#,
+               "x" kern k#, "d" kern -k#, cs_dj kern -k#,
+               "c" kern -k#, cs_cz kern -k#, "q" kern -k#,
+          "a": cs_aa: cs_ae: cs_ax:
+          if serifs: "v" kern k#, "j" kern u#,
+          else: "r" kern k#, cs_rr kern k#, cs_rz kern k#, fi
+          "t": "y" kern k#, cs_yy kern k#,
+          "u": cs_uu: cs_ou: cs_ue: "w" kern k#;
+ ligtable "A": cs_AA: cs_AE: cs_AX:
+ if improve_kerns:
+  "v" kern if serifs: kkk# else: k# fi, "w" kern if serifs: kk# else: k# fi,
+ fi
+          if serifs: "R": cs_RZ: cs_RR: fi\\
+               "t" kern k#, cs_tj kern k#,
+               "C" kern k#, cs_CZ kern k#,
+               "O" kern k#, cs_OO kern k#, cs_UO kern k#,
+                   cs_OE kern k#,
+               "G" kern k#,
+               "U" kern k#, cs_UU kern k#, cs_OU kern k#,
+                   cs_UE kern k#,
+               "Q" kern k#,
+          "L": cs_LJ: cs_LL:
+               "T" kern kk#, cs_TJ kern kk#,
+               "Y" kern kk#, cs_YY kern kk#,
+               "V" kern kkk#, "W" kern kkk#;
+ ligtable "g": "j" kern -k#; % logjam
+ ligtable "I": "I" kern -k#;  % Richard III
+ % there are ligature/kern programs for |"f"| in the {\tt romlig} file
+ % and for |"-"|, |"`"|, and |"'"| in the {\tt comlig} file
+ligtable cs_dj : cs_lj : closing_quotes kern 2u#;
+ligtable cs_tj : closing_quotes kern 1u#;
+
+if improve_kerns:
+ligtable opening_quotes:
+ "g" kern -k#, "j" kern -kkk#, "p" kern -k#, "y" kern u#, cs_yy kern u#,
+ "v" kern k#, "w" kern k#,
+ if serifs:
+  "A" kern u#, cs_AA kern u#, cs_AE kern u#,
+  "C" kern u#, cs_CZ kern u#, "D" kern u#, cs_DJ kern u#,
+  "E" kern u#, cs_EE kern u#, cs_IE kern u#, "F" kern u#, "H" kern u#,
+  "I" kern u#, cs_II kern u#, "J" kern u#, "K" kern u#, 
+  "L" kern u#, cs_LJ kern u#,
+  "M" kern u#, "N" kern u#, cs_NJ kern u#, "P" kern u#,
+  "R" kern u#, cs_RZ kern u#, cs_RR kern u#, "S" kern u#, cs_SH kern u#,
+  "T" kern k#, cs_TJ kern k#, "X" kern u#,
+  "Y" kern k#, cs_YY kern k#, "Z" kern u#, cs_ZH kern u#,
+ else:
+  "T" kern kk#, cs_TJ kern kk#, "Y" kern kk#, cs_YY kern kk#, 
+ fi 
+ "V" kern kk#, "W" kern k#;
+fi
+fi
+
+
+bye.
+
+
+
+
+

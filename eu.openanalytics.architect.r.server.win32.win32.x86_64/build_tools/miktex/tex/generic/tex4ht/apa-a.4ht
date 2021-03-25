@@ -1,0 +1,114 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% apa-a.4ht                             2009-05-21-09:32 %
+% Copyright (C) 2003--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\append:def\maketitle{\egroup}
+\pend:def\maketitle{%
+  \bgroup
+  \ConfigureEnv{figure}{\def\makebox[########1]########2{}}{}{}{}%
+  \@ifundefined{@abstract}{}{%
+     \pend:def\@abstract{\a:abstract}%
+     \append:def\@abstract{\b:abstract}%
+  }%
+  \@ifundefined{@note}{}{%
+     \pend:def\@note{\a:note}%
+     \append:def\@note{\b:note}%
+  }%
+  \@ifundefined{@author}{}{%
+   \pend:def\@affil{\a:affil}%
+   \append:def\@affil{\b:affil}%
+}%
+\@ifundefined{@authorOne}{}{%
+   \pend:def\@authorOne{\a:author}%
+   \append:def\@authorOne{\b:author}%
+   \pend:def\@affilOne{\a:affil}%
+   \append:def\@affilOne{\b:affil}%
+}%
+\@ifundefined{@authorTwo}{}{%
+   \pend:def\@authorTwo{\a:author}%
+   \append:def\@authorTwo{\b:author}%
+   \pend:def\@affilTwo{\a:affil}%
+   \append:def\@affilTwo{\b:affil}%
+}%
+\@ifundefined{@authorFour}{}{%
+   \pend:def\@authorFour{\a:author}%
+   \append:def\@authorFour{\b:author}%
+   \pend:def\@affilFour{\a:affil}%
+   \append:def\@affilFour{\b:affil}%
+}%
+%
+}
+\NewConfigure{abstract}{2}
+\NewConfigure{note}{2}
+\NewConfigure{affil}{2}
+\def\appendix{%
+  \appendixtrue
+  \apaappfig
+  \apaapptab
+  \ifapamodejou{}{\clearpage}
+  \let\old@apa@section=\leveltwo
+  \newlength{\app@t@width}
+  \setlength{\app@t@width}{\columnwidth}
+  \addtolength{\app@t@width}{-8em}%
+  \long\def\leveltwo##1{%
+     \ifapamodeman{%
+       \clearpage
+       \setcounter{postfig}{0}
+       \setcounter{posttbl}{0}
+       \efloat@condopen{fff}
+       \efloat@iwrite{fff}{\string\addtocounter{appendix}{1}}
+       \efloat@iwrite{fff}{\string\setcounter{figure}{0}}
+       \efloat@condopen{ttt}
+       \efloat@iwrite{ttt}{\string\addtocounter{appendix}{1}}
+       \efloat@iwrite{ttt}{\string\setcounter{table}{0}}%
+      }{%
+       \setcounter{figure}{0}%
+       \setcounter{table}{0}%
+      }%
+      \refstepcounter{appendix}%
+      \ifnum\c@appendix>1 \immediate\write
+               \@auxout{\global\string\oneappendixfalse}\fi%
+      \old@apa@section{%
+             \appendixname\ifoneappendix\else~\theappendix\fi\\
+             ##1%
+      }%
+  }%
+}
+\append:def\seriate{\a:seriate
+   \pend:def\item{\c:seriate
+      \let\sp:ce=\space
+      \def\space{\d:seriate\let\space=\sp:ce \space}%
+}}%
+\pend:def\endseriate{\b:seriate}
+\NewConfigure{seriate}{4}
+\def\s@title{}
+\def\shorttitle#1{}
+\AtBeginDocument{\def\rheadname{}}
+
+\Hinput{apa}
+\endinput
+

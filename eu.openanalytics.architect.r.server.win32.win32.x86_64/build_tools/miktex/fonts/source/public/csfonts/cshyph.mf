@@ -1,0 +1,13 @@
+%% this file defines the same hyphenchar at the position
+%% cs_hyph=156 for right breaking Czech hyphenated words (je-li)
+
+cmchar "Hyphen";            %% adjust_fit changed
+beginchar(cs_hyph,6u#,x_height#,0);     %% for case of spaced chars
+italcorr .5x_height#*slant-.5u#;
+if ligs<=1: adjust_fit(-letter_fit#,-letter_fit#) else: adjust_fit(0,0) fi;
+numeric thickness; thickness=if hefty:bar else:.75[hair,stem] fi;
+pickup crisp.nib; pos1(thickness,90); pos2(thickness,90);
+top y1r=top y2r=vround(.5h+.5thickness); rt x2=hround(w-u)+eps;
+if monospace: x2=w-x1 else: lft x1=hround .2u-eps fi;
+filldraw stroke z1e--z2e;  % bar
+penlabels(1,2); endchar;

@@ -1,0 +1,178 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: `farsifnt.sty' Arabic font switching commands used by
+% the Arabi package.
+%
+\def\fileversion{1.0}
+\def\filedate{2006/01/01}
+%%%%%%%%%%%%%%%%%%%%%%%% Font Names %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Check if file is loaded and announce file on terminal:
+%
+\csname FarsifontsLoaded\endcsname
+\let\FarsifontsLoaded\endinput
+
+\message{\space\space Farsi font switching commands v\fileversion\space\space\filedate}
+\message{\space\space (may still change)\space\space}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%% 
+%\ProvidesPackage{farsifnt}[2006/01/01 v1.0 Farsi font switching 
+% commands (may still change)]
+
+
+
+% \DeclareTextFontCommand {<cmd>} {<font-switches>}
+%
+% Declares command <cmd> to be a font command with one argument. The current font attributes
+% are locally modified by <font-switches> and then the argument of <cmd> is typeset in the 
+% resulting new font.
+%
+% Commands defined by \DeclareTextFontCommand automatically take care of any necessary
+% italic correction (on either side).
+
+  
+%
+%============================== Microsoft ===================================
+%  
+% Farsi Simple and outline
+  \DeclareTextFontCommand{\textfrsimpl}{\fontfamily{farsismpl}\selectfont}
+  \DeclareRobustCommand{\frsimpl}{\fontfamily{farsismpl}\selectfont}
+% 
+  \DeclareRobustCommand{\frsimplout}{\fontfamily{farsismpl}\fontseries{b}\selectfont}
+  \DeclareTextFontCommand{\textfrsimplout}{\fontfamily{farsismpl}\fontseries{b}\selectfont}
+
+
+% Arial
+  \DeclareTextFontCommand{\textfrarial}{\fontfamily{frarial}\selectfont}
+  \DeclareRobustCommand{\frarial}{\fontfamily{frarial}\selectfont}
+%
+  \DeclareTextFontCommand{\textfrarialb}{\fontfamily{frarial}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\frarialb}{\fontfamily{frarial}\fontseries{b}\selectfont}
+
+% Times New Roman
+  \DeclareTextFontCommand{\textftimes}{\fontfamily{frtimes}\selectfont}
+  \DeclareRobustCommand{\ftimes}{\fontfamily{frtimes}\selectfont}
+%
+  \DeclareTextFontCommand{\textftimesb}{\fontfamily{frtimes}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\ftimesb}{\fontfamily{frtimes}\fontseries{b}\selectfont}
+% Courier
+%  \DeclareTextFontCommand{\textcour}{\fontfamily{cour}\selectfont}
+%  \DeclareRobustCommand{\cour}{\fontfamily{cour}\selectfont}
+%  
+%  \DeclareTextFontCommand{\textcourb}{\fontfamily{cour}\fontseries{b}\selectfont}
+%  \DeclareRobustCommand{\courb}{\fontfamily{cour}\fontseries{b}\selectfont}
+% Traditional Arabic
+  \DeclareTextFontCommand{\textftrad}{\fontfamily{ftraditionalarabic}\selectfont}
+  \DeclareRobustCommand{\ftrad}{\fontfamily{ftraditionalarabic}\selectfont}
+%  
+  \DeclareTextFontCommand{\textftradb}{\fontfamily{ftraditionalarabic}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\ftradb}{\fontfamily{ftraditionalarabic}\fontseries{b}\selectfont}
+% Simplified arabic
+  \DeclareTextFontCommand{\textfrsimplarabic}{\fontfamily{smplarabic}\selectfont}
+  \DeclareRobustCommand{\frsimplarabic}{\fontfamily{smplarabic}\selectfont}
+% 
+  \DeclareTextFontCommand{\textfrsimplarabicb}{\fontfamily{smplarabic}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\frsimplarabicb}{\fontfamily{smplarabic}\fontseries{b}\selectfont}
+% 
+% Andalus
+  \DeclareTextFontCommand{\textfandalus}{\fontfamily{fandlso}\selectfont}
+  \DeclareRobustCommand{\fandalus}{\fontfamily{fandlso}\selectfont}
+  
+%
+%================================== ?????????????? ==========================
+%  
+  
+  
+%
+%=============================== FarsiWeb Project Fonts ===================================
+% Nazli (Normal and Bold)
+  \DeclareTextFontCommand{\textnazli}{\fontfamily{nazli}\selectfont}
+  \DeclareRobustCommand{\nazli}{\fontfamily{nazli}\selectfont}
+%
+  \DeclareTextFontCommand{\textnazlib}{\fontfamily{nazli}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\nazlib}{\fontfamily{nazli}\fontseries{b}\selectfont}
+% Nazli Outline (Normal and Bold)
+  \DeclareTextFontCommand{\textnazliout}{\fontfamily{nazliout}\selectfont}
+  \DeclareRobustCommand{\nazliout}{\fontfamily{nazliout}\selectfont}
+%
+  \DeclareTextFontCommand{\textnazlibout}{\fontfamily{nazliout}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\nazlibout}{\fontfamily{nazliout}\fontseries{b}\selectfont}
+%
+% Titr (Bold only for titles)
+  \DeclareTextFontCommand{\texttitr}{\fontfamily{titr}\selectfont}
+  \DeclareRobustCommand{\titr}{\fontfamily{titr}\selectfont}
+%
+% Titr Outline 
+  \DeclareTextFontCommand{\texttitrout}{\fontfamily{titrout}\selectfont}
+  \DeclareRobustCommand{\titrout}{\fontfamily{titrout}\selectfont}
+%
+% Koodak  
+  \DeclareTextFontCommand{\textkoodak}{\fontfamily{koodak}\selectfont}
+  \DeclareRobustCommand{\koodak}{\fontfamily{koodak}\selectfont}
+%
+% Homa  
+  \DeclareTextFontCommand{\texthoma}{\fontfamily{homa}\selectfont}
+  \DeclareRobustCommand{\homa}{\fontfamily{homa}\selectfont}
+% Elham  
+  \DeclareTextFontCommand{\textelham}{\fontfamily{elham}\selectfont}
+  \DeclareRobustCommand{\elham}{\fontfamily{elham}\selectfont}
+%
+% Roya (Normal and Bold)
+  \DeclareTextFontCommand{\textroya}{\fontfamily{roya}\selectfont}
+  \DeclareRobustCommand{\roya}{\fontfamily{roya}\selectfont}
+%
+  \DeclareTextFontCommand{\textroyab}{\fontfamily{roya}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\royab}{\fontfamily{roya}\fontseries{b}\selectfont}
+
+% Terafik (Normal and Bold)
+  \DeclareTextFontCommand{\textterafik}{\fontfamily{terafik}\selectfont}
+  \DeclareTextFontCommand{\terafik}{\fontfamily{terafik}\selectfont}
+%
+  \DeclareTextFontCommand{\textterafikb}{\fontfamily{terafik}\fontseries{b}\selectfont}
+  \DeclareTextFontCommand{\terafikb}{\fontfamily{terafik}\fontseries{b}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\endinput

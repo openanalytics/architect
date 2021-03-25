@@ -1,0 +1,145 @@
+%
+% Encoding file for some PostScript Arabic fonts to use with the 
+% Arabi package to write Arabic texts with LaTeX
+% 
+%   author = "Y. Jabri",
+%   email = "yjabri@ensa.univ-oujda.ac.ma",
+%   version = "0.1",
+%   date = "January 2006",
+%
+%
+%
+/DTPThuluthArabicEncoding [          % now 256 chars follow
+% 0          
+  /fe8d /fe83 /fe84 /fe87
+% 4 
+  /fe88 /fe81 /fe82 /fe91
+% 8 
+  /.notdef /fe90 /fe8f /fe97
+% 12
+  /.notdef /fe96 /fe95 /fe9b
+% 16 
+ /fe9c /fe9a /fe99 /fe9f 
+% 20
+ /fea0 /fe9e /fe9d /fea3
+% 24
+ /fea4 /fea2 /fea1 /fea7 
+% 28
+ /fea8 /fea6 /fea5 /.notdef
+% 32 
+ /fea9 /exclam /u0652 /numbersign      
+% 36
+ /dollar /_66a /ampersand /quoteright  
+% 40
+ /parenright /parenleft /asterisk /quotedbl % parentheses were refelcted 
+% 44
+  /u060c /endash /period /slash   %  we should get the "arabicslash" in 4th position 
+% 48
+ /u0660 /u0661 /_662 /_663 
+% 52
+ /_664 /_665 /_666 /_667
+% 56
+ /_668 /_669 /colon /u061b %colon ok ?? 
+% 60 
+ /guillemotright /.notdef /guillemotleft /u061f
+% 64
+ /feac /fe8e /.notdef /fead 
+% 68
+ /.nodef /feaf /feb3 /.notdef 
+% 72
+ /feb2 /fef4  /feb7 /feb8 
+% 76
+ /feb6 /feb5 /.notdef /febc 
+% 80
+ /feba /feb9 /febf /fec0 
+% 84 
+ /uE01C /feee /fec3 /fec4 
+% 88
+ /fec2 /fef0 /fec7  /braceright
+% 92
+ /fec8 /braceleft /fec6 /fec5
+% 96
+ /fecc /u064E /fe92 /.notdef
+% 100
+ /feaa /.notdef /fed4 /.notdef
+% 104 
+ /feec /u0650 /.notdef /fedc
+% 108
+  /fee0 /fee4 /fee8 /.notdef
+% 112
+ /.notdef /fed8 /feae /feb4 
+% 116
+ /fe98 /u064F /.notdef /feee
+% 120
+ /feb1 /fef4 /feb0 /febe 
+% 124
+ /febd /febb /.notdef /.notdef % 
+% 128
+ /.notdef /.notdef /.notdef /.notdef 
+% 132
+ /.notdef /.notdef /.notdef /.notdef 
+% 136
+ /fecb /feca /fec9  /fecf
+% 140
+ /fed0 /fece /fecd /fed3
+% 144
+ /fed2 /fed1 /fed7 /fed6
+% 148
+ /fed5 /fedb /feda /fed9
+% 152
+ /fedf /fede /fedd /fee3
+% 156
+ /fee2 /fee1  /fee7 /fee6
+% 160
+ /fee5  /feeb /feea /fee9
+% 164
+ /feed /fe86 /fe85 /fef3
+% 168
+ /fef2 /fef1 /fec1 /feef
+% 172
+ /.notdef /fe93  /fefc /fefb
+% 176     
+ /fef8 /fef7 
+ /fefa /fef9
+% 180      
+ /fef6 /fef5 
+ /fe8b /fe8c
+% 184 
+ /fe8a /fe89 
+ /fe80 /.notdef
+% 188
+ /.notdef /.notdef /u064B /u064C
+% 192
+ /u064D /u064E /u064F /u0650 
+% 196
+ /u0651 /u0652 /.notdef /.notdef
+% 200
+ /.notdef /.notdef /.notdef /.notdef 
+% 204
+ /u0652 /.notdef /.notdef /.notdef 
+% 208
+ /feab  /.notdef /.notdef /.notdef 
+% 212
+ /.notdef /.notdef /.notdef /.notdef 
+% 216
+ /.notdef /.notdef /.notdef /.notdef 
+% 220
+ /.notdef /.notdef /.notdef /.notdef 
+% 224
+ /.notdef /.notdef /.notdef /.notdef 
+% 228
+ /.notdef /.notdef /.notdef /.notdef 
+% 232
+ /.notdef /.notdef /.notdef /.notdef 
+% 236
+ /.notdef /.notdef /.notdef /.notdef 
+% 240
+ /.notdef /.notdef /.notdef /.notdef 
+% 244
+ /.notdef /.notdef /.notdef /.notdef 
+% 248 
+ /.notdef /.notdef /.notdef /.notdef 
+% 252
+ /e007 /.notdef /u0640 /.notdef 
+] def
+

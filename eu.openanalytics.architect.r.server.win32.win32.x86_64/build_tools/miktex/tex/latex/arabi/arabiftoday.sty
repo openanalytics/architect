@@ -1,0 +1,240 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: `Arabiftoday.sty' Farsi Jalai date module for use with
+% the Arabi package.
+%
+%% %%%%%%%%%%%%%%%%% MODIFICATION %%%%%%%%%%%%%%%%%%%%%%%%%%
+%% just renamed the months properly for use with Arabi
+%% Did not want to use any local encoding, so we used the 
+%% internal glyphs names!
+%% And added the control sequence \farsimonth
+%%
+%% Youssef JABRI   January 2006
+%%==========================================================
+%%
+%%  This file is a part of FarsiTeX, a Persian/English typesetting system.
+%%
+%%  Copyright (C) 1996 Hassan Abolhassani
+%%  Copyright (C) 1996-2001 Roozbeh Pournader <roozbeh@sharif.edu>
+%%  Copytight (C) 2000-2001 Behdad Esfahbod <behdad@bamdad.org>
+%%
+%%  FarsiTeX is free software; you can redistribute it and/or modify
+%%  it under the terms of the GNU General Public License as published by
+%%  the Free Software Foundation; either version 2 of the License, or
+%%  (at your option) any later version.
+%%
+%%  FarsiTeX is distributed in the hope that it will be useful,
+%%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%%  GNU General Public License for more details.
+%%
+%%  You should have received a copy of the GNU General Public License
+%%  along with FarsiTeX; if not, write to the Free Software
+%%  Foundation, 59 Temple Place, Suite 330, Boston, MA 02111-1307,
+%%  USA.
+%%
+%%  Any licensing or usage questions should be directed to Roozbeh
+%%  Pournader <roozbeh@sharif.edu>.
+%%
+
+\newif\ifFT@leap \newif\ifFT@kabiseh
+\newcount\FT@i  \newcount\FT@y  \newcount\FT@m  \newcount\FT@d
+\newcount\FT@latini    \newcount\FT@farsii
+\newcount\FT@latinii   \newcount\FT@farsiii
+\newcount\FT@latiniii  \newcount\FT@farsiiii
+\newcount\FT@latiniv   \newcount\FT@farsiiv
+\newcount\FT@latinv    \newcount\FT@farsiv
+\newcount\FT@latinvi   \newcount\FT@farsivi
+\newcount\FT@latinvii  \newcount\FT@farsivii
+\newcount\FT@latinviii \newcount\FT@farsiviii
+\newcount\FT@latinix   \newcount\FT@farsiix
+\newcount\FT@latinx    \newcount\FT@farsix
+\newcount\FT@latinxi   \newcount\FT@farsixi
+\newcount\FT@latinxii  \newcount\FT@farsixii
+                       \newcount\FT@farsixiii
+
+\newcount\FT@temp
+\newcount\FT@temptwo
+\newcount\FT@tempthree
+\newcount\FT@yModHundred
+\newcount\FT@thirtytwo
+\newcount\FT@dn
+\newcount\FT@sn
+\newcount\FT@mminusone
+
+\def\ftoday{%
+\FT@y=\year \FT@m=\month \FT@d=\day
+%
+\FT@temp=\FT@y
+\divide\FT@temp by 100\relax
+\multiply\FT@temp by 100\relax
+\FT@yModHundred=\FT@y
+\advance\FT@yModHundred by -\FT@temp\relax
+%
+\ifodd\FT@yModHundred
+   \FT@leapfalse
+\else
+   \FT@temp=\FT@yModHundred
+   \divide\FT@temp by 2\relax
+   \ifodd\FT@temp\FT@leapfalse
+   \else
+      \ifnum\FT@yModHundred=0%
+         \FT@temp=\FT@y
+         \divide\FT@temp by 400\relax
+         \multiply\FT@temp by 400\relax
+         \ifnum\FT@y=\FT@temp\FT@leaptrue\else\FT@leapfalse\fi
+      \else\FT@leaptrue
+      \fi
+   \fi
+\fi
+%
+\FT@latini=31\relax
+\ifFT@leap
+  \FT@latinii = 29\relax
+\else
+  \FT@latinii = 28\relax
+\fi
+\FT@latiniii = 31\relax
+\FT@latiniv  = 30\relax
+\FT@latinv = 31\relax
+\FT@latinvi = 30\relax
+\FT@latinvii = 31\relax
+\FT@latinviii = 31\relax
+\FT@latinix = 30\relax
+\FT@latinx = 31\relax
+\FT@latinxi = 30\relax
+\FT@latinxii = 31\relax
+%
+\FT@thirtytwo=32\relax
+%
+\FT@temp=\FT@y
+\advance\FT@temp by -17\relax
+\FT@temptwo=\FT@temp
+\divide\FT@temptwo by 33\relax
+\multiply\FT@temptwo by 33\relax
+\advance\FT@temp by -\FT@temptwo
+\ifnum\FT@temp=\FT@thirtytwo\FT@kabisehfalse
+\else
+   \FT@temptwo=\FT@temp
+   \divide\FT@temptwo by 4\relax
+   \multiply\FT@temptwo by 4\relax
+   \advance\FT@temp by -\FT@temptwo
+   \ifnum\FT@temp=\z@\FT@kabisehtrue\else\FT@kabisehfalse\fi
+\fi
+%
+% --BE
+% In fact farsii is equal to the Leap years from a fixed year to the last
+% year minus the Kabise years from a fixed year to the last year plus a const.
+%
+\FT@tempthree=\FT@y                 % Number of Leap years
+\advance\FT@tempthree by -1
+\FT@temp=\FT@tempthree              % T := (MY-1) div 4
+\divide\FT@temp by 4\relax
+\FT@temptwo=\FT@tempthree           % T := T - ((MY-1) div 100)
+\divide\FT@temptwo by 100\relax
+\advance\FT@temp by -\FT@temptwo
+\FT@temptwo=\FT@tempthree           % T := T + ((MY-1) div 400)
+\divide\FT@temptwo by 400\relax
+\advance\FT@temp by \FT@temptwo
+\advance\FT@tempthree by -611       % Number of Kabise years
+\FT@temptwo=\FT@tempthree           % T := T - ((SY+10) div 33) * 8
+\divide\FT@temptwo by 33\relax
+\multiply\FT@temptwo by 8\relax
+\advance\FT@temp by -\FT@temptwo
+\FT@temptwo=\FT@tempthree           %
+\divide\FT@temptwo by 33\relax
+\multiply\FT@temptwo by 33\relax
+\advance\FT@tempthree by -\FT@temptwo
+\ifnum\FT@tempthree=32\advance\FT@temp by 1\fi % if (SY+10) mod 33=32 then Inc(T);
+\divide\FT@tempthree by 4\relax     % T := T - ((SY+10) mod 33) div 4
+\advance\FT@temp by -\FT@tempthree
+\advance\FT@temp by -137            % T := T - 137  Adjust the value
+\FT@farsii=31
+\advance\FT@farsii by -\FT@temp                 % now 31 - T is the farsii
+%
+\FT@farsiii = 30\relax
+\ifFT@kabiseh
+  \FT@farsiiii = 30\relax
+\else
+  \FT@farsiiii = 29\relax
+\fi
+\FT@farsiiv  = 31\relax
+\FT@farsiv   = 31\relax
+\FT@farsivi  = 31\relax
+\FT@farsivii = 31\relax
+\FT@farsiviii= 31\relax
+\FT@farsiix  = 31\relax
+\FT@farsix   = 30\relax
+\FT@farsixi  = 30\relax
+\FT@farsixii = 30\relax
+\FT@farsixiii= 30\relax
+%
+\FT@dn= 0\relax
+\FT@sn= 0\relax
+\FT@mminusone=\FT@m
+\advance\FT@mminusone by -1\relax
+%
+\FT@i=0\relax
+\ifnum\FT@i < \FT@mminusone
+\loop
+\advance \FT@i by 1\relax
+\advance\FT@dn by \csname FT@latin\romannumeral\the\FT@i\endcsname
+\ifnum\FT@i<\FT@mminusone \repeat
+\fi
+\advance \FT@dn by \FT@d
+%
+\FT@i=1\relax
+\FT@sn = \FT@farsii
+\ifnum \FT@sn<\FT@dn
+\loop
+\advance \FT@i by 1\relax
+\advance\FT@sn by \csname FT@farsi\romannumeral\the\FT@i\endcsname
+\ifnum \FT@sn<\FT@dn \repeat
+\fi
+\ifnum \FT@i < 4
+   \FT@m = 9 \advance\FT@m by \FT@i
+   \advance \FT@y by -622\relax
+\else
+   \FT@m = \FT@i \advance \FT@m by -3\relax
+   \advance \FT@y by -621\relax
+\fi
+\advance\FT@sn by -\csname FT@farsi\romannumeral\the\FT@i%
+\endcsname
+\ifnum\FT@i = 1
+  \FT@d = \FT@dn \advance \FT@d by 30 \advance\FT@d by -\FT@farsii
+\else
+  \FT@d = \FT@dn \advance \FT@d by -\FT@sn
+\fi
+\beginL\number\FT@d\endL\space%
+%Changedc from here YJ
+\farsimonth{\FT@m}\space\beginL\number\FT@y\endL%
+}
+% added \farsimonth YJ
+\def\farsimonth#1{\ifcase#1\or \fa\ra\waw\ra\dal\ya\nun\or 
+\alef\ra\dal\ya\baa\ha\sheen\taa\or 
+\kha\ra\dal\alef\dal\or \taa\ya\ra\or 
+\meem\ra\dal\alef\dal\or 
+\sheen\ha\ra\ya\waw\ra\or \meem\ha\ra\or 
+\alefmadda\baa\alef\nun\or \alefmadda\dhal\ra\or 
+\dal\ya\or \baa\ha\meem\nun\or 
+\alef\seen\fa\nun\dal\fi}
+\endinput

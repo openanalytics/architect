@@ -1,0 +1,397 @@
+% The file cs-heros.tex (C) Petr Olsak, 2012, 2016
+% Use "\input cs-heros" to set the TG Heros font family in text mode
+
+% See end of this file for more information
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [TG Heros] {\caps \cond} {\rm \bf \it \bi} {} {TX} {8z 8t U}
+
+\ffvars {r}{b}{ri}{bi} 
+\def\caps{\ffsetV{caps}{-sc}\ffsetX}  \def\nocaps{\ffsetV{caps}{}\ffsetX}
+\def\cond{\ffsetV{cond}{c}\ffsetX}    \def\nocond{\ffsetV{cond}{}\ffsetX}
+\def\capsV{} 
+\def\condV{} 
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = ec-qhvr  \sizespec
+   \font\tenbf = ec-qhvb  \sizespec
+   \font\tenit = ec-qhvri \sizespec
+   \font\tenbi = ec-qhvbi \sizespec
+
+   \def\ffnamegen{ec-qhv\condV\ffvarV\capsV}
+
+\fi
+
+\ismacro\fotenc{8z}\iftrue
+
+   \font\tenrm = cs-qhvr  \sizespec
+   \font\tenbf = cs-qhvb  \sizespec
+   \font\tenit = cs-qhvri \sizespec
+   \font\tenbi = cs-qhvbi \sizespec
+
+   \def\ffnamegen{cs-qhv\condV\ffvarV\capsV}
+   \input chars-8z
+
+\fi
+
+\ismacro\fotenc{U}\iftrue
+
+   \font\tenrm = "[texgyreheros-regular]:\fontfeatures"    \sizespec
+   \font\tenbf = "[texgyreheros-bold]:\fontfeatures"       \sizespec
+   \font\tenit = "[texgyreheros-italic]:\fontfeatures"     \sizespec
+   \font\tenbi = "[texgyreheros-bolditalic]:\fontfeatures" \sizespec
+
+   \def\ffnamegen{"[texgyreheros\condV-\ffvarV]:\capsV\fontfeatures"} 
+
+   \ffvars {regular} {bold} {italic} {bolditalic}
+   \def\caps{\ffsetV{caps}{+smcp;}\ffsetX}
+   \def\cond{\ffsetV{cond}{cn}\ffsetX}
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\def\narrow{\cond\fam}
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+\endinput
+
+--------------------------------------------------------------
+
+For users
+=========
+
+There are four basic font variant selectors: \rm, \bf, \it, \bi. They are ready
+to print text in Heros (like Helvetica) variants after \input cs-heros.
+
+You can use "modifiers" of these basic variants: \cond, \caps. They can be
+independently combined but must be immediately followed by \rm, \bf, \it,
+\bi, \one or \fam. If basic variant selector is used then given variant
+combined by modifiers is selected. If selectors are followed by \one, the
+currently selected variant is combined by modifier(s). If \fam is used then it
+works like \one but all four variant selectors are modified by the
+modifier(s).
+
+Examples:
+
+{\cond\rm text}           ... Normal condensed.
+{\caps\cond\it text}      ... Caps & small-caps plus condensed italics.
+{\cond\one text}          ... Condensed modification of active variant.
+{\caps\fam text \bf text} ... Caps & small-caps, now all basic selectors
+                              \rm, \bf, \it, \bi keeps this modification.
+
+All font selectors and their modifiers do setting data locally inside TeX
+group.
+
+The TX math fonts are loaded together with this text family. If you need not
+load special fonts then you can set \let\loadmathfonts=\relax before 
+\input cs-heros. Of course, you can input any different math font collection, 
+for example \input ntx-math.
+
+You can combine fonts from more families. Load the main family last. You can
+use \ffletfont\newselector = {mod+var}{size} for keeping variants from
+previous loading. Example:
+
+\input cs-heros 
+\ffletfont \titlefont = {\cond\bf}{at14pt} % Heros condensed for titles
+\input cs-termes % Termes at 10 pt for normal text
+
+If you are using XeTeX or LuaTeX then the U (unicode) encoding is used and
+OTF fonts are loaded. You can use \useff{text} in such case. This works like
+another modifier and does modification of font-features. Use 
+otfinfo -f file.otf to inspect the font features of used font. Example:
+
+\useff{+onum;+salt}\bf  ... use Bold variant with oldstyle digits and
+                            stylistic alternatives
+\useff{+onum;+salt}\fam ... use given features for whole family.
+
+See the document kpfonts-plain.pdf for more information. 
+
+
+For font-file developers
+========================
+
+Use \ifx\ffdecl\undefined \input ff-mac \fi first. The ff-mac.tex macro
+file (means Font-File-MACros) provides:
+
+\sizespec .. is empty or it keeps the size specification of the font.
+\ffdecl .... prints font message and checks the font encoding.
+\fffam ..... expands to the family name
+\ffvars .... declares four basic variants (values for \ffvarV)
+\setfmV, \setfm ... macros used in font modifiers
+\ismacro ... test if the macro is defined as given. 
+\fotenc .... encoding of text fonts.
+\fontfeatures ... default (or user defined) fontfeatures if Unicode 
+             fonts are used.
+\ffalias ... register alias of a font name.
+\regsizes .. register optical sizes.  
+\tryprotected ... makes the macro defined as "robust".
+
+You must declare four basic variants \tenrm, \tembf, \tenit and \tenbi
+using \font primitive in your font-file. These four basic variants work 
+immediately after font-file is read because \rm, \bf, \it and \bi expands 
+to \tenrm, \tenbf, \tenit and \tenbi. 
+
+The font modifiers are based on the fact that font names of fonts includes
+these modifiers flags at given place in the name and they are independent
+one to another.
+
+All (modified) variants can be used in all various sizes by standard
+resizing tools given in CSplain or OPmac.
+
+
+Encodings
+---------
+
+You can declare more cases for various text font encondings. User can define
+font encoding by \def\fotenc{something}. Note \fotenc, no \fontenc. The
+sequence \fotenc means "FOnt Text ENCoding".
+
+The ff-mac.tex keeps the \fotenc macro unchanged, but if it is not defined then it does:
+
+- \def\fotenc{8z} if CSplain is used without \input t1code nor \input ucode
+- \def\fotenc{8t} if \input t1code or pdfTeX without CSplain is used
+- \def\fotenc{U}  if \input ucode or XeTeX or LuaTeX is used
+
+8z means IL2 encoding (default in CSplain), 8t means T1 encoding and U means
+Unicode.
+
+If the family does not provide all four basic variants then keep missing
+variants undeclared and use parameter {!} in appropriate \ffvars parameter.
+
+Last two lines in the code above loads the default math fonts. The "X"
+letter (as \mathpreloaded) is reserved for TX fonts collection. The "A"
+letter is reserved for AMS math fonts.
+
+
+\ffdecl [Family Name] {modifiers} {basic selectors} {comment} {math} {enc}
+-------------------------------------------------------------------------
+
+This macro stops reading the file (with warning) if the \fotenc is not
+included in the provided encodings given in the last parameter. Else it
+prints the message about font family, its selectors, modifiers and appends
+the comment.
+
+The \fffam macro is defined by \ffdecl.
+
+
+\ffvars {normal} {bold} {italic} {bolditalic}
+---------------------------------------------
+
+This macro gives the values to the \ffvarV macro dependent on what basic
+variant is needed. The \ffvarV macro is used in \ffnamegen. See below.
+The \ffvars *must* be used for declaration variants if font modifiers are
+declared.
+
+If you need to implement font modifier (say \modfoo), then define
+
+\def\modfoo{\ffsetV{foo}{text}\ffsetX}  
+
+The macro \ffsetV{foo}{text} define \fooV macro as text. So, you can use
+\fooV in \ffnamegen.
+
+Next, define default value for \fooV by \def\fooV{}.
+
+Finally, define \ffnamegen as a generic font name using \ffvarV and \fooV in
+it. These names are expanded to basic variant name given by \ffvars and the
+actual value of \fooV given by \ffsetV. For example, if the metric names of
+the font family are
+
+   baaRMwhat.tfm    ... normal 
+   baaBFwhat.tfm    ... bold
+   baaRMwhatFF.tfm  ... normal modified by FF
+   baaBFwhatFF.tfm  ... bold modified by FF
+
+then declare \ffvars {RM} {BF} {!} {!} and define
+
+   \def\modfoo{\ffsetV{foo}{FF}\ffsetX} \def\nomodfoo{\ffsetV{foo}{}\ffsetX} 
+
+and finaly define \ffnamegen as:
+
+   \def\ffnamegen{baa\ffvarV what\fooV}
+
+Note the {!} parameters in \ffars. They denote unavailable variants in used
+family. If user needs such variant (prefixed by a modifier) then
+\ffwarning#1 is executed. This macro does nothing by default, but you can
+define it for example as:
+
+   \def\ffwarning#1{\ffmessage{FONT warning: baa - \string\modfoo#1 unavailable}}
+
+The parameter #1 expands to the string of \rm, \bf, \it, or \bf which was
+selected by user. See an example in ctimes.tex. The macro \ffmessage writes
+text to the terminal plus log, but user can redefine it.
+
+
+\ffalias {virtual-name} {real-name}
+-----------------------------------
+
+The \ffalias macro provides substitution of virtual-name by real-name.
+The virtual-name is a result of the expansion of \ffnamegen and real-name is
+definitely used.
+
+Example. Suppose that baaBFwhatFF.tfm is not present and when the \modfoo\bf
+is used then error during loading baaBFwhatFF.tfm occurs. To avoid this, you
+can declare:
+
+\ffalias {baaBFwhatFF} {baaRMwhatFF}
+
+Now, the baaRMwhatFF.tfm is used instead baaBFwhatFF.tfm.
+
+If a parameter of \ffalias includes macros: virtual-name is exapanded during
+declaration of the alias and real-name is expanded during real appication 
+of the alias.
+
+
+\regsizes {modifiers} {data} 
+----------------------------
+
+You can use \ffoptV in the \ffnamegen. It includes the optical size value of
+the font. For example, Antykwa Poltawkiego includes:
+
+ec-antpr6.tfm ec-antpr8.tfm ec-antpr10.tfm ec-antpr12.tfm ex-antpr17.tfm
+
+and analogical names are used for all basic variants {r}{b}{ri}{bi} and for
+\caps variants. You can see to the cs-polta.tex file that the \ffnamegen is
+defined by \def\ffnamegen{ec-antp\ffvarV\ffoptV\capsV}.
+
+If the \ffoptV is used in \ffnamegen then you must register optical 
+sizes for all variants and modified variants into internal data structure. 
+The \regsizes macro does this. Code from cs-polta.tex looks like this:
+
+\regsizes {}             {0 =6 7 =8 9 =10 11 =12 14 =17}
+\regsizes {\wlight}      {0 =6 7 =8 9 =10 11 =12 14 =17}
+\regsizes {\caps}        {0 =6 7 =8 9 =10 11 =12 14 =17}
+\regsizes {\wlight\caps} {0 =6 7 =8 9 =10 11 =12 14 =17}
+
+There are two independent modifiers \wlight and \caps, so there are four
+possible modifications. These modifications are included in the first
+parameter. The second "data" parameter includes couples
+"bondary =optsize boundary =optsize" etc. If the desired size is 11.5pt (for
+example) then it fits to the bounaries [11pt, 14pt), thus the value 12 is
+used in the \ffoptV macro.
+
+The \regsizes is implemented by \regtfm macro, see the ams-math.tex file.
+
+The \ffalias does aliases before \ffoptV is applied, when \ffoptV is empty. 
+
+The \regsizes macro is implemented by \regtfm. Roughly speaking, \regsizes
+with data shown above calls repeatedly (for all variants):
+
+\regtfm {\ffnamegen} 0 {\ffnamegenA} 7 {\ffnamegenB} 9 {\ffnamegenC} 11 ... *
+
+where \ffnamegen expands with \ffoptV empty, \ffnamegenA expands with
+\ffoptV equal to 6 (see =6 above), \ffnamegenB expands with \ffopV equal 
+to 8 etc. You need not carry about them unles you implement OTF fonts. 
+
+If you are using OTF fonts together with \regtfm, then
+define \ffnamegen without quotes and without \fontfeatures and
+without colon. This means that instead of defining:
+
+\def\ffnamegen{"[antpolt\wliV\ffoptV-\ffvarV]:\fontfeatures"}
+
+define only
+
+\def\ffnamegen{[antpolt\wliV\ffoptV-\ffvarV]}
+ 
+The \regsizes generates (in case of OTF fonts) something like this:
+
+\regtfm {\ffnamegen} 0 \ffnameotf{\ffnamegenA} 7 \ffnameotf{\ffnamegenB} 9 ... *
+
+and \ffnameotf is defined as \def#1{"#1:\fontfeatures"}, so \fontfeatures
+are added (and expanded at the time of \font processing, no at the time of
+\regtfm declaration (thi is important for users using \useff . 
+
+If \regtfm is used directly then you must \let \ffnameotf=\ffnameotfA before
+\regtfm and \let \ffnameotf=\ffnameotfB after this. See lmfonts.tex for an
+inspiration.
+
+
+\tryprotected \def\foo
+----------------------
+
+The macro \foo is defined as \protected\def if the \protected
+primitive is available. Else it is defined normally. But if \addprotect from
+OPmac is available then \addprotect\foo is used. Only if \protected
+primitive isn't available and \addprotect from Opmac isn't available, the
+\foo macro is leaved unprotected which brings potential problem when such
+macro is used in a \write parameter (typically section names when
+table of contents is generated).
+
+Note that the macros \rm, \bf, \it and \bi need not to be
+\protected (and they are not protected). If user put these macro to a
+parameter of "\write" then nothig critical happens. They are expanded but
+only first level of expansion is done, because they includes only
+unexpandable primitive \fam, a constant and a font selector declared by
+\font.
+
+Do not set font modifiers as protected!. The last macro used in each font
+modifer (\ffsetX) must be expanded during \write exapnsion. It changes to
+the internal macro \ffsetY depending on the control sequence wich is
+followed. The \ffsetV and \ffvars macros are protected in ff-mac.tex. For
+example, suppose that you define a modifier:
+
+\def\modfoo{\ffvars{A}{B}{C}{D}\ffsetV{foo}{text}\ffsetX}
+
+and a user writes \modfoo\it in a \write parameter. The the macro is
+expanded to 
+
+\ffvars{A}{B}{C}{D}\ffsetV{foo}\ffsetY2
+
+in \write file. After the data are read from file again, they do exactly
+what we need. But if the \modfoo is protected, then \modfoo\it is expanded
+into \write file like \modfoo\fam\itfam\tenit and this is bad.
+
+
+\ffloadhookA,B -- substitutions on demand
+-----------------------------------------
+
+The font loading process can be illustrated by the following pseudocode:
+
+\if \ffvarV=! \ffwarning{string of selected variant}%
+\else
+   \let\ffopptV=\empty 
+   % now we can expand \ffnamegen wich represents selected shape
+   \ffloadhookA\iftrue
+      font-name := \ffnamegen
+      \if was declared \ffalias{font-name}{real-name}
+          font-name := real-name
+      \fi
+      \if font-name is declared by \regtfm
+          \if \dgsize is defined
+             dg-size := \dgsize
+          \else
+             dg-size := 10pt
+          \fi
+          \if \sizespec is in the "at<dimen>" form
+             read dg-size from \sizespec
+          \fi
+          select font-name from \regtfm data with given dg-size
+      \fi
+      \ffloadhookB
+      \font \f = font-name \sizespec
+      where \f is \tenrm or \tenbf or \tebit or \tenbi or \ffmodfont
+   \fi
+\fi
+
+The \ffloadhookA and \ffloadhookB are set to empty by default. But you can
+define it for testing of availability of given \ffnamegen (see kp-fonts.tex
+or lmfonts.tex for an example). Note that \ffloadhookA macro from mentioned
+files consumes the following \iftrue and executes the font process only if
+\ffnamegen is validated.
+
+The substitution can be done in \ffloadhookA on demand, for example:
+
+\def\ffloadhookB{%
+   % ... here we know the actual \ffnamegen and we can do:
+   \if... \ffnamegen is not available then
+       \ffalias{\ffnamegen}{something-available}%
+   \fi
+}
+
+The extra font metrix (TS1) can be loaded on demand vis \ffloadhookB, 
+see exchars.tex
+
+------------------------------------------------------------------

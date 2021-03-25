@@ -1,0 +1,18 @@
+.qx-iwona
+htfcss: qx-kurierl  font-weight: light;
+htfcss: qx-kurierb  font-weight: bold;
+htfcss: qx-kurierh  font-weight: bold;
+htfcss: qx-kurierli  font-weight: light; font-style:italic;
+htfcss: qx-kurierri  font-style:italic;
+htfcss: qx-kuriermi  font-style:italic;
+htfcss: qx-kurierbi  font-style:italic; font-weight: bold;
+htfcss: qx-kurierhi  font-style:italic; font-weight: bold;
+htfcss: qx-kuriercl  font-weight: light;
+htfcss: qx-kuriercb  font-weight: bold;
+htfcss: qx-kurierch  font-weight: bold;
+htfcss: qx-kuriercli  font-weight: light; font-style:italic;
+htfcss: qx-kuriercri  font-style:italic;
+htfcss: qx-kuriercmi  font-style:italic;
+htfcss: qx-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: qx-kurierchi  font-style:italic; font-weight: bold;
+

@@ -1,0 +1,86 @@
+
+% CSFONTS.TEX, ver. 2.1,  March 1996,    by Petr Olsak (Ol\v s\'ak)
+%
+% This file re-defines the TeX primitive \font by the following way.
+%
+% You write:                               The meaning:
+%  \font\xxx=cmmi* .......................  the same        (math italic)
+%  \font\xxx=cmsy* .......................  the same        (math symbols)
+%  \font\xxx=cmbs* .......................  the same        (bold math symbols)
+%  \font\xxx=cmex* .......................  the same        (math extension)
+%  \font\xxx=cmte* .......................  the same        (math ext. tt)
+%  \font\xxx=cm*   (no previous samples)    \font\xxx=cs*   (cm -> cs)
+%  \font\xxx=*     (no previous samples)    the same        (no cm* fonts)
+%  \font\preloaded=*[scaled \magstep?] .... ignore loading  %% ver. 2 feature
+
+\ifx\transformfont\undefined \else \expandafter\endinput \fi
+
+\catcode`\{=1 % left brace is begin-group character
+\catcode`\}=2 % right brace is end-group character
+\catcode`\#=6 % hash mark is macro parameter character
+
+\def\transformfont#1#2#3#4#5 {%
+  \if#1c%
+    \if#2m%
+      \if#3m%
+        \if#4i%
+          cmmi#5
+        \else
+          csm#4#5
+        \fi
+      \else
+        \if#3b%
+          \if#4s%
+            cmbs#5
+          \else
+            csb#4#5
+          \fi
+        \else
+          \if#3s%
+            \if#4y%
+              cmsy#5
+            \else
+              css#4#5
+            \fi
+          \else
+            \if#3e%
+              \if#4x%
+                cmex#5
+              \else
+                cse#4#5
+              \fi
+            \else
+              \if#3t%
+                \if#4e%
+                  cmte#5
+                \else
+                  cst#4#5
+                \fi
+              \else
+                cs#3#4#5
+              \fi
+            \fi
+          \fi
+        \fi
+      \fi
+    \else
+      c#2#3#4#5
+    \fi
+  \else
+    #1#2#3#4#5
+  \fi}
+
+\let\originalfont\font
+\edef\tempb{\string\preloaded}
+\def\font#1=#2 {\edef\tempa{\string#1}%
+  \ifx\tempa\tempb\let\next=\ignoreload
+  \else \def\next{\originalfont#1=\transformfont#2 }%
+  \fi\next}
+\long\def\ignoreload#1{\ifx#1s\let\next=\skipscaled
+     \else\long\def\next{#1}\fi\next}
+\def\skipscaled #1\magstep#2{}
+\def\restorefont{\let\font\originalfont  \let\originalfont\undefined
+  \let\transformfont\undefined \let\restorefont\undefined}
+
+% end of file CSFONTS.TEX
+

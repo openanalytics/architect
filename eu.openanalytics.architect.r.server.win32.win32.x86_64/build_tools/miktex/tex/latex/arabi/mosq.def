@@ -1,0 +1,51 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: mosq.def for use with `shapepar.sty' the package by Donald Arseneau
+
+\def\mosqdoor{%
+  {15}% Horizontal center
+  {0}b{15}\\% Text begins at x=15, y=0
+  {1}t{13}{4}\\%
+  {2}t{10.5}{9}\\%
+  {3}t{8.5}{13}\\%
+  {4}t{7.2}{15.6}\\%
+  {5}t{6.3}{17.4}\\%
+  {6}t{5.5}{19}\\%
+  {7}t{4.8}{20.4}\\%
+  {8}t{4.3}{21.4}\\%
+  {9}t{4.1}{21.8}\\%
+  {9.5}t{3.9}{22.2}\\%
+  {10}t{4.1}{21.8}\\%
+  {11}t{4.3}{21.4}\\%
+  {12}t{4.5}{21}\\%
+  {13}t{5}{20}\\%
+  {14}t{5.8}{18.4}\\%
+  {15}t{7}{16}\\%
+  {17}t{7}{16}\\% 
+  {18}t{7}{16}\\% <<
+  {18.1}t{6}{18}\\% 
+  {19}t{6}{18}\\% 
+  {20}t{5}{20}\\% 
+  {29}t{5}{20}\\%
+  {30}e{15}% 
+}% End of mosq door definition.
+\endinput

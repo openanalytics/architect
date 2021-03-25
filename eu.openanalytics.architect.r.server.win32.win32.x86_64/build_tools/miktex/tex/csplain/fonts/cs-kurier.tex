@@ -1,0 +1,71 @@
+% The file cs-kurier.tex (C) Petr Olsak, 2016
+% Use "\input cs-kurier" to set the Kurier font family in text mode
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Kurier] {\caps \cond \lightw \heavyw} {\rm \bf \it \bi} {} {KI} {8z 8t U}
+
+\ffvars {r}{b}{ri}{bi} 
+\def\caps{\ffsetV{caps}{-sc}\ffsetX}  \def\nocaps{\ffsetV{caps}{}\ffsetX}
+\def\cond{\ffsetV{cond}{c}\ffsetX}    \def\nocond{\ffsetV{cond}{}\ffsetX}
+\def\capsV{} 
+\def\condV{} 
+\def\lightw{\ffvars{l}{m}{li}{mi}\ffsetX}
+\def\heavyw{\ffvars{h}{!}{hi}{!}\ffsetX}
+\def\normalw{\ffvars {r}{b}{ri}{bi}\ffsetX}
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = ec-kurierr  \sizespec
+   \font\tenbf = ec-kurierb  \sizespec
+   \font\tenit = ec-kurierri \sizespec
+   \font\tenbi = ec-kurierbi \sizespec
+
+   \def\ffnamegen{ec-kurier\condV\ffvarV\capsV}
+
+\fi
+
+\ismacro\fotenc{8z}\iftrue
+
+   \font\tenrm = cs-kurierr  \sizespec
+   \font\tenbf = cs-kurierb  \sizespec
+   \font\tenit = cs-kurierri \sizespec
+   \font\tenbi = cs-kurierbi \sizespec
+
+   \def\ffnamegen{cs-kurier\condV\ffvarV\capsV}
+   \input chars-8z
+
+\fi
+
+\ismacro\fotenc{U}\iftrue
+
+   \font\tenrm = "[Kurier-Regular]:\fontfeatures"    \sizespec
+   \font\tenbf = "[Kurier-Bold]:\fontfeatures"       \sizespec
+   \font\tenit = "[Kurier-Italic]:\fontfeatures"     \sizespec
+   \font\tenbi = "[Kurier-BoldItalic]:\fontfeatures" \sizespec
+
+   \def\ffnamegen{"[Kurier\condV\ffvarxV-\ffvarV]:\capsV\fontfeatures"} 
+
+   \ffvars {Regular} {Bold} {Italic} {BoldItalic}
+   \def\caps{\ffsetV{caps}{+smcp;}\ffsetX}
+   \def\cond{\ffsetV{cond}{Cond}\ffsetX}
+   \def\lightw{\ffvarsx{Light}{Medium}{Light}{Medium}%
+      \ffvars{Regular}{Regular}{Italic}{Italic}\ffsetX}
+   \def\heavyw{\ffvarsx{Heavy}{}{Heavy}{}\ffvars{Regular}{!}{Italic}{!}\ffsetX}
+   \def\normalw{\ffvarsx{}{}{}{}\ffvars{Regular}{Bold}{Italic}{BoldItalic}\ffsetX}
+
+   \tryprotected\def\ffvarsx#1#2#3#4{%
+      \def\ffvarxY##1{\ifcase##1 #1\or#2\or#3\or#4\fi}%
+   }
+   \def\ffsetR#1{\edef\ffvarxV{\ffvarxY{#1}}}
+   \ffvarsx {}{}{}{}
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\def\narrow{\cond\fam}
+
+\ifx\loadmathfonts\relax \endinput \fi
+\def\mfamname{kurier}
+\ifx\mathpreloaded R \normalmath \else \input ki-math \fi                     
+

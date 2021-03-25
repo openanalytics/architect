@@ -1,0 +1,1015 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% th4.4ht                               2018-06-12-16:01 %
+% Copyright (C) 1997-2009       Eitan M. Gurari         %
+% Copyright 2009-2018 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+
+\ifHtml
+   \:CheckOption{javascript}
+      \if:Option  \else\:CheckOption{th4}\fi
+   \if:Option
+      \ScriptCommand{\JavaScript}{\vbox\bgroup \linepenalty1000 \NoFonts
+  \Configure{HVerbatim+}{\z@}{\nobreak\space}%
+  \A:JavaScript }{\B:JavaScript \EndNoFonts
+  \ht:special{t4ht@(}\egroup  \ht:special{t4ht@)}}
+\NewConfigure{JavaScript}[2]{\def\A:JavaScript{\ht:everypar{}#1}%
+   \def\B:JavaScript{#2}}
+\def\javascript#1{\b:jv#1\e:jv}
+\def\b:jv{\begingroup \vrb:tt
+   \leftskip\z@  \parindent\z@
+   \Configure{HVerbatim}{}{}{}{}\Configure{HVerbatim+}{\z@}{ }%
+   \NoFonts \A:JavaScript \ht:special{t4ht@@}}
+\def\e:jv{\ht:special{t4ht@@}%
+   \B:JavaScript\EndNoFonts\endgroup}
+
+   \else
+      \Log:Note{for javascript support,
+          use the command line option `javascript'}
+   \fi
+   \:CheckOption{java}
+       \if:Option  \else\:CheckOption{th4}\fi
+   \if:Option
+      \Odef\Applet[#1]#2{\Appl:[#1]#2,,,!*?: }
+\def\Appl:[#1]#2,#3,#4,#5!*?: {%
+  \def\:temp{#3}\def\LastApplet{#4}%
+  \HCode{<applet code="#2.class"
+    \ifx \:temp\empty \else width="#3" \fi
+    \ifx \LastApplet\empty \else HEIGHT="#4" \fi #1\Hnewline >}%
+  \xdef\LastApplet{#2}\Applet:Needs{#2}}
+\def\EndApplet{\HCode{</applet>}}
+
+\def\AppletInfo{\def\Applet:Needs##1}
+\AppletInfo{\Needs-{needs #1.class}}
+
+   \else
+      \Log:Note{for java support,
+          use the command line option `java'}
+   \fi
+   \:CheckOption{image-maps}
+      \if:Option  \else\:CheckOption{th4}\fi
+   \if:Option
+      \Odef\Ar:a[#1]#2{{\def\tag:A{area}\Link[#1 ]{#2}{}\EndLink}}
+\Odef\Map[#1]#2#3{%
+   \def\:tempd{\Map:[#1]{#2}{#3}}%
+   \rm:attr{#1}\ifx \:tempB\empty  \expand:after{\let\:tempc}\csname
+                   cw:)#2\endcsname
+\ifx\:tempc\relax\else
+   \edef\:tempd{\noexpand\in:mp\:tempc!*?: {#1}}%
+   \def\:temp{#3}\ifx \:temp\empty\else
+      \Tag{)#3}{\:tempc}%
+\fi \fi
+\fi  \:tempd}
+
+\def\in:mp#1=#2=#3==#4!*?: #5{\IMG:LINK{#1}{#4#5}{#2}{#3}}
+\def\rm:attr#1{\edef\:tempB{\noexpand\rm:atr#1 !*?: }\:tempB}
+\def\rm:atr#1 #2!*?: {\def\:tempB{#1}}
+
+\Odef\Map:[#1]#2#3{%
+   \NewHaddr\:tempA    \def\:temp##1-{##1-imap}%
+\edef\:tempA{\expandafter\:temp\:tempA}%
+%
+   \NewHaddr\alt:map
+   \def\:temp{#3}\ifx \:temp\:empty\else
+   \rm:attr{#1}%
+   \Tag{)#3}{\alt:map=\:tempA=#2==\:tempB}\fi
+\edef\:tempB{\noexpand\IMG:LINK{\noexpand\alt:map}{#1}}\:tempB
+   \:tempA{#2}\let\:Map\empty
+%
+   \HCode{<map\Hnewline name="\GetHname\:tempA" id="imap-\:tempA">}%
+   \def\EndMap{%
+      \HPage[\alt:map]{}{\let\set:mp\st:mp \:Map}\EndHPage{}%
+      \HCode{</map>}%
+      \let\u:map\empty}}
+
+\let\set:mp\relax
+\def\st:mp#1#2#3{\def\:temp{#1#2}\ifx \:temp\empty  \else
+      [\Link[#1]{#2}{}#3\EndLink]
+   \fi }
+\def\IMG:LINK#1#2#3#4{\Link[\RefFile{#1}]{}{}%
+   {\def\tag:A{img}\def\HREF:{src=}\def\empty:lnk{/}%
+    \Link[#2 alt="textual map"  usemap="\GetHref#3"]{#4}{}}\EndLink}
+\def\RectArea(#1){\bgroup\def\:tempa{\M:nMx#1,}\def\:tempb{rect}\Are:}
+\def\CircleArea(#1){\bgroup\def\:tempa{#1}\def\:tempb{circle}\Are:}
+\def\PolyArea(#1){\bgroup\def\:tempa{#1}\def\:tempb{poly}\Are:}
+\def\M:nMx#1,#2,#3,#4,{\M:n{#1}{#3},%
+                       \M:n{#2}{#4},\M:x{#1}{#3},\M:x{#2}{#4}}
+\Odef\Are:[#1]#2#3{%
+   \xdef\:Map{\:Map\set:mp{#1}{#2}{#3}}%
+   \Ar:a[#1\Hnewline shape="\:tempb"\Hnewline
+         coords="\:tempa"\Hnewline alt="#3"]{#2}\egroup}
+\def\M:n#1#2{\ifnum #1<#2 #1\else #2\fi}
+\def\M:x#1#2{\ifnum #1<#2 #2\else #1\fi}
+
+   \else
+      \Log:Note{for image maps support,
+          use the command line option `image-maps'}
+   \fi
+   \:CheckOption{frames-}
+      \if:Option  \else\:CheckOption{frames}\fi
+      \if:Option  \else\:CheckOption{th4}\fi
+   \if:Option
+      \def\HorFrames{\def\:tempa{cols}\:Frames}
+\def\VerFrames{\def\:tempa{rows}\:Frames}
+\Odef\:Frames[#1]#2{%
+   \PushStack\Frm:Stc{</frameset>}%
+   \HCode{<frameset\Hnewline \:tempa="#2" #1>}}
+\def\NoFrames{%
+   \PopStack\Frm:Stc\:temp
+   \PushStack\Frm:Stc{</body></noframes></frameset>}
+   \HCode{<noframes><body>}}
+\def\EndFrames{\PopStack\Frm:Stc\:tempc \HCode{\:tempc}}
+\Odef\Frame[#1]#2{{\def\HREF:{ src=}\def\tag:A{frame}%
+                   \def\empty:lnk{ /}\Link[#1]{#2}{}}}
+
+      \Log:Note{for frames support,
+          use the command line option `frames-' or `frames'}
+   \fi
+   \:CheckOption{ShowFont}
+      \if:Option  \else\:CheckOption{th4}\fi
+   \if:Option
+      \:CheckOption{ShowFont}     \if:Option
+   \def\HObey{\SaveEverypar \par \ht:everypar{}%
+   {\parindent\z@ \leftskip\z@ \leavevmode
+    \HCode{ <table \Hnewline \:zbsp{HObey}
+          width="100\%"><tr class="HObey"><td\Hnewline
+      class="HObey"><pre class="HObey">}\par}}
+\def\EndHObey{\HCode{</pre>}\IgnoreIndent
+    \end:TTT \RecallEverypar}
+
+   \def\ShowFont#1{{\ifx \sevenrm\Undef \let\sevenrm\rm\fi
+      \Picture*{ \a:@Picture{ShowFont}}\begingroup   \HObey
+         % Variants of Knuth's macros
+         \postdisplaypenalty=-10000 \global\tmp:cnt=0 #1
+         \tabskip0.06\hsize  \def\:{\setbox0=\hbox{\char\tmp:cnt}%
+  \ifdim\ht0>7.5pt\reposition
+  \else\ifdim\dp0>2.5pt\reposition\fi\fi
+  \box0\global\advance\tmp:cnt by1 }%
+\def\cr:line{\cr  \noalign{\nointerlineskip}
+  \multispan{17}\hrulefill&
+  \cr \noalign{\nointerlineskip}}%
+\def\reposition{\setbox0=\hbox{$\vcenter{\kern2pt\box0\kern2pt}$}}%
+\def\chartLine##1{\hbox to 13.8pt{\hfil\sevenrm ##1 }}%
+\HAssign\:tempc0
+\def\:tempd{\chartLine\:tempc
+   \vrule   &\:&&\:&&\:&&\:&&\:&&\:&&\:&&\:&\cr:line
+   \noalign{\nointerlineskip}%
+   \gHAdvance\:tempc by 8 \ifnum \:tempc<256  \expandafter\:tempd \fi}%
+%
+         \halign to\hsize\bgroup  \lower4.5pt\vbox to14pt{}%
+##\tabskip\z@ plus10pt& &\hfil##\hfil&\vrule##\cr
+\lower6.5pt\null
+\chartLine{}\vrule   &\sevenrm 0&&\sevenrm 1&&\sevenrm
+   2&&\sevenrm 3&&\sevenrm 4&&\sevenrm 5&&\sevenrm 6&&\sevenrm 7&\cr:line
+\:tempd \cr
+%
+         \egroup
+      \EndHObey  \endgroup  \EndPicture}}
+   \csname newread\endcsname\in:strm
+\def\Uii:{\expandafter\Uii:o\in:buf xxxxxxxxx;}
+\def\Uii:o#1x#2#3#4xxxx;{#2#3}
+\catcode`\@=6
+\catcode`\#=12
+\def\Uiv:{\expandafter\Uiv:o\in:buf '&#xxxxxxxxx;}
+\def\Uiv:o@1'&#x@2@3@4@5@6xxxx;{@2@3@4@5}
+\catcode`\@=11
+\catcode`\#=6
+
+\def\:gobbleM#1->{}
+\def\Uni:symbols{\ifnum \char:n<256
+  \HCode{\Hnewline<tr><td>}\char:n{}\HCode{</td>}
+  \bgroup \catcode`\#=12 \catcode`\\=12
+      \catcode`\%=12 \catcode`\{=12 \catcode`\}=12
+      \catcode`\_=12 \catcode`\^=12 \catcode`\~=12
+%     \ifeof\in:strm \else
+        \read\in:strm to\in:buf
+        \ifeof\in:strm  \gHAssign\char:n=256 \else
+           \def\:temp{\par}
+           \ifx\in:buf\:temp\else
+              \edef\:tempa{\Uiv:}\def\:temp{xxxx}
+              \ifx \:temp\:tempa \let\:tempa=\:gobble
+              \else              \let\:tempa=\empty\fi
+             \HCode{<td>}
+              \:tempa{\Picture{http://charts.unicode.org/Unicode.charts%
+                                    /Small.Glyphs/\Uii:/U\Uiv:.gif}}
+                    \HCode{</td><td>}
+              \:tempa{\Picture{http://www.w3.org/TR/PR-math/chap6/glyphs/%
+                                    \Uii:/U\Uiv:.gif}}
+              \HCode{</td><td>}{\font:nm\char\char:n}
+              \HCode{</td><td>}{\font:nm \Picture+{}\char
+                                 \char:n\EndPicture}
+              \HCode{</td><td class="htf">}\:tempa\Uiv:
+                 \:tempa\:gobble{\tt\expandafter\:gobbleM\meaning\in:buf}
+              \HCode{</td>}
+     \fi\fi%\fi
+   \egroup
+   \HCode{</tr>}
+   \HAdvance\char:n by 1 \expandafter\Uni:symbols\fi}
+\def\ShowFontU#1#2{%
+   \font\font:nm=#2
+   \openin\in:strm=#1\relax
+   \ifeof\in:strm  \writesixteen{.........can't  open #1}\else
+     \read\in:strm to\in:buf\relax
+     \HAssign\char:n=0 \HCode{<table class="unicodes" border="1"><tr>
+        <td>char<br\xml:empty>number</td>
+        <td>unicode<br\xml:empty>org</td>
+        <td>ams<br\xml:empty>org</td>
+        <td>htf +<br\xml:empty>browser</td>
+        <td>actual<br\xml:empty>(la)tex<br\xml:empty>symbol</td>
+        <td>htf<br\xml:empty>entry</td>
+        </tr>}
+        \Uni:symbols
+     \HCode{</table>}
+     \Css{.unicodes{border:solid 1px;}}
+     \Css{.unicodes td{text-align:center;}}
+     \Css{.unicodes td.htf{text-align:left;}}
+   \fi
+   \closein\in:strm}
+
+\fi
+
+   \fi
+\fi
+\:CheckOption{th4}\if:Option
+   \edef\:temp{\meaning\everypar}
+   \edef\:tempa{\string\everypar}
+   \ifx \:temp\:tempa
+      \let\ht:everypar\everypar
+   \fi
+   \def\Verb{\bgroup  \no:catcodes0{255}{12}\catcode`\ = 10
+   \catcode`\^^M = 10 \catcode`\^^I = 10  \leavevmode \:ctgs}
+
+\ifHtml  \def\:ctgs#1{\def\:eat##1#1{{\vrb:tt
+   ##1}\egroup}\:eat }
+
+\fi
+
+   \long\def\c:Item:#1#2{\c:def\a:Item{#1}\c:def\b:Item{#2}}
+\def\Begin:Block#1{\begingroup \def\:EndBlock{#1}}
+
+\def\End:Block#1{%
+   \expandafter\ifx \csname :EndBlock\endcsname\relax
+      \:warning{Block #1 is already closed}%
+   \else
+      \def\:test{#1}%
+      \ifx \:test\:EndBlock \endgroup
+      \else
+      \:warning{End environment #1 within
+               environment \:EndBlock?}%
+   \fi\fi}
+   \Def:Section\Chapter{\theChapterCounter}{#1}
+\Def:Section\LikeChapter{\theChapterCounter}{#1}
+\Def:Section\Appendix{\theChapterCounter}{#1}
+\NewConfigure{Chapter}[4]{%
+  \Configure:Sec {Chapter}{#3}%
+     {#4\xdef\:curch{Q1-\file:id-\TitleCount }%
+}%
+     {\ifnum \ChapterCounter<1           \gdef\ChapterCounter{1}%
+                        \else \gHAdvance\ChapterCounter  1 \fi
+\ifnum \pageno<0 \global\pageno1 \fi
+   \gHAssign\SectionCounter0
+%
+#1}{#2}}
+\NewConfigure{Appendix}[4]{%
+  \Configure:Sec {Appendix}{#3}%
+     {#4\xdef\:curch{Q1-\file:id-\TitleCount }%
+}%
+     {\ifnum \pageno<0 \global\pageno1 \fi
+\ifnum \ChapterCounter<0       \gHAdvance\ChapterCounter  -1
+                         \else \gdef\ChapterCounter{-1}\fi
+   \gHAssign\SectionCounter0
+%
+#1}{#2}}
+\NewConfigure{LikeChapter}[4]{%
+  \Configure:Sec {LikeChapter}{#3}%
+     {#4\xdef\:curch{Q1-\file:id-\TitleCount }%
+}%
+     {\gHAssign\ChapterCounter0
+   \gHAssign\SectionCounter0
+%
+#1}{#2}}
+\ifx\ChapterFonts\:UnDef
+   \font\:ChFont=cmbx10 scaled \magstep5
+
+   \def\ChapterFonts{\let\bf\:ChFont
+       \baselineskip29.85pt}
+\fi
+\gHAssign\ChapterCounter0
+
+\def\theChapterCounter{%
+   \ifnum       \ChapterCounter>0 \ChapterCounter
+   \else \ifnum \ChapterCounter<0 \:Alph{-\ChapterCounter}\fi\fi}
+\def\:Alph#1{\ifcase  #1\or
+   A\or B\or C\or D\or E\or F\or G\or H\or I\or J\or
+   K\or L\or M\or N\or O\or P\or Q\or R\or S\or T\or
+   U\or V\or W\or X\or Y\or Z\else    \fi}
+
+\Def:Section\Section{\theSectionCounter}{#1}
+\Def:Section\LikeSection{}{#1}
+\def\theSection{\theSectionCounter}
+\ifx \SectionFonts\:UnDef
+   \font\:SecBF=cmbx10 scaled \magstep3
+   \font\:SecTT=cmtt10 scaled \magstep3
+
+   \def\SectionFonts{\let\tt\:SecTT
+      \let\bf\:SecBF  \baselineskip20.74pt}
+\fi
+\gHAssign\SectionCounter0
+
+\def\theSectionCounter{%
+   \ifnum \ChapterCounter=0 \else \theChapterCounter.\fi
+   \SectionCounter  }
+
+\Def:Section\SubSection{}{#1}
+\ifx\SubSectionFonts\:UnDef
+   \font\:SubSecFont=cmbx10 scaled \magstep2
+   \def\SubSectionFonts{\let\bf\:SubSecFont \baselineskip17.28pt}
+\fi
+
+\Def:Section\Part{}{#1}
+\def\OddPartHPage{%
+   \def\:HPageBeforePart{\ifodd \pageno \else \leavevmode\ \newpage\fi}%
+   \def\:HPageAfterPart{\newpage\leavevmode\ }}
+\def\:NoOddChapterHPage{\def\:HPageBeforePart{}\def\:HPageAfterPart{}}
+\:NoOddChapterHPage
+
+\ht:everypar{\if:nopar  \hskip -\parindent
+               \ShowPar   \fi}
+   \expandafter\csname newtoks\endcsname\EveryItem
+\def\ListParSkip{\def\:ListParSkip}
+\ifHtml
+  \ListParSkip{\HtmlPar}
+\fi
+\def\lbl:tm{%
+   \def\:ord{\a:Item\ListCounter\b:Item}%
+   \def\:roman{\a:Item\romannumeral\ListCounter\b:Item}%
+   \def\:alph{{\Advance: \ListCounter  96
+               \a:Item \char\ListCounter\b:Item}}%
+   \def\:Roman{\a:Item\uppercase{\romannumeral\ListCounter}\b:Item}%
+   \def\:Alph{{\Advance: \ListCounter  64
+               \a:Item \char\ListCounter\b:Item}}%
+}
+\def\:lbl#1{\a:Item#1\b:Item}
+
+   \def\Verbatim{\par\V:rbatim}
+   \def\c:Verbatim:{\Configure{HVerbatim}}
+   \expandafter\def\csname c:Verbatim+:\endcsname
+      {\Configure{HVerbatim+}}
+   \if:latex \else
+      \def\TableOfContents{\futurelet\:temp\:TOC}
+\def\:TOC{\ifx [\:temp \expandafter\:TableOfContents
+          \else \:TableOfContents[Part,Chapter,LikeChapter,Appendix,%
+                                  Section,LikeSection]\fi}
+
+      \ifHtml \def\tocPart#1#2#3{\IgnorePar\HCode{<div
+    align="center">}#2\HCode{</div>}\IgnoreIndent}%
+\def\tocChapter#1#2#3{%
+   \ifx \tocSubSection:idnt\:UnDef
+   \def\tocSection:idnt{\ }%
+   \def\tocSubSection:idnt{\ \ }%
+\fi
+%
+   \par\ignorespaces #1 #2\par }
+\def\tocLikeChapter{\tocChapter}
+\def\tocAppendix{\tocChapter}
+\def\tocSection#1#2#3{%
+   \ifx \tocSubSection:idnt\:UnDef
+   \let\tocSection:idnt\empty
+   \def\tocSubSection:idnt{\ }%
+\else
+   \ifx \SubSection:idnt\:UnDef   
+       \let\tocSection:idnt\empty
+       \def\tocSubSection:idnt{\ }%
+   \fi
+\fi
+%
+   \par\tocSection:idnt \ignorespaces #1 #2\par}%
+\def\tocLikeSection{\tocSection}
+\def\tocSubSection#1#2#3{\par\csname tocSubSection:idnt\endcsname
+   \ignorespaces #1 #2\par}
+
+   \fi\fi
+   \ifHtml
+        \def\({\leavevmode\st:math}
+  \def\){\ed:math}
+\NewConfigure{()}[2]{\def\st:math{#1}\def\ed:math{#2}}
+  \def\[{\st:Math}
+  \def\]{\ed:Math}
+\NewConfigure{[]}[2]{\def\st:Math{#1}\def\ed:Math{#2}}
+\Configure{()}{$}{$}
+\Configure{[]}{$$}{$$}
+
+
+      
+      
+
+\def\TagCh#1{\Tag{#1(C }{\theChapterCounter}\Tag
+                                               {#1(c }{\:curch}}
+\def\RefCh#1{\Link{\LikeRef{#1(c }}{}Chapter\ \Ref
+                                               {#1(C }\EndLink}
+\def\TagApp#1{\Tag{#1(A }{\theChapterCounter}\Tag
+                                               {#1(a }{\:curch}}
+\def\RefApp#1{\Link{\LikeRef{#1(a }}{}Appendix\ \Ref
+                                               {#1(A }\EndLink}
+\def\TagSec#1{\Tag{#1(S }{\theSectionCounter}\Tag
+                                               {#1(s }{\:cursec}}
+\def\RefSec#1{\Link{\LikeRef{#1(s }}{}Section\ \Ref
+                                               {#1(S }\EndLink}
+\def\TagPage#1{%
+   \Link{}{page#1}\EndLink\Tag{#1}{}}
+\def\RefPage#1{\Link{page#1}{}\Ref{#1}\EndLink}
+
+      \def\List#1{\begingroup  {\hfil\break\IgnorePar}%
+   \HAssign\ListCounter0
+   \let\:temp\empty \def\:tempA{#1}%
+                                              \def\:tempB{ord}%
+\ifx\:tempA\:tempB \else \let\:temp\:tempA  \def\:tempB{1}\fi
+\ifx\:tempA\:tempB \else                      \def\:tempB{a}\fi
+\ifx\:tempA\:tempB \else                      \def\:tempB{A}\fi
+\ifx\:tempA\:tempB \else                      \def\:tempB{i}\fi
+\ifx\:tempA\:tempB \else                      \def\:tempB{I}\fi
+\let\item\:LIitem
+\ifx       \:tempA\:tempB {\a:OList}%
+\def\EndList{\b:OList\endgroup }%
+%
+                          \let\a:List\c:OList
+\else                                        \def\:tempB{}%
+   \ifx    \:tempA\:tempB \a:DList \let\item\:DLitem \let\End:dd\empty
+\def\EndList{\b:DList\endgroup }%
+%
+   \else                                     \def\:tempB{button}%
+      \ifx \:tempA\:tempB \a:buttonList
+\let\Item\It:em
+\edef\but:file{\RefFileNumber\FileNumber}%
+\ifx \but:file\empty  \edef\but:file{\j:bname tmp.\:html}\fi
+\def\ALL:file##1.##2!*?: {\def\ALL:file{##1-}}%
+\NewFileName\all:file \expandafter\ALL:file\all:file.!*?: %
+\HPage<\all:file>{}\IgnorePar
+\let\item\B:item
+\def\EndList{%
+   \ifnum \ListCounter>1 \l:Bd{#1}\fi
+   \EndHPage{}%
+   \b:buttonList \endgroup  }%
+%
+      \else               \a:UList \def\EndList{\b:UList\endgroup }%
+%
+                          \let\a:List\c:UList
+\fi\fi\fi
+\let\Li:Par\:ListParSkip
+\ht:everypar{\if:nopar \else \HtmlPar\fi}%
+%
+   \lbl:tm
+%
+}
+\NewConfigure{OList}{3}
+\NewConfigure{UList}{3}
+\NewConfigure{DList}{4}
+\let\:UL:\empty
+\def\:LIitem{%
+   {\parindent=0pt\leavevmode}\:noparfalse    \ht:everypar{\Li:Par}%
+    \Advance:\ListCounter  1  \a:List
+}
+\def\:DLitem#1{%
+   \Advance:\ListCounter   1
+   \c:DList #1\d:DList    \ht:everypar{\Li:Par}%
+}
+\def\B:item#1{%
+   \ifnum \ListCounter>0 \l:Bd{#1}\fi
+   \Advance:\ListCounter  1
+   \FileStream\but:file
+      \Recall:Link\bt:fl  \Recall:HPage\hpg:fl \Recall:HPageTag\hptg:fl
+   \L:Ba{#1}\Link[\all:file]{\ALL:file
+                             \ListCounter}{\ALL:file\ListCounter}%
+   \L:Bb{#1}\EndLink
+   \L:Bc{#1}\FileStream\all:file
+      \Save:Link\bt:fl    \Save:HPage\hpg:fl   \Save:HPageTag\hptg:fl
+   \l:Ba{#1}\Link[\but:file]{\ALL:file
+                             \ListCounter}{\ALL:file\ListCounter}%
+   \l:Bb{#1}\EndLink
+   \l:Bc{#1}\HtmlEnv}
+\def\It:em{\bgroup  \csname no:catcodes\endcsname0{255}{12}%
+                    \catcode`\^^I=13\relax\:Itm}
+\bgroup
+   \global\let\:grp\egroup
+   \def\:temp{%
+      \csname no:catcodes\endcsname0{255}{12}
+      \catcode`\/0 \catcode`\{1 \catcode`\}2  \catcode`\#6
+      \catcode`\:11 \catcode`\g11 \catcode`\r11 \catcode`\p11
+      \gdef\:Itm }
+\:temp#1\ContItem{/:grp/g:rp{#1}}/:grp
+
+                                          \catcode`\^^I=13
+\def\g:rp#1{%
+   \immediate\openout15=\jobname.tmp
+    {\newlinechar`\^^M \def^^I{\space\space}%
+     \immediate\write15{\string\ignorespaces\space#1}}%
+   \immediate\closeout15
+   \B:item{\input \jobname.tmp}}
+                                          \catcode`\^^I=10
+\NewConfigure{buttonList}[5]{\def\a:buttonList{#1}%
+   \def\b:buttonList{#2}%
+   \def\L:Ba##1{#3}\def\L:Bb##1{#5}\def\L:Bc##1{#4}}
+\NewConfigure{buttonList+}[4]{%
+    \def\l:Ba##1{#1}\def\l:Bb##1{#4}\def\l:Bc##1{#2}\def\l:Bd##1{#3}}
+
+      \def\Margin{\HCode{<table \Hnewline
+      align="right"><tr><td \Hnewline>}}
+\def\EndMargin{\HCode{</td></tr></table>}}
+\def\add:col{\Advance:\:cols  -1 \HAdvance\HCol  1\relax
+   \ifnum \:cols>0
+      \c:Cols \vsplit0 to \tmp:dim  \d:Cols  \expandafter\add:col
+   \fi}
+\NewConfigure{Columns}{4}
+\def\c:Cols{\edef\sv:dim{\the\tmp:dim}\c:Columns}
+\def\d:Cols{\d:Columns \tmp:dim\sv:dim }
+\def\ColMag#1{\tmp:dim  #1\tmp:dim}
+\def\Columns#1{%
+   \a:Columns
+   \HAssign\:cols#1  \setbox0=\vbox\bgroup
+   \divide\hsize  #1  }
+\def\EndColumns{\egroup   \HAssign\HCol0
+  \tmp:dim\ht0  \advance\tmp:dim  \dp0  \divide\tmp:dim  \:cols
+  \add:col \c:Cols \box0 \d:Cols \b:Columns}
+
+      \def\HTable{%
+   \let\:TR\empty
+   \let\TABLE:\empty
+   \futurelet\:temp\T:ABLE}
+\def\T:ABLE{%
+   \ifx \bgroup\:temp  \let\:temp\HT:ble
+   \else  \ifx [\:temp \let\:temp\HT:ble
+          \else \let\:tempb\TA:BLE
+\ifx B\:temp  \edef\TABLE:{\HTable:B \TABLE:}%
+              \def\:tempb##1{\futurelet\:temp\T:ABLE}%
+\fi
+\HTable:brdr P{cellpadding}%
+\HTable:brdr S{cellspacing}%
+\let\:temp\:tempb
+%
+   \fi \fi                 \:temp}
+
+\def\TA:BLE#1{%
+   \let\:tempb\:TR   \al:gn\:TR#1%
+   \ifx \:tempb\:TR \expand:after{\HT:ble#1}%
+   \else  \expand:after{\futurelet\:temp\T:ABLE}\fi
+}
+\def\HTable:brdr#1#2{\ifx #1\:temp
+      \def\:tempb##1{\afterassignment\:tempa\tmp:cnt}%
+      \def\:tempa{%
+         \edef\TABLE:{#2="\the\tmp:cnt" \TABLE:}%
+         \futurelet\:temp\T:ABLE }%
+   \fi}
+\def\arg:HTable#1#2{%
+   \def\:temp{#1}\ifx \:temp\empty \else
+      \expandafter\def\csname HTable:\string#1\endcsname{#2}%
+      \expandafter\arg:HTable
+   \fi
+}
+\NewConfigure{HTable+}[2]{\arg:HTable{#1}{#2}}
+\def\al:gn#1#2{%
+   \add:TD#1<#2{\csname HTable:<\endcsname }%
+   \add:TD#1>#2{\csname HTable:>\endcsname }%
+   \add:TD#1-#2{\csname HTable:-\endcsname }%
+   \add:TD#1^#2{\csname HTable:\string^\endcsname }%
+   \add:TD#1|#2{\csname HTable:|\endcsname }%
+   \add:TD#1_#2{\csname HTable:\string_\endcsname }%
+   \add:TD#1=#2{\csname HTable:=\endcsname  }%
+}
+\def\add:TD#1#2#3#4{\chardef\:temp`#2
+                    \chardef\:tempa`#3
+                    \ifnum \:temp=\:tempa\edef#1{#1\space #4}\fi}
+\let\:TR\empty
+\def\HT:ble{\bgroup  \let\sv:row\HRow  \let\sv:col\HCol
+   \gHAssign\HRow1 \gHAssign\HCol0
+   \htbl: }
+\def\htbl:{%
+   \let\GetInt\Get:Int
+   \let\GetArg\Get:Arg    \a:HTable
+   \let\:EndHTableScript\:EndHTblScript
+\let\:HTableScript\:HTblScript
+\let\:HTbleAtt\:HTblAtt
+\let\:EndHTblScript\empty
+\let\:HTblScript\empty
+\let\:HTblAtt\empty
+%
+%
+   \c:HTable\hfil\break
+   \ht:everypar{}\futurelet\:temp\tbl:bd }
+\NewConfigure{HTable}{6}
+\def\EndHTable{%
+   \end:cell  \d:HTable   \b:HTable
+   \global\let\HRow\sv:row  \global\let\HCol\sv:col  \egroup
+   \let\:EndHTblScript\empty
+\let\:HTblScript\empty
+\let\:HTblAtt\empty
+}
+\def\tbl:bd{\ifx \:temp\bgroup  \let\tbl:typ\tbl:bdy
+   \else    \ifx /\:temp        \def\tbl:typ##1{\env:tbl}%
+   \else  \let\tbl:typ\env:tbl
+   \fi \fi \tbl:typ }
+\long\def\tbl:bdy#1{%
+   \def\hfil{\ifx \EndPicture\:UnDef \space \else\:hfil\fi}%
+   \def\hfill{\ifx \EndPicture\:UnDef \space \else\:hfill\fi}%
+   \expandafter\let\csname cr\endcsname\:cr
+   \:HTable#1&\EndH:Table }
+\let\:hfil\hfil
+\let\:hfill\hfill
+\def\env:tbl{\def\&{\end:cell \TD:cell }\TD:cell }
+\def\CR{\end:cell
+   \gHAdvance\HRow  1  \gHAssign\HCol0
+   \d:HTable\c:HTable\hfil\break  \TD:cell }
+\long\def\:HTable#1&#2\EndH:Table{%
+   \def\:htbend{#2}%
+   \insert:TD#1\tok:nmath
+   \def\:temp{#2}\ifx\:temp\empty \EndHTable
+   \else  \expand:after{\end:cell
+                        \:HTable#2\EndH:Table}\fi }
+\def\tok:nmath{\empty}
+\def\end:cell{\:EndHTableScript   \f:HTable}
+\def\:cr{\ifx \EndPicture\:UnDef \expandafter\:cR
+          \else                  \expandafter\:c:r\fi}
+\expandafter\let\csname :c:r\endcsname\cr
+\long\def\:cR#1{\relax
+   \ifx\:htbend\empty
+      \def\:temp{#1}%
+      \ifx\:temp\NoArg \else \expandafter\mpty:cr\fi
+   \else                      \mpty:cr
+   \fi        #1}%
+
+\def\mpty:cr{%
+   \expand:after{\end:cell  \gHAdvance\HRow  1  \gHAssign\HCol0
+   \d:HTable\c:HTable \insert:TD}}
+\def\TD:cell{\gHAdvance\HCol  1   \futurelet\:temp\TD:cll }
+\def\TD:cll{%
+   \ifx [\:temp  \let\:temp\T:D
+   \else  \expandafter\ifx\space\:temp
+      \expand:after{\def\:temp}\space{\futurelet\:temp\TD:cll}\else
+      \tbl:ch
+   \fi \fi \:temp}
+\catcode`\^=13  \catcode`\_=13
+\def\tbl:ch{{\def^{\string^}\def_{\string_}%
+       \xdef\:temp{\noexpand\T:D[\:HTbleAtt]}}}
+\catcode`\^=7  \catcode`\_=8
+\def\insert:TD{\futurelet\:tempc\TD:}
+
+\def\TD:{%
+   \ifx \par\:tempc \def\:temp\par{\insert:TD}\go:out\:temp\fi
+   \expandafter\ifx \space\:tempc
+          \expand:after{\def\:temp}\space{\insert:TD}%
+                                \go:out\:temp      \fi
+   \ifx \EndH:Table\:tempc     \go:out\empty\fi
+   \gHAdvance\HCol  1    \chk:tblop   \tbl:ch \go:out\:temp\empty
+   \:out}
+
+\def\chk:tblop{\ifx [\:tempc \go:out\T:D  \fi}
+\def\T:D[{\def\TD:typ{td}\let\TD:more\empty \scan:TD}
+\def\scan:TD#1{%
+   \ifx ]#1\e:HTable
+      \go:out\:HTableScript  \fi
+   \ifx /#1\def\:temp##1]{\edef\TD:more{\TD:more\space##1}\scan:TD]}%
+          \go:out\:temp  \fi
+   \ifx H#1\def\TD:typ{th}\go:out\scan:TD\fi
+   \ifx R#1\SP:N{rowspan}\fi
+   \ifx C#1\SP:N{colspan}\fi
+   \al:gn\TD:more#1%
+   \go:out\scan:TD\empty\:out   }
+
+\def\SP:N#1{%
+   \def\:temp{\edef\TD:more{ #1="\the\tmp:cnt"\TD:more
+                 \Hnewline}\scan:TD}%
+   \def\:tempa##1{\afterassignment\:temp \tmp:cnt##1}%
+   \go:out\:tempa}
+\def\HTableScript{\futurelet\:temp\tblScrpt:}
+\def\tblScrpt:{\ifx [\:temp  \expandafter\:tblScrpt
+               \else  \expand:after{\:tblScrpt[]}\fi }
+\long\def\:tblScrpt[#1]#2#3{%
+    \def\:HTblAtt{#1}%
+    \def\:HTblScript{#2\go:out\empty!*?: \:out}%
+    \def\:EndHTblScript{#3}}
+\let\:EndHTblScript\empty
+\let\:HTblScript\empty
+\let\:HTblAtt\empty
+
+\def\go:out#1{\expand:after{\g:out#1}}
+\long\def\g:out#1#2\:out{#1}
+\long\def\Get:Int#1#2!*?: \:out{%
+   \def\:next{%
+      \edef\:next{\the\tmp:cnt\space}%
+      \HAssign#1\:next #2!*?: \:out}%
+   \afterassignment\:next
+   \tmp:cnt }
+\def\DefGetArg#1#2#3{\def\:temp{#3}%
+   \ifx \:temp\NoArg  \D:fGetArg{#1}{#2}#3#3\else
+                       \D:fGetArg{#1}{#2}{#3}{}\fi
+}
+\def\D:fGetArg#1#2#3#4{%
+   \expand:after{\long\def}\csname
+        Get:Arg:#1:#2\endcsname##1##2!*?: \:out{%
+      \def\:next####1#3{\def##1{####1}%
+                        \ifx \tbl:typ\tbl:bdy  \else
+   \ifx    ##1\&\let##1\NoArg\fi
+   \ifx ##1\CR  \let##1\NoArg\fi
+\fi
+#4##2!*?: \:out}%
+      \:next }}
+
+\DefGetArg{}{}{}
+\def\stgt:arg#1#2{%
+  \expand:after{\let\:tempa=}\csname Get:Arg:#1:#2\endcsname
+  \ifx \:tempa\relax \else \let\:temp\:tempa \fi }
+\def\Get:Arg{%
+  \let\:temp\Get:Arg::\stgt:arg{}\HCol \stgt:arg\HRow{}%
+  \stgt:arg\HRow\Col \:temp}
+\def\NoArg{\tok:nmath}
+
+      \ifHtml
+   \:CheckOption{postscript}  \if:Option
+      \expandafter\def\csname i:0\endcsname{0}
+\expandafter\def\csname i:1\endcsname{1}
+\expandafter\def\csname i:2\endcsname{2}
+\expandafter\def\csname i:3\endcsname{3}
+\expandafter\def\csname i:4\endcsname{4}
+\expandafter\def\csname i:5\endcsname{5}
+\expandafter\def\csname i:6\endcsname{6}
+\expandafter\def\csname i:7\endcsname{7}
+\expandafter\def\csname i:8\endcsname{8}
+\expandafter\def\csname i:9\endcsname{9}
+\def\i:A{10}  \let\i:a\i:A
+\def\i:B{11}  \let\i:b\i:B
+\def\i:C{12}  \let\i:c\i:C
+\def\i:D{13}  \let\i:d\i:D
+\def\i:E{14}  \let\i:e\i:E
+\def\i:F{15}  \let\i:f\i:F
+
+\def\Hex:Frac#1#2{\tmp:cnt\csname i:#1\endcsname
+   \multiply\tmp:cnt by 16
+   \advance\tmp:cnt\csname i:#2\endcsname
+   \multiply\tmp:cnt by 100
+   \divide\tmp:cnt by 255
+   \edef\:temp{\ifnum \tmp:cnt>99 1.0\else 0.\the\tmp:cnt\fi}}
+
+\def\df:clr#1#2#3#4#5#6#7{\Hex:Frac#2#3\let#1\:temp
+   \Hex:Frac#4#5\edef#1{ #1 \:temp}%
+   \Hex:Frac#6#7\edef#1{#1 \:temp\space setrgbcolor }}
+
+\def\DefPsColor#1#2{\df:clr#1#2}
+\let\PsCode\relax
+%
+\def\MarkPsLoc(#1){%
+  \PsCode{ currentpoint
+   /Psy#1  exch  def
+   /PsX#1  exch  def
+}}
+\def\RecallPsLoc(#1){ PsX#1  Psy#1 }
+
+      \ifx \PsCodeSpecial\:UnDef \def\PsCodeSpecial{ps:}\fi
+
+   \fi
+\fi
+
+      \:CheckOption{draw}     \if:Option
+   \NewConfigure{Fig}{2}
+\Odef\Fig[#1]{\bgroup
+   \ifx  \EndPicture\:Undef
+      \ifx  \EndFig\:Undef
+         \def\EndFig{\b:Fig\egroup}%
+         \def\AltFig{#1}\a:Fig
+      \else  \let\EndFig\egroup \fi
+   \else  \let\EndFig\egroup \fi
+   \HAssign\y::=0
+   \def\Text##1"##2"{\raise \y:: pt \hbox to 0pt{##2\hss}\ignorespaces}%
+   \def\Line{\afterassignment\Ln:A\tmp:cnta}%
+   \def\Move{\afterassignment\Mv:A\tmp:cnta}\ignorespaces}
+
+\def\Ln:A{\afterassignment\Ln:B\tmp:cntb}
+\def\Ln:B{\bgroup \leavevmode
+  \HAssign\I::=\ifnum \tmp:cnta<0 -\fi \tmp:cnta
+\HAssign\J::=\ifnum \tmp:cntb<0 -\fi \tmp:cntb
+\ifnum \I::>\J:: \HAssign\J::=\I:: \fi \relax
+\ifnum \J::>0
+   \tmp:dim=\tmp:cnta pt
+   \ifnum \tmp:cnta<0
+       \tmp:dim-\tmp:dim
+       \vrule depth \z@ height \z@ width \tmp:cnta pt
+       \HAdvance\y:: by \tmp:cntb    \tmp:cntb-\tmp:cntb
+   \fi
+   \divide\tmp:dim by \J::  \edef\C::{\the\tmp:dim}%
+   \tmp:dima=\tmp:cntb pt  \divide\tmp:dima by \J::
+   \edef\D::{\the\tmp:dima}%
+   \tmp:dima \y:: pt
+   \HAssign\I::-1  \tmp:dim\z@  \Ln:C
+   \ifnum \tmp:cnta>0  \else
+      \vrule depth \z@ height \z@ width -\tmp:cnta pt
+\fi\fi
+%
+   \egroup \Mv:B  }
+
+\def\Ln:C{\ifnum \I::<\J::
+   \vrule depth \z@ height \z@ width \tmp:dim
+   \raise \tmp:dima \hbox{\vrule height 0.5pt depth 0.5pt  width 1pt}%
+   \vrule depth \z@ height \z@ width -\tmp:dim
+   \vrule depth \z@ height \z@ width -1.0pt
+   \advance\tmp:dim by  \C::
+   \advance\tmp:dima by  \D::
+   \Advance:\I:: by  1
+   \expandafter\Ln:C  \fi  }
+
+\def\Mv:A{\afterassignment\Mv:B\tmp:cntb}
+\def\Mv:B{\leavevmode
+   \vrule depth \z@ height \z@ width \tmp:cnta pt
+   \Advance:\y:: by \tmp:cntb     \ignorespaces  }
+
+\csname newcount\endcsname\tmp:cnta
+\csname newcount\endcsname\tmp:cntb
+\csname newdimen\endcsname\tmp:dima
+
+\fi
+
+      \:CheckOption{index} \if:Option
+   \let\mi:nus=\-
+\def\-{\futurelet\:temp\:idxentry}
+\def\:idxentry{\ifx \:temp- \expandafter\:addidx
+   \else\expandafter\mi:nus\fi}
+\def\:addidx-#1/#2/#3/{{\def\:ii{#2}%
+   \csname a:--\endcsname
+%
+   \ifx\:ii\empty
+      \edef\:temp{\write\:idx{\string\--{#1}{ }{#3}%
+        {\csname b:--\endcsname
+}\relax}}%
+   \else
+      \edef\:temp{\write\:idx{\string\--{#1}{#2}{#3}%
+        {\csname b:--\endcsname
+}\relax}}%
+   \fi  \:temp}}
+\csname newwrite\endcsname\:idx
+\openout\:idx=\jobname.idx
+\def\Index{%
+  \def\--{\IndexEntry}%
+  \openin15=\jobname.xdi
+  \ifeof15      \write\:idx{ \pageno=\the\pageno}
+  \else
+     {\a:index \input \jobname.xdi \b:index }
+  \fi}
+\def\IndexEntry#1#2#3#4{%
+   \gdef\:temp{#1}\let\:tempa\empty
+   \ifx \:temp\prev:A  \gdef\:temp{#2}\ifx \:temp\prev:B
+      \let\:tempa\relax
+   \fi\fi
+   \ifx \:tempa\relax ,\else
+      \gdef\:temp{#1}\ifx \:temp\prev:A \else  \c:index #1\d:index\fi
+      \def\:temp{#2}\ifx \:temp\space
+      \else   \hfill\break    \e:index#2\f:index\fi
+   \fi
+   \g:index #4\h:index
+   \gdef\prev:A{#1}\gdef\prev:B{#2}%
+}
+\NewConfigure{index}{8}
+\ifx  \IndexFonts\:UnDef
+   \def\IndexFonts{%
+     \setbox\strutbox=\hbox{\vrule height8.0pt depth3.0pt width0pt}
+     \font\ninerm=cmr9  \font\ninebf=cmbx9   \font\ninesl=cmsl9
+     \font\nineit=cmti9 \font\ninett=cmtt9   \font\ninei =cmmi9
+     \font\ninesy=cmsy9 \font\nineex=cmex10
+     \textfont0=\ninerm \textfont1=\ninei    \textfont2=\ninesy
+     \textfont3=\nineex \scriptfont3=\nineex \scriptscriptfont3=\nineex
+     \textfont\bffam=\ninebf  \textfont\slfam=\ninesl
+     \textfont\itfam=\ninei   \textfont\ttfam=\ninett
+     \def\rm{\fam=0     \ninerm}%
+     \def\bf{\fam=\bffam\ninebf}%
+     \def\sl{\fam=\slfam\ninesl}%
+     \def\it{\fam=\itfam\nineit}%
+     \def\tt{\fam=\ttfam\ninett}%
+     \def\cal{\fam=2}%
+     \def\mit{\fam=1}%
+     \skewchar\ninei   =127    \skewchar\ninesy   =46    \rm
+     \baselineskip=11pt       }
+\fi
+\NewConfigure{--}{2}
+\Configure{--}
+  {\html:addr \Link-{}{index\last:haddr}\EndLink}
+  {\string\csname\space :gobble\string\endcsname{\html:lbl}%
+    \string\Link[\FileName]{index\last:haddr}{}\folio
+    \string\EndLink
+  }
+
+\fi
+
+%      \expand:after{\Hinput{th4}}
+   \else
+      \def\List#1{%
+   \def\:tempa##1##2{%
+      \ifx\:tempA\:tempB \def\:tempb{\L:st{##1}}\fi \def\:tempB{##2}}%
+   \def\:tempb{\L:st{#1}}\def\:tempA{#1}\def\:tempB{ord}%
+   \:tempa\:ord1%
+   \:tempa{\:ord}{a}%
+   \:tempa{\:alph}{A}%
+   \:tempa{\:Alph}{i}%
+   \:tempa{\:roman}{I}%
+   \:tempa{\:Roman}{disc}%
+   \:tempa{$\bullet$}{circle}%
+   \:tempa{$\circle$}{square}%
+   \:tempa{\vrule  depth \z@ height 1ex width 1ex}{}%
+   \:tempa{\:lbl}{}%
+   \:tempb }
+
+\def\L:st#1{\par \nobreak
+   {\advance \medskipamount  -\parskip \:medskip}%
+   \:noparfalse
+   \Begin:Block{List}%
+      \Configure{Item}{}{.}%
+%
+      \lbl:tm
+%
+      \advance \leftskip  1.5em
+      \parindent0em
+      \HAssign\ListCounter0
+\def\item{%
+   \par \leavevmode      \parskip\:ListParSkip
+   \Advance:\ListCounter  1
+   \the\EveryItem}%
+\def\:temp{#1}\def\:tempa{\:lbl}\ifx   \:temp\:tempa
+       \EveryItem={\hskip-1.5em\:ListItem}%
+\else  \EveryItem={%
+                   \llap{#1\hskip 0.5em}}\fi
+%
+}
+\def\EndList{\par
+   \End:Block{List}%
+   {\advance\medskipamount  -\parskip \:medskip}}
+\expandafter\csname newskip\endcsname\ListParSkip
+\def\:ListParSkip{\ListParSkip}
+\ListParSkip4.5pt plus 1.5pt minus 1.5pt
+\def\:ListItem#1{\:lbl{#1}\hskip 0.5em\ignorespaces}
+
+      \let\Columns\:gobble
+\let\EndColumns\empty
+\def\:bigskip{%
+ \ifvmode
+   \ifdim \lastskip<\bigskipamount
+   \vskip -\lastskip \bigskip \fi
+ \else \bigskip\fi}
+
+\def\:medskip{%
+ \ifvmode
+   \ifdim \lastskip<\medskipamount
+   \vskip -\lastskip \medskip \fi
+ \else \medskip\fi}
+
+\def\:smallskip{%
+ \ifvmode
+   \ifdim \lastskip<\smallskipamount
+   \vskip -\lastskip \smallskip \fi
+ \else \smallskip \fi}
+
+      
+      
+      \def\Verb:sp{\phantom{x}}
+\let\Verb:boln\empty
+\let\Verb:eoln\empty
+\Configure{VerbatimEnv}
+   {\medskip \parskip0pt}
+   {\smallskip }
+\let\vrb:tt\tt
+
+      \def\:StartSec#1#2#3{%
+   %
+   \expandafter\ifx \csname a:#1\endcsname\relax  \else
+      \csname a:#1\endcsname{#3}%
+   \fi
+   \:Ttle{#1}{#2}{\csname #1:ttl\endcsname{#3}}%
+   \expandafter\ifx \csname b:#1\endcsname\relax  \else
+      \csname b:#1\endcsname{#3}%
+   \fi
+   %
+}
+\let\html:addr\empty
+\let\protect:wrtoc\empty
+\let\html:tocsec \empty
+\let\html:sectoc\empty
+
+      
+      
+      
+      
+      \def\:ctgs#1{\def\:eat##1#1{{\vrb:tt ##1}\egroup}\:eat}
+
+   \fi
+\fi
+\ifHtml        \expand:after{\Hinput{th4}}\fi
+\endinput
+

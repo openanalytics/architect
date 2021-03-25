@@ -1,0 +1,45 @@
+% The file cs-baskerx.tex (C) Petr Olsak, 2016
+% Use "\input cs-baskerx" to set the Baskervald X font family in text mode
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Baskervald X] {\caps} {\rm \bf \it \bi} {} {TX} {8t U}
+
+\ffvars {Reg}{Bol}{Ita}{BolIta} 
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = Baskervaldx-Reg-tlf-t1  \sizespec
+   \font\tenbf = Baskervaldx-Bol-tlf-t1  \sizespec
+   \font\tenit = Baskervaldx-Ita-tlf-t1  \sizespec
+   \font\tenbi = Baskervaldx-BolIta-tlf-t1 \sizespec
+
+   \def\ffnamegen{Baskervaldx-\ffvarV\capsV-t1}
+
+   \def\caps{\ffsetV{caps}{-tosf-sc}\ffsetX}  
+   \def\nocaps{\ffsetV{caps}{-tlf}\ffsetX}
+   \nocaps\relax
+
+\fi
+
+\ismacro\fotenc{U}\iftrue
+
+   \font\tenrm = "[Baskervaldx-Reg]:\fontfeatures"    \sizespec
+   \font\tenbf = "[Baskervaldx-Bol]:\fontfeatures"       \sizespec
+   \font\tenit = "[Baskervaldx-Ita]:\fontfeatures"     \sizespec
+   \font\tenbi = "[Baskervaldx-BolIta]:\fontfeatures" \sizespec
+
+   \def\ffnamegen{"[Baskervaldx-\ffvarV]:\capsV\fontfeatures"} 
+
+   \def\caps{\ffsetV{caps}{+smcp;+onum;}\ffsetX}
+   \def\nocaps{\ffsetV{caps}{}\ffsetX}
+   \nocaps\relax
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\def\narrow{\cond\fam}
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<xtpipes preamble="yes" signature="javahelp.4xt (2008-06-28-22:07)">
+   <sax content-handler="xtpipes.util.ScriptsManager"
+        lexical-handler="xtpipes.util.ScriptsManagerLH" >
+     <script element="table::tabular" >
+   <set name="tabular" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match=" table[ @class='tabular' ]
+                    / tr[ (normalize-space(.)='') ] " >
+
+<xsl:message terminate="no">
+OK 1
+</xsl:message>
+
+   <xsl:if test=" normalize-space(following-sibling::*) != '' ">
+      <xsl:copy>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+<xsl:message terminate="no">
+OK 2
+</xsl:message>
+      </xsl:copy>
+   </xsl:if>
+</xsl:template>
+<xsl:template match=" tr[ (normalize-space(.)='')
+                          and
+                          (parent::table[ @class='tabular' ])
+                        ] " >
+
+<xsl:message terminate="no">
+OK 1
+</xsl:message>
+
+   <xsl:if test=" normalize-space(following-sibling::*) != '' ">
+      <xsl:copy>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+<xsl:message terminate="no">
+OK 2
+</xsl:message>
+      </xsl:copy>
+   </xsl:if>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="tabular" />
+</script>
+
+     <script element="table::longtable" >
+   <set name="longtbl" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match=" table[ @class='longtable' ]
+                    / tr[ (normalize-space(.)='') ] " >
+   <xsl:if test=" normalize-space(following-sibling::*) != '' ">
+      <xsl:copy>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+      </xsl:copy>
+   </xsl:if>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="longtbl" />
+</script>
+
+     
+     
+   </sax>
+</xtpipes>
+

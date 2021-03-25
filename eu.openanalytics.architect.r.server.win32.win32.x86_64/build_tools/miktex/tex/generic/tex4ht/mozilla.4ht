@@ -1,0 +1,1596 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% mozilla.4ht                           2008-01-02-08:15 %
+% Copyright (C) 2000--2008       Paul Gartside           %
+%                                Eitan M. Gurari         %
+%                                                        %
+% This program can redistributed and/or modified under   %
+% the terms of the LaTeX Project Public License          %
+% Distributed from CTAN archives in directory            %
+% macros/latex/base/lppl.txt; either version 1 of the    %
+% License, or (at your option) any later version.        %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                               gartside@maths.ox.ac.uk  %
+%                             gurari@cis.ohio-state.edu  %
+%                   http://www.maths.ox.ac.uk/~gartside  %
+%                 http://www.cis.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\immediate\write-1{version 2008-01-02-08:15}
+\exit:ifnot{Preamble,% 
+amsfonts,% 
+croatian,% 
+dsfont,% 
+eucal,% 
+euler,% 
+fontmath,% 
+latex,% 
+plain,% 
+romanian,% 
+slovak,% 
+slovene,% 
+tex4ht}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{xht} \if:Option
+  \Configure{ext}{xht}
+\else
+  \Configure{ext}{xml}
+\fi
+\:CheckOption{pmathml-css} \if:Option
+   \edef\Preamble{\Preamble,pmathml}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{frames}  \if:Option
+  \Configure{frames-altDOCTYPE}{\:CheckOption{pmathml} \if:Option
+    \Configure{DOCTYPE}{}
+
+\else
+    \Configure{DOCTYPE}
+  {\IgnorePar
+    \HCode{<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+   "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd"
+   >\Hnewline
+%   "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd" [\Hnewline
+%     <!ENTITY mathml "http://www.w3.org/1998/Math/MathML">\Hnewline
+%  ]>\Hnewline
+  }}
+
+\fi
+}
+\else
+  \:CheckOption{pmathml} \if:Option
+    \Configure{DOCTYPE}{}
+
+\else
+    \Configure{DOCTYPE}
+  {\IgnorePar
+    \HCode{<!DOCTYPE html
+   PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+   "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd"
+   >\Hnewline
+%   "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd" [\Hnewline
+%     <!ENTITY mathml "http://www.w3.org/1998/Math/MathML">\Hnewline
+%  ]>\Hnewline
+  }}
+
+\fi
+
+\fi
+\:CheckOption{-css} \if:Option \else
+  \Configure{XML-STYLESHEET}
+    {\HCode{<?xml-stylesheet type="text/css"
+                             href="\aa:CssFile"?>\Hnewline}}
+\fi
+\Configure{HTML}
+     {\IgnorePar\HCode{<html \a:@HTML\Hnewline
+            \:xhtml{xmlns="http://www.w3.org/1999/xhtml"
+}\Hnewline>}}
+     {\HCode{\Hnewline</html>\Hnewline}}
+\Configure{DviMath}
+    {\mathmltrue
+     \ifOption{mml-fonts}{\Configure{htf}{0}{+}{<mstyle\Hnewline
+   class="}{\%s}{-\%s}{x-x-\%d}{}{">}{</mstyle>}%
+}{\NoFonts}\IgnoreRule\HCode{<!--l.
+       \the\inputlineno-->}{\Tg<\a:mathml math\Hnewline
+         \csname a:math-xmlns\endcsname
+\a:@math>}\a:math
+       \edef\sv:ignore{\if:nopar
+    \noexpand\IgnorePar\else \noexpand\ShowPar\fi}%
+\IgnorePar}
+    {\Tg</\a:mathml math>\EndIgnoreRule
+     \ifOption{mml-fonts}{\Configure{htf}{0}{+}{<span\Hnewline
+   class="}{\%s}{-\%s}{x-x-\%d}{}{">}{</span>}%
+}{\EndNoFonts}%
+     \sv:ignore
+\mathmlfalse}
+\:CheckOption{pmathml} \if:Option
+   \:CheckOption{pmathml-css} \if:Option
+  \Configure{XML-STYLESHEET}
+    {\HCode{%
+      <?xml-stylesheet type="text/xsl"
+                       href="pmathmlcss.xsl"?>\Hnewline
+      <!--http://www.w3.org/Math/XSL/pmathmlcss.xsl-->\Hnewline
+  }}
+\else
+  \Configure{XML-STYLESHEET}
+    {\HCode{%
+      <?xml-stylesheet type="text/xsl"
+                       href="pmathml.xsl"?>\Hnewline
+      <!--http://www.w3.org/Math/XSL/pmathml.xsl-->\Hnewline
+  }}
+\fi
+\:CheckOption{pmathml-css} \if:Option
+   \Configure{@HTML}
+     {xmlns:math="http://www.w3.org/1998/Math/MathML"\Hnewline
+      xmlns:pref="http://www.w3.org/2002/Math/preference"\Hnewline
+      pref:renderer="css"
+     }
+\fi
+
+  \:CheckOption{pmathml-css} \if:Option \else
+      \Log:Note{If css rendering is preferred
+         for MathML, use option `pmathml-css' instead of `pmathml'.}
+      \Configure{halignTD} {}{}
+   {<}{\ifmathml \HCode{ columnalign="left"}\else
+        \HCode{ style="text-align:left" }\fi}
+   {-}{\ifmathml \HCode{ columnalign="center"}\else
+        \HCode{ style="text-align:center" }\fi}
+   {>}{\ifmathml \HCode{ columnalign="right"}\else
+        \HCode{ style="text-align:right" }\fi}
+   {^}{\ifmathml \HCode{ rowalign="top"}\else
+        \HCode{ style="vertical-align:top" }\fi}
+   {=}{\ifmathml \HCode{ rowalign="baseline"}\else
+        \HCode{ style="vertical-align:baseline" }\fi}
+   {|}{\ifmathml \HCode{ rowalign="center"}\else
+        \HCode{ style="vertical-align:middle" }\fi}
+   {_}{\ifmathml \HCode{ rowalign="bottom"}\else
+        \HCode{ style="vertical-align:bottom" }\fi}
+   {p}{\ifmathml \HCode{ columnalign="left"}\else
+        \HCode{ style="text-align:left"}\fi}
+   {}
+
+  \fi
+\else
+  \:CheckOption{pmathml-css} \if:Option \else
+     \Log:Note{For multi-platform MathML
+       through stylesheet transforms, use the command line option
+       `pmathml'. If css rendering is preferred, use `pmathml-css'.}
+\fi \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{Roman}{I}{V}{X}{L}{C}{D}{M}
+\Configure{roman}{i}{v}{x}{l}{c}{d}{m}
+\Configure{underline}
+   {\bgroup\ifmathml \HCode{<\a:mathml munder
+class="mml-underline"><\a:mathml mrow>}%
+%
+    \else \expandafter\everymath
+\expandafter{\expandafter\everymath
+             \expandafter{\the\everymath}}%
+\let\o::@underline:\o:@@underline:
+\def\o:@@underline:{\let\o:@@underline:\o::@underline:}%
+\HCode{<span class="underline">}\fi}
+   {\ifmathml \HCode{</\a:mathml mrow><\a:mathml mo\Hnewline
+accent="true">&\#x00AF;</\a:mathml mo></\a:mathml munder>}%
+\else \HCode{</span>}\fi\egroup}
+\Configure{equation}
+  {\ifmmode\else\par \IgnorePar\fi \EndP
+           \HCode{<table\Hnewline class="equation"><tr><td>}\IgnorePar
+  }
+  {\IgnorePar\EndP\HCode{</td><td class="eq-no">}}
+  {\end:TTT \ifmmode\else \ShowPar\par{\HCondtrue\noindent}\fi}
+\Configure{'}
+   {\let\:primes=\empty}
+   {\relax \csname SUB:prime\endcsname
+     \sp{\global\let\SUB:prime=\:UnDef \:primes}}
+   {\let\prime=\relax \xdef\:primes{\:primes\prime}}
+
+\def\AA:text#1{\mtexttrue
+   \HCode{<!--mstyle\Hnewline
+      class="#1"--><\a:mathml
+                mtext \a:@mtext>}\ht:special{t4ht@,&\#x00A0;}%
+\PauseMathClass
+   \Configure{$}{\EndPauseMathClass \mtextfalse
+    \ht:special{t4ht@,}%
+\HCode{</\a:mathml
+                mtext><!--mstyle\Hnewline class="math"-->}}
+  {\HCode{<!--/mstyle--><\a:mathml mtext
+               \a:@mtext>}\ht:special{t4ht@,&\#x00A0;}%
+\PauseMathClass
+              \mtexttrue}{}
+\Configure{()}%
+  {\EndPauseMathClass \mtextfalse
+      \ht:special{t4ht@,}%
+\HCode{</\a:mathml mtext><\a:mathml
+                                mstyle\Hnewline \mml:class="math">}$}%
+  {$\HCode{</\a:mathml mstyle><\a:mathml
+       mtext \a:@mtext>}\ht:special{t4ht@,&\#x00A0;}%
+\PauseMathClass
+   \mtexttrue}%
+  {}%
+}
+\def\BB:text{\mtextfalse\EndPauseMathClass\ht:special{t4ht@,}%
+\HCode
+     {</\a:mathml mtext><!--/mstyle-->}}
+
+\:CheckOption{new-accents}     \if:Option \else
+  \def\:widetilde:over{\ifmmode \expandafter\mathop\fi
+                                     {\x:unicode{02DC}}}
+%  \def\:tilde:over{\mathop{\x:unicode{02DC}}}
+\fi
+\:CheckOption{new-accents}     \if:Option \else
+   \expand:after{\Configure{accent}}\csname OT1\string\.\endcsname
+   \dot{{}{}}
+   {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\endcsname
+   \ddot{{}{}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\:CheckOption{uniaccents}     \if:Option \else
+  \Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}\i{01D0}\j{01F0}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}%
+G{1E20}g{1E21}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+    {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+  \expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+     \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}\i{00EE}\j{0135}%
+{}{}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+     \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+     {}{}
+  \Configure{accent}\ddot\ddot{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+     \endcsname
+     \csname OT1\string\"\endcsname{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+%  \expand:after{\expand:after{\Configure{accent}}%
+%    \csname OT1\string\r\endcsname}%
+%    \csname OT1\string\r\endcsname{{}{}}
+%    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\b\endcsname
+    \b{D{1E0E}d{1E0F}K{1E34}k{1E35}L{1E3A}l{1E3B}N{1E48}n{1E49}%
+R{1E5E}r{1E5F}T{1E6E}t{1E6F}Z{1E94}z{1E95}h{1E96}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\d\endcsname}%
+    \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\c\endcsname}%
+    \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\H\endcsname}%
+    \csname OT1\string\H\endcsname{{}{}}
+    {}{}
+\fi
+
+\fi
+\Configure{,}{\mskip\thinmuskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fontmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifx \tmp:bx\:UnDef \csname newbox\endcsname \tmp:bx \fi
+\def\find:set:mgroup#1#2#3{\bgroup
+  \def\use@mathgroup##1##2##3{\relax
+    \tmp:cnt=##2%
+    \xdef\:temp####1{\noexpand\Configure{MathClass}{#2}%
+        {}{}{}{\mathchar"0\the\tmp:cnt ####1}}%
+  }%
+  \setbox\tmp:bx=\hbox{$#1$}\setbox\tmp:bx=\hbox{}%
+  \set:mgroup#3{}{}%
+  \egroup
+}
+\def\set:mgroup#1#2{\if :#1#2:\else
+   \:temp{#1#2}\expandafter\set:mgroup \fi}
+
+\ifx \mathcalMathClass\:UnDef
+  \NewMathClass\mathcalMathClass
+\fi
+\Configure{MathClass}{\mathcalMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="script">}{</\a:mathml mi>}{}
+\ifx \mathboldcalMathClass\:UnDef
+  \NewMathClass\mathboldcalMathClass
+\fi
+\Configure{MathClass}{\mathboldcalMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="bold-script">}{</\a:mathml mi>}{}
+
+\find:set:mgroup{\mathcal{A}}{\mathcalMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A} 
+\expandafter\ifx\csname mv@bold\endcsname\relax  \else
+\bgroup
+\mathversion{bold}%
+\find:set:mgroup{\mathcal{A}}{\mathboldcalMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A} 
+\egroup
+\fi
+
+\ifx \mathReImMathClass\:UnDef
+  \NewMathClass\mathboldReImMathClass
+\fi
+\Configure{MathClass}{\mathboldReImMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         fontweight="bold">}{</\a:mathml mi>}{}
+
+\expandafter\ifx\csname mv@bold\endcsname\relax  \else
+\bgroup
+\mathversion{bold}%
+\find:set:mgroup{\mathcal{A}}{\mathboldReImMathClass}%
+  {3C3D}
+\egroup
+\fi
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifx \tmp:bx\:UnDef \csname newbox\endcsname \tmp:bx \fi
+\def\find:set:mgroup#1#2#3{\bgroup
+  \def\use@mathgroup##1##2##3{\relax
+    \tmp:cnt=##2%
+    \xdef\:temp####1{\noexpand\Configure{MathClass}{#2}%
+        {}{}{}{\mathchar"0\the\tmp:cnt ####1}}%
+  }%
+  \setbox\tmp:bx=\hbox{$#1$}\setbox\tmp:bx=\hbox{}%
+  \set:mgroup#3{}{}%
+  \egroup
+}
+\def\set:mgroup#1#2{\if :#1#2:\else
+   \:temp{#1#2}\expandafter\set:mgroup \fi}
+
+\ifx \mathbbMathClass\:UnDef
+  \NewMathClass\mathbbMathClass
+\fi
+\Configure{MathClass}{\mathbbMathClass}{*}
+    {<\a:mathml mi mathvariant="double-struck">}{</\a:mathml mi>}{}
+
+\find:set:mgroup{\mathbb{A}}{\mathbbMathClass}%
+   {414244454647494A4B4C4D4F535455565758597C} 
+
+\ifx \mathfrakMathClass\:UnDef
+  \NewMathClass\mathfrakMathClass
+\fi
+\Configure{MathClass}{\mathfrakMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="fraktur">}{</\a:mathml mi>}{}
+\ifx \mathboldfrakMathClass\:UnDef
+  \NewMathClass\mathboldfrakMathClass
+\fi
+\Configure{MathClass}{\mathboldfrakMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="bold-fraktur">}{</\a:mathml mi>}{}
+
+\expandafter\ifx \csname sv:@mathfrak:\endcsname\relax
+   \let\sv:@mathfrak:=\n:@mathfrak:
+\fi
+\def\n:@mathfrak:{\global\let\n:@mathfrak:=\sv:@mathfrak:
+   \global\let\sv:@mathfrak:=\:UnDef
+   \find:set:mgroup{\mathfrak{A}}{\mathfrakMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A% 
+   6162636465666768696A6B6C6D6E6F707172737475767778797A% 
+   30313233343536373839}% 
+\expandafter\ifx\csname mv@bold\endcsname\relax  \else
+\bgroup
+\mathversion{bold}%
+\find:set:mgroup{\mathfrak{A}}{\mathboldfrakMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A% 
+   6162636465666768696A6B6C6D6E6F707172737475767778797A% 
+  }%
+\egroup
+\fi
+%
+}
+\n:@mathfrak:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{underline}
+   {\bgroup \HCode{<\a:mathml munder
+class="mml-underline"><\a:mathml mrow>}%
+}
+   {\HCode{</\a:mathml mrow><\a:mathml mo\Hnewline
+accent="true">&\#x00AF;</\a:mathml mo></\a:mathml munder>}%
+\egroup}
+\Configure{'}
+   {\let\:primes=\empty}
+   {\relax \csname SUB:prime\endcsname
+     \sp{\global\let\SUB:prime=\:UnDef \:primes}}
+   {\let\prime=\relax \xdef\:primes{\:primes\prime}}
+
+\:CheckOption{new-accents}     \if:Option \else
+  \def\:widetilde:over{\mathop{\ifmmode \expandafter\x:unicode\fi
+                                                          {02DC}}}
+%  \def\:tilde:over{\mathop{\x:unicode{02DC}}}
+\fi
+\:CheckOption{new-accents}     \if:Option \else
+   \expand:after{\Configure{accent}}\csname OT1\string\.\endcsname
+   \dot{{}{}}
+   {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\endcsname
+   \ddot{{}{}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\:CheckOption{uniaccents}     \if:Option \else
+  \Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}\i{01D0}\j{01F0}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}%
+G{1E20}g{1E21}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+    {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+  \expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+     \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}\i{00EE}\j{0135}%
+{}{}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+     \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+     {}{}
+  \Configure{accent}\ddot\ddot{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+     \endcsname
+     \csname OT1\string\"\endcsname{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+%  \expand:after{\expand:after{\Configure{accent}}%
+%    \csname OT1\string\r\endcsname}%
+%    \csname OT1\string\r\endcsname{{}{}}
+%    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\b\endcsname
+    \b{D{1E0E}d{1E0F}K{1E34}k{1E35}L{1E3A}l{1E3B}N{1E48}n{1E49}%
+R{1E5E}r{1E5F}T{1E6E}t{1E6F}Z{1E94}z{1E95}h{1E96}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\d\endcsname}%
+    \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\c\endcsname}%
+    \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\H\endcsname}%
+    \csname OT1\string\H\endcsname{{}{}}
+    {}{}
+\fi
+
+\fi
+\Configure{,}{\mskip\thinmuskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{euler}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifx \tmp:bx\:UnDef \csname newbox\endcsname \tmp:bx \fi
+\def\find:set:mgroup#1#2#3{\bgroup
+  \def\use@mathgroup##1##2##3{\relax
+    \tmp:cnt=##2%
+    \xdef\:temp####1{\noexpand\Configure{MathClass}{#2}%
+        {}{}{}{\mathchar"0\the\tmp:cnt ####1}}%
+  }%
+  \setbox\tmp:bx=\hbox{$#1$}\setbox\tmp:bx=\hbox{}%
+  \set:mgroup#3{}{}%
+  \egroup
+}
+\def\set:mgroup#1#2{\if :#1#2:\else
+   \:temp{#1#2}\expandafter\set:mgroup \fi}
+
+\ifx \mathfrakMathClass\:UnDef
+  \NewMathClass\mathfrakMathClass
+\fi
+\Configure{MathClass}{\mathfrakMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="fraktur">}{</\a:mathml mi>}{}
+\ifx \mathboldfrakMathClass\:UnDef
+  \NewMathClass\mathboldfrakMathClass
+\fi
+\Configure{MathClass}{\mathboldfrakMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="bold-fraktur">}{</\a:mathml mi>}{}
+
+\find:set:mgroup{\mathfrak{A}}{\mathfrakMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A% 
+   6162636465666768696A6B6C6D6E6F707172737475767778797A% 
+   30313233343536373839}% 
+\expandafter\ifx\csname mv@bold\endcsname\relax  \else
+\bgroup
+\mathversion{bold}%
+\find:set:mgroup{\mathfrak{A}}{\mathboldfrakMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A% 
+   6162636465666768696A6B6C6D6E6F707172737475767778797A% 
+  }%
+\egroup
+\fi
+
+\ifx \mathscrMathClass\:UnDef
+  \NewMathClass\mathscrMathClass
+\fi
+\Configure{MathClass}{\mathscrMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="script">}{</\a:mathml mi>}{}
+\ifx \mathboldscrMathClass\:UnDef
+  \NewMathClass\mathboldscrMathClass
+\fi
+\Configure{MathClass}{\mathboldscrMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="bold-script">}{</\a:mathml mi>}{}
+
+\find:set:mgroup{\mathscr{A}}{\mathscrMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A} 
+\expandafter\ifx\csname mv@bold\endcsname\relax  \else
+\bgroup
+\mathversion{bold}%
+\find:set:mgroup{\mathscr{A}}{\mathboldscrMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A} 
+\egroup
+\fi
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{eucal}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifx \mathcalMathClass\:UnDef
+  \NewMathClass\mathcalMathClass
+\fi
+\Configure{MathClass}{\mathcalMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="script">}{</\a:mathml mi>}{}
+\ifx \mathboldcalMathClass\:UnDef
+  \NewMathClass\mathboldcalMathClass
+\fi
+\Configure{MathClass}{\mathboldcalMathClass}{*}
+    {<\a:mathml mi\Hnewline
+         mathvariant="bold-script">}{</\a:mathml mi>}{}
+
+\find:set:mgroup{\mathcal{A}}{\mathcalMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A} 
+\expandafter\ifx\csname mv@bold\endcsname\relax  \else
+\bgroup
+\mathversion{bold}%
+\find:set:mgroup{\mathcal{A}}{\mathboldcalMathClass}%
+  {4142434445464748494A4B4C4D4E4F505152535455565758595A} 
+\egroup
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{dsfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifx \tmp:bx\:UnDef \csname newbox\endcsname \tmp:bx \fi
+\def\find:set:mgroup#1#2#3{\bgroup
+  \def\use@mathgroup##1##2##3{\relax
+    \tmp:cnt=##2%
+    \xdef\:temp####1{\noexpand\Configure{MathClass}{#2}%
+        {}{}{}{\mathchar"0\the\tmp:cnt ####1}}%
+  }%
+  \setbox\tmp:bx=\hbox{$#1$}\setbox\tmp:bx=\hbox{}%
+  \set:mgroup#3{}{}%
+  \egroup
+}
+\def\set:mgroup#1#2{\if :#1#2:\else
+   \:temp{#1#2}\expandafter\set:mgroup \fi}
+
+\ifx \mathdsMathClass\:UnDef
+  \NewMathClass\mathdsMathClass
+\fi
+\Configure{MathClass}{\mathdsMathClass}{*}
+    {<\a:mathml mi mathvariant="double-struck">}{</\a:mathml mi>}{}
+\find:set:mgroup{\mathds{A}}{\mathdsMathClass}%  
+   {314142434445464748494A4B4C4D4E4F505152535455565758595A61686B}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{romanian}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{new-accents}     \if:Option \else
+  \expand:after{\Configure{accent}}\csname OT1\string\.\endcsname
+   \dot{{}{}}
+   {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\endcsname
+   \ddot{{}{}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\:CheckOption{uniaccents}     \if:Option \else
+  \Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}\i{01D0}\j{01F0}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}%
+G{1E20}g{1E21}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+    {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+  \expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+     \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}\i{00EE}\j{0135}%
+{}{}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+     \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+     {}{}
+  \Configure{accent}\ddot\ddot{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+     \endcsname
+     \csname OT1\string\"\endcsname{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+%  \expand:after{\expand:after{\Configure{accent}}%
+%    \csname OT1\string\r\endcsname}%
+%    \csname OT1\string\r\endcsname{{}{}}
+%    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\b\endcsname
+    \b{D{1E0E}d{1E0F}K{1E34}k{1E35}L{1E3A}l{1E3B}N{1E48}n{1E49}%
+R{1E5E}r{1E5F}T{1E6E}t{1E6F}Z{1E94}z{1E95}h{1E96}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\d\endcsname}%
+    \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\c\endcsname}%
+    \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\H\endcsname}%
+    \csname OT1\string\H\endcsname{{}{}}
+    {}{}
+\fi
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{slovak}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{new-accents}     \if:Option \else
+  \expand:after{\Configure{accent}}\csname OT1\string\.\endcsname
+   \dot{{}{}}
+   {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\endcsname
+   \ddot{{}{}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\:CheckOption{uniaccents}     \if:Option \else
+  \Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}\i{01D0}\j{01F0}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}%
+G{1E20}g{1E21}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+    {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+  \expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+     \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}\i{00EE}\j{0135}%
+{}{}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+     \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+     {}{}
+  \Configure{accent}\ddot\ddot{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+     \endcsname
+     \csname OT1\string\"\endcsname{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+%  \expand:after{\expand:after{\Configure{accent}}%
+%    \csname OT1\string\r\endcsname}%
+%    \csname OT1\string\r\endcsname{{}{}}
+%    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\b\endcsname
+    \b{D{1E0E}d{1E0F}K{1E34}k{1E35}L{1E3A}l{1E3B}N{1E48}n{1E49}%
+R{1E5E}r{1E5F}T{1E6E}t{1E6F}Z{1E94}z{1E95}h{1E96}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\d\endcsname}%
+    \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\c\endcsname}%
+    \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\H\endcsname}%
+    \csname OT1\string\H\endcsname{{}{}}
+    {}{}
+\fi
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{slovene}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{new-accents}     \if:Option \else
+  \expand:after{\Configure{accent}}\csname OT1\string\.\endcsname
+   \dot{{}{}}
+   {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\endcsname
+   \ddot{{}{}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\:CheckOption{uniaccents}     \if:Option \else
+  \Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}\i{01D0}\j{01F0}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}%
+G{1E20}g{1E21}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+    {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+  \expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+     \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}\i{00EE}\j{0135}%
+{}{}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+     \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+     {}{}
+  \Configure{accent}\ddot\ddot{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+     \endcsname
+     \csname OT1\string\"\endcsname{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+%  \expand:after{\expand:after{\Configure{accent}}%
+%    \csname OT1\string\r\endcsname}%
+%    \csname OT1\string\r\endcsname{{}{}}
+%    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\b\endcsname
+    \b{D{1E0E}d{1E0F}K{1E34}k{1E35}L{1E3A}l{1E3B}N{1E48}n{1E49}%
+R{1E5E}r{1E5F}T{1E6E}t{1E6F}Z{1E94}z{1E95}h{1E96}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\d\endcsname}%
+    \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\c\endcsname}%
+    \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\H\endcsname}%
+    \csname OT1\string\H\endcsname{{}{}}
+    {}{}
+\fi
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{croatian}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{new-accents}     \if:Option \else
+  \expand:after{\Configure{accent}}\csname OT1\string\.\endcsname
+   \dot{{}{}}
+   {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\endcsname
+   \ddot{{}{}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\:CheckOption{uniaccents}     \if:Option \else
+  \Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}\i{01D0}\j{01F0}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}%
+G{1E20}g{1E21}%
+{}{}}
+    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+    {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+  \expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+     \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}\i{00EE}\j{0135}%
+{}{}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+     \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+     {}{}
+  \Configure{accent}\ddot\ddot{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+     \endcsname
+     \csname OT1\string\"\endcsname{A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+     {}{}
+%  \expand:after{\expand:after{\Configure{accent}}%
+%    \csname OT1\string\r\endcsname}%
+%    \csname OT1\string\r\endcsname{{}{}}
+%    {}{}
+  \expand:after{\Configure{accent}}\csname OT1\string\b\endcsname
+    \b{D{1E0E}d{1E0F}K{1E34}k{1E35}L{1E3A}l{1E3B}N{1E48}n{1E49}%
+R{1E5E}r{1E5F}T{1E6E}t{1E6F}Z{1E94}z{1E95}h{1E96}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\d\endcsname}%
+    \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\c\endcsname}%
+    \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+    {}{}
+  \expand:after{\expand:after{\Configure{accent}}%
+    \csname OT1\string\H\endcsname}%
+    \csname OT1\string\H\endcsname{{}{}}
+    {}{}
+\fi
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

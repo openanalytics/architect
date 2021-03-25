@@ -1,0 +1,176 @@
+LinBiolinumT-sup-ot1 0 170
+'&#x0393;' '' Gamma 0
+'&#x2206;' '' Delta 1
+'&#x0398;' '' Theta 2
+'&#x039B;' '' Lambda 3
+'&#x039E;' '' Xi 4
+'&#x03A0;' '' Pi 5
+'&#x03A3;' '' Sigma 6
+'&#x03A5;' '' Upsilon 7
+'&#x03A6;' '' Phi 8
+'&#x03A8;' '' Psi 9
+'&#x2126;' '' Omega 10
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x0131;' '' dotlessi 16
+'&#x0237;' '' dotlessj 17
+'&#x60;' '' grave 18
+'&#x00B4;' '' acute 19
+'&#x02C7;' '' caron 20
+'&#x02D8;' '' breve 21
+'&#x00AF;' '' macron 22
+'&#x02DA;' '' ring 23
+'&#x00B8;' '' cedilla 24
+'&#x00DF;' '' germandbls 25
+'&#x00E6;' '' ae 26
+'&#x0153;' '' oe 27
+'&#x00F8;' '' oslash 28
+'&#x00C6;' '' AE 29
+'&#x0152;' '' OE 30
+'&#x00D8;' '' Oslash 31
+' ' '' space 32
+'!' '' exclam 33
+'&#x201D;' '' quotedblright 34
+'#' '' numbersign 35
+'$' '' dollar 36
+'%' '' percent 37
+'&amp;' '' ampersand 38
+'&#x2019;' '' quoteright 39
+'&#x207D;' '' parenleft.superior 40
+'&#x207E;' '' parenright.superior 41
+'*' '' asterisk 42
+'+' '' plus.superior 43
+',' '' comma 44
+'&#x2212;' '' minus.superior 45
+'.' '' period 46
+'&#x2044;' '' fraction 47
+'&#x2070;' '' zero.superior 48
+'&#x00B9;' '' one.superior 49
+'&#x00B2;' '' two.superior 50
+'&#x00B3;' '' three.superior 51
+'&#x2074;' '' four.superior 52
+'&#x2075;' '' five.superior 53
+'&#x2076;' '' six.superior 54
+'&#x2077;' '' seven.superior 55
+'&#x2078;' '' eight.superior 56
+'&#x2079;' '' nine.superior 57
+':' '' colon 58
+';' '' semicolon 59
+'&#x00A1;' '' exclamdown 60
+'&#xa;' '' equal.superior 61
+'&#x00BF;' '' questiondown 62
+'?' '' question 63
+'@' '' at 64
+'A' '' A 65
+'B' '' B 66
+'C' '' C 67
+'D' '' D 68
+'E' '' E 69
+'F' '' F 70
+'G' '' G 71
+'H' '' H 72
+'I' '' I 73
+'J' '' J 74
+'K' '' K 75
+'L' '' L 76
+'M' '' M 77
+'N' '' N 78
+'O' '' O 79
+'P' '' P 80
+'Q' '' Q 81
+'R' '' R 82
+'S' '' S 83
+'T' '' T 84
+'U' '' U 85
+'V' '' V 86
+'W' '' W 87
+'X' '' X 88
+'Y' '' Y 89
+'Z' '' Z 90
+'[' '' bracketleft 91
+'&#x201C;' '' quotedblleft 92
+']' '' bracketright 93
+'&#x02C6;' '' circumflex 94
+'&#x02D9;' '' dotaccent 95
+'&#x2018;' '' quoteleft 96
+'a' '' a.superior 97
+'b' '' b.superior 98
+'c' '' c.superior 99
+'d' '' d.superior 100
+'e' '' e.superior 101
+'f' '' f.superior 102
+'g' '' g.superior 103
+'&#x02B0;' '' h.superior 104
+'i' '' i.superior 105
+'j' '' j.superior 106
+'k' '' k.superior 107
+'l' '' l.superior 108
+'m' '' m.superior 109
+'&#x207F;' '' n.superior 110
+'o' '' o.superior 111
+'p' '' p.superior 112
+'q' '' q.superior 113
+'r' '' r.superior 114
+'s' '' s.superior 115
+'t' '' t.superior 116
+'u' '' u.superior 117
+'v' '' v.superior 118
+'w' '' w.superior 119
+'x' '' x.superior 120
+'y' '' y.superior 121
+'z' '' z.superior 122
+'&#x2013;' '' endash 123
+'&#x2014;' '' emdash 124
+'&#x02DD;' '' hungarumlaut 125
+'&#x02DC;' '' tilde 126
+'&#x00A8;' '' dieresis 127
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x0141;' '' Lslash 138
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x0142;' '' lslash 170
+LinBiolinumT-sup-ot1 0 170
+htfcss:  LinBiolinumT-sup-ot1  font-family: 'Linux Biolinum T', serif;
+
+

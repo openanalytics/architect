@@ -1,0 +1,145 @@
+%
+% Encoding file for some PostScript Arabic fonts to use with the 
+% Arabi package to write Arabic texts with LaTeX
+% 
+%   author = "Y. Jabri",
+%   email = "yjabri@ensa.univ-oujda.ac.ma",
+%   version = "0.1",
+%   date = "January 2006",
+%
+%
+%
+/OmegaArabicEncoding [          % now 256 chars fol
+% 0          
+  /alifiso /alifhamzaiso /alifhamzafin /alifsubhamzaiso
+% 4 
+  /alifsubhamzafin /alifmaddaiso /alifmaddafin /behini
+% 8 
+  /.notdef /behfin /behiso /tehini
+% 12
+  /.notdef /tehfin /tehiso /thehini
+% 16 
+ /thehmed /thehfin /thehiso /jeemini 
+% 20
+ /jeemmed /jeemfin /jeemiso /hahini
+% 24
+ /hahmed /hahfin /hahiso /khahini 
+% 28
+ /khahmed /khahfin /khahiso /.notdef
+% 32 
+ /daliso /exclam /sukun /numbersign              %OK    
+% 36
+ /dollar /percentarabic /ampersand /quotesingle  %ok
+% 40
+ /parenright /parenleft /stararabic /quotedbl % parentheses were refelcted 
+% 44
+  /commaarabic /endash /period /slash   %  we should get the "arabicslash" in 4th position 
+% 48
+ /zeroarabic /onearabic /twoarabic /threearabic 
+% 52
+ /fourarabic /fivearabic /sixarabic /sevenarabic
+% 56
+ /eightarabic /ninearabic /colon /semicolonarabic %colon ok ?? 
+% 60 
+ /guillemotright /.notdef /guillemotleft /questionmarkarabic
+% 64
+ /thalfin /aliffin /.notdef /rehiso 
+% 68
+ /.nodef /zainiso /seenini /.notdef 
+% 72
+ /seenfin /yehmed  /sheenini /sheenmed 
+% 76
+ /sheenfin /sheeniso /.notdef /sadmed 
+% 80
+ /sadfin /sadiso /dadini /dadmed 
+% 84 
+ /tehmarbutafin /wawfin /tahini /tahmed 
+% 88
+ /tahfin /alifmaksurafin /zahini  /ornaterightparenthesis
+% 92
+ /zahmed /ornateleftparenthesis /zahfin /zahiso
+% 96
+ /ainmed /fatha /behmed /.notdef
+% 100
+ /dalfin /.notdef /fehmed /.notdef
+% 104 
+ /hehmed /kasra /.notdef /kafmed
+% 108
+  /lammed /meemmed /noonmed /.notdef
+% 112
+ /pehmed /qafmed /rehfin /seenmed 
+% 116
+ /tehmed /damma /.notdef /wawfin
+% 120
+ /seeniso /yehmed /zainfin /dadfin 
+% 124
+ /dadiso /sadini /.notdef /.notdef % 
+% 128
+ /.notdef /.notdef /.notdef /.notdef 
+% 132
+ /.notdef /.notdef /.notdef /.notdef 
+% 136
+ /ainini /ainfin /ainiso  /ghainini
+% 140
+ /ghainmed /ghainfin /ghainiso /fehini
+% 144
+ /fehfin /fehiso /qafini /qaffin
+% 148
+ /qafiso /kafini /kaffin /kafiso
+% 152
+ /lamini /lamfin /lamiso /meemini
+% 156
+ /meemfin /meemiso  /noonini /noonfin
+% 160
+ /nooniso  /hehini /hehfin /hehiso
+% 164
+ /wawiso /wawhamzafin /wawhamzaiso /yehini
+% 168
+ /yehfin /yehiso /tahiso /alifmaksuraiso
+% 172
+ /.notdef /tehmarbutaiso  /lamaliffin /lamalifiso
+% 176      2nd with dd!!!!
+ /lamalifhamzafin /lamalifhamzaiso 
+ /lamalifsubhamzafin /lamalifsubhamzaiso
+% 180      2nd with dd!!!!
+ /lamalifmaddafin /lamalifmaddaiso 
+ /yehhamzaini /yehhamzamed
+% 184 
+ /yehhamzafin /yehhamzaiso 
+ /hamzastandalone /.notdef
+% 188
+ /.notdef /.notdef /fathatan /dammatan
+% 192
+ /kasratan /fatha /damma /kasra 
+% 196
+ /shadda /sukun /shaddawithfathatan /shaddawithdammatan
+% 200
+ /shaddawithkasratan /shaddawithfatha /shaddawithdamma /shaddawithkasra 
+% 204
+ /shadda /shaddawithfatha /shaddawithdamma /shaddawithkasra 
+% 208
+ /thaliso  /.notdef /.notdef /.notdef 
+% 212
+ /.notdef /.notdef /.notdef /.notdef 
+% 216
+ /.notdef /.notdef /.notdef /.notdef 
+% 220
+ /.notdef /.notdef /.notdef /.notdef 
+% 224
+ /.notdef /.notdef /.notdef /.notdef 
+% 228
+ /.notdef /.notdef /.notdef /.notdef 
+% 232
+ /.notdef /.notdef /.notdef /.notdef 
+% 236
+ /.notdef /.notdef /.notdef /.notdef 
+% 240
+ /.notdef /.notdef /.notdef /.notdef 
+% 244
+ /.notdef /.notdef /.notdef /.notdef 
+% 248 
+ /.notdef /.notdef /.notdef /.notdef 
+% 252
+ /llahshadda /.notdef /keshideh /.notdef 
+] def
+

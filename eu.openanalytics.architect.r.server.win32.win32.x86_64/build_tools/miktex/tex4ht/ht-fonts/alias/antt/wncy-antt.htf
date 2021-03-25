@@ -1,0 +1,15 @@
+.wncy-iwona
+htfcss: wncy-anttb  font-weight: bold;
+htfcss: wncy-anttbi  font-style:italic; font-weight: bold;
+htfcss: wncy-anttcb  font-weight: bold;
+htfcss: wncy-anttcbi  font-style:italic; font-weight: bold;
+htfcss: wncy-anttcl  font-weight: light;
+htfcss: wncy-anttcli  font-weight: light; font-style:italic;
+htfcss: wncy-anttcmi  font-style:italic;
+htfcss: wncy-anttcri  font-style:italic;
+htfcss: wncy-anttl  font-weight: light;
+htfcss: wncy-anttli  font-weight: light; font-style:italic;
+htfcss: wncy-anttmi  font-style:italic;
+htfcss: wncy-anttri  font-style:italic;
+
+

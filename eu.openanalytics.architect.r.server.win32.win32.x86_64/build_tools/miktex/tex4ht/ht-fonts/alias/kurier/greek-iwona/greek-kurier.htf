@@ -1,0 +1,18 @@
+.greek-iwona
+htfcss: greek-kurierl  font-weight: light;
+htfcss: greek-kurierb  font-weight: bold;
+htfcss: greek-kurierh  font-weight: bold;
+htfcss: greek-kurierli  font-weight: light; font-style:italic;
+htfcss: greek-kurierri  font-style:italic;
+htfcss: greek-kuriermi  font-style:italic;
+htfcss: greek-kurierbi  font-style:italic; font-weight: bold;
+htfcss: greek-kurierhi  font-style:italic; font-weight: bold;
+htfcss: greek-kuriercl  font-weight: light;
+htfcss: greek-kuriercb  font-weight: bold;
+htfcss: greek-kurierch  font-weight: bold;
+htfcss: greek-kuriercli  font-weight: light; font-style:italic;
+htfcss: greek-kuriercri  font-style:italic;
+htfcss: greek-kuriercmi  font-style:italic;
+htfcss: greek-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: greek-kurierchi  font-style:italic; font-weight: bold;
+

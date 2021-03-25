@@ -1,0 +1,151 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: lfeenc.def
+
+\ProvidesFile{lfeenc.def}
+        [2006/01/01 v0.1 Local Farsi font encoding (test version: may change)]
+        
+\DeclareFontEncoding{LFE}{}{}
+\DeclareFontSubstitution{LFE}{cmr}{m}{n}
+\DeclareErrorFont{LFE}{cmr}{m}{n}{10}
+
+\ProvideTextCommand{\textcopyright}{LFE}{\textcircled{\@latin{c}}}
+\ProvideTextCommand{\textregistered}{LFE}{\textcircled{\scshape%
+                                          \@latin{r}}}
+\ProvideTextCommand{\texttrademark}{LFE}{\textsuperscript{\@latin{TM}}}
+
+\DeclareTextSymbol{\hamza}{LFE}{186}
+\DeclareTextSymbol{\alefmadda}{LFE}{6}
+\DeclareTextSymbol{\alefhamza}{LFE}{2}
+\DeclareTextSymbol{\wawhamza}{LFE}{165}
+\DeclareTextSymbol{\aleflowerhamza}{LFE}{4}
+\DeclareTextSymbol{\yahamza}{LFE}{183}
+\DeclareTextSymbol{\alef}{LFE}{65}
+\DeclareTextSymbol{\baa}{LFE}{98}
+\DeclareTextSymbol{\peh}{LFE}{112}
+\DeclareTextSymbol{\T}{LFE}{84}   %taa marbuuta
+\DeclareTextSymbol{\taa}{LFE}{116}
+\DeclareTextSymbol{\thaa}{LFE}{16}
+\DeclareTextSymbol{\jeem}{LFE}{20}  %geem 
+\DeclareTextSymbol{\tcheh}{LFE}{99}  
+\DeclareTextSymbol{\Haa}{LFE}{24}
+\DeclareTextSymbol{\kha}{LFE}{28}
+\DeclareTextSymbol{\dal}{LFE}{100}
+\DeclareTextSymbol{\dhal}{LFE}{64}
+\DeclareTextSymbol{\ra}{LFE}{114}
+\DeclareTextSymbol{\zay}{LFE}{122}
+\DeclareTextSymbol{\seen}{LFE}{115}
+\DeclareTextSymbol{\sheen}{LFE}{75}
+\DeclareTextSymbol{\sad}{LFE}{79}
+\DeclareTextSymbol{\dad}{LFE}{83}
+\DeclareTextSymbol{\Ta}{LFE}{87}
+\DeclareTextSymbol{\za}{LFE}{92}
+\DeclareTextSymbol{\ayn}{LFE}{96}
+\DeclareTextSymbol{\ghayn}{LFE}{140}
+\DeclareTextSymbol{\jeh}{LFE}{209}
+%
+\DeclareTextSymbol{\keshchar}{LFE}{254}%tatweel
+\DeclareTextSymbol{\fa}{LFE}{102}
+\DeclareTextSymbol{\qaf}{LFE}{113}
+\DeclareTextSymbol{\farsikaf}{LFE}{107}
+%
+\DeclareTextSymbol{\kaf}{LFE}{107}%added to use CP 1256
+%
+\DeclareTextSymbol{\gaf}{LFE}{103}
+\DeclareTextSymbol{\lam}{LFE}{108}
+\DeclareTextSymbol{\meem}{LFE}{109}
+\DeclareTextSymbol{\nun}{LFE}{110}
+\DeclareTextSymbol{\ha}{LFE}{104}
+\DeclareTextSymbol{\waw}{LFE}{119}
+\DeclareTextSymbol{\farsiya}{LFE}{121}
+%
+\DeclareTextSymbol{\ya}{LFE}{121}%added to use CP 1256
+%
+\DeclareTextSymbol{\alefmaqsura}{LFE}{89}
+%
+%%%%%%%%%%%% Vowels
+%
+% Firt, Vowels that come only at the end of a word
+%
+\DeclareTextSymbol{\nasb}{LFE}{190}
+\DeclareTextSymbol{\raff}{LFE}{191}
+\DeclareTextSymbol{\jarr}{LFE}{192}
+%
+\DeclareTextSymbol{\shaddanasb}{LFE}{198}
+\DeclareTextSymbol{\shaddaraff}{LFE}{199}
+\DeclareTextSymbol{\shaddajarr}{LFE}{200}
+%
+% Then, Vowels that come anywhere in a word
+%
+\DeclareTextSymbol{\fatha}{LFE}{97}
+\DeclareTextSymbol{\damma}{LFE}{117}
+\DeclareTextSymbol{\kasra}{LFE}{105}
+\DeclareTextSymbol{\shadda}{LFE}{204}
+\DeclareTextSymbol{\sukun}{LFE}{34}
+%
+\DeclareTextSymbol{\shaddafatha}{LFE}{201}
+\DeclareTextSymbol{\shaddadamma}{LFE}{202}
+\DeclareTextSymbol{\shaddakasra}{LFE}{203}
+%
+\DeclareTextCommand{\ZWNJ}{LFE}{{}}%\kern0ptZWNJ *to force final of previous char 
+                                   %and + to force initian of next one
+%
+\DeclareTextCommand{\Farsimadda}{LFE}{}%Farsi madda accent
+\DeclareTextCommand{\Farsihamza}{LFE}{}%Farsi hamza accent
+\DeclareTextCommand{\Farsihamzabelow}{LFE}{}%Farsi hamza accent below
+
+%
+% Some special ones for LFE!
+%
+\DeclareTextCommand{\tatweel}{LFE}{\keshchar}
+% a little utility !
+\DeclareTextCommand{\Notdef}{LFE}{}%!!!!!!!!!!! 
+% The macro \cs{rial} is defined in the `farsi.ldf' file
+\DeclareTextSymbol{\rialchar}{LFE}{253}
+%
+\DeclareTextSymbol{\llahchar}{LFE}{252}
+\DeclareTextSymbol{\Decimalchar}{LFE}{251}
+
+
+
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\endinput
+
+
+
+

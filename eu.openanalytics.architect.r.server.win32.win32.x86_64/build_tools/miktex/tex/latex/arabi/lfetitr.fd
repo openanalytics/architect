@@ -1,0 +1,25 @@
+%%
+%% This is file `lfetitr.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lfetitr.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+
+
+\DeclareFontFamily{LFE}{titr}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LFE}{titr}{m}{n}{<-> s*[1.25] titr }{}
+\DeclareFontShape{LFE}{titr}{b}{n}{<->  ssub * titr/m/n }{}
+\DeclareFontShape{LFE}{titr}{bx}{n}{<->  ssub * titr/m/n }{}
+
+
+\endinput

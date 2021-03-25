@@ -1,0 +1,73 @@
+% The file cs-libertine.tex (C) Petr Olsak, 2016
+% Use "\input cs-libertine" to set the LinLibertine font family in text mode
+
+% This is an example of font file with Unicode fonts loaded 
+% a) from /texmf tree and b) from operating system.
+
+% Modifiers:
+%   \sans ... Sans serif variation (LinBiolinum)
+%   \mono ... Monospaced set of fonts
+%   \roman .. Defaul family  
+%   \caps ... Caps & small caps    \nocaps ... deactivates \caps
+%   \useff{+feature} ... use font feature
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Linux Libertine] {\mono \sans \caps} {\rm \bf \it \bi} {} {TX} {U sU}
+
+\ismacro\fotenc{U}\iftrue %%%%%%%%%%%%%% OTF fonts from /texmf tree
+
+   \font\tenrm = "[LinLibertine_R]:\fontfeatures"   \sizespec
+   \font\tenbf = "[LinLibertine_RB]:\fontfeatures"  \sizespec
+   \font\tenit = "[LinLibertine_RI]:\fontfeatures"  \sizespec
+   \font\tenbi = "[LinLibertine_RBI]:\fontfeatures" \sizespec
+
+   \def\singlefonts{%
+      \font\initialfont  = "[LinLibertine_I]:\fontfeatures" \sizespec 
+      \font\displayfont  = "[LinLibertine_DR]:\fontfeatures" \sizespec 
+      \font\keyboardfont = "[LinBiolinum_K]:\fontfeatures" \sizespec 
+   }  % you can use \show\singlefonts to remind and \singlefonts to load.
+
+   \def\ffnamegen{"[Lin\mainfamV_\ffvarV]:\capsV\fontfeatures"} 
+
+   \def\roman  {\ffvars{R}{RB}{RI}{RBI}\ffsetX}  \def\mainfamV{Libertine}
+   \def\sans   {\ffvars{R}{RB}{RI}{RBO}\ffsetV{mainfam}{Biolinum}\ffsetX}
+   \def\mono   {\ffvars{M}{MB}{MO}{MBO}\ffsetX} 
+   \def\caps   {\ffsetV{caps}{+smcp}\ffsetX} 
+   \def\nocaps {\ffsetV{caps}{}\ffsetX}
+   \roman\nocaps\relax % default
+
+\fi
+
+\ismacro\fotenc{sU}\iftrue %%%%%%%%%%%%% system OTF fonts
+
+   \font\tenrm = "Linux Libertine O:\fontfeatures"    \sizespec
+   \font\tenbf = "Linux Libertine O/B:\fontfeatures"  \sizespec
+   \font\tenit = "Linux Libertine O/I:\fontfeatures"  \sizespec
+   \font\tenbi = "Linux Libertine O/BI:\fontfeatures" \sizespec
+
+   \def\singlefonts{%
+      \font\initialfont  = "Linux Libertine Initials O:\fontfeatures" \sizespec 
+      \font\displayfont  = "Linux Libertine Display O:\fontfeatures" \sizespec 
+      \font\keyboardfont = "Linux Biolinum Keyboard O:\fontfeatures" \sizespec 
+   }  % you can use \show\singlefonts to remind and \singlefonts to load.
+
+   \ffvars{}{B}{I}{BI}
+
+   \def\ffnamegen{"Linux \mainfamV\space \subfamV O/\ffvarV:\capsV\fontfeatures"} 
+
+   \def\roman  {\ffsetV{subfam}{}\ffsetX}
+   \def\sans   {\ffsetV{mainfam}{Biolinum}\ffsetX}  \def\mainfamV{Libertine}
+   \def\mono   {\ffsetV{subfam}{Mono }\ffsetX}
+   \def\caps   {\ffsetV{caps}{+smcp}\ffsetX} 
+   \def\nocaps {\ffsetV{caps}{}\ffsetX}
+   \roman\nocaps\relax % default
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+\endinput
+

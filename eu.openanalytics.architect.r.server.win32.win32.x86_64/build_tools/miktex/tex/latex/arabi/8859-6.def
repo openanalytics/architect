@@ -1,0 +1,133 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: 8859-6.def
+% 
+ \ProvidesFile{8859-6.def}
+        [2006/01/01 v0.1 ISO 8859-6 Arabic input encoding file]
+
+
+\makeatletter
+\ProvideTextCommandDefault{\textdegree}{\ensuremath{{^\circ}}}
+\ProvideTextCommandDefault{\textonehalf}{\ensuremath{\frac12}}
+\ProvideTextCommandDefault{\textonequarter}{\ensuremath{\frac14}}
+\ProvideTextCommandDefault{\textthreequarters}{\ensuremath{\frac34}}
+\ProvideTextCommandDefault{\textflorin}{\textit{f}}
+\ProvideTextCommandDefault{\textcent}
+   {\TextSymbolUnavailable\textcent}
+\ProvideTextCommandDefault{\textyen}
+   {\TextSymbolUnavailable\textyen}
+\ProvideTextCommandDefault{\newsheqel}
+   {\TextSymbolUnavailable\newsheqel}
+\ProvideTextCommandDefault{\textbrokenbar}
+   {\TextSymbolUnavailable\textbrokenbar}
+\ProvideTextCommandDefault{\textperthousand}
+   {\TextSymbolUnavailable\textperthousand}
+\providecommand{\mathonesuperior}{{^1}}
+\providecommand{\maththreesuperior}{{^3}}
+\providecommand{\mathtwosuperior}{{^2}}
+%%
+%% Digits and Punctuation characters are "set" in their
+%% corresponding part in the Latin scripts
+%%
+\DeclareInputText{160}{\nobreakspace}
+\DeclareInputText{164}{}    %what is this ?? ;)
+\DeclareInputMath{172}{,}   %arabic comma
+\DeclareInputText{187}{;}   %arabic semicolon 
+\DeclareInputText{191}{?}   %arabic question mark
+\DeclareInputText{192}{ }   %arabic space 
+\DeclareInputText{193}{\hamza}
+\DeclareInputText{194}{\alefmadda}
+\DeclareInputText{195}{\alefhamza}
+\DeclareInputText{196}{\wawhamza}
+\DeclareInputText{197}{\aleflowerhamza}
+\DeclareInputText{198}{\yahamza}
+\DeclareInputText{199}{\alef}
+\DeclareInputText{200}{\baa}
+\DeclareInputText{201}{\T}   %taa marbuuta
+\DeclareInputText{202}{\taa}
+\DeclareInputText{203}{\thaa}
+\DeclareInputText{204}{\jeem}  %geem 
+\DeclareInputText{205}{\Haa}
+\DeclareInputText{206}{\kha}
+\DeclareInputText{207}{\dal}
+\DeclareInputText{208}{\dhal}
+\DeclareInputText{209}{\ra}
+\DeclareInputText{210}{\zay}
+\DeclareInputText{211}{\seen}
+\DeclareInputText{212}{\sheen}
+\DeclareInputText{213}{\sad}
+\DeclareInputText{214}{\dad}
+\DeclareInputText{215}{\Ta}
+\DeclareInputText{216}{\za}
+\DeclareInputText{217}{\ayn}
+\DeclareInputText{218}{\ghayn}
+%
+\DeclareInputText{224}{\tatweel}
+\DeclareInputText{225}{\fa}
+\DeclareInputText{226}{\qaf}
+\DeclareInputText{227}{\kaf}
+\DeclareInputText{228}{\lam}
+\DeclareInputText{229}{\meem}
+\DeclareInputText{230}{\nun}
+\DeclareInputText{231}{\ha}
+\DeclareInputText{232}{\waw}
+\DeclareInputText{233}{\ya}
+\DeclareInputText{234}{\nasb}
+\DeclareInputText{235}{\raff}
+\DeclareInputText{236}{\jarr}
+\DeclareInputText{237}{\fatha}
+\DeclareInputText{238}{\damma}
+\DeclareInputText{239}{\kasra}
+\DeclareInputText{240}{\shadda}
+\DeclareInputText{241}{\sukun}
+\DeclareInputText{242}{\shaddanasb}
+\DeclareInputText{243}{\shaddaraff}
+\DeclareInputText{244}{\shaddajarr}
+\DeclareInputText{245}{\shaddafatha}
+\DeclareInputText{246}{\shaddadamma}
+\DeclareInputText{247}{\shaddakasra}
+%
+%
+% some Farsi characters
+\DeclareInputText{243}{\peh}
+\DeclareInputText{245}{\tcheh}
+\DeclareInputText{254}{\jeh}
+\DeclareInputText{248}{\gaf}
+%\DeclareInputText{xxx}{\kaf}% No FARSI KAF!!!
+\makeatother
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+\endinput

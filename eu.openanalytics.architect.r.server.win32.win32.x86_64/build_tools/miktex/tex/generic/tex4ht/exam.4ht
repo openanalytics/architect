@@ -1,0 +1,617 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% exam.4ht                                  2009-05-21-09:32 %
+% Copyright (C) 2001--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\ifx \ps@examheadings\:unDef
+   \bgroup
+   \catcode`\%=12
+   \def\:temp{\catcode`\\=9 \catcode`\#=9 \:tempa}
+   \long\def\:tempa#1%%%%%%%%%%%%%%%%%%%end:skip{\egroup}
+\else
+   \let\:temp\empty
+
+\fi
+\:temp
+   \pend:defI\scorebox{\a:scorebox}
+\append:defI\scorebox{\b:scorebox}
+\NewConfigure{scorebox}{2}
+
+   \Hinput{exam}
+%%%%%%%%%%%%%%%%%%%end:skip
+
+\ifx \@checkqueslevel\:unDef
+   \bgroup
+   \catcode`\%=12
+   \def\:temp{\catcode`\\=9 \catcode`\#=9 \:tempa}
+   \long\def\:tempa#1%%%%%%%%%%%%%%%%%%%end:skip{\egroup}
+\else
+   \let\:temp\empty
+
+\fi
+\:temp
+   \let\exam:questions=\questions
+\def\questions{%
+   \let\exam:list=\list
+   \def\list{\let\list=\exam:list\begin{list}}%
+   \exam:questions  }
+\pend:def\endquestions{%
+   \let\exam:list=\endlist
+   \def\endlist{\let\endlist=\exam:list \end{list}}}
+\let\exam:parts=\parts
+\def\parts{%
+   \let\exam:list=\list
+   \def\list{\let\list=\exam:list\begin{list}}%
+   \exam:parts  }
+\pend:def\endparts{%
+   \let\exam:list=\endlist
+   \def\endlist{\let\endlist=\exam:list \end{list}}}
+\let\exam:subparts=\subparts
+\def\subparts{%
+   \let\exam:list=\list
+   \def\list{\let\list=\exam:list\begin{list}}%
+   \exam:subparts  }
+\pend:def\endsubparts{%
+   \let\exam:list=\endlist
+   \def\endlist{\let\endlist=\exam:list \end{list}}}
+\long\def\uplevel#1{\par\a:uplevel{#1}\b:uplevel\par}
+\long\def\fullwidth#1{\par\a:fullwidth{#1}\b:fullwidth\par}
+\NewConfigure{uplevel}{2}
+\NewConfigure{fullwidth}{2}
+\def\@setpoints{%
+  \if@placepoints
+    \if@pointsinmargin
+            \a:setpoints(\@points\@marginpointname)\b:setpoints
+    \else
+            \a:setpoints(\@points\@pointname)\b:setpoints
+    \fi
+    \@placepointsfalse
+  \fi
+}
+\NewConfigure{setpoints}{2}
+
+   \Hinput{exam}
+%%%%%%%%%%%%%%%%%%%end:skip
+
+\ifx \@OneKeyHook\:unDef
+   \bgroup
+   \catcode`\%=12
+   \def\:temp{\catcode`\\=9 \catcode`\#=9 \:tempa}
+   \long\def\:tempa#1%%%%%%%%%%%%%%%%%%%end:skip{\egroup}
+\else
+   \let\:temp\empty
+
+\fi
+\:temp
+   \def\seed:hooks{%
+  \ifnum \tmp:cnt>\c@section \else
+     \section:data
+%
+     \expandafter\ifx\csname type@sec\romannumeral\tmp:cnt\endcsname
+      \@shortanswer
+  \def\:temp{\ifx \blank\:UnDef
+  \:warning{tex4ht encountered a problem
+      with \csname type@sec\current@section\endcsname}
+\else
+\ifanswer
+   \ifcblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+   \ifpblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+\else
+   \ifcblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+   \ifpblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+\fi \fi
+}%
+\global  \csname qlist@scr@sec\romannumeral\tmp:cnt
+  \expandafter\expandafter\expandafter
+     \endcsname
+  \expandafter\expandafter\expandafter{\expandafter\:temp
+     \the\csname qlist@scr@sec\romannumeral\tmp:cnt \endcsname}
+%
+\expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+
+\fi
+\expandafter\ifx\csname type@sec\romannumeral\tmp:cnt \endcsname\@fixed
+  \def\:temp{\ifx \blank\:UnDef
+  \:warning{tex4ht encountered a problem
+      with \csname type@sec\current@section\endcsname}
+\else
+\ifanswer
+   \ifcblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+   \ifpblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+\else
+   \ifcblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+   \ifpblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+\fi \fi
+}%
+\global  \csname qlist@scr@sec\romannumeral\tmp:cnt
+  \expandafter\expandafter\expandafter
+     \endcsname
+  \expandafter\expandafter\expandafter{\expandafter\:temp
+     \the\csname qlist@scr@sec\romannumeral\tmp:cnt \endcsname}
+%
+\expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+
+\fi
+\expandafter\ifx\csname type@sec\romannumeral\tmp:cnt \endcsname\@fillin
+  \def\:temp{\ifx \blank\:UnDef
+  \:warning{tex4ht encountered a problem
+      with \csname type@sec\current@section\endcsname}
+\else
+\ifanswer
+   \ifcblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+   \ifpblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+\else
+   \ifcblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+   \ifpblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+\fi \fi
+}%
+\global  \csname qlist@scr@sec\romannumeral\tmp:cnt
+  \expandafter\expandafter\expandafter
+     \endcsname
+  \expandafter\expandafter\expandafter{\expandafter\:temp
+     \the\csname qlist@scr@sec\romannumeral\tmp:cnt \endcsname}
+%
+\expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+
+\fi
+\expandafter\ifx\csname type@sec\romannumeral\tmp:cnt \endcsname\@fillinstar
+  \def\:temp{\ifx \blank\:UnDef
+  \:warning{tex4ht encountered a problem
+      with \csname type@sec\current@section\endcsname}
+\else
+\ifanswer
+   \ifcblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+   \ifpblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+\else
+   \ifcblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+   \ifpblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+\fi \fi
+}%
+\global  \csname qlist@scr@sec\romannumeral\tmp:cnt
+  \expandafter\expandafter\expandafter
+     \endcsname
+  \expandafter\expandafter\expandafter{\expandafter\:temp
+     \the\csname qlist@scr@sec\romannumeral\tmp:cnt \endcsname}
+%
+\expandafter\ifx
+   \csname head@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\fi
+\expandafter\ifx
+   \csname inst@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+\fi
+%
+
+\fi
+\expandafter\ifx\csname type@sec\romannumeral\tmp:cnt \endcsname\@MC
+  \def\:temp{\boxfalse
+}%
+\global  \csname qlist@scr@sec\romannumeral\tmp:cnt
+  \expandafter\expandafter\expandafter
+     \endcsname
+  \expandafter\expandafter\expandafter{\expandafter\:temp
+     \the\csname qlist@scr@sec\romannumeral\tmp:cnt \endcsname}
+%
+\expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+
+\fi
+\expandafter\ifx\csname type@sec\romannumeral\tmp:cnt \endcsname\@MCstar
+  \def\:temp{\boxfalse
+}%
+\global  \csname qlist@scr@sec\romannumeral\tmp:cnt
+  \expandafter\expandafter\expandafter
+     \endcsname
+  \expandafter\expandafter\expandafter{\expandafter\:temp
+     \the\csname qlist@scr@sec\romannumeral\tmp:cnt \endcsname}
+%
+\expandafter\ifx
+   \csname head@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\fi
+\expandafter\ifx
+   \csname inst@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+\fi
+%
+
+\fi
+\expandafter\ifx\csname type@sec\romannumeral\tmp:cnt \endcsname
+     \@shortanswerstar
+  \expandafter\ifx
+   \csname head@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\fi
+\expandafter\ifx
+   \csname inst@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+\fi
+%
+
+\fi
+\expandafter\ifx\csname type@sec\romannumeral\tmp:cnt \endcsname
+     \@truefalse
+  \def\:temp{  \pend:defI\@separator{\def\@tfitem{%
+    \ifanswer
+       \item[\a:answer
+           \csname tf@sol\current@question\endcsname\b:answer]%
+    \else
+       \item
+    \fi}}%
+}%
+\global  \csname qlist@scr@sec\romannumeral\tmp:cnt
+  \expandafter\expandafter\expandafter
+     \endcsname
+  \expandafter\expandafter\expandafter{\expandafter\:temp
+     \the\csname qlist@scr@sec\romannumeral\tmp:cnt \endcsname}
+%
+\expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+
+\fi
+\expandafter\ifx\csname type@sec\romannumeral\tmp:cnt \endcsname
+     \@truefalsestar
+  \def\:temp{  \pend:defI\@separator{\def\@tfitem{%
+    \ifanswer
+       \item[\a:answer
+           \csname tf@sol\current@question\endcsname\b:answer]%
+    \else
+       \item
+    \fi}}%
+}%
+\global  \csname qlist@scr@sec\romannumeral\tmp:cnt
+  \expandafter\expandafter\expandafter
+     \endcsname
+  \expandafter\expandafter\expandafter{\expandafter\:temp
+     \the\csname qlist@scr@sec\romannumeral\tmp:cnt \endcsname}
+%
+\expandafter\ifx
+   \csname head@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\fi
+\expandafter\ifx
+   \csname inst@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+\fi
+%
+
+\fi
+\expandafter\ifx\csname type@sec\romannumeral\tmp:cnt \endcsname\@fixedstar
+  \def\:temp{\ifx \blank\:UnDef
+  \:warning{tex4ht encountered a problem
+      with \csname type@sec\current@section\endcsname}
+\else
+\ifanswer
+   \ifcblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+   \ifpblanks
+      \def\blank####1{\a:answer ####1\b:answer}%
+   \fi
+\else
+   \ifcblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+   \ifpblanks
+      \pend:defI\blank{\a:question}
+      \append:defI\blank{\b:question}
+   \fi
+\fi \fi
+}%
+\global  \csname qlist@scr@sec\romannumeral\tmp:cnt
+  \expandafter\expandafter\expandafter
+     \endcsname
+  \expandafter\expandafter\expandafter{\expandafter\:temp
+     \the\csname qlist@scr@sec\romannumeral\tmp:cnt \endcsname}
+%
+\expandafter\ifx
+   \csname head@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def\csname sec\romannumeral\tmp:cnt @fixed\endcsname{%
+  \gdef\beforesectsep{0pt \a:sectiontitle
+     \global\let\beforesectsep\sv:beforesectsep}%
+  \gdef\aftersectsep{0pt \b:sectiontitle
+     \global\let\aftersectsep\sv:aftersectsep}%
+}%
+\global\expandafter
+  \let\csname sec\romannumeral\tmp:cnt @fixed\expandafter\endcsname
+     \csname sec\romannumeral\tmp:cnt @fixed\endcsname
+%
+\fi
+\expandafter\ifx
+   \csname inst@sec\romannumeral\tmp:cnt \endcsname\relax \else
+   \expandafter\pend:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\a:instructions}%
+\expandafter\append:def
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname{\b:instructions\par}%
+\global\expandafter\let
+    \csname inst@sec\romannumeral\tmp:cnt \expandafter\endcsname
+    \csname inst@sec\romannumeral\tmp:cnt\endcsname
+%
+\fi
+%
+
+\fi
+
+     \advance\tmp:cnt by 1
+     \expandafter\seed:hooks
+  \fi
+}
+\let\sv:beforesectsep\beforesectsep
+\let\sv:aftersectsep\aftersectsep
+\def\section:data{
+\par[\the\tmp:cnt]
+\par [qlist@sec\romannumeral\tmp:cnt]
+   \expandafter\meaning\csname qlist@sec\romannumeral\tmp:cnt\endcsname :
+   \expandafter \edef\expandafter \:temp\expandafter {\expandafter
+      \the\csname qlist@sec\romannumeral\tmp:cnt\endcsname}
+   \meaning\:temp
+\par [qlist@scr@sec\romannumeral\tmp:cnt]
+   \expandafter\meaning\csname qlist@scr@sec\romannumeral\tmp:cnt\endcsname :
+   \expandafter \edef\expandafter \:temp\expandafter {\expandafter
+      \the\csname qlist@scr@sec\romannumeral\tmp:cnt\endcsname}
+   \meaning\:temp
+\par [inst@sec\romannumeral\tmp:cnt]
+   \expandafter\meaning\csname inst@sec\romannumeral\tmp:cnt\endcsname
+\par [head@sec\romannumeral\tmp:cnt]
+   \expandafter\meaning\csname head@sec\romannumeral\tmp:cnt\endcsname
+\par [type@sec\romannumeral\tmp:cnt]
+   \expandafter\meaning\csname type@sec\romannumeral\tmp:cnt\endcsname
+\par [sec\romannumeral\tmp:cnt @fixed]
+   \expandafter\meaning\csname sec\romannumeral\tmp:cnt @fixed\endcsname
+\par ****************************************\par
+}
+\let\section:data=\empty
+
+
+\pend:def\@enddocumenthook{{\tt \tmp:cnt=1 \seed:hooks }}
+\NewConfigure{sectiontitle}{2}
+\NewConfigure{answer}{2}
+\NewConfigure{question}{2}
+\pend:defI\MCfont{\a:MCfont}
+\append:defI\MCfont{\b:MCfont}
+\NewConfigure{MCfont}{2}
+\Configure{MCfont}
+ {\HCode{<span class="MCfont">}}    {\HCode{</span>}}
+\Css{dt .MCfont {text-decoration:underline;}}
+\NewConfigure{instructions}{2}
+\pend:def\@examtopmatter{\bgroup
+   \pend:def\namedata{\let\hrulefill=\empty \a:namedata}%
+   \append:def\namedata{\b:namedata}%
+   \pend:def\classdata{\a:classdata}%
+   \append:def\classdata{\b:classdata}%
+   \let\examtop=\empty  \let\endexamtop=\empty
+   \begin{examtop}}
+\append:def\@examtopmatter{%
+    \end{examtop} \egroup\bigskip}
+\NewConfigure{classdata}{2}
+\NewConfigure{namedata}{2}
+\pend:def\@keytopmatter{\bgroup
+   \let\keytop=\empty  \let\endkeytop=\empty
+   \begin{keytop}}
+\append:def\@keytopmatter{%
+    \end{keytop} \egroup\bigskip}
+\append:def\frontmatter@wrap@up{%
+  \ifx\@frontmattertext\relax  \else
+     \pend:def\@frontmattertext{\a:frontmatter}
+     \append:def\@frontmattertext{\b:frontmatter}
+  \fi
+}
+\NewConfigure{frontmatter} {2}
+
+   \Hinput{exam}
+%%%%%%%%%%%%%%%%%%%end:skip
+
+\endinput
+

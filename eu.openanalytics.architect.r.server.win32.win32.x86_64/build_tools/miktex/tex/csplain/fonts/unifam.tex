@@ -1,0 +1,27 @@
+% unifam.tex: loads standard 4-fonts family in UNICODE as .otf files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak,  2012
+
+% \famname includes the family name
+% \fontfeatures can include font features. If not, default font features are used.
+
+\ifx\directlua\undefined \else \ifx\luafonts\undefined \input luafonts
+\fi\fi  % lua code to re-define \font primitive
+
+\ifx\fontfeatures\undefined 
+   \def\fontfeatures{mapping=tex-text;script=latn;+tlig} 
+\fi
+
+\font\tenrm="[\famname-regular]:\fontfeatures"    \sizespec
+\font\tenbf="[\famname-bold]:\fontfeatures"       \sizespec
+\font\tenit="[\famname-italic]:\fontfeatures"     \sizespec
+\font\tenbi="[\famname-bolditalic]:\fontfeatures" \sizespec
+
+\font\tentt="[texgyrecursor-regular]"     \sizespec
+
+\font\tenrmc="[\famname-regular]:+smcp;\fontfeatures"    \sizespec       
+\font\tenbfc="[\famname-bold]:+smcp;\fontfeatures"       \sizespec
+\font\tenitc="[\famname-italic]:+smcp;\fontfeatures"     \sizespec
+\font\tenbic="[\famname-bolditalic]:+smcp;\fontfeatures" \sizespec
+
+\endinput

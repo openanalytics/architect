@@ -1,0 +1,169 @@
+% This file loads KP math fonts by plainTeX macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak, 2016
+
+\let\normalmathloading=\relax  
+   \bgroup\def\message#1{\egroup}\input tx-math % load macros + \mathchardefs
+
+\message{FONT: KP math fonts - 
+   \string\mathchardef's prepared, 11 math families preloaded.}
+\let\mathpreloaded=K
+
+% Math modifiers: 
+%     \lightmath .... Light version of math
+%     \widermath .... More amount of spaces between characters
+%     \bfnmath ...... Normal \bf in math (by default is sans bf)
+%     \sansmath ..... Sans serif math
+%     \uprightmath .. Capital letters are upright
+%     \bbcharss ..... Blackboard characters sans serif
+%     \greekup ...... Lowercase greek upright
+%     \partialup .... Upright partial derivations symbol
+%     \narowiints ... Multiplied integrals narrower
+%     \kpmathreset .. Returns to the default setting
+% Basic math selectors:
+%     \normalmath ... Normal version
+%     \boldmath ..... Bold version
+% Usage: [math-modifiers]\basic-math-selector
+% See the file kp-fonts.tex for text modifiers documentation.
+
+\def\corrmsizes{}
+\def\itvaraibales{}
+\mitvariables
+
+\def\uprightmath{\def\kpmatf{f}}
+\def\widermath{\def\kpmatw{w}}
+\def\lightmath{\def\kpmatl{l}\def\kpmatss{}}
+\def\sansmath{\def\kpmatss{ss}\def\kpmatl{}}
+\def\kpmatwnoss{\ifx\kpmatss\empty \kpmatw\fi}
+\def\bbcharss{\def\kpmatbbssx{ss}}
+\def\bfnmath{\def\kpmatssb{}}
+\def\kpmatbbss{\ifx\kpmatss\empty \kpmatbbssx \else ss\fi}
+\def\kpmathreset{%
+   \def\kpmatf{}\def\kpmatw{}\def\kpmatl{}\def\kpmatss{}\def\kpmatbbssx{}%
+   \def\kpmatssb{ss}\partialnormal \greeknormal \normaliints
+}
+
+\def\normalmath{%
+  \loadmathfamily  0 {jkp\kpmatss\kpmatl mn7t}           % KP 7t
+  \loadmathfamily  1 {jkp\kpmatss\kpmatl mi\kpmatf\kpmatwnoss} % KP Math Italic
+  \loadmathfamily  2 {jkp\kpmatl sy\kpmatw}              % KP Standard symbols
+  \loadmathfamily  3 {jkp\kpmatl ex}                     % KP extra symbols   
+  \loadmathfamily  4 {jkpsya}                            % KP symbols from AMSTeX
+  \loadmathfamily  5 {jkp\kpmatbbss\kpmatl syb\kpmatw}   % KP symbols from AMSTeX
+  \loadmathfamily  6 {jkp\kpmatl syc}                    % KP symbols from TX fonts
+  \loadmathfamily  7 {jkp\kpmatl exa}                    % KP extra symbols
+  \loadmathfamily  8 {jkp\kpmatss\kpmatl mia\kpmatwnoss} % fraktur, upright greek
+  \loadmathfamily  9 {jkp\kpmatl syd\kpmatw}             % script
+  \loadmathfamily 10 {jkp\kpmatssb bn7t}                 % (sans serif) bold
+  \loadmathfamily 11 {jkp\kpmatssb bmi\kpmatf}           % (sans serif) bold slanted
+  \setmathdimens \setkpsumsw
+}
+\def\boldmath{%
+  \loadmathfamily  0 {jkp\kpmatss\kpmatl bn7t}            % KP 7t
+  \loadmathfamily  1 {jkp\kpmatss\kpmatl bmi\kpmatf\kpmatwnoss} % KP Math Italic
+  \loadmathfamily  2 {jkp\kpmatl bsy\kpmatw}              % KP Standard symbols
+  \loadmathfamily  3 {jkp\kpmatl bex}                     % KP extra symbols   
+  \loadmathfamily  4 {jkpbsya}                            % KP symbols from AMSTeX
+  \loadmathfamily  5 {jkp\kpmatbbss\kpmatl bsyb\kpmatw}   % KP symbols from AMSTeX
+  \loadmathfamily  6 {jkp\kpmatl bsyc}                    % KP symbols from TX fonts
+  \loadmathfamily  7 {jkp\kpmatl bexa}                    % KP extra symbols
+  \loadmathfamily  8 {jkp\kpmatss\kpmatl bmia\kpmatwnoss} % fraktur, upright greek
+  \loadmathfamily  9 {jkp\kpmatl bsyd\kpmatw}             % script
+  \loadmathfamily 10 {jkp\kpmatssb bn7t}                  % sans serif bold
+  \loadmathfamily 11 {jkp\kpmatssb bmi\kpmatf}            % sans serif bold slanted
+  \setmathdimens \setkpsumsw
+}
+\def\setmathdimens{% PlainTeX sets these dimens for 10pt size only:
+  \delimitershortfall=0.5\fontdimen6\textfont3
+  \nulldelimiterspace=0.12\fontdimen6\textfont3
+  \scriptspace=0.05\fontdimen6\textfont3
+  \skewchar\textfont1=127 \skewchar\scriptfont1=127
+  \skewchar\scriptscriptfont1=127
+  \skewchar\textfont2=48  \skewchar\scriptfont2=48 
+  \skewchar\scriptscriptfont2=48 
+}
+\def\setkpsumsw{%
+   \ismacro\kpmatss{ss}\iftrue 
+      \mathchardef\sum="13B4 \mathchardef\prod="13B5 \mathchardef\coprod="13C4
+   \else
+      \mathchardef\sum="1350 \mathchardef\prod="1351 \mathchardef\coprod="1360
+   \fi
+   \ismacro\kpmatw{w}\iftrue
+      \thinmuskip=3mu \medmuskip=4mu plus 1.5mu minus 3mu \thickmuskip=5mu plus 4mu
+   \else
+      \thinmuskip=2mu \medmuskip=3mu plus 1.5mu minus 3mu \thickmuskip=4mu plus 3mu
+   \fi
+}
+\def\greekup{\let\alpha \upalpha \let\beta \upbeta \let\gamma \upgamma
+   \let\delta \updelta \let\epsilon \upepsilon \let\zeta \upzeta 
+   \let\eta \upeta \let\theta \uptheta \let\iota \upiota \let\kappa \upkappa
+   \let\lambda \uplambda \let\mu \upmu \let\nu \upnu \let\xi \upxi 
+   \let\pi \uppi \let\rho \uprho \let\sigma \upsigma \let\tau \uptau 
+   \let\upsilon \upupsilon \let\phi \upphi \let\chi \upchi \let\psi \uppsi 
+   \let\omega \upomega \let\varepsilon \upvarepsilon \let\vartheta \upvartheta 
+   \let\varpi \upvarpi \let\varrho \upvarrho \let\varsigma \upvarsigma 
+   \let\varphi \upvarphi 
+} 
+\def\greeknormal{\mathchardef\alpha="010B \mathchardef\beta="010C
+   \mathchardef\gamma="010D \mathchardef\delta="010E \mathchardef\epsilon="010F
+   \mathchardef\zeta="0110 \mathchardef\eta="0111 \mathchardef\theta="0112
+   \mathchardef\iota="0113 \mathchardef\kappa="0114 \mathchardef\lambda="0115
+   \mathchardef\mu="0116 \mathchardef\nu="0117 \mathchardef\xi="0118
+   \mathchardef\pi="0119 \mathchardef\rho="011A \mathchardef\sigma="011B
+   \mathchardef\tau="011C \mathchardef\upsilon="011D \mathchardef\phi="011E
+   \mathchardef\chi="011F \mathchardef\psi="0120 \mathchardef\omega="0121
+   \mathchardef\varepsilon="0122 \mathchardef\vartheta="0123
+   \mathchardef\varpi="0124 \mathchardef\varrho="0125
+   \mathchardef\varsigma="0126 \mathchardef\varphi="0127 
+}
+\def\partialup     {\mathchardef\partial="0180 }
+\def\partialnormal {\mathchardef\partial="0140 }
+
+\def\narrowiints{\ifnum\oiintop="1\txexafam 08 \narrowiintsA+\fi}
+\def\normaliints{\ifnum\oiintop="1\txexafam 08 \else \narrowiintsA-\fi}
+\def\narrowiintsA#1{\edef\tmp{\the\count0}%
+   \narrowiintsB #1\oiintop \iintop \iiintop \iiiintop \idotsintop \oiiintop \oiintctrclockwiseop
+   \varoiintclockwiseop \oiiintctrclockwiseop \varoiiintclockwiseop \oiintclockwiseop
+   \varoiintctrclockwiseop \oiiintclockwiseop \varoiiintctrclockwiseop \sqiintop \sqiiintop
+   \variintop \variiintop \variiiintop \varidotsintop \relax \count0=\tmp\relax
+}
+\def\narrowiintsB#1#2{\ifx#2\relax \else 
+   \count0=#2\advance\count0 by#1100 \mathchardef#2=\count0
+   \expandafter\narrowiintsB\expandafter#1\fi
+}
+\kpmathreset\normalmath
+
+\mathchardef \varintop "1\txexafam 54
+\mathchardef \variintop "1\txexafam 56
+\mathchardef \variiintop "1\txexafam 58
+\mathchardef \variiiintop "1\txexafam 5A
+\mathchardef \varidotsintop "1\txexafam 5C
+
+\def\varint {\varintop\nolimits}
+\def\variint {\variintop\nolimits}
+\def\variiint {\variiintop\nolimits}
+\def\variiiint {\variiiintop\nolimits}
+\def\varidotsint {\varidotsintop\nolimits}
+
+\mathchardef \varemptyset "02A0
+
+\def\widearc{\mathaccent"0386 }
+\def\widearcarrow{\mathaccent"038C }
+\def\wideparen{\mathaccent"0392 }
+\def\widering#1{{\mathop{\wideparen{#1}}\limits
+   ^{\vbox to0pt{\kern-.2ex\hbox{\the\textfont0\char"17}\vss}}}%
+}
+\mathchardef\bracext "0\txexafam 20
+\def\downbracefill{$\mathsurround=0pt
+   \braceld\mkern-1mu\cleaders\hbox{$\mkern-.5mu\bracext\mkern-.5mu$}\hfill\mkern-1mu
+   \braceru\bracelu
+   \mkern-1mu\cleaders\hbox{$\mkern-.5mu\bracext\mkern-.5mu$}\hfill\mkern-1mu\bracerd$%
+}
+\def\upbracefill{$\mathsurround=0pt
+   \bracelu\mkern-1mu\cleaders\hbox{$\mkern-.5mu\bracext\mkern-.5mu$}\hfill\mkern-1mu
+   \bracerd\braceld
+   \mkern-1mu\cleaders\hbox{$\mkern-.5mu\bracext\mkern-.5mu$}\hfill\mkern-1mu\braceru$%
+}
+
+\endinput
+

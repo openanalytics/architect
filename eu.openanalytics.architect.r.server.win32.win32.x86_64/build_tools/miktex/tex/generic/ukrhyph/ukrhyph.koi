@@ -1,0 +1,4 @@
+% UKRHYPH.KOI
+\def\Encoding{koi}
+\input ukrhyph
+\endinput

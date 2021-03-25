@@ -1,0 +1,24 @@
+%%
+%% This is file `lfetitrout.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lfetitrout.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+
+
+\DeclareFontFamily{LFE}{titrout}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LFE}{titrout}{m}{n}{<-> s*[1.25] titrout }{}
+\DeclareFontShape{LFE}{titrout}{bx}{n}{<-> ssub * titrout/m/n }{}
+\DeclareFontShape{LFE}{titrout}{b}{n}{<->  ssub * titrout/m/n }{}
+
+\endinput

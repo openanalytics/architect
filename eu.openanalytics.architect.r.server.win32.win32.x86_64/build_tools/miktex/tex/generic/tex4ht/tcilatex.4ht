@@ -1,0 +1,120 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tcilatex.4ht                         2020-12-13-11:14 %
+% Copyright (C) 2000-2009      Eitan M. Gurari         %
+% Copyright 2009-2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\def\:temp#1#2#3#4{#2\ref{#4}#3}
+\ifx \:temp\hyperref
+   \def\hyperref{\bgroup
+        \catcode`\#=12 \catcode`\~=12 \catcode`\_=12 \h:pref}%
+   \def\h:pref#1#2#3#4{\egroup\Link[#4]{}{}#1\EndLink}%
+\fi
+\let\:tempc=\GRAPHICSPS
+\pend:defI\:tempc{\a:GRAPHICSPS}
+\append:defI\:tempc{\b:GRAPHICSPS}
+\HLet\GRAPHICSPS=\:tempc
+\NewConfigure{GRAPHICSPS}{2}
+\let\:tempc=\GRAPHICSHP
+\pend:defI\:tempc{\a:GRAPHICSHP}
+\append:defI\:tempc{\b:GRAPHICSHP}
+\HLet\GRAPHICSHP=\:tempc
+\NewConfigure{GRAPHICSHP}{2}
+\let\:tempc=\BOXTHEFRAME
+\pend:defI\:tempc{\hbox\bgroup\a:BOXTHEFRAME}
+\append:defI\:tempc{\b:BOXTHEFRAME\egroup}
+\HLet\BOXTHEFRAME=\:tempc
+\NewConfigure{BOXTHEFRAME}{2}
+\let\:IFRAME=\IFRAME
+\let\:DFRAME=\DFRAME
+\let\:FFRAME=\FFRAME
+\def\IFRAME#1#2#3#4#5#6{\a:IFRAME\leavevmode
+   \IgnorePar\:IFRAME{#1}{#2}{#3}{#4}{#5}{#6}\b:IFRAME}
+\def\DFRAME#1#2#3#4#5{\a:DFRAME\leavevmode
+   \IgnorePar\:DFRAME{#1}{#2}{#3}{#4}{#5}\b:DFRAME}
+\def\FFRAME#1#2#3#4#5#6#7#8{\a:FFRAME\leavevmode
+   \IgnorePar\:FFRAME{#1}{#2}{#3}{#4}{#5}{#6}{#7}{#8}\b:FFRAME}
+\NewConfigure{IFRAME}{2}
+\NewConfigure{DFRAME}{2}
+\NewConfigure{FFRAME}{2}
+\let\o:Greekmath:\Greekmath
+\def\Greekmath{\protect\o:Greekmath:}
+
+\expandafter\ifx \csname @TCItagstar\endcsname\relax
+   
+\else
+   \def\y@hyperref#1#2#3#4{%
+   \Link[#4]{}{}#1\EndLink
+   \catcode`\~ = 13
+   \catcode`\$ = 3
+   \catcode`\_ = 8
+   \catcode`\# = 6
+   \catcode`\& = 4
+}
+\def\:tempc#1#2{\o:QATOP:{\a:QATOP #1\b:QATOP}{\c:QATOP #2\d:QATOP}}
+\HLet\QATOP=\:tempc
+\NewConfigure{QATOP}{4}
+\def\:tempc#1#2{\o:QDATOP:{\a:QDATOP #1\b:QDATOP}{\c:QDATOP #2\d:QDATOP}}
+\HLet\QDATOP=\:tempc
+\NewConfigure{QDATOP}{4}
+\def\:tempc#1#2{\o:QTATOP:{\a:QTATOP #1\b:QTATOP}{\c:QTATOP #2\d:QTATOP}}
+\HLet\QTATOP=\:tempc
+\NewConfigure{QTATOP}{4}
+
+   \ifx \@msidraft\:Undef
+      \expandafter\ifx \csname o:dfrac:\endcsname \relax
+  \def\:tempc#1#2{\o:dfrac:{\a:dfrac#1\b:dfrac}{\c:dfrac#2\d:dfrac}}
+\HLet\dfrac\:tempc
+\NewConfigure{dfrac}{4}
+\def\:tempc#1#2{\o:tfrac:{\a:tfrac#1\b:tfrac}{\c:tfrac#2\d:tfrac}}
+\HLet\tfrac\:tempc
+\NewConfigure{tfrac}{4}
+\def\:tempc#1#2{\o:binom:{\a:binom#1\b:binom}{\c:binom#2\d:binom}}
+\HLet\binom\:tempc
+\NewConfigure{binom}{4}
+\def\:tempc#1#2{\o:dbinom:{\a:dbinom#1\b:dbinom}{\c:dbinom#2\d:dbinom}}
+\HLet\dbinom\:tempc
+\NewConfigure{dbinom}{4}
+\def\:tempc#1#2{\o:tbinom:{\a:tbinom#1\b:tbinom}{\c:tbinom#2\d:tbinom}}
+\HLet\tbinom\:tempc
+\NewConfigure{tbinom}{4}
+
+\fi
+
+\fi \fi
+\let\tci:ProvidesPackage=\ProvidesPackage
+\def\ProvidesPackage#1{%
+   \tci:ProvidesPackage{#1}%
+   \def\:temp{swpframe}\def\:tempa{#1}\ifx \:temp\:tempa
+      \ifx \GRAPHICSHP\:UnDef\else
+         \let\swp:GRAPHICSHP=\GRAPHICSHP
+         \:AtEndOfPackage{\let\GRAPHICSHP\swp:GRAPHICSHP}%
+      \fi
+      \ifx \graffile\:UnDef\else
+         \let\swp:graffile=\graffile
+         \:AtEndOfPackage{\let\graffile\swp:graffile}%
+      \fi
+      \ifx \GRAPHIC\:UnDef\else
+         \let\swp:GRAPHIC=\GRAPHIC
+         \:AtEndOfPackage{\let\GRAPHIC\swp:GRAPHIC}%
+      \fi
+  \fi
+}
+
+\Hinput{tcilatex}
+\endinput
+

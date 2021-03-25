@@ -1,0 +1,134 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: `FRfonts.sty' Arabic font .....
+% the Arabi package.
+%
+%% 
+
+\ProvidesPackage{FRfonts}[2006/12/01 Part of the Arabi package]
+
+
+\newif\ifffree\newif\iffmscore
+
+\DeclareOption{free}{\fmscorefalse\ffreetrue}
+\DeclareOption{mscore}{\ffreefalse\fmscoretrue}
+\ExecuteOptions{free}
+\ProcessOptions
+
+\ifffree
+\DeclareFontFamily{LFE}{\rmdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LFE}{\rmdefault}{m}{n}{<->  s*[1.25] nazli }{}%
+\DeclareFontShape{LFE}{\rmdefault}{m}{it}{<-> s*[1.25] nazli }{}%
+\DeclareFontShape{LFE}{\rmdefault}{m}{sl}{<-> s*[1.25] nazli }{}%
+\DeclareFontShape{LFE}{\rmdefault}{m}{sc}{<-> s*[1.25] nazli }{}%
+%
+\DeclareFontShape{LFE}{\rmdefault}{bx}{n}{<-> s*[1.25] titr }{}%
+\DeclareFontShape{LFE}{\rmdefault}{bx}{sl}{<->s*[1.25] titr }{}%
+\DeclareFontShape{LFE}{\rmdefault}{bx}{it}{<->s*[1.25] titr }{}%
+%%%%
+\DeclareFontShape{LFE}{\rmdefault}{b}{n}{<->  s*[1.25] titr }{}%
+\DeclareFontShape{LFE}{\rmdefault}{b}{sl}{<-> s*[1.25] titr }{}%
+\DeclareFontShape{LFE}{\rmdefault}{b}{it}{<-> s*[1.25] titr }{}%
+%
+%%%%%%%%%%%%%%%%%%%%%%% Terafik for typewriter type  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% and Terafik bold for typewriter type Bold face %%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{LFE}{\ttdefault}{\hyphenchar\font=-1}
+\DeclareFontShape{LFE}{\ttdefault}{m}{n}{<->  s*[1.25] homa }{}%
+\DeclareFontShape{LFE}{\ttdefault}{m}{sl}{<-> s*[1.25] homa }{}%
+\DeclareFontShape{LFE}{\ttdefault}{m}{it}{<-> s*[1.25] homa }{}%
+\DeclareFontShape{LFE}{\ttdefault}{m}{sc}{<-> s*[1.25] homa  }{}%
+%
+\DeclareFontShape{LFE}{\ttdefault}{bx}{n}{<-> s*[1.25] homa }{}%
+\DeclareFontShape{LFE}{\ttdefault}{bx}{sl}{<->s*[1.25] homa }{}%
+\DeclareFontShape{LFE}{\ttdefault}{bx}{it}{<->s*[1.25] homa }{}%
+%%%%
+\DeclareFontShape{LFE}{\ttdefault}{b}{n}{<->  s*[1.25] homa }{}%
+\DeclareFontShape{LFE}{\ttdefault}{b}{sl}{<-> s*[1.25] homa }{}%
+\DeclareFontShape{LFE}{\ttdefault}{b}{it}{<-> s*[1.25] homa }{}%
+%
+%%%%%%%%%%%%%%%%%%%%%%% Roya for Sans Serif  !! %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%
+\DeclareFontFamily{LFE}{\sfdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LFE}{\sfdefault}{m}{n}{<->  s*[1.25] nazlib }{}%
+\DeclareFontShape{LFE}{\sfdefault}{m}{sl}{<-> s*[1.25] nazlib }{}%
+\DeclareFontShape{LFE}{\sfdefault}{m}{it}{<-> s*[1.25] nazlib }{}%
+\DeclareFontShape{LFE}{\sfdefault}{m}{sc}{<-> s*[1.25] nazlib }{}%
+%
+\DeclareFontShape{LFE}{\sfdefault}{bx}{n}{<-> s*[1.25] nazlib }{}%
+\DeclareFontShape{LFE}{\sfdefault}{bx}{sl}{<->s*[1.25] nazlib }{}%
+\DeclareFontShape{LFE}{\sfdefault}{bx}{it}{<->s*[1.25] nazlib }{}%
+%%%%
+\DeclareFontShape{LFE}{\sfdefault}{b}{n}{<->  s*[1.25] nazlib }{}%
+\DeclareFontShape{LFE}{\sfdefault}{b}{sl}{<-> s*[1.25] nazlib }{}%
+\DeclareFontShape{LFE}{\sfdefault}{b}{it}{<-> s*[1.25] nazlib }{}%
+\else
+\iffmscore
+\DeclareFontFamily{LFE}{\rmdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LFE}{\rmdefault}{m}{n}{<->  s*[1.25] frsspbl }{}%
+\DeclareFontShape{LFE}{\rmdefault}{m}{it}{<-> s*[1.25] frsspbl }{}%
+\DeclareFontShape{LFE}{\rmdefault}{m}{sl}{<-> s*[1.25] frsspbl }{}%
+\DeclareFontShape{LFE}{\rmdefault}{m}{sc}{<-> s*[1.25] fandlso }{}%
+%
+\DeclareFontShape{LFE}{\rmdefault}{bx}{n}{<-> s*[1.25] frsspout }{}%
+\DeclareFontShape{LFE}{\rmdefault}{bx}{sl}{<->s*[1.25] frsspout }{}%
+\DeclareFontShape{LFE}{\rmdefault}{bx}{it}{<->s*[1.25] frsspout }{}%
+%%%%
+\DeclareFontShape{LFE}{\rmdefault}{b}{n}{<->  s*[1.25] frsspout }{}%
+\DeclareFontShape{LFE}{\rmdefault}{b}{sl}{<-> s*[1.25] frsspout }{}%
+\DeclareFontShape{LFE}{\rmdefault}{b}{it}{<-> s*[1.25] frsspout }{}%
+%
+%%%%%%%%%%%%%%%%%%%%%%% Arial for typewriter type ?! %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Courier seems to have a BAD spacing ?! %%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{LFE}{\ttdefault}{\hyphenchar\font=-1}
+\DeclareFontShape{LFE}{\ttdefault}{m}{n}{<->  s*[1.25] frarial }{}%
+\DeclareFontShape{LFE}{\ttdefault}{m}{sl}{<-> s*[1.25] frarial }{}%
+\DeclareFontShape{LFE}{\ttdefault}{m}{it}{<-> s*[1.25] frarial }{}%
+\DeclareFontShape{LFE}{\ttdefault}{m}{sc}{<-> s*[1.25] fandlso  }{}%Andalus for small caps!
+%
+\DeclareFontShape{LFE}{\ttdefault}{bx}{n}{<-> s*[1.25] frarialb }{}%
+\DeclareFontShape{LFE}{\ttdefault}{bx}{sl}{<->s*[1.25] frarialb }{}%
+\DeclareFontShape{LFE}{\ttdefault}{bx}{it}{<->s*[1.25] frarialb }{}%
+%%%%
+\DeclareFontShape{LFE}{\ttdefault}{b}{n}{<->  s*[1.25] frarialb }{}%
+\DeclareFontShape{LFE}{\ttdefault}{b}{sl}{<-> s*[1.25] frarialb }{}%
+\DeclareFontShape{LFE}{\ttdefault}{b}{it}{<-> s*[1.25] frarialb }{}%
+%
+%%%%%%%%%%%%%%%%%%%%%%% Simplified Arabic for Sans Serif  !! %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{LFE}{\sfdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LFE}{\sfdefault}{m}{n}{<->  s*[1.25] frsimpo }{}%
+\DeclareFontShape{LFE}{\sfdefault}{m}{sl}{<-> s*[1.25] frsimpo }{}%
+\DeclareFontShape{LFE}{\sfdefault}{m}{it}{<-> s*[1.25] frsimpo }{}%
+\DeclareFontShape{LFE}{\sfdefault}{m}{sc}{<-> s*[1.25] frsimpo }{}%
+%
+\DeclareFontShape{LFE}{\sfdefault}{bx}{n}{<-> s*[1.25] frsimpbdo }{}%
+\DeclareFontShape{LFE}{\sfdefault}{bx}{sl}{<->s*[1.25] frsimpbdo }{}%
+\DeclareFontShape{LFE}{\sfdefault}{bx}{it}{<->s*[1.25] frsimpbdo }{}%
+%%%%
+\DeclareFontShape{LFE}{\sfdefault}{b}{n}{<->  s*[1.25] frsimpbdo }{}%
+\DeclareFontShape{LFE}{\sfdefault}{b}{sl}{<-> s*[1.25] frsimpbdo }{}%
+\DeclareFontShape{LFE}{\sfdefault}{b}{it}{<-> s*[1.25] frsimpbdo }{}%
+\fi
+\fi
+
+
+
+\endinput

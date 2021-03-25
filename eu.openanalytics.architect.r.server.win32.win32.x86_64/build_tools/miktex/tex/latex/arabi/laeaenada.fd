@@ -1,0 +1,22 @@
+%%
+%% This is file `laeaenada.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeaenada.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LAE}{aenada}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aenada}{m}{n}{<-> s*[1.25]  aenada }{}
+\DeclareFontShape{LAE}{aenada}{bx}{n}{<-> ssub * aenada/m/n}{}
+
+\endinput

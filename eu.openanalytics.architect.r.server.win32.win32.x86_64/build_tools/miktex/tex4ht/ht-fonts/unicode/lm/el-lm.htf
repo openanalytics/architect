@@ -1,0 +1,291 @@
+el-lm 0 255
+'&#x201A;' ''  0  % el-lm.htf 2020-05-27-14:14 %
+'&#x0102;' ''  1 % Copyright (C) 2007-2009                    Eitan M. Gurari %
+'&#x0100;' ' ''  2 %
+'&#x0104;' ''  3 % This work may be distributed and/or modified under the conditions
+'&#x0106;' ''  4 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x010C;' ''  5 % license or (at your option) any later version. The latest version
+'&#x010A;' '' 6 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x010E;' ''  7 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x0110;' ''  8 % 2003/12/01 or later.
+'&#x011A;' ''  9 % This work has the LPPL maintenance status "maintained".
+'&#x0116;' ''  10 % Current Maintainer of this work is the TeX4ht Project.
+'&#x0112;' ''  11 %
+'&#x0118;' ''  12 % If you modify this file, changing the
+'&#x011E;' ''  13 % version identification would be appreciated.
+'&#x0122;' ''  14
+'&#x0120;' ''  15
+'&#x2014;' ''  16
+'&#x0103;' ''  17
+'&#x0101;' ''  18
+'&#x0105;' ''  19
+'&#x0107;' ''  20
+'&#x010D;' ''  21
+'&#x010B;' ''  22
+'&#x010F;' ''  23
+'&#x0111;' ''  24
+'&#x011B;' ''  25
+'&#x00F7;' ''  26
+'&#x0113;' ''  27
+'&#x0119;' ''  28
+'&#x011F;' ''  29
+'&#x0123;' ''  30
+'&#x0121;' ''  31
+'&#xFEFF;' ''  32
+'!' ''  33
+'&#x201C;' ''  34
+'&#x201D;' ''  35
+'&#x201E;' ''  36
+'&#xFB00;' ''  37
+'&#x00DF;' ''  38
+'&#x2019;' ''  39
+'&#x0028;' ''  40
+'&#x0029;' ''  41
+'&#x00A1;' ''  42
+'&#x00BF;' ''  43
+',' ''  44
+'-' ''  45
+'.' ''  46
+'/' ''  47
+'0' ''  48
+'1' ''  49
+'2' ''  50
+'3' ''  51
+'4' ''  52
+'5' ''  53
+'6' ''  54
+'7' ''  55
+'8' ''  56
+'9' ''  57
+':' ''  58
+';' ''  59
+'&#x2039;' ''  60
+'&#x2013;' ''  61
+'&#x203A;' ''  62
+'?' ''  63
+'@' ''  64
+'A' ''  65
+'B' ''  66
+'C' ''  67
+'D' ''  68
+'E' ''  69
+'F' ''  70
+'G' ''  71
+'H' ''  72
+'I' ''  73
+'J' ''  74
+'K' ''  75
+'L' ''  76
+'M' ''  77
+'N' ''  78
+'O' ''  79
+'P' ''  80
+'Q' ''  81
+'R' ''  82
+'S' ''  83
+'T' ''  84
+'U' ''  85
+'V' ''  86
+'W' ''  87
+'X' ''  88
+'Y' ''  89
+'Z' ''  90
+'&#x005B;' ''  91
+'&#x0126;' ''  92
+'&#x005D;' ''  93
+'&#xFB01;' ''  94
+'&#xFB02;' ''  95
+'&#x2018;' ''  96
+'a' ''  97
+'b' ''  98
+'c' ''  99
+'d' ''  100
+'e' ''  101
+'f' ''  102
+'g' ''  103
+'h' ''  104
+'i' ''  105
+'j' ''  106
+'k' ''  107
+'l' ''  108
+'m' ''  109
+'n' ''  110
+'o' ''  111
+'p' ''  112
+'q' ''  113
+'r' ''  114
+'s' ''  115
+'t' ''  116
+'u' ''  117
+'v' ''  118
+'w' ''  119
+'x' ''  120
+'y' ''  121
+'z' ''  122
+'&#x2013;' ''  123
+'&#x0127;' ''  124
+'&#x00BB;' ''  125
+'&#xFB03;' ''  126
+'&#xFB04;' ''  127
+'&#x0130;' ''  128
+'&#x012A;' ''  129
+'&#x012E;' ''  130
+'&#x0137;' ''  131
+'&#x0139;' ''  132
+'&#x013D;' ''  133
+'&#x0141;' ''  134
+'&#x013B;' ''  135
+'&#x0143;' ''  136
+'&#x0147;' ''  137
+'&#x0145;' ''  138
+'&#x0150;' ''  139
+'&#x014C;' ''  140
+'&#x0154;' ''  141
+'&#x0158;' ''  142
+'&#x0156;' ''  143
+'&#x015A;' ''  144
+'&#x0160;' ''  145
+'&#x015E;' ''  146
+'&#x0218;' ''  147
+'&#x0164;' ''  148
+'&#x021A;' ''  149
+'&#x0170;' ''  150
+'&#x016E;' ''  151
+'&#x016B;' ''  152
+'&#x0172;' ''  153
+'&#x0174;' ''  154
+'&#x1EF2;' ''  155
+'&#x0176;' ''  156
+'&#x0179;' ''  157
+'&#x017D;' ''  158
+'&#x017B;' ''  159
+'&#x0131;' ''  160
+'&#x012B;' ''  161
+'&#x012E;' ''  162
+'&#x0137;' ''  163
+'&#x013A;' ''  164
+'&#x013E;' ''  165
+'&#x0142;' ''  166
+'&#x013C;' ''  167
+'&#x0144;' ''  168
+'&#x0148;' ''  169
+'&#x0146;' ''  170
+'&#x0151;' ''  171
+'&#x014D;' ''  172
+'&#x0155;' ''  173
+'&#x0159;' ''  174
+'&#x0157;' ''  175
+'&#x015B;' ''  176
+'&#x0161;' ''  177
+'&#x015F;' ''  178
+'&#x0219;' ''  179
+'&#x0165;' ''  180
+'&#x021B;' ''  181
+'&#x0171;' ''  182
+'&#x016F;' ''  183
+'&#x016B;' ''  184
+'&#x0173;' ''  185
+'&#x0175;' ''  186
+'&#x1EF2;' ''  187
+'&#x0176;' ''  188
+'&#x0179;' ''  189
+'&#x017E;' ''  190
+'&#x017C;' ''  191
+'&#x00C0;' ''  192
+'&#x00C1;' ''  193
+'&#x00C2;' ''  194
+'&#x00C3;' ''  195
+'&#x00C4;' ''  196
+'&#x00C5;' ''  197
+'&#x00C6;' ''  198
+'&#x00C7;' ''  199
+'&#x00C8;' ''  200
+'&#x00C9;' ''  201
+'&#x00CA;' ''  202
+'&#x00CB;' ''  203
+'&#x00CC;' ''  204
+'&#x00CD;' ''  205
+'&#x00CE;' ''  206
+'&#x00CF;' ''  207
+'&#x00D0;' ''  208
+'&#x00D1;' ''  209
+'&#x00D2;' ''  210
+'&#x00D3;' ''  211
+'&#x00D4;' ''  212
+'&#x00D5;' ''  213
+'&#x00D6;' ''  214
+'&#x0152;' ''  215
+'&#x00D8;' ''  216
+'&#x00D9;' ''  217
+'&#x00DA;' ''  218
+'&#x00DB;' ''  219
+'&#x00DC;' ''  220
+'&#x00DD;' ''  221
+'&#x00DE;' ''  222
+'&#x0178;' ''  223
+'&#x00E0;' ''  224
+'&#x00E1;' ''  225
+'&#x00E2;' ''  226
+'&#x00E3;' ''  227
+'&#x00E4;' ''  228
+'&#x00E5;' ''  229
+'&#x00E6;' ''  230
+'&#x00E7;' ''  231
+'&#x00E8;' ''  232
+'&#x00E9;' ''  233
+'&#x00EA;' ''  234
+'&#x00EB;' ''  235
+'&#x00EC;' ''  236
+'&#x00ED;' ''  237
+'&#x00EE;' ''  238
+'&#x00EF;' ''  239
+'&#x00F0;' ''  240
+'&#x00F1;' ''  241
+'&#x00F2;' ''  242
+'&#x00F3;' ''  243
+'&#x00F4;' ''  244
+'&#x00F5;' ''  245
+'&#x00F6;' ''  246
+'&#x0153;' ''  247
+'&#x00F8;' ''  248
+'&#x00F9;' ''  249
+'&#x00FA;' ''  250
+'&#x00FB;' ''  251
+'&#x00FC;' ''  252
+'&#x00FD;' ''  253
+'&#x00FE;' ''  254
+'&#x00DF;' ''  255
+el-lm 0 255
+htfcss: el-lmbo  font-style: oblique;
+htfcss: el-lmbx  font-weight: bold;
+htfcss: el-lmbxi  font-style:italic; font-weight: bold;
+htfcss: el-lmbxo  font-style: oblique; font-weight: bold;
+htfcss: el-lmri  font-style:italic;
+htfcss: el-lmro  font-style: oblique;
+htfcss: el-lmss  font-family: sans-serif;
+htfcss: el-lmssbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: el-lmssbx  font-family: sans-serif; font-weight: bold;
+htfcss: el-lmssdc  font-family: sans-serif;
+htfcss: el-lmssdo  font-family: sans-serif; font-style: oblique;
+htfcss: el-lmsso  font-family: sans-serif; font-style: oblique;
+htfcss: el-lmssq  font-family: sans-serif;
+htfcss: el-lmssqbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: el-lmssqbx  font-family: sans-serif; font-weight: bold;
+htfcss: el-lmssqo  font-family: sans-serif; font-style: oblique;
+htfcss: el-lmtcso  font-style: oblique; font-family: monospace,monospace;
+htfcss: el-lmtk  font-family: monospace,monospace;
+htfcss: el-lmtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: el-lmtl  font-weight: light; font-family: monospace,monospace;
+htfcss: el-lmtlc  font-weight: light; font-family: monospace,monospace;
+htfcss: el-lmtlco  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: el-lmtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: el-lmtt  font-family: monospace,monospace;
+htfcss: el-lmtti  font-family: monospace,monospace; font-style:italic;
+htfcss: el-lmtto  font-style: oblique; font-family: monospace,monospace;
+htfcss: el-lmvtk  font-family: monospace,monospace;
+htfcss: el-lmvtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: el-lmvtl  font-weight: light; font-family: monospace,monospace;
+htfcss: el-lmvtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: el-lmvtt  font-family: monospace,monospace;
+htfcss: el-lmvtto  font-style: oblique; font-family: monospace,monospace;
+

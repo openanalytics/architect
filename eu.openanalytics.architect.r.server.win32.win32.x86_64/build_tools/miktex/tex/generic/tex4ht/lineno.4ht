@@ -1,0 +1,52 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% lineno.4ht                            2009-05-21-09:32 %
+% Copyright (C) 2000--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+
+\let\:tempc\linelabel
+\pend:defI\:tempc{\let\sv:efloat\end@float \HRestore\end@float  }
+\append:defI\:tempc{\let\end@float\sv:efloat  }
+\HLet\linelabel\:tempc
+
+
+\def\:tempc{\@tempdima\dp\@cclv \unvbox\@cclv
+   \sbox\@tempboxa{\hbox to\z@{\a:lineno\makeLineNumber\b:lineno}}%
+   \stepcounter{linenumber}%
+   \dp\@tempboxa=\@tempdima\ht\@tempboxa=\z@
+   \nointerlineskip\kern-\@tempdima\box\@tempboxa
+   \ifnum\outputpenalty=-\linenopenaltypar\else
+       \@tempcnta\outputpenalty
+       \advance\@tempcnta -\linenopenalty
+       \penalty\@tempcnta
+   \fi
+   }
+\HLet\MakeLineNo\:tempc
+\NewConfigure{lineno}{2}
+
+\Hinput{lineno}
+\endinput
+

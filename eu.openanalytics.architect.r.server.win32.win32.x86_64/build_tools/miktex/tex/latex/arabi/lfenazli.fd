@@ -1,0 +1,26 @@
+%%
+%% This is file `lfenazli.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lfenazli.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LFE}{nazli}{\hyphenchar\font=-1}% 
+              %as in \DeclareFontFamily{T1}{cmtt}{\hyphenchar\font=-1}
+              
+\DeclareFontShape{LFE}{nazli}{m}{n}{<-> s*[1.25] nazli }{}
+
+\DeclareFontShape{LFE}{nazli}{b}{n}{<-> s*[1.25] nazlib }{}
+\DeclareFontShape{LFE}{nazli}{bx}{n}{<-> ssub * nazli/b/n }{}
+
+
+\endinput

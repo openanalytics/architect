@@ -1,0 +1,116 @@
+MinLibBolIta-ot1 16 126
+'&#x0131;' '' dotlessi 16
+'&#x0237;' '' dotlessj 17
+'&#x60;' '' grave 18
+'&#x00B4;' '' acute 19
+'&#x02C7;' '' caron 20
+'&#x02D8;' '' breve 21
+'&#x00AF;' '' macron 22
+'&#x02DA;' '' ring 23
+'&#x00B8;' '' cedilla 24
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+' ' '' space 32
+'!' '' exclam 33
+'&#x201D;' '' quotedblright 34
+'#' '' numbersign 35
+'$' '' dollar 36
+'%' '' percent 37
+'&amp;' '' ampersand 38
+'&#x2019;' '' quoteright 39
+'(' '' parenleft 40
+')' '' parenright 41
+'*' '' asterisk 42
+'+' '' plus 43
+',' '' comma 44
+'-' '' hyphen 45
+'.' '' period 46
+'/' '' slash 47
+'0' '' zero 48
+'1' '' one 49
+'2' '' two 50
+'3' '' three 51
+'4' '' four 52
+'5' '' five 53
+'6' '' six 54
+'7' '' seven 55
+'8' '' eight 56
+'9' '' nine 57
+':' '' colon 58
+';' '' semicolon 59
+'' ''
+'=' '' equal 61
+'' ''
+'?' '' question 63
+'@' '' at 64
+'A' '' A 65
+'B' '' B 66
+'C' '' C 67
+'D' '' D 68
+'E' '' E 69
+'F' '' F 70
+'G' '' G 71
+'H' '' H 72
+'I' '' I 73
+'J' '' J 74
+'K' '' K 75
+'L' '' L 76
+'M' '' M 77
+'N' '' N 78
+'O' '' O 79
+'P' '' P 80
+'Q' '' Q 81
+'R' '' R 82
+'S' '' S 83
+'T' '' T 84
+'U' '' U 85
+'V' '' V 86
+'W' '' W 87
+'X' '' X 88
+'Y' '' Y 89
+'Z' '' Z 90
+'[' '' bracketleft 91
+'&#x201C;' '' quotedblleft 92
+']' '' bracketright 93
+'&#x02C6;' '' circumflex 94
+'&#x02D9;' '' dotaccent 95
+'&#x2018;' '' quoteleft 96
+'a' '' a 97
+'b' '' b 98
+'c' '' c 99
+'d' '' d 100
+'e' '' e 101
+'f' '' f 102
+'g' '' g 103
+'h' '' h 104
+'i' '' i 105
+'j' '' j 106
+'k' '' k 107
+'l' '' l 108
+'m' '' m 109
+'n' '' n 110
+'o' '' o 111
+'p' '' p 112
+'q' '' q 113
+'r' '' r 114
+'s' '' s 115
+'t' '' t 116
+'u' '' u 117
+'v' '' v 118
+'w' '' w 119
+'x' '' x 120
+'y' '' y 121
+'z' '' z 122
+'&#x2013;' '' endash 123
+'&#x2014;' '' emdash 124
+'&#x02DD;' '' hungarumlaut 125
+'&#x02DC;' '' tilde 126
+MinLibBolIta-ot1 16 126
+htfcss:  MinLibBolIta-ot1  font-weight: bold; font-style: italic; font-family: 'MinLib', serif;
+
+

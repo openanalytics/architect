@@ -1,0 +1,18 @@
+.t2b-iwona
+htfcss: t2b-kurierl  font-weight: light;
+htfcss: t2b-kurierb  font-weight: bold;
+htfcss: t2b-kurierh  font-weight: bold;
+htfcss: t2b-kurierli  font-weight: light; font-style:italic;
+htfcss: t2b-kurierri  font-style:italic;
+htfcss: t2b-kuriermi  font-style:italic;
+htfcss: t2b-kurierbi  font-style:italic; font-weight: bold;
+htfcss: t2b-kurierhi  font-style:italic; font-weight: bold;
+htfcss: t2b-kuriercl  font-weight: light;
+htfcss: t2b-kuriercb  font-weight: bold;
+htfcss: t2b-kurierch  font-weight: bold;
+htfcss: t2b-kuriercli  font-weight: light; font-style:italic;
+htfcss: t2b-kuriercri  font-style:italic;
+htfcss: t2b-kuriercmi  font-style:italic;
+htfcss: t2b-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: t2b-kurierchi  font-style:italic; font-weight: bold;
+

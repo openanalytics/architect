@@ -1,0 +1,12 @@
+.mi-iwona
+htfcss: mi-kurierli  font-weight: light; font-style:italic;
+htfcss: mi-kurierri  font-style:italic;
+htfcss: mi-kuriermi  font-style:italic;
+htfcss: mi-kurierbi  font-style:italic; font-weight: bold;
+htfcss: mi-kurierhi  font-style:italic; font-weight: bold;
+htfcss: mi-kuriercli  font-weight: light; font-style:italic;
+htfcss: mi-kuriercri  font-style:italic;
+htfcss: mi-kuriercmi  font-style:italic;
+htfcss: mi-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: mi-kurierchi  font-style:italic; font-weight: bold;
+

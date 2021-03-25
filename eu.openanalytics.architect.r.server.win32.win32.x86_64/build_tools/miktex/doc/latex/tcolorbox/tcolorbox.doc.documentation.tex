@@ -1,0 +1,1555 @@
+% !TeX root = tcolorbox.tex
+% include file of tcolorbox.tex (manual of the LaTeX package tcolorbox)
+\clearpage
+\section{Library \mylib{documentation}}\label{sec:documentation}%
+\tcbset{external/prefix=external/documentation_}%
+This library has the single purpose to support \LaTeX\ package documentations
+like this one. Actually, the visual nature follows the approach from
+Till Tantau's |pgf| \cite{tantau:tikz_and_pgf} documentation.
+Typically, this library is assumed to be used in conjunction with the
+class |ltxdoc| or alike.
+Denis Bitouz\'e, Muzimuzhi, and many others provided very valuable input for this library.
+
+The library is loaded by a package option or inside the preamble by:
+\begin{dispListing}
+  \tcbuselibrary{documentation}
+\end{dispListing}
+This also loads
+the library \mylib{skins}, see \Vref{sec:skins},
+the library \mylib{raster}, see \Vref{sec:raster},
+the library \mylib{listings}, see \Vref{sec:listings},
+the library \mylib{xparse}, see \Vref{sec:xparse},
+and a bunch of packages, namely
+|pifont|, |marvosym|, |makeidx|, |marginnote|, |refcount|, and |hyperref|.
+
+\begin{marker}
+The package |makeidx| is loaded only, if \docAuxCommand*{printindex} is
+\emph{not} already defined. Therefore, one can include an alternative to |makeidx| like
+|imakeidx| \emph{before} the library |documentation| is used.
+\end{marker}
+\begin{marker}
+The package |marginnote| is loaded only, if \docAuxCommand*{marginnote} is
+\emph{not} already defined.
+\end{marker}
+\begin{marker}
+In contrast to other |tcolorbox| options, the option
+settings for \mylib{documentation} are typically not
+getting reset by \refKey{/tcb/reset}, i.e. they keep their
+values for embedded boxes.
+\end{marker}
+\begin{marker}
+In combination with DocStrip, \refKey{/tcb/verbatim ignore percent} may be helpful.
+\end{marker}
+
+For UTF-8 support load (ignore this when using Xe\LaTeX):
+\begin{dispListing}
+  \tcbuselibrary{listingsutf8,documentation}
+\end{dispListing}
+
+For |minted| \cite{poore:minted} support, load:
+\begin{dispListing}
+  \tcbuselibrary{documentation,minted}
+  \tcbset{listing engine=minted}
+\end{dispListing}
+
+
+%\clearpage
+%-------------------------------------------------------------------------------
+\subsection{Macros of the Library}
+
+\begin{docEnvironment}[doclang/environment content=command description,doc updated=2020-04-22]
+    {docCommand}{\oarg{options}\marg{name}\marg{parameters}}
+  Documents a \LaTeX\ macro with given \meta{name} where \meta{name} is
+  written without backslash. The given \meta{options} are set with \refCom{tcbset}.
+  This macro takes mandatory or optional \meta{parameters}.
+  It is automatically indexed and can be referenced with
+  \refCom{refCom}\marg{name}.
+\begin{dispExample}
+\begin{docCommand}{foomakedocSubKey}{\marg{name}\marg{key path}}
+  Creates a new environment \meta{name} based on \refEnv{docKey} for the
+  documentation of keys with the given \meta{key path}.
+\end{docCommand}
+\end{dispExample}
+\begin{dispExample}
+\begin{docCommand}[color definition=blue]{foomakedocSubKey*}%
+    {\marg{name}\marg{key path}}
+  Creates a new environment \meta{name} based on \refEnv{docKey} for the
+  documentation of keys with the given \meta{key path}.
+\end{docCommand}
+\end{dispExample}
+\end{docEnvironment}
+
+
+\begin{docEnvironment}[doclang/environment content=command description,doc updated=2020-04-22]
+    {docCommand*}{\oarg{options}\marg{name}\marg{parameters}}
+  Identical to \refEnv{docCommand}, but without index entry.
+\end{docEnvironment}
+
+
+\begin{docEnvironment}[doclang/environment content=command description,doc new=2020-04-22]
+    {docCommands}{\oarg{options}\brackets{\marg{variant1},\marg{variant2},...}}
+  Documents several (similar) \LaTeX\ macro variants simultaneously.
+  The given \meta{options} are set with \refCom{tcbset} and are valid for
+  all variants and the documentation text.
+  Every variant is described by an option set \meta{variant1}, \meta{variant2}, and so on.
+  The most crucial options are \refKey{/tcb/doc name} and \refKey{/tcb/doc parameter}.
+\begin{dispExample}
+\begin{docCommands}[
+    doc no index,  %  no index entries for this example
+    doc name      = newtheorem,
+    doc parameter = \marg{envname},
+  ]
+  {
+    {  },
+    { doc parameter = \marg{envname}\oarg{numbered within} },
+    { doc parameter = \oarg{numbered like}\marg{envname} },
+    { doc name      = newtheorem* },
+  }
+  example
+\end{docCommands}
+\end{dispExample}
+\end{docEnvironment}
+
+
+
+\clearpage
+{\let\xdocEnvironment\docEnvironment
+\let\endxdocEnvironment\enddocEnvironment
+\begin{xdocEnvironment}[doclang/environment content=environment description,doc updated=2020-04-22]
+    {docEnvironment}{\oarg{options}\marg{name}\marg{parameters}}
+  Documents a \LaTeX\ environment with given \meta{name}.
+  The given \meta{options} are set with \refCom{tcbset}.
+  This environment takes mandatory or optional \meta{parameters}.
+  It is automatically indexed and can be referenced with
+  \refCom{refEnv}\marg{name}.
+\begin{dispExample}
+\begin{docEnvironment}{foocolorbox}{\oarg{options}}
+  This is the main environment to create an accentuated colored text box with
+  rounded corners and, optionally, two parts.
+\end{docEnvironment}
+\end{dispExample}
+\begin{dispExample}
+\begin{docEnvironment}%
+    [doclang/environment content=My content text]%
+    {foocolorbox*}{\oarg{options}}
+  This is the main environment to create an accentuated colored text box with
+  rounded corners and, optionally, two parts.
+\end{docEnvironment}
+\end{dispExample}
+\end{xdocEnvironment}}
+
+{\let\xdocEnvironment\docEnvironment
+\let\endxdocEnvironment\enddocEnvironment
+\begin{xdocEnvironment}[doclang/environment content=environment description,doc updated=2020-04-22]
+    {docEnvironment*}{\oarg{options}\marg{name}\marg{parameters}}
+  Identical to \refEnv{docEnvironment}, but without index entry.
+\end{xdocEnvironment}}
+
+
+\clearpage
+{\let\xdocEnvironment\docEnvironment
+\let\endxdocEnvironment\enddocEnvironment
+\begin{xdocEnvironment}[doclang/environment content=environment description,doc new=2020-04-22]
+    {docEnvironments}{\oarg{options}\brackets{\marg{variant1},\marg{variant2},...}}
+  Documents several (similar) \LaTeX\ environment variants simultaneously.
+  The given \meta{options} are set with \refCom{tcbset} and are valid for
+  all variants and the documentation text.
+  Every variant is described by an option set \meta{variant1}, \meta{variant2}, and so on.
+  The most crucial options are \refKey{/tcb/doc name} and \refKey{/tcb/doc parameter}.
+\begin{dispExample}
+\begin{docEnvironments}[
+    doc no index,   %  no index entries for this example
+    doc parameter = \oarg{options}\marg{title},
+    doclang/environment content = box content,
+  ]
+  {
+    {
+      doc name        = redbox,
+      doc description = a red colored box,
+    },
+    {
+      doc name        = greenbox,
+      doc description = a green colored box,
+    },
+    {
+      doc name        = bluebox,
+      doc description = a blue colored box,
+    },
+    {
+      doc name        = custombox,
+      doc parameter   = \oarg{options}\marg{color}\marg{title},
+      doc description = a colored box,
+    },
+  }
+  example
+\end{docEnvironments}
+\end{dispExample}
+\end{xdocEnvironment}}
+
+
+\clearpage
+\begin{docEnvironment}[doclang/environment content=key description,doc updated=2020-04-22]
+    {docKey}{\oarg{key path}\oarg{options}\marg{name}\marg{parameters}\marg{description}}
+  Documents a key with given \meta{name} and an optional \meta{key path}.
+  The given \meta{options} are set with \refCom{tcbset}.
+  This key takes mandatory or optional \meta{parameters} as value
+  with a short \meta{description}.
+  It is automatically indexed and can be referenced with
+  \refCom{refKey}\marg{name}.
+\begin{dispExample}
+\begin{docKey}[foo]{footitle}{=\meta{text}}{no default, initially empty}
+  Creates a heading line with \meta{text} as content.
+\end{docKey}
+\end{dispExample}
+\end{docEnvironment}
+
+
+\begin{docEnvironment}[doclang/environment content=key description,doc updated=2020-04-22]
+    {docKey*}{\oarg{key path}\oarg{options}\marg{name}\marg{parameters}\marg{description}}
+  Identical to \refEnv{docKey}, but without index entry.
+\end{docEnvironment}
+
+
+\begin{docEnvironment}[doclang/environment content=key description,doc new=2020-04-22]
+    {docKeys}{\oarg{options}\brackets{\marg{variant1},\marg{variant2},...}}
+  Documents several (similar) key variants simultaneously.
+  The given \meta{options} are set with \refCom{tcbset} and are valid for
+  all variants and the documentation text.
+  Every variant is described by an option set \meta{variant1}, \meta{variant2}, and so on.
+  The most crucial options are
+  \refKey{/tcb/doc keypath}, \refKey{/tcb/doc name}, \refKey{/tcb/doc parameter},
+  and \refKey{/tcb/doc description}.
+\begin{dispExample}
+\begin{docKeys}[
+    doc no index,   %  no index entries for this example
+    doc keypath   = mykeyroot,
+    doc parameter = {=\meta{length}},
+  ]
+  {
+    {
+      doc name        = width,
+      doc description = initially \texttt{10cm},
+    },
+    {
+      doc name        = height,
+      doc description = initially \texttt{7cm},
+    },
+  }
+  example
+\end{docKeys}
+\end{dispExample}
+\end{docEnvironment}
+
+
+\clearpage
+\begin{docEnvironment}[doclang/environment content=operation description,
+    doc new and updated={2019-09-18}{2020-04-22}]{docPathOperation}{\oarg{options}\marg{name}\marg{parameters}}
+  Documents a \tikzname\ path operation with given \meta{name}.
+  The given \meta{options} are set with \refCom{tcbset}.
+  This \tikzname\ path operation takes mandatory or optional \meta{parameters}.
+  It is automatically indexed and can be referenced with
+  \refCom{refPathOperation}\marg{name}.
+\begin{dispExample}
+\begin{docPathOperation}{fooop}{\oarg{opt}(\meta{name})\colOpt{at(\meta{coord})}}
+  Imaginary path operation for illustration.
+\end{docPathOperation}
+\end{dispExample}
+\end{docEnvironment}
+
+
+\begin{docEnvironment}[doclang/environment content=command description,
+    doc new and updated={2019-09-18}{2020-04-22}]{docPathOperation*}{\oarg{options}\marg{name}\marg{parameters}}
+  Identical to \refEnv{docPathOperation}, but without index entry.
+\end{docEnvironment}
+
+
+\begin{docEnvironment}[doclang/environment content=command description,
+    doc new={2020-04-22}]{docPathOperations}{\oarg{options}\brackets{\marg{variant1},\marg{variant2},...}}
+  Documents several (similar) \tikzname\ path operation variants simultaneously.
+  The given \meta{options} are set with \refCom{tcbset} and are valid for
+  all variants and the documentation text.
+  Every variant is described by an option set \meta{variant1}, \meta{variant2}, and so on.
+  The most crucial options are \refKey{/tcb/doc name} and \refKey{/tcb/doc parameter}.
+\begin{dispExample}
+\begin{docPathOperations}[
+    doc no index,   %  no index entries for this example
+  ]
+  {
+    {
+      doc name      = rectangle,
+      doc parameter = \meta{corner or cycle},
+    },
+    {
+      doc name      = circle,
+      doc parameter = \oarg{options},
+    },
+    {
+      doc name      = ellipse,
+      doc parameter = \oarg{options},
+    },
+  }
+  example
+\end{docPathOperations}
+\end{dispExample}
+\end{docEnvironment}
+
+
+\clearpage
+\begin{docCommands}[doc parameter=\oarg{options}\marg{name}]
+  {
+    {
+      doc name = docValue,
+      doc updated=2020-04-23,
+    },
+    {
+      doc name = docValue*,
+    },
+  }
+  Documents a value with given \meta{name}. Typically, this is a value for a key.
+  The given \meta{options} are set with \refCom{tcbset}.
+  This value is automatically indexed for \refCom{docValue}
+  and has no index entry for \refCom{docValue*}.
+\begin{dispExample}
+A feasible value for \refKey{/foo/footitle} is \docValue*{foovalue}.
+\end{dispExample}
+\end{docCommands}
+
+
+
+\begin{docCommands}[doc parameter=\oarg{options}\marg{name}]
+  {
+    {
+      doc name    = docAuxCommand,
+      doc updated = 2020-04-23,
+    },
+    {
+      doc name = docAuxCommand*,
+    },
+  }
+  Documents an auxiliary or minor \LaTeX\ macro with given \meta{name}
+  where \meta{name} is written without backslash.
+  The given \meta{options} are set with \refCom{tcbset}.
+  This macro is automatically indexed for \refCom{docAuxCommand}
+  and has no index entry for \refCom{docAuxCommand*}.
+\begin{dispExample}
+The macro \docAuxCommand{fooaux} holds some interesting data.
+\end{dispExample}
+\end{docCommands}
+
+
+
+\begin{docCommands}[doc parameter=\oarg{options}\marg{name}]
+  {
+    {
+      doc name    = docAuxEnvironment,
+      doc updated = 2020-04-23,
+    },
+    {
+      doc name = docAuxEnvironment*,
+    },
+  }
+  Documents an auxiliary or minor \LaTeX\ environment with given \meta{name}.
+  The given \meta{options} are set with \refCom{tcbset}.
+  This macro is automatically indexed indexed for \refCom{docAuxEnvironment}
+  and has no index entry for \refCom{docAuxEnvironment*}.
+\begin{dispExample}
+The environment \docAuxEnvironment{fooauxenv} holds some interesting data.
+\end{dispExample}
+\end{docCommands}
+
+
+\begin{docCommands}[doc parameter=\oarg{key path}\oarg{options}\marg{name}]
+  {
+    {
+      doc name    = docAuxKey,
+      doc updated = 2020-04-23,
+    },
+    {
+      doc name = docAuxKey*,
+    },
+  }
+  Documents an auxiliary key with given \meta{name} and an optional \meta{key path}.
+  The given \meta{options} are set with \refCom{tcbset}.
+  It is automatically indexed for \refCom{docAuxKey}
+  and has no index entry for \refCom{docAuxKey*}.
+\begin{dispExample}
+The key \docAuxKey[foo]{fooaux} holds some interesting data.
+\end{dispExample}
+\end{docCommands}
+
+
+
+\begin{docCommands}[doc parameter=\oarg{options}\marg{name}]
+  {
+    {
+      doc name    = docCounter,
+      doc updated = 2020-04-23,
+    },
+    {
+      doc name = docCounter*,
+    },
+  }
+  Documents a counter with given \meta{name}.
+  The given \meta{options} are set with \refCom{tcbset}.
+  The counter is automatically indexed for \refCom{docCounter}
+  and has no index entry for \refCom{docCounter*}.
+\begin{dispExample}
+The counter \docCounter{foocounter} can be used for computation.
+\end{dispExample}
+\end{docCommands}
+
+
+\clearpage
+\begin{docCommands}[doc parameter=\oarg{options}\marg{name}]
+  {
+    {
+      doc name    = docLength,
+      doc updated = 2020-04-23,
+    },
+    {
+      doc name = docLength*,
+    },
+  }
+  Documents a length with given \meta{name}.
+  The given \meta{options} are set with \refCom{tcbset}.
+  The length is automatically indexed for \refCom{docLength}
+  and has no index entry for \refCom{docLength*}.
+\begin{dispExample}
+The length \docLength{foolength} can be used for computation.
+\end{dispExample}
+\end{docCommands}
+
+
+\begin{docCommands}[doc parameter=\oarg{options}\marg{name}]
+  {
+    {
+      doc name    = docColor,
+      doc updated = 2020-04-23,
+    },
+    {
+      doc name = docColor*,
+    },
+  }
+  Documents a color with given \meta{name}.
+  The given \meta{options} are set with \refCom{tcbset}.
+  The color is automatically indexed for \refCom{docColor}
+  and has no index entry for \refCom{docColor*}.
+\begin{dispExample}
+The color \docColor{foocolor} is available.
+\end{dispExample}
+\end{docCommands}
+
+
+
+\begin{docCommand}{cs}{\marg{name}}
+  Macro from |ltxdoc| \cite{carlisle:ltxdoc} to typeset a command word \meta{name}
+  where the backslash is prefixed. The library overwrites the original macro.
+\begin{dispExample}
+This is a \cs{foocommand}.
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}{meta}{\marg{text}}
+  Macro from |doc| \cite{mittelbach:2011a} to typeset a meta \meta{text}.
+  The library overwrites the original macro.
+\begin{dispExample}
+This is a \meta{text}.
+\end{dispExample}
+\end{docCommand}
+
+
+\begin{docCommand}{marg}{\marg{text}}
+  Macro from |ltxdoc| \cite{carlisle:ltxdoc} to typeset a \meta{text} with
+  curly brackets as a mandatory argument. The library overwrites the original macro.
+\begin{dispExample}
+This is a mandatory \marg{argument}.
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}{oarg}{\marg{text}}
+  Macro from |ltxdoc| \cite{carlisle:ltxdoc} to typeset a \meta{text} with
+  square brackets as an optional argument. The library overwrites the original macro.
+\begin{dispExample}
+This is an optional \oarg{argument}.
+\end{dispExample}
+\end{docCommand}
+
+\clearpage
+
+\begin{docCommand}{brackets}{\marg{text}}
+  Sets the given \meta{text} with curly brackets.
+\begin{dispExample}
+  Here we use \brackets{some text}.
+\end{dispExample}
+\end{docCommand}
+
+
+{\let\xdispExample\dispExample
+  \let\endxdispExample\enddispExample
+\begin{docEnvironment}[doc updated=2014-10-10]{dispExample}{}
+  Creates a colored box based on a \refEnv{tcolorbox}.
+  It displays the environment content as source code in the upper part
+  and as compiled text in the lower part of the box.
+  The appearance is controlled by \refKey{/tcb/documentation listing style}
+  and the style \refKey{/tcb/docexample}. It may be
+  changed by redefining this style.
+{
+%\tcbset{before lower app={\tcbset{docexample/.style={docexample original}}}}
+%\tcbset{docexample/.style={docexample original}}%
+\begin{xdispExample}
+\begin{dispExample}
+This is a \LaTeX\ example.
+\end{dispExample}
+\end{xdispExample}
+}
+\end{docEnvironment}}
+
+
+{\let\xdispExample\dispExample
+  \let\endxdispExample\enddispExample
+\begin{docEnvironment}[doc updated=2014-10-10]{dispExample*}{\marg{options}}
+  The starred version of \refEnv{dispExample} takes \refEnv{tcolorbox} \meta{options}
+  as parameter. These \meta{options} are executed after \refKey{/tcb/docexample}.
+\begin{xdispExample}
+\begin{dispExample*}{sidebyside}
+This is a \LaTeX\ example.
+\end{dispExample*}
+\end{xdispExample}
+\end{docEnvironment}}
+
+
+\clearpage
+\begin{docEnvironment}{dispListing}{}
+  Creates a colored box based on a \refEnv{tcolorbox}.
+  It displays the environment content as source code.
+  The appearance is controlled by \refKey{/tcb/documentation listing style}
+  and the style \refKey{/tcb/docexample}. It may be
+  changed by redefining this style.
+\begin{dispExample}
+\begin{dispListing}
+This is a \LaTeX\ example.
+\end{dispListing}
+\end{dispExample}
+\end{docEnvironment}
+
+\begin{docEnvironment}{dispListing*}{\marg{options}}
+  The starred version of \refEnv{dispListing} takes \refEnv{tcolorbox} \meta{options}
+  as parameter. These \meta{options} are executed after \refKey{/tcb/docexample}.
+\begin{dispExample}
+\begin{dispListing*}{title=My listing}
+This is a \LaTeX\ example.
+\end{dispListing*}
+\end{dispExample}
+\end{docEnvironment}
+
+
+\begin{docEnvironment}{absquote}{}
+  Used to typeset an abstract as quoted and small text.
+\begin{dispExample}
+\begin{absquote}
+|tcolorbox| provides an environment for colored and framed text boxes with a
+heading line. Optionally, such a box can be split in an upper and a lower part.
+\end{absquote}
+\end{dispExample}
+\end{docEnvironment}
+
+\clearpage
+\begin{docCommand}[doc updated=2020-04-22]{tcbmakedocSubKey}{\marg{name}\marg{key path}}
+  Creates a new environment \meta{name} based on \refEnv{docKey} for the
+  documentation of keys with the given \meta{key path} as root.
+  The new environment \meta{name} takes the same para\-meters as \refEnv{docKey} itself.
+  A second starred environment \meta{name} is also created, which is identical
+  to \meta{name} but without index entry.
+\begin{dispExample}
+\tcbmakedocSubKey{docFooKey}{foo}
+
+\begin{docFooKey}{foodummy}{=\meta{nothing}}{no default, initially empty}
+Some key.
+\end{docFooKey}
+
+\begin{docFooKey*}{foo another dummy}{=\meta{nothing}}{no default, initially empty}
+Some key (not indexed).
+\end{docFooKey*}
+\end{dispExample}
+\end{docCommand}
+
+
+\begin{docCommand}[doc new=2020-04-22]{tcbmakedocSubKeys}{\marg{name}\marg{key path}}
+  Creates a new environment \meta{name} based on \refEnv{docKeys} for the
+  documentation of keys with the given \meta{key path} as root.
+  The new environment \meta{name} takes the same para\-meters as \refEnv{docKeys} itself.
+\begin{dispExample}
+\tcbmakedocSubKeys{docFooKeys}{foo}
+
+\begin{docFooKeys}[
+    doc parameter   = {=\meta{nothing}},
+    doc description = {no default, initially empty},
+  ]
+  {
+    {
+      doc name = foodummy 2,
+    },
+    {
+      doc name = foo another dummy 2,
+      doc no index,
+    }
+  }
+Some description.
+\end{docFooKeys}
+\end{dispExample}
+\end{docCommand}
+
+
+\clearpage
+
+\begin{docCommand}{refCom}{\marg{name}}
+  References a documented \LaTeX\ macro with given \meta{name} where \meta{name} is
+  written without backslash. The page reference is suppressed if it links
+  to the same page.
+\begin{dispExample}
+We have created \refCom{foomakedocSubKey} as an example.
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}{refCom*}{\marg{name}}
+  References a documented \LaTeX\ macro with given \meta{name} where \meta{name} is
+  written without backslash. There is no page reference.
+\begin{dispExample}
+We have created \refCom*{foomakedocSubKey} as an example.
+\end{dispExample}
+\end{docCommand}
+
+
+\begin{docCommand}{refEnv}{\marg{name}}
+  References a documented \LaTeX\ environment with given \meta{name}.
+  The page reference is suppressed if it links to the same page.
+\begin{dispExample}
+We have created \refEnv{foocolorbox} as an example.
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}{refEnv*}{\marg{name}}
+  References a documented \LaTeX\ environment with given \meta{name}.
+  There is no page reference.
+\begin{dispExample}
+We have created \refEnv*{foocolorbox} as an example.
+\end{dispExample}
+\end{docCommand}
+
+
+\begin{docCommand}{refKey}{\marg{name}}
+  References a documented key with given \meta{name} where \meta{name}
+  is the full path name of the key.
+  The page reference is suppressed if it links to the same page.
+\begin{dispExample}
+We have created \refKey{/foo/footitle} as an example.
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}{refKey*}{\marg{name}}
+  References a documented key with given \meta{name} where \meta{name}
+  is the full path name of the key.
+  There is no page reference.
+\begin{dispExample}
+We have created \refKey*{/foo/footitle} as an example.
+\end{dispExample}
+\end{docCommand}
+
+\clearpage
+
+\begin{docCommand}[doc new=2019-09-17]{refPathOperation}{\marg{name}}
+  References a documented \tikzname\ path operation with given \meta{name}.
+  The page reference is suppressed if it links to the same page.
+\begin{dispExample}
+We have created \refPathOperation{fooop} as an example.
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}[doc new=2019-09-17]{refPathOperation*}{\marg{name}}
+  References a documented \tikzname\ path operation with given \meta{name}.
+  There is no page reference.
+\begin{dispExample}
+We have created \refPathOperation*{fooop} as an example.
+\end{dispExample}
+\end{docCommand}
+
+
+
+\begin{docCommand}[doc updated=2020-02-11]{refAux}{\marg{name}}
+  References some auxiliary environment, key, value, or color.
+  The \meta{name} is colored according to \refKey{/tcb/color hyperlink},
+  if |hyperref| colorlinks are set, but there is no real link.
+\begin{dispExample}
+Some pages back, one can see \refAux{/foo/footitle} as an example.
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}[doc updated=2020-02-11]{refAuxcs}{\marg{name}}
+  References some auxiliary macro \meta{name} where \meta{name} is
+  written without backslash.
+  The \meta{name} is colored according to \refKey{/tcb/color hyperlink},
+  if |hyperref| colorlinks are set, but there is no real link.
+\begin{dispExample}
+Some pages back, one can see \refAuxcs{fooaux} as an example.
+\end{dispExample}
+\end{docCommand}
+
+
+\begin{docCommand}{colDef}{\marg{text}}
+Sets \meta{text} with the command color, see \refKey{/tcb/color command}.
+\begin{dispExample}
+This is my \colDef{text}.
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}{colOpt}{\marg{text}}
+  Sets \meta{text} with the option color, see \refKey{/tcb/color option}.
+\begin{dispExample}
+This is my \colOpt{text}.
+\end{dispExample}
+\end{docCommand}
+
+\clearpage
+
+\begin{docCommand}[doc new=2019-09-18]{colFade}{\marg{text}}
+  Sets \meta{text} with the fade color, see \refKey{/tcb/color fade}.
+\begin{dispExample}
+This is my \colFade{text}.
+\end{dispExample}
+\end{docCommand}
+
+
+\begin{docCommand}[doc new=2014-09-19]{tcbdocmarginnote}{\oarg{options}\marg{text}}
+  Creates a |tcolorbox| note with the given \meta{text} inside the margin using
+  the |marginnote| package. The style of the |tcolorbox| is predefined and can be
+  altered by \refKey{/tcb/doc marginnote} and the given \meta{options}.
+\begin{dispExample}
+Some text\tcbdocmarginnote{Note A}
+which is commented by a note inside the margin.
+Alternatively to |\tcbdocmarginnote|, you can always use
+|\marginnote| with a |tcolorbox| directly.\par
+This is further text%
+\tcbdocmarginnote[colframe=blue!50!white,colback=blue!5!white]{Note B}
+with another note.
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}[doc new=2014-09-19]{tcbdocnew}{\marg{date}}
+  Auxiliary macro which typesets the \refKey{/tcb/doclang/new} text with
+  the given \meta{date}. It may be redefined for customization.
+  \makeatletter\renewcommand*{\tcbdocnew}[1]{\kvtcb@text@new: #1}\makeatother%
+\begin{dispExample*}{sidebyside}
+\tcbdocnew{1981-10-29}.
+% Next one is displayed in the margin:
+\tcbdocmarginnote{\tcbdocnew{1978-02-09}}
+\end{dispExample*}
+\end{docCommand}
+
+\begin{docCommand}[doc new=2014-09-19]{tcbdocupdated}{\marg{date}}
+  Auxiliary macro which typesets the \refKey{/tcb/doclang/updated} text with
+  the given \meta{date}. It may be redefined for customization.
+  \makeatletter\renewcommand*{\tcbdocupdated}[1]{\kvtcb@text@updated: #1}\makeatother%
+\begin{dispExample*}{sidebyside}
+\tcbdocupdated{2014-09-19}.
+\end{dispExample*}
+\end{docCommand}
+
+
+\clearpage
+%-------------------------------------------------------------------------------
+\subsection{Entry Content Option Keys}
+
+
+\begin{docTcbKey}[][doc new={2020-04-22}]{doc name}{=\meta{name}}{no default, initially empty}
+  Sets the \meta{name} of the entry to document, i.e. the \meta{name} of the
+  command, environment, key, etc. For \refEnv{docCommand}, \refEnv{docEnvironment}, etc.
+  the \meta{name} is set by a mandatory parameter, but can also be set
+  by \refKey{/tcb/doc name}.
+  \refKey{/tcb/doc name} also sets \meta{name} to
+  \refKey{/tcb/doc label}, \refKey{/tcb/doc index},
+  and \refKey{/tcb/doc sort index}.
+\begin{dispExample}
+\begin{docCommands}[
+    doc no index,  %  no index entries for this example
+    doc name      = bfseries,
+  ] {}
+  Font setting to bold face.
+\end{docCommands}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new={2020-04-22}]{doc parameter}{=\meta{parameters}}{no default, initially empty}
+  Sets the \meta{parameters} of the entry to document, i.e. the \meta{parameters} of the
+  command, environment, key, etc. For \refEnv{docCommand}, \refEnv{docEnvironment}, etc.
+  the \meta{parameters} is set by a mandatory option, but can also be set
+  by \refKey{/tcb/doc parameter}.
+\begin{dispExample}
+\begin{docCommands}[
+    doc no index,  %  no index entries for this example
+    doc name      = textbf,
+    doc parameter = \marg{text},
+  ] {}
+  Sets \meta{text} in bold face.
+\end{docCommands}
+\end{dispExample}
+\end{docTcbKey}
+
+
+
+\begin{docTcbKey}[][doc new={2020-04-22}]{doc keypath}{=\meta{key path}}{no default, initially empty}
+  Sets the \meta{key path} of the key to document. For \refEnv{docKey}
+  and \refEnv{docKey*} the \meta{key path}  is set by a specialized option,
+  but can also be set by \refKey{/tcb/doc keypath}.
+\begin{dispExample}
+\begin{docKeys}[
+    doc no index,  %  no index entries for this example
+    doc keypath     = tikz,
+    doc name        = fill,
+    doc parameter   = \colOpt{=\meta{color}},
+    doc description = default is scope's color setting,
+  ] {}
+  This option causes the path to be filled.
+\end{docKeys}
+\end{dispExample}
+\end{docTcbKey}
+
+\clearpage
+
+\begin{docTcbKey}{doc description}{=\meta{description}}{no default, initially empty}
+  Sets a (short!) additional \meta{description} for
+  \refEnv{docCommand}, \refEnv{docEnvironment}, or \refEnv{docPathOperation}.
+  Such a description is
+  mandatory for \refEnv{docKey}.
+\begin{dispExample}
+\begin{docCommand*}[doc description=my description]{myCommandF}{\marg{argument}}
+  This is the documentation of \refCom{myCommandF} which takes one \meta{argument}.
+  \refCom{myCommandF} does some funny things with its \meta{argument}.
+\end{docCommand*}
+\end{dispExample}
+\begin{marker}
+Note that the description \meta{text} may overlap with the text on the left
+hand side if too long. Linebreaks can be used inside the \meta{text}.
+\end{marker}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new={2019-09-18}]{doc label}{=\meta{text}}{no default, initially unset}
+  If used inside the option list of \refEnv{docCommand}, \refEnv{docEnvironment},
+  \refEnv{docKey}, etc, then \meta{text} is used
+  for labeling instead of the name of the definition.
+\begin{dispExample}
+\begin{docPathOperation*}[doc label=pathline]{-{}-}{\meta{coordinate or cycle}}
+  This is the documentation of \refPathOperation{pathline}.
+\end{docPathOperation*}
+\end{dispExample}
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new={2020-01-07}]{doc index}{=\meta{text}}{no default, initially unset}
+  If used inside the option list of \refEnv{docCommand}, \refEnv{docEnvironment},
+  \refEnv{docKey}, etc, then \meta{text} is used
+  for the index instead of the name of the definition.
+\begin{dispExample}
+\begin{docPathOperation}[doc index=foo path (horizontal then vertical),
+    doc label=pathline2]{-\textbar}{\meta{coordinate or cycle}}
+  This is the documentation of \refPathOperation{pathline2}.
+\end{docPathOperation}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new={2020-04-23}]{doc sort index}{=\meta{text}}{no default, initially unset}
+  If used inside the option list of \refEnv{docCommand}, \refEnv{docEnvironment},
+  \refEnv{docKey}, etc, then \meta{text} is used
+  for as sort key for the index instead of the name of the definition.
+\begin{dispListing}
+\begin{docCommands}[
+    doc name        = l_tcobox_example_tl,
+    doc sort index  = example_tl,  % sorted unter e like example
+  ]{}
+\end{docCommands}
+\end{dispListing}
+\end{docTcbKey}
+
+\clearpage
+
+\begin{docTcbKey}{doc into index}{\colOpt{=true\textbar false}}{default |true|, initially |true|}
+  If set to |false|, no index entries are written for the main documentation
+  environments. The same effect is achieved by using e.\,g.\ \refEnv{docCommand*}
+  instead of \refEnv{docCommand}.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new={2020-04-22}]{doc no index}{}{style, initially unset}
+  If set, no index entries are written for the main documentation
+  environments. This is a shortcut for using \refKey{/tcb/doc into index}|=false|.
+\end{docTcbKey}
+
+
+
+\begin{docTcbKey}[][doc new=2014-09-19]{doc marginnote}{=\meta{options}}{no default, initially empty}
+  Sets style \meta{options} for the displayed box of the \refCom{tcbdocmarginnote} command.
+\begin{dispExample}
+\tcbset{doc marginnote={colframe=blue!50!white,colback=blue!5!white}}%
+This is some text\tcbdocmarginnote{Note A}
+which is commented by a note inside the margin.
+\end{dispExample}
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2014-09-19]{doc new}{=\meta{date}}{style, no default}
+  Adds a a marginnote with a \enquote{New: \meta{date}} message at the beginning of
+  the upper box part. The intended use is inside the option list of
+  \refEnv{docCommand}, \refEnv{docEnvironment}, etc.
+  \makeatletter\renewcommand*{\tcbdocnew}[1]{\kvtcb@text@new: #1}\makeatother%
+\begin{dispExample}
+\begin{docCommand}[doc new=2000-01-01]{foosomething}{\marg{text}}
+Some command for something.
+\end{docCommand}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2014-09-19]{doc updated}{=\meta{date}}{style, no default}
+  Adds a marginnote with a \enquote{Updated: \meta{date}} message at the beginning of
+  the upper box part. See \refKey{/tcb/doc new}.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2014-09-19]{doc new and updated}{=\marg{new date}\marg{update date}}{style, no default}
+  Adds a marginnote with \enquote{New: \meta{new date}} and \enquote{Updated: \meta{update date}} messages at the beginning of
+  the upper box part. See \refKey{/tcb/doc new}.
+\end{docTcbKey}
+
+
+
+\clearpage
+%-------------------------------------------------------------------------------
+\subsection{Entry Customization Option Keys}
+
+
+\begin{docTcbKey}{doc left}{=\meta{length}}{no default, initially |2em|}
+  Sets the left hand offset of the documentation texts from
+  \refEnv{docCommand}, \refEnv{docEnvironment}, \refEnv{docKey}, etc, to \meta{length}.
+\begin{dispExample}
+\begin{docCommand*}[doc left=2cm,doc left indent=-2cm]{myCommandA}{\marg{argument}}
+  This is the documentation of \refCom{myCommandA} which takes one \meta{argument}.
+  \refCom{myCommandA} does some funny things with its \meta{argument}.
+\end{docCommand*}
+\end{dispExample}
+\end{docTcbKey}
+
+\begin{docTcbKey}{doc right}{=\meta{length}}{no default, initially |0em|}
+  Sets the right hand offset of the documentation texts from
+  \refEnv{docCommand}, \refEnv{docEnvironment}, \refEnv{docKey}, etc, to \meta{length}.
+\begin{dispExample}
+\begin{docCommand*}[doc right=2cm]{myCommandB}{\marg{argument}}
+  This is the documentation of \refCom{myCommandB} which takes one \meta{argument}.
+  \refCom{myCommandB} does some funny things with its \meta{argument}.
+\end{docCommand*}
+\end{dispExample}
+\end{docTcbKey}
+
+\begin{docTcbKey}{doc left indent}{=\meta{length}}{no default, initially |-2em|}
+  Sets the left hand indent of documentation heads from
+  \refEnv{docCommand}, \refEnv{docEnvironment}, \refEnv{docKey}, etc, to \meta{length}.
+\begin{dispExample}
+\begin{docCommand*}[doc left indent=2cm]{myCommandC}{\marg{argument}}
+  This is the documentation of \refCom{myCommandC} which takes one \meta{argument}.
+  \refCom{myCommandC} does some funny things with its \meta{argument}.
+\end{docCommand*}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{doc right indent}{=\meta{length}}{no default, initially |0pt|}
+  Sets the right hand indent of documentation heads from
+  \refEnv{docCommand}, \refEnv{docEnvironment}, \refEnv{docKey}, etc, to \meta{length}.
+\begin{dispExample}
+\begin{docCommand*}[doc right indent=-10mm,doc right=10mm,
+    doc description=test value]{myCommandD}{\marg{argument}}
+  This is the documentation of \refCom{myCommandD} which takes one \meta{argument}.
+  \refCom{myCommandD} does some funny things with its \meta{argument}.
+\end{docCommand*}
+\end{dispExample}
+\end{docTcbKey}
+
+\clearpage
+The head lines of the main documentation environments \refEnv{docCommand},
+\refEnv{docEnvironment}, \refEnv{docKey}, etc, are |tcolorbox|es inside a
+\refEnv{tcbraster}.
+Options to the surrounding |tcbraster|s and the embedded
+|tcolorbox|es can be given using the following keys.
+
+
+\begin{docTcbKeys}[
+  doc name        = doc raster command,
+  doc parameter   = {=\meta{options}},
+  doc description = {no default, initially empty},
+  doc new         = 2020-04-24,
+]{}
+  Sets \meta{options} for the surrounding \refEnv{tcbraster} of\\
+  \refEnv{docCommand}, \refEnv{docCommand*}, and \refEnv{docCommands}.
+
+\begin{dispExample}
+\tcbset{doc raster command={raster before skip=7mm,raster after skip=0mm}}
+
+The is an example text.
+
+\begin{docCommand*}{myCommandI}{\marg{argument}}
+  This is the documentation of \refCom{myCommandI} which takes one \meta{argument}.
+  \refCom{myCommandI} does some funny things with its \meta{argument}.
+\end{docCommand*}
+\end{dispExample}
+
+\end{docTcbKeys}
+
+
+\begin{docTcbKeys}[
+  doc name        = doc raster environment,
+  doc parameter   = {=\meta{options}},
+  doc description = {no default, initially empty},
+  doc new         = 2020-04-24,
+]{}
+  Sets \meta{options} for the surrounding \refEnv{tcbraster} of\\
+  \refEnv{docEnvironment}, \refEnv{docEnvironment*}, and \refEnv{docEnvironments}.
+\end{docTcbKeys}
+
+
+\begin{docTcbKeys}[
+  doc name        = doc raster key,
+  doc parameter   = {=\meta{options}},
+  doc description = {no default, initially empty},
+  doc new         = 2020-04-24,
+]{}
+  Sets \meta{options} for the surrounding \refEnv{tcbraster} of\\
+  \refEnv{docKey}, \refEnv{docKey*}, and \refEnv{docKeys}.
+\end{docTcbKeys}
+
+
+\begin{docTcbKeys}[
+  doc name        = doc raster path,
+  doc parameter   = {=\meta{options}},
+  doc description = {no default, initially empty},
+  doc new         = 2020-04-24,
+]{}
+  Sets \meta{options} for the surrounding \refEnv{tcbraster} of\\
+  \refEnv{docPathOperation}, \refEnv{docPathOperation*}, and \refEnv{docPathOperations}.
+\end{docTcbKeys}
+
+
+\begin{docTcbKeys}[
+  doc name        = doc raster,
+  doc parameter   = {=\meta{options}},
+  doc description = {no default, initially empty},
+  doc new         = 2020-04-24,
+]{}
+  Shortcut for setting the same \meta{options} for
+  \refKey{/tcb/doc raster command}, \refKey{/tcb/doc raster environment},
+  \refKey{/tcb/doc raster key}, and \refKey{/tcb/doc raster path}.
+\end{docTcbKeys}
+
+
+\begin{docTcbKey}{doc head command}{=\meta{options}}{no default, initially empty}
+  Sets \meta{options} for the head line of
+  \refEnv{docCommand}, \refEnv{docCommand*}, and \refEnv{docCommands}.
+\begin{dispExample}
+\tcbset{doc head command={interior style={fill,left color=red!20!white,
+  right color=blue!20!white}}}
+
+\begin{docCommand*}{myCommandE}{\marg{argument}}
+  This is the documentation of \refCom{myCommandE} which takes one \meta{argument}.
+  \refCom{myCommandE} does some funny things with its \meta{argument}.
+\end{docCommand*}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\clearpage
+
+\begin{docTcbKey}{doc head environment}{=\meta{options}}{no default, initially empty}
+  Sets \meta{options} for the head line of
+  \refEnv{docEnvironment}, \refEnv{docEnvironment*}, and \refEnv{docEnvironments}.
+\begin{dispExample}
+\tcbset{doc head environment={beamer,boxsep=2pt,arc=2pt,colback=green!20!white}}
+
+\begin{docEnvironment*}{myEnvironment}{\marg{argument}}
+  This is the documentation of \refEnv{myEnvironment} which
+  takes one \meta{argument}.
+\end{docEnvironment*}
+\end{dispExample}
+\end{docTcbKey}
+
+\begin{docTcbKey}{doc head key}{=\meta{options}}{no default, initially empty}
+  Sets \meta{options} for the head line of
+  \refEnv{docKey}, \refEnv{docKey*}, and \refEnv{docKeys}.
+\begin{dispExample}
+\tcbset{doc head key={boxsep=4pt,arc=4pt,boxrule=0.6pt,
+  frame style=fill,interior style=fill,colframe=green!50!black}}
+
+\begin{docKey}{/foo/myKey}{}{no value}
+  This is the documentation of \refKey{/foo/myKey}.
+\end{docKey}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2019-09-18]{doc head path}{=\meta{options}}{no default, initially empty}
+  Sets \meta{options} for the head line of
+  \refEnv{docPathOperation}, \refEnv{docPathOperation*}, and \refEnv{docPathOperations}.
+\begin{dispExample}
+\tcbset{doc head command={interior style={fill,left color=red!7!white,
+  right color=blue!7!white}}}
+
+\begin{docPathOperation*}{-{}-}{\meta{coordinate or cycle}}
+  This is the documentation of \refPathOperation{-{}-}.
+\end{docPathOperation*}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc updated=2019-09-18]{doc head}{=\meta{options}}{no default, initially empty}
+  Shortcut for setting the same \meta{options} for
+  \refKey{/tcb/doc head command}, \refKey{/tcb/doc head environment},
+  \refKey{/tcb/doc head key}, and \refKey{/tcb/doc head path}.
+\end{docTcbKey}
+
+
+\clearpage
+
+The description texts of the main documentation environments \refEnv{docCommand},
+\refEnv{docEnvironment}, \refEnv{docKey}, etc, are set in a compact form without
+indention and |parskip=0pt|. This settings can overruled by using the following
+keys to insert code before (or after) the description texts.
+
+\begin{docTcbKey}[][doc new=2015-10-09]{before doc body command}{=\meta{code}}{no default, initially empty}
+  Executes \meta{code} before the description texts
+  of \refEnv{docCommand} and \refEnv{docCommand*}.
+\begin{dispExample}
+\tcbset{before doc body command={%
+    \setlength{\parindent}{2.5em}%
+    \setlength{\parskip}{1ex plus 0.75ex minus 0.25ex}%
+}}
+
+\begin{docCommand*}{myCommandG}{\marg{argument}}
+  This is the documentation of \refCom{myCommandG} which takes one \meta{argument}.
+  \refCom{myCommandG} does some funny things with its \meta{argument}.
+\end{docCommand*}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2015-10-09]{after doc body command}{=\meta{code}}{no default, initially empty}
+  Executes \meta{code} after the description texts
+  of \refEnv{docCommand} and \refEnv{docCommand*}.
+\begin{dispExample}
+\tcbset{after doc body command={%
+    \hfill\nolinebreak[1]\hspace*{\fill}\textcolor{red}{$\diamondsuit$}%
+}}
+
+\begin{docCommand*}{myCommandH}{\marg{argument}}
+  This is the documentation of \refCom{myCommandH} which takes one \meta{argument}.
+  \refCom{myCommandH} does some funny things with its \meta{argument}.
+\end{docCommand*}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2015-10-09]{before doc body environment}{=\meta{code}}{no default, initially empty}
+  Executes \meta{code} before the description texts
+  of \refEnv{docEnvironment} and \refEnv{docEnvironment*}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2015-10-09]{after doc body environment}{=\meta{code}}{no default, initially empty}
+  Executes \meta{code} after the description texts
+  of \refEnv{docEnvironment} and \refEnv{docEnvironment*}.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2015-10-09]{before doc body key}{=\meta{code}}{no default, initially empty}
+  Executes \meta{code} before the description texts
+  of \refEnv{docKey} and \refEnv{docKey*}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2015-10-09]{after doc body key}{=\meta{code}}{no default, initially empty}
+  Executes \meta{code} after the description texts
+  of \refEnv{docKey} and \refEnv{docKey*}.
+\end{docTcbKey}
+
+\clearpage
+
+\begin{docTcbKey}[][doc new=2019-09-18]{before doc body path}{=\meta{code}}{no default, initially empty}
+  Executes \meta{code} before the description texts
+  of \refEnv{docPathOperation} and \refEnv{docPathOperation*}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2019-09-18]{after doc body path}{=\meta{code}}{no default, initially empty}
+  Executes \meta{code} after the description texts
+  of \refEnv{docPathOperation} and \refEnv{docPathOperation*}.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new and updated={2015-10-09}{2019-09-18}]{before doc body}{=\meta{options}}{no default, initially empty}
+  Shortcut for setting the same \meta{options} for
+  \refKey{/tcb/before doc body command}, \refKey{/tcb/before doc body environment},
+  \refKey{/tcb/before doc body key}, and \refKey{/tcb/before doc body path}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new and updated={2015-10-09}{2019-09-18}]{after doc body}{=\meta{options}}{no default, initially empty}
+  Shortcut for setting the same \meta{options} for
+  \refKey{/tcb/after doc body command}, \refKey{/tcb/after doc body environment},
+  \refKey{/tcb/after doc body key}, and \refKey{/tcb/after doc body path}.
+\end{docTcbKey}
+
+
+
+
+
+
+
+\clearpage
+\subsection{General Customization Option Keys}
+
+\begin{docTcbKey}[][doc updated=2015-03-16]{docexample}{}{style, no value}
+  Sets the style for \refEnv{dispExample} and \refEnv{dispListing}
+  with the colors |ExampleBack| and |ExampleFrame|.
+  To change the appearance of the examples, this style can be
+  redefined.
+\begin{dispListing}
+% Predefined style:
+\tcbset{
+  docexample/.style={colframe=ExampleFrame,colback=ExampleBack,
+    before skip=\medskipamount,after skip=\medskipamount,
+    fontlower=\footnotesize}
+}
+\end{dispListing}
+\end{docTcbKey}
+
+\begin{docTcbKey}{documentation listing options}{=\meta{key list}}{no default,\\\hspace*{\fill} initially |style=tcbdocumentation|}
+  Sets the options from the package |listings| \cite{hoffmann:listings}.
+  They are used inside \refEnv{dispExample} and \refEnv{dispListing} to typeset
+  the listings. Note that this is not identical to the key
+  \refKey{/tcb/listing options} which is used for \enquote{normal} listings.\\
+  Used for \refKey{/tcb/listing engine}|=listings| only.
+\end{docTcbKey}
+
+\begin{docTcbKey}{documentation listing style}{=\meta{listing style}}{no default, initially |tcbdocumentation|}
+  Abbreviation for |documentation listing options={style=...}|.
+  This key sets a \meta{style}
+  for the |listings| package, see \cite{hoffmann:listings}.
+  Note that this is not identical to the key
+  \refKey{/tcb/listing style} which is used for \enquote{normal} listings.\\
+  Used for \refKey{/tcb/listing engine}|=listings| only.
+\end{docTcbKey}
+
+\begin{docTcbKey}{documentation minted options}{=\meta{minted style}}{no default,\\\hspace*{\fill} initially |tabsize=2,fontsize=\textbackslash small|}
+  Sets the options from the package |minted| \cite{poore:minted}
+  which are used during typesetting of the listing, if used.
+  Note that this is not identical to the key
+  \refKey{/tcb/minted options} which is used for \enquote{normal} listings.\\
+  Used for \refKey{/tcb/listing engine}|=minted| only.
+\end{docTcbKey}
+
+\begin{docTcbKey}{documentation minted style}{=\meta{key list}}{no default, initially unset}
+  Sets a \meta{style} known to |Pygments| \cite{pygments:web} for
+  the package |minted| \cite{poore:minted}, if used.
+  Note that this is not identical to the key
+  \refKey{/tcb/minted style} which is used for \enquote{normal} listings.\\
+  Used for \refKey{/tcb/listing engine}|=minted| only.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2017-04-24]{documentation minted language}{=\meta{programming language}}{no default, initially |latex|}
+  Sets a \meta{programming language} known to |Pygments| \cite{pygments:web}
+  for the package |minted| \cite{poore:minted}, if used.
+  Note that this is not identical to the key
+  \refKey{/tcb/minted language} which is used for \enquote{normal} listings.\\
+  Used for \refKey{/tcb/listing engine}|=minted| only.
+\end{docTcbKey}
+
+
+\begin{marker}
+The following two keys are deprecated and without function (v3.50 and above).
+Use \refKey{/tcb/before} and \refKey{/tcb/after} with appropriate values
+instead. Also see \refKey{/tcb/docexample}.
+\end{marker}
+
+\begin{docTcbKey}[][doc updated=2015-03-16]{before example}{=\meta{macros}}{no default, initially empty}
+\smallskip\begin{deprecated}
+  Sets the \meta{macros} which are executed before \refEnv{dispExample} and \refEnv{dispListing}
+  additional to \refKey{/tcb/before}.
+\end{deprecated}
+\end{docTcbKey}
+
+\enlargethispage*{1cm}
+
+\begin{docTcbKey}{after example}{=\meta{macros}}{no default, initially empty}
+\smallskip\begin{deprecated}
+  Sets the \meta{macros} which are executed after \refEnv{dispExample} and \refEnv{dispListing}
+  additional to \refKey{/tcb/after}.
+\end{deprecated}
+\end{docTcbKey}
+
+\clearpage
+\begin{docTcbKey}[][doc new=2017-04-25]{keywords bold}{\colOpt{=true\textbar false}}{default |true|, initially |true|}
+  Keyword used in \refEnv{docEnvironment}, \refEnv{docCommand}, etc. are printed
+  boldface (or not). Since the typewriter font is used, the effect may be
+  invisible with Computer Modern fonts or similar which do not
+  have a bold variant. Note that references to keywords are not printed boldface at all.
+\begin{dispExample*}{sidebyside}
+\LARGE
+\docAuxCommand{fooaux}, \refCom{tcbset}
+
+\tcbset{keywords bold=false}
+\docAuxCommand{fooaux}, \refCom{tcbset}
+\end{dispExample*}
+\end{docTcbKey}
+
+
+
+\begin{docTcbKey}[][doc new=2015-01-09]{index command}{=\meta{macro}}{no default, initially \cs{index}}
+  Replaces the internally used \cs{index} macro by the given \meta{macro}.
+  The \meta{macro} has to take one mandatory argument like \cs{index}.
+  This option is mutually exclusive with \refKey{/tcb/index command name}.
+\begin{dispListing}
+\tcbset{index command=\myindexcommand}
+\end{dispListing}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2015-01-09]{index command name}{=\meta{name}}{no default, initially unset}
+  Replaces the internally used \cs{index} macro by
+  \mbox{\cs{index}\texttt{[\meta{name}]}}, i.e.\ 
+  \mbox{\cs{index}\texttt{\textbraceleft\ldots\textbraceright}} is replaced by
+  \mbox{\cs{index}\texttt{[\meta{name}]\textbraceleft\ldots\textbraceright}}.
+  This option is intended to be used with |imakeidx| and is
+  mutually exclusive with \refKey{/tcb/index command}.
+\begin{dispListing}
+\tcbset{index command name=mydoc}
+\end{dispListing}
+\end{docTcbKey}
+
+
+
+\begin{docTcbKey}{index format}{=\meta{format}}{no default, initially |pgf|}
+  Determines the basic \meta{format} of the generated index.
+  Feasible values are:
+  \begin{itemize}
+  \item\docValue{pgfsection}: The index is formatted like in the |pgf| documentation (as a section).
+  \item\docValue{pgfchapter}: The index is formatted like in the |pgf| documentation (as a chapter).
+  \item\docValue{pgf}: Alias for |pgfsection|.
+  \item\docValue{doc}: The index is assumed to be formatted by |doc| or |ltxdoc|. The usage of |makeindex|
+    with |-s gind.ist| is assumed. The package |hypdoc| has to be loaded
+    \emph{before} |tcolorbox|. Only a limited set of customizations will
+    work! This option cannot be unset when used!
+  \item\docValue{off}: The index is not formatted by |tcolorbox|. Use this, if
+    the index is formatted by other package like |imakeidx|.
+  \end{itemize}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{index actual}{=\meta{character}}{no default, initially |@|}
+  Sets the character for \enquote{actual} in automatic indexing.
+\end{docTcbKey}
+
+\begin{docTcbKey}{index quote}{=\meta{character}}{no default, initially |"|}
+  Sets the character for \enquote{quote} in automatic indexing.
+\end{docTcbKey}
+
+\begin{docTcbKey}{index level}{=\meta{character}}{no default, initially |!|}
+  Sets the character for \enquote{level} in automatic indexing.
+\end{docTcbKey}
+
+\begin{docTcbKey}{index default settings}{}{style, no value}
+  Sets the |makeindex| default values for
+  \refKey{/tcb/index actual},
+  \refKey{/tcb/index quote}, and
+  \refKey{/tcb/index level}.
+\end{docTcbKey}
+
+\enlargethispage*{1cm}
+
+\begin{docTcbKey}{index german settings}{}{style, no value}
+  Sets the |makeindex| values recommended for German language texts.
+  This is identical to setting the following:
+\begin{dispListing}
+\tcbset{index actual={=},index quote={!},index level={>}}
+\end{dispListing}
+\end{docTcbKey}
+
+\clearpage
+
+\begin{docTcbKey}{index annotate}{\colOpt{=true\textbar false}}{default |true|, initially |true|}
+  If set to |true|, the index entries are annotated with short descriptions
+  given by \refKey{/tcb/doclang/environment}, \refKey{/tcb/doclang/key},
+  and others.
+\end{docTcbKey}
+
+\begin{docTcbKey}{index colorize}{\colOpt{=true\textbar false}}{default |true|, initially |false|}
+  If set to |true|, the index entries colorized according to the color
+  settings given by \refKey{/tcb/color environment}, \refKey{/tcb/color key},
+  and others.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{color command}{=\meta{color}}{no default, initially |Definition|}
+  Sets the highlight color used by macro definitions.
+\end{docTcbKey}
+
+\begin{docTcbKey}{color environment}{=\meta{color}}{no default, initially |Definition|}
+  Sets the highlight color used by environment definitions.
+\end{docTcbKey}
+
+\begin{docTcbKey}{color key}{=\meta{color}}{no default, initially |Definition|}
+  Sets the highlight color used by key definitions.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new={2019-09-18}]{color path}{=\meta{color}}{no default, initially |Definition|}
+  Sets the highlight color used by \tikzname\ path operation definitions.
+\end{docTcbKey}
+
+\begin{docTcbKey}{color value}{=\meta{color}}{no default, initially |Definition|}
+  Sets the highlight color used by value definitions.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new={2015-01-08}]{color counter}{=\meta{color}}{no default, initially |Definition|}
+  Sets the highlight color used by counter definitions.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new={2015-01-08}]{color length}{=\meta{color}}{no default, initially |Definition|}
+  Sets the highlight color used by length definitions.
+\end{docTcbKey}
+
+\begin{docTcbKey}{color color}{=\meta{color}}{no default, initially |Definition|}
+  Sets the highlight color used by color definitions.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc updated={2019-09-18}]{color definition}{=\meta{color}}{no default, initially |Definition|}
+  Sets the highlight color for \refKey{/tcb/color command}, \refKey{/tcb/color environment},
+  \refKey{/tcb/color key}, \refKey{/tcb/color path}, \refKey{/tcb/color value}, \refKey{/tcb/color counter},
+  \refKey{/tcb/color length}, and \refKey{/tcb/color color}.
+\end{docTcbKey}
+
+\begin{docTcbKey}{color option}{=\meta{color}}{no default, initially |Option|}
+  Sets the color used for optional arguments.
+\end{docTcbKey}
+
+\begin{docTcbKey}{color fade}{=\meta{color}}{no default, initially |Fade|}
+  Sets the color used for faded text like \colFade{\textbackslash path}
+  in \refEnv{docPathOperation}.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{color hyperlink}{=\meta{color}}{no default, initially |Hyperlink|}
+  Sets the color for all hyper-links, i.\,e. all internal and external links.
+\end{docTcbKey}
+
+
+\clearpage
+%-------------------------------------------------------------------------------
+\subsection{Language Option Keys}
+
+The following keys are provided for language specific settings.
+The English language is predefined.
+
+\begin{docTcbKey}{english language}{}{style, no value}
+  Sets all language specific settings to English.
+\end{docTcbKey}
+
+\begin{langTcbKey}{color}{=\meta{text}}{no default, initially |color|}
+  Text used in the index for colors.
+\end{langTcbKey}
+
+\begin{langTcbKey}{colors}{=\meta{text}}{no default, initially |Colors|}
+  Heading text in the index for colors.
+\end{langTcbKey}
+
+\begin{langTcbKey}[][doc new={2015-01-08}]{counter}{=\meta{text}}{no default, initially |counter|}
+  Text used in the index for counters.
+\end{langTcbKey}
+
+\begin{langTcbKey}[][doc new={2015-01-08}]{counters}{=\meta{text}}{no default, initially |Counters|}
+  Heading text in the index for counters.
+\end{langTcbKey}
+
+\begin{langTcbKey}{environment}{=\meta{text}}{no default, initially |environment|}
+  Text used in the index for environments.
+\end{langTcbKey}
+
+\begin{langTcbKey}{environments}{=\meta{text}}{no default, initially |Environments|}
+  Heading text in the index for environments.
+\end{langTcbKey}
+
+\begin{langTcbKey}{environment content}{=\meta{text}}{no default, initially |environment content|}
+  Text used in \refEnv{docEnvironment}.
+\end{langTcbKey}
+
+\begin{langTcbKey}{index}{=\meta{text}}{no default, initially |Index|}
+  Heading text for the index.
+\end{langTcbKey}
+
+\begin{langTcbKey}{key}{=\meta{text}}{no default, initially |key|}
+  Text used in the index for keys.
+\end{langTcbKey}
+
+\begin{langTcbKey}{keys}{=\meta{text}}{no default, initially |Keys|}
+  Heading text used in the index for keys.
+\end{langTcbKey}
+
+\begin{langTcbKey}[][doc new={2015-01-08}]{length}{=\meta{text}}{no default, initially |length|}
+  Text used in the index for lengths.
+\end{langTcbKey}
+
+\begin{langTcbKey}[][doc new={2015-01-08}]{lengths}{=\meta{text}}{no default, initially |Lengths|}
+  Heading text in the index for lengths.
+\end{langTcbKey}
+
+\begin{langTcbKey}[][doc new={2014-09-19}]{new}{=\meta{text}}{no default, initially |New|}
+  Announcement text for new content.
+\end{langTcbKey}
+
+\begin{langTcbKey}[][doc new={2019-09-18}]{path}{=\meta{text}}{no default, initially |path operation|}
+  Text used in the index for path operations.
+\end{langTcbKey}
+
+\begin{langTcbKey}[][doc new={2019-09-18}]{paths}{=\meta{text}}{no default, initially |Path operations|}
+  Heading text in the index for path operations.
+\end{langTcbKey}
+
+\begin{langTcbKey}{pageshort}{=\meta{text}}{no default, initially |P.|}
+  Short text for page references.
+\end{langTcbKey}
+
+\begin{langTcbKey}[][doc new={2014-09-19}]{updated}{=\meta{text}}{no default, initially |Updated|}
+  Announcement text for updated content.
+\end{langTcbKey}
+
+\begin{langTcbKey}{value}{=\meta{text}}{no default, initially |value|}
+  Text used in the index for values.
+\end{langTcbKey}
+
+\begin{langTcbKey}{values}{=\meta{text}}{no default, initially |Values|}
+  Heading text in the index for values.
+\end{langTcbKey}
+
+
+
+
+
+
+\clearpage
+
+
+
+\subsection{Predefined Colors of the Library}\tcbdocmarginnote{\tcbdocupdated{2019-09-18}}
+The following colors are predefined. They are used as default colors
+in some library commands.
+
+\def\dispColor#1{\docColor{#1}~\tikz[baseline=1mm]\path[fill=#1,draw] (0,0) rectangle (0.4,0.4);~}
+
+\dispColor{Option},
+\dispColor{Definition},
+\dispColor{ExampleFrame},
+\dispColor{ExampleBack},
+\dispColor{Hyperlink},
+\dispColor{Fade}.
+
+

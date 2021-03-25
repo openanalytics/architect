@@ -1,0 +1,17 @@
+\def\:temp#1{%
+   {\m@th\ensuremath{_{\mbox{\fontsize\sf@size\z@#1}}}}}
+  \def\:tempc#1{{\m@th%
+     \ifmmode {\HCode{}}\sb {\mbox{\fontsize\sf@size\z@#1}}%
+     \else%
+        \a:textsubscript%
+           {\mbox{#1}}\b:textsubscript%
+     \fi }}
+  \HLet\@textsubscript\:tempc
+\NewConfigure{textsubscript}{2}
+\Configure{textsubscript}
+   {$\relax{\HCode{}}\sb}
+   {$}
+
+\Hinput{subscript}
+\endinput
+

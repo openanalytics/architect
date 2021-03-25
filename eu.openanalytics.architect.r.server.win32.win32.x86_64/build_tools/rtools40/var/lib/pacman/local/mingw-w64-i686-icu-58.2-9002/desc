@@ -1,0 +1,36 @@
+%NAME%
+mingw-w64-i686-icu
+
+%VERSION%
+58.2-9002
+
+%BASE%
+mingw-w64-icu
+
+%DESC%
+International Components for Unicode library (mingw-w64)
+
+%URL%
+http://www.icu-project.org/
+
+%ARCH%
+any
+
+%BUILDDATE%
+1528935937
+
+%INSTALLDATE%
+1615990672
+
+%PACKAGER%
+Unknown Packager
+
+%SIZE%
+42707968
+
+%LICENSE%
+custom:icu
+
+%VALIDATION%
+sha256
+

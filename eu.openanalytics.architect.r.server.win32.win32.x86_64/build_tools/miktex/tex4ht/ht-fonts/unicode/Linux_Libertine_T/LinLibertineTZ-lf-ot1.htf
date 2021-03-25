@@ -1,0 +1,176 @@
+LinLibertineTZ-lf-ot1 0 170
+'&#x0393;' '' Gamma 0
+'&#x2206;' '' Delta 1
+'&#x0398;' '' Theta 2
+'&#x039B;' '' Lambda 3
+'&#x039E;' '' Xi 4
+'&#x03A0;' '' Pi 5
+'&#x03A3;' '' Sigma 6
+'&#x03A5;' '' Upsilon 7
+'&#x03A6;' '' Phi 8
+'&#x03A8;' '' Psi 9
+'&#x2126;' '' Omega 10
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x0131;' '' dotlessi 16
+'&#x0237;' '' uni0237 17
+'&#x60;' '' grave 18
+'&#x00B4;' '' acute 19
+'&#x02C7;' '' caron 20
+'&#x02D8;' '' breve 21
+'&#x00AF;' '' macron 22
+'&#x02DA;' '' ring 23
+'&#x00B8;' '' cedilla 24
+'&#x00DF;' '' germandbls 25
+'&#x00E6;' '' ae 26
+'&#x0153;' '' oe 27
+'&#x00F8;' '' oslash 28
+'&#x00C6;' '' AE 29
+'&#x0152;' '' OE 30
+'&#x00D8;' '' Oslash 31
+' ' '' space 32
+'!' '' exclam 33
+'&#x201D;' '' quotedblright 34
+'#' '' numbersign 35
+'$' '' dollar 36
+'%' '' percent 37
+'&amp;' '' ampersand 38
+'&#x2019;' '' quoteright 39
+'(' '' parenleft 40
+')' '' parenright 41
+'*' '' asterisk 42
+'+' '' plus 43
+',' '' comma 44
+'-' '' hyphen 45
+'.' '' period 46
+'/' '' slash 47
+'0' '' zero.fitted 48
+'1' '' one.fitted 49
+'2' '' two.fitted 50
+'3' '' three.fitted 51
+'4' '' four.fitted 52
+'5' '' five.fitted 53
+'6' '' six.fitted 54
+'7' '' seven.fitted 55
+'8' '' eight.fitted 56
+'9' '' nine.fitted 57
+':' '' colon 58
+';' '' semicolon 59
+'&#x00A1;' '' exclamdown 60
+'=' '' equal 61
+'&#x00BF;' '' questiondown 62
+'?' '' question 63
+'@' '' at 64
+'A' '' A 65
+'B' '' B 66
+'C' '' C 67
+'D' '' D 68
+'E' '' E 69
+'F' '' F 70
+'G' '' G 71
+'H' '' H 72
+'I' '' I 73
+'J' '' J 74
+'K' '' K 75
+'L' '' L 76
+'M' '' M 77
+'N' '' N 78
+'O' '' O 79
+'P' '' P 80
+'Q' '' Q 81
+'R' '' R 82
+'S' '' S 83
+'T' '' T 84
+'U' '' U 85
+'V' '' V 86
+'W' '' W 87
+'X' '' X 88
+'Y' '' Y 89
+'Z' '' Z 90
+'[' '' bracketleft 91
+'&#x201C;' '' quotedblleft 92
+']' '' bracketright 93
+'&#x02C6;' '' circumflex 94
+'&#x02D9;' '' dotaccent 95
+'&#x2018;' '' quoteleft 96
+'a' '' a 97
+'b' '' b 98
+'c' '' c 99
+'d' '' d 100
+'e' '' e 101
+'f' '' f 102
+'g' '' g 103
+'h' '' h 104
+'i' '' i 105
+'j' '' j 106
+'k' '' k 107
+'l' '' l 108
+'m' '' m 109
+'n' '' n 110
+'o' '' o 111
+'p' '' p 112
+'q' '' q 113
+'r' '' r 114
+'s' '' s 115
+'t' '' t 116
+'u' '' u 117
+'v' '' v 118
+'w' '' w 119
+'x' '' x 120
+'y' '' y 121
+'z' '' z 122
+'&#x2013;' '' endash 123
+'&#x2014;' '' emdash 124
+'&#x02DD;' '' hungarumlaut 125
+'&#x02DC;' '' tilde 126
+'&#x00A8;' '' dieresis 127
+'&#xFB01;' '' f_i 128
+'&#xFB03;' '' f_f_i 129
+'&#xFB00;' '' f_f 130
+'&#xFB02;' '' f_l 131
+'&#xFB04;' '' f_f_l 132
+'fj' '' f_j 133
+'ft' '' f_t 134
+'c{' '' c_k 135
+'ch' '' c_h 136
+'Qu' '' Q_u 137
+'&#x0141;' '' Lslash 138
+'Th' '' T_h 139
+'&#x203C;' '' exclamdbl 140
+'&#x2047;' '' question_question 141
+'&#x2048;' '' question_exclam 142
+'&#x203D;' '' exclam_question 143
+'&#x2026;' '' ellipsis 144
+'..' '' period period 145
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x0142;' '' lslash 170
+LinLibertineTZ-lf-ot1 0 170
+htfcss:  LinLibertineTZ-lf-ot1  font-weight: bold; font-family: 'Linux Libertine T', serif;
+
+

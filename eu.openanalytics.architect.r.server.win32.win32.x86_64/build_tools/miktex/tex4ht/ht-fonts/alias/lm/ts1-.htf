@@ -1,0 +1,35 @@
+.lm-ts1
+htfcss: ts1-lmbx  font-weight: bold;
+htfcss: ts1-lmbxi  font-style:italic; font-weight: bold;
+htfcss: ts1-lmbxo  font-style: oblique; font-weight: bold;
+htfcss: ts1-lmcsco  font-style: oblique;
+htfcss: ts1-lmri  font-style:italic;
+htfcss: ts1-lmro  font-style: oblique;
+htfcss: ts1-lmss  font-family: sans-serif;
+htfcss: ts1-lmssbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: ts1-lmssbx  font-family: sans-serif; font-weight: bold;
+htfcss: ts1-lmssdc  font-family: sans-serif;
+htfcss: ts1-lmssdo  font-family: sans-serif; font-style: oblique;
+htfcss: ts1-lmsso  font-family: sans-serif; font-style: oblique;
+htfcss: ts1-lmssq  font-family: sans-serif;
+htfcss: ts1-lmssqbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: ts1-lmssqbx  font-family: sans-serif; font-weight: bold;
+htfcss: ts1-lmssqo  font-family: sans-serif; font-style: oblique;
+htfcss: ts1-lmtcsc  font-family: monospace,monospace;
+htfcss: ts1-lmtcso  font-style: oblique; font-family: monospace,monospace;
+htfcss: ts1-lmtk  font-family: monospace,monospace;
+htfcss: ts1-lmtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: ts1-lmtl  font-weight: light; font-family: monospace,monospace;
+htfcss: ts1-lmtlc  font-weight: light; font-family: monospace,monospace;
+htfcss: ts1-lmtlco  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: ts1-lmtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: ts1-lmtt  font-family: monospace,monospace;
+htfcss: ts1-lmtti  font-family: monospace,monospace; font-style:italic;
+htfcss: ts1-lmtto  font-style: oblique; font-family: monospace,monospace;
+htfcss: ts1-lmvtk  font-family: monospace,monospace;
+htfcss: ts1-lmvtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: ts1-lmvtl  font-weight: light; font-family: monospace,monospace;
+htfcss: ts1-lmvtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: ts1-lmvtt  font-family: monospace,monospace;
+htfcss: ts1-lmvtto  font-style: oblique; font-family: monospace,monospace;
+

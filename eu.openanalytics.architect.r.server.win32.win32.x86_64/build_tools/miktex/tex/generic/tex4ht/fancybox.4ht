@@ -1,0 +1,98 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fancybox.4ht                          2009-05-21-09:32 %
+% Copyright (C) 1999--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \def\:tempc#1#2{\begingroup #1\relax \hbox{{#2}}\endgroup}
+\HLet\@ovalbox\:tempc
+\HLet\doublebox\ovalbox
+\HLet\shadowbox\ovalbox
+\pend:defI\VerbBox{\a:VerbBox}
+\append:def\end@VerbBox{\b:VerbBox}
+\NewConfigure{VerbBox}{2}
+\pend:def\shadowbox{\Configure{VerbBox}{\a:shadowbox}{\b:shadowbox}}
+\NewConfigure{shadowbox}{2}
+\pend:def\ovalbox{\Configure{VerbBox}{\a:ovalbox}{\b:ovalbox}}
+\NewConfigure{ovalbox}{2}
+\pend:def\Ovalbox{\Configure{VerbBox}{\a:Ovalbox}{\b:Ovalbox}}
+\NewConfigure{Ovalbox}{2}
+\pend:def\doublebox{\Configure{VerbBox}{\a:doublebox}{\b:doublebox}}
+\NewConfigure{doublebox}{2}
+\def\Btrivlist#1{\@ifnextchar[{\@Btrivlist{#1}}{\@Btrivlist{#1}[]}}
+\def\@Btrivlist#1[#2]{%
+  \@Blistrestore
+  \let\\=\@Btrivlistcr
+\a:Btrivlist
+\expandafter\edef\csname Btrivlist-dir\endcsname{\expandafter\noexpand\csname
+    \if#1la\else\if#1rc\else b\fi\fi
+    :Btrivlist-dir\endcsname
+}%
+  \fb@beginvbox{#2}%
+  \TeXhalign\bgroup
+    \hfil
+    \c:Btrivlist
+    \ignorespaces##\unskip
+    \d:Btrivlist
+    \if#1r\@empty\else\hfil\fi\cr}
+\def\endBtrivlist{\crcr\egroup
+                  \egroup\b:Btrivlist\if@pboxsw$\fi}
+\NewConfigure{Btrivlist}{4}
+\NewConfigure{Btrivlist-dir}[1]{%
+     \if :#1:\else \expandafter\Btrivlist:dir\fi {#1}}
+\def\Btrivlist:dir#1#2{\expandafter\def
+     \csname\if#1la\else\if#1rc\else b\fi\fi :Btrivlist-dir\endcsname{#2}%
+     \csname c:Btrivlist-dir:\endcsname}
+\def\@Blist#1#2[#3]{%
+  \ifnum\@listdepth>5
+    \@toodeep
+  \else
+    \global\advance\@listdepth\@ne
+  \fi
+  \itemindent\z@
+  \csname @list\romannumeral\the\@listdepth\endcsname
+  \def\@itemlabel{#1}%
+  \let\makelabel\@mklab
+  \@nmbrlistfalse
+  \@Blistrestore
+  \let\\=\@Blistcr
+  \let\item\Bitem
+  \@Bitemswfalse
+  #2\relax
+  \gdef\dd:Blist{\global\let\dd:Blist=\d:Blist}\a:Blist
+  \fb@beginvbox{#3}%
+  \TeXhalign\bgroup
+    \dd:Blist\c:Blist\e:Blist \ignorespaces##\f:Blist
+    &\e:Blist\ignorespaces##\unskip\hfil\f:Blist\cr}
+\def\endBlist{\crcr\egroup
+                  \egroup\dd:Blist\b:Blist\if@pboxsw$\fi
+                  \global\advance\@listdepth\m@ne}
+\NewConfigure{Blist}{6}
+\let\Beqnarray=\eqnarray
+\let\endBeqnarray=\endeqnarray
+
+\Hinput{fancybox}
+\endinput
+

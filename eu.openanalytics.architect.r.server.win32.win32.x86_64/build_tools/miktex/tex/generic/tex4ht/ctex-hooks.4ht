@@ -1,0 +1,40 @@
+% ctex-hooks.4ht (2020-10-17-13:53), generated from tex4ht-4ht.tex
+% Copyright 2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2020-10-17-13:53}
+
+\PassOptionsToPackage{fontset=none,autoindent=false}{ctex}
+\ExplSyntaxOn
+\let\o:file_input\file_input:n% patch \file_input:n to block
+                              % ctex-engine-luatex.def from loading
+\xdef\ctex:luaname{\detokenize{ctex-engine-luatex.def}}
+\def\:tempa#1{%
+  \edef\:tempb{#1}%
+  \ifx\:tempb\ctex:luaname%
+  % this macro is defined in the blocked file, just add dummy definition
+  \cs_new_protected:Npn \ctex_add_to_selectfont:n ##1{}%
+  \else%
+  \o:file_input{#1}%
+  \fi%
+}
+\let\file_input:n\:tempa
+\:AtEndOfPackage{%
+\let\file_input:n\o:file_input
+}
+\ExplSyntaxOff
+

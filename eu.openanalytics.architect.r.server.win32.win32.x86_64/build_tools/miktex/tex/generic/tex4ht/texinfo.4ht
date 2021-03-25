@@ -1,0 +1,296 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% texinfo.4ht                           2009-05-21-09:32 %
+% Copyright (C) 2000--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+
+\let\:temp\o:end
+        \let\o:end\ptexend
+                \let\ptexend\end
+                          \let\end\:temp
+\chardef\hat`\^
+\let\c\comment
+\def\:tempc#1{\csname env:#1\endcsname\o:beginxxx:{#1}}
+\HLet\beginxxx\:tempc
+\def\:tempc#1{%
+   \bgroup
+      \removeactivespaces{#1}%
+      \xdef\end:thing{\the\toks0}%
+   \egroup
+   \o:endxxx:{#1}%
+   \csname E:\end:thing\endcsname
+   \csname endenv:\end:thing\endcsname}
+\HLet\endxxx\:tempc
+\long\def\ConfigureEnv#1#2#3{\expandafter\def\csname env:#1\endcsname{#2}%
+  \expandafter\def\csname endenv:#1\endcsname{#3}}
+
+\NewConfigure{itemizeitem}{2}
+\def\itemizeitem{%
+   \advance\itemno by 1   {\let\par=\endgraf \smallbreak}%
+   \ifhmode \errmessage{In hmode at itemizeitem}\fi
+   \csname a:itemizeitem\l:st\endcsname
+   {\itemcontents}\csname b:itemizeitem\l:st\endcsname}
+\let\l:st\empty
+\NewConfigure{enumerate}[2]{%
+   \def\a:enumerate{\def\l:st{en}#1}\def\E:enumerate{#2\let\l:st=\empty}%
+   \Configure{itemizeitemen}}
+\NewConfigure{itemizeitemen}{2}
+\pend:def\enumerate{\a:enumerate}
+\let\DeleteMark\:gobble
+\Configure{enumerate}{}{}{}{}
+\NewConfigure{itemizeitemit}{2}
+\NewConfigure{itemize}[2]{%
+   \def\a:itemize{\def\l:st{it}#1}\def\E:itemize{#2\let\l:st=\empty}%
+   \Configure{itemizeitemit}}
+\pend:def\itemize{\a:itemize}
+\Configure{itemize}{}{}{}{}
+\def\:tempc#1#2#3#4#5#6{%
+   \o:tablez:{#1}{#2}{#3}{#4}{#5}{#6}\a:table \aftergroup\b:table
+}
+\HLet\tablez\:tempc
+\pend:defI\itemzzz{\c:table}
+\append:defI\itemzzz{\d:table}
+\NewConfigure{table}{4}
+
+\def\:tempc{%
+   \a:titlepage  \o:titlepage:
+   \def\titlezzz##1{\a:title\leftline{\titlefonts\rm ##1}%
+                    \b:title        \finishedtitlepagefalse}%
+   \pend:defI\subtitlezzz{\a:subtitle}%
+   \append:defI\subtitlezzz{\b:subtitle}%
+   \pend:defI\authorzzz{\a:author}%
+   \append:defI\authorzzz{\b:author}%
+}
+\HLet\titlepage=\:tempc
+
+\append:def\Etitlepage{\b:titlepage}
+
+\NewConfigure{titlepage}{2}
+\NewConfigure{title}{2}
+\NewConfigure{subtitle}{2}
+\NewConfigure{author}{2}
+
+\def\:temp{%
+   \vskip\titlepagebottomglue
+   \finishedtitlepagetrue
+}
+\HLet\finishtitlepage=\:temp
+
+\def\:tempd#1#2{%
+   \expandafter\let\csname #1\endcsname=\:UnDef
+   \expandafter\Def:Section\csname #1\endcsname{#2}{##1}%
+   \expand:after{\expandafter\let\csname no:#1\endcsname=}\csname #1\endcsname
+   \expandafter\outer\expandafter\def
+      \csname #1\endcsname{\expandafter\parsearg\csname #1yyy\endcsname}%
+   \def\:tempc##1{%
+     \let\sectionheading=\:gobbleIII
+     \let\unnumbchapmacro=\:gobble
+     \let\chapmacro=\:gobbleII
+     \let\centerchapmacro=\:gobble
+     \csname o:#1zzz:\endcsname{##1}\csname no:#1\endcsname{##1}}
+   \expandafter\HLet\csname #1zzz\endcsname=\:tempc}
+
+\:tempd{chapter}{\the\chapno}
+\:tempd{appendix}{\appendixletter}
+\:tempd{unnumbered}{}
+\:tempd{numberedsec}{\the\chapno.\the\secno}
+\let\numberedsecyyy=\secyyy
+\let\o:numberedseczzz:=\seczzz
+\let\seczzz=\numberedseczzz
+
+\:tempd{appendixsec}{\appendixletter.\the\secno}
+\:tempd{unnumberedsec}{}
+\:tempd{numberedsubsec}{\the\chapno.\the\secno.\the\subsecno}
+\:tempd{appendixsubsec}{\appendixletter.\the\secno.\the\subsecno}
+\:tempd{appendixsubsec}{\appendixletter.\the\secno.\the\subsecno}
+\:tempd{unnumberedsubsec}{}
+\:tempd{numberedsubsubsec}{\the\chapno.\the\secno
+                      .\the\subsecno.\the\subsubsecno}
+\:tempd{appendixsubsubsec}{\appendixletter.\the\secno
+                          .\the\subsecno.\the\subsubsecno}
+\:tempd{appendixsubsubsec}{\appendixletter.\the\secno
+                          .\the\subsecno.\the\subsubsecno}
+\:tempd{unnumberedsubsubsec}{}
+\setcontentsaftertitlepagetrue
+\NewConfigure{contents}{2}
+\def\contents{\a:contents{\catcode`\\=0
+  \:TableOfContents[chapter,%
+appendix,%
+unnumbered,%
+numberedsec,%
+appendixsec,%
+unnumberedsec,%
+numberedsubsec,%
+appendixsubsec,%
+appendixsubsec,%
+unnumberedsubsec,%
+numberedsubsubsec,%
+appendixsubsubsec,%
+appendixsubsubsec,%
+unnumberedsubsubsec%
+]}\b:contents}
+
+\HAssign\cnt:idx=0
+\def\dosubind#1#2#3{%
+  \ifx\SETmarginindex\relax\else
+    \insert\margin{\hbox{\vrule height8pt depth3pt width0pt #2}}%
+  \fi
+  {%
+    \count255=\lastpenalty
+    {%
+      \indexdummies  \escapechar=`\\
+      {%
+        \let\folio = 0%
+        \def\rawbackslashxx{\indexbackslash}%
+        \def\thirdarg{#3}%
+        \ifx\thirdarg\emptymacro    \let\subentry = \empty
+        \else                       \def\subentry{ #3}%
+        \fi
+        {\indexnofonts \xdef\indexsorttmp{#2\subentry}}%
+        \toks0 = {#2}%
+        \ifx\thirdarg\emptymacro \else
+          \toks0 = \expandafter{\the\toks0 \space #3}%
+        \fi
+        \edef\temp{%
+          \write\csname#1indfile\endcsname{%
+            \realbackslash entry{\indexsorttmp}{\folio}{%
+                   \string\Link[\FileName]{idx-\cnt:idx}{}\the\toks0
+                   \string\EndLink}}%
+        }%
+        \iflinks
+          \ifvmode
+            \skip0 = \lastskip
+            \ifdim\lastskip = 0pt \else \nobreak\vskip-\lastskip \fi
+          \fi
+          %
+          \temp \hbox{\Link-{}{idx-\cnt:idx}\EndLink  }%
+          \gHAdvance\cnt:idx by 1
+          \ifvmode \ifdim\skip0 = 0pt \else \nobreak\vskip\skip0 \fi \fi
+        \fi
+      }%
+    }%
+    \penalty\count255
+  }%
+}
+\def\:tempc#1{\begingroup
+   \pend:def\begindoublecolumns{\a:index}%
+   \append:def\enddoublecolumns{\b:index}%
+   \o:doprintindex:{#1}\endgroup}
+\HLet\doprintindex=\:tempc
+
+\def\entry#1#2{\begingroup  \parindent=0pt
+  \par \c:index #1\d:index  \par \endgroup}
+\NewConfigure{index}{4}
+
+\NewConfigure{example}{2}
+\def\example{\a:example \begingroup
+   \def\Eexample{\nonfillfinish\endgroup\b:example}\lisp}
+\NewConfigure{smalldisplay}{2}
+\def\smalldisplay{\a:smalldisplay \begingroup
+   \def\Esmalldisplay{\nonfillfinish\endgroup \b:smalldisplay}\display}
+\NewConfigure{smallexample}{2}
+\def\smallexample{\a:smallexample \begingroup
+   \def\Esmallexample{\nonfillfinish\endgroup \b:smallexample}\lisp}
+\NewConfigure{smallformat}{2}
+\def\smallformat{\a:smallformat \begingroup
+   \def\Esmallformat{\nonfillfinish\endgroup \b:smallformat}\format}
+\NewConfigure{smalllisp}{2}
+\def\smalllisp{\a:smalllisp \begingroup
+   \def\Esmalllisp{\nonfillfinish\endgroup \b:smalllisp}\lisp}
+\NewConfigure{flushleft}{2}
+\def\flushleft{\a:flushleft \begingroup
+   \def\Eflushleft{\nonfillfinish\endgroup \b:flushleft}\format}
+\let\o:code:=\code
+\def\code{\Protect\o:code:}
+\NewConfigure{pdfurl}{1}
+\def\pdfurl#1{\bgroup
+   \def~{\string~}\def\@{@}\let\*=\empty%
+   \edef\:temp{\egroup \noexpand\a:pdfurl \noexpand\Link[#1]{}{}}\:temp
+}
+\def\endlink{\EndLink}
+\pend:defII\refx{\Link{##1}{}}
+
+\NewConfigure{multitable}{6}
+\pend:def\multitable{\a:multitable}
+\def\dotable#1{\bgroup
+  \let\sv:HRow=\HRow  \def\HRow{0}%
+  \vskip\parskip  \setmultitablespacing
+  \let\item\crcr
+  \global\colcount=0
+  \def\Emultitable{\global\setpercentfalse\cr\egroup
+       \d:multitable \global\let\HRow=\sv:HRow \egroup \b:multitable}%
+  \setuptable#1 \endsetuptable \edef\HCols{\the\colcount}%
+  \everycr{\o:noalign:{\global\colcount=0\relax}}%
+  \TeXhalign\bgroup&\global\advance\colcount by 1\relax
+    \multistrut\vtop{\hsize=\expandafter\csname col\the\colcount\endcsname
+     \IgnorePar
+     \noindent
+     \ifnum \colcount=1 \gHAdvance\HRow by 1
+        \ifnum \HRow>1 \d:multitable\fi
+        \c:multitable
+     \fi
+     \e:multitable\ignorespaces##\f:multitable\unskip\multistrut}\cr
+}
+
+\NewConfigure{group}{2}
+\def\group{\a:group\begingroup
+  \ifnum\catcode13=\active \else
+    \errhelp = \groupinvalidhelp
+    \errmessage{@group invalid in context where filling is enabled}%
+  \fi
+  \def\Egroup{\egroup \endgroup \b:group }%
+  \vtop\bgroup
+    \everypar = {\HtmlPar}%
+    \offinterlineskip
+    \ifx\par\lisppar
+      \edef\par{\leavevmode \par}%
+      \obeylines
+    \fi
+    \comment
+}
+
+\ifx\parseargx\:UnDef
+   \def\parseargusing#1#2{%
+  \def\argtorun{#2}%
+  \begingroup
+    \o:obeylines:
+    \spaceisspace
+    #1%
+    \parseargline\empty}
+
+\else
+   \def\parsearg#1{%
+  \let\next = #1%
+  \begingroup
+    \o:obeylines:
+    \futurelet\temp\parseargx
+}
+\pend:defII\dosetq{\hbox{\Link{}{##1}\EndLink}}
+
+\fi
+\Hinput{texinfo}
+\endinput
+

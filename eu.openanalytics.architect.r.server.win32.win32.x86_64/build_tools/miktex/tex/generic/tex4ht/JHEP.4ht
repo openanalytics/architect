@@ -1,0 +1,175 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% JHEP.4ht                              2009-05-21-09:32 %
+% Copyright (C) 2001--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+   \def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >-2\relax
+      \SkipRefstepAnchor \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    \csname @endpart\endcsname}
+\let\:tempb\part
+\Def:Section\part{\thepart}{#1}
+\let\:part\part
+\let\part\:tempb
+\let\no@part\@part
+\def\@part[#1]#2{%
+   {\let\addcontentsline\:gobbleIII\no@part[#1]{}}%
+   \HtmlEnv   \Toc:Title{#1}\:part{#2}}
+\Def:Section\likepart{}{#1}
+\let\:likepart\likepart
+\let\likepart\:UnDef
+\let\no@spart\@spart
+\def\@spart#1{%
+   {\let\addcontentsline\:gobbleIII\no@spart{}}%
+   \HtmlEnv   \:likepart{#1}}
+
+\let\no@section\section
+\Def:Section\section{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesection \fi}{#1}
+\let\no:section\section
+\def\section{\rdef:sec{section}}
+\Def:Section\likesection{}{#1}
+\let\:likesection\likesection
+\let\likesection\:UnDef
+
+\let\no@subsection\subsection
+\Def:Section\subsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsection \fi}{#1}
+\let\no:subsection\subsection
+\def\subsection{\rdef:sec{subsection}}
+\Def:Section\likesubsection{}{#1}
+\let\:likesubsection\likesubsection
+\let\likesubsection\:UnDef
+
+\let\no@subsubsection\subsubsection
+\Def:Section\subsubsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsubsection \fi}{#1}
+\let\no:subsubsection\subsubsection
+\def\subsubsection{\rdef:sec{subsubsection}}
+\Def:Section\likesubsubsection{}{#1}
+\let\:likesubsubsection\likesubsubsection
+\let\likesubsubsection\:UnDef
+
+\let\no@paragraph\paragraph
+\Def:Section\paragraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \theparagraph \fi}{#1}
+\let\no:paragraph\paragraph
+\def\paragraph{\rdef:sec{paragraph}}
+\Def:Section\likeparagraph{}{#1}
+\let\:likeparagraph\likeparagraph
+\let\likeparagraph\:UnDef
+\let\no@subparagraph\subparagraph
+\Def:Section\subparagraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubparagraph \fi}{#1}
+\let\no:subparagraph\subparagraph
+\def\subparagraph{\rdef:sec{subparagraph}}
+\Def:Section\likesubparagraph{}{#1}
+\let\:likesubparagraph\likesubparagraph
+\let\likesubparagraph\:UnDef
+
+\let\acm:sect\no@sect
+\def\no@sect#1#2#3{\acm:sect{#1}{#2}{#3\relax\let\@svsec\empty}}
+\def\@maketitle{%
+\if@preprint
+  \a:preprint{\tiny Preprint typeset in JHEP style. -
+    \if@hyper{HYPER VERSION}   \else{PAPER VERSION}\fi }
+  \normalsize\hfill
+  \begin{tabular}[t]{r}\@preprint\end{tabular}%
+  \b:preprint
+\else
+\if@proc
+   \a:conference \copy\conf@box \b:conference \logo {\tiny PROCEEDINGS}
+\else
+  \a:received \unhbox\rece@box \b:received
+  \a:accepted \unhbox\acce@box \b:accepted  \logo
+  {\tiny \if@hyper{HYPER VERSION}\else{PAPER VERSION}\fi}
+\fi\fi\null
+   \a:title   {\LARGE \sffamily \bfseries \@title}\b:title
+   \a:author{\normalsize \bfseries \sffamily \@author }\b:author
+   \ifvoid\abstract@box \else
+      \a:abstract\vbox{\unhbox\abstract@box}\b:abstract
+   \fi
+   \a:keywords\@keywords\b:keywords
+   \ifx\dedic@box\:UnDef\else \a:dedicated\dedic@box\b:dedicated \fi
+}
+\def\auto:maketitle{{%
+  \global\let\auto:maketitle=\empty
+  \def\JHEP:toc{\setcounter{footnote}{0}%
+     \if@todotoc \tableofcontents \fi
+     \@todotocfalse \@preprintfalse
+     \gdef\tableofcontents{}%
+     \pend:def\@author{\a:author}\append:def\@author{\b:author}%
+  }%
+  \pend:def\@maketitle{\aftergroup\JHEP:toc}%
+  \let\JHEP:sva=\begingroup
+\def\begingroup{\let\begingroup=\JHEP:sva
+  \begingroup
+    \let\JHEP:sva=\@makefnmark
+    \let\JHEP:svb=\@makefntext
+    \let\JHEP:svc=\newpage
+    \def\newpage{%
+       \let\@makefnmark=\JHEP:sva
+       \let\@makefntext=\JHEP:svb
+       \let\newpage=\JHEP:svc
+       \newpage  }}
+%
+  \auto:mktitle
+  \global\let\auto:mktitle=\empty
+}}
+\let\auto:mktitle=\auto@maketitle
+\let\auto@maketitle=\empty
+\NewConfigure{@BODY}[1]{\concat:config\a::@BODY{#1}}
+\let\a::@BODY=\a:@BODY
+\def\a:@BODY{\a::@BODY \auto:maketitle }
+\NewConfigure{abstract}{2}
+\NewConfigure{accepted}{2}
+\NewConfigure{author}{2}
+\NewConfigure{conference}{2}
+\NewConfigure{dedicated}{2}
+\NewConfigure{keywords}{2}
+\NewConfigure{preprint}{2}
+\NewConfigure{received}{2}
+\NewConfigure{title}{2}
+\renewcommand{\href}[2]{\bgroup\let~\H@tilde
+                        \if@hyper\Link-[#1]{}{}\fi
+                        {#2}\egroup\if@hyper\EndLink\fi}
+\renewcommand{\name}[1]{\if@hyper\Link-{}{#1}\EndLink\fi}
+\renewcommand{\base}[1]{\if@hyper\bgroup\let~\H@tilde
+                        \HCode{<base href="#1" />}\egroup\fi}
+\pend:defI\label{\bgroup\@hyperfalse}
+\append:defI\label{\egroup}
+\pend:defI\ref{\bgroup\@hyperfalse}
+\append:defI\ref{\egroup}
+\pend:defI\pageref{\bgroup\@hyperfalse}
+\append:defI\pageref{\egroup}
+
+\Hinput{JHEP}
+\endinput
+

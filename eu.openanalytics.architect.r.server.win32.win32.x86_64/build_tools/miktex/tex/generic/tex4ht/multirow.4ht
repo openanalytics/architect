@@ -1,0 +1,45 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% multirow.4ht                         2016-12-03-00:18 %
+% Copyright (C) 2004-2009      Eitan M. Gurari         %
+% Copyright 2009-2016 TeX Users Group
+
+ \def\@xmultirow[#1]#2[#3]#4[#5]#6{%
+  \expandafter\multirow@piii#3\relax\end%
+  \multirow@dima=#2\ht\@arstrutbox
+  \advance\multirow@dima#2\dp\@arstrutbox
+  \ifdim#2pt<\z@\multirow@dima=-\multirow@dima\fi
+  \advance\multirow@dima \multirow@cntb\bigstrutjot
+  \if*#4\multirow@vbox{#1}{}{\hbox{\strut#6\strut}}%
+  \else \if=#4\multirow@setcolwidth{#6}%
+    \multirow@vbox{#1}{\hsize\multirow@colwidth\@parboxrestore}{\strut#6\strut\par}%
+  \else \multirow@vbox{#1}{\hsize#4\@parboxrestore}{\strut#6\strut\par}%
+  \fi \fi
+  \ifdim#2pt>\z@
+    \if#1t\relax\multirow@dima=\ht0\else
+      \multirow@dima=\ht\@arstrutbox
+      \ifmultirow@prefixt \advance\multirow@dima\bigstrutjot\fi
+      \if#1b\relax \advance\multirow@dima\dp\@arstrutbox
+        \ifmultirow@prefixb \advance\multirow@dima\bigstrutjot\fi
+      \fi
+    \fi
+  \else
+    \if#1b\relax\else
+      \advance\multirow@dima-\dp\@arstrutbox
+      \ifmultirow@prefixb \advance\multirow@dima-\bigstrutjot\fi
+      \if#1t\relax\advance\multirow@dima-\ht\@arstrutbox
+        \ifmultirow@prefixt \advance\multirow@dima-\bigstrutjot\fi
+        \advance\multirow@dima\ht0
+      \fi
+    \fi
+  \fi
+  \advance\multirow@dima#5\relax
+  \leavevmode\a:multirow
+  \setbox0\vtop{\vskip-\multirow@dima\box0\vss}\dp0=\z@
+  \ifmultirowdebug{\showboxdepth=5 \showboxbreadth=10 \showbox0}\fi
+  \box0\b:multirow
+}
+\NewConfigure{multirow}{2}
+
+\Hinput{multirow}
+\endinput
+

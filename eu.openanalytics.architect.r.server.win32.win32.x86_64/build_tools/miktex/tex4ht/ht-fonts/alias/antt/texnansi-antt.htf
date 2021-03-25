@@ -1,0 +1,15 @@
+.texnansi-iwona
+htfcss: texnansi-anttb  font-weight: bold;
+htfcss: texnansi-anttbi  font-style:italic; font-weight: bold;
+htfcss: texnansi-anttcb  font-weight: bold;
+htfcss: texnansi-anttcbi  font-style:italic; font-weight: bold;
+htfcss: texnansi-anttcl  font-weight: light;
+htfcss: texnansi-anttcli  font-weight: light; font-style:italic;
+htfcss: texnansi-anttcmi  font-style:italic;
+htfcss: texnansi-anttcri  font-style:italic;
+htfcss: texnansi-anttl  font-weight: light;
+htfcss: texnansi-anttli  font-weight: light; font-style:italic;
+htfcss: texnansi-anttmi  font-style:italic;
+htfcss: texnansi-anttri  font-style:italic;
+
+

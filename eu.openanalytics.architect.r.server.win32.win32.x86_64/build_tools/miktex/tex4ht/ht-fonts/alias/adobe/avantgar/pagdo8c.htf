@@ -1,0 +1,251 @@
+pagdo8c 0 246
+'&#x60;' '' grave 0
+'&#x00B4;' '' acute 1
+'&#x02C6;' '' circumflex 2
+'&#x02DC;' '' tilde 3
+'&#x00A8;' '' dieresis 4
+'&#x02DD;' '' hungarumlaut 5
+'&#x02DA;' '' ring 6
+'&#x02C7;' '' caron 7
+'&#x02D8;' '' breve 8
+'&#x00AF;' '' macron 9
+'&#x02D9;' '' dotaccent 10
+'&#x00B8;' '' cedilla 11
+'&#x02DB;' '' ogonek 12
+'&#x201A;' '' quotesinglbase 13
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x201E;' '' quotedblbase 18
+'' ''
+'' ''
+'&#x2013;&#x2013;' '' endash endash 21
+'&#x2013;&#x2013;' '' endash endash 22
+'&#x221E;' '' infinity 23
+'&#x2264;' '' lessequal 24
+'&#x2265;' '' greaterequal 25
+'&#x2202;' '' partialdiff 26
+'&#x2211;' '' summation 27
+'&#x220F;' '' product 28
+'&#x03C0;' '' pi 29
+'' ''
+''' '' quotesingle 31
+' ' '' space 32
+'' ''
+'' ''
+'' ''
+'$' '' dollar 36
+'' ''
+'' ''
+''' '' quotesingle 39
+'' ''
+'' ''
+'*' '' asterisk 42
+'' ''
+',' '' comma 44
+'-' '' hyphen 45
+'.' '' period 46
+'&#x2044;' '' fraction 47
+'0' '' zero 48
+'1' '' one 49
+'2' '' two 50
+'3' '' three 51
+'4' '' four 52
+'5' '' five 53
+'6' '' six 54
+'7' '' seven 55
+'8' '' eight 56
+'9' '' nine 57
+'' ''
+'' ''
+'&lt;' '' less 60
+'&#x2212;' '' minus 61
+'&gt;' '' greater 62
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'M' '' M 77
+'' ''
+'O' '' O 79
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'W' '' W 87
+'' ''
+'' ''
+'' ''
+'[[' '' bracketleft bracketleft 91
+'' ''
+']]' '' bracketright bracketright 93
+'^' '' asciicircum 94
+'_' '' underscore 95
+'&#x60;' '' grave 96
+'' ''
+'b' '' b 98
+'c' '' c 99
+'d' '' d 100
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'l' '' l 108
+'m' '' m 109
+'n' '' n 110
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'~' '' asciitilde 126
+'' '' .notdef 127
+'&#x02D8;' '' breve 128
+'&#x02C7;' '' caron 129
+'&#x00B4;&#x00B4;' '' acute acute 130
+'&#x60;&#x60;' '' grave grave 131
+'&#x2020;' '' dagger 132
+'&#x2021;' '' daggerdbl 133
+'||' '' bar bar 134
+'&#x2030;' '' perthousand 135
+'&#x2022;' '' bullet 136
+'&#x00B0;C' '' degree C 137
+'&#x0160;' '' Scaron 138
+'&#x2039;' '' guilsinglleft 139
+'&#x0192;' '' florin 140
+'&#x2126;' '' Omega 141
+'&#x221A;' '' radical 142
+'&#x2248;' '' approxequal 143
+'' '' .notdef 144
+'' '' .notdef 145
+'' '' .notdef 146
+'&#x201C;' '' quotedblleft 147
+'&#x201D;' '' quotedblright 148
+'&#x2022;' '' bullet 149
+'&#x2013;' '' endash 150
+'&#x2122;' '' trademark 151
+'&#x02DC;' '' tilde 152
+'&#x2122;' '' trademark 153
+'&#x0161;' '' scaron 154
+'&#x203A;' '' guilsinglright 155
+'&#x0153;' '' oe 156
+'&#x2206;' '' Delta 157
+'&#x25CA;' '' lozenge 158
+'&#x0178;' '' Ydieresis 159
+'' '' .notdef 160
+'&#x00A1;' '' exclamdown 161
+'&#x00A2;' '' cent 162
+'&#x00A3;' '' sterling 163
+'&#x00A4;' '' currency 164
+'&#x00A5;' '' yen 165
+'&#x00A6;' '' brokenbar 166
+'&#x00A7;' '' section 167
+'&#x00A8;' '' dieresis 168
+'&#x00A9;' '' copyright 169
+'&#x00AA;' '' ordfeminine 170
+'&#x00AB;' '' guillemotleft 171
+'&#x00AC;' '' logicalnot 172
+'-' '' hyphen 173
+'&#x00AE;' '' registered 174
+'&#x00AF;' '' macron 175
+'&#x00B0;' '' degree 176
+'&#x00B1;' '' plusminus 177
+'&#x00B2;' '' twosuperior 178
+'&#x00B3;' '' threesuperior 179
+'&#x00B4;' '' acute 180
+'&#x00B5;' '' mu 181
+'&#x00B6;' '' paragraph 182
+'&#x00B7;' '' periodcentered 183
+'&#x00B8;' '' cedilla 184
+'&#x00B9;' '' onesuperior 185
+'&#x00BA;' '' ordmasculine 186
+'&#x00BB;' '' guillemotright 187
+'&#x00BC;' '' onequarter 188
+'&#x00BD;' '' onehalf 189
+'&#x00BE;' '' threequarters 190
+'C' '' C 191
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x00D7;' '' multiply 214
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x00F7;' '' divide 246
+pagdo8c 0 246
+htfcss:  pagdo8c  font-style: oblique; font-family: 'URW Gothic L', serif;
+

@@ -1,0 +1,251 @@
+antpr 8 255
+'&#x2206;' '' ldots         8 %
+'fk' '' ?                   9 % antpr.htf (unicode)   2020-05-27-14:14 %
+'' ''                      10 % Copyright 2004       Eitan M. Gurari %
+'&#xFB00;' ''  &fflig;     11 %
+'&#xFB01;' ''  &filig;     12 % This work may be distributed and/or modified under the conditions
+'&#xFB02;' ''  &fllig;     13 % of the LaTeX Project Public License, either version 1.3 of this
+'&#xFB03;' ''  &ffilig;    14 % license or (at your option) any later version. The latest version
+'&#xFB04;' ''  &ffllig;    15 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x0131;' ''   \i         16 % version 1.3 or later is part of all distributions of LaTeX version
+'j' ''  wrong \j           17 % 2003/12/01 or later.
+'&#x02CB;' ''  grave       18 % This work has the LPPL maintenance status "maintained".
+'&#x02CA;' ''  acute       19 % Current Maintainer of this work is the TeX4ht Project.
+'&#x02C7;' ''  caron       20 %
+'&#x02D8;' ''  breve       21 % If you modify this file, changing the
+'&#x02C9;' ''  macron      22 % version identification would be appreciated.
+'&#x02DA;' ''  ring baove  23 %
+'&#x00B8;' ''  cedilla     24 % tex4ht@tug.org
+'&#x00DF;' ''  \ss         25 % https://tug.org/tex4ht
+'&#x00E6;' ''  aelig       26 %
+'&#x0153;' ''  oelig       27 
+'&#x00F8;' ''  o with stroke      28
+'&#x00C6;' ''  AElig              29
+'&#x0152;' ''  OElig              30
+'&#x00D8;' ''  O with stroke      31
+'&#x02CF;' ''  lowacute           32
+'!' ''  exclamation mark   33
+'&#x201D;' ''  right doublequote  34
+'#' ''                     35
+'$' ''                     36
+'%' ''                     37
+'&#x0026;' ''  ampersand          38
+'&#x2019;' ''  right singlequote  39
+'&#x0028;' ''                     40
+'&#x0029;' ''                     41
+'*' ''                     42
+'+' ''                     43
+',' ''                     44
+'-' ''                     45
+'.' ''                     46
+'/' ''                     47
+'0' ''  number 0           48
+'1' ''  number 1           49
+'2' ''  number 2           50
+'3' ''  number 3           51
+'4' ''  number 4           52
+'5' ''  number 5           53
+'6' ''  number 6           54
+'7' ''  number 7           55
+'8' ''  number 8           56
+'9' ''  number 9           57
+':' ''                     58
+';' ''                     59
+'&#x00A1;' ''  inverted !         60
+'=' ''                     61
+'&#x00BF;' ''  inverted ?         62
+'?' ''                     63
+'@' ''                     64
+'A' ''  letter A           65
+'B' ''  letter B           66
+'C' ''  letter C           67
+'D' ''  letter D           68
+'E' ''  letter E           69
+'F' ''  letter F           70
+'G' ''  letter G           71
+'H' ''  letter H           72
+'I' ''  letter I           73
+'J' ''  letter J           74
+'K' ''  letter K           75
+'L' ''  letter L           76
+'M' ''  letter M           77
+'N' ''  letter N           78
+'O' ''  letter O           79
+'P' ''  letter P           80
+'Q' ''  letter Q           81
+'R' ''  letter R           82
+'S' ''  letter S           83
+'T' ''  letter T           84
+'U' ''  letter U           85
+'V' ''  letter V           86
+'W' ''  letter W           87
+'X' ''  letter X           88
+'Y' ''  letter Y           89
+'Z' ''  letter Z           90
+'&#x005B;' ''                        91
+'&#8220;' ''&ldquo;               92
+'&#x005D;' ''                        93
+'^' ''                        94
+'' ''                        95
+'&#8216;' '' &lsquo;              96
+'a' ''  letter a           97
+'b' ''  letter b           98
+'c' ''  letter c           99
+'d' ''  letter d          100
+'e' ''  letter e          101
+'f' ''  letter f          102
+'g' ''  letter g          103
+'h' ''  letter h          104
+'i' ''  letter i          105
+'j' ''  letter j          106
+'k' ''  letter k          107
+'l' ''  letter l          108
+'m' ''  letter m          109
+'n' ''  letter n          110
+'o' ''  letter o          111
+'p' ''  letter p          112
+'q' ''  letter q          113
+'r' ''  letter r          114
+'s' ''  letter s          115
+'t' ''  letter t          116
+'u' ''  letter u          117
+'v' ''  letter v          118
+'w' ''  letter w          119
+'x' ''  letter x          120
+'y' ''  letter y          121
+'z' ''  letter z          122
+'&#x2013;' ''  ndash             123
+'&#x2014;' ''  mdash             124
+'&#x02BA;' ''  double prime      125
+'~' ''  tilde             126
+'&#x00A8;' ''  diaresis          127
+'&#x20AC;' ''  euro              128
+'&#x0104;' ''                    129
+'&#x0106;' ''                    130
+'&#x003E;' ''                    131
+'&#x2265;' ''  gte               132
+'&#x2248;' ''  approx            133
+'&#x0118;' ''  Eogonek           134
+'&#x012E;' ''  Iogonek           135
+'&#x003C;' ''  lt                136
+'&#x2264;' ''  lte               137
+'&#x0141;' ''                    138
+'&#x0143;' ''                    139
+'&#x007E;' '' ~                  140
+'&#x005E;' '' ^                  141
+'&#x2113;' ''  \el               142
+'&#x2020;' ''  dag               143
+'&#x2021;' ''  ddag              144
+'&#x015A;' ''                    145
+'&#x0160;' ''                    146
+'&#x015E;' ''                    147
+'&#x00B0;' ''                    148
+'&#x0162;' ''                    149
+'&#x0345;' ''   ?                150
+'U' ''   ?                 151
+'&#x0178;' ''                    152
+'&#x0179;' ''                    153
+'&#x017D;' ''                    154
+'&#x017B;' ''                    155
+'' ''                            156
+'&#x007B;' ''                           157
+'&#x007D;' ''                           158
+'&#x00A7;' ''                    159
+'' ''                            160
+'&#x0105;' ''                    161
+'&#x0107;' ''                    162
+'&#x00AE;' ''                    163
+'&#x00A9;' '' copyright          164
+'&#x00F7;' ''  divides           165
+'&#x0119;' ''                    166
+'&#x012F;' ''                    167
+'-' ''                           168
+'&#x00D7;' ''  times             169
+'&#x0142;' ''                    170
+'&#x0144;' ''                    171
+'&#x00B1;' ''  plus-minus        172
+'&#x221E;' ''  infinity          173
+'&#x00AB;' ''  guillemot <<      174
+'&#x00BB;' ''  guillemot >>      175
+'&#x00B6;' ''  paragraph symbol  176
+'&#x015B;' ''            177
+'&#x0161;' ''            178
+'&#x015F;' ''            179
+'&#x2022;' ''  bullet    180
+'&#x0163;' ''            181
+'' ''                    182
+'&#x0173;' ''            183
+'&#x00FF;' ''            184
+'&#x017A;' ''            185
+'&#x017E;' ''            186
+'&#x017C;' ''            187
+'' ''                    188
+'&#x00B7;' ''            189
+'&#x2033;' ''            190
+'&#x2032;' ''            191
+'&#x00C0;' ''            192
+'&#x00C1;' ''            193
+'&#x00C2;' ''            194
+'&#x00C3;' ''            195
+'&#x00C4;' ''            196
+'&#x00C5;' ''            197
+'&#x005C;' ''  backslash 198
+'&#x00C7;' ''            199
+'&#x00C8;' ''            200
+'&#x00C9;' ''          201
+'&#x00CA;' ''            202
+'&#x00CB;' ''            203
+'&#x00CC;' ''            204
+'&#x00CD;' ''          205
+'&#x00CE;' ''          206
+'&#x00CF;' ''            207
+'&#x00D0;' ''          208
+'&#x00D1;' ''          209
+'&#x00D2;' ''            210
+'&#x00D3;' ''            211
+'&#x00D4;' ''            212
+'&#x00D5;' ''          213
+'&#x00D6;' ''            214
+'&#x00A4;' '' currency sign  215
+'&#x2030;' ''  perthousand   216
+'&#x00D9;' ''          217
+'&#x00DA;' ''            218
+'&#x00DB;' ''            219
+'&#x00DC;' ''            220
+'&#x00DD;' ''           221
+'&#x00DE;' ''          222
+'|' '' 223
+'&#x00E0;' ''         224
+'&#x00E1;' ''          225
+'&#x00E2;' ''            226
+'&#x00E3;' ''            227
+'&#x00E4;' ''           228
+'&#x00E5;' ''            229
+'_' '' 230
+'&#x00E7;' ''            231
+'&#x00E8;' ''            232
+'&#x00E9;' ''            233
+'&#x00EA;' ''            234
+'&#x00EB;' ''            235
+'&#x00EC;' ''            236
+'&#x00ED;' ''            237
+'&#x00EE;' ''            238
+'&#x00EF;' ''            239
+'&#x00F0;' ''            240
+'&#x00F1;' ''            241
+'&#x00F2;' ''            242
+'&#x00F3;' ''            243
+'&#x00F4;' ''            244
+'&#x00F5;' ''            245
+'&#x00F6;' ''            246
+'' ''                    247
+'' ''                    248
+'&#x00F9;' ''            249
+'&#x00FA;' ''            250
+'&#x00FB;' ''            251
+'&#x00FC;' ''            252
+'&#x00FD;' ''            253
+'&#x00FE;' ''            254
+'&#x201E;' ''  right doublequote, left low  255
+antpr 8 255
+

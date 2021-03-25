@@ -1,0 +1,10 @@
+.vn
+htfcss: favb8v  font-weight: bold;  font-family: sans-serif;
+htfcss: favbi8v  font-weight: bold;  font-style: italic;  font-family: sans-serif;
+htfcss: favr8v  font-family: sans-serif;
+htfcss: favri8v  font-style: italic;  font-family: sans-serif;
+htfcss: favb8t  font-weight: bold;  font-family: sans-serif;
+htfcss: favbi8t  font-weight: bold;  font-style: italic;  font-family: sans-serif;
+htfcss: favr8t  font-family: sans-serif;
+htfcss: favri8t  font-style: italic;  font-family: sans-serif;
+

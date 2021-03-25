@@ -1,0 +1,18 @@
+.vn
+htfcss:  t5-anttb  font-weight: bold;
+htfcss:  t5-anttbi  font-weight: bold;  font-style: italic;
+htfcss:  t5-anttcb  font-weight: bold;
+htfcss:  t5-anttcbi  font-weight: bold;  font-style: italic;
+htfcss:  t5-anttcl
+htfcss:  t5-anttcli  font-style: italic;
+htfcss:  t5-anttcm  font-weight: bold;
+htfcss:  t5-anttcmi  font-weight: bold;  font-style: italic;
+htfcss:  t5-anttcr
+htfcss:  t5-anttcri  font-style: italic;
+htfcss:  t5-anttl
+htfcss:  t5-anttli  font-style: italic;
+htfcss:  t5-anttm  font-weight: bold;
+htfcss:  t5-anttmi  font-weight: bold;  font-style: italic;
+htfcss:  t5-anttr
+htfcss:  t5-anttri  font-style: italic;
+

@@ -1,0 +1,352 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% amstex.4ht                            2009-05-21-09:32 %
+% Copyright (C) 1997--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+% amstex.tex
+\HRestore\cases \HRestore\matrix  \HRestore\pmatrix
+\def\:tempc#1{\a:text{\ifx \a:math\:UnDef\else
+    \let\:temp\everymath
+    \def\everymath##1{\let\everymath\:temp\append:def\a:math{##1}}%
+  \fi
+  \o:text@:{#1}}\b:text}
+\HLet\text@\:tempc
+\NewConfigure{text}{2}
+\def\Sb#1\endSb{\sb{\a:multilimits
+   \multilimits@#1\endSb\b:multilimits}}
+\def\Sp#1\endSp{\sp{\a:multilimits
+   \multilimits@#1\endSp\b:multilimits}}
+\def\multilimits@{\bgroup\vspace@\Let@
+ \baselineskip\fontdimen10 \scriptfont\tw@
+ \advance\baselineskip\fontdimen12 \scriptfont\tw@
+ \lineskip\thr@@\fontdimen8 \scriptfont\thr@@
+ \lineskiplimit\lineskip  \let\halign\TeXhalign
+ \vbox\bgroup\ialign\bgroup\hfil\c:multilimits
+    $\m@th\scriptstyle{##}$\d:multilimits\hfil\crcr}
+\NewConfigure{multilimits}{4}
+\def\:temp{{\textfontii AMS}-\TeX}
+\HLet\AmSTeX\:temp
+\def\linebreak{\RIfM@\mathmodeerr@\linebreak\else
+ \ifhmode\unskip\unkern\break \a:linebreak\else
+ \vmodeerr@\linebreak\fi\fi}
+\NewConfigure{linebreak}{1}
+
+                                      \catcode`\#13 \catcode`\!6
+\def\format:!1\\{\def\preamble@{!1}%
+   \hashtoks@{#}%
+   \def\l{$\m@th\the\hashtoks@$\hfil}%
+   \def\c{\hfil$\m@th\the\hashtoks@$\hfil}%
+   \def\r{\hfil$\m@th\the\hashtoks@$}%
+   \SaveMkHalignConf:g{format}%
+   \edef\preamble@@{\:span\preamble@}%
+   \def\:temp!!1!!2{\expand:after{!!1!!2}\expandafter}%
+\:temp       
+\MkHalign#{\preamble@@}}
+                                      \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign\RecallMkHalignConfig
+   \iffalse{\fi\ifnum`}=0 \fi\format:}
+\HLet\format\:tempc
+\let\:format\format
+\let\format\o:format:
+\let\MkHformat=\empty
+\def\:tempc{\def\format{\global\let\format\o:format: \:format}}
+\HLet\MkHformat\:tempc
+\NewConfigure{format}{6}
+\catcode`\#13 \catcode`\!6
+\def\:tempc!1\endalign{%%
+  \Mk:ialign:end
+   {$\m@th\displaystyle{\@lign#}$\global\advance\and@\@ne
+&$\m@th\displaystyle{{}\@lign#}%
+          $\global\advance\and@\@ne\tabskip\z@skip
+&\hbox\bgroup\@lign\maketag@#\maketag@\egroup\tabskip\z@skip
+}{align}{!1}#%
+     {\global\and@\z@
+\ifingather@\append:def\T:halign{\global\and@\z@}\fi
+\Let@\tabskip\centering@
+}}
+\catcode`\#=6 \catcode`\!=12
+\expandafter\HLet\csname align \endcsname\:tempc
+\expandafter\HLet\csname align \space\endcsname\:tempc
+\NewConfigure{align}{6}
+\catcode`\#13 \catcode`\!6
+\def\:tempc!1\endgather{\Mk:ialign:end
+   {$\m@th\displaystyle{#}$%
+&\maketag@#\maketag@
+}{gather}{!1}#{}}
+\catcode`\#=6 \catcode`\!=12
+\expandafter\HLet\csname gather \endcsname\:tempc
+\expandafter\HLet\csname gather \space\endcsname\:tempc
+\NewConfigure{gather}{6}
+\def\Mk:ialign:end#1#2#3#4#5{%
+   \csname a:#2\endcsname
+     \ifx \EndPicture\:UnDef
+        \SaveMkHalignConfig
+\Configure{MkHalign}
+  {} {}
+  {\csname c:#2\endcsname} {\csname d:#2\endcsname }
+  {\csname e:#2\endcsname}
+  {\csname f:#2\endcsname }%
+#5\RecallTeXcr
+        \MkHalign#4{#1}#3\crcr\EndMkHalign
+        \RecallMkHalignConfig
+     \else
+        \expand:after{\csname o:#2:\endcsname #3}\csname end#2\endcsname
+     \fi
+   \csname b:#2\endcsname
+}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:smallmatrix{\vcenter\bgroup
+   \SaveMkHalignConf:g{smallmatrix}%
+   \Let@
+   \MkHalign#{$\m@th\scriptstyle{#}$&&$\m@th
+                    \scriptstyle{#}$}}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\b:smallmatrix}
+\HLet\endsmallmatrix\:tempc
+\def\:temp{\pic:MkHalign{smallmatrix}}
+\HLet\smallmatrix\:temp
+\NewConfigure{smallmatrix}{6}
+\let\:tempc\bmatrix
+\pend:def\:tempc{\a:bmatrix}
+\HLet\bmatrix\:tempc
+\let\:tempc\endbmatrix
+\append:def\:tempc{\b:bmatrix}
+\HLet\endbmatrix\:tempc
+\NewConfigure{bmatrix}{2}
+\pend:def\vmatrix{\a:vmatrix}
+\append:def\endvmatrix{\b:vmatrix}
+\NewConfigure{vmatrix}{2}
+\pend:def\Vmatrix{\a:Vmatrix}
+\append:def\endVmatrix{\b:Vmatrix}
+\NewConfigure{Vmatrix}{2}
+\let\:tempc\frac
+\pend:defII\:temp{\a:frac}
+\append:defII\:temp{\b:frac}
+\HLet\frac\:temp
+\NewConfigure{frac}{2}
+\let\:tempc\dfrac
+\pend:defII\:temp{\a:dfrac}
+\append:defII\:temp{\b:dfrac}
+\HLet\dfrac\:temp
+\NewConfigure{dfrac}{2}
+\let\:tempc\tfrac
+\pend:defII\:temp{\a:tfrac}
+\append:defII\:temp{\b:tfrac}
+\HLet\tfrac\:temp
+\NewConfigure{tfrac}{2}
+\let\:tempc\binom
+\pend:defII\:temp{\a:binom}
+\append:defII\:temp{\b:binom}
+\HLet\binom\:temp
+\NewConfigure{binom}{2}
+\let\:tempc\dbinom
+\pend:defII\:temp{\a:dbinom}
+\append:defII\:temp{\b:dbinom}
+\HLet\dbinom\:temp
+\NewConfigure{dbinom}{2}
+\let\:tempc\tbinom
+\pend:defII\:temp{\a:tbinom}
+\append:defII\:temp{\b:tbinom}
+\HLet\tbinom\:temp
+\NewConfigure{tbinom}{2}
+\let\:temp\boxed
+\pend:defI\:temp{\a:boxed}
+\append:defI\:temp{\b:boxed}
+\HLet\boxed\:temp
+\NewConfigure{boxed}{2}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:gathered{\vcenter\bgroup
+   \SaveMkHalignConf:g{gathered}%
+   \Let@
+   \MkHalign#{$\m@th\displaystyle{#}$}}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\b:gathered}
+\HLet\endgathered\:tempc
+\def\:temp{\pic:MkHalign{gathered}}
+\HLet\gathered\:temp
+\NewConfigure{gathered}{6}
+\let\:insplit\insplit@
+\def\insplit@{\let\halign\TeXhalign \:insplit}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:aligned@{\bgroup
+   \SaveMkHalignConf:g{aligned@}%
+   \Let@
+   \MkHalign#{$\m@th\displaystyle{#}$&%
+              $\m@th\displaystyle{{}#}$}}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\al:gned#1{%
+   \Configure{aligned@}{\csname a:#1\endcsname}%
+       {\csname b:#1\endcsname}{\csname c:#1\endcsname}%
+       {\csname d:#1\endcsname}{\csname e:#1\endcsname}%
+       {\csname f:#1\endcsname}\pic:MkHalign{#1}}
+\NewConfigure{aligned@}{6}
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\b:aligned@}
+\HLet\endaligned\:tempc
+\def\:temp{\al:gned{aligned}}
+\HLet\aligned\:temp
+\def\reg:aligned{\vcenter\reg:aligned@}
+\NewConfigure{aligned}{6}
+\HLet\endtopaligned\endaligned
+\def\:tempc{\al:gned{topaligned}}
+\HLet\topaligned\:tempc
+\def\reg:topaligned{\null\vtop\reg:aligned@}
+\NewConfigure{topaligned}{6}
+\HLet\endbotaligned\endaligned
+\def\:tempc{\al:gned{botaligned}}
+\HLet\botaligned\:tempc
+\def\reg:botaligned{\null\vtop\reg:aligned@}
+\NewConfigure{botaligned}{6}
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\b:alignedat}
+\HLet\endalignedat\:tempc
+\def\:tempc{\al:gned{alignedat}}
+\HLet\alignedat\:tempc
+\NewConfigure{alignedat}{6}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:alignedat!1{\null\vcenter\bgroup
+   \SaveMkHalignConf:g{alignedat}%
+   \hashtoks@{#}{\let\@lign\empty \doat@{!1}}\Let@
+   \pend:def\preamble@@{\:span}%
+   \def\:temp!!1!!2{\expand:after{!!1!!2}\expandafter}%
+\:temp       
+\MkHalign#{\preamble@@}}
+                                    \catcode`\#=6 \catcode`\!=12
+\catcode`\#13 \catcode`\!6
+\def\:tempc!1!2\endalignat{%
+  \Mk:ialign:end{\preamble@@}{alignat}{!2}#%
+     {\hashtoks@{#}\ifx \ifinany@\:Undef\else  \inany@true\fi
+\xat@false
+\def\tag{\global\tag@true\count@!1\relax\multiply\count@\tw@
+   \xdef\tag@{}\loop\ifnum\count@>\and@\xdef\tag@{&\tag@}%
+                \advance\count@\m@ne \repeat\tag@}%
+%
+\measuring@false \Let@
+{\let\@lign=\empty \attag@{!1}}%
+\let\allowdisplaybreak  =\empty
+\pend:def\preamble@@{\:span}%
+%
+      \def\:temp!!1!!2{\expand:after{!!1!!2}\expandafter}%
+\:temp       
+%
+     }}
+\catcode`\#=6 \catcode`\!=12
+\expandafter\HLet\csname alignat \endcsname\:tempc
+\NewConfigure{alignat}{6}
+\catcode`\#13 \catcode`\!6
+\def\:tempc!1!2\endxalignat{%
+  \Mk:ialign:end{\preamble@@}{xalignat}{!2}#%
+     {\hashtoks@{#}\ifx \ifinany@\:Undef\else  \inany@true\fi
+\xat@false
+\def\tag{\global\tag@true\count@!1\relax\multiply\count@\tw@
+   \xdef\tag@{}\loop\ifnum\count@>\and@\xdef\tag@{&\tag@}%
+                \advance\count@\m@ne \repeat\tag@}%
+%
+\measuring@false \Let@
+{\let\@lign=\empty \attag@{!1}}%
+\let\allowdisplaybreak  =\empty
+\pend:def\preamble@@{\:span}%
+%
+      \def\:temp!!1!!2{\expand:after{!!1!!2}\expandafter}%
+\:temp       
+%
+     }}
+\catcode`\#=6 \catcode`\!=12
+\expandafter\HLet\csname xalignat \endcsname\:tempc
+\NewConfigure{xalignat}{6}
+                                  \catcode`\#13 \catcode`\!6
+\def\:tempc!1!2\endxxalignat{%
+  \Mk:ialign:end{\preamble@@}{xxalignat}{!2}#%
+     {\hashtoks@{#}\ifx \ifinany@\:Undef\else  \inany@true\fi
+ \measuring@false \Let@
+{\let\@lign=\empty \xxattag@{!1}}%
+\let\allowdisplaybreak  =\empty
+\pend:def\preamble@@{\:span}%
+%
+      \def\:temp!!1!!2{\expand:after{!!1!!2}\expandafter}%
+\:temp       
+%
+     }}
+                                  \catcode`\#=6 \catcode`\!=12
+\expandafter\HLet\csname xxalignat \endcsname\:tempc
+\NewConfigure{xxalignat}{6}
+\let\:tempc\endmultline
+\append:def\:tempc{\b:multline}
+\HLet\endmultline\:tempc
+\def\:tempc{\al:gned{multline}}
+\HLet\multline\:tempc
+\let\reg:multline\o:multline:
+\NewConfigure{multline}{4}
+\let\e:multline\empty
+\let\f:multline\empty
+                                    \catcode`\#13 \catcode`\!6
+\def\:tempc{\let\sv:halign\halign
+   \def\halign!!1\crcr{%
+      \let\halign\sv:halign
+      \SaveMkHalignConf:g{multline}%
+      \MkHalign#{\Let@\hbox{$\m@th\displaystyle\hfil{}#$}%
+}}%
+   \o:rmultline@@@:}
+                                    \catcode`\#=6 \catcode`\!=12
+\HLet\rmultline@@@\:tempc
+\def\:tempc{\rmultline@@@}
+\HLet\lmultline@@@\:tempc
+\def\:tempc{\crcr\EndMkHalign\RecallMkHalignConfig }
+\HLet\lendmultline@\:tempc
+\def\:tempc{\lendmultline@}
+\HLet\rendmultline@\:tempc
+
+
+
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:matrix{\vcenter\bgroup
+   \SaveMkHalignConf:g{matrix}%
+   \Let@
+   \MkHalign#{$\m@th#$&&$\m@th#$}}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign \RecallMkHalignConfig \egroup\b:matrix}
+\HLet\endmatrix\:tempc
+\def\:temp{\pic:MkHalign{matrix}}
+\HLet\matrix\:temp
+\NewConfigure{matrix}{6}
+\let\:tempc\pmatrix
+\pend:def\:tempc{\a:pmatrix}
+\HLet\pmatrix\:tempc
+\let\:tempc\endpmatrix
+\append:def\:tempc{\b:pmatrix}
+\HLet\endpmatrix\:tempc
+\NewConfigure{pmatrix}{2}
+
+
+\pend:def\cases{\a:cases\MkHformat}
+\append:def\endcases{\b:cases}
+\NewConfigure{cases}{2}
+
+\Hinput{amstex}
+\endinput
+

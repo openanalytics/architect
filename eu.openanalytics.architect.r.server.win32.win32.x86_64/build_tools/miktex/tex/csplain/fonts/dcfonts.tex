@@ -1,0 +1,23 @@
+% The file dcfonts.tex (C) Petr Olsak, 2000
+% This file allows to use DC fonts in csplain format.
+% Use (for example):   %&csplain -translate-file=il2-t1
+%                      \input dcfonts
+%                      \chyph
+% at first three lines in your document. 
+
+% Warning1: This works only in web2c implementations of TeX and derivatives.
+% Warning2: Use DC fonts only for experimental or special reason. The
+%           typographics quality of CSfonts (in csplain default) is better.
+
+\input t1code
+
+\font\tenrm=dcr10
+\font\tenbf=dcbx10
+\font\tenit=dcti10
+\font\tentt=dctt10
+\font\tensl=dcsl10
+\tenrm
+
+\let\setsimplemath=\undefined % The math CS/CM fonts can be mixed with
+			      % DC fonts
+

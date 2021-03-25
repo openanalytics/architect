@@ -1,0 +1,817 @@
+\def\CalendrierFP@version{Version 0.46, 9 mai 2003}
+\message{`Calendrier avec FP', \CalendrierFP@version\space Manuel Luque}
+% Requires PSTricks, pstcol, pst-3d, multido, fp packages
+\RequirePackage{pstricks}
+\RequirePackage{pst-3d}
+\RequirePackage{multido}
+\RequirePackage{fp}
+\FPmessagesfalse
+\FPdebugfalse
+\RequirePackage{pst-key}
+%% Manuel LUQUE <Mluque5130aol.com> %%
+%% 1 Octobre 1999 pour le dodécaèdre %%
+%% 23 avril 2003 pour le calendrier %%
+%% 27 avril : placer une date de son choix
+%% suggestion de Jean-Michel Sarlat
+%% jours fériés et fêtes : 1 mai 003 %%
+%% 1 et 8 mai, 15 août, 1 et 11 novembre, 25 décembre
+%% fête de Pâques %%
+%% ascension et pentecôte : 8 mai 2003
+\RequirePackage[arabic,english]{babel}
+%
+\definecolor{RougeA}{cmyk}{0.05,0.1,0.1,0}
+\definecolor{RougeB}{cmyk}{0.05,0.15,0.15,0}
+\definecolor{RougeC}{cmyk}{0.05,0.2,0.2,0}
+\definecolor{RougeD}{cmyk}{0.05,0.25,0.25,0}
+\definecolor{RougeE}{cmyk}{0.05,0.3,0.3,0}
+\definecolor{RougeF}{cmyk}{0.05,0.35,0.35,0}
+\definecolor{RougeG}{cmyk}{0.05,0.4,0.4,0}
+\definecolor{RougeH}{cmyk}{0.05,0.45,0.45,0}
+\definecolor{RougeI}{cmyk}{0.05,0.5,0.5,0}
+\definecolor{RougeJ}{cmyk}{0.05,0.55,0.55,0}
+\definecolor{RougeK}{cmyk}{0.05,0.6,0.6,0}
+\definecolor{RougeL}{cmyk}{0.1,0.65,0.65,0}
+\newpsstyle{holiday}{framesep=2pt,doubleline=true,doublecolor=red,linecolor=red,fillstyle=solid,fillcolor=RougeA}
+\SpecialCoor%
+\define@key{psset}{Vx}{\edef\psk@Solide@Viewpointx{#1}}
+\define@key{psset}{Vy}{\edef\psk@Solide@Viewpointy{#1}}
+\define@key{psset}{Vz}{\edef\psk@Solide@Viewpointz{#1}}
+\setkeys{psset}{Vx=1,Vy=1,Vz=1}
+\def\RA{7.36022}\gdef\rb{5.06525}\gdef\racal{8.19574}%
+\gdef\rc{5.06525}\gdef\rd{8.19574}
+\newpsstyle{janvier}{Vx=-\rc,Vy=0,Vz=-\rd,viewangle=108}
+\newpsstyle{fevrier}{Vx=\rc,Vy=0,Vz=-\rd,viewangle=180}
+\newpsstyle{mars}{Vx=0,Vy=-\racal,Vz=-\rb,viewangle=144}
+\newpsstyle{avril}{Vx=-\rd,Vy=-\rc,Vz=0,viewangle=162}
+\newpsstyle{mai}{Vx=-\rd,Vy=\rc,Vz=0,viewangle=198}
+\newpsstyle{juin}{Vx=0,Vy=\racal,Vz=-\rb,viewangle=216}
+\newpsstyle{juillet}{Vx=-\rc,Vy=0,Vz=\rd,viewangle=0}
+\newpsstyle{aout}{Vx=0,Vy=-\racal,Vz=\rb,viewangle=-36}
+\newpsstyle{septembre}{Vx=\rd,Vy=-\rc,Vz=0,viewangle=-18}
+\newpsstyle{octobre}{Vx=\rd,Vy=\rc,Vz=0,viewangle=18}
+\newpsstyle{novembre}{Vx=0,Vy=\racal,Vz=\rb,viewangle=36}
+\newpsstyle{decembre}{Vx=\rc,Vy=0,Vz=\rb,viewangle=0}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newcount\tmpi
+%\newcount\tmpii
+%\FPset{\tmpi}{0}
+%\FPset{\tmpii}{0}
+%
+%
+%\def\Remainder#1#2#3{%
+%\FPeval{#3}{(#1)-((#2)*((#1)/(#2)))}
+%}%        %  c = a - b(a/b)
+%
+%\def\Remainder#1#2#3{%
+%    #3 = #1%                   %  c = a
+%    \divide #3 by #2%          %  c = a/b
+%    \multiply #3 by -#2%       %  c = -b(a/b)
+%    \advance #3 by #1}%        %  c = a - b(a/b)
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\def\dodecaedre{%
+\@ifnextchar[{\pst@dodecaedre}{\pst@dodecaedre[]}}%
+\def\pst@dodecaedre[#1]{{%
+\setkeys{psset}{#1}%
+\pspicture(-8,-12)(8,12)%
+\psset{fillstyle=solid}%
+\psset{viewpoint={\psk@Solide@Viewpointx} {\psk@Solide@Viewpointy} {\psk@Solide@Viewpointz}}%
+\newcommand{\faceA}{\pspolygon(\RA;18)(\RA;90)(\RA;162)(\RA;234)(\RA;306)}
+\newcommand{\faceB}{\pspolygon(\RA;270)(\RA;-18)(\RA;54)(\RA;126)(\RA;198)}
+\newcommand{\faceC}{\pspolygon(\RA;0)(\RA;72)(\RA;144)(\RA;216)(\RA;288)}
+\newcommand{\faceD}{\pspolygon(\RA;36)(\RA;108)(\RA;180)(\RA;252)(\RA;324)}
+%face1
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(0)+(\psk@Solide@Viewpointy)*(\racal)+(\psk@Solide@Viewpointz)*(\rb)}%
+\FPifpos{\Test}\ThreeDput[normal=0 {\racal} {\rb}](0,\racal,\rb){%
+\psset{fillcolor=RougeA}\faceA\rput{36}{\rput(-1.8,0){\Calendrier[Mois=11]}}}\fi
+%face2
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(0)-(\psk@Solide@Viewpointy)*(\racal)+(\psk@Solide@Viewpointz)*(\rb)}%
+\FPifpos{\Test}\ThreeDput[normal=0 {-\racal} {\rb}](0,-\racal,\rb){%
+\psset{fillcolor=RougeB}\faceA\rput{-36}{\rput(-1.8,0){\Calendrier[Mois=8]}}}\fi
+%face3
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(0)+(\psk@Solide@Viewpointy)*(\racal)-(\psk@Solide@Viewpointz)*(\rb)}%
+\FPifpos{\Test}\ThreeDput[normal=0 {\racal} {-\rb}](0,\racal,-\rb){%
+\psset{fillcolor=RougeC}\faceB\rput{216}{\rput(-1.8,0){\Calendrier[Mois=6]}}}\fi
+%face4
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(0)-(\psk@Solide@Viewpointy)*(\racal)-(\psk@Solide@Viewpointz)*(\rb)}%
+\FPifpos{\Test}\ThreeDput[normal=0 {-\racal} {-\rb}](0,-\racal,-\rb){%
+\psset{fillcolor=RougeD}\faceB\rput{144}{\rput(-1.8,0){\Calendrier[Mois=3]}}}\fi%
+%face 5
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(\rc)+(\psk@Solide@Viewpointy)*(0)+(\psk@Solide@Viewpointz)*(\rd)}%
+\FPifpos{\Test}\ThreeDput[normal={\rc} 0  {\rd}](\rc,0,\rd){%
+\psset{fillcolor=RougeE}\faceB\rput(-1.8,0){\Calendrier[Mois=12]}}\fi
+%face6
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(-\rc)+(\psk@Solide@Viewpointy)*(0)+(\psk@Solide@Viewpointz)*(\rd)}%
+\FPifpos{\Test}\ThreeDput[normal={-\rc} 0  {\rd}](-\rc,0,\rd){%
+\psset{fillcolor=RougeF}\faceB\rput{0}{\rput(-1.8,0){\Calendrier[Mois=7]}}}\fi
+%face7
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(\rc)+(\psk@Solide@Viewpointy)*(0)-(\psk@Solide@Viewpointz)*(\rd)}%
+\FPifpos{\Test}\ThreeDput[normal={\rc} 0 {-\rd}](\rc,0,-\rd){%
+\psset{fillcolor=RougeG}\faceA\rput{180}{\rput(-1.8,0){\Calendrier[Mois=2]}}}\fi
+%face8
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(-\rc)+(\psk@Solide@Viewpointy)*(0)-(\psk@Solide@Viewpointz)*(\rd)}%
+\FPifpos{\Test}\ThreeDput[normal={-\rc} 0 {-\rd}](-\rc,0,-\rd){%
+\psset{fillcolor=RougeH}\faceA\rput{108}{\rput(-1.8,0){\Calendrier[Mois=1]}}}\fi%
+%face 9
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(\rd)+(\psk@Solide@Viewpointy)*(\rc)+(\psk@Solide@Viewpointz)*(0)}%
+\FPifpos{\Test}\ThreeDput[normal={\rd} {\rc} 0](\rd,\rc,0){%
+\psset{fillcolor=RougeI}\faceC\rput{18}{\rput(-1.8,0){\Calendrier[Mois=10]}}}\fi
+%face10
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(-\rd)+(\psk@Solide@Viewpointy)*(\rc)+(\psk@Solide@Viewpointz)*(0)}%
+\FPifpos{\Test}\ThreeDput[normal={-\rd} {\rc} 0](-\rd,\rc,0){%
+\psset{fillcolor=RougeJ}\faceD\rput{198}{\rput(-1.8,0){\Calendrier[Mois=5]}}}\fi
+%face11
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(\rd)-(\psk@Solide@Viewpointy)*(\rc)+(\psk@Solide@Viewpointz)*(0)}%
+\FPifpos{\Test}\ThreeDput[normal={\rd} {-\rc} 0](\rd,-\rc,0){%
+\psset{fillcolor=RougeK}\faceD\rput{-18}{\rput(-1.8,0){\Calendrier[Mois=9]}}}\fi
+%face8
+\FPeval{\Test}{(\psk@Solide@Viewpointx)*(-\rd)+(\psk@Solide@Viewpointz)*(0)-(\psk@Solide@Viewpointy)*(\rc)}%
+\FPifpos{\Test}\ThreeDput[normal={-\rd} {-\rc} 0](-\rd,-\rc,0){%
+\psset{fillcolor=RougeL}\faceC\rput{162}{\rput(-1.8,0){\Calendrier[Mois=4]}}}\fi%
+\endpspicture
+}}
+%
+\define@key{psset}{Jour}{\edef\psk@CalendrierJ{#1}}
+\define@key{psset}{MoisChoisi}{\edef\psk@CalendrierMchoix{#1}}
+\define@key{psset}{Mois}{\edef\psk@CalendrierM{#1}}
+\define@key{psset}{An}{\edef\psk@CalendrierA{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setkeys{psset}{Jour=\number\day,Mois=\number\month,MoisChoisi=\number\month,An=\number\year}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+\newcount\colonne\newcount\ligne
+
+\def\Calendrier{\@ifnextchar[{\pst@Calendrier}{\pst@Calendrier[]}}
+
+\def\pst@Calendrier[#1]{{%
+\setkeys{psset}{#1}
+% calcul de la date de Pâques
+% lundi de Pâques
+\FPset{\Year}{\psk@CalendrierA}
+\FPeval\GY{(\Year)-19*trunc((\Year)/19,0)}
+\FPeval{\Cent}{trunc((\Year)/100,0)}
+\FPeval{\Iter}{trunc((\Cent)-trunc((\Cent)/4,0)-trunc((8*(\Cent)+13)/25,0)+
+                (\GY)*19+15,0)}
+\FPeval{\Iterdiv}{trunc((\Iter)/30,0)}
+\FPeval\Hepact{(\Iter)-30*(\Iterdiv)}
+\FPeval\Inbre{trunc((\Hepact)-trunc((\Hepact)/28,0)*
+              (1-trunc((\Hepact)/28,0))*(trunc(29/((\Hepact)+1),0)*trunc((21-(\GY))/11,0)),0)}
+\FPeval\Jnbreinter{trunc((\Year)+trunc((\Year)/4,0)+(\Inbre)+2-(\Cent)+trunc((\Cent)/4,0),0)}
+\FPeval\Jnbre{trunc((\Jnbreinter)-7*trunc((\Jnbreinter)/7,0),0)}
+\FPeval\Lnbre{trunc((\Inbre)-(\Jnbre),0)}
+\FPeval\Month{trunc(3+trunc(((\Lnbre)+40)/44,0),0)}
+\FPeval\Day{trunc((\Lnbre)+28-31*trunc((\Month)/4,0),0)}
+\ifnum\Month=4
+  \ifnum\Day>25 \FPeval{\Day}{trunc((\Day)-7,0)} % dimanche de Pâques
+%  \ifnum\Day>25 \FPeval{\Day}{trunc((\Day)-6,0)} % Lundi de Pâques
+%    \else
+%    \FPeval{\Day}{trunc((\Day)+1,0)} % Lundi  de Pâques
+    \fi
+\fi
+\ifnum\Month=3
+  \ifnum\Day=32 \FPset{\Day}{1}\FPset{\Month}{4}%
+%    \else
+%    \FPeval{\Day}{trunc((\Day)+1,0)} % Lundi
+    \fi
+\fi
+%
+% calcul du jour de l'ascension
+% si Pâques tombe au mois d'avril, faire (39-30)+\Day = 9+\Day
+% pour le jour du mois de mai de l'ascension
+\ifnum\Month=4
+\FPeval\DayAscension{trunc((\Day)+9,0)}
+\FPeval\MonthAscension{trunc((\Month)+1,0)}
+% Ascension le \FPprint\DayAscension/\FPprint\MonthAscension/\FPprint\Year
+\FPeval\TestJourPentecote{trunc((\DayAscension)+10,0)}
+  \ifnum\TestJourPentecote>31
+    \FPeval\DayPentecote{trunc((\TestJourPentecote)-31,0)}
+    \FPeval\MonthPentecote{trunc((\Month)+2,0)}
+  \else
+    \FPset{\DayPentecote}{\TestJourPentecote}
+    \FPset\MonthPentecote{\MonthAscension}
+  \fi
+
+% Pentec\^ote le \FPprint\DayPentecote/\FPprint\MonthPentecote/\FPprint\Year
+\fi
+
+% Dans le cas où Pâques tombe en mars
+% (39-30)+\Day=8+\Day
+% si 8+\Day<ou=30 on reste en avril
+% \DayAscension=8+\Day
+% \MonthAscension=4
+% Pentcôte est 10 jours après l'ascension
+\ifnum\Month=3
+\FPeval\TestSiJourAvril{trunc((\Day)+8,0)}
+\ifnum\TestSiJourAvril<30
+  \FPeval\MonthAscension{trunc((\Month)+1,0)}
+  \FPeval\DayAscension{trunc(8+(\Day),0)}
+  \else
+  \FPeval\DayAscension{trunc((\Day)-22,0)}
+  \FPeval\MonthAscension{trunc((\Month)+2,0)}
+\fi
+  \FPeval\TestJourPentecote{trunc((\DayAscension)+10,0)}
+    \ifnum\MonthAscension=4
+    \ifnum\TestJourPentecote<31
+      \FPset{\DayPentecote}{\TestJourPentecote}
+      \FPset\MonthPentecote{4}
+    \else
+      \FPeval\DayPentecote{trunc((\TestJourPentecote)-30,0)}
+      \FPset\MonthPentecote{5}
+    \fi
+    \fi
+  \ifnum\MonthAscension=5
+    \FPeval\DayPentecote{trunc((\DayAscension)+10,0)}
+    \FPset\MonthPentecote{5}
+  \fi
+\fi
+%
+% test d'une année bissextile
+\FPeval{\YearBissextil}{(((\psk@CalendrierA)*11)+14)/30}
+\FPtrunc{\YearBissextil}{\YearBissextil}{0}
+\FPiflt{\YearBissextil}{11}\FPset{\YearBissextil}{1}\else\FPset{\YearBissextil}{0}\fi
+%
+\ifnum\psk@CalendrierM=1\def\adddays{0}\def\Name{\meem\Haa\ra\meem}\def\NbreJours{30}\fi
+\ifnum\psk@CalendrierM=2\def\adddays{30}\def\Name{\sad\fa\ra}\def\NbreJours{29}\fi
+\ifnum\psk@CalendrierM=3\def\adddays{59}%
+\def\Name{\ra\baa\ya\ayn\space\alef\lam\alefhamza\waw\lam}\def\NbreJours{30}\fi
+\ifnum\psk@CalendrierM=4\def\adddays{89}%
+\def\Name{\ra\baa\ya\ayn\space\alef\lam\thaa\alef\nun\ya}\def\NbreJours{29}\fi
+\ifnum\psk@CalendrierM=5\def\adddays{118}%
+\def\Name{\jeem\meem\alef\dal\alefmaqsura\space\alef\lam\alefhamza\waw\lam\alefmaqsura}\def\NbreJours{30}\fi
+\ifnum\psk@CalendrierM=6\def\adddays{148}%
+\def\Name{\jeem\meem\alef\dal\alefmaqsura\space\alef\lam\thaa\alef\nun\ya\T}\def\NbreJours{29}\fi
+\ifnum\psk@CalendrierM=7\def\adddays{177}%
+\def\Name{\ra\jeem\baa}\def\NbreJours{30}\fi
+\ifnum\psk@CalendrierM=8
+  \ifnum\YearBissextil=\psk@CalendrierA\def\adddays{207}\else\def\adddays{207}\fi
+\def\Name{\sheen\ayn\baa\alef\nun}\def\NbreJours{29}\fi
+\ifnum\psk@CalendrierM=9\def\adddays{236}%
+\def\Name{\ra\meem\dad\alef\nun}\def\NbreJours{30}\fi
+\ifnum\psk@CalendrierM=10\def\adddays{266}%
+\def\Name{\sheen\waw\alef\lam}\def\NbreJours{29}\fi
+\ifnum\psk@CalendrierM=11\def\adddays{295}%
+\def\Name{\dhal\waw\space\alef\lam\qaf\ayn\dal\T}\def\NbreJours{30}\fi
+\ifnum\psk@CalendrierM=12\def\adddays{325}%
+\def\Name{\dhal\waw\space\alef\lam\Haa\jeem\T}%
+  \ifnum\YearBissextil=1\def\NbreJours{30}\else\def\NbreJours{29}
+\fi\fi
+%
+%\ifnum\YearBissextil=\psk@CalendrierA
+%    \FPeval{\NbYearBissextil}{((\psk@CalendrierA)-2000)/4}
+%    \FPtrunc{\NbYearBissextil}{\NbYearBissextil}{0}
+%        \else
+%    \FPeval{\NbYearBissextil}{((\psk@CalendrierA)-2000)/4+1}
+%    \FPtrunc{\NbYearBissextil}{\NbYearBissextil}{0}
+%\fi
+%% le 1 Moharram 1400 est un samedi : Nbdays=6
+%\FPeval{\NbDays}{6+(((\psk@CalendrierA)-1400))*4% each normal year +4 days, 354=50*7+4
+%+(\NbYearBissextil)%each 30 years 11 bisextil ones
+%+(\adddays)}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\FPeval{\tmpii}{(\psk@CalendrierA)/210}
+\FPtrunc{\tmpii}{\tmpii}{0}
+\FPeval{\tmpi}{(\psk@CalendrierA)-((210)*(\tmpii))}
+\FPclip{\rest}{\tmpi}
+\message{the rest is \rest}
+\FPeval{\tmpii}{\tmpi/30}%
+\FPtrunc{\tmpii}{\tmpii}{0}%  %<<<<<<<<<<<< Vertical entry D: 0 4 1 5 2 6 3
+\FPeval{\difference}{(((\tmpii)+1)*30)-(\tmpi)}%<<<< horizontal entry
+\FPclip{\difference}{\difference}
+\message{the difference is \difference}%
+%%% colon 7
+\FPifeq{\tmpii}{0}%
+%%%% row 1
+%\FPifeq{\difference}{8}  
+%\FPset{\firstDay}{6}  
+%\else  
+%\FPifeq{\difference}{16}  
+%\FPset{\firstDay}{6}  
+%\else  
+%\FPifeq{\difference}{5}  
+%\FPset{\firstDay}{6}  
+%\else  
+%\FPifeq{\difference}{13}  
+%\FPset{\firstDay}{6}  
+%\else  
+%\FPifeq{\difference}{21}  
+%\FPset{\firstDay}{6}  
+%\else  
+%\FPifeq{\difference}{29}  
+%\FPset{\firstDay}{6}  
+%\else  %%%%%%%%%%%
+%%%% row 2
+%\FPifeq{\difference}{2}  
+%\FPset{\firstDay}{7}  
+%\else  
+%\FPifeq{\difference}{10}  
+%\FPset{\firstDay}{7}  
+%\else  
+%\FPifeq{\difference}{18}  
+%\FPset{\firstDay}{7}  
+%\else  
+%\FPifeq{\difference}{26}  
+%\FPset{\firstDay}{7}   
+%\else  
+%%%% row 3
+%\FPifeq{\difference}{23}  
+%\FPset{\firstDay}{1}  
+%\else  
+%\FPifeq{\difference}{6}  
+%\FPset{\firstDay}{1}  
+%\else  
+%\FPifeq{\difference}{14}  
+%\FPset{\firstDay}{1}     
+%\else  
+%%%% row 4
+%\FPifeq{\difference}{4}  
+%\FPset{\firstDay}{2}  
+%\else  
+%\FPifeq{\difference}{12}  
+%\FPset{\firstDay}{2}  
+%\else  
+%\FPifeq{\difference}{20}  
+%\FPset{\firstDay}{2}     
+%\else  
+%\FPifeq{\difference}{28}  
+%\FPset{\firstDay}{2}     
+%\else  
+%%%% row 5
+%\FPifeq{\difference}{1}  
+%\FPset{\firstDay}{3}  
+%\else  
+%\FPifeq{\difference}{9}  
+%\FPset{\firstDay}{3}  
+%\else  
+%\FPifeq{\difference}{17}  
+%\FPset{\firstDay}{3}     
+%\else  
+%\FPifeq{\difference}{25}  
+%\FPset{\firstDay}{3}     
+%\else  
+%%%% row 6
+%\FPifeq{\difference}{6}  
+%\FPset{\firstDay}{4}  
+%\else  
+%\FPifeq{\difference}{14}  
+%\FPset{\firstDay}{4}  
+%\else  
+%\FPifeq{\difference}{22}  
+%\FPset{\firstDay}{4}     
+%\else  
+%\FPifeq{\difference}{30}  %<<<<<<<<<<<<<<< or 0
+%\FPset{\firstDay}{4}     
+%\else  
+%%%% row 7
+%\FPifeq{\difference}{3}  
+%\FPset{\firstDay}{5}  
+%\else  
+%\FPifeq{\difference}{11}  
+%\FPset{\firstDay}{5}  
+%\else  
+%\FPifeq{\difference}{19}  
+%\FPset{\firstDay}{5}     
+%\else  
+%\FPifeq{\difference}{27}  
+%\FPset{\firstDay}{5}     
+%\else  
+%\FPifeq{\difference}{24}  
+%\FPset{\firstDay}{5}     
+%\fi\fi\fi\fi\fi%row 7
+%\fi\fi\fi\fi%row 6
+%\fi\fi\fi\fi%row 5
+%\fi\fi\fi\fi%row 4
+%\fi\fi\fi%row 3
+%\fi\fi\fi\fi%row 2
+\fi\fi\fi\fi\fi\fi%row 1
+\else % colonne 5
+\FPifeq{\tmpii}{1}%
+%%% row 1
+%\FPifeq{\difference}{8}  
+%\FPset{\firstDay}{4}  
+%\else  
+%\FPifeq{\difference}{16}  
+%\FPset{\firstDay}{4}  
+%\else  
+%\FPifeq{\difference}{5}  
+%\FPset{\firstDay}{4}  
+%\else  
+%\FPifeq{\difference}{13}  
+%\FPset{\firstDay}{4}  
+%\else  
+%\FPifeq{\difference}{21}  
+%\FPset{\firstDay}{4}  
+%\else  
+%\FPifeq{\difference}{29}  
+%\FPset{\firstDay}{4}  
+%\else  %%%%%%%%%%%
+%%%% row 2
+%\FPifeq{\difference}{2}  
+%\FPset{\firstDay}{5}  
+%\else  
+%\FPifeq{\difference}{10}  
+%\FPset{\firstDay}{5}  
+%\else  
+%\FPifeq{\difference}{18}  
+%\FPset{\firstDay}{5}  
+%\else  
+%\FPifeq{\difference}{26}  
+%\FPset{\firstDay}{5}   
+%\else  
+%%%% row 3
+%\FPifeq{\difference}{23}  
+%\FPset{\firstDay}{6}  
+%\else  
+%\FPifeq{\difference}{6}  
+%\FPset{\firstDay}{6}  
+%\else  
+%\FPifeq{\difference}{14}  
+%\FPset{\firstDay}{6}     
+%\else  
+%%%% row 4
+%\FPifeq{\difference}{4}  
+%\FPset{\firstDay}{7}  
+%\else  
+%\FPifeq{\difference}{12}  
+%\FPset{\firstDay}{7}  
+%\else  
+%\FPifeq{\difference}{20}  
+%\FPset{\firstDay}{7}     
+%\else  
+%\FPifeq{\difference}{28}  
+%\FPset{\firstDay}{7}     
+%\else  
+%%%% row 5
+%\FPifeq{\difference}{1}  
+%\FPset{\firstDay}{1}  
+%\else  
+%\FPifeq{\difference}{9}  
+%\FPset{\firstDay}{1}  
+%\else  
+%\FPifeq{\difference}{17}  
+%\FPset{\firstDay}{1}     
+%\else  
+%\FPifeq{\difference}{25}  
+%\FPset{\firstDay}{1}     
+%\else  
+%%%% row 6
+%\FPifeq{\difference}{6}  
+%\FPset{\firstDay}{2}  
+%\else  
+%\FPifeq{\difference}{14}  
+%\FPset{\firstDay}{2}  
+%\else  
+%\FPifeq{\difference}{22}  
+%\FPset{\firstDay}{2}     
+%\else  
+%\FPifeq{\difference}{30}  %<<<<<<<<<<<<<<< or 0
+%\FPset{\firstDay}{2}     
+%\else  
+%%%% row 7
+%\FPifeq{\difference}{3}  
+%\FPset{\firstDay}{3}  
+%\else  
+%\FPifeq{\difference}{11}  
+%\FPset{\firstDay}{3}  
+%\else  
+%\FPifeq{\difference}{19}  
+%\FPset{\firstDay}{3}     
+%\else  
+%\FPifeq{\difference}{27}  
+%\FPset{\firstDay}{3}     
+%\else  
+%\FPifeq{\difference}{24}  
+%\FPset{\firstDay}{3}     
+%\fi\fi\fi\fi\fi%row 7
+%\fi\fi\fi\fi%row 6
+%\fi\fi\fi\fi%row 5
+%\fi\fi\fi\fi%row 4
+%\fi\fi\fi%row 3
+%\fi\fi\fi\fi%row 2
+%\fi\fi\fi\fi\fi\fi%row 1
+\else % colonne 3
+ \FPifeq{\tmpii}{2}%
+%%%% row 1
+%\FPifeq{\difference}{8}  
+%\FPset{\firstDay}{2}  
+%\else  
+%\FPifeq{\difference}{16}  
+%\FPset{\firstDay}{2}  
+%\else  
+%\FPifeq{\difference}{5}  
+%\FPset{\firstDay}{2}  
+%\else  
+%\FPifeq{\difference}{13}  
+%\FPset{\firstDay}{2}  
+%\else  
+%\FPifeq{\difference}{21}  
+%\FPset{\firstDay}{2}  
+%\else  
+%\FPifeq{\difference}{29}  
+%\FPset{\firstDay}{2}  
+%\else  %%%%%%%%%%%
+%%%% row 2
+%\FPifeq{\difference}{2}  
+%\FPset{\firstDay}{3}  
+%\else  
+%\FPifeq{\difference}{10}  
+%\FPset{\firstDay}{3}  
+%\else  
+%\FPifeq{\difference}{18}  
+%\FPset{\firstDay}{3}  
+%\else  
+%\FPifeq{\difference}{26}  
+%\FPset{\firstDay}{3}   
+%\else  
+%%%% row 3
+%\FPifeq{\difference}{23}  
+%\FPset{\firstDay}{4}  
+%\else  
+%\FPifeq{\difference}{6}  
+%\FPset{\firstDay}{4}  
+%\else  
+%\FPifeq{\difference}{14}  
+%\FPset{\firstDay}{4}     
+%\else  
+%%%% row 4
+%\FPifeq{\difference}{4}  
+%\FPset{\firstDay}{5}  
+%\else  
+%\FPifeq{\difference}{12}  
+%\FPset{\firstDay}{5}  
+%\else  
+%\FPifeq{\difference}{20}  
+%\FPset{\firstDay}{5}     
+%\else  
+%\FPifeq{\difference}{28}  
+%\FPset{\firstDay}{5}     
+%\else  
+%%%% row 5
+%\FPifeq{\difference}{1}  
+%\FPset{\firstDay}{6}  
+%\else  
+%\FPifeq{\difference}{9}  
+%\FPset{\firstDay}{6}  
+%\else  
+%\FPifeq{\difference}{17}  
+%\FPset{\firstDay}{6}     
+%\else  
+%\FPifeq{\difference}{25}  
+%\FPset{\firstDay}{6}     
+%\else  
+%%%% row 6
+%\FPifeq{\difference}{6}  
+%\FPset{\firstDay}{7}  
+%\else  
+%\FPifeq{\difference}{14}  
+%\FPset{\firstDay}{7}  
+%\else  
+%\FPifeq{\difference}{22}  
+%\FPset{\firstDay}{7}     
+%\else  
+%\FPifeq{\difference}{30}  %<<<<<<<<<<<<<<< or 0
+%\FPset{\firstDay}{7}     
+%\else  
+%%%% row 7
+%\FPifeq{\difference}{3}  
+%\FPset{\firstDay}{1}  
+%\else  
+%\FPifeq{\difference}{11}  
+%\FPset{\firstDay}{1}  
+%\else  
+%\FPifeq{\difference}{19}  
+%\FPset{\firstDay}{1}     
+%\else  
+%\FPifeq{\difference}{27}  
+%\FPset{\firstDay}{1}     
+%\else  
+%\FPifeq{\difference}{24}  
+%\FPset{\firstDay}{1}     
+%\fi\fi\fi\fi\fi%row 7
+%\fi\fi\fi\fi%row 6
+%\fi\fi\fi\fi%row 5
+%\fi\fi\fi\fi%row 4
+%\fi\fi\fi%row 3
+%\fi\fi\fi\fi%row 2
+%\fi\fi\fi\fi\fi\fi%row 1
+\else % colonne 1
+ \FPifeq{\tmpii}{3}%
+%%% row 1
+\FPifeq{\difference}{8}  
+\FPset{\firstDay}{7}  
+\else  
+\FPifeq{\difference}{16}  
+\FPset{\firstDay}{7}  
+\else  
+\FPifeq{\difference}{5}  
+\FPset{\firstDay}{7}  
+\else  
+\FPifeq{\difference}{13}  
+\FPset{\firstDay}{7}  
+\else  
+\FPifeq{\difference}{21}  
+\FPset{\firstDay}{7}  
+\else  
+\FPifeq{\difference}{29}  
+\FPset{\firstDay}{7}  
+\else  %%%%%%%%%%%
+%%% row 2
+\FPifeq{\difference}{2}  
+\FPset{\firstDay}{1}  
+\else  
+\FPifeq{\difference}{10}  
+\FPset{\firstDay}{1}  
+\else  
+\FPifeq{\difference}{18}  
+\FPset{\firstDay}{1}  
+\else  
+\FPifeq{\difference}{26}  
+\FPset{\firstDay}{1}   
+\else  
+%%% row 3
+\FPifeq{\difference}{23}  
+\FPset{\firstDay}{2}  
+\else  
+\FPifeq{\difference}{6}  
+\FPset{\firstDay}{2}  
+\else  
+\FPifeq{\difference}{14}  
+\FPset{\firstDay}{2}     
+\else  
+%%% row 4
+\FPifeq{\difference}{4}  
+\FPset{\firstDay}{3}  
+\else  
+\FPifeq{\difference}{12}  
+\FPset{\firstDay}{3}  
+\else  
+\FPifeq{\difference}{20}  
+\FPset{\firstDay}{3}     
+\else  
+\FPifeq{\difference}{28}  
+\FPset{\firstDay}{3}     
+\else  
+%%% row 5
+\FPifeq{\difference}{1}  
+\FPset{\firstDay}{4}  
+\else  
+\FPifeq{\difference}{9}  
+\FPset{\firstDay}{4}  
+\else  
+\FPifeq{\difference}{17}  
+\FPset{\firstDay}{4}     
+\else  
+\FPifeq{\difference}{25}  
+\FPset{\firstDay}{4}     
+\else  
+%%% row 6
+\FPifeq{\difference}{6}  
+\FPset{\firstDay}{5}  
+\else  
+\FPifeq{\difference}{14}  
+\FPset{\firstDay}{5}  
+\else  
+\FPifeq{\difference}{22}  
+\FPset{\firstDay}{5}     
+\else  
+\FPifeq{\difference}{30}  %<<<<<<<<<<<<<<< or 0
+\FPset{\firstDay}{5}     
+\else  
+%%% row 7
+\FPifeq{\difference}{3}  
+\FPset{\firstDay}{6}  
+\else  
+\FPifeq{\difference}{11}  
+\FPset{\firstDay}{6}  
+\else  
+\FPifeq{\difference}{19}  
+\FPset{\firstDay}{6}     
+\else  
+\FPifeq{\difference}{27}  
+\FPset{\firstDay}{6}     
+\else  
+\FPifeq{\difference}{24}  
+\FPset{\firstDay}{6}     
+\fi\fi\fi\fi%row 7
+\fi\fi\fi%row 6
+\fi\fi\fi%row 5
+\fi\fi\fi%row 4
+\fi\fi%row 3
+\fi\fi\fi%row 2
+\fi\fi\fi\fi\fi%row 1
+\else % colonne 6  %<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+ \FPifeq{\tmpii}{4}\FPset{\firstDay}{5}
+\else % colonne 4
+ \FPifeq{\tmpii}{5}\FPset{\firstDay}{3}
+\else % colonne 2
+ \FPifeq{\tmpii}{6}\FPset{\firstDay}{1}
+\fi%\fi\fi\fi\fi\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\FPclip{\firstDay}{\firstDay}
+\message{^^JfAtiH muHarram for \psk@CalendrierA\space  is \firstDay\space where 1 is Monday^^J}%
+\FPeval{\NbDays}{(\firstDay)+(\adddays)}
+%\FPtrunc{\NbDays}{\NbDays}{0}
+%
+\FPeval{\Frac}{(\NbDays)/7}
+\FPtrunc{\Frac}{\Frac}{0}
+%
+\FPeval{\Quotient}{(\Frac)*7}
+\FPtrunc{\Quotient}{\Quotient}{0}
+%
+\FPeval{\firstDay}{(\NbDays)-({\Quotient})}
+\FPclip{\firstDay}{\firstDay}
+%
+\FPifzero\firstDay\FPset{\firstDay}{7}\fi
+\ligne=2
+\colonne=\firstDay
+\pspicture(0,-4)(8,4)
+\psframe*[linecolor=blue](0.5,3.2)(7.5,4)
+\rput(4,3.6){\textcolor{white}{\textsf{\textbf{\huge\R{\Name}}}}}
+\rput(1,2.8){\textsf{\textbf{\Large L}}}
+\rput(2,2.8){\textsf{\textbf{\Large M}}}
+\rput(3,2.8){\textsf{\textbf{\Large M}}}
+\rput(4,2.8){\textsf{\textbf{\Large J}}}
+\rput(5,2.8){\textsf{\textbf{\Large V}}}
+\rput(6,2.8){\textsf{\textbf{\Large S}}}
+\rput(7,2.8){\textsf{\textbf{\Large D}}}
+\multido{\i=\firstDay+1}{\NbreJours}{%
+\ifnum\i>7\ligne=1\fi
+\ifnum\i>14\ligne=0\fi
+\ifnum\i>21\ligne=-1\fi
+\ifnum\i>28\ligne=-2\fi
+\ifnum\i>35\ligne=-3\fi
+  \ifnum\psk@CalendrierM=\psk@CalendrierMchoix
+    \ifnum\the\multidocount=\psk@CalendrierJ
+      \rput(\colonne,\ligne){%
+      \pscirclebox[linestyle=none,fillstyle=solid,fillcolor=yellow]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}
+     \else\rput(\colonne,\ligne){\textbf{\Large\the\multidocount}}
+    \fi
+      \else\rput(\colonne,\ligne){\textbf{\Large\the\multidocount}}
+  \fi
+% les jours fériés
+% le 1 de l'an
+    \ifnum\psk@CalendrierM=1
+    \ifnum\the\multidocount=1
+      \rput(\colonne,\ligne){\psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}
+    \fi\fi
+% le 1 mai et  8 mai
+    \ifnum\psk@CalendrierM=5
+    \ifnum\the\multidocount=1
+      \rput(\colonne,\ligne){\psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}%
+    \fi
+    \ifnum\the\multidocount=8
+      \rput(\colonne,\ligne){\psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}%
+      \fi
+    \fi
+% 15 août
+    \ifnum\psk@CalendrierM=8
+    \ifnum\the\multidocount=15
+      \rput(\colonne,\ligne){%
+          \psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}
+    \fi\fi
+% 1 Novembre et 11 Novembre
+   \ifnum\psk@CalendrierM=11
+    \ifnum\the\multidocount=1
+      \rput(\colonne,\ligne){%
+          \psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}
+    \fi
+    \ifnum\the\multidocount=11
+      \rput(\colonne,\ligne){%
+          \psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}
+      \fi
+    \fi
+% Noël
+    \ifnum\psk@CalendrierM=12
+    \ifnum\the\multidocount=25
+      \rput(\colonne,\ligne){%
+          \psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}
+    \fi\fi
+% Dimanche de Pâques
+    \ifnum\psk@CalendrierM=\Month
+    \ifnum\the\multidocount=\Day
+      \rput(\colonne,\ligne){%
+          \psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}
+    \fi\fi
+% Ascension
+    \ifnum\psk@CalendrierM=\MonthAscension
+    \ifnum\the\multidocount=\DayAscension
+      \rput(\colonne,\ligne){%
+          \psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}
+    \fi\fi
+% Pentecôte
+    \ifnum\psk@CalendrierM=\MonthPentecote
+    \ifnum\the\multidocount=\DayPentecote
+      \rput(\colonne,\ligne){%
+          \psframebox[style=holiday]{\textbf{\textcolor{red}{\Large\the\multidocount}}}}
+    \fi\fi
+%
+\advance\colonne by +1
+\ifnum\colonne>7\colonne=1\fi}
+\rput(4,-3.5){\psovalbox[fillstyle=solid,fillcolor=blue,linestyle=none]{\textcolor{white}{\textsf{\textbf{\huge\psk@CalendrierA}}}}}
+\multido{\rL=-2.5+1.0}{6}{\psline[linecolor=blue](0.5,\rL)(7.5,\rL)}
+\endpspicture}}
+%
+%% END: CalendrierFP.sty
+\endinput

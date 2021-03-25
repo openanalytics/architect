@@ -1,0 +1,384 @@
+% cyrchars.tex
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak    Jun 2014
+
+% This macros implement the handling of characters from cyrillic in 8bit fonts.
+% Inspired by exchars.tex. See exchars.tex and the end of this file 
+% for more informations.
+
+% Macros:
+
+\def\exchardef #1#2 #3 {\def#1{\printexchar#1{#2}{#3}}}
+
+\def\printexchar#1#2#3{% if \addprotect\exfont then all \exchars are protected.
+   \ifx\exfont\relax \noexpand#1\else
+      \ifx\exxfont\undefined
+         {\exfont{#2}%
+          \ifx\exxfont\undefined
+             \excharblackbox{#1}{#2}{#3}%
+             \message{WARNING: extra font unavailable for \string#1/#2 in \tmpa.}%
+          \else
+             \char#3
+          \fi}%
+      \else \char#3 
+   \fi\fi
+}
+\def\exfont#1{\expandafter\expandafter\expandafter
+   \separethefont\expandafter\fontname\expandafter\font\space\relax
+   \expandafter \ifx\csname ex:\tmpa/#1\endcsname \relax \else
+      \font\exxfont=\csname ex:\tmpa/#1\endcsname\space\tmpb\relax \exxfont
+   \fi
+}
+\def\separethefont#1 #2\relax{\def\tmpa{#1}\def\tmpb{#2}}
+\def\excharblackbox #1#2#3%
+   {\leavevmode\kern.05em\vrule height.5em width.5em depth0pt\kern.05em }
+\def\setexfont #1 #2 #3 {\expandafter\def\csname ex:#1/#2\endcsname{#3}}
+
+% Fonts declarations:
+
+\newif\ifselectedfontfamily   \selectedfontfamilyfalse
+
+\expandafter\expandafter\expandafter
+   \separethefont\expandafter\fontname\expandafter\tenrm\space\relax
+\edef\tmpa{\meaning\tmpa}
+
+\edef\tmpb{csr10}\edef\tmpb{\meaning\tmpb} \ifx\tmpa\tmpb \selectedfontfamilytrue \fi
+\edef\tmpb{csr12}\edef\tmpb{\meaning\tmpb} \ifx\tmpa\tmpb \selectedfontfamilytrue \fi
+\edef\tmpb{csr17}\edef\tmpb{\meaning\tmpb} \ifx\tmpa\tmpb \selectedfontfamilytrue \fi
+\edef\tmpb{csr8}\edef\tmpb{\meaning\tmpb}  \ifx\tmpa\tmpb \selectedfontfamilytrue \fi
+\edef\tmpb{csr9}\edef\tmpb{\meaning\tmpb}  \ifx\tmpa\tmpb \selectedfontfamilytrue \fi
+
+\ifselectedfontfamily
+
+\message{CYRCHARS: cyrillic characters in X2 encoding using cm-super activated}
+
+\setexfont csr8     X2  rxrm0800
+\setexfont csr9     X2  rxrm0900
+\setexfont csr10    X2  rxrm1000
+\setexfont csr12    X2  rxrm1200
+\setexfont csr17    X2  rxrm1728
+\setexfont csbx8    X2  rxbx0800
+\setexfont csbx9    X2  rxbx0900
+\setexfont csbx10   X2  rxbx1000
+\setexfont csbx12   X2  rxbx1200
+\setexfont csti8    X2  rxti0800
+\setexfont csti9    X2  rxti0900
+\setexfont csti10   X2  rxti1000
+\setexfont csti12   X2  rxti1200
+\setexfont csbxti10 X2  rxbi1000
+\setexfont cstt10   X2  rxtt1000
+\setexfont cstt12   X2  rxtt1200
+\setexfont cstt8    X2  rxtt0800
+\setexfont cstt9    X2  rxtt0900
+
+\else \message{CYRCHARS: use \noexpand\setexfont for your selected family} 
+\fi
+
+% Character codes:
+
+\exchardef \CYRA     X2  192
+\exchardef \cyra     X2  224
+\exchardef \CYRB     X2  193
+\exchardef \cyrb     X2  225
+\exchardef \CYRV     X2  194
+\exchardef \cyrv     X2  226
+\exchardef \CYRG     X2  195
+\exchardef \cyrg     X2  227
+\exchardef \CYRD     X2  196
+\exchardef \cyrd     X2  228
+\exchardef \CYRE     X2  197
+\exchardef \cyre     X2  229
+\exchardef \CYRZH    X2  198
+\exchardef \cyrzh    X2  230
+\exchardef \CYRZ     X2  199
+\exchardef \cyrz     X2  231
+\exchardef \CYRI     X2  200
+\exchardef \cyri     X2  232
+\exchardef \CYRISHRT X2  201
+\exchardef \cyrishrt X2  233
+\exchardef \CYRK     X2  202
+\exchardef \cyrk     X2  234
+\exchardef \CYRL     X2  203
+\exchardef \cyrl     X2  235
+\exchardef \CYRM     X2  204
+\exchardef \cyrm     X2  236
+\exchardef \CYRN     X2  205
+\exchardef \cyrn     X2  237
+\exchardef \CYRO     X2  206
+\exchardef \cyro     X2  238
+\exchardef \CYRP     X2  207
+\exchardef \cyrp     X2  239
+\exchardef \CYRR     X2  208
+\exchardef \cyrr     X2  240
+\exchardef \CYRS     X2  209
+\exchardef \cyrs     X2  241
+\exchardef \CYRT     X2  210
+\exchardef \cyrt     X2  242
+\exchardef \CYRU     X2  211
+\exchardef \cyru     X2  243
+\exchardef \CYRF     X2  212
+\exchardef \cyrf     X2  244
+\exchardef \CYRH     X2  213
+\exchardef \cyrh     X2  245
+\exchardef \CYRC     X2  214
+\exchardef \cyrc     X2  246
+\exchardef \CYRCH    X2  215
+\exchardef \cyrch    X2  247
+\exchardef \CYRSH    X2  216
+\exchardef \cyrsh    X2  248
+\exchardef \CYRSHCH  X2  217
+\exchardef \cyrshch  X2  249
+\exchardef \CYRHRDSN X2  218
+\exchardef \cyrhrdsn X2  250
+\exchardef \CYRERY   X2  219
+\exchardef \cyrery   X2  251
+\exchardef \CYRSFTSN X2  220
+\exchardef \cyrsftsn X2  252
+\exchardef \CYREREV  X2  221
+\exchardef \cyrerev  X2  253
+\exchardef \CYRYU    X2  222
+\exchardef \cyryu    X2  254
+\exchardef \CYRYA    X2  223
+\exchardef \cyrya    X2  255
+\exchardef \CYRGUP   X2  128
+\exchardef \cyrgup   X2  160
+\exchardef \CYRGHCRS X2  129
+\exchardef \cyrghcrs X2  161
+\exchardef \CYRGDSC  X2  130
+\exchardef \cyrgdsc  X2  162
+\exchardef \CYRGHK   X2  131
+\exchardef \cyrghk   X2  163
+\exchardef \CYRSHHA  X2  132
+\exchardef \cyrshha  X2  164
+\exchardef \CYRZHDSC X2  133
+\exchardef \cyrzhdsc X2  165
+\exchardef \CYRZDSC  X2  134
+\exchardef \cyrzdsc  X2  166
+\exchardef \CYRABHDZE X2 135
+\exchardef \cyrabhdze X2 167
+\exchardef \CYRYI    X2  136
+\exchardef \cyryi    X2  168
+\exchardef \CYRKDSC  X2  137
+\exchardef \cyrkdsc  X2  169
+\exchardef \CYRKBEAK X2  138
+\exchardef \cyrkbeak X2  170
+\exchardef \CYRKHK   X2  139
+\exchardef \cyrkhk   X2  171
+\exchardef \CYRLHK   X2  140
+\exchardef \cyrlhk   X2  172
+\exchardef \CYRNDSC  X2  141
+\exchardef \cyrndsc  X2  173
+\exchardef \CYRNG    X2  142
+\exchardef \cyrng    X2  174
+\exchardef \CYRNHK   X2  143
+\exchardef \cyrnhk   X2  175
+\exchardef \CYROTLD  X2  144
+\exchardef \cyrotld  X2  176
+\exchardef \CYRSDSC  X2  145
+\exchardef \cyrsdsc  X2  177
+\exchardef \CYRUSHRT X2  146
+\exchardef \cyrushrt X2  178
+\exchardef \CYRY     X2  147
+\exchardef \cyry     X2  179
+\exchardef \CYRYHCRS X2  148
+\exchardef \cyryhcrs X2  180
+\exchardef \CYRHDSC  X2  149
+\exchardef \cyrhdsc  X2  181
+\exchardef \CYRHHK   X2  150
+\exchardef \cyrhhk   X2  182
+\exchardef \CYRCHLDSC X2 151
+\exchardef \cyrchldsc X2 183
+\exchardef \CYRCHRDSC X2 152
+\exchardef \cyrchrdsc X2 184
+\exchardef \CYRIE    X2  153
+\exchardef \cyrie    X2  185
+\exchardef \CYRSCHWA X2  154
+\exchardef \cyrschwa X2  186
+\exchardef \CYREPS   X2  155
+\exchardef \cyreps   X2  187
+\exchardef \CYRYO    X2  156
+\exchardef \cyryo    X2  188
+\exchardef \CYRAE    X2  65
+\exchardef \cyrae    X2  97
+\exchardef \CYRDJE   X2  66
+\exchardef \cyrdje   X2  98
+\exchardef \CYRTSHE  X2  67
+\exchardef \cyrtshe  X2  99
+\exchardef \CYRABHCH X2  68
+\exchardef \cyrabhch X2  100
+\exchardef \CYRABHCHDSC X2  69
+\exchardef \cyrabhchdsc X2  101
+\exchardef \CYRKVCRS X2  70
+\exchardef \cyrkvcrs X2  102
+\exchardef \CYRKHCRS X2  71
+\exchardef \cyrkhcrs X2  103
+\exchardef \CYRLDSC  X2  72
+\exchardef \cyrldsc  X2  104
+\exchardef \CYRII    X2  73
+\exchardef \cyrii    X2  105
+\exchardef \CYRJE    X2  74
+\exchardef \cyrje    X2  106
+\exchardef \CYRLJE   X2  75
+\exchardef \cyrlje   X2  107
+\exchardef \CYRMDSC  X2  76
+\exchardef \cyrmdsc  X2  108
+\exchardef \CYRNJE   X2  77
+\exchardef \cyrnje   X2  109
+\exchardef \CYRABHHA X2  78
+\exchardef \cyrabhha X2  110
+\exchardef \CYRPHK   X2  79
+\exchardef \cyrphk   X2  111
+\exchardef \CYRRDSC  X2  80
+\exchardef \cyrrdsc  X2  112
+\exchardef \CYRQ     X2  81
+\exchardef \cyrq     X2  113
+\exchardef \CYRTDSC  X2  82
+\exchardef \cyrtdsc  X2  114
+\exchardef \CYRDZE   X2  83
+\exchardef \cyrdze   X2  115
+\exchardef \CYRTETSE X2  84
+\exchardef \cyrtetse X2  116
+\exchardef \CYRDZHE  X2  85
+\exchardef \cyrdzhe  X2  117
+\exchardef \CYRCHVCRS X2  86
+\exchardef \cyrchvcrs X2  118
+\exchardef \CYRW     X2  87
+\exchardef \cyrw     X2  119
+\exchardef \CYRYAT   X2  88
+\exchardef \cyryat   X2  120
+\exchardef \CYRBYUS  X2  89
+\exchardef \cyrbyus  X2  121
+\exchardef \CYRIZH   X2  90
+\exchardef \cyrizh   X2  122
+\exchardef \CYRDELTA X2  28
+\exchardef \cyrdelta X2  29
+\exchardef \CYRNLHK  X2  30
+\exchardef \cyrnlhk  X2  31
+
+% UTF-8 encoding declaration:
+
+\ifx \mubyte\undefined
+   \message{CYRCHARS WARNING: encTeX not detected, UTF-8 codes are not set}
+   \endinput \fi
+
+\mubyte \CYRA     ^^d0^^90\endmubyte    % А 
+\mubyte \CYRB     ^^d0^^91\endmubyte    % Б 
+\mubyte \CYRV     ^^d0^^92\endmubyte    % В 
+\mubyte \CYRG     ^^d0^^93\endmubyte    % Г 
+\mubyte \CYRGUP   ^^d2^^90\endmubyte    % Ґ 
+\mubyte \CYRD     ^^d0^^94\endmubyte    % Д 
+\mubyte \CYRDJE   ^^d0^^82\endmubyte    % Ђ 
+\mubyte \CYRE     ^^d0^^95\endmubyte    % Е 
+\mubyte \CYRYO    ^^d0^^81\endmubyte    % Ё 
+\mubyte \CYRIE    ^^d0^^84\endmubyte    % Є 
+\mubyte \CYRZH    ^^d0^^96\endmubyte    % Ж 
+\mubyte \CYRZ     ^^d0^^97\endmubyte    % З 
+\mubyte \CYRDZE   ^^d0^^85\endmubyte    % Ѕ 
+\mubyte \CYRI     ^^d0^^98\endmubyte    % И 
+\mubyte \CYRII    ^^d0^^86\endmubyte    % І 
+\mubyte \CYRYI    ^^d0^^87\endmubyte    % Ї 
+\mubyte \CYRISHRT ^^d0^^99\endmubyte    % Й 
+\mubyte \CYRJE    ^^d0^^88\endmubyte    % Ј 
+\mubyte \CYRK     ^^d0^^9a\endmubyte    % К 
+\mubyte \CYRL     ^^d0^^9b\endmubyte    % Л 
+\mubyte \CYRLJE   ^^d0^^89\endmubyte    % Љ 
+\mubyte \CYRM     ^^d0^^9c\endmubyte    % М 
+\mubyte \CYRN     ^^d0^^9d\endmubyte    % Н 
+\mubyte \CYRNJE   ^^d0^^8a\endmubyte    % Њ 
+\mubyte \CYRO     ^^d0^^9e\endmubyte    % О 
+\mubyte \CYRP     ^^d0^^9f\endmubyte    % П 
+\mubyte \CYRR     ^^d0^^a0\endmubyte    % Р 
+\mubyte \CYRS     ^^d0^^a1\endmubyte    % С 
+\mubyte \CYRT     ^^d0^^a2\endmubyte    % T 
+\mubyte \CYRTSHE  ^^d0^^8b\endmubyte    % Ћ 
+\mubyte \CYRU     ^^d0^^a3\endmubyte    % У 
+\mubyte \CYRUSHRT ^^d0^^8e\endmubyte    % Ў 
+\mubyte \CYRF     ^^d0^^a4\endmubyte    % Ф 
+\mubyte \CYRH     ^^d0^^a5\endmubyte    % Х 
+\mubyte \CYRC     ^^d0^^a6\endmubyte    % Ц 
+\mubyte \CYRCH    ^^d0^^a7\endmubyte    % Ч 
+\mubyte \CYRDZHE  ^^d0^^8f\endmubyte    % Џ 
+\mubyte \CYRSH    ^^d0^^a8\endmubyte    % Ш 
+\mubyte \CYRSHCH  ^^d0^^a9\endmubyte    % Щ 
+\mubyte \CYRHRDSN ^^d0^^aa\endmubyte    % Ъ 
+\mubyte \CYRERY   ^^d0^^ab\endmubyte    % Ы 
+\mubyte \CYRSFTSN ^^d0^^ac\endmubyte    % Ь 
+\mubyte \CYREREV  ^^d0^^ad\endmubyte    % Э 
+\mubyte \CYRYU    ^^d0^^ae\endmubyte    % Ю 
+\mubyte \CYRYA    ^^d0^^af\endmubyte    % Я 
+
+\mubyte \cyra     ^^d0^^b0\endmubyte % а - U+0430 - cyra
+\mubyte \cyrb     ^^d0^^b1\endmubyte % б - U+0431 - cyrb
+\mubyte \cyrv     ^^d0^^b2\endmubyte % в - U+0432 - cyrv
+\mubyte \cyrg     ^^d0^^b3\endmubyte % г - U+0433 - cyrg
+\mubyte \cyrd     ^^d0^^b4\endmubyte % д - U+0434 - cyrd
+\mubyte \cyre     ^^d0^^b5\endmubyte % е - U+0435 - cyre
+\mubyte \cyrzh    ^^d0^^b6\endmubyte % ж - U+0436 - cyrzh
+\mubyte \cyrz     ^^d0^^b7\endmubyte % з - U+0437 - cyrz
+\mubyte \cyri     ^^d0^^b8\endmubyte % и - U+0438 - cyri
+\mubyte \cyrishrt ^^d0^^b9\endmubyte % й - U+0439 - cyrishrt
+\mubyte \cyrk     ^^d0^^ba\endmubyte % к - U+043A - cyrk
+\mubyte \cyrl     ^^d0^^bb\endmubyte % л - U+043B - cyrl
+\mubyte \cyrm     ^^d0^^bc\endmubyte % м - U+043C - cyrm
+\mubyte \cyrn     ^^d0^^bd\endmubyte % н - U+043D - cyrn
+\mubyte \cyro     ^^d0^^be\endmubyte % о - U+043E - cyro
+\mubyte \cyrp     ^^d0^^bf\endmubyte % п - U+043F - cyrp
+\mubyte \cyrr     ^^d1^^80\endmubyte % р - U+0440 - cyrr
+\mubyte \cyrs     ^^d1^^81\endmubyte % с - U+0441 - cyrs
+\mubyte \cyrt     ^^d1^^82\endmubyte % т - U+0442 - cyrt
+\mubyte \cyru     ^^d1^^83\endmubyte % у - U+0443 - cyru
+\mubyte \cyrf     ^^d1^^84\endmubyte % ф - U+0444 - cyrf
+\mubyte \cyrh     ^^d1^^85\endmubyte % х - U+0445 - cyrh
+\mubyte \cyrc     ^^d1^^86\endmubyte % ц - U+0446 - cyrc
+\mubyte \cyrch    ^^d1^^87\endmubyte % ч - U+0447 - cyrch
+\mubyte \cyrsh    ^^d1^^88\endmubyte % ш - U+0448 - cyrsh
+\mubyte \cyrshch  ^^d1^^89\endmubyte % щ - U+0449 - cyrshch
+\mubyte \cyrhrdsn ^^d1^^8a\endmubyte % ъ - U+044A - cyrhrdsn
+\mubyte \cyrery   ^^d1^^8b\endmubyte % ы - U+044B - cyrery
+\mubyte \cyrsftsn ^^d1^^8c\endmubyte % ь - U+044C - cyrsftsn
+\mubyte \cyrerev  ^^d1^^8d\endmubyte % э - U+044D - cyrerev
+\mubyte \cyryu    ^^d1^^8e\endmubyte % ю - U+044E - cyryu
+\mubyte \cyrya    ^^d1^^8f\endmubyte % я - U+044F - cyrya
+\mubyte \cyryo    ^^d1^^91\endmubyte % ё - U+0451 - cyryo
+\mubyte \cyry     ^^d2^^af\endmubyte % ү - U+04AF - cyry
+\mubyte \cyrotld  ^^d3^^a9\endmubyte % ө - U+04E9 - cyrotld
+
+\endinput
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This is a ``poor cyrillic'' used in 8bit TeX/pdfTeX with 8bit fonts. 
+EncTeX have to be activated during format generation.
+
+Usage:
+
+   \input cyrchars
+
+   Normal text and текст на русском языке.
+
+   {\it Normal text in italics and текст на русском языке}.
+
+   \end
+
+Use csplain or pdfcsplain. If you are using OPmac then cyrillic will work at
+arbitrary selected font size.
+
+The cyrillic words are not kerned and hyphenated. If you need kerning, then
+you have to explicitly swith the font:
+
+   Normal text and {\exfont{X2}текст на русском языке}.
+
+   {\it Normal text in italics and {\exfont{X2}текст на русском языке}}.
+
+If you need to activate hyphenation then you have to load hyphenation
+patterns in X2 encoding during format generation and you have to set 
+the \language register appropriately.
+
+  Here i normal text and here is {\language=222\exfont{X2}текст на русском языке}.
+
+That is all. 
+
+If you need more: use Unicoded TeX engine (XeTeX, LuaTeX) plus appropriate 
+Unicode font and don't use this macro file!
+
+-------------------------------------------------------------

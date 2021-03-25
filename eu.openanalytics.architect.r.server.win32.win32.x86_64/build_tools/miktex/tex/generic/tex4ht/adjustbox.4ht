@@ -1,0 +1,58 @@
+% adjustbox.4ht (2019-05-21-14:50), generated from tex4ht-4ht.tex
+% Copyright 2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-05-21-14:50}
+
+\NewConfigure{AdjustboxValignTop}{1}
+\NewConfigure{AdjustboxValignMiddle}{1}
+\NewConfigure{AdjustboxValignCenter}{1}
+\NewConfigure{AdjustboxValignBottom}{1}
+\pend:def\adjbox@valign@t{\a:AdjustboxValignTop}
+\pend:def\adjbox@valign@t{\a:AdjustboxValignTop}
+\pend:def\adjbox@valign@T{\a:AdjustboxValignTop}
+\pend:def\adjbox@valign@M{\a:AdjustboxValignMiddle}
+\pend:def\adjbox@valign@m{\a:AdjustboxValignMiddle}
+\pend:defI\adjbox@valign@c{\a:AdjustboxValignCenter}
+\pend:def\adjbox@valign@b{\a:AdjustboxValignBottom}
+\pend:def\adjbox@valign@B{\a:AdjustboxValignBottom}
+
+% make an unique ID for each adjustbox environment
+\newcounter{adjustbox@4ht}
+\def\update:adjustbox:id{\stepcounter{adjustbox@4ht}\def\AdjustboxId{adjustbox-\arabic{adjustbox@4ht}}}
+
+\NewConfigure{Adjustbox}{2}
+\def\:tempa#1#2#3#4{\update:adjustbox:id\a:Adjustbox\o:adjbox@@frame:{#1}{#2}{#3}{#4}\b:Adjustbox}
+\HLet\adjbox@@frame\:tempa
+
+% suppress trying to draw the frame
+\def\adjbox@boxframe#1#2#3{}
+
+% we should redefine all adjustbox environments, they may produce unvanted artifacts, math mode, etc.
+% keys are set, so it should be possible to extract  colors or frame size in theory
+% I just haven't found a working solution yet
+\renewenvironment{adjustbox}[1]{\update:adjustbox:id\adjbox@setkeys{#1}\a:Adjustbox}{\b:Adjustbox}
+
+% definitions for macros
+% we don't save any colors and just use one configuration for all box types.
+\def\@bgcolorbox#1{\update:adjustbox:id\a:Adjustbox\BOXCONTENT\b:Adjustbox}
+\def\@foregroundbox#1#2#3{\update:adjustbox:id\leavevmode\a:Adjustbox\BOXCONTENT\b:Adjustbox}
+\def\@backgroundbox#1#2#3{\update:adjustbox:id\leavevmode\a:Adjustbox\BOXCONTENT\b:Adjustbox}
+
+\Hinput{adjustbox}
+\endinput
+

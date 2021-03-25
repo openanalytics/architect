@@ -1,0 +1,27 @@
+___________________
+The ENVIRON package
+v0.2
+
+Provides two things: a new way of defining
+environments that read their contents before
+processing; and, a \long version of amsmath's
+\collect@body macro called \Collect@Body.
+
+Here's an example:
+
+  \NewEnviron{test}[3][]{"#1,#2,\BODY,#3"}
+  \begin{test}[zero]{one}{last}
+    three\par four
+  \end{test}
+
+Produces the equivalent of:
+
+  "zero,one,three\par four,last"
+
+______________
+Will Robertson
+wspr 81 [at] gmail [dot] com
+
+Copyright 2007-2014
+Distributed under the LaTeX Project Public License
+%% ^^A Test that \RenewEnvironment works correctly:

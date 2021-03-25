@@ -1,0 +1,89 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% europecv.4ht                          2009-05-21-09:32 %
+% Copyright (C) 2007--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \expandafter\def\csname \string
+    \ecvlanguagefooter\endcsname[#1]#2{\ecvitem [#1]{}{\quad
+       \footnotesize {${}\sp{\hbox {\tiny #2}}$\textit
+       {\ecv@langfooterkey }}}}
+\def\ecvlanguageheader#1{%
+  {\large\textit{\ecv@assesskey}}\\
+   \textit{\ecv@levelkey}${}\sp{\hbox{\scriptsize#1}}$&
+  \a:languageheader
+  \begin{tabular}[t]{m{\ecv@langparwidth}m{\ecv@langparwidth}%
+                     m{\ecv@langparwidth}m{\ecv@langparwidth}%
+                     m{\ecv@langparwidth}}
+     \multicolumn{2}{c}{\textbf{\ecv@understandkey}}%
+              &\multicolumn{2}{c}{\textbf{\ecv@speakkey}}%
+              &\centering\textbf{\ecv@writekey}\tabularnewline
+     \centering\small{\ecv@listenkey}    &
+     \centering \small{\ecv@readkey}     &
+     \centering \small{\ecv@interactkey} &
+     \centering \small{\ecv@productkey}  &
+     \tabularnewline
+  \end{tabular}\b:languageheader \tabularnewline
+  }
+\NewConfigure{languageheader}{2}
+\expandafter\def\csname \string\ecvlanguage\endcsname[#1]#2#3#4#5#6#7{
+  {\textbf{#2}} &
+  \a:language
+  \begin{tabular}{m{\ecv@langparwidth}m{\ecv@langparwidth}%
+                  m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}}
+   #3 & #4 & #5 & #6 & #7\tabularnewline  \midrule
+  \end{tabular}\b:language
+  \tabularnewline
+  }
+\expandafter\def\csname \string\ecvlastlanguage\endcsname[#1]#2#3#4#5#6#7{
+  {\textbf{#2}} &
+  \a:lastlanguage
+  \begin{tabular}{m{\ecv@langparwidth}m{\ecv@langparwidth}%
+                  m{\ecv@langparwidth}m{\ecv@langparwidth}m{\ecv@langparwidth}}
+   #3 & #4 & #5 & #6 & #7\tabularnewline \bottomrule
+  \end{tabular}\b:lastlanguage
+  \tabularnewline
+  }
+\pend:defII\ecvCEF{\a:ecvCEF}
+\append:defII\ecvCEF{\b:ecvCEF}
+\NewConfigure{ecvCEF}{2}
+\NewConfigure{language}{2}
+\NewConfigure{lastlanguage}{2}
+\pend:def\europecv{\ifx\@empty\ecv@telephone\else
+   \ifx\@empty\ecv@telephone\else
+      \pend:def\ecv@telephone{\a:telephone}
+      \append:def\ecv@telephone{\b:telephone}
+   \fi
+   \ifx\@empty\ecv@mobile\else
+      \pend:def\ecv@mobile{\c:telephone}
+      \append:def\ecv@mobile{\d:telephone}
+   \fi
+\fi
+}
+\NewConfigure{telephone}{4}
+
+\Hinput{europecv}
+\endinput
+

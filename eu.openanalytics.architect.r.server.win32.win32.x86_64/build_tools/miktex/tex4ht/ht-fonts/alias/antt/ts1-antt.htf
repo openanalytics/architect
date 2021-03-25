@@ -1,0 +1,15 @@
+.ts1-iwona
+htfcss: ts1-anttb  font-weight: bold;
+htfcss: ts1-anttbi  font-style:italic; font-weight: bold;
+htfcss: ts1-anttcb  font-weight: bold;
+htfcss: ts1-anttcbi  font-style:italic; font-weight: bold;
+htfcss: ts1-anttcl  font-weight: light;
+htfcss: ts1-anttcli  font-weight: light; font-style:italic;
+htfcss: ts1-anttcmi  font-style:italic;
+htfcss: ts1-anttcri  font-style:italic;
+htfcss: ts1-anttl  font-weight: light;
+htfcss: ts1-anttli  font-weight: light; font-style:italic;
+htfcss: ts1-anttmi  font-style:italic;
+htfcss: ts1-anttri  font-style:italic;
+
+

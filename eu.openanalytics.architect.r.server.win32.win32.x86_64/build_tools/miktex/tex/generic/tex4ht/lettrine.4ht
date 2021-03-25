@@ -1,0 +1,83 @@
+% lettrine.4ht (2018-11-05-14:51), generated from tex4ht-4ht.tex
+% Copyright 2012-2018 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2018-11-05-14:51}
+
+\NewConfigure{lettrine}{7}
+\define@key{L}{ante}{\def\LH:ante{#1}}%
+\define@key{L}{findent}{\def\LH:findent{#1}}%
+\define@key{L}{lhang}{\def\LH:lhang{#1}}%
+\define@key{L}{lines}{\def\LH:lines{#1}}%
+\def\reset:LH:keys{\let\LH:ante\@empty
+    \def\LH:lines{2}%
+    \def\LH:lhang{0}%
+    \def\LH:findent{0pt}}
+\reset:LH:keys
+%
+\def\@lettrine[#1]#2#3{\setkeys{L}{#1}%
+     \def\HlettrineChar{#2}%
+     \def\HlettrineString{#3}%
+     \a:lettrine
+     \ifx\LH:ante\@empty\else\f:lettrine\LH:ante\g:lettrine\fi
+     \c:lettrine
+      \HCode{<span class="lettrine-}#2\HCode{">}#2\HCode{</span>}
+     \b:lettrine\d:lettrine#3\e:lettrine
+     \reset:LH:keys}
+%
+% a: before lettrine
+% b: after lettrine
+% c: before letter
+% d: between letter and string
+% e: after string
+% f: before ante
+% g: after ante
+%
+\Configure{lettrine}
+   {\HCode{<span class="lettrine">}}
+   {\HCode{</span>}}
+%
+   {\HCode{<span class="lettrine-letter">}}
+   {\HCode{</span><span class="lettrine-line">}}
+   {\HCode{</span>}}
+%
+   {\HCode{<span class="lettrine-ante">}}
+   {\HCode{</span>}}
+%
+% Define default Css
+%
+\Css{.lettrine{float: left;
+    line-height: 0.7; margin-left: -0.1em;
+    margin-bottom: -.5em; margin-right: 0.2em;
+    }}
+\Css{.lettrine-ante{vertical-align: top;}}
+\Css{.lettrine-letter{font-style: normal;
+    font-size: 4em; color: gray;}}
+%
+\Css{.lettrine-A{margin-right: 0.3em;}}
+\Css{.lettrine-A + .lettrine-line{margin-left: -0.4em;}}
+\Css{.lettrine-J{line-height: 1; margin-right: 0;}}
+\Css{.lettrine-H, .lettrine-I, .lettrine-N, .lettrine-U{margin-right: 0;}}
+\Css{.lettrine-V{margin-right: -0.3em;}}
+\Css{.lettrine-V + .lettrine-line{margin-left: 0.3em;}}
+\Css{.lettrine-Q{padding-bottom: 1em;margin-top: -0.6em;}}
+\Css{.lettrine-line{font-variant: small-caps;}}
+\Css{p.indent{text-indent: 0em;}}
+
+\Hinput{lettrine}
+\endinput
+

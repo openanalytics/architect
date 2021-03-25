@@ -1,0 +1,1574 @@
+% !TeX root = tcolorbox.tex
+% include file of tcolorbox.tex (manual of the LaTeX package tcolorbox)
+\clearpage
+\section{Libraries
+  \mylib{listings},
+  \mylib{listingsutf8}, and
+  \mylib{minted}}\label{sec:listings}%
+\tcbset{external/prefix=external/listings_}%
+
+\subsection{Loading the Libraries}
+In contrast to other |tcolorbox| libraries, the libraries
+\mylib{listings}, \mylib{listingsutf8}, and \mylib{minted} are concurrent in the sense that
+they all do the same thing, i.\,e.\ displaying listings with or without typesetting
+the listing in \LaTeX\ parallel.
+The difference is the underlying \LaTeX\ package which does the core job for
+displaying a listing. So, typically, you need just \emph{one} of these
+libraries. If you do not have a clue which one of them you should use
+and you are using |pdflatex|, you should take \mylib{listingsutf8}.
+If you are using |xelatex| or |lualatex|, you should take \mylib{listings}
+as |xelatex| and |lualatex| are not compatible with \mylib{listingsutf8}.
+
+\begin{marker}
+The order in which the libraries are included influences the default settings and
+the \refKey{/tcb/reset} behavior. The settings of a later loaded library overwrite
+the settings of a previous loaded library. A library is never loaded twice.
+\end{marker}
+
+
+\subsubsection{Loading \mylib{listings}}
+This library uses the package |listings| \cite{hoffmann:listings} to typeset
+listings. It is loaded by a package option or inside the preamble by:
+\begin{dispListing}
+\tcbuselibrary{listings}
+\end{dispListing}
+This also loads the package |listings| \cite{hoffmann:listings}.
+
+The \refKey{/tcb/listing engine} is set to |listings| by the library.
+To reactivate this setting, if overwritten by other libraries, use
+\begin{dispListing}
+\tcbset{listing engine=listings}
+\end{dispListing}
+
+\subsubsection{Loading \mylib{listingsutf8}}
+\begin{marker}
+This library is not needed (and troublesome) when using Xe\LaTeX\ or Lua\LaTeX.
+Therefore, loading this library is automatically replaced by loading
+\mylib{listings} only, if pdf\LaTeX\ is \emph{not} used.
+\end{marker}
+To extend |listings| for UTF-8 encoded sources, you can use the support from
+the package |listingsutf8| \cite{oberdiek:listingsutf8} by loading the library
+variant \mylib{listingsutf8}.
+\begin{dispListing}
+\tcbuselibrary{listingsutf8}
+\tcbset{listing utf8=latin1}% optional; `latin1' is the default.
+\end{dispListing}
+This also loads the library \mylib{listings}
+and the packages |listings| \cite{hoffmann:listings}
+and |listingsutf8| \cite{oberdiek:listingsutf8}.
+
+The \refKey{/tcb/listing engine} is set to |listings| by the library.
+To reactivate this setting, if overwritten by other libraries, use
+\begin{dispListing}
+\tcbset{listing engine=listings}
+\end{dispListing}
+
+
+\clearpage
+\subsubsection{Loading \mylib{minted}}
+This library uses the package |minted| \cite{poore:minted} to typeset
+listings. It is loaded by a package option or inside the preamble by:
+\begin{dispListing}
+\tcbuselibrary{minted}
+\end{dispListing}
+This also loads the package |minted| \cite{poore:minted}.
+
+\begin{marker}
+The |minted| package uses the external tool |Pygments| \cite{pygments:web}
+to apply syntax highlighting. It has to be installed and set up, before the
+library can be used, see \cite{poore:minted} and \cite{pygments:web}.
+The |tcolorbox| library \mylib{minted} does not work, if the package
+|minted| \cite{poore:minted} does not work.
+\end{marker}
+
+The \refKey{/tcb/listing engine} is set to |minted| by the library.
+To reactivate this setting, if overwritten by other libraries, use
+\begin{dispListing}
+\tcbset{listing engine=minted}
+\end{dispListing}
+
+
+\subsection{Common Macros of the Libraries}
+
+\begin{docEnvironment}{tcblisting}{\marg{options}}
+  Creates a colored box based on a \refEnv{tcolorbox}.
+  Controlled by the given \meta{options}, the
+  environment content is typeset normally and/or as a listing.
+  Furthermore, the \meta{options} control appearance and functions of
+  the |tcolorbox|.
+  By default, the listing is interpreted as a \LaTeX\ listing.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black}
+This is a \LaTeX\ example which displays the text as source code
+and in compiled form.
+\end{tcblisting}
+\end{dispExample}
+
+\clearpage
+
+\begin{dispExample}
+% \tcbuselibrary{listings} /or/ \tcbuselibrary{listingsutf8}
+\begin{tcblisting}{colback=yellow!5,colframe=yellow!50!black,listing only,
+    title=This is source code in another language (XML), fonttitle=\bfseries,
+  listing options={language=XML,columns=fullflexible,keywordstyle=\color{red}}}
+<?xml version="1.0"?>
+<project name="Package tcolorbox" default="documentation" basedir=".">
+  <description>
+    Apache Ant build file (http://ant.apache.org/)
+  </description>
+</project>
+\end{tcblisting}
+\end{dispExample}
+
+\enlargethispage*{10mm}
+
+\begin{dispExample}
+% \tcbuselibrary{minted}
+\begin{tcblisting}{colback=yellow!5,colframe=yellow!50!black,listing only,
+    title=This is source code in another language (XML), fonttitle=\bfseries,
+  listing engine=minted,minted language=xml}
+<?xml version="1.0"?>
+<project name="Package tcolorbox" default="documentation" basedir=".">
+  <description>
+    Apache Ant build file (http://ant.apache.org/)
+  </description>
+</project>
+\end{tcblisting}
+\end{dispExample}
+
+
+
+\begin{dispExample}
+% This box is as wide as needed (listing only !!)
+% \tcbuselibrary{skins}
+\begin{tcblisting}{colback=green!5!white,colframe=green!50!black,listing only,
+  hbox,enhanced,drop fuzzy shadow,before=\begin{center},after=\end{center}}
+\begin{tikzpicture}
+\fill[red] (0,0) rectangle (1,1);
+\end{tikzpicture}
+\end{tcblisting}
+\end{dispExample}
+\end{docEnvironment}
+
+
+\clearpage
+\begin{docEnvironment}{tcboutputlisting}{}
+  Saves the environment content to a file which is named by the key value of
+  |listing file|. Later, this file can be loaded by
+  |\tcbinputlisting| or |\tcbuselistingtext| or |\tcbuselistinglisting|.
+\begin{dispListing}
+\begin{tcboutputlisting}
+This \textbf{text} is written to a standardized file for later usage.
+\end{tcboutputlisting}
+\end{dispListing}
+\end{docEnvironment}
+
+
+\begin{docCommand}{tcbinputlisting}{\marg{options}}
+  Creates a colored boxed based on a |tcolorbox|. The text content is read
+  from a file named by the key value of |listing file|. Apart from that,
+  the function is equal to that of \refEnv{tcblisting}.
+\begin{dispExample}
+\tcbinputlisting{colback=red!5!white,colframe=red!75!black,text only}
+\tcbinputlisting{colback=green!5,colframe=green!75!black,listing only}
+\end{dispExample}
+\end{docCommand}
+
+\begin{docCommand}{tcbuselistingtext}{}
+  Loads text from a file named by the key value of |listing file|.
+\begin{dispExample}
+\tcbuselistingtext
+\end{dispExample}
+\end{docCommand}
+
+
+\begin{docCommand}{tcbuselistinglisting}{}
+  Typesets text as listing from a file named by the key value of |listing file|.
+\begin{dispExample}
+\tcbuselistinglisting
+\end{dispExample}
+\end{docCommand}
+
+%\enlargethispage*{5mm}
+\begin{docCommand}{tcbusetemplisting}{}
+  Typesets text as listing from a temporary file which was written by
+  \refEnv{tcbwritetemp}.
+\end{docCommand}
+
+
+\clearpage
+\begin{marker}
+See \Vref{subsec:xparse_listing} and \Vref{subsec:xparse_inputlisting} for more
+elaborate methods to create new environments and commands.
+\end{marker}
+\begin{marker}
+If a new sort of |tcblisting| environments should be created with
+one optional argument only, one is highly recommended to use
+\refCom{DeclareTCBListing} or \refCom{NewTCBListing}
+instead of \refCom{newtcblisting} to
+avoid content scanning problems.
+\end{marker}
+
+\begin{docCommand}{newtcblisting}{\oarg{init options}\marg{name}\oarg{number}\oarg{default}\marg{options}}
+  Creates a new environment \meta{name} based on \refEnv{tcblisting}.
+  Basically, |\newtcblisting| operates like |\newenvironment|. This means,
+  the new environment \meta{name} optionally takes \meta{number} arguments, where
+  \meta{default} is the default value for the optional first argument.
+  The \meta{options} are given to the underlying |tcblisting|.
+  Note that \refKey{/tcb/savedelimiter} is set to the given \meta{name}
+  automatically.
+  The \meta{init options} allow setting up automatic numbering,
+  see Section \ref{sec:initkeys} from page \pageref{sec:initkeys}.
+\begin{dispExample*}{sbs,lefthand ratio=0.5}
+\newtcblisting{mybox}{%
+  colback=red!5!white,
+  colframe=red!75!black}
+
+\begin{mybox}
+This is my \LaTeX\ box.
+\end{mybox}
+\end{dispExample*}
+
+\begin{dispExample*}{sbs,lefthand ratio=0.5}
+\newtcblisting{mybox}[1]{%
+  colback=red!5!white,
+  colframe=red!75!black,
+  fonttitle=\bfseries,
+  title=#1}
+
+\begin{mybox}{Listing Box}
+This is my \LaTeX\ box.
+\end{mybox}
+\end{dispExample*}
+
+\begin{dispExample*}{sbs,lefthand ratio=0.5}
+\newtcblisting{mybox}[2][]{%
+  colback=red!5!white,
+  colframe=red!75!black,
+  fonttitle=\bfseries,
+  title=#2,#1}
+
+\begin{mybox}[listing only]
+  {Listing Box}
+This is my \LaTeX\ box.
+\end{mybox}
+\bigskip
+
+\begin{mybox}[listing side text]
+  {Listing Box}
+This is my
+\LaTeX\ box.
+\end{mybox}
+\end{dispExample*}
+
+\clearpage
+\inputpreamblelisting{C}
+
+\begin{dispExample*}{sbs,lefthand ratio=0.5}
+\begin{mycbox}{Listing Box}
+This is my \LaTeX\ box.
+\end{mycbox}
+\end{dispExample*}
+\end{docCommand}
+
+
+%\enlargethispage*{1cm}
+\begin{docCommand}{renewtcblisting}{\oarg{init options}\marg{name}\oarg{number}\oarg{default}\marg{options}}
+  Operates like \refCom{newtcblisting}, but based on |\renewenvironment| instead of |\newenvironment|.
+  An existing environment is redefined.
+\end{docCommand}
+
+
+\clearpage
+\begin{docCommand}{newtcbinputlisting}{\oarg{init options}\brackets{\texttt{\textbackslash}\rmfamily\meta{name}}\oarg{number}\oarg{default}\marg{options}}
+  Creates a new macro \texttt{\textbackslash}\meta{name} based on \refCom{tcbinputlisting}.
+  Basically, |\newtcbinputlisting| operates like |\newcommand|.
+  The new macro \texttt{\textbackslash}\meta{name} optionally takes \meta{number} arguments, where
+  \meta{default} is the default value for the optional first argument.
+  The \meta{options} are given to the underlying |tcbinputlisting|.
+  The \meta{init options} allow setting up automatic numbering,
+  see Section \ref{sec:initkeys} from page \pageref{sec:initkeys}.
+
+\begin{dispExample}
+\newtcbinputlisting[use counter from=mycbox]{\mylisting}[2][]{%
+  listing file={#2},
+  title=Listing (\thetcbcounter) of \texttt{#2},
+  colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+  listing only,breakable,#1}
+
+\mylisting[before upper=\textit{This is the included file content:}]
+          {\jobname.tcbtemp}
+\end{dispExample}
+
+\begin{dispExample}
+\newtcbinputlisting[use counter from=mycbox]{\mylisting}[2][]{%
+  listing engine=minted,minted language=latex,minted style=colorful,
+  listing file={#2},
+  title=Listing (\thetcbcounter) of \texttt{#2},
+  colback=red!5!white,colframe=red!75!black,fonttitle=\bfseries,
+  listing only,breakable,#1}
+
+\mylisting[before upper=\textit{This is the included file content:}]
+          {\jobname.tcbtemp}
+\end{dispExample}
+\end{docCommand}
+
+
+\begin{docCommand}{renewtcbinputlisting}{\oarg{init options}\brackets{\texttt{\textbackslash}\rmfamily\meta{name}}\oarg{number}\oarg{default}\marg{options}}
+  Operates like \refCom{newtcbinputlisting}, but based on |\renewcommand| instead of |\newcommand|.
+  An existing macro is redefined.
+\end{docCommand}
+
+
+\clearpage
+\subsection{Option Keys of the \mylib{listings} Library}\label{sec:speclistingkeys}
+
+\begin{docTcbKey}{listing options}{=\meta{key list}}{no default, initially |style=tcblatex|}
+  Sets the options from the package |listings| \cite{hoffmann:listings}
+  which are used during typesetting of the listing.
+  For \LaTeX\ listings, there is a predefined |listings| style named |tcblatex|
+  which can be used.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!25,left=6mm,
+listing options={style=tcblatex,numbers=left,numberstyle=\tiny\color{red!75!black}}}
+This is a \LaTeX\ example which displays the text as source code
+and in compiled form. Additionally, we use line numbers here.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{no listing options}{}{no value, initially unset}
+  Abbreviation for |listing options={}|.
+  This removes all options for the |listings| package.
+  This includes the |tcblisting| standard style |tcblatex| and the encoding presets.
+  Use this option, if you want to set the |listings| options outside of |tcblisting|, e.\,g.\ globally in
+  the preamble.
+\begin{dispExample}
+\begin{tcblisting}{no listing options}
+All \textit{listings} options removed.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{listing style}{=\meta{style}}{no default, initially |tcblatex|}
+  Abbreviation for |listing options={style=...}|. This key sets a \meta{style}
+  for the |listings| package, see \cite{hoffmann:listings}.
+  For \LaTeX, there is a predefined style named |tcblatex|.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,
+listing style=tcblatex}
+Here, we use the predefined style.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+\clearpage
+\begin{docTcbKey}{listing inputencoding}{=\meta{encoding}}{no default, initially \texttt{\cs inputencodingname}}
+  Sets the input encoding value for the predefined listing style |tcblatex|
+  and |tcbdocumentation| from the library \mylib{documentation}.
+  The initial value is derived from the package |inputenc| if used.
+\end{docTcbKey}
+
+\begin{docTcbKey}{listing remove caption}{\colOpt{=true\textbar false}}{default |true|, initially |true|}
+If set to |true|, some part of the caption building code of the |listings| package
+is silenced to prevent some unwanted interaction with the |hyperref| package resulting
+in additional vertical space.
+If set to |false|, the |listings| package code is kept unchanged.
+Note that listings outside \refEnv{tcblisting} and
+\refCom{tcbinputlisting} are always processed normally.
+Typically, a user is not expected to use this key at all.
+\end{docTcbKey}
+
+\begin{docTcbKey}{every listing line}{=\meta{text}}{no default, initially unset/empty}
+Inserts some \meta{text} to the begin of every line of a listing.
+Note that this a hack of the |listings| package code. This may become unusable
+or superfluous in the future.
+\begin{dispExample}
+\newtcblisting{commandshell}{colback=black,colupper=white,colframe=yellow!75!black,
+  listing only,listing options={style=tcblatex,language=sh},
+  every listing line={\textcolor{red}{\small\ttfamily\bfseries root \$> }}}
+
+\begin{commandshell}
+ls -al
+cd /usr/lib
+\end{commandshell}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{every listing line*}{=\meta{text}}{no default, initially unset/empty}
+Identical to \refKey{/tcb/every listing line} plus additional enlargement
+of \refKey{/tcb/rightupper} by the width of \meta{text}. Therefore, this
+option has to be used after the geometry settings are done.
+This option is intended to be used in conjunction with \refKey{/tcb/hbox}.
+
+\begin{dispExample}
+\newtcblisting{commandshell}{colback=black,colupper=white,colframe=yellow!75!black,
+  listing only,listing options={style=tcblatex,language=sh},hbox,
+  every listing line*={\textcolor{red}{\small\ttfamily\bfseries root \$> }}}
+
+\begin{commandshell}
+ls -al
+cd /usr/lib
+\end{commandshell}
+\end{dispExample}
+\end{docTcbKey}
+
+See further options in \Vref{sec:commonlistingkeys}.
+
+\begin{marker}
+For an combined example of using |\lstinline| inside a |tcolorbox|, see
+\refCom{DeclareTotalTCBox}.
+\end{marker}
+
+\clearpage
+\subsection{Option Keys of the \mylib{listingsutf8} Library}
+\begin{marker}
+The \mylib{listingsutf8} library is not needed (and troublesome) when using Xe\LaTeX\ or Lua\LaTeX.
+Therefore, loading this library is automatically replaced by loading
+\mylib{listings} only, if pdf\LaTeX\ is \emph{not} used.
+\end{marker}
+
+The \mylib{listingsutf8} library is an extension of the
+\mylib{listings} library, so
+all options from \Vref{sec:speclistingkeys} are applicable.
+
+\begin{docTcbKey}{listing utf8}{=\meta{one-byte-encoding}}{style, no default, initially |latin1|}
+  Abbreviation for using \refKey{/tcb/listing inputencoding}
+  together with UTF-8 support from the package |listingsutf8| \cite{oberdiek:listingsutf8}.
+  This option is available only for the library variant \mylib{listingsutf8}.
+  The \meta{one-byte-encoding} is one of
+  the applicable encodings from \cite{oberdiek:listingsutf8}, e.\,g.\ |latin1|
+  which is the default.\par
+  Be aware that this means restriction to this specific \meta{one-byte-encoding}:
+  e.\,g.\ |latin1| comprises umlauts and other accented characters, but not
+  the Euro sign. If you want to use the |listings| package \emph{and} \flqq real\frqq\
+  UTF-8 source code, then do \emph{not} use \mylib{listingsutf8} but \mylib{listings}
+  with
+  \refKey{/tcb/listing inputencoding}|=utf8|
+  \emph{and} with specific manual hacks for specific UTF-8-encoded characters.
+
+\end{docTcbKey}
+
+See further options in \Vref{sec:commonlistingkeys}.
+
+\clearpage
+\subsection{Option Keys of the \mylib{minted} Library}
+
+\begin{docTcbKey}{minted language}{=\meta{programming language}}{no default, initially |latex|}
+Sets a \meta{programming language} known to |Pygments| \cite{pygments:web}.
+\begin{dispExample}
+\begin{tcblisting}{listing engine=minted,minted style=trac,
+  minted language=java,
+  colback=red!5!white,colframe=red!75!black,listing only}
+    public class HelloWorld {
+      // A `Hello World' in Java
+      public static void main(String[] args) {
+        System.out.println("Hello World!");
+      }
+    }
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc updated={2017-07-05}]{minted options}{=\meta{key list}}{no default, initially
+    |tabsize=2,fontsize=\textbackslash small,|\linebreak|breaklines,autogobble|}
+  Sets the options from the package |minted| \cite{poore:minted}
+  which are used during typesetting of the listing.
+\begin{dispExample}
+% \tcbuselibrary{skins}
+\newtcblisting{myjava}{listing engine=minted,
+  minted style=colorful,
+  minted language=java,
+  minted options={fontsize=\small,breaklines,autogobble,linenos,numbersep=3mm},
+  colback=blue!5!white,colframe=blue!75!black,listing only,
+  left=5mm,enhanced,
+  overlay={\begin{tcbclipinterior}\fill[red!20!blue!20!white] (frame.south west)
+    rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}}}
+
+\begin{myjava}
+  public class HelloWorld {
+    // A `Hello World' in Java
+    public static void main(String[] args) {
+      System.out.println("Hello World!");
+    }
+  }
+\end{myjava}
+\end{dispExample}
+\end{docTcbKey}
+
+\clearpage
+\begin{docTcbKey}{minted style}{=\meta{style}}{no default, initially unset}
+Sets a \meta{style} known to |Pygments| \cite{pygments:web}. This is
+independent from \refKey{/tcb/minted options}. Note that styles are always
+applied globally; all following examples will be set in the given \meta{style}
+until a new style is set. Also note that
+setting |\usemintedstyle|\marg{style} only once per document is more economic, if
+all styles in a document are the same.
+For examples of different styles, see
+\refKey{/tcb/minted language} and \refKey{/tcb/minted options}.
+\end{docTcbKey}
+
+See further options in \Vref{sec:commonlistingkeys}.
+
+
+\clearpage
+\subsection{Common Option Keys of all Libraries}\label{sec:commonlistingkeys}
+For the \meta{options} in \refEnv{tcblisting} respectively \refCom{tcbinputlisting}
+the following |pgf| keys can be applied. The key tree path |/tcb/| is not to
+be used inside these macros.
+
+\begin{docTcbKey}{listing engine}{=\meta{engine}}{no default}
+  Sets the \meta{engine} which typesets the listings. Feasible values are
+  \begin{itemize}
+  \item\docValue{listings}, if library \mylib{listings} or
+  \mylib{listingsutf8} is loaded.
+  \item\docValue{minted}, if library \mylib{minted} is loaded.
+  \end{itemize}
+\end{docTcbKey}
+
+\begin{docTcbKey}{listing file}{=\meta{file name}}{no default, initially \cs{jobname.listing}}
+  Sets the \meta{file name} of the file which is used to save listings.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{listing and text}{}{no value, initially set}
+  Typesets the environment content as listing in the upper part and
+  as compiled text in the lower part.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing and text}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{text and listing}{}{no value}
+  Typesets the environment content as compiled text in the upper part and
+  as listing in the lower part.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,text and listing}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{listing only}{}{no value}
+  Typesets the environment content as listing.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing only}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\clearpage
+\begin{docTcbKey}{text only}{}{no value}
+  Typesets the environment content as compiled text.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,text only}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+
+\begin{docTcbKey}{comment}{=\meta{text}}{no default, initially empty}
+  Records a comment with \meta{text} as content. The comment is displayed
+   e.\,g.\ in conjunction with \refKey{/tcb/listing and comment}
+  and \refKey{/tcb/comment and listing}.
+\begin{dispExample}
+\begin{tcblisting}{comment={This comment is really only a comment},
+  colback=red!5!white,colframe=red!75!black}
+This is a \textbf{tcolorbox}.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2014-11-17]{comment only}{}{no value}
+  Typesets the environment content with the comment text.
+\begin{dispExample}
+\begin{tcblisting}{comment only,
+  comment={This is a comment.},
+  colback=red!5!white,colframe=red!75!black}
+This is a \textbf{tcolorbox}.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+
+\begin{docTcbKey}{image comment}{=\marg{options}\marg{filename}}{style, no default, initially unset}
+  Uses an image denoted by \meta{filename} as \textit{comment} for the listing.
+  The image is included by the standard |\includegraphics| macro with
+  given \meta{options}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side comment,
+  image comment={width=2.5cm}{example-image-a.pdf},center lower}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\clearpage
+\begin{docTcbKey}[][doc new=2014-11-14]{tcbimage comment}{=\meta{filename}}{style, no default, initially unset}
+  Uses an image denoted by \meta{filename} as \textit{comment} for the listing.
+  The image is included by the \refCom{tcbincludegraphics} macro.
+  The inclusion can be customized by \refKey{/tcb/comment style}.
+  \begin{marker}
+  The library \mylib{skins} is needed to apply this option.
+  \end{marker}
+  \medskip
+\begin{dispExample}
+% \tcbuselibrary{skins}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side comment,
+  righthand width=3cm,lower separated=false,
+  tcbimage comment={example-image-a.pdf},
+  comment style={size=fbox,colframe=blue,colback=blue!50,sharp corners,
+    drop fuzzy shadow}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+\clearpage
+
+\begin{docTcbKey}[][doc new=2014-11-14]{pdf comment}{\colOpt{=\meta{filename}}}{style, default listing file, initially unset}
+  Uses a PDF file denoted by \meta{filename} as \textit{comment} for the listing.
+  The image is included by \refCom{tcbincludepdf} inside a \refEnv{tcbraster}.
+  The inclusion can be customized by \refKey{/tcb/comment style}.
+  \begin{marker}
+  The libraries \mylib{skins} and \mylib{raster} are needed to apply this option.
+  \end{marker}
+  \medskip
+\begin{dispExample}
+% \tcbuselibrary{skins,raster}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing and comment,
+  righthand width=3cm,lower separated=false,middle=1mm,
+  pdf comment={tcolorbox-example.pdf},
+  comment style={raster columns=3,graphics pages={1,2,3},
+    colframe=blue,drop fuzzy shadow}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+\clearpage
+
+
+\begin{docTcbKey}[][doc new=2014-11-14]{pdf extension}{=\meta{extension}}{no default, initially |pdf|}
+  Sets the PDF file name extension for \refKey{/tcb/pdf comment} to \meta{extension}.
+  Note that \meta{extension} always overwrites any actual extension given
+  inside \refKey{/tcb/pdf comment}.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2014-11-14]{comment style}{=\meta{options}}{no default, initially empty}
+  Sets the \meta{options} for \refKey{/tcb/tcbimage comment} and \refKey{/tcb/pdf comment}.
+  These are |tcolorbox| options to customize the colored box drawn around the
+  image(s), also image options encapsulated by \refKey{/tcb/graphics options},
+  and \refEnv{tcbraster} options for \refKey{/tcb/pdf comment}.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{listing and comment}{}{no value}
+  Typesets the environment content as listing in the upper part and
+  a given comment in the lower part.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing and comment,
+  comment={This is my comment. It may contain line breaks.\par
+    It can even use the environment content
+    \flqq\ignorespaces\tcbuselistingtext\unskip\frqq}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+\enlargethispage*{10mm}
+\begin{docTcbKey}{comment and listing}{}{no value}
+  Typesets a given comment in the upper part and
+  the environment content as listing in the lower part.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,comment and listing,
+comment={This is my comment.}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\clearpage
+\begin{docTcbKey}{listing side text}{}{style, no value}
+Typesets the environment content side by side as listing in the left (upper)
+part and as compiled text in the right (lower) part.
+This is a shortcut for setting \refKey{/tcb/listing and text} and \refKey{/tcb/sidebyside}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side text}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\begin{marker}
+Note that |sidebyside=false| has to be added, if the setting of
+\refKey{/tcb/listing side text} is to be annihilated.
+\end{marker}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{text side listing}{}{style, no value}
+Typesets the environment content side by side as compiled text in the left (upper)
+part and as listing in the right (lower) part.
+This is a shortcut for setting \refKey{/tcb/text and listing} and \refKey{/tcb/sidebyside}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,text side listing}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{listing outside text}{}{no value}
+Typesets the environment content side by side as listing in a |tcolorbox|
+and as compiled text outside the box in the right part of the page.
+Nevertheless, the outside text is treated as \emph{lower} part of the
+|tcolorbox| and can be formatted with all lower part options.
+The space partitioning is done with the side by side options from
+\Fullref{sec:sidebyside}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing outside text}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+\clearpage
+
+\begin{docTcbKey}{text outside listing}{}{no value}
+Typesets the environment content side by side as listing in a |tcolorbox|
+and as compiled text outside the box in the left part of the page.
+Nevertheless, the outside text is treated as \emph{lower} part of the
+|tcolorbox| and can be formatted with all lower part options.
+The space partitioning is done with the side by side options from
+\Fullref{sec:sidebyside}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,text outside listing}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+
+\begin{docTcbKey}{listing side comment}{}{style, no value}
+Typesets the environment content side by side as listing in the left (upper)
+part and a given comment in the right (lower) part.
+This is a shortcut for setting \refKey{/tcb/listing and comment} and \refKey{/tcb/sidebyside}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing side comment,
+  righthand width=1.5cm,image comment={width=1.5cm}{example-image-a.pdf}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{comment side listing}{}{style, no value}
+Typesets the environment content side by side with a given comment in the left (upper)
+part and as listing in the right (lower) part.
+This is a shortcut for setting \refKey{/tcb/comment and listing} and \refKey{/tcb/sidebyside}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,comment side listing,
+  lefthand width=1.5cm,image comment={width=1.5cm}{example-image-a.pdf}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+\clearpage
+
+\begin{docTcbKey}{listing outside comment}{}{no value}
+Typesets the environment content side by side as listing in a |tcolorbox|
+and a given comment outside the box in the right part of the page.
+Nevertheless, the outside text is treated as \emph{lower} part of the
+|tcolorbox| and can be formatted with all lower part options.
+The space partitioning is done with the side by side options from
+\Fullref{sec:sidebyside}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing outside comment,
+  righthand width=1.5cm,image comment={width=1.5cm}{example-image-a.pdf}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}{comment outside listing}{}{no value}
+Typesets the environment content side by side as listing in a |tcolorbox|
+and a given comment outside the box in the left part of the page.
+Nevertheless, the outside text is treated as \emph{lower} part of the
+|tcolorbox| and can be formatted with all lower part options.
+The space partitioning is done with the side by side options from
+\Fullref{sec:sidebyside}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,comment outside listing,
+  lefthand width=1.5cm,image comment={width=1.5cm}{example-image-a.pdf}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+
+\begin{docTcbKey}{listing above text}{}{no value}
+  Typesets the environment content as listing in a |tcolorbox|
+  and as compiled text outside and below the box.
+  The outside text is treated as \emph{lower} part of the
+  |tcolorbox| and can be formatted with all lower part options.
+  The distance between box and text is controlled by \refKey{/tcb/middle}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing above text}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2014-11-07]{listing above* text}{}{no value}
+  Widely equal to \refKey{/tcb/listing above text}, but the outside text is
+  not formatted with the lower part options.
+  Also, it is not put into a minipage and it may span several pages.
+  The distance between box and text is controlled by \refKey{/tcb/after}.
+\end{docTcbKey}
+
+\clearpage
+
+\begin{docTcbKey}{text above listing}{}{no value}
+  Typesets the environment content as listing in a |tcolorbox|
+  and as compiled text outside and above the box.
+  The outside text is treated as \emph{lower} part of the
+  |tcolorbox| and can be formatted with all lower part options.
+  The distance between box and text is controlled by \refKey{/tcb/middle}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,text above listing}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2014-11-07]{text above* listing}{}{no value}
+  Widely equal to \refKey{/tcb/text above listing}, but the outside text is
+  not formatted with the lower part options.
+  Also, it is not put into a minipage and it may span several pages.
+  The distance between box and text is controlled by \refKey{/tcb/before}.
+\end{docTcbKey}
+
+
+
+\begin{docTcbKey}{listing above comment}{}{no value}
+  Typesets the environment content as listing in a |tcolorbox|
+  and a given comment outside and below the box.
+  The outside text is treated as \emph{lower} part of the
+  |tcolorbox| and can be formatted with all lower part options.
+  The distance between box and comment is controlled by \refKey{/tcb/middle}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,listing above comment,
+  center lower,image comment={width=3cm}{example-image-a.pdf}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2014-11-07]{listing above* comment}{}{no value}
+  Widely equal to \refKey{/tcb/listing above comment}, but the outside comment is
+  not formatted with the lower part options.
+  Also, it is not put into a minipage and it may span several pages.
+  The distance between box and comment is controlled by \refKey{/tcb/after}.
+\end{docTcbKey}
+
+\clearpage
+
+\begin{docTcbKey}{comment above listing}{}{no value}
+  Typesets the environment content as listing in a |tcolorbox|
+  and a given comment outside and above the box.
+  The outside text is treated as \emph{lower} part of the
+  |tcolorbox| and can be formatted with all lower part options.
+  The distance between box and comment is controlled by \refKey{/tcb/middle}.
+\begin{dispExample}
+\begin{tcblisting}{colback=red!5!white,colframe=red!75!black,comment above listing,
+  center lower,image comment={width=3cm}{example-image-a.pdf}}
+This is a \LaTeX\ example.
+\end{tcblisting}
+\end{dispExample}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2014-11-07]{comment above* listing}{}{no value}
+  Widely equal to \refKey{/tcb/comment above listing}, but the outside comment is
+  not formatted with the lower part options.
+  Also, it is not put into a minipage and it may span several pages.
+  The distance between box and comment is controlled by \refKey{/tcb/before}.
+\end{docTcbKey}
+
+
+\clearpage
+\subsection{Option Keys for Processing and Full Document Examples}\label{sec:proclistingkeys}
+A complete \LaTeX\ document including |\documentclass|, |\begin{document}|
+and |\end{document}| cannot be processed directly by |tcolorbox|.
+It always has to be compiled separately. There are two methods supported
+by the package to process and display such a full document example:
+\begin{itemize}
+\item Prepare and compile the example document independent from your main
+  document. The source file and the resulting PDF file can be included
+  into the main document afterwards. This is the most economic way since
+  the example document can be left untouched after the example is complete.
+\item The other possibility is to compile the example on the fly while
+  the main document is compiled. This way has some charm, because the
+  example can be edited inside the main document. But be aware that the
+  compilation of the example is issued on every run of the main document.
+  Also, there are fewer degrees of freedom how the example is compiled.
+\end{itemize}
+
+For both methods, the resulting example PDF file can be included
+as a \refKey{/tcb/pdf comment}.
+
+The following example shows how to apply the first method.
+There already is a file |tcolorbox-example.tex| and a PDF file
+|tcolorbox-example.pdf|. Both of them are input partly by the following:
+
+\begin{dispListing}
+% \tcbuselibrary{breakable,skins,raster}
+\tcbinputlisting{
+  enhanced jigsaw,breakable,pad at break*=2mm,height fixed for=first and middle,
+  lower separated=false,
+  leftlower=0pt,rightlower=0pt,middle=0pt,
+  colframe=red!50!black,colback=yellow!10!white,
+  listing and comment,
+  listing file={tcolorbox-example},
+  listing options=
+    {style=tcblatex,texcsstyle=*\color{red!70!black},firstline=20,lastline=85},
+  after upper={\par\bigskip\texttt{\ldots}\par},
+  pdf comment,
+  comment style={drop lifted shadow,graphics pages={1,...,4}},
+}
+\end{dispListing}
+{\tcbusetemp}
+
+
+\clearpage
+
+
+\begin{docTcbKey}[][doc new=2014-11-14]{no process}{}{no default}
+  Removes all processing commands if set before.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2014-11-14]{process code}{=\meta{code}}{no default, initially empty}
+  Adds \meta{code} which is executed during \refCom{tcbinputlisting}
+  and \refEnv{tcblisting}. At the time of executing the given \meta{code},
+  the listing is already written to \refKey{/tcb/listing file}, but
+  the colored box is not constructed yet.
+  Its intended use is to process the listing somehow before displaying.
+  The processing result can be used inside a \refKey{/tcb/comment}.
+  Several \refKey{/tcb/process code} options can be given which are
+  processed in the given order.
+  Typically, \meta{code} is added by using the following styles
+  \refKey{/tcb/run system command}, \refKey{/tcb/run pdflatex}, etc.
+\end{docTcbKey}
+
+\begin{marker}
+To use the further options, the compiler has to be called with the
+|-shell-escape| permission to authorize potentially dangerous system calls.
+Be warned that this is a security risk. Anyway, it's more economic to
+compile examples independent from the main document and to include them as
+shown in the previous pages.
+\end{marker}
+
+\begin{docTcbKey}[][doc new=2014-11-14]{run system command}{=\meta{system command}}{style, no default, initially unset}
+Runs a \meta{system command}, if the document is compiled with the
+|-shell-escape| permission.
+The current listing file can be accessed as |\filename@area\filename@base\filename@ext|.
+This \meta{system command} is added to \refKey{/tcb/process code}.
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new and updated={2014-11-14}{2016-05-27}]{compilable listing}{}{style, no default}
+  Sets \refKey{/tcb/listing file} to |\jobname|\texttt{-listing-}\meta{counter}.
+  \begin{marker}
+  The default \refKey{/tcb/listing file} setting cannot be used to compile
+  a listing, since the base name equals the |\jobname| and the included PDF
+  files should be unique.
+  Therefore, to use \refKey{/tcb/run pdflatex} etc., the \refKey{/tcb/listing file}
+  has to be set to a unique value.
+  One may use \refKey{/tcb/compilable listing} for this purpose.
+  \end{marker}
+\end{docTcbKey}
+
+
+\begin{docTcbKey}[][doc new=2014-11-14]{run pdflatex}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues a |pdflatex| compilation of the listing with the given \meta{arguments}.
+\begin{itemize}
+\item The main document has to be compiled with the |-shell-escape| permission.
+\item The \refKey{/tcb/listing file} has to be unique for the listing.
+\item If the listing has to be compiled twice, add |run pdflatex| two times to
+  the option list.
+\end{itemize}
+
+\begin{dispListing*}{breakable,enhanced,pad at break*=2mm,before upper=,after skip=3mm}
+\begin{tcblisting}{enhanced jigsaw,lower separated=false,
+  leftlower=0pt,rightlower=0pt,
+  colframe=red!50!black,colback=yellow!10!white,
+  listing options={style=tcblatex,texcsstyle=*\color{red!70!black}},
+  listing and comment,
+  pdf comment,freeze pdf,
+  compilable listing,
+  run pdflatex
+}
+\documentclass{beamer}
+\usetheme{Warsaw}
+\begin{document}
+\begin{frame}{Beamer example}
+  \begin{block}{Hello World}
+    \begin{itemize}[<+->]
+      \item One
+      \item Two
+    \end{itemize}
+  \end{block}
+
+  \begin{alertblock}{Integral}
+    \begin{equation}
+      \visible<3->{\int\limits_1^x \frac{1}{t}~dt}
+      \visible<4->{ = \ln(x).}
+    \end{equation}
+  \end{alertblock}
+\end{frame}
+\end{document}
+\end{tcblisting}
+\end{dispListing*}
+{\tcbusetemp}
+\end{docTcbKey}
+
+
+\clearpage
+\begin{docTcbKey}[][doc new=2014-11-14]{run xelatex}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues a |xelatex| compilation of the listing with the given \meta{arguments}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2014-11-14]{run lualatex}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues a |lualatex| compilation of the listing with the given \meta{arguments}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2014-11-14]{run makeindex}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues a |makeindex| compilation of the listing with the given \meta{arguments}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2014-11-14]{run bibtex}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues a |bibtex| compilation of the listing with the given \meta{arguments}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2014-11-14]{run biber}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues a |biber| compilation of the listing with the given \meta{arguments}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2014-11-14]{run arara}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues an |arara| compilation of the listing with the given \meta{arguments}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2014-11-14]{run latex}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues a |latex| compilation of the listing with the given \meta{arguments}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2014-11-14]{run dvips}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues a |dvips| compilation of the listing with the given \meta{arguments}.
+\end{docTcbKey}
+
+\enlargethispage*{1cm}
+\begin{docTcbKey}[][doc new=2014-11-14]{run ps2pdf}{\colOpt{=\meta{arguments}}}{style, no default, initially unset}
+Issues a |ps2pdf| compilation of the listing with the given \meta{arguments}.
+\end{docTcbKey}
+
+\begin{dispListing*}{breakable,enhanced,pad at break*=2mm,before upper=,after skip=3mm}
+\begin{tcblisting}{enhanced jigsaw,
+  title={PSTricks with pdflatex},fonttitle=\bfseries,
+  colframe=red!50!black,colback=yellow!10!white,
+  listing options={style=tcblatex,texcsstyle=*\color{red!70!black}},
+  lower separated=false,middle=0pt,
+  listing side comment,righthand width=4cm,
+  compilable listing,
+  run latex,run dvips,run ps2pdf,
+  pdf comment,freeze pdf,
+  comment style={raster columns=1,
+    graphics options={viewport=0.5in 7.7in 3.5in 10.5in,clip}},
+}
+\documentclass{article}
+\usepackage{pstricks,multido}
+\begin{document}
+\psset{unit=3}%
+\multido{\nHue=0.01+0.01}{100}{%
+\definecolor{MyColor}{hsb}{\nHue,1,1}%
+\pscircle[linewidth=0.01,linecolor=MyColor]{\nHue}}
+\end{document}
+\end{tcblisting}
+\end{dispListing*}
+{\tcbusetemp}
+
+\clearpage
+
+\begin{marker}
+  For most applications, you will like to add \refKey{/tcb/freeze pdf} as option,
+  since the included |pdf| file is only refreshed, if the source for this file
+  has changed.
+\end{marker}
+
+\begin{docTcbKey}[][doc new=2016-07-14]{freeze file}{=\meta{file}}{no default, initially unset}
+  Observes some \meta{file}, usually the final file produced by \refKey{/tcb/process code},
+  \refKey{/tcb/run system command}, \refKey{/tcb/run pdflatex}, etc.
+  If the MD5 checksum of the current \refKey{/tcb/listing file} is unchanged
+  and \meta{file} exists, the processing is skipped and
+  the \meta{file} is kept (frozen).
+  Typically, the style \refKey{/tcb/freeze pdf} can be used for
+  convenience.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2016-07-14]{freeze none}{}{no default, initially set}
+  Freeze no file and always execute the given process commands.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2016-07-14]{freeze extension}{=\meta{text}}{style, no default}
+  Calls \refKey{/tcb/freeze file} with the current \refKey{/tcb/listing file}
+  stripped with its extension plus \meta{text} as new extension.
+\begin{dispListing}
+  ...
+  listing file=myfile.tex,
+  freeze extension=-modified.pdf,    % ->   myfile-modified.pdf   is observed
+  ...
+\end{dispListing}
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2016-07-14]{freeze pdf}{}{no value}
+  Calls \refKey{/tcb/freeze file} with the current \refKey{/tcb/listing file}
+  stripped with its extension plus |.pdf| as new extension.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2016-07-14]{freeze png}{}{no value}
+  Calls \refKey{/tcb/freeze file} with the current \refKey{/tcb/listing file}
+  stripped with its extension plus |.png| as new extension.
+  See the examples for \refKey{/tcb/run pdflatex} and \refKey{/tcb/run ps2pdf}.
+\end{docTcbKey}
+
+\begin{docTcbKey}[][doc new=2016-07-14]{freeze jpg}{}{no value}
+  Calls \refKey{/tcb/freeze file} with the current \refKey{/tcb/listing file}
+  stripped with its extension plus |.jpg| as new extension.
+\end{docTcbKey}
+
+
+
+
+\clearpage
+\subsection{Creation of \LaTeX\ Tutorials}\label{sec:latextutorial}
+The following source code gives a guideline for the creation of \LaTeX\ tutorials.
+In the next section, a framework for \LaTeX\ exercises is described.
+All examples shall be numbered optionally.
+
+Firstly, some additional |tcb| keys are defined for the appearance.
+For the examples, three environments |texexp|, |texexptitled|,
+and |texexptitledspec| are defined with automatic numbering.
+
+\begin{itemize}
+\item |texexp| is used for untitled examples,
+\item |texexptitled| is used for titled examples,
+\item |texexptitledspec| is used for titled examples with special treatment.
+\end{itemize}
+
+\inputpreamblelisting{D}
+
+\begin{dispExample}
+\begin{tcblisting}{texexp}
+This is a \LaTeX\ example which displays the text as source code
+and in compiled form.
+\end{tcblisting}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexptitled}{First example with a title line}{firstExample}
+Here, we use Example \ref{firstExample} with a title line.
+\end{texexptitled}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexp}{}
+This is a \LaTeX\ example which displays the text as source code
+and in compiled form.
+\end{texexp}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexp}{text and listing}
+This is a \LaTeX\ example which displays the text as source code
+and in compiled form.
+\end{texexp}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexp}{listing only}
+This is a \LaTeX\ example which displays the text as source code only.
+\end{texexp}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexp}{text only}
+This is a \LaTeX\ example which displays the text in compiled form only.
+\end{texexp}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexptitled}{An Example with a Heading}{heading1}
+This is a \LaTeX\ example with a numbered heading line
+which can be referred to.
+\end{texexptitled}
+Here, we see Example \ref{heading1}.
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexptitled}[listing only]{Another Example with a Heading}{heading2}
+The keys can be used in combination. Here, an example with a heading line
+and source code only is given.
+\end{texexptitled}
+Here, we see Example \ref{heading2}.
+\end{dispExample}
+
+
+\begin{dispListing}
+\begin{texexptitled}[float]{A floating Example with a Heading}{heading3}
+This is another \LaTeX\ example with numbered heading line.
+But now, the box is a floating object.
+\end{texexptitled}
+\end{dispListing}
+\tcbusetemp
+
+\begin{dispExample}
+The floating box of the last example is seen as Example \ref{heading3}
+on page \pageref{heading3}.
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexptitledspec}{Special application}{texexpbox1}
+\begin{lstlisting}[style=tcblatex]
+Some \LaTeX\ source code.
+\end{lstlisting}
+\tcblower
+For special cases, the environment |texexptitledspec| with style
+|example| can be used directly. As one can see, the upper and the lower
+part of the box can be used uncoupled also.
+\end{texexptitledspec}
+\end{dispExample}
+
+
+The following series of examples demonstrate the application of
+\refEnv{tcolorbox} options for diversification.
+
+\begin{dispExample}
+\begin{texexptitled}{How to use options (1):\par The basic example}{options1}
+\begin{tikzpicture}
+\path[fill=yellow!50!white] (0,0) circle (11mm);
+\path[fill=white] (0,0) circle (9mm);
+\foreach \w/\c in {90/red,210/green,330/blue}
+{\path[shading=ball,ball color=\c] (\w:1cm) circle (7mm);}
+\end{tikzpicture}
+\end{texexptitled}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexptitled}[center lower,enhanced,segmentation hidden,middle=0mm]
+  {How to use options (2):\par The text output is centered and the
+    segmentation line has vanished.}{options2}
+\begin{tikzpicture}
+\path[fill=yellow!50!white] (0,0) circle (11mm);
+\path[fill=white] (0,0) circle (9mm);
+\foreach \w/\c in {90/red,210/green,330/blue}
+{\path[shading=ball,ball color=\c] (\w:1cm) circle (7mm);}
+\end{tikzpicture}
+\end{texexptitled}
+\end{dispExample}
+
+\begin{dispExample}
+\begin{texexptitled}[tikz lower,bicolor,colbacklower=white]
+  {How to use options (3):\par Here, the |tikzpicture| is totally hidden.
+    The |bicolor| skin highlights the output.}{options3}
+\path[fill=yellow!50!white] (0,0) circle (11mm);
+\path[fill=white] (0,0) circle (9mm);
+\foreach \w/\c in {90/red,210/green,330/blue}
+{\path[shading=ball,ball color=\c] (\w:1cm) circle (7mm);}
+\end{texexptitled}
+\end{dispExample}
+
+\begin{dispExample}
+\begin{texexptitled}[center lower,listing side text,righthand width=3.5cm,
+  bicolor,colbacklower=white]
+  {How to use options (4):\par The |bicolor| skin also works with side
+   by side mode}{options4}
+\begin{tikzpicture}
+\path[fill=yellow!50!white] (0,0) circle (11mm);
+\path[fill=white] (0,0) circle (9mm);
+\foreach \w/\c in {90/red,210/green,330/blue}
+{\path[shading=ball,ball color=\c]
+    (\w:1cm) circle (7mm);}
+\end{tikzpicture}
+\end{texexptitled}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexptitled}[center lower,listing outside text,righthand width=3.5cm]
+  {How to use options (5):\par Putting our picture outside is just
+    a matter of one word.}{options5}
+\begin{tikzpicture}
+\path[fill=yellow!50!white] (0,0) circle (11mm);
+\path[fill=white] (0,0) circle (9mm);
+\foreach \w/\c in {90/red,210/green,330/blue}
+{\path[shading=ball,ball color=\c]
+    (\w:1cm) circle (7mm);}
+\end{tikzpicture}
+\end{texexptitled}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexptitled}[center lower,text above listing]
+  {How to use options (6):\par The picture may also be put above
+    the listing box.}{options6}
+\begin{tikzpicture}
+\path[fill=yellow!50!white] (0,0) circle (11mm);
+\path[fill=white] (0,0) circle (9mm);
+\foreach \w/\c in {90/red,210/green,330/blue}
+{\path[shading=ball,ball color=\c]
+    (\w:1cm) circle (7mm);}
+\end{tikzpicture}
+\end{texexptitled}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texexptitled}[beamer,center lower,text outside listing,lefthand width=3.5cm]
+  {How to use options (7):\par Our style is easily transformed into
+    a beamerish one.}{options7}
+\begin{tikzpicture}
+\path[fill=yellow!50!white] (0,0) circle (11mm);
+\path[fill=white] (0,0) circle (9mm);
+\foreach \w/\c in {90/red,210/green,330/blue}
+{\path[shading=ball,ball color=\c]
+    (\w:1cm) circle (7mm);}
+\end{tikzpicture}
+\end{texexptitled}
+\end{dispExample}
+
+
+\clearpage
+\subsection{Creation of \LaTeX\ Exercises}\label{listing:exercises}
+In the following, a guideline is given for the creation of \LaTeX\ exercises
+with solutions. These solutions are saved to disk for application at a place of
+choice.
+Therefore, all used exercises are logged to a file |\jobname.records| for automatic
+processing. The solution contents themselves are saved to a subdirectory named
+|solutions|. Also see \Vref{sec:recording}.
+
+\begin{itemize}
+\item Before the first exercise is given,
+  \refCom{tcbstartrecording} has to be called to start recording.
+\item The solution is given as content of a \refEnv{tcboutputlisting}
+  environment. Note, that you can use this content also inside the
+  exercise with \refCom{tcbuselistingtext} in compiled form.
+\item After the last exercise is given (and before using the solutions),
+  \refCom{tcbstoprecording} has to be called to stop recording.
+\item The solutions are loaded by \refCom{tcbinputrecords}.
+\end{itemize}
+
+Inside the exercise text, there may be text parts which are needed as
+\LaTeX\ source code and as compiled text as well. These parts can be
+saved by \refEnv{tcbwritetemp} and used in compiled form by \refCom{tcbusetemp}
+or as source code by \refCom{tcbusetemplisting}.
+
+At first, we generate some a common style for the exercises and the
+solutions. Further, since exercises and solutions should
+be numbered, we force to use a label \meta{marker}.
+Automatically, the label |exe:|\meta{marker} is used to mark the exercise
+and the label |sol:|\meta{marker} is used to mark the solution.
+
+\begin{dispListing}
+\tcbset{texercisestyle/.style={arc=0.5mm, colframe=blue!25!yellow!90!white,
+  colback=blue!25!yellow!5!white, coltitle=blue!25!yellow!40!black,
+  fonttitle=\small\sffamily\bfseries, fontupper=\small, fontlower=\small,
+  listing options={style=tcblatex,texcsstyle=*\color{red!40!black}},
+}}
+\end{dispListing}
+\tcbusetemp
+
+With these preparations, the kernel environment |texercise| for our
+exercises is created quickly:
+
+\inputpreamblelisting{E}
+
+\clearpage
+The following examples demonstrate the application.
+
+\begin{dispListing}
+\tcbstartrecording
+\end{dispListing}
+\tcbusetemp
+
+
+\begin{dispExample}
+\begin{texercise}{tabular_example}
+\textit{Create the following table:}\par\smallskip%
+\begin{tcboutputlisting}
+\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}\hline
+\multicolumn{4}{|c|}{\bfseries\itshape Das alte Italien}\\\hline
+\multicolumn{2}{|c|}{\bfseries Antike} &
+\multicolumn{2}{c|}{\bfseries Mittelalter}\\\hline
+\multicolumn{1}{|c|}{\itshape Republik}&
+\multicolumn{1}{c|}{\itshape Kaiserreich}&
+\multicolumn{1}{c|}{\itshape Franken}&
+\multicolumn{1}{c|}{\itshape Teilstaaten}\\\hline
+In den Zeiten der r\"{o}mischen Republik standen dem Staat jeweils zwei
+Konsuln vor, deren Machtbefugnisse identisch waren. &
+Das r\"{o}mische Kaiserreich wurde von einem Alleinherrscher, dem Kaiser,
+regiert.
+& In der V\"{o}lkerwanderungszeit \"{u}bernahmen die Goten und sp\"{a}ter die
+Franken die Vorherrschaft.
+& Im sp\"{a}teren Mittelalter regierten F\"{u}rsten einen Fleckenteppich
+von Einzelstaaten.\\\hline
+\end{tabular}
+\end{tcboutputlisting}
+\tcbuselistingtext%
+\end{texercise}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texercise}{macro_oneparam}
+\begin{tcboutputlisting}
+\newcommand{\headingline}[1]{%
+  \begin{center}\Large\bfseries #1\end{center}}
+\end{tcboutputlisting}
+\tcbuselistingtext%
+
+Create a new macro \verb+\headingline+ which produces the
+following output:\par\smallskip
+\begin{tcbwritetemp}
+\headingline{Very important heading}
+\end{tcbwritetemp}
+\tcbusetemplisting\tcbusetemp%
+\end{texercise}
+\end{dispExample}
+
+
+
+\begin{dispExample}
+\begin{texercise}{macro_twoparam}
+\begin{tcboutputlisting}
+\newcommand{\minitable}[2]{%
+  \begin{center}\begin{tabular}{p{10cm}}\hline%
+  \multicolumn{1}{c}{\bfseries#1}\\\hline%
+  #2\\\hline%
+  \end{tabular}\end{center}}
+\end{tcboutputlisting}
+\tcbuselistingtext%
+Create a new macro \verb+\minitable+ which produces the
+following output:\par\smallskip
+\begin{tcbwritetemp}
+\minitable{My heading}{In this tiny tabular, there is only a heading
+  and some text below which has a width of ten centimeters.}
+\end{tcbwritetemp}
+\tcbusetemplisting\par\smallskip\tcbusetemp%
+\end{texercise}
+\end{dispExample}
+
+
+\begin{dispExample}
+\begin{texercise}{macro_threeparam}
+\begin{tcboutputlisting}
+\newcommand{\synop}[3]{%
+  \begin{tabular}{@{}p{(\linewidth-\tabcolsep*2-\arrayrulewidth)/2}|%
+    p{(\linewidth-\tabcolsep*2-\arrayrulewidth)/2}@{}}\hline
+  \multicolumn{2}{c}{\bfseries #1}\\\hline
+  \multicolumn{1}{c|}{\itshape English}&
+  \multicolumn{1}{c}{\itshape German}\\\hline
+  #2 & #3
+  \end{tabular}}
+\end{tcboutputlisting}
+\tcbuselistingtext%
+Create a new macro \verb+\synop+ which typesets a synoptic text according
+to the following example. Base your macro on a tabular which takes the
+total line width.\par\smallskip
+\begin{tcbwritetemp}
+\synop{Neil Armstrong}%
+{That's one small step for a man, one giant leap for mankind.}%
+{Das ist ein kleiner Schritt f\"{u}r einen Mann,
+   ein riesiger Sprung f\"{u}r die Menschheit.}
+\end{tcbwritetemp}
+\tcbusetemplisting\par\smallskip\tcbusetemp%
+\end{texercise}
+\end{dispExample}
+%\closeoutsol
+
+\begin{dispListing}
+\tcbstoprecording
+\end{dispListing}
+\tcbusetemp
+
+\bigskip
+
+Now, we give a list of all exercises with:
+
+\begin{dispListing}
+\tcblistof[\subsection]{exam}{List of Exercises%
+  \label{listofexercises}}
+\end{dispListing}
+\tcbusetemp
+
+\clearpage
+\subsection{Solutions for the given \LaTeX\ Exercises}
+
+For all solutions, a macro |\processsol| was written to the file |\jobname.records|.
+Now, we need a definition for this macro to use the solutions.
+
+\begin{dispListing}
+% \usepackage{hyperref} % for phantomlabel
+\newtcbinputlisting{\processsol}[2]{%
+  texercisestyle,
+  listing only,
+  listing file={#1},
+  phantomlabel={sol:#2},%
+  title={Solution for Exercise \ref{exe:#2} on page \pageref{exe:#2}},
+}
+\end{dispListing}
+\tcbusetemp
+
+The loading of all solutions is done by:
+
+\begin{dispListing}
+\tcbinputrecords
+\end{dispListing}
+
+With this, we get:
+
+\tcbusetemp
+
+
+

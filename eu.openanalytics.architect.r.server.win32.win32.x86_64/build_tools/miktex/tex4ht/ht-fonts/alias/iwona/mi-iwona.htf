@@ -1,0 +1,12 @@
+.mi-antt
+htfcss: mi-iwonabi  font-style:italic; font-weight: bold;
+htfcss: mi-iwonacbi  font-style:italic; font-weight: bold;
+htfcss: mi-iwonachi  font-style:italic; font-weight: bold;
+htfcss: mi-iwonacli  font-weight: light; font-style:italic;
+htfcss: mi-iwonacmi  font-style:italic;
+htfcss: mi-iwonacri  font-style:italic;
+htfcss: mi-iwonahi  font-style:italic; font-weight: bold;
+htfcss: mi-iwonali  font-weight: light; font-style:italic;
+htfcss: mi-iwonami  font-style:italic;
+htfcss: mi-iwonari  font-style:italic;
+

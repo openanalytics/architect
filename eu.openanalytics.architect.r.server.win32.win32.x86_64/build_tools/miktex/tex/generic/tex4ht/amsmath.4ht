@@ -1,0 +1,634 @@
+% amsmath.4ht (2019-12-29-14:17), generated from tex4ht-4ht.tex
+% Copyright 1997-2009 Eitan M. Gurari
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-12-29-14:17}
+
+\HRestore\cases
+\HRestore\matrix
+\HRestore\pmatrix
+\append:def\a:display{\@displaytrue}
+\expandafter\append:defIII\csname
+    c:$$:\endcsname{\append:def\a:display{\@displaytrue}}
+
+
+
+\def\above:tbinom#1#2#3#4{\a:tbinom}
+\def\:temp{%
+   \expandafter \ifx\csname a:tbinom\endcsname\relax \else
+   \ifx\a:tbinom\empty \else
+      \Configure{abovewithdelims}{\above:tbinom}{}%
+   \fi\fi
+   \o:tbinom:}
+\HLet\tbinom\:temp
+\NewConfigure{tbinom}{1}
+\def\above:dbinom#1#2#3#4{\a:dbinom}
+\def\:temp{%
+   \expandafter \ifx\csname a:dbinom\endcsname\relax \else
+   \ifx\a:dbinom\empty \else
+      \Configure{abovewithdelims}{\above:dbinom}{}%
+   \fi\fi
+   \o:dbinom:}
+\HLet\dbinom\:temp
+\NewConfigure{dbinom}{1}
+\def\above:binom#1#2#3#4{\a:binom}
+\def\:temp#1{%
+   \def\:temp{%
+      \expandafter \ifx\csname a:binom\endcsname\relax \else
+      \ifx\a:binom\empty \else
+         \Configure{abovewithdelims}{\above:binom}{}%
+      \fi\fi
+      #1}}
+\expandafter\:temp\expandafter{\csname o:binom :\endcsname}
+\expandafter\HLet\csname binom \endcsname\:temp
+\NewConfigure{binom}{1}
+\pend:def\subequations{\SkipRefstepAnchor }
+\NewConfigure{boldsymbol}{2}
+\pend:defI\boldsymbol{\a:boldsymbol}
+\append:defI\boldsymbol{\b:boldsymbol}
+\def\hdots@for#1#2{\multicolumn{#2}c%
+  {\m@th \hdots:for{#1}\hfil}}
+\def\hdots:for#1{\dotsspace@1.5mu\mkern-#1\dotsspace@
+   \xleaders\hbox{$\m@th\mkern#1\dotsspace@.\mkern#1\dotsspace@$}%
+           \hfill
+   \mkern-#1\dotsspace@}
+\NewConfigure{hdotsfor}[1]{\def\a:hdotsfor##1{#1}}
+\let\a:hdotsfor=\hdots:for
+\def\:tempc{\a:hdotsfor}
+\HLet\hdots:for\:tempc
+\expandafter\ifx \csname tmp:muskip\endcsname\relax
+   \csname newmuskip\endcsname \tmp:muskip
+\fi
+\expandafter\def\csname tmspace \endcsname#1#2#3{%
+  \ifmmode
+    \bgroup
+      \tmp:muskip #1#2\edef\mathglue{\the\tmp:muskip}%
+      \tmp:dim #1#3\edef\textspace{\the\tmp:dim}\a:tmspace
+    \egroup
+  \else \kern #1#3\fi \relax
+}
+\edef\:tempc{\noexpand\protect
+             \expandafter\noexpand\csname tmspace \endcsname}
+\HLet\tmspace=\:tempc
+\NewConfigure{tmspace}{1}
+\Configure{tmspace}{\mskip\mathglue}
+\HRestore\over
+\def\:tempc{\pic:gobble\a:over \o:@@over: \pic:gobble\b:over}
+\HLet\@@over\:tempc
+\HRestore\atop
+\def\:tempc{\pic:gobble\a:atop \o:@@atop: \pic:gobble\b:atop}
+\HLet\@@atop\:tempc
+\def\::above{\pic:gobble\a:above \o:@@above:\tmp:dim
+            \pic:gobble\b:above }
+\def\:above{\afterassignment\::above}
+\def\:tempc{\Protect\:above \tmp:dim=}
+\HLet\@@above\:tempc
+\HRestore\abovewithdelims
+\def\::abovewithdelims#1#2{\pic:gobble\a:abovewithdelims
+   \o:@@abovewithdelims:#1#2\tmp:dim\pic:gobble\b:abovewithdelims}
+\def\:abovewithdelims#1#2{\def\:temp{\::abovewithdelims#1#2}%
+   \afterassignment\:temp\tmp:dim}
+\def\:tempc{\Protect\:abovewithdelims }
+\HLet\@@abovewithdelims\:tempc
+\NewConfigure{abovewithdelims}{2}
+\HRestore\overwithdelims
+\def\:overwithdelims#1#2{\pic:gobble\a:overwithdelims
+   \o:@@overwithdelims:#1#2\pic:gobble\b:overwithdelims}
+\def\:tempc{\Protect\:overwithdelims}
+\HLet\@@overwithdelims\:tempc
+\NewConfigure{overwithdelims}{2}
+\HRestore\atopwithdelims
+\def\:atopwithdelims#1#2{\pic:gobble\a:atopwithdelims
+   \o:@@atopwithdelims:#1#2\pic:gobble\b:atopwithdelims}
+\def\:tempc{\Protect\:atopwithdelims}
+\HLet\@@atopwithdelims\:tempc
+\NewConfigure{atopwithdelims}{2}
+\let\ltx@label\lb:l
+\let\Mathaccent:\mathaccent@
+\def\mathaccent@#1#2{\ifx \EndPicture\:UnDef
+     \DN@{\Picture+{}\Mathaccent:{#1}{#2}\EndPicture}%
+  \else\DN@{\Mathaccent:{#1}{#2}}\fi\next@}
+\def\:temp#1{{\a:boxed\leavevmode
+   \vbox{\m@th$\displaystyle#1$}\b:boxed}}
+\HLet\boxed\:temp
+\NewConfigure{boxed}{2}
+\newcommand\:temp:xrightarrow[2][]{\a:xrightarrow {\o:xrightarrow:[#1]{#2}}\b:xrightarrow}
+\HLet\xrightarrow\:temp:xrightarrow
+\NewConfigure{xrightarrow}{2}
+\newcommand\:temp:xleftarrow[2][]{\a:xleftarrow {\o:xleftarrow:[#1]{#2}}\b:xleftarrow}
+\HLet\xleftarrow\:temp:xleftarrow
+\NewConfigure{xleftarrow}{2}
+\def\:tempc#1{\a:eqref\o:eqref:{#1}\b:eqref}
+\NewConfigure{eqref}{2}
+
+\def\equation{\bgroup \@fleqnfalse
+%
+  \ifx \EndPicture\:Undef
+     \def\endequation{%
+       \let\tagform@=\:gobble
+       \if@eqnsw \expand:after{%
+          %
+          \o:endequation:\b:equation\equ:no}%
+       \else \expand:after{%
+          \ifx\df@tag\@empty \expand:after{\o:endequation:\egroup}%
+          \else
+             \global\let\df:tag=\df@tag
+             \expand:after{\o:endequation: \expandafter\b:equation\ifdefined\ams:delete:tag\else\df:tag\fi%
+             \global\let\ams:delete:tag\@undefined
+             }\fi
+        }\fi
+        \c:equation\egroup
+      }%
+      \expandafter\a:equation
+   \else
+      \def\endequation{\o:endequation:\egroup}%
+   \fi
+   \o:equation:}
+\expandafter\let\csname o:equation*:\expandafter
+       \endcsname \csname equation*\endcsname
+\expandafter\let\csname o:endequation*:\expandafter
+       \endcsname \csname endequation*\endcsname
+\expandafter\def\csname equation*\endcsname{\bgroup
+  \ifx \EndPicture\:Undef
+     \expandafter\def\csname endequation*\endcsname {%
+        \csname o:endequation*:\endcsname\egroup%
+        \csname b:equation*\endcsname\egroup
+      }%
+      \csname a:equation*\endcsname
+   \else
+      \expandafter\def\csname endequation*\endcsname{\csname
+                                 o:endequation*:\endcsname\egroup}%
+   \fi
+   \csname o:equation*:\endcsname}
+\NewConfigure{equation*}[2]{
+   \expandafter\c:def \csname a:equation*\endcsname {#1\bgroup \let \@eqnnum \empty }%
+   \expandafter\c:def \csname b:equation*\endcsname {#2}%
+}
+\expandafter\def\csname genfrac \endcsname#1#2#3#4{%
+  \def\@tempa{#1#2}%
+  \edef\@tempb{\@nx\@genfrac\@mathstyle{#4}%
+    \expandafter\noexpand\csname @@\ifx @#3@over\else above\fi
+    \ifx\@tempa\@empty \else withdelims\fi\endcsname}%
+  \@tempb{#1#2#3}}
+\def\:tempc#1#2#3#4#5{{\a:genfrac#1\b:genfrac{\c:genfrac#4#2#3\relax
+   {\d:genfrac#5\e:genfrac}}\f:genfrac}}
+\HLet\@genfrac\:tempc
+\NewConfigure{genfrac}{6}
+\HRestore\frac
+\def\:temp#1#2{{\a:frac\begingroup
+   #1\endgroup\b:frac \@@over \c:frac #2\d:frac}}
+\expandafter\HLet\csname frac \endcsname\:temp
+\def\math@cr@@[#1]{\ifnum0=`{\fi \iffalse}\fi\math@cr@@@
+   \o:noalign:{\vskip#1\relax}}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:align!1!2{%
+   \ifx \ifinany@\:Undef\else  \inany@true\fi
+  \inalign@true \ifx \displaybreak@\:UnDef
+   \chardef\dspbrk@context\z@
+\else
+   \displaybreak@
+\fi
+\intertext@
+   \ifingather@\else\displ@y@\fi\Let@  \let\math@cr@@@\math@cr@@@align
+   \ifxxat@\else \let\tag\tag@in@align \fi
+   \let\label\label@in@display !1% set st@r
+   \ifst@rred\else \global\@eqnswtrue  \fi   \measure@{!2}%
+   \global\row@\z@ \tabskip\eqnshift@
+   \Configure{PauseMkHalign}
+  {\Configure{PauseMkHalign}{}{}{}{}\expandafter\clean:span}{}{}{}%
+%
+   \SaveMkHalignConf:g{\align:type}\HRestore\noalign
+\MkHalign#{\span
+   &\@lign$\m@th\displaystyle{{\HCode{}}%
+#}$%
+   &\@lign$\m@th\displaystyle{{\HCode{}}%
+#}$%
+}!2%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\clean:span#1\c:halign{%
+  \TeXhalign \bgroup \:span}
+\ifx \ifinany@\:Undef
+   \def\:tempc{%
+        \math@cr
+    \EndMkHalign \RecallMkHalignConfig \csname b:\align:type\endcsname
+    \ifingather@  \restorealignstate@  \egroup \nonumber
+      \ifnum0=`{\fi\iffalse}\fi%
+    \else         $$\fi
+    \global\@ignoretrue
+}
+
+\else
+   \def\:tempc{%
+        \math@cr
+    \EndMkHalign \RecallMkHalignConfig \csname b:\align:type\endcsname
+    \ifingather@  \restorealignstate@  \egroup \nonumber
+      \ifnum0=`{\fi}%
+    \else         $$\fi
+    \global\@ignoretrue
+}
+
+\fi
+\HLet\endalign\:tempc
+\def\:tempc{\pic:MkHalign{\align:type}}
+\HLet\align@\:tempc
+\def\Config:alg#1#2#3#4#5#6#7{%
+   \expandafter\c:def\csname a:#7\endcsname{\global
+      \let\sv:amps\add:amps #1}%
+   \expandafter\c:def\csname b:#7\endcsname{#2\global
+      \let\add:amps\sv:amps}%
+   \expandafter\c:def\csname c:#7\endcsname{#3}%
+   \expandafter\c:def\csname d:#7\endcsname{#4}%
+   \expandafter\c:def\csname e:#7\endcsname{\expandafter\align:td
+      \expandafter{\csname f:#7\endcsname}{#5}{#6}}%
+}
+\def\align:td#1#2#3{\iftag@
+     \ifnum \add:amps>0
+        \gHAdvance\add:amps  -1   \gHAdvance\HCol  -1
+        \global\let#1\empty
+        \ifnum \add:amps=0 \gHAdvance\HCol1 #2\gdef#1{#3}\fi
+     \else #2\gdef#1{#3}\fi
+   \else \gHAssign\add:amps\HCol\relax #2\gdef#1{#3}\fi}%
+
+\def\:tempc#1{%
+   \expandafter\pend:def\csname #1\endcsname{\def\align:type{#1}}%
+   \NewConfigure{#1}[6]{\Config:alg{##1}{##2}{##3}{##4}{##5}{##6}{#1}}%
+   \Configure{#1}{}{}{}{}{}{}%
+   \def\:temp{#1}\def\:tempa{align}\ifx \:temp\:tempa\else
+      \@xp\let\csname reg:#1\endcsname\reg:align
+      \@xp\let\csname end#1\endcsname\endalign
+   \fi }
+\:tempc{alignat}
+\:tempc{alignat*}
+\:tempc{xalignat}
+\:tempc{xalignat*}
+\:tempc{xxalignat}
+\:tempc{align}
+\:tempc{align*}
+\:tempc{flalign}
+\:tempc{flalign*}
+\pend:defIII\start@align{\Configure{$$}{}{}{}}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:start@aligned!1!2{%
+   \savecolumn@
+   \vcenter \bgroup
+        \maxfields@!2\relax
+        \ifnum\maxfields@>\m@ne
+            \multiply\maxfields@\tw@
+            \let\math@cr@@@\math@cr@@@alignedat
+        \else
+            \let\math@cr@@@\math@cr@@@aligned
+        \fi
+        \Let@ \chardef\dspbrk@context\@ne
+        \default@tag
+        \global\column@\z@
+   \SaveMkHalignConf:g{start@aligned}\HRestore\noalign
+\MkHalign#{&\column@plus $\m@th\displaystyle{{\HCode{}}#}$%
+           &\column@plus $\m@th\displaystyle{{\HCode{}}#}$}%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\al:gned#1{%
+   \Configure{start@aligned}{\csname a:#1\endcsname}%
+       {\csname b:#1\endcsname}{\csname c:#1\endcsname}%
+       {\csname d:#1\endcsname}{\csname e:#1\endcsname}%
+       {\csname f:#1\endcsname}\pic:MkHalign{#1}}
+\NewConfigure{start@aligned}{6}
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \restorecolumn@
+    \egroup  \b:start@aligned}
+\HLet\endaligned\:tempc
+\def\:temp{%
+  \let\@testopt\alignsafe@testopt
+  \futurelet\:temp\aligned:a}
+\def\aligned:a{\ifx [\:temp \expandafter\aligned:b
+   \else \def\:temp{\aligned:b[c]}\expandafter\:temp \fi}
+\def\aligned:b[#1]{%
+   \al:gned{aligned}{#1}\m@ne}
+\HLet\aligned\:temp
+\def\reg:aligned{\reg:start@aligned}
+\NewConfigure{aligned}{6}
+\def\:temp{\futurelet\:temp\alignedat:a}
+\def\alignedat:a{\ifx [\:temp \expandafter\alignedat:b
+   \else \def\:temp{\alignedat:b[c]}\expandafter\:temp \fi}
+\def\alignedat:b[#1]{%
+    \let\@testopt\alignsafe@testopt
+    \al:gned{alignedat}{#1}\m@ne}
+\HLet\alignedat\:temp
+\def\reg:alignedat{\reg:start@aligned}
+\NewConfigure{alignedat}{6}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:gathered[!1]{%
+  \RIfM@\else
+      \nonmatherr@{\begin{gathered}}%
+  \fi
+  \null  \vcenter\bgroup
+    \Let@ \chardef\dspbrk@context\@ne \restore@math@cr
+    \SaveMkHalignConf:g{gathered}%
+\MkHalign#{$\m@th\displaystyle{\HCode{}}#$}%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\b:gathered}
+\HLet\endgathered\:tempc
+\def\:temp{\pic:MkHalign{gathered}}
+\expandafter\HLet\csname \string\gathered\endcsname\:temp
+\NewConfigure{gathered}{6}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:multline!1{%
+  \ifx \ifinany@\:Undef\else  \inany@true\fi
+    \Let@
+  \@display@init{\global\advance\row@\@ne \global\dspbrk@lvl\m@ne}%
+  \ifx \displaybreak@\:UnDef
+   \chardef\dspbrk@context\z@
+\else
+   \displaybreak@
+\fi
+    \restore@math@cr    \let\tag\tag@in@align
+  \global\tag@false \global\let\raise@tag\@empty   
+  \let\tag\gobble@tag \ifst@rred  \let\label\@gobble  \else
+   \stepcounter{equation}%
+   \def\label{\let\cnt:currentlabel\@currentlabel
+      \def\:@currentlabel{\ifx \cnt:currentlabel\@currentlabel
+      \the\c@equation\else \@currentlabel\fi}%
+      \anc:lbl r{equation}\ltx@label}%
+   \edef\@currentlabel{\the\c@equation}%
+\fi
+%
+  \ifst@rred
+  \expandafter\let\csname e:multline*\endcsname\empty
+  \expandafter\let\csname f:multline*\endcsname\empty
+\fi
+\SaveMkHalignConf:g{multline\ifst@rred *\fi}\HRestore\noalign
+\MkHalign#{\hbox{$\m@th\displaystyle{\HCode{}}%
+#$}}!1%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\ifst@rred\else
+   \e:multline\csname a:multline-num\endcsname
+   \tagform@\theequation\csname b:multline-num\endcsname\f:multline
+\fi
+\math@cr \EndMkHalign
+   \RecallMkHalignConfig \csname b:multline\ifst@rred *\fi\endcsname
+   $$\global\@ignoretrue  }
+\HLet\endmultline\:tempc
+\def\:tempc{\pic:MkHalign{multline\ifst@rred *\fi}}
+\HLet\multline@\:tempc
+\NewConfigure{multline}{6}
+\NewConfigure{multline-num}{2}
+\@xp\let\csname reg:multline*\endcsname\reg:multline
+\@xp\let\csname endmultline*\endcsname\endmultline
+\NewConfigure{multline*}{4}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:gather!1{%
+   \ingather@true  \ifx \ifinany@\:Undef
+   \let\split\insplit@   \chardef\dspbrk@context\z@
+\else
+   \inany@true
+\fi
+%
+   \let\tag\tag@in@align  \let\label\label@in@display
+   \intertext@ \displ@y@
+   \Let@  \let\math@cr@@@\math@cr@@@gather  
+   \global\shifttag@false    \global\row@\@ne
+  \SaveMkHalignConf:g{gather\ifst@rred *\fi}\HRestore\noalign
+\MkHalign#{\hbox{$\m@th\displaystyle{{\HCode{}}%
+#}$}%
+&\hbox{{\HCode{}}%
+#}%
+}!1%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\math@cr \EndMkHalign
+   \RecallMkHalignConfig \csname b:gather\ifst@rred *\fi\endcsname
+   $$\global\@ignoretrue  }
+\HLet\endgather\:tempc
+\def\:tempc{\pic:MkHalign{gather\ifst@rred *\fi}}
+\HLet\gather@\:tempc
+\NewConfigure{gather}{6}
+\@xp\let\csname reg:gather*\endcsname\reg:gather
+\@xp\let\csname endgather*\endcsname\endgather
+\NewConfigure{gather*}{6}
+\def\:tempc{%
+  \def\intertext##1{%
+    \ifvmode\else\\\@empty\fi
+    \noalign{%
+      \penalty\postdisplaypenalty\vskip\belowdisplayskip
+      \vbox{\normalbaselines
+        \ifdim\linewidth=\columnwidth
+        \else \parshape\@ne \@totalleftmargin \linewidth
+        \fi
+       \a:intertext \noindent##1\b:intertext\par}%
+      \penalty\predisplaypenalty\vskip\abovedisplayskip%
+    }%
+}}
+\HLet\intertext@=\:tempc
+\NewConfigure{intertext}{2}
+\HLet\leftroot\:gobble
+\HLet\uproot\:gobble
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:smallmatrix{%
+  \vcenter\bgroup \Let@\restore@math@cr\default@tag
+  \SaveMkHalignConf:g{smallmatrix}%
+\MkHalign#{$\m@th\scriptstyle#$&&%
+           $\m@th\scriptstyle#$}%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\b:smallmatrix}
+\HLet\endsmallmatrix\:tempc
+\def\:temp{\pic:MkHalign{smallmatrix}}
+\HLet\smallmatrix\:temp
+\NewConfigure{smallmatrix}{6}
+\pend:defI\substack{\a:substack}
+\append:defI\substack{\b:substack}
+\NewConfigure{substack}{2}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:subarray!1{%
+  \vcenter\bgroup
+  \Let@ \restore@math@cr \default@tag
+  \baselineskip\fontdimen10 \scriptfont\tw@
+  \advance\baselineskip\fontdimen12 \scriptfont\tw@
+  \lineskip\thr@@\fontdimen8 \scriptfont\thr@@
+  \let\e:subarray\empty \let\f:subarray\empty
+\everycr{}\SaveMkHalignConf:g{subarray}%
+\MkHalign#{$\m@th\scriptstyle#$}%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\b:subarray}
+\HLet\endsubarray\:tempc
+\def\:temp#1{\def\Hlcr{#1}\pic:MkHalign{subarray}{#1}}
+\HLet\subarray\:temp
+\NewConfigure{subarray}{4}
+\NewConfigure{split}{6}
+                                    \catcode`\#13 \catcode`\!6
+\def\:tempc{%
+   \vbox\bgroup
+        \ifx \ifinany@\:Undef
+   \chardef\dspbrk@context\@ne
+\fi
+%
+        \Let@  \restore@math@cr  \default@tag \everycr{}\a:split
+        \SaveMkHalignConf:g{split}\HRestore\noalign
+        \MkHalign#{ $\m@th\displaystyle{{\HCode{}}%
+#}$%
+&$\m@th\displaystyle{{\HCode{}}%
+#}$%
+}}
+\HLet\insplit@\:tempc
+                                    \catcode`\#6 \catcode`\!12
+\def\:tempc{%
+   \crcr\EndMkHalign \b:split \egroup }
+\HLet\endsplit\:tempc
+\Configure{@begin}
+  {split}
+  {\relax
+   \ifx  \split\insplit@ \else
+   \def\choose:begin{\global\let\choose:begin\@firstoftwo
+                     \@secondoftwo}%
+   \fi
+  }
+\NewConfigure{equations}[2]{\def\pic:equa{#1}\def\pic:equb{#2}}
+\def\str:pic{\ifx \EndPicture\:UnDef
+      \expandafter\Picture\pic:equa{ \pic:equb}%
+   \else \let\EndPicture\empty  \fi
+   \let\halign\TeXhalign}
+\def\make@df@tag@@#1{%
+  \gdef\df@tag{\maketag@@@{#1}\def\@currentlabel{#1}\gdef\ams:delete:tag{}%
+               \let\cnt:currentlabel\@currentlabel
+\def\:@currentlabel{\ifx \cnt:currentlabel\@currentlabel
+   \expandafter\the\csname c@equation\endcsname\else \@currentlabel\fi}%
+%
+               \anc:lbl r{}%
+}}
+\def\make@df@tag@@@#1{\gdef\df@tag{\tagform@{#1}%
+  \toks@\@xp{\p@equation{#1}}\edef\@currentlabel{\the\toks@}%
+  \let\cnt:currentlabel\@currentlabel
+\def\:@currentlabel{\ifx \cnt:currentlabel\@currentlabel
+   \expandafter\the\csname c@equation\endcsname\else \@currentlabel\fi}%
+%
+  \anc:lbl r{}%
+  }}
+
+\:CheckOption{new-accents}     \if:Option \else
+   \HLet\Hat\hat
+\HLet\Check\check
+\HLet\Tilde\tilde
+\HLet\Acute\acute
+\HLet\Grave\grave
+\HLet\Dot\dot
+\HLet\Ddot\ddot
+\HLet\Breve\breve
+\HLet\Bar\bar
+\HLet\Vec\vec
+
+\fi
+\expandafter\def\csname [ \endcsname{\st:Math}
+\expandafter\def\csname ] \endcsname{\ed:Math}
+\let\:tempc\measure@
+\pend:defI\:tempc{\bgroup
+   \RecallTeXcr \HRestore\noalign \let\EndPicture\empty
+   \let\halign\TeXhalign \let\span\:span  \HRestore\begin
+   \HRestore\end   \a:measure@ }
+\append:defI\:tempc{\egroup}
+\HLet\measure@\:tempc
+\NewConfigure{measure@}{1}
+\HLet\savealignstate@\empty
+\renewcommand{\n:smash:}[2][tb]{%
+  \def\smash@{#1}%
+  \ifmmode\@xp\o:mathpalette:\@xp\mathsm@sh\else
+        \@xp\makesm@sh\fi{#2}}
+\let\:tempc\maketag@@@
+\pend:defI\:tempc{\a:maketag}
+\append:defI\:tempc{\b:maketag}
+\NewConfigure{maketag}{2}
+\HLet\maketag@@@\:tempc
+\MathSymbol\mathrel{@cdots}
+\MathSymbol\mathop{doteq}
+   \def\n:doteq:{\expandafter\:same \math:sym\mathop{doteq}\nolimits}
+\HLet\dotsb@=\@cdots
+\HLet\intdots@=\@cdots
+\HRestore\cdots
+\MathSymbol\mathop{iint}
+   \def\n:iint:{\expandafter\:same \math:sym\mathop{iint}\nolimits}
+\MathSymbol\mathop{iiint}
+   \def\n:iiint:{\expandafter\:same \math:sym\mathop{iiint}\nolimits}
+\MathSymbol\mathop{iiiint}
+   \def\n:iiiint:{\expandafter\:same \math:sym\mathop{iiiint}\nolimits}
+\MathSymbol\mathop{idotsint}
+   \def\n:idotsint:{\expandafter\:same \math:sym\mathop{idotsint}\nolimits}
+\def\:tempc#1{\a:underrightarrow
+   \o:underrightarrow:{#1}\b:underrightarrow}
+\HLet\underrightarrow\:tempc
+\NewConfigure{underrightarrow}{2}
+\def\:tempc#1{\a:underleftarrow
+   \o:underleftarrow:{#1}\b:underleftarrow}
+\HLet\underleftarrow\:tempc
+\NewConfigure{underleftarrow}{2}
+\def\:tempc#1{\a:overleftrightarrow
+   \o:overleftrightarrow:{#1}\b:overleftrightarrow}
+\HLet\overleftrightarrow\:tempc
+\NewConfigure{overleftrightarrow}{2}
+\def\:tempc#1{\a:underleftrightarrow
+   \o:underleftrightarrow:{#1}\b:underleftrightarrow}
+\HLet\underleftrightarrow\:tempc
+\NewConfigure{underleftrightarrow}{2}
+
+\def\:tempc#1#2#3{\a:underarrow@
+   \hbox{$\m@th#2#3$}\b:underarrow@
+   \hbox{#1#2}\c:underarrow@
+}
+\HLet\underarrow@\:tempc
+\def\:tempc#1#2#3{\a:overarrow@
+   \hbox{#1#2}\b:overarrow@
+   \hbox{$\m@th#2#3$}\c:overarrow@
+}
+\HLet\overarrow@\:tempc
+\NewConfigure{underarrow@}{3}
+\NewConfigure{overarrow@}{3}
+\def\:temp#1#2{\a:overset\binrel@{#2}%
+  \binrel@@{\mathop{\kern\z@#2}\limits^{#1}}\b:overset}
+\HLet\overset\:temp
+\NewConfigure{overset}{2}
+\def\:temp#1#2{\a:underset\binrel@{#2}%
+  \binrel@@{\mathop{\kern\z@#2}\limits_{#1}}\b:underset}
+\HLet\underset\:temp
+\NewConfigure{underset}{2}
+
+\MathSymbol\mathop{dotsc}
+\MathSymbol\mathop{dotso}
+\MathSymbol\mathrel{longleftarrow}
+\MathSymbol\mathrel{longrightarrow}
+
+\ifx \ifinany@\:Undef
+   \let\:tempc\gather@split
+\append:defIII\:tempc{%
+   \def\endmathdisplay@a{%
+     \math@cr \EndMkHalign
+     \RecallMkHalignConfig \csname b:gather\ifst@rred *\fi\endcsname
+     \egroup 
+   }%
+}
+\HLet\gather@split\:tempc
+
+\else
+   \:warning{ams files too old for TeX4ht}
+\fi
+\Hinput{amsmath}
+\endinput
+

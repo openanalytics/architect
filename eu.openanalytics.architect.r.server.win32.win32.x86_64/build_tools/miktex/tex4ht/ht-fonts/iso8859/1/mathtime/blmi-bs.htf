@@ -1,0 +1,131 @@
+blmi-bs 0 127
+'G'    '1'Gamma            0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'D'    '1'Delta            1 % blmi-bs.htf                   2001-03-14 %
+'Q'    '1'Theta            2 % Copyright (C) 2001            Phil Viton %
+'/\\'  '1'Lambda           3 %                                          %
+'E'    '1'Xi               4 % This file can redistributed and/or       %
+'TT'   '1'Pi               5 % modified under the terms of the LaTeX    %
+'S'    '1'Sigma            6 % Project Public License Distributed from  %
+'U'    '1'Upsilon          7 % CTAN archives in directory               %
+'P'    '1'Phi              8 % macros/latex/base/lppl.txt; either       %
+'Y'    '1'Psi              9 % version 1 of the License, or (at your    %
+'_O_'  '1'Omega           10 % option) any later version.               %
+'a'    '1'alpha           11 %    However, you are allowed to modify    %
+'b'    '1'beta            12 % this file without changing its name, if  %
+'g'    '1'gamma           13 % you add a note of your own after this    %
+'d'    '1'delta           14 % copyright note.                          %
+'e'    '1'epsilon         15 %                                          %
+'z'    '1'zeta            16 % I would appreciate being told if you     %
+'j'    '1'eta             17 % find bugs.                               %
+'i'    '1'theta           18 %                                          %
+'i'    '1'iota            19 %                         viton.1@osu.edu  %
+'k'    '1'kappa           20 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'c'    '1'lambda          21
+'m'    '1'mu              22
+'n'    '1'nu              23
+'q'    '1'xi              24
+'p'    '1'pi              25
+'r'    '1'rho             26
+'s'    '1'sigma           27
+'t'    '1'tau             28
+'v'    '1'upsilon         29
+'f'    '1'phi             30
+'x'    '1'chi             31
+'y'    '1'psi             32
+'w'    '1'omega           33
+'e'    '1'varepsilon      34
+'h'    '1'vartheta        35
+'p'    '1'varpi           36
+'r'    '1'varrho          37
+'z'    '1'varsigma         38
+'f'    '1'varphi          39
+*'_*   *1*leftharpoonup    40
+',_'   '1'leftharpoondown  41
+*_'*   *1*righttharpoonup  42
+'-,'   '1'rightharpoondown 43
+''     '1'                  44
+''     '1'                  45
+'|\\'  '1'triangleright     6
+'/|'   '1'triangleleft     47
+'Gamma'    '1'uprightGamma 48
+'Delta'    '1'uprightDelta   49
+'Theta'    '1'uprightTheta    50
+'Lambda'    '1'uprightLambda  51
+'Xi'        '1'uprightXi      52
+'Pi'        '1'uprightPi      53
+'Sigma'    '1'uprightSigma    54
+'Upsilon'    '1'uprightUpsilon 55
+'Phi'        '1'uprightPhi     56
+'Psi'       '1'uprightPsi       57
+'.'    ''          58
+','    ''          59
+'&#x003C;' ''          60
+'/'    ''          61
+'&#x003E;' ''          62
+'*'    ''          63
+'@'    '1'partial  64
+'A'    ''          65
+'B'    ''          66
+'C'    ''          67
+'D'    ''          68
+'E'    ''          69
+'F'    ''          70
+'G'    ''          71
+'H'    ''          72
+'I'    ''          73
+'J'    ''          74
+'K'    ''          75
+'L'    ''          76
+'M'    ''          77
+'N'    ''          78
+'O'    ''          79
+'P'    ''          80
+'Q'    ''          81
+'R'    ''          82
+'S'    ''          83
+'T'    ''          84
+'U'    ''          85
+'V'    ''          86
+'W'    ''          87
+'X'    ''          88
+'Y'    ''          89
+'Z'    ''          90
+'b'    '1'flat     91
+'H'    '3'natural  92
+'#'    '1'sharp    93
+'~'    '1'smile    94
+'^'    '1'frown    95
+'l'    '1'el       96
+'a'    ''          97
+'b'    ''          98
+'c'    ''          99
+'d'    ''         100
+'e'    ''         101
+'f'    ''         102
+'g'    ''         103
+'h'    ''         104
+'i'    ''         105
+'j'    ''         106
+'k'    ''         107
+'l'    ''         108
+'m'    ''         109
+'n'    ''         110
+'o'    ''         111
+'p'    ''         112
+'q'    ''         113
+'r'    ''         114
+'s'    ''         115
+'t'    ''         116
+'u'    ''         117
+'v'    ''         118
+'w'    ''         119
+'x'    ''         120
+'y'    ''         121
+'z'    ''         122
+'i'    ''         123
+'j'    ''         124
+'p'    '1'wp      125
+'k'   '1'varkappa 126
+'_O_' '1'Omega    127
+blmi-bs 0 127
+

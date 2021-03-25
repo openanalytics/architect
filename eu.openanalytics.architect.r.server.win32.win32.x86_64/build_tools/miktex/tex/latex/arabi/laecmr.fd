@@ -1,0 +1,31 @@
+%%
+%% This is file `laecmr.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laecmr.fd}
+         [2006/01/01 v0.1 LaTeX Arabic default font description
+         (test version: may change)]
+
+\DeclareFontFamily{LAE}{cmr}{\hyphenchar\font=-1}%
+
+\DeclareFontShape{LAE}{cmr}{m}{n}{<-> s*[1.25] aealmohanadb }{}
+%%%%%%% Italicized shape
+\DeclareFontShape{LAE}{cmr}{m}{it}{<-> s*[1.25] aedimnah }{}
+\DeclareFontShape{LAE}{cmr}{m}{sl}{<-> ssub * cmr/m/it }{}
+\DeclareFontShape{LAE}{cmr}{m}{sc}{<-> s*[1.25] aenada }{}
+%%%%%%% Bold extended series
+\DeclareFontShape{LAE}{cmr}{b}{n}{<-> s*[1.25] aealmateen }{}
+\DeclareFontShape{LAE}{cmr}{bx}{n}{<-> ssub * cmr/b/n }{}
+%%%%%%% Bold extended (Italic)  series
+\DeclareFontShape{LAE}{cmr}{bx}{sl}{<->  ssub * cmr/b/n  }{}
+\DeclareFontShape{LAE}{cmr}{bx}{it}{<->  ssub * cmr/b/n  }{}
+
+
+\endinput

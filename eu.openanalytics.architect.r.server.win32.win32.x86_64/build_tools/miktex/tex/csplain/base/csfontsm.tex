@@ -1,0 +1,84 @@
+
+% csfontsm.tex, October 2012,    Petr Olsak (Ol\v s\'ak)
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This file is a part of csplain used during format generation.
+%
+% Usage: \def\sizespec{at14pt}\resizefont\tenrm
+% after this, the \tenrm font selector switches to csr10 at14pt
+%
+% The \resizefont macro takes the font selector declared by \font, uses the
+% same font but re-sets this selector to (probably) new font size declared
+% in the \sizespec macro. You can \def\sizespec{at<dimen>} or
+% \def\sizespec{magstep<number>}. The \resizefont's setting is done
+% locally, it means that you can do (for instance):
+%
+% {\def\sizespec{scaled\magstep3}\resizefont\tenbf \tenbf Title text}
+%
+% The \resizeall macro resizes the \tentt, \tenrm, \tenit, \tenbf, \tenbi
+% font selectors by currently defined \sizespec.
+% The \regfont adds a new `registered' font-selector to the \resizeall macro
+% The font-loading macros can register their fonts by \regfont.
+
+% You can use: \letfont \titlefont = \tenbf at15pt
+
+\def\letfont#1#2{\ifx#2=\expandafter\letfont\expandafter#1\else
+  \expandafter\font\expandafter#1\expandafter
+     \rfontskipat\fontname#2 \relax\space \fi}
+
+                    % XeTeX expands \fontname to "name with spaces":
+\def\rfontskipat#1{\ifx#1"\expandafter\rfskipatX
+                   \else\expandafter\rfskipatN\expandafter#1\fi}
+\def\rfskipatX #1" #2\relax{"\whichtfm{#1}"} 
+\def\rfskipatN #1 #2\relax{\whichtfm{#1}}
+
+\ifx\whichtfm\undefined
+   \def\whichtfm#1{#1}   % User can redefine it in order to select proper
+\fi                      % dessign size of the font, see ams-math.tex for
+                         % example.
+\def\resizefont#1{\letfont#1#1\sizespec}
+
+\ifx\resizeall\undefined \else \endinput \fi
+
+\ifx\tenbi\undefined
+   \font\tenbi=csbxti10  % it may be usable to have 
+                         % the quartet \rm \it \bf \bi preloaded
+   \def\bi{\tenbi}       % math \fam\bifam is not preloaded now
+\fi
+
+\def\regfont#1{\expandafter\def\expandafter\resizeall\expandafter{%
+  \resizeall \resizefont#1}}
+
+\def\regfontdefault{\def\resizeall{}%
+   \regfont\tenrm \regfont\tenit \regfont\tenbf \regfont\tenbi \regfont\tentt
+}
+\regfontdefault
+
+\def\sizespec{}  % by default: fonts are loaded in their implicit sizes
+
+\endinput %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The notice about resizing the current font.
+
+You can't use \expandafer \resizefont \the\font because \the\font expands to
+the token with internal meaning: ``current font'' and with external
+representation \fontselector where \fontselector is the control sequence
+used by primitive \font as a parameter. The internal meaning has a
+precedence and the token \the\font is inaccesible. You can make an accesible
+control sequence by re-packing it by \csname...\endcsname. Thus the macro
+\currsize{<size>} which sets the typesetting of the current font to the
+desired <size> may be:
+
+\def\currsize#1{%
+  {\escapechar=-1\xdef\tmp{\csname\expandafter\string\the\font\endcsname}}%
+  \def\sizespec{at#1}\expandafter\resizefont\tmp \tmp}
+
+or:
+
+\def\currsize#1{%
+  \expandafter\let \expandafter\tmp \the\font
+  \def\sizespec{at#1}\resizefont\tmp \tmp}
+
+
+% end of csfontsm.tex
+

@@ -1,0 +1,15 @@
+.cs-iwona
+htfcss: cs-anttb  font-weight: bold;
+htfcss: cs-anttbi  font-style:italic; font-weight: bold;
+htfcss: cs-anttcb  font-weight: bold;
+htfcss: cs-anttcbi  font-style:italic; font-weight: bold;
+htfcss: cs-anttcl  font-weight: light;
+htfcss: cs-anttcli  font-weight: light; font-style:italic;
+htfcss: cs-anttcmi  font-style:italic;
+htfcss: cs-anttcri  font-style:italic;
+htfcss: cs-anttl  font-weight: light;
+htfcss: cs-anttli  font-weight: light; font-style:italic;
+htfcss: cs-anttmi  font-style:italic;
+htfcss: cs-anttri  font-style:italic;
+
+

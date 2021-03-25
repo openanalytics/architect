@@ -1,0 +1,83 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% res-a.4ht                             2009-05-21-09:32 %
+% Copyright (C) 2003--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\def\section{\no:section}
+\csname pend:def\endcsname\endresume{%
+  \csname d:section\endcsname
+  \global\expandafter\let\csname d:section\endcsname\empty
+}
+\Configure{section}
+   {\ifx \@@section\boxed@sectiontitle \csname a:boxed-section\endcsname
+    \else \csname a:overlapped-section\endcsname \fi }
+   {\ifx \@@section\boxed@sectiontitle \csname b:boxed-section\endcsname
+    \else \csname b:overlapped-section\endcsname \fi }
+   {\ifx \@@section\boxed@sectiontitle \csname c:boxed-section\endcsname
+    \else \csname c:overlapped-section\endcsname \fi }
+   {\ifx \@@section\boxed@sectiontitle \csname d:boxed-section\endcsname
+    \else \csname d:overlapped-section\endcsname \fi }
+\NewConfigure{overlapped-section}{4}
+\NewConfigure{boxed-section}{4}
+\let\:temp\empty
+\ifx \print@name\@printcentername
+   \def\:temp{\let\print@name\@printcentername}
+\fi
+\ifx \print@name\@linename
+   \def\:temp{\let\print@name\@linename}
+\fi
+   \def\@printcentername{\begingroup
+  \a:centername\hbox{\@tablebox{\namefont\@name}}\b:centername
+  \@ifundefined{@addressone}{}{%
+    \@ifundefined{@addresstwo}{
+      \a:centeraddresses
+      \hbox{\@tablebox{\@addressone}}\b:centeraddresses
+    }{
+      \c:centeraddresses
+      \hbox{\@tablebox{\@addressone}}\d:centeraddresses
+      \hbox{\@tablebox{\@addresstwo}}\e:centeraddresses
+    }%
+  }%
+  \endgroup}
+
+   \def\@linename{\begingroup
+  \def\\{, }%
+  \a:linename{\namefont\@name}\b:linename
+  \@ifundefined{@addressone}{}{%
+      \a:lineaddress\hbox{\@addressone}\b:lineaddress
+                    \hbox{\@addresstwo}\c:lineaddress
+  }
+\endgroup}
+
+\:temp
+\NewConfigure{centername}{2}
+\NewConfigure{centeraddresses}{5}
+\NewConfigure{linename}{2}
+\NewConfigure{lineaddress}{3}
+
+\Hinput{res}
+\endinput
+

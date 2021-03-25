@@ -1,0 +1,9 @@
+% $Id: Ao,v 1.2 2004/09/19 21:47:11 karl Exp $
+% Public domain.
+vardef C.Ao(expr n) =
+ save p,q; picture p,q;
+ p="A"infont n;
+ q=char202 infont n;
+ addto p also q
+  shifted(xpart(urcorner p-urcorner q)/2,.3*fontsize n);
+ p enddef;

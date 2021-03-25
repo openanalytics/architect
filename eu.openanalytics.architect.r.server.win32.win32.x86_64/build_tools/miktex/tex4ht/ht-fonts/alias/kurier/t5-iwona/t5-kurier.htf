@@ -1,0 +1,18 @@
+.t5-iwona
+htfcss: t5-kurierl  font-weight: light;
+htfcss: t5-kurierb  font-weight: bold;
+htfcss: t5-kurierh  font-weight: bold;
+htfcss: t5-kurierli  font-weight: light; font-style:italic;
+htfcss: t5-kurierri  font-style:italic;
+htfcss: t5-kuriermi  font-style:italic;
+htfcss: t5-kurierbi  font-style:italic; font-weight: bold;
+htfcss: t5-kurierhi  font-style:italic; font-weight: bold;
+htfcss: t5-kuriercl  font-weight: light;
+htfcss: t5-kuriercb  font-weight: bold;
+htfcss: t5-kurierch  font-weight: bold;
+htfcss: t5-kuriercli  font-weight: light; font-style:italic;
+htfcss: t5-kuriercri  font-style:italic;
+htfcss: t5-kuriercmi  font-style:italic;
+htfcss: t5-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: t5-kurierchi  font-style:italic; font-weight: bold;
+

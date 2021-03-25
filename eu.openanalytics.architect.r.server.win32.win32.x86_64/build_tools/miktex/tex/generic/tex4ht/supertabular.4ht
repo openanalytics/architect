@@ -1,0 +1,65 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% supertabular.4ht                      2009-05-21-09:32 %
+% Copyright (C) 2002--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+   \long\def\tablelasttail#1{%
+   \def\:temp{#1}\ifx \:temp\empty
+      \gdef \@table@last@tail {}%
+   \else
+      \gdef \@table@last@tail {\cr #1}%
+   \fi
+}
+\ifx \@table@last@tail\:UnDef \else
+  \gdef\:temp{}
+  \ifx \@table@last@tail\:temp\else
+    \pend:def\@table@last@tail{\cr}%
+\fi \fi
+\def\ST@xargarraycr#1{%
+  \@tempdima #1\relax  \cr
+  \ifdim #1>5pt
+    \ifx \ar:cnt \:UnDef \else
+      \o:noalign: {%
+        \gdef\SpBorder{#1}%
+        \append:def \hline:s {\a:SpBorder }%
+        \def\:tempb{\ifnum \tmp:cnt <\ar:cnt
+           \advance \tmp:cnt by 1
+           \append:def\hline:s{\b:SpBorder }\expandafter\:tempb \fi }%
+        \tmp:cnt=0 \:tempb
+        \append:def\hline:s{\c:SpBorder }%
+        \global\let\hline:s=\hline:s }%
+  \fi \fi
+}
+\NewConfigure{SpBorder}{3}
+\def\ST@cr{}
+\long\def\tabletail#1{\gdef\@tabletail{}}
+\tabletail{}
+\let\o:ST@caption:=\ST@caption
+\def\ST@caption{\gHAdvance\TitleCount by 1 \o:ST@caption:}
+
+\Hinput{supertabular}
+\endinput
+

@@ -1,0 +1,84 @@
+environment:
+  RTOOLS_ARCH: x86_64
+  PfxUri:
+    secure: z+vP1iY4odY07BV7v+yfuA2MBKQFFLGokZoefPhz22ewYZAm6XZ8jsdphTFYkn7L
+  CertPassword:
+    secure: nwSwtaLCl6Xo5sfqKLvO30aFFGCgjGJ2GKTqS33zkJg=
+  SignTool: C:\Program Files (x86)\Windows Kits\8.1\bin\x64\signtool.exe
+  CertKit: C:\Program Files (x86)\Windows Kits\10\App Certification Kit\appcert.exe
+  KeyFile: C:\jeroen.pfx
+  matrix:
+    - rsource_url: https://cran.r-project.org/src/base-prerelease/R-latest.tar.gz
+      rversion: r-patched
+      cran: true
+    - rsource_url: https://cran.r-project.org/src/base-prerelease/R-devel.tar.gz
+      rversion: r-devel
+      cran: true
+
+install:
+    - ps: Import-Module .\scripts.ps1
+    - ps: InstallInno
+    - ps: InstallMiktex
+    - ps: InstallRtoolsExe
+    - ps: SetTimezone
+
+build_script:
+  - C:\rtools40\usr\bin\bash --login -c "$(cygpath ${APPVEYOR_BUILD_FOLDER})/full-build.sh"
+
+after_build:
+  - cd pkg\r-installer
+  - call target.cmd
+  - move ..\..\src\R-source\src\gnuwin32\installer\%target%-win.exe .
+  - ps: Start-FileDownload $env:PfxUri -FileName $env:KeyFile
+  - ps: SignFiles "${env:target}-win.exe"
+  - ps: Remove-Item –path $env:KeyFile
+  - md5sum %target%-win.exe > md5sum.txt.%target%
+  - 7z a ..\..\%target%-win.zip %target%-win.exe md5sum.txt.%target% *.log *.html SVN-REVISION.* README.*
+  - move %target%-win.exe ..\..\
+  - cd ..\..
+
+artifacts:
+  - path: "%target%-win.exe"
+    name: installer
+  - path: "%target%-win.zip"
+    name: CRAN Bundle
+  - path: r-devel.log
+    name: buildlog
+
+on_finish:
+  - 7z a tests.zip src\R-source\tests\*.Rout* src\build32\tests\*.Rout*
+  - appveyor PushArtifact tests.zip
+
+deploy:
+  - provider: Environment
+    name: ftp_archive
+    target: "%target%"
+    archive: "%rversion%"
+    revision: "%revision%"
+    on:
+      branch: master
+      cran: true
+    artifact: "%target%-win.zip"
+
+  - provider: Environment
+    name: ftp_current
+    target: "%target%"
+    on:
+      branch: master
+      cran: true
+    artifact: "%target%-win.zip"
+
+  - provider: BinTray
+    username: jeroen
+    subject: rtools
+    repo: installer
+    package: testing
+    version: latest
+    publish: true
+    override: true
+    artifact: "%target%-win.exe"
+    api_key:
+      secure: rKoNWcAgUrOM7QLX4cEvA1iKoY2DR4ps/1PRveq7rJknjQjcpKx8xGs42CJPhDwJ
+    on:
+      branch: master
+      rversion: r-devel

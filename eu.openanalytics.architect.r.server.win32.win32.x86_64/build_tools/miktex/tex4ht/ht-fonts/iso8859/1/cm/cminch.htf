@@ -1,0 +1,47 @@
+cminch 48 90
+'0' '' 48 %
+'1' '' 49 % cminch.htf (2020-05-27-14:14), generated from tex4ht-fonts-noncjk.tex
+'2' '' 50 % Copyright 2001-2009 Eitan M. Gurari
+'3' '' 51 %
+'4' '' 52 % This work may be distributed and/or modified under the conditions
+'5' '' 53 % of the LaTeX Project Public License, either version 1.3 of this
+'6' '' 54 % license or (at your option) any later version. The latest version
+'7' '' 55 % of this license is in http://www.latex-project.org/lppl.txt and
+'8' '' 56 % version 1.3 or later is part of all distributions of LaTeX version
+'9' '' 57 % 2003/12/01 or later.
+''  '' 58 % This work has the LPPL maintenance status "maintained".
+''  '' 59 % Current Maintainer of this work is the TeX4ht Project.
+''  '' 60 %
+''  '' 61 % If you modify this file, changing the
+''  '' 62 % version identification would be appreciated.
+''  '' 63 %
+''  '' 64 % tex4ht@tug.org
+'A' '' 65 % https://tug.org/tex4ht
+'B' '' 66 %
+'C' '' 67 
+'D' '' 68
+'E' '' 69
+'F' '' 70
+'G' '' 71
+'H' '' 72
+'I' '' 73
+'J' '' 74
+'K' '' 75
+'L' '' 76
+'M' '' 77
+'N' '' 78
+'O' '' 79
+'P' '' 80
+'Q' '' 81
+'R' '' 82
+'S' '' 83
+'T' '' 84
+'U' '' 85
+'V' '' 86
+'W' '' 87
+'X' '' 88
+'Y' '' 89
+'Z' '' 90
+cminch 48 90
+htfcss: cminch font-weight: bold;
+

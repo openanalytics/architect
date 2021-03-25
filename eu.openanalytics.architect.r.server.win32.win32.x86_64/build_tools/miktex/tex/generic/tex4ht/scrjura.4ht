@@ -1,0 +1,77 @@
+% scrjura.4ht (2018-12-30-09:37), generated from tex4ht-4ht.tex
+% Copyright 2018 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2018-12-30-09:37}
+
+\def\:qtchr{\expandafter\@gobble\string\"}
+
+\pend:def\contract@paragraph@font{\a:contract@paragraph@font}
+\append:def\contract@paragraph@font{\b:contract@paragraph@font\gdef\end:prevpara{}}
+
+\NewConfigure{contract@paragraph@font}{2}
+
+% \end:prevpara is needed to correctly handle paragraphs
+\def\end:prevpara{}
+\pend:def\parformat{\end:prevpara\a:parformat}
+\append:def\parformat{\b:parformat\global\let\end:prevpara\c:parformat}
+
+\NewConfigure{parformat}{3}
+
+
+% this is a modified version of original macro from scrjura.sty
+\renewcommand*{\ref@Par}[2]{%
+  \expandafter\ifx\csname r@#2\endcsname\relax
+    \ref#1{#2}%
+  \else
+    \begingroup
+      % this definitions are needed to get correct content from the \csname r@#2\endcsname
+      \def\rEfLiNK##1##2{##2}
+      \expandafter\expandafter\expandafter\expandafter
+      \expandafter\expandafter\expandafter\def
+      \expandafter\expandafter\expandafter\expandafter
+      \expandafter\expandafter\expandafter\@tempb
+      \expandafter\expandafter\expandafter\expandafter
+      \expandafter\expandafter\expandafter{%
+        \expandafter\expandafter\expandafter\@gobble\csname r@#2\endcsname}%
+      \def\@tempc##1##2\@nil{##1}%
+      \let\scrjura@separator\@gobble
+      \protected@edef\@tempa{\expandafter\expandafter\expandafter\@tempc
+        \csname r@#2\endcsname\noexpand\@nil}%
+      \def\@tempc##1##2##3\@nil{##2}%
+      \protected@edef\@tempa{\expandafter\expandafter\expandafter\@tempc
+        \@tempa{%
+          \protect\G@refundefinedtrue
+          \nfss@text{\reset@font\bfseries ??}%
+          \@latex@warning{Reference `#2' on page \thepage \space
+            with undefined par number}%
+        }\noexpand\@nil}%
+      \let\@@protect\protect
+      \let\protect\noexpand
+      \expandafter\edef\csname r@#2\endcsname{{\@tempa}\@tempb}%
+      \let\protect\@@protect
+      \ref#1{#2}%
+    \endgroup
+  \fi
+}
+ \Css{.sentence{margin-left:2em; padding-top: .5em;}}
+ \Css{.paragraph{margin: 1em;}}
+ \Css{.para{margin: .5em;}}
+
+\Hinput{scrjura}
+\endinput
+

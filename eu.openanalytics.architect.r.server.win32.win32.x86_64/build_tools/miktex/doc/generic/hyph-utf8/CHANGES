@@ -1,0 +1,477 @@
+== CTAN release 2020.03.25 ==
+
+2020-03-25
+- Major update to Spanish [es] patterns
+- Major update to Classical Latin patterns [la-x-classic]
+
+2019-12-03
+- Fixed typo in Classic Latin patterns [la-x-classic] (559f1a2)
+
+2019-05-18
+- Fixed Chinese Pinyin [zh-latn-pinyin]
+- Removed plain text files .chr.txt and .lic.txt
+
+2019-04-04
+- Updated German patterns [de-1901], [de-1996], and [de-ch-1901]
+
+2019-02-04
+- Updated Liturgical Latin patterns [la-x-liturgic], by Arnaud de Castelbajac:
+  Mainly the revision of patterns: abs-*, amb-*, ob-*, super-*, trans-*, pseudo-*, indu-*
+  and some other less systematic.
+
+2019-01-01
+- Updated pinyin patterns [zh-latn]
+
+2018-11-04
+- Changed licence of British English [en-gb] patterns to MIT (commit c76c797)
+
+2018-09-12
+- Introduced structured information at the top of every TeX pattern file, in YAML format (commit 82e5651)
+
+2018-08-03
+- Thai patterns update, by Theppitak Karoonboonyanan (commit 1e52772)
+
+2018-07-25
+- Added patterns for Pāli, by Wie-Ming Cittānurakkho Bhikkhu
+
+2018-04-02
+- Synched German patterns [de-1901, de-ch-1901, de-1996] with upstream (dehyph-exptl) 2018-03-31.
+  By the German hyphenation patterns team.
+
+2018-03-25
+- Switched Bulgarian patterns to a different set, by Anton Zinoviev.  Removed out-of-date documentation.
+
+2017-09-13
+- Liturgical Latin [la-x-liturgic] Fix form of possum and quoties, by Claudio Beccari and Élie Roux
+
+== CTAN release 2017.05.18 ==
+
+2017-05-18
+- Added a missing pattern for Latin, version 3.201 (by Claudio Beccari)
+
+2017-05-08
+- Updated all German [de-1901, de-ch-1901, de-1996] patterns to the latest version
+  provided by dehyph-exptl (2017-03-31).  By the German hyphenation pattern working group
+
+2017-01-20
+- Synched Liturgical Latin [la-x-liturgic] patterns with their source
+  at the Gregorio project (by Élie Roux)
+
+2017-10-17
+- Updated Church Slavonic [cu] patterns to version 1.1 (by Mike Kroutikov)
+
+2017-10-01
+- Added Belarusian [be] patterns (by Maksim Salau)
+
+2016-05-19
+- update Liturgical Latin patterns (by Claudio Beccari), version 1.040
+
+== CTAN release 2016.05.16 ==
+
+2016-05-16
+- Added support for curled beta (ϐ U+03D0 GREEK BETA SYMBOL) in Ancient Greek patterns, UTF-8 version
+
+2016-05-14
+- add Liturgical Latin patterns (by Claudio Beccari)
+
+2016-05-14
+- Change righthyphenmin in hyphen-french.tlpsrc to 2
+
+2016-05-12 (c060b6d)
+- Added four patterns in French to prevent breaks before apostrophes
+
+2016-04-17 (#744, #745)
+- Added Church Slavonic patterns (by Mike Kroutikov and Aleksandr Andreev)
+
+2016-03-21 (#735, #736)
+- Added MIT licence for Irish [ga], Cyrillic Mongolian [mn-cyrl], Turkmen [tk]
+- Added “Unicode licence” for Croatian [hr]
+- Added text of “Unicode licence” to hyph-en-gb.tex(unicode-licence)
+
+2016-03-20 (#733)
+- Put French patterns under the MIT licence.
+
+2016-03-19 (#729, #731)
+- Added MIT licence for Welsh [cy], Danish [da], Slovenian [sl]; “Unicode licence” for Basque [eu]
+- Added hyph-en-gb.tex(unicode-licence)
+
+== CTAN release 2016.02.17 (#725) ==
+
+2016-02-17 (#722, #723, #724)
+- Added patterns with apostrophe for Occitan
+
+== CTAN release 2016.02.11 (#721) ==
+
+2016-02-06 (#718)
+- add Occitan patterns (by Claudio Beccari)
+
+2016-01-23 (#716)
+- update Indic patterns, now under MIT licence
+
+2015-12-22 (#710)
+- MIT licence added to the Estonian patterns
+
+2015-12-11 (#709)
+- Updated Spanish licence to MIT/X11
+
+2015-12-10 (#708)
+- Portuguese patterns under BSD-3 clause licence
+
+== CTAN release 2015.11.20 (#707) ==
+
+2015-11-12 (#704, #705)
+- update Spanish patterns (by Javier Bezos)
+
+== CTAN release 2015.05.09 (#696) ==
+
+2015-05-07 (#691)
+- update Thai patterns (by Theppitak Karoonboonyanan)
+
+== CTAN release 2014.10.13 (#687) ==
+
+2014-10-13 (#687)
+- update Classical Latin patterns (by Claudio Beccari)
+
+2014-08-22 (#686)
+- update Thai patterns (by Theppitak Karoonboonyanan)
+
+== CTAN release 2014.07.04 (#682) ==
+
+2014-06-03 (#672)
+- add Classical Latin patterns (by Claudio Beccari)
+- clean up comments for Latin patterns
+
+== CTAN release 2014.05.22 (#668) ==
+
+2014-05-22 (#668)
+- update German patterns (by Werner Lemberg), version 2014-05-21
+
+== CTAN release 2014.04.24 (#665) ==
+
+2014-04-23 (#663)
+- update Italian patterns (by Claudio Beccari), version 4.9
+
+2013-10-28 (#654)
+- update Thai patterns (by Theppitak Karoonboonyanan)
+
+== CTAN release 2013.10.08 (#651) ==
+
+2013-10-08 (#651)
+- update Afrikaans patterns (by Tilla Fick & Chris Swanepoel), version 1.0
+
+2013-06-04 (#648)
+- reintroduce Georgian patterns under LPPL licence;
+  regenerated with hyphenmin=1/2 and released as version 0.3
+
+== CTAN release 2013.05.26 (#647) ==
+
+2013-05-26 (#647)
+- minor documentation updates, CTAN release
+
+2013-05-26 (#646)
+- remove Georgian patterns (waiting for licence)
+
+2013-05-26 (#645)
+- update German patterns (by Werner Lemberg), version 2013-05-26
+
+2013-05-21 (#644)
+- add LPPL licence statement to Thai patterns
+
+2013-05-16 (#636-#643)
+- update luatex-hyphen.dtx and derivate files:
+- remove hyphen.cfg (Babel now provides a working one)
+- update etex.src
+- update luatex-hyphen.lua
+- update documentation
+
+2013-05-08 (#635)
+- texmf -> texmf-dist
+
+== CTAN release 2013.05.08 (#634) ==
+
+2013-05-08 (#634)
+- update the list of languages in documentation
+
+2013-05-08 (#633)
+- use new converters for T8M and LTH
+- update the list of languages in documentation
+
+2013-05-02 (#630)
+- add proper converters for T8M and LTH encodings
+
+2013-04-01 (#625, #626)
+- cleanup luatex-hyphen module
+- fix adding a dialect of a synonym in LuaTeX
+
+2013-03-01 (#622, #624)
+- update Georgian wordlist and patterns
+
+2013-02-27 (#621)
+- set all \lccode-s in pTeX patterns
+
+2013-02-25 (#619)
+- add the wordlist used for generating Georgian hyphenation patterns
+
+2013-02-25 (#617, #618)
+- add Georgian hyphenation patterns (by Levan Shoshiashvili)
+- add Thai hyphenation patterns (by Theppitak Karoonboonyanan)
+
+2013-02-25 (#616)
+- add support for Georgian and Thai font encodings: T8M and LTH
+- fix a line in QX font encoding
+
+== CTAN release 2013.02.21 (#614) ==
+
+2013-02-14 (#613)
+- add Piedmontese patterns (by Claudio Beccari)
+
+2012-12-13 (#611)
+2012-12-12 (#610)
+- righthyphenmin for Sanskrit should be 3 instead of 5
+
+== CTAN release 2012.05.30 (#609) ==
+
+2012-03-30 (#609)
+- sync comments of German patterns with released version
+
+2012-05-28 (#607)
+- update German patterns (by Werner Lemberg)
+
+== CTAN release 2012.05.23 (#606) ==
+
+2012-05-23 (#606)
+- update Norwegian patterns (by Ole Michael Selberg)
+- remove Lao patterns (until they are improved)
+- remove 'furlan' as a synonym for 'friulan'
+
+== CTAN release 2012.04.16 (#604) ==
+
+2012-04-16 (#604)
+- get upstream changes for hyphen.cfg from Babel 2008/07/08 v3.8m
+
+2012-04-16 (#602)
+- patch \adddialect in hyphen.cfg to also register language synonyms at lua end;
+  fixes a problem in LuaTeX with missing synonyms defined by Babel
+
+== CTAN release 2012.04.10 (#599) ==
+
+2012-04-10 (#599)
+- encoding of Friulan changed from ASCII to EC (bugfix)
+- fix some inconsistencies, update version of 'rm' and 'fur' patterns to 1.1
+
+2012-04-09 (#598)
+- add a synonym for 'friulan': 'furlan'
+
+2012-04-09 (#597)
+- add Friulan patterns (by Claudio Beccari)
+- remove duplicate patterns from Romansh
+
+2012-01-17 (#596)
+- add Romansh patterns (by Claudio Beccari)
+
+== CTAN release 2011.09.14 (#593) ==
+
+2011-09-14 (#593)
+- update Sanskrit patterns (missing rules for Malayalam script)
+
+2011-09-13 (#592)
+- update headers for Greek patterns (to be more explicit about LPPL)
+
+2011-08-17 (#589)
+- Updated Hungarian patterns from their repository (no content change).
+- Changed licence for Hungarian patterns from GPL into MPL 1.1/GPL 2.0/LGPL 2.1.
+
+2011-08-16 (#585, #586)
+- Changed licence for Italian patterns from LGPL into LPPL
+
+2011-08-10 (#583)
+- Added LPPL licence to Turkish patterns
+
+== CTAN release 2011.06.22 (#579) ==
+
+2011-06-21 (#578)
+- Added licence statement for Lao
+
+2011-06-20 (#572)
+- change language tag for Pinyin (zh-latn -> zh-latn-pinyin) due to new tag
+  http://www.iana.org/assignments/lang-subtags-templates/pinyin (2008-10-17)
+
+2011-06-20 (#566)
+- fetch the latest version of Hungarian patterns from
+  https://github.com/nagybence/huhyphn/
+
+== CTAN release 2011.06.11 (#555) ==
+
+2011-06-11 (#555)
+- downcase "Hyphenation Patterns"
+
+2011-06-09 (#553)
+- add duplicated patterns with apostrophes for XeTeX
+- fix tlpsrc generator for serbian
+
+2011-06-09 (#549)
+- support multiple hyphenation/patterns files.
+
+2011-06-08 (#547)
+- duplicate patterns with apostrophes in plan text files
+- fix a bug in conversion of greek patterns into plain text files (no apostrophe replacement)
+
+2011-06-08 (#545, #546)
+- restore two version of plain text patterns for Serbian
+  and load 'sh' patterns by default also for Cyrillic script
+
+2011-06-08 (#544)
+- a section in documentation about using hyphenation patterns in TeX
+
+2011-06-08 (#543)
+- temporary remove Greek patterns for 8-bit engines (will be added later)
+
+2011-06-07 (#542)
+- add LPPL licence to Uppersorbian patterns
+
+2011-06-07 (#538)
+- add LPPL licence to Welsh patterns
+
+2011-06-06 (#528, #529)
+- rename 8bit patterns: phyph-<lang>.tex -> hyph-<lang>.<enc>.tex
+
+2011-06-06 (#527)
+- add LPPL licence to Croatian patterns (and update author's email address)
+
+2011-06-02 (#525)
+- new version of German hyphenation patterns
+
+2011-06-01 (#523, #524)
+- load patterns for Latin and Cyrillic scripts for Serbian simultaneously
+
+2011-01-19 (#515)
+- merge exhyph-ru.tex and exhyph-uk.tex with dash-related patterns into main file
+  (we might split them again if we decide to support all different encodings)
+
+2011-01-19 (#514)
+- add ASCII Greek and Coptic patterns for 8-bit engines into repository
+
+== CTAN release 2011.01.13 ==
+
+2011-01-11 (#512)
+- remove the hack for OT1 encoding support for French and Danish patterns
+
+2011-01-11 (#512)
+- remove the hack for OT1 encoding support for French and Danish patterns
+
+2011-01-10 (#510, #511)
+- add Ethiopic full stop
+
+2011-01-10 (#508)
+- add plain version of Ethiopic patterns
+
+2011-01-09 (#505, #506)
+- add preliminary pan-Ethiopic patterns
+
+2011-01-07 (#503)
+- fix pattern loaders and comment out loading of zerohyph
+
+2011-01-06 (#501)
+- add support for pTeX
+
+2010-10-20 (#489)
+- replace Afrikaans patterns (by Tilla Fick and Chris Swanepoel)
+
+== CTAN release ==
+
+2010-09-18 (#450)
+- add Afrikaans patterns (by Friedel Wolff); major revision needed
+
+== CTAN release ==
+
+2010-06-01 (#440)
+- remove 2'2 pattern from Latin (on Claudio Beccari's request)
+
+2010-05-31 (#421, #422)
+- remove special OT1 support for Latin (with Claudio Beccari's approval)
+- add the forgotten Russian and Ukrainian patterns with dashes to plain patterns
+
+2010-05-31 (#412-#414)
+- luatex-hyphen: rm special='null' (now useless), bump version number, fill
+  the gaps in this changes file
+
+2010-05-30 (#409-#411)
+- adjust tlpsrc's of special languages for luatex-hyphen, import corresponding
+  language.dat.lua from TeX Live, and adapt test files
+
+== CTAN release 2010.05.28 ==
+
+2010-05-28 (#406)
+- A non-empty PDF file that describes the package with at least two sentences :)
+
+2010-05-24 (#379)
+- updated Italian patterns (by Claudio Beccari)
+
+2010-05-20 (#394)
+- add a loader for en-us
+
+2010-05-20 (#393)
+- luatex-hyphen: minor adjustments for special languages
+
+2010-05-19 (#358)
+- new Lao hyphenation patterns (by Brian Wilson; under development)
+
+2010-05-19 (#379, #380)
+- updated Spanish patterns (by Javier Bezos)
+
+2010-05-06 (#371)
+- new Armenian hyphenation patterns (by Sahak Petrosyan)
+
+2010-05-06 (#368, #369)
+- add source and documentation for Spanish patterns (by Javier Bezos)
+
+2010-05-03 (#360-#363)
+- more documentation and tests for luatex-hyphen and associated etex.src
+- update etex.src according to latest luatex-hyphen changes
+- split 'code' key in language.dat.lua in 'hyphenation' and 'patterns'
+
+2010-04-30 (#349-#355)
+- initial import of luatex-hyphen, a modified version of babel's hyphen.cfg
+  for use with LuaTeX (semi-dynamic loading of patterns), sharing code with
+the version of etex.src mentioned below
+- misc changes to luatex-hyphen
+- test file for luatex-hyphen
+
+2010-04-27 (#344)
+- initial import of a modified etex.src allowing semi-dynamic loading of
+  patterns with LuaTeX
+
+2010-04-27 (#340)
+- fixing glitches in Galician patterns
+- create this file for publishing changes
+
+2010-04-23 (#339)
+- updated Galician patterns (by Javier A. Múgica)
+
+2010-04-06 (#336)
+- rename mongolian->mongolianlmc and mongolian2a->mongolian
+
+2010-03-19 (#320, #323, #326)
+- Some modifications to Turkmen patterns; sent by Nazar Annagurban
+- some fixes for Indic patterns
+
+2010-03-17 (#318, #319)
+- add Indic patterns (TODO: list of patterns) by Santhosh Thottingal (+ script to fetch and convert them)
+
+2010-03-15 (#311)
+- add Turkmen patterns by Nazar Annagurban
+- minor fixes for Serbian
+
+2010-03-04 (#307)
+- a new version of Sanskrit patterns by Yves Codet
+
+2009-08-01 (#286)
+- pattern update for Spanish by Javier Bezos
+
+2009-07-10 (#279, #280)
+- add hyphenation patterns for Kurmanji (Northern Kurdish) by Jörg Knappen and Medeni Shemdê
+
+2009-06-25 (#278)
+- update German language patterns (synchronize with package dehyph-exptl v0.20)
+
+... older history to be completed ...

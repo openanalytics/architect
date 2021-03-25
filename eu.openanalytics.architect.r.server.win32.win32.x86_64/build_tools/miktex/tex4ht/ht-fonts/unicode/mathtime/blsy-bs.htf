@@ -1,0 +1,131 @@
+blsy-bs 0 127
+'&#x2212;' ''  minus-sign  0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x00B7;' ''  middle dot  1 % blsy-bs.htf (unicode)         2001-05-31 %
+'&#x00D7;' ''  times       2 % Copyright (C) 2001            Phil Viton %
+'&#x2217;' ''  asterisk    3 %                                          %
+'&#x00F7;' ''  divides     4 % This file can redistributed and/or       %
+'&#x25C7;' ''  diamond     5 % modified under the terms of the LaTeX    %
+'&#x00B1;' ''  plus-minus  6 % Project Public License Distributed from  %
+'&#x2213;' ''  minus-plus  7 % CTAN archives in directory               %
+'&#x2295;' ''  oplus       8 % macros/latex/base/lppl.txt; either       %
+'&#x2296;' ''  ominus      9 % version 1 of the License, or (at your    %
+'&#x2297;' ''  otimes     10 % option) any later version.               %
+'&#x2298;' ''  oslash     11 %    However, you are allowed to modify    %
+'&#x2299;' ''  odot       12 % this file without changing its name, if  %
+'&#x25CB;' ''  bigcirc    13 % you add a note of your own after this    %
+'&#x2218;' ''  circ       14 % copyright note.                          %
+'&#x2219;' ''  bullet     15 %                                          %
+'&#x224D;' ''  asymb      16 % I would appreciate being told if you     %
+'&#x2261;' ''  equiv      17 % find bugs                                %
+'&#x2286;' ''  subsete    18 %                          viton.1@osu.edu %
+'&#x2287;' ''  supsete    19 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x2264;' ''  lte        20
+'&#x2265;' ''  gte                21
+'&#x227C;' ''  preceq             22
+'&#x227D;' ''  succeq             23
+'&#x223C;' ''  sim                24
+'&#x2248;' ''  approx             25
+'&#x2282;' ''  subset             26
+'&#x2283;' ''  supset             27
+'&#x226A;' ''  much less than     28
+'&#x226B;' ''  much greater than  29
+'&#x227A;' ''  preceeds           30
+'&#x227B;' ''  succeeds           31
+'&#x2190;' ''  leftarrow          32
+'&#x2192;' ''  rightarrow         33
+'&#x2191;' ''  uparrow            34
+'&#x2193;' ''  downarrow          35
+'&#x2194;' ''  leftrightarrow     36
+'&#x2197;' ''  nearrow            37
+'&#x2198;' ''  searrow            38
+'&#x2243;' ''  symeq              39
+'&#x21D0;' ''  Leftarrow          40
+'&#x21D2;' ''  Rightarrow         41
+'&#x21D1;' ''  Uparrow            42
+'&#x21D3;' ''  Downarrow          43
+'&#x21D4;' ''  Leftrightarrow     44
+'&#x2196;' ''  nwarrow            45
+'&#x2199;' ''  swarrow            46
+'&#x221D;' ''  propto             47
+'&#x2032;' ''  prime              48
+'&#x221E;' ''  infinity           49
+'&#x2208;' ''  in                 50
+'&#x220B;' ''  ni                 51
+'&#x25B3;' ''  triangle           52
+'&#x25BD;' ''  triangleup         53
+'/'        ''  slash              54
+*'*        **  dash               55
+'&#x2200;' ''  forall             56
+'&#x2203;' ''  exists             57
+'&#x00AC;' ''  not sign           58
+'&#x2205;' ''  empty set          59
+'&#x211C;' ''  real part          60
+'&#x2111;' ''  imaginary than     61
+'&#x22A4;' ''  top                62
+'&#x22A5;' ''  bottom             63
+'&#x2135;' ''  aleph              64
+'&#x22C8;' ''  tie                65
+'&#x2218;' '' openbullet1        66 = circ
+'+'        ''  plus               67
+'='        ''  equal              68
+'&#x20D7;' '' vector             69 = small arrow above 69
+'&#x22B3;' ''  triangleright      70
+'&#x22B2;' ''  triangleleft       71
+'='        ''  equall             72 just like equal I think
+';'        ''  semicolon          73
+'&#x0300;' ''  grave              74
+'&#x0301;' ''  acute              75
+'&#x02c7;' ''  caron              76
+'&#x02D8;' ''  breve              77
+'&#x02C9;' ''  macron             78
+'&#x02C6;' ''  circumflex         79
+'&#x02D9;' ''  dotaccent          80
+'&#x02DC;' ''  tilde              81
+'&#x00A8;' ''  dieresis           82
+'&#x00AF;' ''  overbar            83
+''         ''  notdef             84
+''         ''  notdef             85
+''         ''  notdef             86
+''         ''  notdef             87
+''         ''  notdef             88
+''         ''  notdef             89
+''         ''  notdef             90
+'&#x222A;' ''  cup                91
+'&#x2229;' ''  cap                92
+'&#x228E;' ''  upplus             93
+'&#x2227;' ''  land               94
+'&#x2228;' ''  lor                95
+'&#x22A2;' ''  vdash              96
+'&#x22A3;' ''  dashv              97
+'&#x230A;' ''  lfloor             98
+'&#x230B;' ''  rfloor             99
+'&#x2308;' ''  lceil             100
+'&#x2309;' ''  rceil             101
+'&#x007B;'        ''  lcb               102
+'&#x007D;'        ''  rcb               103
+'&#x27E8;' ''  lab               104
+'&#x27E9;' ''  rab               105
+'&#x007C;' ''  divides           106
+'&#x2225;' ''  parallel          107
+'&#x2195;' ''  updownarrow       108
+'&#x21D5;' ''  Updownarrow       109
+'&#x2216;' ''  backslash         110
+'&#x2240;' ''  wreath product    111
+'&#x221A;' ''  surd              112
+'&#x2210;' ''  coprod            113
+'&#x2207;' ''  nabla             114
+'&#x222B;' ''  int               115
+'&#x2294;' ''  sqcap             116
+'&#x2293;' ''  sqcup             117
+'&#x2291;' ''  sqsubseteq        118
+'&#x2292;' ''  sqsupseteq        119
+'&#x00A7;' ''  section sign      120
+''         ''  notdef             121
+''         ''  notdef              122
+''         ''  notdef  123
+'&#x2663;' ''  clubsuit          124
+'&#x2662;' ''  diamondsuit       125
+'&#x2661;' ''  heartsuit         126
+'&#x2660;' ''  spadsuit          127
+blsy-bs 0 127
+

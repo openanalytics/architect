@@ -1,0 +1,101 @@
+% \LaTeX-Main\
+%% The LaTeX package tcolorbox - version 4.42 (2020/10/09)
+%% tcolorbox.tex: Manual
+%%
+%% -------------------------------------------------------------------------------------------
+%% Copyright (c) 2006-2020 by Prof. Dr. Dr. Thomas F. Sturm <thomas dot sturm at unibw dot de>
+%% -------------------------------------------------------------------------------------------
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `author-maintained'.
+%%
+%% This work consists of all files listed in README
+%%
+% arara: pdflatex: { shell: yes, synctex: yes }
+% arara: biber
+% arara: pdflatex: { shell: yes, synctex: yes }
+% arara: pdflatex: { shell: yes, synctex: yes }
+% arara: pdflatex: { shell: yes, synctex: yes }
+% arara: pdflatex: { shell: yes, synctex: yes }
+%
+\documentclass[a4paper,11pt]{ltxdoc}
+
+\usepackage{tcolorbox.doc.s_main}
+\tcbEXTERNALIZE
+\usepackage{tcolorbox.doc.s_snippet}
+%\tcbset{external/PassOptionsToPackage={cache=false}{minted}}
+\tcbAUXmkdir{external}
+\tcbAUXmkdir{solutions}
+
+\RequirePackage{csquotes}
+\RequirePackage[style=numeric-comp,sorting=nyt,
+  maxnames=8,minnames=8,abbreviate=false,backend=biber,
+  bibencoding=latin1,texencoding=ascii]{biblatex}
+\DeclareFieldFormat{url}{\newline\url{#1}}%
+\DeclareListFormat{language}{}%
+\setlength{\bibitemsep}{\smallskipamount}
+\addbibresource{tcolorbox.doc.bib}
+
+\def\version{4.42}%
+\def\datum{2020/10/09}%
+\makeindex
+
+\hypersetup{
+  pdftitle={Manual for the tcolorbox package},
+  pdfauthor={Thomas F. Sturm},
+  pdfsubject={colored boxes},
+  pdfkeywords={colored boxes, LaTeX examples, theorems}
+}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+\nocite{breitenlohner:1998a}
+
+%\geometry{showframe}
+%\tcbset{draftmode}
+\tcbset{/tcb/external/-}% for final run
+%\includeonly{tcolorbox.doc.breakable}
+
+%\hypersetup{colorlinks=false}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\input{tcolorbox.doc.abstract}
+\include{tcolorbox.doc.intro}
+\include{tcolorbox.doc.quickref}
+\include{tcolorbox.doc.coremacros}
+\include{tcolorbox.doc.coreoptions}
+\include{tcolorbox.doc.initoptions}
+\include{tcolorbox.doc.sidebyside}
+\include{tcolorbox.doc.verbatim}
+\include{tcolorbox.doc.recording}
+\include{tcolorbox.doc.technical}
+\include{tcolorbox.doc.skins}
+\include{tcolorbox.doc.graphics}
+\include{tcolorbox.doc.filling}
+\include{tcolorbox.doc.beamer}
+\include{tcolorbox.doc.vignette}
+\include{tcolorbox.doc.raster}
+\include{tcolorbox.doc.listings}
+\include{tcolorbox.doc.theorems}
+\include{tcolorbox.doc.breakable}
+\include{tcolorbox.doc.magazine}
+\include{tcolorbox.doc.poster}
+\include{tcolorbox.doc.fitting}
+\include{tcolorbox.doc.hooks}
+\include{tcolorbox.doc.xparse}
+\include{tcolorbox.doc.external}
+\include{tcolorbox.doc.documentation}
+\appendix
+\include{tcolorbox.doc.picturecredits}
+\include{tcolorbox.doc.references}
+\include{tcolorbox.doc.index}
+\end{document}

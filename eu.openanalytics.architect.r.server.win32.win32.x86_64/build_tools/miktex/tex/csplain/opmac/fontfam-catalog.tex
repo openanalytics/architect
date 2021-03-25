@@ -1,0 +1,113 @@
+%% fontfam-catalog.tex
+%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak, 2016
+
+% This is module for OPmac macros, see http://petr.olsak.net/opmac.html 
+% This module is automatically loaded when \fontfam[Catalog] is used.
+
+% See end of the file fontfam.tex for more details.
+
+\def\fontfamexecC#1#2#3#4#5#6#7{\ifx\relax#3\relax \else
+   {\testfotenc{#6}\iftrue
+       \par
+       \noindent {\currtt [#1]\quad \char`\{+#5\char`\} \space(#6)\quad \def\tmp{#7} \detok\tmp}%
+       \par\nobreak
+       #7
+       \edef\basicfont{\fontname\the\font}%
+       \def\variants{#3}
+       \pcatA {}#2\relax
+       \medskip
+    \else \par 
+       \noindent {\currtt -- [#1] (#6) -- is unavailable in \fotenc\space encoding.}
+       \medskip
+    \fi}%
+  \fi
+}
+\def\pcatA#1{\ifx#1\relax\par\else
+   \def\prefix{#1}\expandafter\pcatB\variants\relax
+   \expandafter\pcatA\fi
+}
+\def\pcatB#1{\ifx#1\relax\par\else
+   {\ifx\ffnamegen\undefined \let\ffsetX=\relax \fi
+   \ifx\prefix\empty\ffsetX#1\relax\else\prefix#1\relax\fi
+   \ifx\ffvarV\undefined \def\ffvarV{x}\fi
+   \ifx#1\tt \ifx\prefix\empty\else \def\ffvarV{!}\fi\fi
+   \if!\ffvarV\relax \else
+   \indent 
+   {\currtt \ifx\prefix\empty \else \expandafter\string\prefix\fi \string#1 }%
+   \advance\hsize by2in
+   \fontfamsample\par
+   \fi}%
+   \expandafter\pcatB\fi
+}
+\def\catalogfamsA#1,{\ifx,#1,\else
+   \expandafter\addto\expandafter\fontfamL\csname fs:#1\endcsname
+   \expandafter\catalogfamsA\fi
+}
+
+\nonum\sec Font Catalogue
+
+\begingroup
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\parindent=0pt
+
+Generated \the\day/\the\month/\the\year\space by 
+{\tt \string\fontfam[Catalog]} (from OPmac).
+
+Encoding: \fotenc, \dimen0=\baselineskip
+size: \expandafter\ignorept\the\fontdim /\expandafter\ignorept\the\dimen0.
+
+See the article \url{http://petr.olsak.net/ftp/olsak/bulletin/kpfonts-plain.pdf}
+for information about usage of font modifiers. Note, that this Catalogue
+doesn't show all available and independent combinations of font modifiers.
+\bigskip
+
+\parindent=1em
+\ifx\sizespec\empty \def\sizespec{at10pt}\fi
+\letfont\currtt=\tentt
+\ifx\loadmathfonts\undefined \let\loadmathfonts=\relax \fi
+\let\fontfamexec=\fontfamexecC
+\ifx\fontfamsample\undefined
+   \def\fontfamsample{ABCDabcd Qsty fi fl áéíóúüů řžč ÁÉÍÓÚ ŘŽČ 0123456789}
+   \ifx\chyph\undefined \ismacro\fotenc{8t}\iftrue
+   \def\fontfamsample{ABCDabcd Qsty fi fl 
+      \char225\char233\char237\char243\char250\char252\char183{ }% 
+      \char176\char186\char163{ }%
+      \char193\char201\char205\char211\char218\char220\char151{ }%
+      \char144\char154\char130{ }0123456789}     
+\fi\fi\fi
+\def\detok#1{\expandafter\detokA\meaning#1}\def\detokA#1->{}
+
+\ifx\catalogfams\undefined \else
+   {Only \tt\char`\\catalogfams\char`\{\catalogfams\char`\}}
+   are printed.\medskip
+   \edef\catalogfams{\catalogfams\space{} }
+   \def\fsname{}\expandafter \setfsname \catalogfams
+   \def\fontfamL{}\expandafter \catalogfamsA \fsname,,\fi
+
+\fontfamL
+\endgroup
+
+\bigskip
+\noindent
+The text variants of fonts (shown here) are combined with math collections
+of fonts:
+
+\begtt
+AMS ... AMS fonts math
+TX .... TX fonts math
+KP .... KP fonts math
+KI .... Kurier or Iwona math
+\endtt
+
+If {\tt TX} is used then variables (math italic) and roman text are borrowed
+from the selected text font. Other math characters are from TX math fonts
+collection.
+If you are using Xe\TeX{} or Lua\TeX{} then you can load Unicode Math font
+instead of this default. See {\tt uni-math.tex} file for more information.
+
+
+\endinput
+

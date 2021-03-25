@@ -1,0 +1,891 @@
+% jsmath.4ht (2019-03-18-15:26), generated from tex4ht-jsmath.tex
+% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2005-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-03-18-15:26}
+
+\exit:ifnot{amsmath,% 
+array,% 
+fontmath,% 
+latex,% 
+plain,% 
+tex4ht}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \NewConfigure{jsmath}{1}
+\ifOption{easy-load}{%
+   \Configure{jsmath}{jsMath/easy/load.js}%
+}{%
+   \Log:Note{The `easy-load' command line option offers
+     an alternative loading approach of
+     jsMath version 3.4 or above}%
+   \Configure{jsmath}{jsMath/jsMath.js}%
+}
+\def\dlr{\expandafter\@gobble\string\$}
+\Configure{$}
+   {\Configure{@math}{\dlr}\DviMath}
+   {\EndDviMath}{}
+\Configure{$$}
+   {\Configure{@math}{\dlr\dlr}\IgnorePar
+    \EndP\DviMath}
+   {\EndDviMath
+       \ShowPar\par{\csname HCondtrue\endcsname\noindent}}
+   {\DisplayMathtrue}
+\def\Hbrakets<#1>{\ifmathltx
+       \ifmtext    @(#1)\else \string\hbox{@(#1)}\fi
+    \else <#1>\fi}
+\def\EndLink{\ifmathltx
+     \ifmtext    \ht:special{t4ht@,}%
+%
+        \egroup \HCode{\%\Hnewline\%}\Endmtxt:link
+        \HCode{\string\end{ref}\Hnewline}\ht:special{t4ht@,&\#x00A0;}%
+%
+     \else  \HCode{\Hbrakets</a>}\fi
+   \else \expandafter\M:EndLink\fi}
+\LinkCommand\msp:link{a, href, id, \mml:class="label",,}
+\def\Link{\M:Link}
+\def\EndLink{\M:EndLink}
+\Configure{over}
+   {\Send{GROUP}{0}{\l:brace\space}}
+   {\HCode{\string\over\space}\Send{EndGROUP}{0}{\r:brace\space}}
+\Configure{atop}
+   {\Send{GROUP}{0}{\l:brace\space}}
+   {\HCode{\string\atop\space}\Send{EndGROUP}{0}{\r:brace\space}}
+\Configure{math:amp}{\string&amp;}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\set:label#1{\ifmathltx
+%   \HCode{\%\Hnewline\%\string\begin{label}}%
+%     {\ht:special{t4ht@, }\let\:newlnch\space \mathltxfalse #1}%
+%   \HCode{\string\end{label}\Hnewline}%
+  \else #1\fi
+}
+\Configure{frac}
+   {\HCode{\l:brace}}
+   {\HCode{\string\over\space}\Configure{over}{}{}}
+   {}
+   {\HCode{\r:brace}}
+\Configure{[]}
+  {\Configure{@math}{div}\csname a:mathltx[]\endcsname
+   \DviMath$$\DisplayMathtrue }
+  {$$\EndDviMath\csname b:mathltx[]\endcsname}
+\Configure{()}
+  {\Configure{@math}{span}\csname a:mathltx()\endcsname
+   \DviMath$}
+  {$\EndDviMath\csname b:mathltx()\endcsname}
+\Configure{array}
+   {%\expandafter\tmp:toks\expandafter{\Clr}%
+    \HCode{\string\array\l:brace\Hnewline}}
+   {\ifvmode \IgnorePar\fi \HCode{\r:brace}}
+   {\ifnum \HRow> 1\HCode{\string\cr\Hnewline}\fi}
+   {}
+   {\HCode{\ifnum \HCol>1 \a:math:amp\fi
+  \ifnum 1<\HMultispan
+%     \string\multicolumn\l:brace\HMultispan\r:brace
+     %\string\multispan
+?span/multispan-in-jsmath?
+ \space\HMultispan\space
+  \fi}%
+}
+   {}
+
+\Configure{emph}
+   {\ifmmode \Configure{@mtext}{\string\mathit}\fi}
+   {}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fontmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{mfenced}{\langle}{\string\langle\space}
+\Configure{mfenced}{\rangle}{\string\rangle\space}
+\def\:tempc{\HCode{\string\langle\space}}
+\HLet\langle\:tempc
+\def\:tempc{\HCode{\string\rangle\space}}
+\HLet\rangle\:tempc
+\def\:tempc{\HCode{\string\vert\space}}
+\HLet\vert\:tempc
+\def\:tempc{\HCode{\string\Vert\space}}
+\HLet\Vert\:tempc
+\def\:tempc{\HCode{\string\|}}
+\HLet\|\:tempc
+\def\:tempc{\HCode{\string\big\space}}
+\HLet\big\:tempc
+\def\:tempc{\HCode{\string\bigg\space}}
+\HLet\bigg\:tempc
+\def\:tempc{\HCode{\string\Big\space}}
+\HLet\Big\:tempc
+\def\:tempc{\HCode{\string\Bigg\space}}
+\HLet\Bigg\:tempc
+\Configure{overrightarrow}
+  {\HCode{\string\overrightarrow\l:brace}\:gobble}
+  {\HCode{\r:brace}}
+\Configure{overleftarrow}
+  {\HCode{\string\overleftarrow\l:brace}\:gobble}
+  {\HCode{\r:brace}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \expandafter\def\csname genfrac \endcsname#1#2#3#4{%
+  \def\:tempa{#1}\ifx\:tempa\empty\else \HCode{\string\left}#1\fi
+  \def\:tempa{#2}\ifx\:tempa\empty\else \def\:tempa{\HCode{\string\right}#2}\fi
+  \edef\@tempb{\@nx\@genfrac\@mathstyle{#4}%
+    \expandafter\noexpand\csname @@\ifx @#3@over\else above\fi
+    \endcsname}%
+  \@tempb{#3}}
+\def\:tempc#1#2#3#4#5{{\a:genfrac#1\b:genfrac{\c:genfrac#4#2#3\relax
+   {\d:genfrac#5\e:genfrac}}\f:genfrac}\:tempa}
+\HLet\@genfrac\:tempc
+\Configure{tmspace}
+   {\HCode{\string\kern \space \textspace\space}}
+\def\lvert{\HCode{\string\vert\space}}
+\def\rvert{\HCode{\string\vert\space}}
+\def\lVert{\HCode{\string\Vert\space}}
+\def\rVert{\HCode{\string\Vert\space}}
+\Configure{intertext}
+    {\IgnorePar %\ifinalign@
+      \HCode{\string\cr }%
+     \AA:text{intertext}}
+    {\BB:text \ifvmode \IgnorePar \fi %\EndP
+        \HCode{\string\cr }}
+\ConfigureEnv{multline}
+   {\bgroup \Configure{$$}
+               {\Configure{@math}{}\IgnorePar \EndP\DviMath }
+               {\EndDviMath\ShowPar\csname par\endcsname
+                  {\csname HCondtrue\endcsname\noindent}}
+               {\DisplayMathtrue}%
+   } {\egroup}
+   {}{}
+\Configure{multline}
+   {\HCode{<table class="multline"><tr><td><span class="math">}}
+   {\HCode{</span></td></tr></table>}}
+   {\ifnum \HRow> 1\HCode{</span></td></tr>\Hnewline
+                                <tr><td><span class="math">}\fi}
+   {\gdef\mult:amp{\gdef\mult:amp{\HCode{</span></td>
+                       <td class="eq-no"><span class="math">}}}}
+   {\csname mult:amp\endcsname \HCode{\ifnum 1<\HMultispan
+%       \string\multicolumn\l:brace\HMultispan\r:brace
+        %\string\multispan
+        ?span/multispan-in-jsmath?
+        \space\HMultispan\space
+     \fi}%
+   }  {}
+\Css{table.multline td {text-align:left;
+                  vertical-align:middle; padding-left: 2em; }}
+\Css{table.multline td.eq-no { text-align:center; }}
+\Css{table.multline { width:100\%; }}
+\ConfigureEnv{multline*}
+   {\bgroup \Configure{$$}
+   {\Configure{@math}{div}\IgnorePar
+    \EndP\DviMath }
+   {\EndDviMath\ShowPar\csname par\endcsname
+     {\csname HCondtrue\endcsname\noindent}}
+   {\DisplayMathtrue}%
+} {\egroup}
+   {}{}
+\Configure{multline*}
+   {\HCode{\string\begin\l:brace array\r:brace
+              \l:brace lr\r:brace}}
+   {\HCode{\string\end \l:brace array\r:brace}}
+   {\ifnum \HRow> 1\HCode{\string\\\Hnewline}\fi}
+   {}
+\Configure{subarray}
+   {\HCode{\string\begin\l:brace array\r:brace
+                        \l:brace \Hlcr\r:brace}}
+   {\HCode{\string\end \l:brace array\r:brace}}
+   {\ifnum \HRow> 1\HCode{\string\\\Hnewline}\fi}  {}
+\Configure{smallmatrix}
+   {\HCode{\string\begin\l:brace matrix\r:brace}}
+   {\HCode{\string\end \l:brace matrix\r:brace}}
+   {\ifnum \HRow> 1\HCode{\string\\\Hnewline}\fi}  {}
+   {\HCode{\ifnum \HCol>1 \a:math:amp\fi \scriptstyle
+            \ifnum 1<\HMultispan
+%        \string\multicolumn\l:brace\HMultispan\r:brace
+        %\string\multispan
+?span/multispan-in-jsmath?
+ \space\HMultispan\space
+    \fi}%
+   }  {}
+\Configure{aligned}
+   {\HCode{\string\begin\l:brace array\r:brace
+                        \l:brace rlrlrl\r:brace}}
+   {\HCode{\string\end \l:brace array\r:brace}}
+   {}
+   {\HCode{\string\cr\space}}
+   {}
+   {\HCode{\a:math:amp\space}}
+\Configure{alignedat}
+   {\HCode{\string\begin\l:brace array\r:brace
+                        \l:brace rlrl\r:brace}}
+   {\HCode{\string\end \l:brace array\r:brace}}
+   {}
+   {\HCode{\string\cr\space}}
+   {}
+   {\HCode{\a:math:amp\space}}
+\Configure{split}
+   {\HCode{\string\begin\l:brace array\r:brace
+           \l:brace rl\r:brace}}
+   {\ifvmode\IgnorePar\fi
+    \HCode{\string\end \l:brace array\r:brace}}
+   {\ifnum \HRow> 1\HCode{\string\\\Hnewline}\fi}  {}
+   {\HCode{\ifnum \HCol>1 \a:math:amp\fi
+  \ifnum 1<\HMultispan
+%     \string\multicolumn\l:brace\HMultispan\r:brace
+     %\string\multispan
+?span/multispan-in-jsmath?
+ \space\HMultispan\space
+  \fi}%
+}  {}
+\ConfigureEnv{gather}
+   {\bgroup \Configure{$$}
+   {\Configure{@math}{div}\IgnorePar
+    \EndP\DviMath }
+   {\EndDviMath\ShowPar\csname par\endcsname
+     {\csname HCondtrue\endcsname\noindent}}
+   {\DisplayMathtrue}%
+} {\egroup}
+   {}{}
+\Configure{gather}
+   {\HCode{\string\begin\l:brace array\r:brace
+           \l:brace cl\r:brace}}
+   {\HCode{\string\end \l:brace array\r:brace}}
+   {\ifnum \HRow> 1\HCode{\string\\\Hnewline}\fi}  {}
+   {\HCode{\ifnum \HCol>1 \a:math:amp\fi
+  \ifnum 1<\HMultispan
+%     \string\multicolumn\l:brace\HMultispan\r:brace
+     %\string\multispan
+?span/multispan-in-jsmath?
+ \space\HMultispan\space
+  \fi}%
+}  {}
+\ConfigureEnv{gather*}
+   {\bgroup \Configure{$$}
+   {\Configure{@math}{div}\IgnorePar
+    \EndP\DviMath }
+   {\EndDviMath\ShowPar\csname par\endcsname
+     {\csname HCondtrue\endcsname\noindent}}
+   {\DisplayMathtrue}%
+} {\egroup}
+   {}{}
+\Configure{gather*}
+   {\HCode{\string\begin\l:brace array\r:brace
+           \l:brace cl\r:brace}}
+   {\HCode{\string\end \l:brace array\r:brace}}
+   {\ifnum \HRow> 1\HCode{\string\\\Hnewline}\fi}  {}
+   {\HCode{\ifnum \HCol>1 \a:math:amp\fi
+  \ifnum 1<\HMultispan
+%     \string\multicolumn\l:brace\HMultispan\r:brace
+     %\string\multispan
+?span/multispan-in-jsmath?
+ \space\HMultispan\space
+  \fi}%
+}  {}
+\def\:tempc#1#2{%
+   \ConfigureEnv{#1}
+     {\def\end:al:env{}\ifmmode\else
+       \ifvmode\else \def\end:al:env{\par\ShowPar\IgnoreIndent}
+     \fi\fi}
+     {\end:al:env }
+     {}{}%
+   \Configure{#1}
+   {\IgnorePar\HtmlParOff
+    \ifvmode \EndP  \else \EndP \fi
+    \ifmathltx
+       \Tg<mrow>\def\end:mathalign{\Tg</mrow>}%
+    \else
+       \Configure{@math}{div}\DviMath
+       \def\end:mathalign{\EndDviMath \DisplayMathfalse}%
+       \DisplayMathtrue
+    \fi
+    \HCode{\string\eqalignno\l:brace}}
+   {\HCode{\r:brace}\end:mathalign\HtmlParOn}
+   {\ifnum \HRow> 1\HCode{\string\cr\Hnewline}\fi}
+   {}
+   {\HCode{\ifnum \HCol>1 \a:math:amp\fi
+       \ifnum 1<\HMultispan
+      ?span/multispan-in-jsmath?
+      \space\HMultispan\space\fi}}%
+   {} %
+}
+\:tempc{align}{align}
+\:tempc{alignat}{alignat}
+\:tempc{xalignat}{xalignat}
+\:tempc{xxalignat}{xxalignat}
+\:tempc{flalign}{flalign}
+\:tempc{align*}{align*}
+\:tempc{alignat*}{alignat*}
+\:tempc{xalignat*}{xalignat*}
+\:tempc{flalign*}{flalign*}
+\Configure{underrightarrow}
+  {\HCode{\string\mathop\l:brace}\:gobble}
+  {\HCode{\r:brace\string\limits
+                      \string_\string\longrightarrow\space}}
+\Configure{underleftarrow}
+  {\HCode{\string\mathop\l:brace}\:gobble}
+  {\HCode{\r:brace\string\limits
+                      \string_\string\longleftarrow\space}}
+\Configure{overleftrightarrow}
+  {\HCode{\string\mathop\l:brace}\:gobble}
+  {\HCode{\r:brace\string\limits
+                      \string^\string\longleftrightarrow\space}}
+\Configure{underleftrightarrow}
+  {\HCode{\string\mathop\l:brace}\:gobble}
+  {\HCode{\r:brace\string\limits
+                      \string_\string\longleftrightarrow\space}}
+\def\:tempc#1{
+  {\HCode{\string\mathop\l:brace}#1%
+  \HCode{\r:brace\string\limits
+                      \string^\l:brace\hbox\l:brace....\r:brace\r:brace}}}
+\HLet\ddddot\:tempc
+\def\:tempc#1{
+  {\HCode{\string\mathop\l:brace}#1%
+  \HCode{\r:brace\string\limits
+                      \string^\l:brace\hbox\l:brace...\r:brace\r:brace}}}
+\HLet\dddot\:tempc
+\def\:tempc#1#2{%
+   \HCode{\string\mathop\l:brace}#2%
+   \HCode{\r:brace\string\limits
+                      \string^\l:brace}#1\HCode{\r:brace}}
+\HLet\overset\:tempc
+\def\:tempc#1#2{%
+   \HCode{\string\mathop\l:brace}#2%
+   \HCode{\r:brace\string\limits
+                      \string_\l:brace}#1\HCode{\r:brace}}
+\HLet\underset\:tempc
+\def\:tempc#1#2#3{%
+   \HCode{\l:brace\l:brace\r:brace}#1%
+   \HCode{\l:brace}#3%
+   \HCode{\r:brace}#2\HCode{\r:brace}}
+\HLet\sideset\:tempc
+\renewcommand{\xrightarrow}[2][]{%
+   \HCode{\string\mathop\l:brace \string\longrightarrow \r:brace\string\limits
+        \string_\l:brace}#1\HCode{\r:brace\string^\l:brace}%
+      #2\HCode{\r:brace}}
+\renewcommand{\xleftarrow}[2][]{%
+   \HCode{\string\mathop\l:brace \string\longleftarrow \r:brace\string\limits
+        \string_\l:brace}#1\HCode{\r:brace\string^\l:brace}%
+      #2\HCode{\r:brace}}
+\def\hdots@for#1#2{%
+         \tmp:cnt=#2\relax
+   \ifnum \tmp:cnt>0 .%
+         \loop
+            \advance\tmp:cnt by -1\relax
+            \ifnum \tmp:cnt>0 \HCode{\string&amp;}.%
+          \repeat
+   \fi
+   }
+\def\:tempc#1{\HCode{\kern18mu
+                    {\string\rm\space mod}\string\,\string\,}#1}
+\HLet\mod=\:tempc
+\def\:tempc#1{\HCode{\kern18mu }(#1)}
+\HLet\pod=\:tempc
+\def\:tempc#1{\HCode{\kern18mu
+          \string\mathbin{\string\rm\space mod}\string\,\string\,}#1}
+\HLet\bmod\:tempc
+\def\:tempc#1{\HCode{\kern18mu }(\HCode{{\string\rm\space mod}\kern6mu\space} #1)}
+\HLet\pmod=\:tempc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{overrightarrow}
+  {\HCode{\string\overrightarrow\l:brace}\:gobble}
+  {\HCode{\r:brace}}
+\Configure{overleftarrow}
+  {\HCode{\string\overleftarrow\l:brace}\:gobble}
+  {\HCode{\r:brace}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{array}
+   {%\expandafter\tmp:toks\expandafter{\Clr}%
+    \HCode{\string\array\l:brace\Hnewline}}
+   {\ifvmode \IgnorePar\fi \HCode{\r:brace}}
+   {\ifnum \HRow> 1\HCode{\string\cr\Hnewline}\fi}
+   {}
+   {\HCode{\ifnum \HCol>1 \a:math:amp\fi
+  \ifnum 1<\HMultispan
+%     \string\multicolumn\l:brace\HMultispan\r:brace
+     %\string\multispan
+?span/multispan-in-jsmath?
+ \space\HMultispan\space
+  \fi}%
+}
+   {}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

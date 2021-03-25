@@ -1,0 +1,60 @@
+% The file chelvet.tex (C) Petr Olsak, 1996, 1999, 2012, 2016
+% Use "\input chelvet" to set the Helvetica fonts family
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Helvetica] {\cond \caps{\rm\bf}} {\rm \bf \it \bi} {} {TX} {8z 8t}
+
+\def\caps{\ffvars{r}{b}{!}{!}\ffsetV{caps}{c}\ffsetX} 
+\def\nocaps{\ffvars{r}{b}{ro}{bo}\ffsetV{caps}{}\ffsetX} 
+\def\cond{\ffsetV{cond}{n}\ffsetX}
+\def\nocond{\ffsetV{cond}{}\ffsetX}
+\nocaps\nocond\relax % default 
+\def\ffwarning#1{\ffmessage{FONT warning: Helvetica - \string\caps#1 unavailable}}
+
+\ismacro\fotenc{8z}\ifttrue
+   \font\tenrm=phvr8z    \sizespec
+   \font\tenbf=phvb8z    \sizespec
+   \font\tenit=phvro8z   \sizespec
+   \font\tenbi=phvbo8z   \sizespec
+   \font\tentt=pcrr8u    \sizespec
+   \let\tensl=\tenit
+   \font\tenrmn=phvrn8z  \sizespec
+   \font\tenbfn=phvbn8z  \sizespec
+   \font\tenitn=phvron8z \sizespec
+   \font\tenbin=phvbon8z \sizespec
+
+   \def\ffnamegen{phv\ffvarV\condV\capsV 8z}
+
+   \input chars-8z
+\fi
+
+\ismacro\fotenc{8t}\ifttrue
+   \font\tenrm=phvr8t    \sizespec
+   \font\tenbf=phvb8t    \sizespec
+   \font\tenit=phvro8t   \sizespec
+   \font\tenbi=phvbo8t   \sizespec
+   \font\tentt=pcrr8t    \sizespec
+   \let\tensl=\tenit
+   \font\tenrmn=phvr8tn  \sizespec
+   \font\tenbfn=phvb8tn  \sizespec
+   \font\tenitn=phvro8tn \sizespec
+   \font\tenbin=phvbo8tn \sizespec
+
+   \def\ffnamegen{phv\ffvarV\capsV 8t\condV}
+\fi
+
+\tenrm
+
+\let\setsimplemath=\relax % this command is obsolete
+
+% The \TeX logo corrected by Ivo Jancik for Helvetica fonts family
+\def\hvTeX{T\kern-.12em\lower.4ex\hbox{E}\kern-0.09emX}
+\ifx\origTeX\undefined \let\origTeX=\TeX \fi
+\let\TeX=\hvTeX
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+% end of ctimes.tex
+

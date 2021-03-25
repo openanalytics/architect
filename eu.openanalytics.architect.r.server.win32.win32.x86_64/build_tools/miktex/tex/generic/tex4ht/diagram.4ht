@@ -1,0 +1,387 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% diagram.4ht                          2009-05-21-09:32 %
+% Copyright (C) 2008--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \inner@frame = 0pt
+\outer@frame = 0pt
+
+\NewConfigure{diagram}{6}
+
+
+
+\NewConfigure{stipulation}{4}
+
+\NewConfigure{piececounter}{2}
+
+
+\pend:def\@dia@authors{\ifauth@r \a:authors\fi}
+\append:def\@dia@authors{\ifauth@r \b:authors \fi}
+\NewConfigure{authors}{2}
+\pend:def\@dia@condition{\if@condition \a:condition\fi}
+\append:def\@dia@condition{\if@condition \b:condition \fi}
+\NewConfigure{condition}{2}
+\pend:def\@dia@solution{\a:solution}
+\append:def\@dia@solution{\b:solution }
+\NewConfigure{solution}{2}
+\pend:def\@dia@award{\if@award\a:award\fi}
+\append:def\@dia@award{\if@award\b:award\fi }
+\NewConfigure{award}{2}
+\pend:def\@dia@dedic{\if@dedication\a:dedic\fi}
+\append:def\@dia@dedic{\if@dedication\b:dedic \fi}
+\NewConfigure{dedic}{2}
+\pend:def\@dia@number{\ifdi@no\a:number\fi}
+\append:def\@dia@number{\ifdi@no\b:number\fi}
+\NewConfigure{number}{2}
+
+\pend:def\@dia@twins{\ifauth@r \a:twins\fi}
+\append:def\@dia@twins{\ifauth@r \b:twins\fi}
+\NewConfigure{twins}{2}
+\pend:def\@dia@remark{\ifauth@r \a:remark\fi}
+\append:def\@dia@remark{\ifauth@r \b:remark \fi}
+\NewConfigure{remark}{2}
+
+\pend:def\dia@above{\a:above}
+\append:def\dia@above{\b:above }
+\NewConfigure{above}{2}
+
+\pend:def\dia@below{\a:below}
+\append:def\dia@below{\b:below }
+\NewConfigure{below}{2}
+
+\pend:def\@dia@correction{\if@correction\a:correction\fi}
+\append:def\@dia@correction{\if@correction\b:correction\fi }
+\NewConfigure{correction}{2}
+\def\putsol{\immediate\closeout\s@lfd\input\jobname.sol}%\cl@arsol}
+\pend:def\putsol{\HAssign\solNum=0}
+\def\showlabel#1{\if@develop\a:showlabel\hbox{\labelfont#1}\b:showlabel\fi}
+\NewConfigure{showlabel}{2}
+
+\def\@dia@solution{%
+   \bgroup%
+   \parindent\z@%
+   \csname a:sol-title\endcsname
+   {\bf
+      \noindent\if@label\showlabel{\the\label@tk}\fi
+      \csname a:sol-number\endcsname
+      \the\number@tk       \csname b:sol-number\endcsname) %
+      \ifauth@r%
+         \csname a:sol-author\endcsname
+         \ifnormal@names%
+            \the\aut@tk%
+         \else%
+            {\@notfirstfalse% We are the first one
+            \let\@action=\@solname%
+            \@parseTokenlist\aut@tk;}:%
+         \fi%
+         \csname b:sol-author\endcsname
+      \fi%
+   }%
+   \if@develop\if@judgement\a:judgement\the\judgement@tk\b:judgement\fi\fi%
+   \csname b:sol-title\endcsname
+   \par%
+   \the\sol@tk\par%
+   \if@comment\the\comment@tk\par\fi%
+   \egroup%
+}
+\NewConfigure{judgement}{2}
+\NewConfigure{sol-number}{2}
+\NewConfigure{sol-author}{2}
+\NewConfigure{sol-title}{2}
+\def\@dia@source{%
+   {\if@source%
+      \a:source
+      \sourcefont%
+      \if@sourcenr\the\sourcenr@tk\ \fi
+      \the\source@tk%
+      \a:date
+      \ifnum\from@month>\z@%
+         \if@day%
+            \ \ \the\day@tk .\write@month\from@month%
+         \else%
+            \ \ \write@month\from@month%
+         \fi%
+         \ifnum\to@month>\z@ -\write@month\to@month\fi%
+         \if@day .\else /\fi%
+      \else%
+         \ \ %
+      \fi%
+      \if@year\the\year@tk\fi%
+      \b:date
+      \if@issue /\a:issue\the\issue@tk\b:issue\fi%
+      \if@pages ,\ \a:pages\the\pages@tk\b:pages\fi%
+      \par%
+      \b:source
+   \fi}%
+}
+\NewConfigure{source}{2}
+\NewConfigure{source}{2}
+\NewConfigure{date}{2}
+\NewConfigure{issue}{2}
+\NewConfigure{pages}{2}
+
+  \let\:EndIgnore\relax
+  \def\:Ignore{\bgroup
+     \catcode`\\=12
+     \long\def\:temp##1:EndIgnore{\egroup}\:temp
+  }
+  \ifx \setboardwidth\:UnDef \expandafter\:Ignore\fi
+     \def\@dia@stipulation{%
+   \if@stipulation%
+      \a:stipulation
+      \bgroup%
+      \stipfont%
+      \c:stipulation \the\stipulation@tk \d:stipulation
+      \ifx@twins%
+         \let\below@newline\@twinskip%
+         \@dia@twins%
+      \else\ifx@cond%
+         \let\below@newline\@twinskip%
+         \@dia@condition%
+      \fi\fi%
+      \egroup%
+      \b:stipulation
+      \let\below@newline\newline%
+   \else%
+      \x@twinsfalse%
+      \x@condfalse%
+      \let\below@newline\relax%
+   \fi%
+}
+\def\put@count{%
+   % First we build the box with the figure count
+   \ifthenelse{\boolean{piececounter}}{%
+        \a:piececounter
+        \if@show@computer%
+            C\if@computer +\else --\fi
+            \ \
+        \fi%
+            (\arabic{cpd@whitePieces}+\arabic{cpd@blackPieces}%
+        \ifthenelse{\value{cpd@neutralPieces}>0}{+\arabic{cpd@neutralPieces}}{})%
+          \b:piececounter
+   }{}%
+}
+\def\put@plane{%
+   % We might want gridchess
+     \if@stdgrid%
+        \@stdgrid%
+     \fi%
+   % Let us first set the fieldframes
+   \if@fieldframe%
+      \let\@action\read@square%
+      \let\plane@job\set@frame%
+      \@addToPlane\fieldframe@tk%
+   \fi%
+   % Now we set text to all squares which are given using \fieldtext
+   \if@fieldtext%
+      \let\@action\p@rsetext%
+      \let\plane@job\set@text%
+      \@addToPlane\fieldtext@tk%
+   \fi%
+   % Then we should add the gridlines
+   \if@gridlines%
+      \let\@action\read@plane%
+      \let\plane@job\@selGrid%
+      \@addToPlane\gridlines@tk%
+   \else%
+      \if@stereo%
+        \stereo@center%
+     \fi%
+   \fi%
+   % Now we should clear the board
+   \clear@board%
+   % Let us now parse the list of pieces
+   \if@pieces%
+      \let\@action\p@rsepieces%
+      \let\piece@job\l@@k\let\plane@job\set@piece%
+      \@parseTokenlist\pieces@tk,%
+   \fi%
+   % Now we clear all fields, which are given using \nofields
+   \if@nofields%
+      \let\@action\read@square%
+      \let\plane@job\set@nofield%
+      \@parseTokenlist\nofields@tk,%
+   \fi%
+   % Now we can put the pieces to the board
+   \global\setbox\plane@box=\hbox{%
+      \vbox{\rlap{\box\plane@box}}%
+      \vbox{%
+         \a:diagram
+         \chessfont%
+         \baselineskip=\z@\lineskip=\z@%
+         \@rows=\rows@max%
+         % \multiply\@rows by \lines@max%
+         \loop%
+            % \advance\@rows -\lines@max%
+            % \put@line\@rows%
+            % Remove \put@line in future versions
+            \advance\@rows \m@ne%
+            \tmp:cnt=\@rows \advance\tmp:cnt by 1
+            \edef\HRow{\the\tmp:cnt}%
+            \c:diagram \put@row\@rows \d:diagram
+         \ifnum\@rows>\z@\repeat%
+         \b:diagram
+     }%
+   }%
+}
+\def\put@row#1{%
+   \lin@\z@%
+   \help@b=#1%
+   \advance\help@b\brd@ff%
+   \hbox{%
+      \if@stereo%
+         \ifnum\current@plane>\z@%
+            \ifnum\@rows=12%
+               \llap{\raise .5\sq@width\hbox{\boardfont c6\ }}%
+            \fi%
+         \fi%
+      \fi%
+      \hbox to \z@{\vbox to \sq@width{}}%
+      \set@current@square@index{\lin@}{#1}%
+      \loop%
+         \tmp:cnt=\lin@ \advance\tmp:cnt by 1\relax
+         \edef\HCol{\the\tmp:cnt}%
+         \e:diagram
+         \get@current@square@value%
+         \ifthenelse{\value{cpd@current@square@value}=\m@ne}%
+          {\wF}%
+          {\char\value{cpd@current@square@value}}%
+         % \ifnum\count\help@b=\m@ne\wF%
+         % \else\char\count\help@b\fi%
+         \advance\lin@\@ne%
+         \addtocounter{cpd@current@square@index}{1}%
+         % \advance\help@b\@ne%
+         \f:diagram
+      \ifnum\lin@<\lines@max\repeat%
+   }%
+}
+
+  \:EndIgnore
+  \ifx \setboardwidth\:UnDef \else \expandafter\:Ignore\fi
+     \def\@dia@stipulation{%
+   \a:stipulation
+   \bgroup%
+   \stipfont%
+   \hbox{%
+      \a:piececounter
+      \if@show@computer%
+         C\if@computer +\else --\fi
+      \fi%
+      \iffigcnt%
+         \if@show@computer\ \ \fi{} (\the\w@cnt+\the\b@cnt
+                \ifnum\z@<\n@cnt+\the\n@cnt\fi)%
+      \fi%
+      \b:piececounter
+      \if@stipulation \c:stipulation\the
+                   \stipulation@tk \d:stipulation\fi
+      \ifx@twins \@dia@twins\fi%
+      \ifx@cond \@dia@condition\fi%
+   }%
+   \egroup%
+   \b:stipulation
+}
+\def\put@plane{%
+   % We might want gridchess
+     \if@stdgrid%
+        \@stdgrid%
+     \fi%
+   % Let us first set the fieldframes
+   \if@fieldframe%
+      \let\@action\read@square%
+      \let\plane@job\set@frame%
+      \@addToPlane\fieldframe@tk%
+   \fi%
+   % Then we should add the gridlines
+   \if@gridlines%
+      \let\@action\read@plane%
+      \let\plane@job\@selGrid%
+      \@addToPlane\gridlines@tk%
+   \else%
+      \if@stereo%
+        \stereo@center%
+     \fi%
+   \fi%
+   % Now we should clear the board
+   \clear@board%
+   % Let us now parse the list of pieces
+   \if@pieces%
+      \let\@action\p@rsepieces%
+      \let\piece@job\l@@k\let\plane@job\set@piece%
+      \@parseTokenlist\pieces@tk,%
+   \fi%
+   % Now we clear all fields, which are given using \nofields
+   \if@nofields%
+      \let\@action\read@square%
+      \let\plane@job\set@nofield%
+      \@parseTokenlist\nofields@tk,%
+   \fi%
+   \global\setbox\plane@box=\hbox{
+   % Now we can put the pieces to the board
+      \vbox{\IgnorePar\box\plane@box}%
+      \vbox{%
+        \a:diagram
+        \chessfont%
+         \baselineskip=\z@\lineskip=\z@%
+         \@rows=\rows@max%
+         \multiply\@rows by \lines@max%
+         \loop%
+            \advance\@rows -\lines@max%
+            \tmp:cnt=\@rows \divide\tmp:cnt by 8 \advance\tmp:cnt by 1
+            \edef\HRow{\the\tmp:cnt}%
+            \c:diagram  \put@line\@rows \d:diagram
+         \ifnum\@rows>\z@\repeat%
+         \b:diagram
+      }%
+   }%
+}
+\def\put@line#1{%
+   \lin@\z@%
+   \help@b=#1\advance\help@b\brd@ff%
+   \hbox{%
+      \if@stereo%
+         \ifnum\current@plane>\z@%
+            \ifnum\@rows=12%
+               \llap{\raise .5\sq@width\hbox{\boardfont c6\ }}%
+            \fi%
+         \fi%
+      \fi%
+      \hbox to \z@{\vbox to \sq@width{}}%
+      \loop%
+         \tmp:cnt=\lin@ \advance\tmp:cnt by 1\relax
+         \edef\HCol{\the\tmp:cnt}%
+         \e:diagram
+         \ifnum\count\help@b=\m@ne\wF%
+         \else  \char\count\help@b\fi%
+         \advance\lin@\@ne\advance\help@b\@ne%
+         \f:diagram
+      \ifnum\lin@<\lines@max\repeat%
+   }%
+}
+
+  \:EndIgnore
+\Hinput{diagram}
+\endinput
+

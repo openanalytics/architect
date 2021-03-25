@@ -1,0 +1,156 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% prosper-a.4ht                         2009-05-21-09:32 %
+% Copyright (C) 2003--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\ifHy@texht \else
+   \:warning{Package option `tex4ht' missing for prosper.cls. Should
+      be present with a PPR style option: default, darkblue,...}
+\fi
+\def\:temp{tex4ht}\ifx \:temp\Style@chosen
+   \:warning{PPR style package option missing for prosper.cls
+             (e.g., default, darkblue).}
+\fi
+\Log:Note{if figures in slides of prosper.cls
+   translate to empty bitmaps, adjust the G-script in tex4ht.env
+   to handle larger page dimensions.}
+\let\orig@item\item
+\pend:def\enditemize{\global\let\sv:end:DL\end:DL}
+\append:def\enditemize{\sv:end:DL}
+\NewConfigure{Subtitle}{2}
+\NewConfigure{email}{2}
+\NewConfigure{institution}{2}
+\let\part=\relax
+\newcommand{\part}[2][\@defaultTransition]{%
+  \begin{slide}[#1]{}%
+    \vspace*{1.5cm}\def\Hy@temp{#2}%
+\addcontentsline{toc}{part}{%
+   \expandafter\strip@prefix\meaning\Hy@temp}%
+\@addBookmarkOnSlide{0}{#2}%
+    \begin{center}%
+      \fontTitle{#2}%
+    \end{center}
+  \end{slide}}
+\def\tocslideentry#1#2#3{#3}
+\def\@addBookmarkOnSlide#1#2{%
+  \ifnum#1=0
+    \def\Hy@temp{#2}%
+    \addcontentsline{toc}{slide}{%
+       \string\tocslideentry
+       {}{\thetrueSlideCounter}
+       {\expandafter\strip@prefix\meaning\Hy@temp}}%
+  \else
+    \@tempoLimit=#1%
+    \advance \@tempoLimit by -1
+    \ifcollapsedBookmarks
+       \@tempoLimit=-\@tempoLimit
+    \fi
+    \def\Hy@temp{#2}%
+    \addcontentsline{toc}{slide}{%
+       \string\csname\space tocslideentry\string\endcsname
+       {\number\@tempoLimit}{\thetrueSlideCounter}
+       {\expandafter\strip@prefix\meaning\Hy@temp}}%
+  \fi
+}
+\expandafter\slide@hook\expandafter{\the \slide@hook
+   \let\posit@Box=\empty
+   \let\endposit@Box=\empty
+}
+\long\def\@on@overlay@one#1{}
+\pend:defI\slidetitle{\a:slidetitle}
+\append:defI\slidetitle{\b:slidetitle}
+\NewConfigure{slidetitle}{2}
+
+\expandafter\ifx  \csname @tempoLimit\endcsname\relax
+   \def\maketitle{\bgroup
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+   \def\sec:typ{title}%
+   \ConfigureEnv{center}{\empty}{}{\empty}{\empty}
+   \pend:def\@Title{\a:ttl}\append:def\@Title{\b:ttl}%
+\pend:def\@Author{\a:author}\append:def\@Author{\b:author}%
+\expandafter\ifx\csname @institution\endcsname\relax \else
+   \ifx\@institution\@empty \else
+      \pend:def\@institution{\a:institution}%
+      \append:def\@institution{\b:institution}%
+\fi\fi
+%
+   \if\@Subtitle.\else
+   \pend:def\@Subtitle{\a:Subtitle}%
+   \append:def\@Subtitle{\b:Subtitle}%
+\fi
+\if\@email.\else
+   \expandafter\pend:def\expandafter\@email\expandafter{%
+       \expandafter\def\expandafter\@email\expandafter{\@email
+                               }\a:email}\append:def\@email{\b:email}%
+\fi
+%
+   \a:mktl  \o:maketitle:  \b:mktl
+   \egroup \let\maketitle\empty}
+\def\@addBookmarkOnSlide#1{%
+   \def\Hy@temp{#1}%
+   \addcontentsline{toc}{slide}{%
+      \string\tocslideentry
+      {}{\thetrueSlideCounter}
+      {\expandafter\strip@prefix\meaning\Hy@temp}}%
+}
+
+\else
+   \def\maketitle{\bgroup
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+   \def\sec:typ{title}%
+   \ConfigureEnv{center}{\empty}{}{\empty}{\empty}
+   \pend:def\@Title{\a:ttl}\append:def\@Title{\b:ttl}%
+\pend:def\@Author{\a:author}\append:def\@Author{\b:author}%
+\expandafter\ifx\csname @institution\endcsname\relax \else
+   \ifx\@institution\@empty \else
+      \pend:def\@institution{\a:institution}%
+      \append:def\@institution{\b:institution}%
+\fi\fi
+%
+   \ifx\@Subtitle\@empty \else
+   \pend:def\@Subtitle{\a:Subtitle}%
+   \append:def\@Subtitle{\b:Subtitle}%
+\fi
+\ifx\@email\@empty \else
+   \expandafter\pend:def\expandafter\@email\expandafter{%
+       \expandafter\def\expandafter\@email\expandafter{\@email
+                               }\a:email}\append:def\@email{\b:email}%
+\fi
+%
+   \a:mktl  \o:maketitle:  \b:mktl
+   \egroup \let\maketitle\empty}
+
+\fi
+\let\hyp:enumerate\enumerate
+\def\enumerate{\hyp:enumerate\@nmbrlistfalse}
+
+\Hinput{prosper}
+\endinput
+

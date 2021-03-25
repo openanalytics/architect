@@ -1,0 +1,22 @@
+%%
+%% This is file `laeaedimnah.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeaedimnah.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+\DeclareFontFamily{LAE}{aedimnah}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aedimnah}{m}{n}{<-> s*[1.25] aedimnah}{}
+
+\DeclareFontShape{LAE}{aedimnah}{bx}{n}{<-> ssub * aedimnah/m/n}{}
+
+\endinput

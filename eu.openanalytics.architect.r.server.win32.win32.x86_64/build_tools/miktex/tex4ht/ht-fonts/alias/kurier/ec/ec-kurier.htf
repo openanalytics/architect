@@ -1,0 +1,18 @@
+.ec-iwona
+htfcss: ec-kurierl  font-weight: light;
+htfcss: ec-kurierb  font-weight: bold;
+htfcss: ec-kurierh  font-weight: bold;
+htfcss: ec-kurierli  font-weight: light; font-style:italic;
+htfcss: ec-kurierri  font-style:italic;
+htfcss: ec-kuriermi  font-style:italic;
+htfcss: ec-kurierbi  font-style:italic; font-weight: bold;
+htfcss: ec-kurierhi  font-style:italic; font-weight: bold;
+htfcss: ec-kuriercl  font-weight: light;
+htfcss: ec-kuriercb  font-weight: bold;
+htfcss: ec-kurierch  font-weight: bold;
+htfcss: ec-kuriercli  font-weight: light; font-style:italic;
+htfcss: ec-kuriercri  font-style:italic;
+htfcss: ec-kuriercmi  font-style:italic;
+htfcss: ec-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: ec-kurierchi  font-style:italic; font-weight: bold;
+

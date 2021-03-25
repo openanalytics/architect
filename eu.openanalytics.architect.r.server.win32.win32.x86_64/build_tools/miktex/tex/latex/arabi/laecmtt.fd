@@ -1,0 +1,29 @@
+%%
+%% This is file `laecmtt.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laecmtt.fd}
+         [2006/01/01 v0.1 LaTeX Arabic default font description
+         (test version: may change)]
+
+\DeclareFontFamily{LAE}{cmtt}{\hyphenchar\font=-1}%
+\DeclareFontShape{LAE}{cmtt}{m}{n}{<-> s*[1.25] aenice }{} 
+%%%%%%% Italicized shape
+\DeclareFontShape{LAE}{cmtt}{m}{it}{<-> ssub * cmtt/m/n }{}
+\DeclareFontShape{LAE}{cmtt}{m}{sl}{<-> ssub * cmtt/m/n }{}
+\DeclareFontShape{LAE}{cmtt}{m}{sc}{<-> ssub * cmtt/m/n }{}
+%%%%%%% Bold extended series
+\DeclareFontShape{LAE}{cmtt}{b}{n}{<-> s*[1.25] aegraph }{}
+\DeclareFontShape{LAE}{cmtt}{bx}{n}{<-> ssub * cmtt/b/n }{}
+%%%%%%% Bold extended (Italic)  series
+\DeclareFontShape{LAE}{cmtt}{bx}{sl}{<-> ssub * cmtt/b/n }{}
+\DeclareFontShape{LAE}{cmtt}{bx}{it}{<-> ssub * cmtt/b/n }{}
+
+\endinput

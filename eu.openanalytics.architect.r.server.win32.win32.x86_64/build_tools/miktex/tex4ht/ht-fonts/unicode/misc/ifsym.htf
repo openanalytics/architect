@@ -1,0 +1,128 @@
+ifsym 0 124
+'&#x2709;' '' envelop         0 %
+'&#xFFFF;' '' section diamond 1 % ifsym.htf (unicode)             2020-05-27-14:14 %
+'&#xFFFF;' '' filled sec diam 2 % Copyright 2002-2009 Eitan M. Gurari %
+'&#xFFFF;' '' landscape paper 3 %
+'&#xFFFF;' '' portrait paper  4 % This work may be distributed and/or modified under the conditions
+'&#x2680;' '' dice 1          5 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x2681;' '' dice 2          6 % license or (at your option) any later version. The latest version
+'&#x2682;' '' dice 3          7 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x2683;' '' dice 4          8 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x2684;' '' dice 5          9 % 2003/12/01 or later.
+'&#x2685;' '' dice 6         10 % This work has the LPPL maintenance status "maintained".
+'&#x2715;' '' irritant       11 % Current Maintainer of this work is the TeX4ht Project.
+'&#xFFFF;' '' fire           12 %
+'' ''                        13 % If you modify this file, changing the
+'&#x2622;' '' radiation      14 % version identification would be appreciated.
+'' ''      15 %
+'&#xFFFF;' '' ???  16 % tex4ht@tug.org
+'&#xFFFF;' '' ???    17 % https://tug.org/tex4ht
+'&#xFFFF;' '' ???        18 %
+'&#xFFFF;' '' ???        19 
+'&#xFFFF;' '' ???               20
+'&#xFFFF;' '' ???               21
+'&#xFFFF;' '' ???              22
+'&#xFFFF;' '' ???           23
+'&#xFFFF;' '' ???             24
+'&#xFFFF;' '' ???            25
+'&#xFFFF;' '' ???               26
+'&#xFFFF;' '' ???               27
+'&#xFFFF;' '' ???        28
+'&#xFFFF;' '' ???               29
+'&#xFFFF;' '' ???               30
+'&#xFFFF;' '' ???       31
+'&#xFFFF;' '' ???            32
+'&#xFFFF;'        '' ???    33
+'&#xFFFF;' '' ???   34
+'&#xFFFF;'        '' ???                    35
+'&#xFFFF;'        '' ???                    36
+'&#xFFFF;'        '' ???                    37
+'&#xFFFF;' '' ???           38
+'&#xFFFF;' '' ???   39
+'&#x260E;'        ''  phone                     40
+'&#xFFFF;'        '' ???                    41
+'&#xFFFF;'        '' ???                    42
+''        ''                     43
+''        ''                     44
+'&#xFFFF;'        '' ???                    45
+'&#xFFFF;'        '' ???                    46
+''        ''                     47
+'0'        ''                     48
+'1'        ''                     49
+'2'        ''                     50
+'3'        ''                     51
+'4'        ''                     52
+'5'        ''                     53
+'6'        ''                     54
+'7'        ''                     55
+'8'        ''                     56
+'9'        ''                     57
+'&#xFFFF;'        '' ???                    58
+'&#xFFFF;'        '' ???                    59
+'&#xFFFF;' '' ???          60
+'&#xFFFF;'        '' ???                    61
+'&#xFFFF;' '' ???          62
+'&#xFFFF;'        '' ???                    63
+''        ''                     64
+''        ''                     65
+''        ''                     66
+'&#xFFFF;'        '' ???                    67
+'&#xFFFF;'        '' ???                    68
+''        ''                     69
+''        ''                     70
+'&#xFFFF;'        '' ???                    71
+''        ''                     72
+''        ''                     73
+''        ''                     74
+''        ''                     75
+'&#xFFFF;'        '' ???                    76
+'&#xFFFF;'        '' ???                    77
+''        ''                     78
+''        ''                     79
+''        ''                     80
+''        ''                     81
+''        ''                     82
+''        ''                     83
+''        ''                     84
+''        ''                     85
+''        ''                     86
+''        ''                     87
+''        ''                     88
+''        ''                     89
+''        ''                     90
+''        ''                     91
+'' ''    92
+''        ''                     93
+'' ''          94
+'' ''           95
+'' ''    96
+''        ''                     97
+''        ''                     98
+'&#xFFFF;'        '' ???                    99
+'&#xFFFF;'        '' ???                   100
+''        ''                    101
+''        ''                    102
+'&#xFFFF;'        '' ???                   103
+''        ''                    104
+''        ''                    105
+''        ''                    106
+''        ''                    107
+'&#xFFFF;'        '' ???                   108
+'&#xFFFF;'        '' ???                   109
+''        ''                    110
+''        ''                    111
+''        ''                    112
+''        ''                    113
+''        ''                    114
+''        ''                    115
+''        ''                    116
+''        ''                    117
+''        ''                    118
+''        ''                    119
+''        ''                    120
+''        ''                    121
+''        ''                    122
+'' ''              123
+'&#xFFFF;' '' ???             124
+ifsym 0 124
+

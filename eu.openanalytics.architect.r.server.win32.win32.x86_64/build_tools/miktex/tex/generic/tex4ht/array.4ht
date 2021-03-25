@@ -1,0 +1,223 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% array.4ht                             2009-05-21-09:32 %
+% Copyright (C) 1997--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \def\@tabular{\leavevmode
+  \hbox \bgroup \:@tabular:
+      $\col@sep\tabcolsep \let\d@llarbegin\begingroup
+                                    \let\d@llarend\endgroup
+  \@tabarray}
+\pend:def\@tabular{\let\@array:a\a:tabular \let\@array:b\b:tabular
+\let\@array:c\c:tabular \let\@array:d\d:tabular
+\let\@array:e\e:tabular \let\@array:f\f:tabular
+}
+\def\:temp[#1]#2{%
+  \def\Clr{#2}\a:VBorder
+\HAssign\ar:cnt0
+\let\HAlign\empty
+%
+  \@tempdima \ht \strutbox
+  \advance \@tempdima by\extrarowheight
+  \setbox \@arstrutbox \hbox{}%
+  \begingroup
+    \@mkpream{#2}%
+    \xdef\@preamble{%
+        \everycr{}\tabskip\z@skip\noexpand\MkHalign\noexpand\@sharp
+   {\@arstrut \@preamble \tabskip\z@skip}%
+}%
+    \xdef\:temp{%
+   \def\noexpand\HAlign{\HAlign}%
+   \def\noexpand\ar:cnt{\ar:cnt}}\aftergroup\:temp
+%
+  \endgroup
+  \@arrayleft
+  \if #1t\vtop \else \if#1b\vbox \else \vcenter \fi \fi
+  \bgroup
+    \def\v:TBL{#1}%
+    \let \protect \relax  \lineskip \z@
+    \baselineskip \z@ \m@th
+    \let\\\@arraycr \let\tabularnewline\\\let\par\@empty
+    \ifx \EndPicture\:UnDef
+       \SaveMkHalignConfig %%%%%%%%% \let\sv:ALIGN\HAlign
+       \ifx \recall:ar\:UnDef
+   \pend:def\@array{\recall:ar}%
+   \edef\recall:ar{%
+      \noexpand\ifx \noexpand\EndPicture\noexpand\:UnDef \noexpand\else
+         \arrayrulewidth\the\arrayrulewidth
+         \doublerulesep\the\doublerulesep
+         \arraycolsep\the\arraycolsep
+         \tabcolsep\the\tabcolsep
+      \noexpand\fi }%
+\fi
+\arrayrulewidth\z@  \doublerulesep\z@
+\arraycolsep\z@     \tabcolsep\z@
+\Configure{MkHalign}
+   {\@array:a}%
+   {\@array:b\ProperTrTrue}%
+   {\a:putHBorder\InitHBorder
+    \gHAdvance\cline:cnt by 1
+\expandafter\ifx \csname  cw:cline-\cline:cnt\endcsname \relax \else
+   \Tag{Cline-\cline:cnt}{}%
+\fi
+\expandafter\ifx \csname  cw:Cline-\cline:cnt\endcsname \relax \else
+   \ht:special{t4ht@[}%
+\fi
+%
+    \ifProperTr{\@array:c}}%
+   {\ifProperTr{\@array:d}%
+    \ifomit: \Tag{cline-\cline:cnt}{}\fi
+\expandafter\ifx \csname  cw:Cline-\cline:cnt\endcsname \relax \else
+   \ht:special{t4ht@]}%
+\fi
+\global \omit:false
+%
+    \a:putHBorder\InitHBorder}%
+   {\ifProperTr{\@array:e}\RecallMkHalignConfig\recall:ar}%
+   {\ifProperTr{\@array:f}}
+%
+       \Configure{MkHalign}%
+   {\@array:a}%
+   {\@array:b\ProperTrTrue}%
+   {\a:putHBorder\InitHBorder \ifProperTr{\@array:c}}%
+   {\ifProperTr{\@array:d}\a:putHBorder\InitHBorder}%
+   {\ifProperTr{\@array:e}%%%%%%%%%%\global \let\HAlign\sv:ALIGN
+          \RecallMkHalignConfig\recall:ar}%
+   {\ifProperTr{\@array:f}}
+%
+    \else \let\@sharp##\fi  
+    \@preamble}
+\HLet\@array\:temp
+\HLet\@@array\@array
+\let\:tempc\@startpbox
+\append:defI\:tempc{\expandafter\everypar
+   \expandafter{\the\everypar\everypar{\HtmlPar}\HtmlPar}}
+\HLet\@startpbox\:tempc
+
+\def\:tempc{\relax \ifnum\HCol=1 \a:endarray\fi
+   \enda:rray}
+\HLet\endarray\:tempc
+\def\:tempc{\relax \ifnum\HCol=1 \a:endtabular\fi
+   \enda:rray $\egroup}
+\HLet\endtabular\:tempc
+\def\enda:rray{\crcr\ifx \EndPicture\:UnDef \EndMkHalign
+   \else \egroup\fi  \egroup \@arrayright \gdef\@preamble{}}
+\expandafter \let \csname endtabular*\endcsname\endtabular
+\def\:tempc{\@classx
+   \@tempcnta \count@
+   \prepnext@tok
+   \@addtopreamble{\ifcase \@chnum
+      \hfil
+      \d@llarbegin
+      \insert@column
+      \d@llarend \hfil \or
+      \hskip1sp\d@llarbegin \insert@column \d@llarend \hfil \or
+      \hfil\hskip1sp\d@llarbegin \insert@column \d@llarend \or
+    %
+   \vtop \@startpbox{\@nextchar}\insert@column \@endpbox \or
+   \vtop \@startpbox{\@nextchar}\insert@column \@endpbox \or
+   \vbox \@startpbox{\@nextchar}\insert@column \@endpbox
+  \fi}\prepnext@tok}
+\HLet\@classz\:tempc
+\def\:tempc{\@chclass
+ \ifnum \@lastchclass=6 \@ne \@chnum \@ne \else
+  \ifnum \@lastchclass=7 5 \else
+   \ifnum \@lastchclass=8 \tw@ \else
+    \ifnum \@lastchclass=9 \thr@@
+   \else \z@
+   \ifnum \@lastchclass = 10
+      \global \expandafter\let \csname @testpach \ar:cnt\endcsname\@nextchar
+%
+   \else
+   \edef\@nextchar{\expandafter\string\@nextchar}%
+   \@chnum
+   \if \@nextchar c\z@ \add:ar-\else
+    \if \@nextchar l\@ne \add:ar<\else
+     \if \@nextchar r\tw@ \add:ar>\else
+   \z@ \@chclass
+   \if\@nextchar |\@ne \b:VBorder\else
+    \if \@nextchar !6 \else
+     \if \@nextchar @7 \d:VBorder\else
+      \if \@nextchar <8 \else
+       \if \@nextchar >9 \else
+  10
+  \@chnum
+  \if \@nextchar m\thr@@ \add:ar m\else
+   \if \@nextchar p4 \add:ar p\else
+    \if \@nextchar b5 \add:ar b\else
+   \z@ \@chclass \z@ \@preamerr \z@ \fi \fi \fi \fi
+   \fi \fi  \fi  \fi  \fi  \fi  \fi \fi \fi \fi \fi \fi}
+\HLet\@testpach\:tempc
+\def\add:ar#1{\HAdvance\ar:cnt by 1
+   \def\ch:class{#1}%
+\c:VBorder
+   \edef\HAlign{\HAlign 0 \ar:cnt\space #1 }}
+\def\HColAlign{\expandafter \ifx\csname
+   \expandafter\string\ch:class :T:D\endcsname\relax \else \csname
+   \expandafter\string\ch:class :T:D\endcsname\fi}
+
+%
+\long\def\:temp#1#2#3{%
+   \multispan{#1}\a:multicolumn \begingroup
+     \def\@addamp{\if@firstamp \@firstampfalse \else
+                \@preamerr 5\fi}%
+     \def\Clr{#2}\a:VBorder
+\HAssign\ar:cnt0
+\let\HAlign\empty
+%
+\@mkpream{#2}%
+\ifx \EndPicture\:UnDef
+   \def\:temp##1 ##2 ##3 {##3}%
+   \xdef\new:span{\new:span\HRow.\HCol\expandafter\:temp\HAlign;}%
+\fi
+\@addtopreamble\@empty
+     \global\let\ch:class\ch:class
+     \xdef\:temp{%
+   \def\noexpand\HAlign{\HAlign}%
+   \def\noexpand\ar:cnt{\ar:cnt}}\aftergroup\:temp
+%
+   \endgroup
+   \def\@sharp{\c:multicolumn#3\d:multicolumn}%
+   \@arstrut \@preamble
+   \null
+   \b:multicolumn
+   \ignorespaces}
+\HLet\multicolumn\:temp
+
+\def\save@decl{%
+  \toks \count@ = \expandafter\expandafter\expandafter {%
+     \csname a:array\ifnum\@lastchclass=9
+   >\else <\fi \expandafter\expandafter\expandafter\endcsname
+\expandafter\@nextchar\the\toks
+     \expandafter\count@\csname b:array\ifnum\@lastchclass=9
+   >\else <\fi\endcsname
+}}
+\NewConfigure{array>}{2}
+\NewConfigure{array<}{2}
+
+\Hinput{array}
+\endinput
+

@@ -1,0 +1,226 @@
+psyr 32 254
+' ' '' 32 space        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'!' '' 33 exclam       % psyr.htf (unicode)       2020-05-27-14:14 %
+'&#x2200;' '' 34 universal    % Copyright 2004-2009 Eitan M. Gurari %
+'#' '' 35 numbersign   %
+'&#x2203;' '' 36 existential  % This work may be distributed and/or modified under the conditions
+'%' '' 37 percent      % of the LaTeX Project Public License, either version 1.3 of this
+'&#x0026;' '' 38 ampersand    % license or (at your option) any later version. The latest version
+'&#x2208;' '' 39 suchthat     % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x0028;' '' 40 parenleft    % version 1.3 or later is part of all distributions of LaTeX version
+'&#x0029;' '' 41 parenright   % 2003/12/01 or later.
+'*' '' 42 asteriskmath % This work has the LPPL maintenance status "maintained".
+'+' '' 43 plus         % Current Maintainer of this work is the TeX4ht Project.
+',' '' 44 comma        %
+'&#x2212;' '' 45 minus        % If you modify this file, changing the
+'.46' '' period       % version identification would be appreciated.
+'/' '' 47 slash        %
+'0' '' 48 zero         % tex4ht@tug.org
+'1' '' 49 one          % https://tug.org/tex4ht
+'2' '' 50 two          %
+'3' '' 51 three        
+'4' '' 52 four
+'5' '' 53 five
+'6' '' 54 six
+'7' '' 55 seven
+'8' '' 56 eight
+'9' '' 57 nine
+':' '' 58 colon
+';' '' 59 semicolon
+'&#x003C;' '' 60 less
+'=' '' 61 equal
+'&#x003E;' '' 62 greater
+'?' '' 63 question
+'&#x2245;' '' 64 congruent
+'&#x0391;' '' 65 Alpha
+'&#x0392;' '' 66 Beta
+'&#x03A7;' '' 67 Chi
+'&#x0394;' '' 68 Delta
+'&#x0395;' '' 69 Epsilon
+'&#x03A6;' '' 70 Phi
+'&#x0393;' '' 71 Gamma
+'&#x0397;' '' 72 Eta
+'&#x0399;' '' 73 Iota
+'&#x1D703;' '' 74 theta1
+'&#x039A;' '' 75 Kappa
+'&#x039B;' '' 76 Lambda
+'&#x039C;' '' 77 Mu
+'&#x039D;' '' 78 Nu
+'&#x039F;' '' 79 Omicron
+'&#x03A0;' '' 80 Pi
+'&#x0398;' '' 81 Theta
+'&#x03A1;' '' 82 Rho
+'&#x03A3;' '' 83 Sigma
+'&#x03A4;' '' 84 Tau
+'&#x03D2;' '' 85 Upsilon
+'&#x03C2;' '' 86 sigma1
+'&#x03A9;' '' 87 Omega
+'&#x039E;' '' 88 Xi
+'&#x03A8;' '' 89 Psi
+'&#x0396;' '' 90 Zeta
+'&#x005B;' '' 91 bracketleft
+'&#x2234;' '' 92 therefore
+'&#x005D;' '' 93 bracketright
+'&#x22A5;' '' 94 perpendicular
+'&#x005F;' '' 95 underscore
+'&#x203E;' '' 96 radicalex
+'&#x03B1;' '' 97 alpha
+'&#x03B2;' '' 98 beta
+'&#x03C7;' '' 99 chi
+'&#x03B4;' '' 100 delta
+'&#x1D716;' ''   101
+'&#x03D5;' '' 102 phi
+'&#x03B3;' '' 103 gamma
+'&#x03B7;' '' 104 eta
+'&#x03B9;' '' 105 iota
+'&#x03C6;' '' 106 phi1
+'&#x03BA;' '' 107 kappa
+'&#x03BB;' '' 108 lambda
+'&#x03BC;' '' 109 mu
+'&#x03BD;' '' 110 nu
+'&#x03BF;' '' 111 omicron
+'&#x03C0;' '' 112 pi
+'&#x1D703;' '' 113 theta
+'&#x03C1;' '' 114 rho
+'&#x03C3;' '' 115 sigma
+'&#x03C4;' '' 116 tau
+'&#x03C5;' '' 117 upsilon
+'&#x03D6;' '' 118 omega1
+'&#x03C9;' '' 119 omega
+'&#x03BE;' '' 120 xi
+'&#x03C8;' '' 121 psi
+'&#x03B6;' '' 122 zeta
+'&#x007B;' '' 123 braceleft
+'|' '' 124 bar
+'&#x007D;' '' 125 braceright
+'~' '' 126 similar
+''  ''            127
+''  ''            128
+''  ''            129
+''  ''            130
+''  ''            131
+''  ''            132
+''  ''            133
+''  ''            134
+''  ''            135
+''  ''            136
+''  ''            137
+''  ''            138
+''  ''            139
+''  ''            140
+''  ''            141
+''  ''            142
+''  ''            143
+''  ''            144
+''  ''            145
+''  ''            146
+''  ''            147
+''  ''            148
+''  ''            149
+''  ''            150
+''  ''            151
+''  ''            152
+''  ''            153
+'' ''             154
+'' ''             155
+'' ''             156
+'' ''             157
+'' ''             158
+'' ''             159
+'' ''             160
+'&#x03D2;' '' 161 Upsilon1
+'&#x2032;' '' 162 minute
+'&#x2264;' '' 163 lessequal
+'&#x2044;' '' 164 fraction
+'&#x221E;' '' 165 infinity
+'&#x0192;' '' 166 florin
+'&#x2663;' '' 167 club
+'&#x2662;' '' 168 diamond
+'&#x2661;' '' 169 heart
+'&#x2660;' '' 170 spade
+'&#x2194;' '' 171 arrowboth
+'&#x2190;' '' 172 arrowleft
+'&#x2191;' '' 173 arrowup
+'&#x2192;' '' 174 arrowright
+'&#x2193;' '' 175 arrowdown
+'&#x2103;' '' 176 degree
+'&#x00B1;' '' 177 plusminus
+'&#x2033;' '' 178 second
+'&#x2265;' '' 179 greaterequal
+'&#x00D7;' '' 180 multiply
+'&#x221D;' '' 181 proportional
+'&#x2202;' '' 182 partialdiff
+'&#x2022;' '' 183 bullet
+'&#x00F7;' '' 184 divide
+'&#x2260;' '' 185 notequal
+'&#x2261;' '' 186 equivalence
+'&#xE306;' '' 187 approxequal
+'&#x2026;' '' 188  ellipsis
+'|' '' 189 arrowvertex
+'-' '' 190  arrowhorizex
+'&x#21B2;' '' 191 carriagereturn
+'&#x2135;' '' 192 aleph
+'&#x2111;' '' 193 Ifraktur
+'&#x211C;' '' 194 Rfraktur
+'&#x2118;' '' 195 weierstrass
+'&#x2297;' '' 196 circlemultiply
+'&#x2295;' '' 197 circleplus
+'&#x2205;' '' 198 emptyset
+'&#x2229;' '' 199 intersection
+'&#x222A;' '' 200 union
+'&#x2283;' '' 201 propersuperset
+'&#x2287;' '' 202 reflexsuperset
+'&#x2284;' '' 203 notsubset
+'&#x2282;' '' 204 propersubset
+'&#x2286;' '' 205 reflexsubset
+'&#x2208;' '' 206 element
+'&#x2209;' '' 207 notelement
+'&#x2220;' '' 208 angle
+'&#x2207;' '' 209 gradient
+'&#x00AE;' '' 210 registerserif
+'&#x00A9;' '' 211 copyrightserif
+'&#x2122;' '' 212 trademarkserif
+'&#x220F;' '' 213 product
+'&#x00B7;' '' 214 radical
+'&#x22C5;' '' 215 dotmath
+'&#x00AC;' '' 216 logicalnot
+'&#x2227;' '' 217 logicaland
+'&#x2228;' '' 218 logicalor
+'&#x21D4;' '' 219  arrowdblboth
+'&#x21D0;' '' 220 arrowdblleft
+'&#x21D1;' '' 221 arrowdblup
+'&#x21D2;' '' 222 arrowdblright
+'&#x21D3;' '' 223 arrowdbldown
+'&#x25C7;' '' 224 lozenge
+'&#x27E8;' '' 225 angleleft
+'&#x00AE;' '' 226 registersans
+'&#x00A9;' '' 227 copyrightsans
+'&#x2122;' '' 228 trademarksans
+'&#x2211;' '' 229 summation
+'&#x239B;' '' 230 parenlefttp
+'&#x239C;' '' 231 parenleftex
+'&#x239D;' '' 232 parenleftbt
+'&#x23A1;' '' 233 bracketlefttp
+'&#x23A2;' '' 234 bracketleftex
+'&#x23A3;' '' 235 bracketleftbt
+'&#x23A7;' '' 236 bracelefttp
+'&#x23A8;' '' 237 braceleftmid
+'&#x23A9;' '' 238 braceleftbt
+'&#x23AA;' '' 239 braceex
+'' '' 240
+'&#x27E9;' '' 241 angleright
+'&#x222B;' '' 242 integral
+'&#x2320;' '' 243 integraltp
+'&#x23AA;' '' 244 integralex
+'&#x2321;' '' 245 integralbt
+'&#x239E;' '' 246 parenrighttp
+'&#x239F;' '' 247 parenrightex
+'&#x23A0;' '' 248 parenrightbt
+'&#x23A4;' '' 249 bracketrighttp
+'&#x23A5;' '' 250 bracketrightex
+'&#x23A6;' '' 251 bracketrightbt
+'&#x23AB;' '' 252 bracerighttp
+'&#x23AC;' '' 253 bracerightmid
+'&#x23AD;' '' 254 bracerightbt
+psyr 32 254
+

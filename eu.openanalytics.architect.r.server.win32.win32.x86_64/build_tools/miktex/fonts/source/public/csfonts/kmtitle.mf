@@ -1,0 +1,36 @@
+% This makes a short font (caps and digits only)
+
+font_coding_scheme:="ASCII caps and digits";
+
+mode_setup; font_setup;
+
+input romanu;  % upper case (majuscules)
+input romand;  % numerals
+input csaccent
+input csacutu  % uppercase latters with acute accent
+input cshacheu % uppercase letters with hachek accent
+
+font_slant slant; font_x_height x_height#;
+if monospace: font_normal_space 9u#; % no stretching or shrinking
+ font_quad 18u#;
+ font_extra_space 9u#;
+else: font_normal_space 6u#+2letter_fit#;
+ font_normal_stretch 3u#; font_normal_shrink 2u#;
+ font_quad 18u#+4letter_fit#;
+ font_extra_space 2u#;
+ k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
+ ligtable "P": "T": cs_TJ: "Y": cs_YY: "A" kern kk#, cs_AA kern kk#;
+ ligtable "F": "V": "W": "A" kern if serifs: kkk# else: kk#\\fi,
+  cs_AA kern if serifs: kkk# else: kk#\\fi,
+  "K": "X": "O" kern k#, cs_OO kern k#,
+  "C" kern k#, cs_CZ kern k#, "G" kern k#, "Q" kern k#;
+ ligtable "O": cs_OO: "D": cs_DJ: "X" kern k#, "W" kern k#,
+   "A" kern k#, cs_AA kern k#,
+   "V" kern k#, "Y" kern k#, cs_YY kern k#;
+ ligtable "A": cs_AA: if serifs: "R": fi
+  "C" kern k#, cs_CZ kern k#, "O" kern k#, cs_OO kern k#,
+  "G" kern k#, "U" kern k#, cs_UU kern k#, "Q" kern k#,
+  "L": "T" kern kk#, cs_TJ kern kk#, "Y" kern kkk#, cs_YY kern kkk#,
+  "V" kern kk#, "W" kern kkk#;
+ ligtable "I": cs_II: "I" kern -k#, cs_II kern -k#; fi % Richard III
+bye.

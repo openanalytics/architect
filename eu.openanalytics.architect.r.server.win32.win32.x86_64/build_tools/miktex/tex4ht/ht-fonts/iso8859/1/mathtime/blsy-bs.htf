@@ -1,0 +1,131 @@
+blsy-bs 0 127
+'-'          ''           0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'.'          '8'cdot      1 % blsy-bs.htf                   2001-03-14 %
+'\215\'      ''times      2 % Copyright (C) 2001            Phil Viton %
+'*'          ''           3 %                                          %
+'\247\'      '' div       4 % This file can redistributed and/or       %
+'&#x003C;&#x003E;'   '1'diamond   5 % modified under the terms of the LaTeX    %
+'\177\'      ''pm         6 % Project Public License Distributed from  %
+'\177\'      '1'mp        7 % CTAN archives in directory               %
+' o+ '       '1'oplus     8 % macros/latex/base/lppl.txt; either       %
+' o- '       '1'ominus    9 % version 1 of the License, or (at your    %
+' ox '       '1'otimes   10 % option) any later version.               %
+' o/ '       '1'oslash   11 %    However, you are allowed to modify    %
+' o. '       '1'odot     12 % this file without changing its name, if  %
+'O'          '1'bigcirc  13 % you add a note of your own after this    %
+'o'          '10'circ    14 % copyright note.                          %
+'&#8226;'    ''bullet    15 %                                          %
+' )( '       '1'asymp    16 % I would appreciate being told if you     %
+' =_ '       '1'equiv    17 % find bugs.                               %
+' (_ '       '3'subseteq 18 %                                          %
+' )_ '       '3'supseteq 19 %                         viton.1@osu.edu  %
+'&#x003C;'       '6' <=      20 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x003E;'       '6' >=         21
+'&#x003C;='      '3'preceq      22
+'&#x003E;='      '3'succeq      23
+'\126\'          ''sim           24
+' ~~ '       '1'approx       25
+'&#x003C;'       '1'subset       26
+'&#x003E;'       '1'supset       27
+'\171\'      ''   <<         28
+'\187\'      ''   >>         29
+'&#x003C;'       '1'prec         30
+'&#x003E;'       '1'succ         31
+'&#x003C;--'     '1'leftarrow    32
+'--&#x003E;'     '1'rightarrow   33
+' |^ '       '1'uparrow      34
+' |, '       '1'downarrow    35
+'&#x003C;--&#x003E;' '1'leftrightarrow 36
+' /^ '       '1'nearrow      37
+' \\, '      '1'searrow      38
+' -~ '       '1'simeq        39
+'&#x003C;=='     '1'Leftarrow    40
+'==&#x003E;'     '1'Rightarrow   41
+' ||^ '      '1'Uparrow      42
+' ||, '      '1'Downarrow    43
+'&#x003C;==&#x003E;' '1'Leftrightarrow 44
+' ^\\ '      '1'nwarrow      45
+' ,/ '       '1'swarrow      46
+' oc '       '1'propto       47
+- <font face="symbol">&#0162;</font>- --  48
+' oo '       '1'infty        49
+' (- '       '1'in           50
+' -) '       '1'ni           51
+' /_\\ '     '1'triangle     52
+' \\~/ '     '1'triangleup   53
+'/'          ''              54
+*'*          **              55
+' A '        '1'forall       56
+' E '        '1'exists       57
+'\172\'      ''neg           58
+'\216\'      ''emptyset      59
+' R '        '1'Re           60
+' I '        '1'Im           61
+' T '        '1'top          62
+' _L '       '1'bot          63
+- ,\\' -     -1-aleph         64
+'slur'          '1'slur          65
+'o'          '1'o            66
+'+'          '12'            67
+'='          '12'            68
+'vec'        '1'vec            69
+'triagleleft'      '1'            70
+'triangleright'   '1'            71
+'='          '12'            72
+';'          '12'            73
+'`'          '12'            74
++'+          +12+            75
+' caron '    '1'caron-accent   76
+'smallslur'  '1'small-slur     77
+'bar'        '1'bar-accent            78
+' hat '      '1'hat-accent            79
+'dot'         1'dot-accent          80
+'~'          '1'tilde-accent            81
+'ddot'       '1'doubledot-accent            82
+'longbar'    '1'long-bar-accent            83
+''          ''            84
+''          ''            85
+''          ''            86
+''          ''            87
+''          ''            88
+''          ''            89
+''          ''            90
+' U '        '1'cup          91
+' /~\\ '     '1'cap          92
+' U+ '       '1'upplus       93
+' /\\ '      '1'land         94
+' \\/ '      '1'lor          95
+' |- '       '1'vdash        96
+' -| '       '1'dashv        97
+' |_ '       '1'lfloor       98
+' _| '       '1'rfloogi      99
+' |~ '       '1'lceil       100
+' ~| '       '1'rceil       101
+'{'          ''             102
+'}'          ''             103
+'&#x003C;'       ''             104
+'&#x003E;'       ''             105
+'|'          ''             106
+'||'         ''             107
+' ,|^ '      '1'updownarrow 108
+' ,||^ '     '1'Updownarrow 109
+'\\'         ''             110
+'|'          ''             111
+' V~ '       '3'surd       112
+' |_| '      '1'coprod      113
+' \\~/ '     '1'nabla       114
+' integral ' '1'int         115
+' |~| '      '1'sqcap       116
+' [_] '      '1'sqcup       117
+' [_ '       '3'sqsubseteq 118
+' ]_ '       '3'sqsupseteq 119
+''            ''           120
+''            ''          121
+''            ''        122
+''            ''           123
+' oo '       '1'clubsuit    124
+' &#x003C;&#x003E; ' '1'diamondsuit 125
+' @,@ '      '1'heartsuit   126
+* @'@ *      *1*spadsuit    127
+blsy-bs 0 127
+

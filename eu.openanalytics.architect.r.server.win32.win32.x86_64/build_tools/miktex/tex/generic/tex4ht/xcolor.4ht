@@ -1,0 +1,96 @@
+% xcolor.4ht (2019-04-09-10:06), generated from tex4ht-4ht.tex
+% Copyright 2007-2009 Eitan M. Gurari
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-04-09-10:06}
+
+\input color.4ht
+\def\rowc@l@rs[#1]#2#3#4%
+ {\global\rownum=\z@
+  \global\@rowcolorstrue
+  \@ifxempty{#3}%
+    {\def\@oddrowcolor{\@norowcolor}}%
+    {\def\@oddrowcolor{\a:rowcolors{#3}%
+                       \gdef\CT@row@color{\CT@color{#3}}}}%
+  \@ifxempty{#4}%
+    {\def\@evenrowcolor{\@norowcolor}}%
+    {\def\@evenrowcolor{\a:rowcolors{#4}%
+                        \gdef\CT@row@color{\CT@color{#4}}}}%
+  \if@rowcmd
+    \def\@rowcolors
+     {#1\if@rowcolors
+        \o:noalign:{\relax\ifnum\rownum<#2\@norowcolor\else
+                 \ifodd\rownum\@oddrowcolor\else\@evenrowcolor\fi\fi}%
+      \fi}%
+  \else
+    \def\@rowcolors
+     {\if@rowcolors
+        \ifnum\rownum<#2\o:noalign:{\@norowcolor}\else
+        #1\o:noalign:{\ifodd\rownum\@oddrowcolor\else\@evenrowcolor\fi}\fi
+      \fi}%
+  \fi
+  \CT@everycr{\@rowc@lors\the\everycr}%
+  \ignorespaces}
+\NewConfigure{rowcolors}{1}
+\def\@rowc@lors{\o:noalign:{\global\advance\rownum\@ne}\@rowcolors}
+\def\showrowcolors{\o:noalign:{\global\@rowcolorstrue}\@rowcolors}
+\def\hiderowcolors{\o:noalign:{\global\@rowcolorsfalse\@norowcolor}}
+\def\:temp#1#2#3{{\set@color}}
+\HLet\color@block\:temp
+\def\:temp#1#2#3{}
+\HLet\boxframe\:temp
+\def\strip:fin:excl#1!{#1}
+\expandafter\def\csname get!HColor\endcsname#1!#2//{%
+  \def\current:color:name{#1\if!#2!\else!\strip:fin:excl#2\fi}%
+  \if\relax#2\relax
+  %\expandafter\ifx \csname HColor!#1\endcsname\relax
+     \let\HColor=\relax
+     \expandafter\ifx \csname\string\color @#1\endcsname \relax\else
+   \expandafter\ifx \csname colortyp:\endcsname\relax \else
+   \extractcolorspec{#1\if!#2!\else!\strip:fin:excl#2\fi}\tmp:color%
+   \expandafter\convertcolorspec\tmp:color{HTML}\tmp:color%
+   \def\HColor{\#\tmp:color}%
+   \Configure{HColor}{\current:color:name}{\HColor}%
+      \csname colortyp:\expandafter\expandafter\expandafter\endcsname
+         \csname\string\color @#1\expandafter\endcsname
+         \space .!//%
+\fi \fi
+%
+  \else
+     \csname HColor!#1\endcsname #2//%
+  \fi
+}
+\expandafter\def\csname c:HColor!gray:\endcsname{%
+     \expandafter\def\csname HColor!gray\endcsname##1!##2//}
+\Configure{HColor!gray}{\Configure{HColor}{}{}}
+\expandafter\def\csname c:HColor!rgb:\endcsname{%
+     \expandafter\def\csname HColor!rgb\endcsname##1,##2,##3!##4//}
+\Configure{HColor!rgb}{\Configure{HColor}{}{}}
+\expandafter\def\csname c:HColor!cmyk:\endcsname{%
+     \expandafter\def\csname HColor!cmyk\endcsname##1,##2,##3,##4!##5//}
+\Configure{HColor!cmyk}{\Configure{HColor}{}{}}
+\def\get:xcolorcss#1#2{%
+   \expandafter\extractcolorspec\expandafter{#1}{\tsf:color}%
+   \expandafter\convertcolorspec\tsf:color{HTML}\tsf:color%
+   \edef#2{\#\tsf:color}%
+}
+
+
+\Hinput{xcolor}
+\endinput
+

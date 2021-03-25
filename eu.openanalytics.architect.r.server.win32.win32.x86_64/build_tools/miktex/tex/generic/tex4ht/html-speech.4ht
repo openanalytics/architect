@@ -1,0 +1,1594 @@
+% html-speech.4ht (2016-03-31-11:13), generated from tex4ht-html-speech.tex
+% Copyright 2009-2016 TeX Users Group
+% Copyright 1997-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2016-03-31-11:13}
+
+\exit:ifnot{JHEP,% 
+Preamble,% 
+aa,% 
+acm-proc-article-sp,% 
+amsart,% 
+amsbook,% 
+amsproc,% 
+amsthm,% 
+array,% 
+article,% 
+book,% 
+frenchb,% 
+latex,% 
+letter,% 
+plain,% 
+report,% 
+scrbook,% 
+scrreprt,% 
+slides,% 
+tex4ht,% 
+tex4ht2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{math-}     \if:Option
+    \edef\Preamble{\Preamble,mathml-}
+\else
+   \Log:Note{for sources failing to produce
+       clean math code, try the command line option `math-'}%
+\fi
+\def\CssSpeech#1{\Css{@media speech{#1}}}
+\def\add:description#1#2{<span class="#1"
+           title="speech-extra" >\Hnewline #2\Hnewline</span>}
+\def\add:vdescription#1#2{<div class="#1"
+           title="speech-extra" >\Hnewline #2\Hnewline</div>}
+\edef\Preamble{\Preamble,xhtml}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{VERSION}
+    {\HCode{<?xml version="1.0" encoding="\expandafter\ifx \csname a:charset\endcsname\relax
+         \expandafter\:encoding\A:charset
+   \else \expandafter\:encoding\a:charset\fi"
+ ?>\Hnewline
+            <?xtpipes file="htspk.4xt" ?>\Hnewline}}
+\Css{.begin-math, .end-math                    {color:red;}}
+\Css{span.semi-math            {color:red;font-style:italic;}}
+\Css{span[title="ch-verbose"]                    {color:red;}}
+\Css{.added-description                        {color:green;}}
+\Css{.begin-end                                {color:green;}}
+\Css{.begin-root, .end-root, .mid-root         {color:green;}}
+\Css{.begin-stack, .end-stack, .mid-stack      {color:green;}}
+\Css{.capital-description                      {color:green;}}
+\Configure{DOCTYPE}
+  {\HCode{% <!DOCTYPE html \xhtml:DOCTYPE>            \Hnewline
+          <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->
+          \Hnewline}}
+\def\xhtml:DOCTYPE{PUBLIC
+     "-//W3C//DTD XHTML 1.0 Transitional//"\Hnewline
+    \space\space "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"}
+\let\Link\M:Link        \let\M:Link\:UnDef
+\let\EndLink\M:EndLink  \let\M:EndLink\:UnDef
+\Configure{@HEAD}{}
+\:CheckOption{xht} \if:Option
+   \:CheckOption{xhtml}\if:Option \else \:CheckOption{xml}\fi
+\fi
+\Log:Note{for file extension name xht, use the command line option `xht'}%
+\Configure{@HEAD}{\HCode{<meta
+   http-equiv="Content-Type" content="text/html;
+   \expandafter\ifx \csname a:charset\endcsname\relax\A:charset
+   \else \a:charset\fi"></meta>\Hnewline}}
+
+\def\:gobbleM#1->{}
+\Configure{@HEAD}{\HCode{<meta
+    name="generator" content="TeX4ht
+      (http://www.cse.ohio-state.edu/\string
+       ~gurari/TeX4ht/)"></meta>\Hnewline}}
+\Configure{@HEAD}{\HCode{<meta
+    name="originator" content="TeX4ht
+      (http://www.cse.ohio-state.edu/\string
+       ~gurari/TeX4ht/)"></meta>\Hnewline
+       <!--\space\expandafter\:gobbleM\meaning
+               \Preamble\space-->\Hnewline}}
+
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+\Configure{@HEAD}
+   {\HCode{<meta name="src" content="\jobname.tex"></meta>\Hnewline}}
+\:CheckOption{timestamp}\if:Option
+\Configure{@HEAD}
+   {\HCode{<meta name="date" content="\:today"></meta>\Hnewline}}
+\else
+  \Log:Note{To print a timestamp, use the command line option timestamp}
+\fi
+
+\:CheckOption{css-in} \if:Option
+   \Log:Note{the inline CSS code is extracted from the input of the
+       previous compilation, so an extra compilation might be needed}
+   \Configure{@HEAD}{}
+\else
+   \Log:Note{for inline CSS code, use the command line option `css-in'}
+   \Configure{@HEAD}{\HCode{<link
+      rel="stylesheet" type="text/css"
+      href="\aa:CssFile"></link>\Hnewline}}
+\fi
+\Configure{crosslinks}{ }{ }{next}{previous}{previous-tail}{front}{tail}{up}
+\Configure{crosslinks+}
+   {\IgnorePar\EndP\HCode{<!--l. \the\inputlineno-->%
+%
+                          <div class="crosslinks"><p class="noindent">
+        \add:vdescription{begin-end}{\a:speak:crosslinks}}}
+   {\HCode{\add:vdescription{begin-end}{\b:speak:crosslinks}
+           </p></div>}\par\ShowPar}
+   {\IgnorePar\EndP\HCode{<!--l. \the\inputlineno-->%
+%
+                          <div class="crosslinks"><p class="noindent">
+        \add:vdescription{begin-end}{\a:speak:crosslinks}}}
+   {\HCode{\add:vdescription{begin-end}{\b:speak:crosslinks}
+           </p></div>}\par\ShowPar}
+\:CheckOption{next}     \if:Option
+   \Configure{next+}
+     {\ShowPar\par\noindent \HCode{<span class="next">
+      \add:description{added-description}{\c:speak:crosslinks}}}
+     {\HCode{</span>}}
+\fi
+\NewConfigure{speak:crosslinks}{3}
+\Configure{speak:crosslinks}
+   {Navigation links}
+   {End navigation links}
+   {Navigation link}
+\HAssign\HRow=0
+\def\ord:pos#1{%
+   \ifcase #1
+   \or first
+   \or second
+   \or third
+   \or fourth
+   \or fifth
+   \or sixth
+   \or seventh
+   \or eighth
+   \or nineth
+   \else #1th
+   \fi
+}
+\Css{.ord-row {color:red;}}
+\Css{.begin-limits-script, .end-limits-script, .mid-limits-script {color:green;}}
+\Css{.begin-script, .end-script, .mid-script   {color:green;}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{embedded-halign}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{verbatim} {} {\a:sp}
+\def\env:verb#1{\ifinner\else \vfill\break\fi
+  \IgnorePar\EndP  \HAssign\Verb:N=0
+  \HCode{\add:description{added-description}{begin verbatim}%
+         <pre class="#1"\a:LRdir>}\EndNoFonts}
+\def\endenv:verb{\NoFonts
+  \EndP \ht:special{t4ht=</pre>%
+     \add:description{added-description}{end verbatim}%
+     }\ShowPar \par{\HCondtrue\noindent}%
+}
+\def\start:fenv#1{\:xhtml{\IgnorePar
+              \EndP}\HCode{<div align="#1"\Hnewline\a:LRdir>}}
+\def\end:fenv{\IgnorePar\HCode{</div>}\IgnorePar}
+
+\Configure{footnote-mark}
+   {\HCode{\add:description{added-description}{\a:speak:footnote}}%
+\HCode{<span class="footnote-mark">}}
+   {\HCode{</span>}\HCode{}%
+}
+\NewConfigure{speak:footnote}{1}
+\Configure{speak:footnote}
+   {footnote}
+
+\ConfigureEnv{tabular}
+  {\Configure{noalign}%
+  {\f:tabular\d:tabular \HCode{<tr><td colspan="\ar:cnt">}}
+  {\HCode{</td></tr>}\pend:def\TableNo{0}\c:tabular\e:tabular}%
+%
+   \IgnorePar\ifvmode\else\HCode{<!--tex4ht:inline-->}\fi
+\EndP
+  }
+  {\ShowPar
+   \Configure{noalign}{}{}%
+%
+   \ShowPar
+%
+  }{}{}
+\Configure{tabular}
+      {\ifvmode \IgnorePar\fi \EndP
+       \HCode{<div class="table" title="tabular" >}\HCode{\add:vdescription{begin-end}{begin table}}%
+}
+      {\HCode{<!--l. \the\inputlineno-->%
+\add:vdescription{begin-end}{end table}}%
+\HCode{</div>}}
+      {\HCode{<div class="tr"><!--row \HRow-->}%
+       \HCode{\add:vdescription{begin-end}{<span class="ord-row">\ord:pos{\HRow}</span>%
+ row}}%
+}
+      {\HCode{</div>}}
+      {\HCode{<div  class="td"><!--entry \HRow-\HCol\ifnum
+             \HMultispan>1 \, span \HMultispan\fi-->}%
+         \HCode{%
+   \add:vdescription{added-description}{%
+      \ifnum \HMultispan>1 \ord:pos{\HCol}%
+ cell, spans
+                           \HMultispan \space columns
+      \else
+         \ifnum \HCol>1 \ord:pos{\HCol}%
+ cell \fi
+      \fi
+}}%
+\HCode{<div>}\SaveEndP
+         \par  \ShowPar}
+      {\IgnorePar \EndP \ifvmode \IgnorePar \fi \EndP
+       \HCode{</div>}%
+       \HCode{</div>\Hnewline}\RecallEndP }
+
+\def\@cite#1#2{%
+   \HCode{\add:description{added-description}{\a:speak:citation}}%
+   {#1\if@tempswa , #2\fi}}
+\def\@biblabel#1{%
+   \HCode{\add:description{added-description}{\a:speak:bib}}%
+   #1}
+\NewConfigure{speak:citation}{1}
+\Configure{speak:citation}{citation }
+\NewConfigure{speak:bib}{1}
+\Configure{speak:bib}{Bibliography entry }
+\Css{.begin-array, .end-array                   {color:green;}}
+\ConfigureList{trivlist}%
+   {\EndP\HCode{<dl \a:LRdir class="trivlist">}%
+       \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd></dl>}\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
+        class="trivlist">}\bgroup \bf}
+   {\egroup\HCode{</dt><dd\Hnewline class="trivlist">}}
+\ConfigureList{list}%
+   {\EndP\HCode{<dl \a:LRdir class="list\expandafter\the
+         \csname @listdepth\endcsname">}%
+    \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd></dl>}\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
+        class="list">}\bgroup \bf}
+   {\egroup\HCode{</dt><dd\Hnewline class="list">}}
+\ConfigureList{itemize}%
+   {\EndP\HCode{<div class="itemize">%
+      <div class="added-list-description">%
+     \add:description{added-description}{\a:speak:itemize}</div>}%
+\HCode{<div
+           \a:LRdir class="ul-itemize\expandafter\the
+          \csname @itemdepth\endcsname">}%
+       \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\ifvmode \IgnorePar\fi
+    \EndP\HCode{</div></div>}\HCode{<div class="added-list-description">%
+     \add:description{added-description}{\b:speak:itemize}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}%
+    \HCode{<div class="li-itemize">}\HCode{<span class="added-list-description">%
+    \add:description{added-description}{\c:speak:itemize}</span>}%
+\DeleteMark
+   }
+   {\HCode{}}
+\NewConfigure{speak:itemize}{3}
+\Configure{speak:itemize}
+   {begin \ifcase\csname @listdepth\endcsname
+          \or \or sub \or sub sub \or sub sub sub \else\fi
+       list}
+   {end \ifcase\csname @listdepth\endcsname
+         \or sub \or sub sub \or sub sub sub \else\fi
+       list}
+   {
+       item}
+\ConfigureList{enumerate}%
+      {\EndP\HCode{<div class="enumerate">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:enumerate}</div>}%
+\HCode{<div \a:enumerate:\space
+      class="ol-enumerate\expandafter\the\csname @enumdepth\endcsname"
+      \a:LRdir
+     >}\PushMacro\end:itm
+\global\let\end:itm=\empty
+}
+      {\PopMacro\end:itm \global\let\end:itm \end:itm
+%
+\EndP\HCode{</div></div>}\HCode{<div class="added-list-description">%
+   \add:description{added-description}{\b:speak:enumerate}</div></div>}%
+\ShowPar
+}
+      {\end:itm \gdef\end:itm{\EndP\Tg</div>}%
+\HCode{<div class="li-enumerate" \Hnewline><span
+                    class="ol-mark">}\HCode{<span class="added-list-description">%
+       \add:description{added-description}{\c:speak:enumerate}</span>}%
+%\DeleteMark
+}
+      {\HCode{}\HCode{</span>}%\AnchorLabel
+}
+\NewConfigure{speak:enumerate}{3}
+\Configure{speak:enumerate}
+   {begin \ifcase\csname @listdepth\endcsname
+          \or \or sub \or sub sub \or sub sub sub \else\fi
+      list}
+   {end \ifcase\csname @listdepth\endcsname
+         \or sub \or sub sub \or sub sub sub \else\fi
+      list}
+   {
+       item}
+
+\Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+   {\:xhtml{\IgnorePar\EndP}\HCode{<div class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+    \HCode{</div>}\csname par\endcsname\ShowPar}
+\ConfigureEnv{figure}
+   {\:xhtml{\IgnorePar\EndP}%
+     \HCode{<div class="figure"\Hnewline><div>\add:description{begin-end}{\a:speak:figure}</div>%
+}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+    \:xhtml{\IgnorePar\EndP}\HCode{<div>\add:description{begin-end}{\b:speak:figure}</div>%
+</div>}%
+    \ShowPar
+\par}
+   {}{}
+\NewConfigure{speak:caption}{3}
+\Configure{speak:caption}
+   {begin caption}
+   {end caption}
+   {caption of}
+\NewConfigure{speak:figure}{2}
+\Configure{speak:figure}
+   {begin figure environment}
+   {end figure environment}
+\Configure{marginpar}
+   {\ifvmode
+      \IgnorePar\EndP\HCode{<div class="marginpar">}%
+         \HCode{<div>
+     \add:description{begin-end}{\a:speak:marginpar}</div><div>}%
+%
+      \def\end:margp{\ifvmode \IgnorePar\fi \EndP
+         \HCode{</div><div>
+    \add:description{begin-end}{\b:speak:marginpar}</div>}%
+\HCode{</div>}}%
+      \par
+    \else
+      \SaveEndP
+      \HCode{<span class="marginpar">}\HCode{\add:description{begin-end}{\a:speak:marginpar}}%
+%
+      \bgroup
+         \Configure{HtmlPar}
+             {<br />}
+             {\HCode{<br />}}
+             {}{}%
+      \def\end:margp{\egroup
+             \HCode{\add:description{begin-end}{\b:speak:marginpar}}%
+\HCode{</span>}\RecallEndP}%
+    \fi
+   }
+   {\end:margp}
+\NewConfigure{speak:marginpar}{2}
+\Configure{speak:marginpar}
+   {begin margin note}
+   {end margin note}
+\Configure{newtheorem}
+   {\ifvmode\IgnorePar\fi\EndP
+     \HCode{<div class="newtheorem">}\par\noindent
+     \HCode{<span class="theorem-head">}}
+   {\HCode{</span>}}
+   {\EndP\IgnorePar\HCode{</div>}\ShowPar\par}
+\Css{span.theorem-head { font-weight:bold; }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+
+\Configure{caption}{\HCode{\if:nopar  \else <br />\fi}
+   \:xhtml{\IgnorePar\EndP}\HCode{<div class="caption"><span class="mark">}%
+        \HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: } {\HCode{}%
+\HCode{</span>%
+      <span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></div>}}
+
+\ConfigureList{description}%
+   {\EndP\HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+    \HCode{<div \a:LRdir class="dl-description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</div></div>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}\HCode{<div
+        class="dt-description">}\HCode{<span class="added-list-description">%
+   \add:description{added-description}{\c:speak:description}%
+   </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</div><div\Hnewline class="dd-description">}}
+
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+
+\Configure{caption}{\HCode{\if:nopar  \else <br />\fi}
+   \:xhtml{\IgnorePar\EndP}\HCode{<div class="caption"><span class="mark">}%
+        \HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: } {\HCode{}%
+\HCode{</span>%
+      <span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></div>}}
+
+\ConfigureList{description}%
+   {\EndP\HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+    \HCode{<div \a:LRdir class="dl-description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</div></div>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}\HCode{<div
+        class="dt-description">}\HCode{<span class="added-list-description">%
+   \add:description{added-description}{\c:speak:description}%
+   </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</div><div\Hnewline class="dd-description">}}
+
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+
+\ConfigureEnv{abstract}
+   {\IgnorePar\EndP
+    \HCode{<div class="abstract"\Hnewline>}\par\ShowPar}
+   {\ifvmode \IgnorePar\fi \EndP\HCode{</div>}}
+   {}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+
+\Configure{caption}{\HCode{\if:nopar  \else <br />\fi}
+   \:xhtml{\IgnorePar\EndP}\HCode{<div class="caption"><span class="mark">}%
+        \HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: } {\HCode{}%
+\HCode{</span>%
+      <span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></div>}}
+
+\ConfigureList{description}%
+   {\EndP\HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+    \HCode{<div \a:LRdir class="dl-description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</div></div>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}\HCode{<div
+        class="dt-description">}\HCode{<span class="added-list-description">%
+   \add:description{added-description}{\c:speak:description}%
+   </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</div><div\Hnewline class="dd-description">}}
+
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+
+\ConfigureEnv{abstract}
+   {\IgnorePar\EndP
+    \HCode{<div class="abstract"\Hnewline>}\par\ShowPar}
+   {\ifvmode \IgnorePar\fi \EndP\HCode{</div>}}
+   {}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{caption}{\HCode{\if:nopar  \else <br />\fi}
+   \:xhtml{\IgnorePar\EndP}\HCode{<div class="caption"><span class="mark">}%
+        \HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: } {\HCode{}%
+\HCode{</span>%
+      <span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></div>}}
+
+\ConfigureList{description}%
+   {\EndP\HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+    \HCode{<div \a:LRdir class="dl-description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</div></div>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}\HCode{<div
+        class="dt-description">}\HCode{<span class="added-list-description">%
+   \add:description{added-description}{\c:speak:description}%
+   </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</div><div\Hnewline class="dd-description">}}
+
+\ifx \deferred@thm@head\:UnDef\else
+   \Configure{proof}
+   {\ifvmode \IgnorePar \fi \EndP
+    \HCode{<div class="newtheorem" title="proof">}\par\ShowPar
+    \HCode{<span class="theorem-head">}\IgnorePar}
+   {\HCode{</span>}\ShowPar}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{</div>}\par}
+
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureMark{subsection}
+  {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                     {\a:speak:section}}\@ifundefined{sectionname}{}{%
+          \ignorespaces\sectionname\space}%
+          \@seccntformat{section}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsproc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{caption}{\HCode{\if:nopar  \else <br />\fi}
+   \:xhtml{\IgnorePar\EndP}\HCode{<div class="caption"><span class="mark">}%
+        \HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: } {\HCode{}%
+\HCode{</span>%
+      <span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></div>}}
+
+\ConfigureList{description}%
+   {\EndP\HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+    \HCode{<div \a:LRdir class="dl-description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</div></div>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}\HCode{<div
+        class="dt-description">}\HCode{<span class="added-list-description">%
+   \add:description{added-description}{\c:speak:description}%
+   </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</div><div\Hnewline class="dd-description">}}
+
+\ifx \deferred@thm@head\:UnDef\else
+   \Configure{proof}
+   {\ifvmode \IgnorePar \fi \EndP
+    \HCode{<div class="newtheorem" title="proof">}\par\ShowPar
+    \HCode{<span class="theorem-head">}\IgnorePar}
+   {\HCode{</span>}\ShowPar}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{</div>}\par}
+
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsthm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{proof}
+   {\ifvmode \IgnorePar \fi \EndP
+    \HCode{<div class="newtheorem" title="proof">}\par\ShowPar
+    \HCode{<span class="theorem-head">}\IgnorePar}
+   {\HCode{</span>}\ShowPar}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{</div>}\par}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{eqalign}
+   {\:xhtml{\IgnorePar\EndP}\HCode
+      {<div class="eqalign"><table class="eqalign">}}
+   {\HCode{</table></div>}}
+   {\HCode{<tr \Hnewline class="eqalign"
+         valign="middle">}}{\IgnorePar\HCode{</tr>}}
+   {\HCode{<td align="\ifnum \HCol=2
+         left\else right\fi"\Hnewline  class="eqalign\HCol"
+         style="white-space:nowrap;">}}
+   {\HCode{</td>}}
+\def\:eqalign:{\Configure{noalign}
+  {\HCode{<tr><td class="noalign" colspan="2">}}%
+  {\HCode{</td></tr>}}}
+\Css{td.eqalign3 { text-align:right; margin-left:10em;}}
+\Css{.eqalign td { white-space: nowrap; }}
+\Css{div.eqalign {text-align:center;}}
+\Configure{eqalignno}
+   {\:xhtml{\IgnorePar\EndP}\HCode{<table class="eqalignno">}}
+   {\HCode{</table>}}
+   {\HCode{<tr\Hnewline class="eqalignno">}}{\IgnorePar\HCode{</tr>}}
+   {\HCode{\ifnum \HCol=3 <td\Hnewline width="10"
+           class="eqalignno-sp"></td>\fi
+           <td align="\ifnum \HCol=2 left\else right\fi"\Hnewline
+           class="eqalignno\HCol">}}
+   {\HCode{</td>}}
+\def\:eqalignno:{\Configure{noalign}
+  {\HCode{<tr><td class="noalign" colspan="2">}}%
+  {\HCode{</td></tr>}}}
+\Css{td.eqalignno3, td.leqalignno3
+       { text-align:right; margin-left:10em;}}
+\Css{.leqalignno td, .eqalignno td
+       { white-space: nowrap; }}
+\Css{.leqalignno td.noalign, .eqalignno td.noalign
+       { width:5\%; white-space: normal; }}
+\Css{table.leqalignno, table.eqalignno {width:100\%;}}
+\Configure{leqalignno}
+   {\:xhtml{\IgnorePar\EndP}\HCode{<table class="leqalignno">}}
+   {\HCode{</table>}}
+   {\HCode{<tr \Hnewline
+           class="leqalignno">}}{\IgnorePar\HCode{</tr>}}
+   {\HCode{\ifnum \HCol=3 <td\Hnewline width="30"
+           class="eqalignno-sp"></td>\fi
+           <td align="\ifnum \HCol=2 left\else right\fi"\Hnewline
+           class="leqalignno\HCol">}}
+   {\HCode{</td>}}
+\def\:leqalignno:{\Configure{noalign}
+  {\HCode{<tr><td class="noalign" colspan="2">}}%
+  {\HCode{</td></tr>}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{letter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP\HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+    \HCode{<div \a:LRdir class="dl-description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</div></div>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}\HCode{<div
+        class="dt-description">}\HCode{<span class="added-list-description">%
+   \add:description{added-description}{\c:speak:description}%
+   </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</div><div\Hnewline class="dd-description">}}
+
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureEnv{tabular}
+  {\Configure{noalign}%
+  {\f:tabular\d:tabular \HCode{<tr><td colspan="\ar:cnt">}}
+  {\HCode{</td></tr>}\pend:def\TableNo{0}\c:tabular\e:tabular}%
+%
+   \IgnorePar\ifvmode\else\HCode{<!--tex4ht:inline-->}\fi
+\EndP
+  }
+  {\ShowPar
+   \Configure{noalign}{}{}%
+%
+   \ShowPar
+%
+  }{}{}
+\Configure{tabular}
+      {\ifvmode \IgnorePar\fi \EndP
+       \HCode{<div class="table" title="tabular" >}\HCode{\add:vdescription{begin-end}{begin table}}%
+}
+      {\HCode{<!--l. \the\inputlineno-->%
+\add:vdescription{begin-end}{end table}}%
+\HCode{</div>}}
+      {\HCode{<div class="tr"><!--row \HRow-->}%
+       \HCode{\add:vdescription{begin-end}{<span class="ord-row">\ord:pos{\HRow}</span>%
+ row}}%
+}
+      {\HCode{</div>}}
+      {\HCode{<div  class="td"><!--entry \HRow-\HCol\ifnum
+             \HMultispan>1 \, span \HMultispan\fi-->}%
+         \HCode{%
+   \add:vdescription{added-description}{%
+      \ifnum \HMultispan>1 \ord:pos{\HCol}%
+ cell, spans
+                           \HMultispan \space columns
+      \else
+         \ifnum \HCol>1 \ord:pos{\HCol}%
+ cell \fi
+      \fi
+}}%
+\HCode{<div>}\SaveEndP
+         \par  \ShowPar}
+      {\IgnorePar \EndP \ifvmode \IgnorePar \fi \EndP
+       \HCode{</div>}%
+       \HCode{</div>\Hnewline}\RecallEndP }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{frenchb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{frenchb-nbsp}
+   {\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x%
+    \setbox\tmp:bx=\hbox\bgroup}
+   {\egroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{aa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+
+\Configure{caption}{\HCode{\if:nopar  \else <br />\fi}
+   \:xhtml{\IgnorePar\EndP}\HCode{<div class="caption"><span class="mark">}%
+        \HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: } {\HCode{}%
+\HCode{</span>%
+      <span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></div>}}
+
+\CssSpeech{
+   .sectionHead {pitch: 4;
+                 pitch-range: 7:
+                 richness: 9;
+                 speed: slow;
+                 volume: 7
+;}}
+\CssSpeech{   .subsectionHead {pitch: 5;
+                    pitch-range: 7;
+                    richness: 9;
+                    speed: slow;
+                    volume: 5
+;}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP\HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+    \HCode{<div \a:LRdir class="dl-description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</div></div>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}\HCode{<div
+        class="dt-description">}\HCode{<span class="added-list-description">%
+   \add:description{added-description}{\c:speak:description}%
+   </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</div><div\Hnewline class="dd-description">}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrreprt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP\HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+    \HCode{<div \a:LRdir class="dl-description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</div></div>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}\HCode{<div
+        class="dt-description">}\HCode{<span class="added-list-description">%
+   \add:description{added-description}{\c:speak:description}%
+   </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</div><div\Hnewline class="dd-description">}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{JHEP}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+\CssSpeech{
+   .sectionHead {pitch: 4;
+                 pitch-range: 7:
+                 richness: 9;
+                 speed: slow;
+                 volume: 7
+;}}
+\CssSpeech{   .subsectionHead {pitch: 5;
+                    pitch-range: 7;
+                    richness: 9;
+                    speed: slow;
+                    volume: 5
+;}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{slides}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP\HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+    \HCode{<div \a:LRdir class="dl-description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</div></div>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</div>}\HCode{<div
+        class="dt-description">}\HCode{<span class="added-list-description">%
+   \add:description{added-description}{\c:speak:description}%
+   </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</div><div\Hnewline class="dd-description">}}
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{acm-proc-article-sp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+\CssSpeech{
+   .sectionHead {pitch: 4;
+                 pitch-range: 7:
+                 richness: 9;
+                 speed: slow;
+                 volume: 7
+;}}
+\CssSpeech{   .subsectionHead {pitch: 5;
+                    pitch-range: 7;
+                    richness: 9;
+                    speed: slow;
+                    volume: 5
+;}}
+
+\Configure{proof}
+   {\ifvmode\IgnorePar\fi\EndP
+     \HCode{<div class="newtheorem" title="proof">}\par\noindent
+     \HCode{<span  class="theorem-head">}}
+   {\HCode{</span>}}
+   {\EndP\IgnorePar\HCode{</div>}\ShowPar\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

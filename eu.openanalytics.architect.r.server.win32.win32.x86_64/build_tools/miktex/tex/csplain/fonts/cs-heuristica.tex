@@ -1,0 +1,47 @@
+% The file cs-heuristica.tex (C) Petr Olsak, 2016
+% Use "\input cs-heruistica" to set the Heruistica font family in text mode
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Heuristica] {\caps} {\rm \bf \it \bi \tt} {} {TX} {8t U}
+
+\ffvars {Regular}{Bold}{Italic}{BoldItalic} 
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = Heuristica-Regular-tlf-t1  \sizespec
+   \font\tenbf = Heuristica-Bold-tlf-t1  \sizespec
+   \font\tenit = Heuristica-Italic-tlf-t1 \sizespec
+   \font\tenbi = Heuristica-BoldItalic-tlf-t1 \sizespec
+   \font\tentt = t1-zi4r-0 \sizespec % inconsolata
+
+   \def\ffnamegen{Heuristica-\ffvarV\capsV-t1}
+
+   \def\caps{\ffvars{Regular}{!}{!}{!}\ffsetV{caps}{-tosf-sc}\ffsetX}  
+   \def\nocaps{\ffsetV{caps}{-tlf}\ffsetX}
+   \nocaps\relax
+
+\fi
+
+\ismacro\fotenc{U}\iftrue
+
+   \font\tenrm = "[Heuristica-Regular]:\fontfeatures"    \sizespec
+   \font\tenbf = "[Heuristica-Bold]:\fontfeatures"       \sizespec
+   \font\tenit = "[Heuristica-Italic]:\fontfeatures"     \sizespec
+   \font\tenbi = "[Heuristica-BoldItalic]:\fontfeatures" \sizespec
+   \font\tentt = "[Inconsolatazi4-Regular]:\fontfeatures" \sizespec
+
+   \def\ffnamegen{"[Heuristica-\ffvarV]:\capsV\fontfeatures"} 
+
+   \def\caps{\ffsetV{caps}{+smcp;+onum;}\ffsetX}
+   \def\nocaps{\ffsetV{caps}{}\ffsetX}
+   \nocaps\relax
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\def\narrow{\cond\fam}
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+

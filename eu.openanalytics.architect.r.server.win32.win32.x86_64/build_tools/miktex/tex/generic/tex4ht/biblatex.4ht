@@ -1,0 +1,597 @@
+% biblatex.4ht (2021-01-29-14:14), generated from tex4ht-4ht.tex
+% Copyright 2007-2009 Eitan M. Gurari
+% Copyright 2009-2021 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2021-01-29-14:14}
+
+   \def\make:blx:ver#1.#2#3\relax{%
+   %\ifdim#1pt< 3pt \xdef\blx:ver:no{2}\else\xdef\blx:ver:no{3}\fi%
+   \gdef\blx:ver:no{#1}
+   \gdef\blx:subver:no{#2}
+}
+\expandafter\make:blx:ver\abx@version.0\relax
+\ifx\a:printshorthands\Undef\let\blx@shorthands\@empty\fi
+\ifx\blx@startbib\:UnDef
+ \pend:def\blx@shorthands{%
+   \pend:def\blx@bibinit{%
+       \HAssign\shorthands:cnt=0
+       \NewConfigure{printfield-shorthand}{2}%
+       \Configure{printfield-shorthand}%
+         {\gHAdvance\shorthands:cnt by 1\relax
+          \ifnum \shorthands:cnt=1 \a:printshorthands
+          \else                    \c:printshorthands \fi
+         }
+         {\d:printshorthands}%
+   \append:def\endtheshorthands{\b:printshorthands}%
+   \csname a:@shorthands\endcsname}
+}
+\ifx\b:printshorthands\Undef\let\endtheshorthands\@empty\fi
+\def\a:entryhead{CVR}
+\def\a:entryhead:full{CV Radhakrishnan}
+\ifx\bib@macro@entryhead:name\UnDef
+  \let\bib@macro@entryhead:name\@empty\fi
+\ifx\bib@macro@entryhead:full\UnDef
+  \let\bib@macro@entryhead:full\@empty\fi
+  \gdef\BibFileName[#1]#2{\expandafter\xdef\csname
+       BibFileName#1\endcsname{#2}}
+\newcount\sv:sec:cnt
+\def\bibSecConfigure{%
+  \let\save:section\section
+  \global\sv:sec:cnt=\c@secnumdepth
+  \def\section{\@ifstar
+      {\c@secnumdepth=0\relax\save:section}%
+      {\c@secnumdepth=\sv:sec:cnt\save:section}}%
+}
+\gHAssign\bibN=0
+\@ifpackageloaded{hyperref}{}{%
+\def\TE@hook{}%
+}
+
+\AtBeginDocument{%
+  \Configure{ifthenelse}{\TE@hook}
+}
+  \:CheckOption{ooffice}\if:Option
+   \def\bibConfigure{\ConfigureList{thebibliography}%
+      {\IgnorePar\EndP \gHAdvance\bib:N by 1
+       \HCode{<text:bibliography text:name="bib-\bib:N" >
+              <text:bibliography-source>\Hnewline
+             <text:index-title-template>}
+           \NoFonts\ref:name\EndNoFonts
+       \HCode{</text:index-title-template>\Hnewline
+%
+           <text:bibliography-entry-template\Hnewline
+            text:bibliography-type="custom1"
+            text:style-name="Bibliography11">\Hnewline
+%
+            <text:index-entry-bibliography
+             text:bibliography-data-field="identifier"/>\Hnewline
+%
+           <text:index-entry-span>: </text:index-entry-span>\Hnewline
+           <text:index-entry-bibliography
+            text:bibliography-data-field="author" />\Hnewline
+           <text:index-entry-span>, </text:index-entry-span>\Hnewline
+%
+           <text:index-entry-bibliography
+            text:bibliography-data-field="title" />\Hnewline
+           <text:index-entry-span>, </text:index-entry-span>\Hnewline
+%
+           <text:index-entry-bibliography
+            text:bibliography-data-field="year" />\Hnewline
+           </text:bibliography-entry-template>\Hnewline\Hnewline
+           </text:bibliography-source>\Hnewline
+           <text:index-body>\Hnewline}%
+         \let\en:bib=\empty
+      }%
+      {\en:bib\HCode{</text:index-body></text:bibliography>}}
+      {\en:bib\gdef\en:bib{\HCode{</text:p>\Hnewline}}%
+        \HCode{<text:p text:style-name="p-bibitem">}%
+        \gHAdvance\bibN by 1
+        \HCode{<text:reference-mark
+          text:name="X0-\csname BIB-\bibN\endcsname">%
+          </text:reference-mark>}%
+      }%
+      {}{}
+  }
+
+  \else
+    \def\bibConfigure{%
+  \ConfigureList{thebibliography}
+  {\ifvmode \IgnorePar \fi \EndP \EndP
+    \HCode {<dl class="thebibliography">}%
+%
+% This is for linking citations with biblist items which
+% are in a different file when output is split into different
+% chunks. [CVR 2012-09-27]
+%
+%
+% <biblatex-2.2>
+%
+  \immediate\write\@auxout{%
+      \string\BibFileName[\therefsection]{\FileName}}%
+%
+% </biblatex-2.2>
+%
+    \PushMacro \end:itm \global \let \end:itm =\empty}%
+  {\ifvmode \IgnorePar \fi \EndP
+    \PopMacro \end:itm \global \let \end:itm \end:itm \EndP
+    \HCode {</dd></dl>}\ShowPar}%
+  {\ifvmode \IgnorePar \fi \EndP \gHAdvance \bibN by 1
+    \end:itm \global \def \end:itm {\EndP \Tg </dd>}%
+    \HCode {<dt id="X\therefsection-\abx@field@entrykey"
+      class="thebibliography">}\bgroup \bf}%
+  {\ifvmode \IgnorePar \fi \EndP
+    \egroup
+    \HCode {</dt><dd\Hnewline id="bib-\bibN"
+      class="thebibliography">}%
+    \par \ShowPar}%
+ }
+
+ \fi
+\NewConfigure{printshorthands}{4}
+\NewConfigure{@shorthands}[1]{\concat:config\a:@shorthands{#1}}
+\let\a:@shorthands\empty
+\def\nolinkurl{\o:url:}
+% \def\blx@checksum{\ifx \blx@checksum@old \blx@checksum@new \else
+%   \blx@warning@noline {Page references have changed.\MessageBreak
+%     Rerun to get references right}\@tempswatrue \blx@reruntrue \fi
+%   \@nameuse {blx@rerun}}
+\def\blx@checksum#1#2#3{%
+  \begingroup
+  \blx@tempcnta\the\numexpr0#2*0#3\relax
+  \blx@tempcntb\blx@tempcnta
+  \divide\blx@tempcntb10
+  \multiply\blx@tempcntb10
+  \advance\blx@tempcnta-\blx@tempcntb
+  \xdef#1{#1\the\blx@tempcnta}%
+  \endgroup}
+
+\@ifpackagelater{biblatex}{2018/03/01}{\let\blx:pend:def\pend:defI}{\let\blx:pend:def\pend:def}
+\blx:pend:def\blx@bibliography{\bibSecConfigure%
+  \pend:def\blx@bibinit{%
+    \bibConfigure
+     \csname onthebibliography:list\endcsname
+  }%
+}
+\let\en:bib\@empty
+\newcounter{bib}
+\ifnum\blx:ver:no < 3
+ \protected\def\blx@bbl@entry#1#2#3{%
+  \begingroup
+  \def\texht@bibkey{#1}
+  \edef\abx@field@entrykey{\detokenize{#1}}%
+  \global\advance\c@bib 1
+  \immediate\write\@auxout{\string\expandafter\string\gdef
+    \string\csname\space BIB-\thebib\string\endcsname
+     {\expandafter\strip@prefix\meaning\texht@bibkey}}%
+  \Tag{)QX\therefsection-#1}{\thebib}%
+  \blx@setoptions@type{#2}%
+  \blx@bbl@options{#3}%
+  \blx@setoptions@entry
+  \edef\blx@bbl@data{blx@data@\the\c@refsection @\abx@field@entrykey}%
+  \csuse\blx@bbl@data
+  \cslet\blx@bbl@data\@empty
+  \blx@bbl@addfield{entrykey}{\abx@field@entrykey}%
+  \blx@bbl@addfield{entrytype}{#2}%
+  \blx@imc@iffieldundef{options}
+    {}
+    {\blx@bbl@fieldedef{options}{\expandonce\abx@field@options}}}
+%
+ \protected\def\blx@finentry{%
+  \unspace
+  \a:finentry
+      \finentrypunct
+      \blx@postpunct
+  \b:finentry
+  \blx@initunit
+ }
+%
+\else
+% Biblatex 3.0
+%
+% Hacks for biblatex
+% MakeUppercase is redefined by tex4ht, biblatex tries to redefine it as well, but it relies on original
+% LaTeX version:
+\DeclareRobustCommand{\MakeUppercase}[1]{{%
+    \def\i{I}\def\j{J}%
+    \def\reserved@a##1##2{\let##1##2\reserved@a}%
+    \expandafter\reserved@a\@uclclist\reserved@b{\reserved@b\@gobble}%
+    \protected@edef\reserved@a{\uppercase{#1}}%
+    \reserved@a
+}}
+% Same applies also for \MakeLowercase
+\DeclareRobustCommand{\MakeLowercase}[1]{{%
+    \def\reserved@a##1##2{\let##2##1\reserved@a}%
+    \expandafter\reserved@a\@uclclist\reserved@b{\reserved@b\@gobble}%
+    \protected@edef\reserved@a{\lowercase{#1}}%
+    \reserved@a
+}}
+
+% I don't really understand this, but language processing is broken by default
+% with biblatex. It loads language file, but it executes code which should be
+% executed only in the case if the language file fails, it displays an error message
+% and language handling doesn't work. When we execute following code, the language
+% files are loaded before checking of the success and it seems to work.
+
+\AtBeginDocument{%
+\@ifpackageloaded{babel}
+      {% This is required for languages which are never explicitly selected
+        % It seems this code was executed also with Polyglossia, where it caused compilation error
+        \@ifpackageloaded{polyglossia}{}{%
+        \def\do#1{\blx@lbxinput{#1}{}{}}%
+       \ifx\@empty\bbl@loaded\else%
+       \expandafter\docsvlist\expandafter{\bbl@loaded}%
+      \fi}}{}%
+}
+\fi % end of version boolean
+\NewConfigure{finentry}{2}
+\def\:tempc[#1]#2{%
+   \expandafter\ifx \csname a:printfield-#2\endcsname\relax
+      \NewConfigure{printfield-#2}{2}%
+      \a:printfield{printfield-#2}%
+   \fi
+   \Configure{blx@unit}%
+       {\csname a:printfield-#2\endcsname}%
+       {\csname b:printfield-#2\endcsname}%
+   \csname o:\string\blx@printfield:\endcsname[#1]{#2}%
+}
+\expandafter\HLet\csname\string\blx@printfield\endcsname\:tempc
+\NewConfigure{printfield}[1]{\def\a:printfield##1{#1}}
+\Configure{printfield}{%
+    \Configure{#1}%
+       {\HCode{<!--#1-->}}%
+       {\HCode{<!--/#1-->}}%
+}
+\def\:tempc[#1]#2{%
+   \expandafter\ifx \csname a:bibstring-#2\endcsname\relax
+      \NewConfigure{bibstring-#2}{2}%
+      \a:printfield{bibstring-#2}%
+   \fi
+   \Configure{blx@unit}%
+       {\csname a:bibstring-#2\endcsname}%
+       {\csname b:bibstring-#2\endcsname}%
+   \csname o:\string\blx@bibstring:\endcsname[#1]{#2}%
+}
+\expandafter\HLet\csname\string\blx@bibstring\endcsname\:tempc
+\def\:tempc[#1]#2{%
+   \expandafter\ifx \csname a:bibcpstring-#2\endcsname\relax
+      \NewConfigure{bibcpstring-#2}{2}%
+      \a:printfield{bibcpstring-#2}%
+   \fi
+   \Configure{blx@unit}%
+       {\csname a:bibcpstring-#2\endcsname}%
+       {\csname b:bibcpstring-#2\endcsname}%
+   \csname o:\string\blx@bibcpstring:\endcsname[#1]{#2}%
+}
+\expandafter\HLet\csname\string\blx@bibcpstring\endcsname\:tempc
+\def\:tempc[#1]#2{%
+   \expandafter\ifx \csname a:biblcstring-#2\endcsname\relax
+      \NewConfigure{biblcstring-#2}{2}%
+      \a:printfield{biblcstring-#2}%
+   \fi
+   \Configure{blx@unit}%
+       {\csname a:biblcstring-#2\endcsname}%
+       {\csname b:biblcstring-#2\endcsname}%
+   \csname o:\string\blx@biblcstring:\endcsname[#1]{#2}%
+}
+\expandafter\HLet\csname\string\blx@biblcstring\endcsname\:tempc
+\def\:tempc[#1]#2{%
+   \expandafter\ifx \csname a:bibucstring-#2\endcsname\relax
+      \NewConfigure{bibucstring-#2}{2}%
+      \a:printfield{bibucstring-#2}%
+   \fi
+   \Configure{blx@unit}%
+       {\csname a:bibucstring-#2\endcsname}%
+       {\csname b:bibucstring-#2\endcsname}%
+   \csname o:\string\blx@bibucstring:\endcsname[#1]{#2}%
+}
+\expandafter\HLet\csname\string\blx@bibucstring\endcsname\:tempc
+\NewConfigure{biblatex-style}[2]{%
+   \def\:temp{#1}%
+   \ifx \:temp\blx@cbxfile
+      #2%
+      \global\let\biblatex:style\def
+   \fi
+}
+
+\def\biblatex:style{}
+\Configure{biblatex-style}{}{}
+
+\pend:def\at:docend{%
+   \ifx \UnDef\biblatex:style
+      \:warning{\string\Configure{biblatex-style}{\blx@cbxfile}{...}
+         not available}%
+   \fi
+}
+\let\blx:item\@item
+\def\@item[#1]{%
+  \blx:item[#1]%
+  \ifhmode \spacefactor\blx@sf@par\fi
+}
+\let\blx@resetpuncthook\@empty
+\let\blx@csq@ifkernmark\@empty
+\newskip\blx@unitmark
+\blx@unitmark=10pt plus 1pt minus 1pt
+\let\abx@aux@page\@gobbletwo
+\let\abx@aux@fnpage\@gobbletwo
+\let\abx@aux@refsection\@gobbletwo
+%
+% <Kristian.Debrabant@cs.kuleuven.be> reported that After updating
+% biblatex and biblatex.ht to versions 2.2 respectively
+% 2012-09-28-17:49 (using MiKTeX 2.9 64 bit), tex4ht seemed no longer
+% respected the defernumbers option in biblatex.sty: When applied to
+% the attached file tex4hterror.tex.
+%
+% The problem was due to nullifying \abx@aux@number which in fact
+% should have been redefined to \blx@aux@number when defernumbers
+% option is true.
+%
+% This is done now and as per Kristian, the fix works fine now.
+%
+\ifnum\blx:ver:no < 3
+%
+ \protected\def\blx@aux@number#1#2#3#4{%
+  \blx@bbl@addentryfield{\detokenize{#2}}{#3}{localnumber}{#4}%
+  \ifblank{#4}%
+    {}%
+    {\csgdef{blx@labelnumber@#3}{#4}%
+     %\blx@addchecksum{#1}{#4} % this can cause a nodocument error!
+     }}
+%
+ \iftoggle{blx@defernumbers}%
+    {\setkeys{blx@opt@pre}{labelnumber}%
+     \let\blx@thelabelnumber\blx@addlabelnumber
+     \let\abx@aux@number\blx@aux@number}%
+    {\let\blx@thelabelnumber\relax
+     \let\abx@aux@number\@gobblefour}
+%
+\else
+  \def\@gobblefive#1#2#3#4#5{}%
+ \protected\def\blx@aux@number#1#2#3#4#5{%
+   \blx@bbl@addentryfield{\detokenize{#2}}{#3}{localnumber}{#4}{#5}%
+   \blx@bbl@addentryfield{\detokenize{#2}}{#3}{labelnumber}{#4}{#5}%
+   \global\toggletrue{blx@localnumber}%
+   \ifblank{#5}
+    {}
+    {\csgdef{blx@labelnumber@#3@#4}{#5}}}
+
+ \iftoggle{blx@defernumbers}%
+    {\setkeys{blx@opt@pre}{labelnumber}%
+     \let\blx@thelabelnumber\blx@addlabelnumber
+     \let\abx@aux@number\blx@aux@number}%
+    {\let\blx@thelabelnumber\relax
+     \let\abx@aux@number\@gobblefive}
+\fi % end of version boolean
+%
+\AtEndDocument{%
+  \def\abx@aux@page#1#2{\blx@addpagesum{#1}{#2}}%
+  \def\abx@aux@fnpage#1#2{\blx@addpagesum{#1}{#2}}%
+}
+%
+\def\blx@begunit{%
+  \toggletrue{blx@tempa}%
+  \iftoggle{blx@insert}%
+    {\iftoggle{blx@unit}%
+       {\begingroup
+          \let\blx@begunit\@empty
+          \let\blx@endunit\@empty
+          \let\blx@endnounit\@empty
+          \blx@unitpunct\blx@postpunct
+        \endgroup
+        \global\togglefalse{blx@unit}%
+        \togglefalse{blx@tempa}}
+       {\blx@postpunct}%
+     \iftoggle{blx@block}%
+       {\begingroup
+          \let\blx@begunit\@empty
+          \let\blx@endunit\@empty
+          \let\blx@endnounit\@empty
+          \newblockpunct
+        \endgroup
+        \global\togglefalse{blx@block}%
+        \togglefalse{blx@tempa}}%
+       {}}%
+    {}%
+  \blx@postpunct
+  \blx@resetpuncthook
+  \iftoggle{blx@tempa}%
+    {}%
+    {\global\togglefalse{blx@insert}}%
+  \csname a:blx@unit\endcsname
+  \blx@leavevmode
+  \blx@csq@ifkernmark
+    {}%
+    {\penalty\@M
+    \hskip-\blx@unitmark\relax
+    \hskip\blx@unitmark\relax
+    }%
+  \begingroup
+    \Configure{blx@unit}{}{}%
+}
+\def\blx@endunit{%
+  \endgroup
+  \csname b:blx@unit\endcsname
+  \Configure{blx@unit}{}{}%
+  \ifdim\lastskip=\blx@unitmark
+    \unskip\unskip\unpenalty
+    \global\togglefalse{blx@lastins}%
+  \else
+   \global\toggletrue{blx@insert}%
+   \global\toggletrue{blx@lastins}%
+ \fi
+}
+\NewConfigure{blx@unit}{2}
+%
+   \else
+\fi
+
+\ifdefined\XeTeXversion
+  \def\abx@aux@defaultrefcontext#1#2#3{%
+    \global\boolfalse{refcontextdefaults}%
+  \csxdef{blx@assignedrefcontextbib@#1@\detokenize{#2}}{\detokenize{#3}}}
+\fi
+
+   \NewConfigure{thebibliography}{4}
+\append:def\blx@bibinit{\a:bibinit}%
+\NewConfigure{bibinit}{1}%
+
+   \let\blx@anchors\@empty
+\let\bib@field@entrykey\@empty
+
+\protected\def\blx@anchor{%
+  \xifinlist{X\the\c@refsection -%@
+    \bib@field@entrykey}{\blx@anchors}%
+    {}%
+    {\listxadd\blx@anchors{X\the\c@refsection -%@
+      \bib@field@entrykey}%
+     \hyper:natanchorstart{X\the\c@refsection -%@
+      \bib@field@entrykey}%
+     \hyper:natanchorend}}
+
+\protected\def\blx@bibhyperref{%
+   \@ifnextchar[%]
+     {\blx@bibhyperref@i}%
+     {\blx@bibhyperref@i[\bib@field@entrykey]}}%
+
+\long\def\blx@bibhyperref@i[#1]#2{%
+   \hyper:natlinkstart{X\the\c@refsection -%@
+     #1}%
+     #2\hyper:natlinkend}%
+
+\protected\long\def\blx@bibhyperlink#1#2{%
+   \hyper:natlinkstart{X\the\c@refsection -%:
+     #1}%
+     #2\hyper:natlinkend}%
+
+\protected\long\def\blx@bibhypertarget#1#2{%
+   \@bsphack
+   \hyper:natanchorstart{X\the\c@refsection -%:
+     #1}%
+   \@esphack
+     #2\hyper:natanchorend}%
+
+\let\blx@ifhyperref\@firstoftwo
+
+% Oleg Domanov odomanov@yandex.ru reports:
+% tex4ht ends with an error when compiles biblatex files. I'm on
+% Windows, texlive 2012. I put here a minimal example and files
+% generated with the command latexmk test && mk4ht oolatex test
+%
+% https://www.dropbox.com/s/hn1zm40htqs13mf/t4htlink.zip
+%
+% There is a superfluous \relax in the file test.tmp, line 65 which
+% seems to cause the error.
+%
+% Changes to cope with biblatex upgrade caused this problem. It is now
+% fixed. --CVR 2012/10/26
+%
+\:CheckOption{ooffice}\if:Option
+ \def\hyper:natanchorstart#1{\Link{}{#1}\EndLink}%
+ \def\hyper:natlinkstart#1{\Link{#1}{}}%
+\else
+ \def\hyper:natanchorstart#1{%
+      \expandafter\ifx\csname QXpage.\thepage\endcsname\relax%
+        \Tag{)Qpage.\thepage}{\file:id}%
+        \HCode{<a id="page.\thepage"></a>}%
+        \expandafter\xdef\csname QXpage.\thepage\endcsname{0}%
+       \fi
+      \Link[\csname BibFileName\therefsection\endcsname]{}{#1}\EndLink}
+ \def\hyper:natlinkstart#1{%
+      \expandafter\ifx\csname QXpage.\thepage\endcsname\relax%
+        \Tag{)Qpage.\thepage}{\file:id}%
+        \HCode{<a id="page.\thepage"></a>}%
+        \expandafter\xdef\csname QXpage.\thepage\endcsname{0}%
+       \fi
+      \Link[\csname BibFileName\therefsection\endcsname]{#1}{}}
+\fi
+\def\hyper:natanchorend{}
+\def\hyper:natlinkend{\EndLink}
+\def\writeCiteLink#1{\immediate\write\@mainaux{%
+    \string\@namedef{#1.\thepage}{\FileName}}}
+\let\blx@addpagesum\@gobbletwo
+\let\nolinkurl\relax
+
+\ifx\blx:ver:no < 3
+%
+% biblatex 2.9a
+%
+% Newly added to process {keylist} environment (CVR)
+%
+\let\keylist\description
+\let\endkeylist\enddescription
+\def\keyitem#1{\item[#1]}%
+%
+%
+\else
+%
+% biblatex 3.0
+%
+\let\keylist\Un:def
+\let\endkeylist\Un:def
+\newenvironment*{keylist}
+  {\list{}{%
+     \setlength{\labelwidth}{1.25in}%
+     \setlength{\labelsep}{10pt}%
+     \setlength{\leftmargin}{0pt}%
+     \setlength{\itemsep}{0pt}%
+     \raggedright%
+     \renewcommand*{\makelabel}[1]{\hss\bfseries##1}}}
+  {\endlist}
+%
+\def\keyitem#1{%
+  \item[#1]
+  \begingroup
+    \keyitemhook%
+    \blx@bibinit%
+    \midsentence\ifbibstring{#1}{}{\latintext}\biblstring{#1}%
+    \expandafter\lbx@initnamehook\lsmartoftext%
+    \par\nobreak
+    \midsentence\ifbibstring{#1}{}{\latintext}\bibsstring{#1}%
+    \expandafter\lbx@initnamehook\ssmartoftext%
+  \endgroup
+  \par\nobreak}
+\fi  % End of version boolean
+
+\ConfigureList{keylist}%
+   {\EndP\HCode{<dl \a:LRdir class="description">}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}%
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd></dl>}\ShowPar}%
+   {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
+        class="description">}\bgroup \bf}%
+   {\egroup\EndP\HCode{</dt><dd\Hnewline class="description">}}
+
+   \let\:temp\do
+  \def\do#1{%
+    \patchcmd#1%
+      {\color@begingroup}%
+      {\color@begingroup\toggletrue{blx@footnote}}%
+      {\togglefalse{blx@tempa}\listbreak}%
+      {}}%
+  \docsvlist{%
+    \@footnotetext,%          latex
+    \H@@footnotetext,%        hyperref
+    \scr@saved@footnotetext,% koma-script 3.x
+    \l@dold@footnotetext,%    ledmac
+    \l@doldold@footnotetext,% ledmac
+    \@fntORI}%                frenchle
+\let\do\:temp
+
+\Hinput{biblatex}
+\endinput
+

@@ -1,0 +1,65 @@
+% xr.4ht (2016-12-21-15:03), generated from tex4ht-4ht.tex
+% Copyright 1997-2009 Eitan M. Gurari
+% Copyright 2009-2016 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2016-12-21-15:03}
+
+   \let\XR:loop=\XR@loop
+\def\XR@loop#1{%
+   \def\:temp##1.aux{\openin15=##1.xref
+\ifeof15
+   \:warning{missing ##1.xref for ##1.aux}%
+   \let\:temp\empty
+\else
+   \def\:temp{\input ##1.xref}%
+\fi
+\closein15  \:temp
+}%
+   \catcode`\:=11
+     \expandafter\ifx \csname xr:CrossWord\endcsname\relax
+  \let\xr:CrossWord=\Cross:Word
+  \def\Cross:Word##1##2{%
+     \expandafter\let\csname  cw:\cw:format{##1##2}\endcsname\:UnDef
+     \xr:CrossWord{##1}{##2}}%
+\fi
+%
+     \:temp#1%
+   \catcode`\:=12
+   \XR:loop{#1}%
+}
+\long\def\XR@test#1#2#3#4\XR@{%
+  \ifx#1\newlabel
+     \expandafter\xdef\csname r@\XR@prefix#2\endcsname{\XR:rEfLiNK #3}%
+%
+  \else\ifx#1\@input
+     \edef\XR@list{\XR@list#2\relax}%
+  \fi\fi
+  \ifeof\@inputcheck\expandafter\XR@aux
+  \else\expandafter\XR@read\fi}
+
+   \def\XRrEfLiNK[#1]#2#3{\a:xr[#1]{#2}{}%
+   \ifx\hyperrefLabel\:UnDef #3\else \hyperrefLabel\fi \b:xr}
+\NewConfigure{xr}{2}
+\Configure{xr}{\Link}{\EndLink}
+\def\XR:rEfLiNK#1#2{{\xr:rEfLiNK#1}{\xr:rEfLiNK#2}}
+\def\xr:rEfLiNK#1#2{\noexpand\XRrEfLiNK[\Get:HFile#2-]{#2}}
+\def\Get:HFile#1-#2-{\:LikeRef{)F\:gobble #1F-}}
+
+\Hinput{xr}
+\endinput
+

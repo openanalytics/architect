@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% amsthm.4ht                            2009-05-21-09:32 %
+% Copyright (C) 1997--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+
+\def\qed:sym{%
+  \leavevmode\Picture+[Q.E.D.]{}\o:qedsymbol:\EndPicture
+  \SavePicture\qed:sym[Q.E.D.] }
+\def\:temp{\qed:sym }
+\MathSymbol\mathop{qedsymbol}
+
+
+\def\:temp{\ShowRefstepAnchor\o:@begintheorem:}
+\HLet\@begintheorem\:temp
+\ifx \deferred@thm@head\:UnDef\else
+   \expandafter\dth@everypar\expandafter{%
+     \the\dth@everypar
+     \edef\:temp{\the\ht:everypar}\ifx \:temp\empty
+        \ht:everypar{\HtmlPar}\ShowPar
+     \fi
+   }%
+   \def\deferred@thm@head#1{%
+  \if@inlabel \indent \par \fi 
+  \if@nobreak
+    \adjust@parskip@nobreak
+  \else
+    \addpenalty\@beginparpenalty
+    \addvspace\@topsep
+    \addvspace{-\parskip}%
+  \fi
+  \global\@inlabeltrue
+  \ht:everypar\dth@everypar
+  \let\sv:newtheorem=\b:newtheorem \let\b:newtheorem=\empty
+  \item[\normalfont#1]%
+  \let\b:newtheorem=\sv:newtheorem \b:newtheorem \ignorespaces
+}
+
+\fi
+\def\:temp#1{%
+   \def\:temp{#1}%
+   \edef\:temp{\expandafter\eorem:syle  \meaning\:temp!*?: }%
+   \expandafter\let\expandafter\@tmp:sv\csname th@\:temp\endcsname
+   \def\:tempa##1{%
+      \expandafter\append:def\csname th@##1\endcsname{%
+         \expandafter\let\csname th@##1\endcsname=\@tmp:sv
+         \let\thm:headnl=\thmheadnl
+         \pend:def\thmheadnl{\let\thmheadnl\thm:headnl \b:newtheorem}%
+         \append:def\thmheadnl{\expandafter
+             \ht:everypar\expandafter{\the\ht:everypar
+             \ht:everypar{\HtmlPar}}}}}%
+   \expandafter\:tempa\expandafter{\:temp}%
+   \let\sv:trivlist=\trivlist
+   \def\trivlist{\let\trivlist\sv:trivlist \let\sv:trivlist\:unDef
+      \a:newtheorem \trivlist}%
+   \aftergroup\c:newtheorem
+   \:thm{#1}}
+\HLet\@thm\:temp
+\HRestore\@endtheorem
+\bgroup
+\def\bgroup{\catcode`\\=0 \catcode`\t=11 }
+\catcode`\/=0
+\catcode`\@=12
+\catcode`\h=12
+\catcode`\\=12
+/catcode`/t=12
+/edef~{/def/noexpand/eorem:syle##1\th@##2 !*?: {##2}}
+/bgroup
+\expandafter\egroup ~
+\long\def\:temp[#1]{\par\a:proof
+    \csname o:\string\proof :\endcsname[#1]\b:proof}
+\expandafter\HLet\csname \string\proof \endcsname=\:temp
+\append:def\endproof{\c:proof}
+\NewConfigure{proof}{3}
+
+
+\Hinput{amsthm}
+\endinput
+

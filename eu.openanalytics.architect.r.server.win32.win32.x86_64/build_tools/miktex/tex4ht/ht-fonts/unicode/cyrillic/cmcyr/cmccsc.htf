@@ -1,0 +1,101 @@
+cmccsc 30 127
+'' ''         30 %
+'' ''         31 % cmccsc.htf  (unicode)        2020-05-27-14:14 %
+'' ''         32 % Copyright 2000-2009 Eitan M. Gurari %
+'' ''         33 %
+'' ''         34 % This work may be distributed and/or modified under the conditions
+'' ''         35 % of the LaTeX Project Public License, either version 1.3 of this
+'' ''         36 % license or (at your option) any later version. The latest version
+'' ''         37 % of this license is in http://www.latex-project.org/lppl.txt and
+'' ''         38 % version 1.3 or later is part of all distributions of LaTeX version
+'' ''         39 % 2003/12/01 or later.
+'' ''         40 % This work has the LPPL maintenance status "maintained".
+'' ''         41 % Current Maintainer of this work is the TeX4ht Project.
+'' ''         42 %
+'' ''         43 % If you modify this file, changing the
+'' ''         44 % version identification would be appreciated.
+'' ''         45 %
+'' ''         46 % tex4ht@tug.org
+'' ''         47 % https://tug.org/tex4ht
+'' ''         48 %
+'' ''         49 
+'' ''         50
+'' ''         51
+'' ''         52
+'' ''         53
+'' ''         54
+'' ''         55
+'' ''         56
+'' ''         57
+'' ''         58
+'' ''         59
+'&#x0451;' '' 60
+'' ''         61
+'&#x0401;' '' 62
+'' ''         63
+'&#x042E;' '4' 64
+'&#x0410;' '4' 65
+'&#x0411;' '4' 66
+'&#x0426;' '4' 67
+'&#x0414;' '4' 68
+'&#x0415;' '4' 69
+'&#x0424;' '4' 70
+'&#x0413;' '4' 71
+'&#x0425;' '4' 72
+'&#x0418;' '4' 73
+'&#x0419;' '4' 74
+'&#x041A;' '4' 75
+'&#x041B;' '4' 76
+'&#x041C;' '4' 77
+'&#x041D;' '4' 78
+'&#x041E;' '4' 79
+'&#x041F;' '4' 80
+'&#x042F;' '4' 81
+'&#x0420;' '4' 82
+'&#x0421;' '4' 83
+'&#x0422;' '4' 84
+'&#x0423;' '4' 85
+'&#x0416;' '4' 86
+'&#x0412;' '4' 87
+'&#x042C;' '4' 88
+'&#x042B;' '4' 89
+'&#x0417;' '4' 90
+'&#x0428;' '4' 91
+'&#x042D;' '4' 92
+'&#x0429;' '4' 93
+'&#x0427;' '4' 94
+'&#x042A;' '4' 95
+'&#x042E;' '' 96
+'&#x0410;' '' 97
+'&#x0411;' '' 98
+'&#x0426;' '' 99
+'&#x0414;' '' 100
+'&#x0415;' '' 101
+'&#x0424;' '' 102
+'&#x0413;' '' 103
+'&#x0425;' '' 104
+'&#x0418;' '' 105
+'&#x0419;' '' 106
+'&#x041A;' '' 107
+'&#x041B;' '' 108
+'&#x041C;' '' 109
+'&#x041D;' '' 110
+'&#x041E;' '' 111
+'&#x041F;' '' 112
+'&#x042F;' '' 113
+'&#x0420;' '' 114
+'&#x0421;' '' 115
+'&#x0422;' '' 116
+'&#x0423;' '' 117
+'&#x0416;' '' 118
+'&#x0412;' '' 119
+'&#x042C;' '' 120
+'&#x042B;' '' 121
+'&#x0417;' '' 122
+'&#x0428;' '' 123
+'&#x042D;' '' 124
+'&#x0429;' '' 125
+'&#x0427;' '' 126
+'&#x042A;' '' 127
+cmccsc 30 127
+

@@ -1,0 +1,588 @@
+% mkht.4ht (2020-11-23-10:05), generated from tex4ht-mkht.tex
+% Copyright 2009-2020 TeX Users Group
+% Copyright 1997-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <https://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+%
+\immediate\write-1{version \ifx \JOBNAME\UnDefined 2020-11-23-10:05\else |version\fi}
+
+\immediate\write-1{version 2020-11-23-10:05}
+
+\def\exit{\documentclass{article}\begin{document}\end{document}\endinput}
+\bgroup
+  \def\missing#1{\aftergroup\exit
+     \immediate\write16{---------------------------- error
+        ----------------------------
+        ^^JRequires #1ProTex.sty from
+        https://tug.org/tex4ht^^J%
+       ---------------------------------------------------------------}}
+  \openin15=ProTex.sty \ifeof15 \missing{}\else \closein15 \fi
+  \openin15=AlProTex.sty \ifeof15 \missing{Al}\else \closein15 \fi
+\egroup
+
+\let\ScriptFileName\relax
+\let\AddExtn\relax
+
+\documentclass{article}
+
+\ifx \HCode\UnDef
+  \input tex4ht.sty
+  \Preamble{xhtml}
+  \input ProTex.sty
+  \AlProTex{foo,<<<>>>,|,title,list}
+  \begin{document}
+  \EndPreamble
+\else
+  \Configure{ProTex}{foo,<<<>>>,|,title,list,[[]]}
+  \begin{document}
+\fi
+
+\catcode`\:=11
+\def\OutputCodE\<#1.#2\>{{\xdef\ScriptFileName{#1}
+   \:DoName\def{#1}{\<#1.#2\>}
+   \OutputCode[#2]\<#1\>}}
+\def\winextn{bat}
+\def\AddExtn{\ifx\ext\winextn .bat\fi}
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{LaTeX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\<htlatex ...\><<<
+|<unix line|>|<windows line|>
+        |<latex|>
+        |<latex|>
+        |<latex|>
+        |<base|>tex4ht |<dir ch|>|<@|>1  |<III|>
+        |<base|>t4ht |<dir ch|>|<@|>1 |<IV|>
+
+>>>
+
+
+\<latex\><<<
+latex |<@|>5 |<'|>|<definitions|>|<get parameters|>|empty>>>
+
+\<get parameters\><<<
+\HCode |<'|>|<@|>2|<'|>.a.b.c.\input |<'|> |<@|>1>>>
+
+
+\<definitions\><<<
+\makeatletter|<get 2nd arg|>|<2e + 209|>\makeatother>>>
+
+\<get 2nd arg\><<<
+\def\HCode{\futurelet\HCode\HChar}\def\HChar{|<double quotes?|>}>>>
+
+\<double quotes?\><<<
+\ifx"\HCode|<remove qts|>\expandafter\HCode\else\expandafter\Link\fi>>>
+
+\<remove qts\><<<
+\def\HCode"##1"{\Link##1}>>>
+
+
+\<2e + 209\><<<
+\def\Link#1.a.b.c.{|<2e|>|<209|>}>>>
+
+\<2e\><<<
+\g@addto@macro\@documentclasshook{|<require package|>}>>>
+
+\<209\><<<
+|<save|>\def\documentstyle{|<recall|>|<options|>|<209+tex4ht|>}>>>
+
+\<require package\><<<
+\RequirePackage[#1|<II|>|<,html|>]{tex4ht}>>>
+
+
+\<options\><<<
+|<def tex4ht|>{#1|<II|>|<,html|>}>>>
+
+
+\<209+tex4ht\><<<
+|<209+tex4ht+...|>\@ifnextchar[{\HCode}{\documentstyle[tex4ht]}>>>
+
+\<209+tex4ht+...\><<<
+\def\HCode####1{\documentstyle[tex4ht,}>>>
+
+
+\<save\><<<
+\let\HCode\documentstyle>>>
+
+\<recall\><<<
+\let\documentstyle\HCode>>>
+
+
+
+\<htlatex 2e...\><<<
+|<unix line|>|<windows line|>|<latex2e|>
+        |<latex2e|>
+        |<latex2e|>
+        |<base|>tex4ht |<dir ch|>|<@|>1  |<III|>
+        |<base|>t4ht |<dir ch|>|<@|>1 |<IV|>
+
+>>>
+
+
+
+
+\<latex2e\><<<
+latex |<@|>5 |<'|>|<definitions2e|>|<get parameters|>|empty>>>
+
+\<definitions2e\><<<
+\makeatletter|<get 2nd arg|>|<2e only|>\makeatother>>>
+
+
+\<2e only\><<<
+\def\Link#1.a.b.c.{|<2e|>}>>>
+
+
+
+
+
+\<htlatex 209...\><<<
+|<unix line|>|<windows line|>|<latex209|>
+        |<latex209|>
+        |<latex209|>
+        |<base|>tex4ht |<dir ch|>|<@|>1  |<III|>
+        |<base|>t4ht |<dir ch|>|<@|>1 |<IV|>
+
+>>>
+
+
+
+
+\<latex209\><<<
+latex  |<@|>5 |<'|>|<definitions209|>|<get parameters|>|empty>>>
+
+\<definitions209\><<<
+\makeatletter|<get 2nd arg|>|<209 only|>\makeatother>>>
+
+
+\<209 only\><<<
+\def\Link#1.a.b.c.{|<209|>}>>>
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{TeX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\<httex...\><<<
+|<unix line|>|<windows line|>|<tex|>
+        |<tex|>
+        |<tex|>
+        |<base|>tex4ht |<dir ch|>|<@|>1 |<III|>
+        |<base|>t4ht |<dir ch|>|<@|>1 |<IV|>
+
+>>>
+
+\<tex\><<<
+etex  |<@|>5 |<'|>|<tex definitions|>|<get parameters|>|empty>>>
+
+
+\<tex definitions\><<<
+|<set hook|>|<get 2nd arg|>|empty>>>
+
+\<set hook\><<<
+\def\Link#1.a.b.c.{|<def tex4ht|>{|<options|>\input tex4ht.sty }}>>>
+
+
+\<def tex4ht\><<<
+\expandafter\def\csname tex4ht\endcsname>>>
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Texinfo}
+%%%%%%%%%%%%%%%%%%%%
+
+The loading of tex4ht takes place at the @rm command at the end of the
+texinfo.tex file.
+
+\<httexi...\><<<
+|<unix line|>|<windows line|>|<texinfo|>
+        |<texinfo|>
+        |<texinfo|>
+        |<base|>tex4ht |<dir ch|>|<@|>1 |<III|>
+        |<base|>t4ht |<dir ch|>|<@|>1 |<IV|>
+|<Rem|>        texindex ?
+
+>>>
+
+\<texinfo\><<<
+etex |<@|>5 |<'|>|<texinfo definitions|>|<get parameters|>|empty>>>
+
+
+\<texinfo definitions\><<<
+|<tex definitions|>\let\svrm=\rm\def\rm{\svrm|<tex4ht into texinfo|>}>>>
+
+\<tex4ht into texinfo\><<<
+\ifx\c\comment\def\rm{\let\rm=\svrm|<load into texinfo|>}\expandafter\rm\fi>>>
+
+\<load into texinfo\><<<
+|<change cats|>\csname tex4ht\endcsname|<restore cats|>|empty>>>
+
+\<change cats\><<<
+\catcode`\@=12\catcode`\\=0 >>>
+
+\<restore cats\><<<
+\catcode`\@=0\catcode`\\=13 >>>
+%%%%%%%%%%%%%%%
+\section{ConTeXt}
+%%%%%%%%%%%%%%%
+
+
+\<context...\><<<
+|<unix line|>|<windows line|>
+        |<texexec|>
+        |<base|>tex4ht |<dir ch|>|<@|>1 |<III|>
+        |<base|>t4ht |<dir ch|>|<@|>1 |<IV|>
+
+>>>
+
+\<texexec\><<<
+|<ruby call|>texexec --arg="ht-1=|<@|>2" --use=tex4ht --dvi --nobackend |<@|>5 |<@|>1 >>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{XeTeX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\<htxetex...\><<<
+|<unix line|>|<windows line|>|<xetex|>
+        |<xetex|>
+        |<xetex|>
+        |<base|>tex4ht -.xdv |<dir ch|>|<@|>1 |<III|>
+        |<base|>t4ht -.xdv |<dir ch|>|<@|>1 |<IV|>
+
+>>>
+
+\<xetex\><<<
+xetex -no-pdf |<@|>5 |<'|>|<tex definitions|>|<get parameters|>|empty>>>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{XeLaTeX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\<htxelatex...\><<<
+|<unix line|>|<windows line|>|<xelatex|>
+        |<xelatex|>
+        |<xelatex|>
+        |<base|>tex4ht -.xdv |<dir ch|>|<@|>1  |<III|>
+        |<base|>t4ht -.xdv |<dir ch|>|<@|>1 |<IV|>
+
+>>>
+
+
+\<xelatex\><<<
+xelatex -no-pdf |<@|>5 |<'|>|<definitions|>|<get parameters|>|empty>>>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{MeX}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\<htmex...\><<<
+|<unix line|>|<windows line|>|<mex|>
+        |<mex|>
+        |<mex|>
+        |<base|>tex4ht |<dir ch|>|<@|>1 |<III|>
+        |<base|>t4ht |<dir ch|>|<@|>1 |<IV|>
+
+>>>
+
+\<mex\><<<
+mex |<@|>5 |<'|>|<tex definitions|>|<get parameters|>|empty>>>
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{Script Components}
+%%%%%%%%%%%%%%%%%%%%%%
+
+\def\setcats{\catcode`\\=12 \catcode`\%=12 \catcode`\~=12
+ \catcode`\_=12
+}
+
+\def\Remark{\bgroup \catcode`\#=12 \setcats \Rema}  \def\Rema#1{\egroup\def\Rem{#1}}
+\def\Ii{\def\II}
+\def\Iii{\bgroup \setcats \Iiicont}  \def\Iiicont#1{\egroup\def\III.##1.{#1}}
+\def\Iv{\bgroup \setcats \Ivcont}    \def\Ivcont#1{\egroup\def\IV.##1.{#1}}
+\def\Quote{\bgroup \setcats \Qcont}  \def\Qcont#1{\egroup\def\quote{#1}}
+\def\Argchar{\bgroup \setcats \Acont}\def\Acont#1{\egroup\def\argchar{#1}}
+\def\Dirchar{\bgroup \setcats \Dicont}\def\Dicont#1{\egroup\def\dirchar{#1}}
+\def\Rubycall{\bgroup \setcats \Dcont}\def\Dcont#1{\egroup\def\rubyCall{#1}}
+\def\Echooff{\bgroup \setcats \Dcont}\def\Dcont#1{\egroup\def\echoOff{#1}}
+\def\Ext{\bgroup \setcats \Econt}    \def\Econt#1{\egroup\def\ext{#1}%
+    \def\firstln{unix}\ifx \firstln\ext
+           \def\firstln##1endfirstln{##1}%
+  \else    \def\firstln##1endfirstln{}\fi
+}
+\def\Base{\bgroup \setcats \Bcont}   \def\Bcont#1{\egroup\def\base{#1}}
+\def\Script{\def\script##1##2}  % #1 -- file    #2 -- extension
+\def\Options#1{\ifx \OPTIONS\UnDef \def\OPTIONS{#1}\fi}
+\def\Latex#1{\ifx \latex\UnDef \def\latex{#1}\fi}
+
+\let\Rem=\relax
+\let\II=\relax
+\let\III=\relax
+\let\IV=\relax
+\let\quote=\relax
+\let\argchar=\relax
+\let\dirchar=\relax
+\let\rubyCall=\relax
+\let\echoOff=\relax
+\let\ext=\relax
+\ifx \script\UnDef \let\script=\relax \fi
+\let\base=\relax
+\let\firstln=\relax
+
+\<Rem\><<<
+|Rem>>>
+
+\<II\><<<
+|II>>>
+
+\<III\><<<
+|III.|<@|>3.>>>
+
+\<IV\><<<
+|IV.|<@|>4.>>>
+
+\<'\><<<
+|quote>>>
+
+\<@\><<<
+|argchar>>>
+
+\<dir ch\><<<
+|dirchar>>>
+
+\<base\><<<
+|base>>>
+
+\<ruby call\><<<
+|rubyCall>>>
+
+\<echo off\><<<
+|echoOff>>>
+
+\<unix line\><<<
+|firstln#!/bin/sh
+# stop at first error
+set -e
+
+# No interaction on the TeX runs is desirable.
+# Simpler to do that here than on the individual commands;
+# let's hope exec redirections are portable enough.
+exec </dev/null
+endfirstln
+>>>
+
+Despite the name, this macro is not for Windows. It is unconditionally
+included in all the scripts. It should only be the copyright notice,
+which somehow gets transformed for Unix. Thus we go to lots of trouble
+to insert the at-echo off only for Windows.
+
+\<windows line\><<<
+|<echo off|>
+|Rem |ScriptFileName|AddExtn (2020-11-23-10:05), generated from tex4ht-mkht.tex
+|Rem Copyright 2009-2020 TeX Users Group
+|Rem Copyright 2003-2009 Eitan M. Gurari
+|Rem
+|Rem This work may be distributed and/or modified under the
+|Rem conditions of the LaTeX Project Public License, either
+|Rem version 1.3 of this license or (at your option) any
+|Rem later version. The latest version of this license is in
+|Rem   http://www.latex-project.org/lppl.txt
+|Rem and version 1.3 or later is part of all distributions
+|Rem of LaTeX version 2003/12/01 or later.
+|Rem
+|Rem This work has the LPPL maintenance status "maintained".
+|Rem
+|Rem The Current Maintainer of this work
+|Rem is the TeX4ht Project <https://tug.org/tex4ht>.
+|Rem
+|Rem If you modify this file, changing the
+|Rem version identification be appreciated.
+
+>>>
+
+
+\def\IfExt#1,#2//{\def\next{#1}%
+   \ifx \next\ext \def\next{\csname iftrue\endcsname}%
+   \else \ifx \next\empty \def\next{\csname iffalse\endcsname}%
+   \else \def\next{\IfExt#2,,//}\fi\fi \next}
+
+\begingroup
+\catcode`\:=11 \catcode`\^=7    \catcode`\^^M=13%
+%
+\gdef\make#1{%
+  \expandafter\IfExt\OPTIONS,,//%
+  %
+   \subsection{#1}%
+   \def\temp##1{\par{\tt\string##1: \meaning##1}}%
+   \temp\quote
+   \temp\argchar
+   \temp\dirchar
+   \temp\rubyCall
+   \temp\echoOff
+   \temp\ext
+   \temp\script
+   \temp\base
+   \temp\firstln
+   \temp\latex
+   \temp\Rem
+   \temp\II
+   \temp\III
+   \temp\IV
+   \def\pref{#1} %
+   \<\pref latex\latex.\ext\><<<
+   \<htlatex \latex...\>
+   >>> %
+   \OutputCodE\<\pref latex\latex.\ext\>   \script{\pref latex}{\ext}  %
+\expandafter\let\csname\pref latex\latex\endcsname=\UnDef
+%
+\<\pref tex.\ext\><<<
+\<httex...\>
+>>> %
+%
+\OutputCodE\<\pref tex.\ext\>    \script{\pref tex}{\ext}  %
+%
+\<\pref texi.\ext\><<<
+\<httexi...\>
+>>> %
+%
+\OutputCodE\<\pref texi.\ext\>   \script{\pref texi}{\ext}  %
+%
+\<\pref context.\ext\><<<
+\<context...\>
+>>> %
+%
+\OutputCodE\<\pref context.\ext\>   \script{\pref context}{\ext}  %
+%
+\<\pref xetex.\ext\><<<
+\<htxetex...\>
+>>> %
+%
+\OutputCodE\<\pref xetex.\ext\>    \script{\pref xetex}{\ext}  %
+%
+\<\pref xelatex.\ext\><<<
+\<htxelatex...\>
+>>> %
+%
+\OutputCodE\<\pref xelatex.\ext\>    \script{\pref xelatex}{\ext}  %
+%
+\<\pref mex.\ext\><<<
+\<htmex...\>
+>>> %
+%
+\OutputCodE\<\pref mex.\ext\>    \script{\pref mex}{\ext}  %
+%
+%
+  \fi
+}                                      %
+\endgroup
+
+\ifx \JOBNAME\UnDefined
+   \def\one{\Ii}
+\def\two{\Iii}
+\def\three{\Iv}
+\Latex{}             % {}, {2e}, {209}
+\def\temp{unix}\ifx\script\temp
+   \Options{unix}   % {unix,bat}, {unix}, {bat}
+   %%%%%%%%%%
+\Ext{unix}
+%%%%%%%%%%
+\Base{}
+\Quote{'}
+\Argchar{$}
+\Dirchar{-f/}
+\Rubycall{}
+\Echooff{}
+\Remark{#}
+
+\else
+   \def\temp{bat}\ifx\script\temp
+      \Options{bat}
+      %%%%%%%%%%%%%%%%%%
+\Options{bat}
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%
+\Ext{bat}
+%%%%%%%%%
+\Base{}
+\Quote{}
+\Argchar{%}
+\Dirchar{}
+\Rubycall{call }
+\Echooff{@echo off}
+\Remark{Rem }
+
+   \else
+      \bgroup
+         \def\1{\space\space\space}
+         \def\2{\space\space\space\space\space\space}
+         \catcode`\%=12
+         \catcode`\#=12
+         \catcode`\~=12
+         \catcode`\@=0
+         \catcode`\\=12
+      @immediate@write16{|-------------------------------------------------------------}
+      @immediate@write16{|@2@1 A sample of a scripts generator file }
+      @immediate@write16{|}
+      @immediate@write16{|@1    Creates a foolatex script for commands}
+      @immediate@write16{|}
+      @immediate@write16{|@2        foolatex file}
+      @immediate@write16{|}
+      @immediate@write16{|@1    similar to htlatex for commands}
+      @immediate@write16{|}
+      @immediate@write16{|@2        htlatex file "html,...1..." " ...2..." "...3..."}
+      @immediate@write16{|}
+      @immediate@write16{|@1    with the arguments ...1..., ...2..., and ...3... }
+      @immediate@write16{|@1    embedded in the new script. General usage}
+      @immediate@write16{|}
+      @immediate@write16{|@2        foolatex file "..." "..." "..."}
+      @immediate@write16{|}
+      @immediate@write16{|----------------- sample.tex --------------------------------}
+      @immediate@write16{|% latex sample}
+      @immediate@write16{|}
+      @immediate@write16{| \def\script{bat} }
+      @immediate@write16{| % \def\script{unix} }
+      @immediate@write16{|}
+      @immediate@write16{| \input ./mkht.4ht }
+      @immediate@write16{|}
+      @immediate@write16{| \one{,html,...1...}}
+      @immediate@write16{| \two{-i/tex4ht/ht-fonts/#1 ...2...}    % bat }
+      @immediate@write16{| % \two{-i~/tex4ht/texmf/tex4ht/ht-fonts/#1 ...2...}   % unix }
+      @immediate@write16{| \three{#1 ...3...}}
+      @immediate@write16{| \make{foo}}
+      @immediate@write16{|}
+      @immediate@write16{| \end{document} }
+      @immediate@write16{-------------------------------------------------------------}
+      @egroup
+      \def\next{\csname fi\endcsname
+                \csname fi\endcsname
+                \csname fi\endcsname\end{document}}
+\fi \fi
+
+   \expandafter\endinput
+\fi
+
+\input \JOBNAME
+
+\end{document}
+\endinput
+

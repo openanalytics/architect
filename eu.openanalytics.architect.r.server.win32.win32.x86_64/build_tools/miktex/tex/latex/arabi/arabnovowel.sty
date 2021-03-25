@@ -1,0 +1,202 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: `arabnovowel.sty' To vocalize and deVocalize Arabic/Farsi text 
+% 
+%
+%%%%%%%%%%%%%%%%%%%%%%%% Font Names %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Check if file is loaded and announce file on terminal:
+%
+\csname ArabnovowelLoaded\endcsname
+\let\ArabnovowelLoaded\endinput
+
+
+\ProvidesFile{arabnovowel.sty}    
+        [2005/09/07 v0.1 Arabic dummy vowel slots when needed]
+
+
+% A Flag to dectect later on if we are vocalizing or not
+\newif\ifVocalize
+%
+% Declaring vowels off
+%
+\DeclareTextCommand{\fathaOFF}{LAE}{}
+\DeclareTextCommand{\dammaOFF}{LAE}{}
+\DeclareTextCommand{\kasraOFF}{LAE}{}
+\DeclareTextCommand{\sukunOFF}{LAE}{}
+\DeclareTextCommand{\shaddaOFF}{LAE}{}
+%
+\DeclareTextCommand{\raffOFF}{LAE}{}
+\DeclareTextCommand{\nasbOFF}{LAE}{}
+\DeclareTextCommand{\jarrOFF}{LAE}{}
+%
+\DeclareTextCommand{\shaddanasbOFF}{LAE}{}
+\DeclareTextCommand{\shaddaraffOFF}{LAE}{}
+\DeclareTextCommand{\shaddajarrOFF}{LAE}{}
+%
+\DeclareTextCommand{\shaddafathaOFF}{LAE}{}
+\DeclareTextCommand{\shaddadammaOFF}{LAE}{}
+\DeclareTextCommand{\shaddakasraOFF}{LAE}{}
+%
+% Declaring Saved vowels for posterior use
+%
+\DeclareTextSymbol{\nasbSAV}{LAE}{190}
+\DeclareTextSymbol{\raffSAV}{LAE}{191}
+\DeclareTextSymbol{\jarrSAV}{LAE}{192}
+%
+\DeclareTextSymbol{\shaddanasbSAV}{LAE}{198}
+\DeclareTextSymbol{\shaddaraffSAV}{LAE}{199}
+\DeclareTextSymbol{\shaddajarrSAV}{LAE}{200}
+%
+% Then, Vowels that come anywhere in a word
+%
+\DeclareTextSymbol{\fathaSAV}{LAE}{97}%{161}
+\DeclareTextSymbol{\dammaSAV}{LAE}{117}%{162}
+\DeclareTextSymbol{\kasraSAV}{LAE}{105}%{163}
+\DeclareTextSymbol{\shaddaSAV}{LAE}{204}%{164}
+\DeclareTextSymbol{\sukunSAV}{LAE}{34}%{197}%{}
+%
+\DeclareTextSymbol{\shaddafathaSAV}{LAE}{201}%169
+\DeclareTextSymbol{\shaddadammaSAV}{LAE}{202}%170
+\DeclareTextSymbol{\shaddakasraSAV}{LAE}{203}%171
+%
+% And now for the LFE encoding used by Farsi
+%
+\DeclareTextCommand{\ffathaOFF}{LFE}{}
+\DeclareTextCommand{\fdammaOFF}{LFE}{}
+\DeclareTextCommand{\fkasraOFF}{LFE}{}
+\DeclareTextCommand{\fsukunOFF}{LFE}{}
+\DeclareTextCommand{\fshaddaOFF}{LFE}{}
+%
+\DeclareTextCommand{\fraffOFF}{LFE}{}
+\DeclareTextCommand{\fnasbOFF}{LFE}{}
+\DeclareTextCommand{\fjarrOFF}{LFE}{}
+%
+\DeclareTextCommand{\fshaddanasbOFF}{LFE}{}
+\DeclareTextCommand{\fshaddaraffOFF}{LFE}{}
+\DeclareTextCommand{\fshaddajarrOFF}{LFE}{}
+%
+\DeclareTextCommand{\fshaddafathaOFF}{LFE}{}
+\DeclareTextCommand{\fshaddadammaOFF}{LFE}{}
+\DeclareTextCommand{\fshaddakasraOFF}{LFE}{}
+%
+% Declaring Saved vowels for posterior use
+%
+\DeclareTextSymbol{\fnasbSAV}{LFE}{190}
+\DeclareTextSymbol{\fraffSAV}{LFE}{191}
+\DeclareTextSymbol{\fjarrSAV}{LFE}{192}
+%
+\DeclareTextSymbol{\fshaddanasbSAV}{LFE}{198}
+\DeclareTextSymbol{\fshaddaraffSAV}{LFE}{199}
+\DeclareTextSymbol{\fshaddajarrSAV}{LFE}{200}
+%
+% Then, Vowels that come anywhere in a word
+%
+\DeclareTextSymbol{\ffathaSAV}{LFE}{97}%{161}
+\DeclareTextSymbol{\fdammaSAV}{LFE}{117}%{162}
+\DeclareTextSymbol{\fkasraSAV}{LFE}{105}%{163}
+\DeclareTextSymbol{\fshaddaSAV}{LFE}{204}%{164}
+\DeclareTextSymbol{\fsukunSAV}{LFE}{34}%{197}%{}
+%
+\DeclareTextSymbol{\fshaddafathaSAV}{LFE}{201}%169
+\DeclareTextSymbol{\fshaddadammaSAV}{LFE}{202}%170
+\DeclareTextSymbol{\fshaddakasraSAV}{LFE}{203}%171
+%
+%%%%%%%%%%% An Arabi Strut that does not depend on the font
+% and changes with the the same font according the fact the
+% text is vocalized or not!
+%
+\newlength{\ArabiStruthightOFF}
+\newlength{\ArabiStrutdepthOFF}
+\newlength{\ArabiStruthightON}
+\newlength{\ArabiStrutdepthON}
+%
+\settoheight{\ArabiStruthightOFF}{{\if@farsi\fontencoding{LFE}\else%
+                                   \fontencoding{LAE}\fi\selectfont\alefhamza}}%
+\settodepth{\ArabiStrutdepthOFF}{{\if@farsi\fontencoding{LFE}\else%
+                                   \fontencoding{LAE}\fi\selectfont\Haa}}%
+\settoheight{\ArabiStruthightON}{{\if@farsi\fontencoding{LFE}\else%
+                                   \fontencoding{LAE}\fi\selectfont\damma}}%
+\settodepth{\ArabiStrutdepthON}{{\if@farsi\fontencoding{LFE}\else%
+                                   \fontencoding{LAE}\fi\selectfont\kasra}}%
+%
+%
+\def\ArabiStrutON{\rule[\ArabiStrutdepthON]{0pt}{\ArabiStruthightON}}
+\def\ArabiStrutOFF{\rule[\ArabiStrutdepthOFF]{0pt}{\ArabiStruthightOFF}}
+%
+%
+%  Switching vowels off
+%
+\def\Novocalize{%
+\Vocalizefalse
+\renewcommand{\fatha}{\if@farsi\ffathaOFF\else\fathaOFF\fi}%
+\renewcommand{\damma}{\if@farsi\fdammaOFF\else\dammaOFF\fi}%
+\renewcommand{\kasra}{\if@farsi\fkasraOFF\else\kasraOFF\fi}%
+\renewcommand{\sukun}{\if@farsi\fsukunOFF\else\sukunOFF\fi}%
+\renewcommand{\shadda}{\if@farsi\fshaddaOFF\else\shaddaOFF\fi}%
+%
+\renewcommand{\raff}{\if@farsi\fraffOFF\else\raffOFF\fi}%
+\renewcommand{\nasb}{\if@farsi\fnasbOFF\else\nasbOFF\fi}%
+\renewcommand{\jarr}{\if@farsi\fjarrOFF\else\raffOFF\fi}%
+%
+\renewcommand{\shaddanasb}{\if@farsi\fshaddanasbOFF\else\shaddanasbOFF\fi}%
+\renewcommand{\shaddaraff}{\if@farsi\fshaddaraffOFF\else\shaddaraffOFF\fi}%
+\renewcommand{\shaddajarr}{\if@farsi\fshaddajarrOFF\else\shaddajarrOFF\fi}%
+%
+\renewcommand{\shaddafatha}{\if@farsi\fshaddafathaOFF\else\shaddafathaOFF\fi}%
+\renewcommand{\shaddadamma}{\if@farsi\fshaddadammaOFF\else\shaddadammaOFF\fi}%
+\renewcommand{\shaddakasra}{\if@farsi\fshaddakasraOFF\else\shaddakasraOFF\fi}%
+}
+%
+% reactivating vowels
+%
+\def\Vocalize{%
+\Vocalizetrue
+\renewcommand{\fatha}{\if@farsi\ffathaSAV\else\fathaSAV\fi}%
+\renewcommand{\damma}{\if@farsi\fdammaSAV\else\dammaSAV\fi}%
+\renewcommand{\kasra}{\if@farsi\fkasraSAV\else\kasraSAV\fi}%
+\renewcommand{\sukun}{\if@farsi\fsukunSAV\else\sukunSAV\fi}%
+\renewcommand{\shadda}{\if@farsi\fshaddaSAV\else\shaddaSAV\fi}%
+%
+\renewcommand{\raff}{\if@farsi\fraffSAV\else\raffSAV\fi}%
+\renewcommand{\nasb}{\if@farsi\fnasbSAV\else\nasbSAV\fi}%
+\renewcommand{\jarr}{\if@farsi\fjarrSAV\else\raffSAV\fi}%
+%
+\renewcommand{\shaddanasb}{\if@farsi\fshaddanasbSAV\else\shaddanasbSAV\fi}%
+\renewcommand{\shaddaraff}{\if@farsi\fshaddaraffSAV\else\shaddaraffSAV\fi}%
+\renewcommand{\shaddajarr}{\if@farsi\fshaddajarrSAV\else\shaddajarrSAV\fi}%
+%
+\renewcommand{\shaddafatha}{\if@farsi\fshaddafathaSAV\else\shaddafathaSAV\fi}%
+\renewcommand{\shaddadamma}{\if@farsi\fshaddadammaSAV\else\shaddadammaSAV\fi}%
+\renewcommand{\shaddakasra}{\if@farsi\fshaddakasraSAV\else\shaddakasraSAV\fi}%
+}
+%
+% The default value of \cs{Voclaizetrue} and \cs{vocalize}
+%
+\Vocalizetrue
+\Vocalize
+
+
+\def\ArabiStrut{\ifVocalize\ArabiStrutON\else\ArabiStrutOFF\fi}
+
+
+
+\endinput

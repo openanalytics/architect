@@ -1,0 +1,674 @@
+% emacspeak.4ht (2016-07-04-10:35), generated from tex4ht-html-speech.tex
+% Copyright 2009-2016 TeX Users Group
+% Copyright 2006-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2016-07-04-10:35}
+
+\exit:ifnot{amsmath,% 
+article,% 
+book,% 
+fontmath,% 
+latex,% 
+plain,% 
+report,% 
+tex4ht}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \CssSpeech{.begin-end                    {stress:4; richness:4;}}
+\CssSpeech{.begin-math, .end-math        {stress:3; richness:5;}}
+\CssSpeech{.semi-math     {pitch: 8; pitch-range: 7; volume: 5;}}
+\CssSpeech{.begin-root, .end-root, .mid-root         {stress:3;}}
+\CssSpeech{.begin-stack, .end-stack, .mid-stack      {stress:3;}}
+\CssSpeech{.char-del                                 {stress:4;}}
+\CssSpeech{.capital-description                      {stress:4;}}
+\CssSpeech{body {speak-punctuation: none}}
+\CssSpeech{@media speech{.crosslinks a, .next a
+        { pitch: 9; pitch-range: 4; volume: 5;
+                      stress:1; pause-after: 1000ms }}}
+\CssSpeech{.inline-math,  .display-math
+    { pitch: 8; pitch-range: 7; stress:7; richness: 7; }}
+\CssSpeech{.space {pitch:0; pitch-range:0; richness:0; stress:0;}}
+\CssSpeech{.mfrac{
+    pitch:7; pitch-range: 1; richness: 9; stress:4;}}
+\CssSpeech{.mrow-super{ pitch:9; pitch-range:4; richness:9; stress:9;}}
+\CssSpeech{.mrow-base{ pitch:9;  pitch-range:4; richness:5; stress:5;}}
+\CssSpeech{.mrow-sub{ pitch:9; pitch-range:0; richness:1; stress:1;}}
+\CssSpeech{.begin-limits-script,
+           .end-limits-script, .mid-limits-script {stress:3;}}
+\CssSpeech{.begin-script, .end-script, .mid-script   {stress:3;}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \CssSpeech{.accented-char { pitch-range: 4; }}
+\CssSpeech{.math-over { pitch-range: 4; }}
+\CssSpeech{.mover-accent {pitch-range: 7; richness: 9;}}
+
+\CssSpeech{@media speech{.cite, .biblabel
+       {pitch: 5 ; pitch-range: 6; stress: 6; richness: 5;}}}
+\CssSpeech{.begin-array, .end-array    {stress:4; richness:4;}}
+\CssSpeech{
+    .itemize, .enumerate, .description {pitch: 8;
+                                  pitch-range: 4;
+                                  volume: 5
+;
+                                  pause-after: 1000ms}
+}
+\CssSpeech{.added-list-description
+   { pitch: 8; pitch-range: 4; volume: 5; pause-after: 1000ms }}
+\CssSpeech{.li-itemize, .li-enumerate, .li-description
+    { pitch: 3; pitch-range: 6; volume: 5 }}
+\CssSpeech{ pre.verbatim { pitch: 5
+;
+                          pitch-range: 0;
+                               stress: 0;
+                            richness: 8
+ }}
+\CssSpeech{.marginpar {pitch: 7;
+                       pitch-range: 4;
+                       richness: 3;
+                       stress: 2;
+                       volume: 4}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \CssSpeech{
+  .titleHead {pitch: 3;
+              pitch-range: 4;
+              richness: 8;
+              stress: 3;
+              volume: 7
+}}
+\CssSpeech{  .author, .date {pitch: 5;
+                  pitch-range: 4;
+                  richness: 7;
+                  stress: 1;
+                  volume: 5
+}}
+\CssSpeech{  .date {speak-date: dmy}}
+\CssSpeech{  div.abstract { pitch: 4;
+                 pitch-range: 3;
+                 speed: x-fast;
+                 volume: 9
+}}
+
+\CssSpeech{
+   .sectionHead {pitch: 4;
+                 pitch-range: 7:
+                 richness: 9;
+                 speed: slow;
+                 volume: 7
+;}}
+\CssSpeech{   .subsectionHead {pitch: 5;
+                    pitch-range: 7;
+                    richness: 9;
+                    speed: slow;
+                    volume: 5
+;}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \CssSpeech{
+  .titleHead {pitch: 3;
+              pitch-range: 4;
+              richness: 8;
+              stress: 3;
+              volume: 7
+}}
+\CssSpeech{  .author, .date {pitch: 5;
+                  pitch-range: 4;
+                  richness: 7;
+                  stress: 1;
+                  volume: 5
+}}
+\CssSpeech{  .date {speak-date: dmy}}
+\CssSpeech{  div.abstract { pitch: 4;
+                 pitch-range: 3;
+                 speed: x-fast;
+                 volume: 9
+}}
+
+\CssSpeech{
+   .sectionHead {pitch: 4;
+                 pitch-range: 7:
+                 richness: 9;
+                 speed: slow;
+                 volume: 7
+;}}
+\CssSpeech{   .subsectionHead {pitch: 5;
+                    pitch-range: 7;
+                    richness: 9;
+                    speed: slow;
+                    volume: 5
+;}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \CssSpeech{
+  .titleHead {pitch: 3;
+              pitch-range: 4;
+              richness: 8;
+              stress: 3;
+              volume: 7
+}}
+\CssSpeech{  .author, .date {pitch: 5;
+                  pitch-range: 4;
+                  richness: 7;
+                  stress: 1;
+                  volume: 5
+}}
+\CssSpeech{  .date {speak-date: dmy}}
+\CssSpeech{  div.abstract { pitch: 4;
+                 pitch-range: 3;
+                 speed: x-fast;
+                 volume: 9
+}}
+
+\CssSpeech{
+   .sectionHead {pitch: 4;
+                 pitch-range: 7:
+                 richness: 9;
+                 speed: slow;
+                 volume: 7
+;}}
+\CssSpeech{   .subsectionHead {pitch: 5;
+                    pitch-range: 7;
+                    richness: 9;
+                    speed: slow;
+                    volume: 5
+;}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fontmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \CssSpeech{ .mo-open, .mo-close{ stress:3; }}
+\CssSpeech{ .mo-rel, .mo-bin { stress:4; }}
+\CssSpeech{ .mo-op { stress:4; }}
+\CssSpeech{ .mo-punc { stress:4; }}
+\CssSpeech{ .mo-qopname { stress:4; }}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \CssSpeech{@media speech{.eqref
+       {pitch: 5 ; pitch-range: 6; stress: 6; richness: 5;}}}
+\CssSpeech{.begin-multline, .end-multline  {stress:3; richness:5;}}
+\CssSpeech{.begin-gather, .end-gather  {stress:3; richness:5;}}
+\CssSpeech{.begin-aligned, .end-aligned  {stress:3; richness:5;}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \CssSpeech{ .mo-open, .mo-close{ stress:3; }}
+\CssSpeech{ .mo-rel, .mo-bin { stress:4; }}
+\CssSpeech{ .mo-op { stress:4; }}
+\CssSpeech{ .mo-punc { stress:4; }}
+\CssSpeech{ .mo-qopname { stress:4; }}
+
+\CssSpeech{.accented-char { pitch-range: 4; }}
+\CssSpeech{.math-over { pitch-range: 4; }}
+\CssSpeech{.mover-accent {pitch-range: 7; richness: 9;}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

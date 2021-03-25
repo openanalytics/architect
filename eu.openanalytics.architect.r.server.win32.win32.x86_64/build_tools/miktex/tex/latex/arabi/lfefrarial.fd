@@ -1,0 +1,24 @@
+%%
+%% This is file `lfefrarial.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lfefrarial.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LFE}{frarial}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LFE}{frarial}{m}{n}{<-> s*[1.25] frarial }{}
+\DeclareFontShape{LFE}{frarial}{b}{n}{<-> s*[1.25] frarialb }{}
+\DeclareFontShape{LFE}{frarial}{bx}{n}{<->  ssub * frarial/b/n }{}
+
+
+\endinput

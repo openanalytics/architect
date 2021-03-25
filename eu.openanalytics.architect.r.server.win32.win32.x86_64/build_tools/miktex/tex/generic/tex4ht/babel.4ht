@@ -1,0 +1,87 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% babel.4ht                             2019-07-10-13:21 %
+% Copyright (C) 1999-2009       Eitan M. Gurari         %
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+
+\def\:tempc#1{%
+  \edef\bbl@tempa{\expandafter\@gobble\string#1}%
+  \expandafter\let\csname org@\bbl@tempa\endcsname#1
+  \expandafter\def\csname\bbl@tempa\endcsname}
+\let\@c:tex\@citex
+\:tempc\@c:tex[#1]#2{%
+  \@safe@activestrue\org@@c:tex[#1]{#2}\@safe@activesfalse}
+\let\@citex\@c:tex
+
+\def\:tempc#1{%
+  \edef\bbl@tempa{\expandafter\@gobble\string#1}%
+  \expandafter\ifx\csname \bbl@tempa\space\endcsname\relax
+    \expandafter\let\csname org@\bbl@tempa\endcsname#1
+    \expandafter\edef\csname\bbl@tempa\endcsname{\noexpand\protect
+      \expandafter\noexpand\csname\bbl@tempa\space\endcsname}%
+  \else
+    \expandafter\let\csname org@\bbl@tempa\expandafter\endcsname
+                    \csname\bbl@tempa\space\endcsname
+  \fi
+  \expandafter\def\csname\bbl@tempa\space\endcsname}
+\:tempc\:ref#1{\@safe@activestrue\org@:ref{#1}\@safe@activesfalse}
+\let\ref\:ref
+
+\def\@newl@bel#1#2{{\:SUBOff\:SUPOff \@safe@activestrue
+   \xdef\:temp{\noexpand\n:wlbl{#1}{#2}}}\:temp }
+\pend:defI\l:bel{\Protect\@safe@activestrue}
+\append:defI\l:bel{\Protect\@safe@activesfalse}
+\let\@b:bitem=\@bibitem
+\def\@bibitem#1{\@safe@activestrue
+  \edef\:temp{\noexpand\@b:bitem{#1}}\@safe@activesfalse\:temp}
+
+\def\:temp#1{{\leavevmode #1}}
+\HLet\save@sf@q\:temp
+\def\:tempc#1#2#3{\HCode{<sub>}{\let\/=\empty#1}\HCode{</sub>}}
+\HLet\set@low@box\:tempc
+\HLet\quotedblbase\empty
+\HLet\quotesinglbase\empty
+\NewConfigure{quotedblbase}[1]{\def\n:quotedblbase:{#1}}
+\NewConfigure{quotesinglbase}[1]{\def\n:quotesinglbase:{#1}}
+\Configure{quotedblbase}{\o:quotedblbase:}
+\Configure{quotesinglbase}{\o:quotesinglbase:}
+
+\def\arabic:loopoverdigits#1{\ifx\relax#1\else%
+\special{t4ht@+&{35}x066#1{59}}x%
+\expandafter\arabic:loopoverdigits\fi}
+\def\arabicdigits#1{\arabic:loopoverdigits#1\relax}
+
+\def\active:prefix#1{\protect#1}
+\def\:temp#1{%
+  \ifx\protect\@typeset@protect
+  \else
+    \bbl@afterfi\active:prefix#1\@gobble
+  \fi}
+\HLet\active@prefix\:temp
+\def\:tempc#1{\leavevmode \a:ddj}
+\HLet\ddj@=\:tempc
+\def\:tempc#1{\leavevmode \a:DDJ}
+\HLet\DDJ@=\:tempc
+\NewConfigure{ddj}{1}
+\NewConfigure{DDJ}{1}
+\Configure{DDJ}{\leavevmode\ht:special{t4ht@+{38}{35}x0110;}x}
+\Configure{ddj}{\leavevmode\ht:special{t4ht@+{38}{35}x0111;}x}
+
+\Hinput{babel}
+\endinput
+

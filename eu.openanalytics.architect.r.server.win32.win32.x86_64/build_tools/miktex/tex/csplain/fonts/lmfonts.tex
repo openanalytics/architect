@@ -1,0 +1,236 @@
+% lmfonts.tex: loads Latin Modern fonts by plainTeX macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak,  2012, 2016, 2017
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Latin Modern]
+        {\caps \sans \ttset \slant \nbold \ttprop \ttlight \ttcond 
+         \quotset \upital \dunhill} {\rm \bf \it \bi}
+        {} {AMS} {8t 8z 8q 8y 8v U}
+
+% \lmreset ... implicit values (serif, bod extended, nocaps)
+% \sans ...... sans serif subfamily
+% \ttset ..... typewriter subfamily
+% \ttprop .... proportional typewriter-like subfamily
+% \ttlight ... light typewriter subfamily
+% \ttcond .... condensed typewriter subfamily
+% \quotset ... quotation sans serif subfamily (designed at 8pt for 10pt text)
+% \upital .... upright italic (only \rm)
+% \dunhill ... dunhill roman subfamily (only \rm, \it)
+% \caps ...... caps & small caps (available only at limited shapes)
+% \slant ..... slanted (default in some subfamilies)
+% \nbold ..... normal bold (no extended)
+
+\ismacro\fotenc{8t}\iftrue \def\ffnamepre{ec-}\fi      % T1 aka Cork
+\ismacro\fotenc{8z}\iftrue \def\ffnamepre{cs-}\fi      % IL2 aka CSfont
+\ismacro\fotenc{8q}\iftrue \def\ffnamepre{qx-}\fi      % QX GUST, Polish
+\ismacro\fotenc{8y}\iftrue \def\ffnamepre{texansi-}\fi % Y&Y
+\ismacro\fotenc{8v}\iftrue \def\ffnamepre{t5-}\fi      % Vietnamese
+
+\ismacro\fotenc{U}\iftrue
+   \font\tenrm = "[lmroman10-regular]:\fontfeatures"     \sizespec
+   \font\tenbf = "[lmroman10-bold]:\fontfeatures"        \sizespec
+   \font\tenit = "[lmroman10-italic]:\fontfeatures"      \sizespec
+   \font\tenbi = "[lmroman10-bolditalic]:\fontfeatures"  \sizespec
+   \font\tentt = "[lmmono10-regular]:\fontfeatures"      \sizespec
+   \font\tenrmc= "[lmromancaps10-regular]:\fontfeatures" \sizespec
+   \font\tenitc= "[lmromancaps10-oblique]:\fontfeatures" \sizespec
+\else
+   \font\tenrm = \ffnamepre lmr10     \sizespec
+   \font\tenbf = \ffnamepre lmbx10    \sizespec
+   \font\tenit = \ffnamepre lmri10    \sizespec
+   \font\tenbi = \ffnamepre lmbxi10   \sizespec
+   \font\tentt = \ffnamepre lmtt10    \sizespec
+   \font\tenrmc= \ffnamepre lmcsc10   \sizespec % for backward compatibility
+   \font\tenitc= \ffnamepre lmcsco10  \sizespec % for backward compatibility
+\fi
+\ismacro\fotenc{8z}\iftrue \input chars-8z \fi
+\tenrm
+
+\ffvars{\regularV}{b\bextV}{ti\slantV}{b\bextV i\slantV}
+\def\nbold   {\ffsetV{bext}{}\ffsetX}
+\def\slant   {\ffsetV{slant}{sl}\ffsetX}
+\def\sans    {\ffsetV{subfam}{ss}\slant}
+\def\ttset   {\ffsetV{subfam}{tt}\nbold}
+\def\ttprop  {\ffsetV{subfam}{tp}\slant}
+\def\ttlight {\ffsetV{subfam}{tl}\slant}
+\def\ttcond  {\ffvars{}{!}{ti\slantV}{!}\ffsetV{subfam}{tc}\slant}
+\def\quotset {\ffsetV{subfam}{sq}\slant}
+\def\upital  {\ffvars{}{!}{!}{!}\ffsetV{subfam}{u}\ffsetX}
+\def\dunhill {\ffvars{du}{!}{dusl}{!}\ffsetX}
+\def\caps    {\ffvars{\regularV}{!}{tisl}{!}\ffsetV{caps}{csc}\slant}
+\def\lmreset {\ffsetV{subfam}{}\ffsetV{slant}{}\ffsetV{caps}{}%
+   \ffsetV{bext}{x}\ffsetX}
+\def\regularV{\ifx\subfamV\empty r\fi}
+\lmreset\relax % default values
+
+\def\ffnamegen{lm\subfamV\ffvarV\capsV\ffoptV}
+
+\def\ffloadhookA#1{\expandafter\ifx \csname\ffnamegen:reg\endcsname \relax   
+   \ffmessage{FONT warning: LMfonts - desired shape (\ffnamegen) unavailable}%
+   \else % TS1 metric added + load font
+}
+\def\LMregtfm #1 #2 #3 #4 {\edef\tmp
+   {\noexpand\regtfm #1 0 \csname regtfm#3\endcsname\ffnamepre{#2}}%
+   \lowercase\expandafter{\tmp}% OTF file names are lowercase
+}
+\def\regtfmFS#1#2{#1#25 5.5 #1#26 6.5 #1#27 7.5 #1#28 8.5 
+                  #1#29 9.5 #1#210 11.1 #1#212 15 #1#217 *}
+\def\regtfmFT#1#2{#1#25 5.5 #1#26 6.5 #1#27 7.5 #1#28 8.5 
+                  #1#29 9.5 #1#210 11.1 #1#212 *}
+\def\regtfmST#1#2{#1#27 7.5 #1#28 8.5 #1#29 9.5 #1#210 11.1 #1#212 *}
+\def\regtfmES#1#2{#1#28 8.5 #1#29 9.5 #1#210 11.1 #1#212 15 #1#217 *}
+\def\regtfmET#1#2{#1#28 8.5 #1#29 9.5 #1#210 11.1 #1#212 *}
+\def\regtfmT #1#2{#1#210 *}
+\def\regtfmE #1#2{#1#28 *}
+
+\ismacro\fotenc{U}\iftrue  
+   \def\ffnamepre#1-#2;#3 {\noexpand\ffnameotf{[#1#3-#2]} }
+   \let\ffnameotf=\ffnameotfA
+
+   \LMregtfm lmr       LMRoman-Regular;        FS  5-17
+   \LMregtfm lmbx      LMRoman-Bold;           FT  5-12
+   \LMregtfm lmti      LMRoman-Italic;         ST  7-12
+   \LMregtfm lmbxi     LMRoman-BoldItalic;     T   10
+   \LMregtfm lmtisl    LMRomanSlant-Regular;   ES  8-17
+   \LMregtfm lmbxisl   LMRomanSlant-Bold;      T   10
+   \LMregtfm lmb       LMRomanDemi-Regular;    T   10
+   \LMregtfm lmbi      LMRomanDemi-Oblique;    T   10
+
+   \LMregtfm lmss      LMSans-Regular;          ES  8-17
+   \LMregtfm lmssbx    LMSans-Bold;             T   10
+   \LMregtfm lmsstisl  LMSans-Oblique;          ES  8-17
+   \LMregtfm lmssbxisl LMSans-BoldOblique;      T   10
+   \LMregtfm lmssb     LMSansDemiCond-Regular;  T   10
+   \LMregtfm lmssbisl  LMSansDemiCond-Oblique;  T   10
+
+   \LMregtfm lmsq      LMSansQuot-Regular;      E  8
+   \LMregtfm lmsqbx    LMSansQuot-Bold;         E  8
+   \LMregtfm lmsqtisl  LMSansQuot-Oblique;      E  8
+   \LMregtfm lmsqbxisl LMSansQuot-BoldOblique;  E  8
+
+   \LMregtfm lmtt      LMMono-Regular;        ET  8-12
+   \LMregtfm lmttb     LMMonoLt-Bold;         T   10
+   \LMregtfm lmttti    LMMono-Italic;         T   10
+   \LMregtfm lmttbi    LMMonoLt-BoldOblique;  T   10
+   \LMregtfm lmtttisl  LMMonoSlant-Regular;   T   10
+   \ffalias {lmttbisl} {lmttbi} 
+
+   \LMregtfm lmtp      LMMonoPropLt-Regular;      T  10
+   \LMregtfm lmtpb     LMMonoProp-Regular;        T  10
+   \LMregtfm lmtpbx    LMMonoPropLt-Bold;         T  10
+   \LMregtfm lmtptisl  LMMonoPropLt-Oblique;      T  10
+   \LMregtfm lmtpbisl  LMMonoProp-Oblique;        T  10
+   \LMregtfm lmtpbxisl LMMonoPropLt-BoldOblique;  T  10
+
+   \LMregtfm lmtl      LMMonoLt-Regular;  T  10
+   \ffalias {lmtlb}    {lmtt}  
+   \ffalias {lmtlbx}   {lmttb}
+   \LMregtfm lmtltisl  LMMonoLt-Oblique;  T  10
+   \ffalias {lmtlbisl} {lmtttisl}
+   \ffalias {lmtlbxisl}{lmttbi}
+
+   \LMregtfm lmtc      LMMonoLtCond-Regular;  T  10
+   \LMregtfm lmtctisl  LMMonoLtCond-Oblique;  T  10
+
+   \LMregtfm lmrcsc      LMRomanCaps-Regular; T  10
+   \LMregtfm lmtislcsc   LMRomanCaps-Oblique; T  10
+   \LMregtfm lmttcsc     LMMonoCaps-Regular;  T  10
+   \LMregtfm lmtttislcsc LMMonoCaps-Oblique;  T  10
+
+   \LMregtfm lmu      LMRomanUnsl-Regular;    T 10
+   \LMregtfm lmdu     LMRomanDunh-Regular;    T 10
+   \LMregtfm lmdusl   LMRomanDunh-Oblique;    T 10
+
+   \let\ffnameotf=\ffnameotfB
+\else
+   \LMregtfm lmr       lmr     FS  5-17
+   \LMregtfm lmbx      lmbx    FT  5-12
+   \LMregtfm lmti      lmri    ST  7-12
+   \LMregtfm lmbxi     lmbxi   T   10
+   \LMregtfm lmtisl    lmro    ES  8-17
+   \LMregtfm lmbxisl   lmbxo   T   10
+   \LMregtfm lmb       lmb     T  10
+   \LMregtfm lmbi      lmbo    T  10
+
+   \LMregtfm lmss      lmss    ES  8-17
+   \LMregtfm lmssbx    lmssbx  T   10
+   \LMregtfm lmsstisl  lmsso   ES  8-17
+   \LMregtfm lmssbxisl lmssbo  T   10
+   \LMregtfm lmssb     lmssdc  T   10
+   \LMregtfm lmssbisl  lmssdo  T   10
+
+   \LMregtfm lmsq      lmssq    E  8
+   \LMregtfm lmsqbx    lmssqbx  E  8
+   \LMregtfm lmsqtisl  lmssqo   E  8
+   \LMregtfm lmsqbxisl lmssqbo  E  8
+
+   \LMregtfm lmtt      lmtt    ET  8-12
+   \LMregtfm lmttb     lmtk    T   10
+   \LMregtfm lmttti    lmtti   T   10
+   \LMregtfm lmttbi    lmtko   T   10
+   \LMregtfm lmtttisl  lmtto   T   10
+   \ffalias {lmttbisl} {lmttbi} 
+
+   \LMregtfm lmtp      lmvtl   T  10
+   \LMregtfm lmtpb     lmvtt   T  10
+   \LMregtfm lmtpbx    lmvtk   T  10
+   \LMregtfm lmtptisl  lmvtlo  T  10
+   \LMregtfm lmtpbisl  lmvtto  T  10
+   \LMregtfm lmtpbxisl lmvtko  T  10
+
+   \LMregtfm lmtl      lmtl   T  10
+   \ffalias {lmtlb}    {lmtt}  
+   \ffalias {lmtlbx}   {lmttb}
+   \LMregtfm lmtltisl  lmtlo  T  10
+   \ffalias {lmtlbisl} {lmtttisl}
+   \ffalias {lmtlbxisl}{lmttbi}
+
+   \LMregtfm lmtc      lmtlc   T  10
+   \LMregtfm lmtctisl  lmtlco  T  10
+
+   \LMregtfm lmrcsc    lmcsc   T  10
+   \LMregtfm lmtislcsc lmcsco  T  10
+   \LMregtfm lmttcsc   lmtcsc  T  10
+   \LMregtfm lmtttislcsc lmtcso  T  10
+
+   \LMregtfm lmu    lmu     T 10
+   \LMregtfm lmdu   lmdunh  T 10
+   \LMregtfm lmdusl lmduno  T 10
+\fi
+
+\let\lmfonts=\font  % macros can do test:  \ifx\font\lmfonts ...
+
+\ifx\loadmathfonts\relax \endinput \fi
+
+\let\normalmathloading=\relax
+\ifx\mathpreloaded A\else \input ams-math \fi                     
+
+% CM math fonts
+\ismacro\fotenc{8z}\iftrue
+   \ffalias{cmr}{lmr}
+   \ffalias{cmbx}{lmbx}
+\else
+   \regtfm cmr 0 rm-lmr5 5.5 rm-lmr6 6.5 rm-lmr7 7.5 rm-lmr8 8.5 rm-lmr9 9.5
+                 rm-lmr10 11.1 rm-lmr12 15 rm-lmr17 *
+   \regtfm cmbx 0 rm-lmbx5 5.5 rm-lmbx6 6.5 rm-lmbx7 7.5 rm-lmbx8 8.5 
+                  rm-lmbx9 9.5 rm-lmbx10 11.1 rm-lmbx12 *
+\fi
+\regtfm cmmi 0 lmmi5 5.5 lmmi6 6.5 lmmi7 7.5 lmmi8 8.5 lmmi9 9.5
+              lmmi10 11.1 lmmi12 *
+\regtfm cmmib 0 lmmib5 6 lmmib7 8.5 lmmib10 *
+\regtfm cmsy 0 lmsy5 5.5 lmsy6 6.5 lmsy7 7.5 lmsy8 8.5 lmsy9 9.5
+              lmsy10 *
+\regtfm cmbsy 0 lmbsy5 6 lmbsy7 8.5 lmbsy10 *  
+\regtfm cmex 0 lmex10 *
+\regtfm cmexb 0 lmex10 *
+% Fonts Other
+\ffalias {bfsans}  {lmssbx}
+\ffalias {bisans}  {lmssbxisl}
+\ffalias {bbfsans} {lmssbx}
+\ffalias {bbisans} {lmssbxisl}
+
+\normalmath \let\normalmathloading=y
+
+% end of lmfonts.tex

@@ -1,0 +1,29 @@
+fxlbi-xl-27 103 127
+'&#x2767;' '' 103 %
+'&#x2768;' '' 104 % fxlbi-xl-27.htf 2020-05-27-14:14 %
+'&#x2769;' '' 105 % Copyright 2007-2009 Eitan M. Gurari %
+'&#x276A;' '' 106 %
+'&#x276B;' '' 107 % This work may be distributed and/or modified under the conditions
+'&#x276C;' '' 108 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x276D;' '' 109 % license or (at your option) any later version. The latest version
+'&#x276E;' '' 110 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x276F;' '' 111 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x2770;' '' 112 % 2003/12/01 or later.
+'&#x2771;' '' 113 % This work has the LPPL maintenance status "maintained".
+'&#x2772;' '' 114 % Current Maintainer of this work is the TeX4ht Project.
+'&#x2773;' '' 115 %
+'&#x2774;' '' 116 % If you modify this file, changing the
+'&#x2775;' '' 117 % version identification would be appreciated.
+'&#x2776;' '' 118 %
+'&#x2777;' '' 119 % tex4ht@tug.org
+'&#x2778;' '' 120 % https://tug.org/tex4ht
+'&#x2779;' '' 121 %
+'&#x277A;' '' 122 
+'&#x277B;' '' 123
+'&#x277C;' '' 124
+'&#x277D;' '' 125
+'&#x277E;' '' 126
+'&#x277F;' '' 127
+fxlbi-xl-27 103 127
+htfcss: fxlbi-xl-27 font-style:italic; font-weight:bold;
+

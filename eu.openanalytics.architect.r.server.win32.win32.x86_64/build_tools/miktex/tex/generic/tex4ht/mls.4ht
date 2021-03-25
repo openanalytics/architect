@@ -1,0 +1,55 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% mls.4ht                             2009-05-21-09:32 %
+% Copyright (C) 2001--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\Configure{writetoc}
+   {\let\SetDocumentEncodingNeutral\relax
+    \let\SetDocumentEncodingLMC\relax
+    \let\SetDocumentEncodingBicig\relax
+    \let\mnr\relax
+    \let\mbc\relax
+    \let\blr\relax
+    \let\rnm\relax
+   }
+\renewcommand{\mbosoo}[1]{\def\:temp{#1}\ifx \:temp\empty\else
+     \bosoo{{\bcg #1}}\fi}
+
+\pend:def\do@galiglist{\let\mls:sp=\  \let\ =\sp:c }
+\append:def\end@galiglist{\let\ =\mls:sp}
+
+\pend:def\do@mlsgalig{\let\mls:sp=\  \let\ =\sp:c }
+\append:def\end@mlsgalig{\let\ =\mls:sp}
+\pend:def\prettify@mls{\let\mls:sp=\  \let\ =\sp:c }
+\append:def\prettify@mls{\let\ =\mls:sp}
+
+\expandafter\HLet\csname OT1\string\"\expandafter\endcsname
+     \csname n:":\endcsname
+\HRestore\"
+
+\Hinput{mls}
+\endinput
+

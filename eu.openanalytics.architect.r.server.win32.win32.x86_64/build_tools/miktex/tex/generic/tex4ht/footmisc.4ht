@@ -1,0 +1,59 @@
+% footmisc.4ht (2019-12-23-13:36), generated from tex4ht-4ht.tex
+% Copyright 2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-12-23-13:36}
+
+
+\long\def\@footnotetext#1{\leavevmode
+   \vbox{%\IgnorePar
+      \leftskip0pt {\ht:everypar{}\parindent0pt\leavevmode}%
+      \long\def\:tempc##1{\protected@edef\@currentlabel{\the\csname c@footnote\endcsname}%
+\anc:lbl f{footnote}%
+\Configure{newlabel}{\cur:th\the\csname c@footnote\endcsname}{\protect\p@footmisc@footnote{\the\csname c@footnote\endcsname}}
+\a:footnotetext
+   \o:@makefntext:{\b:footnotetext \csname a:footnotebody\endcsname
+                {##1}\csname b:footnotebody\endcsname}\c:footnotetext
+}%
+\HLet\@makefntext\:tempc
+%
+      \reset@font\footnotesize
+      \color@begingroup
+        \@makefntext{\ignorespaces#1}%
+      \color@endgroup
+      \ht:special{t4ht@[}}\ht:special{t4ht@]}}
+
+% detect if the symbol or symbol* option were used
+% we can detect that by testing of \thefootnote macro
+
+\edef\footmisc:thefootnote{\expandafter\unexpanded\expandafter{\thefootnote}}
+\edef\footmisc:symbol{\unexpanded{\fnsymbol{footnote}}}
+\edef\footmisc:symbolstar{\unexpanded{\@fnsymbol\c@footnote}}
+
+\ifx\footmisc:thefootnote\footmisc:symbol
+  \newcommand\p@footmisc@footnote[1]{\@fnsymbol{#1}}
+\else
+  \ifx\footmisc:thefootnote\footmisc:symbolstar
+    \newcommand\p@footmisc@footnote[1]{\@fnsymbol{#1}}
+  \else
+    \newcommand\p@footmisc@footnote[1]{\p@footnote{#1}}
+  \fi
+\fi
+
+\Hinput{footmisc}
+\endinput
+

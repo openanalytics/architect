@@ -1,0 +1,277 @@
+% mkht-scripts.4ht (2020-11-23-10:05), generated from tex4ht-mkht.tex
+% Copyright 2009-2020 TeX Users Group
+% Copyright 2000-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <https://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+%
+\immediate\write-1{version \ifx \JOBNAME\UnDefined 2020-11-23-10:05\else |version\fi}
+
+
+\ifx \JOBNAME\UnDef
+   \def\JOBNAME{mkht-scripts.4ht}
+   \def\next{\input ./mkht.4ht  \endinput}
+   \expandafter\next
+\fi
+
+\Options{unix,bat}   % {unix,bat}, {unix}, {bat}
+\Latex{}             % {}, {2e}, {209}
+
+%%%%%%%%%%%%%%%%%%
+\section{Unix Scripts}
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%
+\Ext{unix}
+%%%%%%%%%%
+\Base{}
+\Quote{'}
+\Argchar{$}
+\Dirchar{-f/}
+\Rubycall{}
+\Echooff{}
+\Remark{#}
+
+\ifOption{Needs}{%
+\Script{%                        #1 -- file    #2 -- extension
+   \Needs{"sed -e 's/\#\# -d/ -d/g' < #1.#2 >  /opt/cvr/gurari/tex4ht.dir/bin/solaris/#1"}%
+   \Needs{"chmod 700 /opt/cvr/gurari/tex4ht.dir/bin/solaris/#1"}%
+   \Needs{"mkdir -p mn.dir/ht-unix"}%
+   \Needs{"cp #1.#2  mn.dir/ht-unix/#1"}%
+}}{}
+\Script{%                        #1 -- file    #2 -- extension
+   \Needs{"mkdir -p /opt/cvr/gurari/tex4ht.dir/bin/ht"}%
+   \Needs{"mkdir -p /opt/cvr/gurari/tex4ht.dir/bin/ht/unix"}%
+   \Needs{"mv #1.#2  /opt/cvr/gurari/tex4ht.dir/bin/ht/unix/#1"}%
+   \Needs{"chmod 744 /opt/cvr/gurari/tex4ht.dir/bin/ht/unix/#1"}%
+}
+
+\Ii{,html}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1}
+\Iv{#1   ## -d~/WWW/temp/ -m644  }
+
+\make{ht}
+\<ht.unix\><<<
+|<unix line|>|<windows line|>$1 $2
+        $1 $2
+        $1 $2
+        tex4ht $2
+        t4ht $2  $3
+>>>
+\OutputCodE\<ht.unix\>     \script{ht}{unix}  %
+\Ii{,xhtml}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1}
+\Iv{#1  -cvalidate   ## -d~/WWW/temp/ -m644 }
+\make{xh}
+\Ii{,xhtml,uni-html4}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cunihtf}
+\Iv{#1 -cvalidate  ## -d~/WWW/temp/ -m644 }
+\make{uxh}
+\Ii{,xhtml,mathml}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cunihtf}
+\Iv{#1 -cvalidate   ## -d~/WWW/temp/ -m644 }
+\make{xhm}
+\Ii{,xhtml,mozilla}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cmozhtf}
+\Iv{#1 -cvalidate   ## -d~/WWW/temp/ -m644 }
+\make{mz}
+\Ii{,xhtml,ooffice}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cmozhtf}
+\Iv{#1 -cooxtpipes -coo }
+\make{oo}
+\Ii{,xhtml,emspk}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cemspkhtf -s4es}
+\Iv{#1 -cemspk   ## -d~/WWW/temp/ -m644 }
+\make{es}
+\Ii{,xhtml,jsml}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cjsmlhtf }
+\Iv{#1 -cjsml   ## -d~/WWW/temp/ -m644 }
+\make{js}
+\Ii{,xhtml,jsmath}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cmozhtf }
+\Iv{#1 ## -d~/WWW/temp/ -m644 }
+\make{jm}
+\Ii{,xhtml,tei}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cunihtf}
+\Iv{#1 -cvalidate   ## -d~/WWW/temp/ -m644 }
+\make{tei}
+
+\Ii{,xhtml,tei-mml}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cunihtf}
+\Iv{#1 -cvalidate   ## -d~/WWW/temp/ -m644 }
+\make{teim}
+\Ii{,xhtml,docbook}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cunihtf}
+\Iv{#1    -cvalidate -cdocbk  ## -d~/WWW/temp/ -m644  }
+\make{db}
+
+\Ii{,xhtml,docbook-mml}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cunihtf}
+\Iv{#1  -cdocbk  ## -d~/WWW/temp/ -m644 }
+\make{dbm}
+\Ii{,xhtml,word}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1  -csymhtf}
+\Iv{#1    -cvalidate ## -d~/WWW/temp/ -m644 }
+\make{w}
+\Ii{,html,javahelp,xml,3.2,unicode}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cmozhtf -u10}
+\Iv{#1 -d$1-doc/   -cjavahelp -cvalidatehtml  -m644}
+\make{jh}
+\Ii{,html,javahelp,xml,3.2,unicode,jh1.0}
+\Iii{-i~/tex4ht.dir/texmf/tex4ht/ht-fonts/#1 -cmozhtf -u10}
+\Iv{#1 -d$texFile-doc/  -cjavahelp1 -m644  }
+\make{jh1}
+
+
+%%%%%%%%%%%%%%%%%%
+\section{MS Window Scripts}
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%
+\Options{bat}
+%%%%%%%%%%%%%%%%%%
+%%%%%%%%%
+\Ext{bat}
+%%%%%%%%%
+\Base{}
+\Quote{}
+\Argchar{%}
+\Dirchar{}
+\Rubycall{call }
+\Echooff{@echo off}
+\Remark{Rem }
+
+\ifOption{Needs}{\Script{%
+   \Needs{"mkdir -p mn.dir/ht-win32"}%
+   \Needs{"cp #1.#2  mn.dir/ht-win32/."}%
+}}{}
+\Script{%                        #1 -- file    #2 -- extension
+   \Needs{"mkdir -p /opt/cvr/gurari/tex4ht.dir/bin/ht/win32"}%
+   \Needs{"mv #1.#2  /opt/cvr/gurari/tex4ht.dir/bin/ht/win32/#1.#2"}%
+   \Needs{"chmod 744 /opt/cvr/gurari/tex4ht.dir/bin/ht/win32/#1.#2"}%
+}
+
+\Ii{,html}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env}
+\Iv{#1 -ewin32/tex4ht.env  }
+
+\make{ht}
+\<ht.bat\><<<
+|<windows line|>
+        %1 %2
+        %1 %2
+        %1 %2
+        tex4ht %2
+        t4ht %2  %3
+>>>
+\OutputCodE\<ht.bat\>    \script{ht}{bat}  %
+\Ii{,xhtml}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env}
+\Iv{#1 -ewin32/tex4ht.env -cvalidate }
+\make{xh}
+\Ii{,xhtml,uni-html4}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env
+      -cunihtf}
+\Iv{#1 -ewin32/tex4ht.env -cvalidate }
+\make{uxh}
+\Ii{,xhtml,mathml}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env -cunihtf}
+\Iv{#1 -ewin32/tex4ht.env -cvalidate }
+\make{xhm}
+\Ii{,xhtml,mozilla}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env  -cmozhtf}
+\Iv{#1 -ewin32/tex4ht.env -cvalidate }
+\make{mz}
+\Ii{,xhtml,ooffice}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env -cmozhtf}
+\Iv{#1 -cooxtpipes -coo -ewin32/tex4ht.env -cvalidate }
+\make{oo}
+\Ii{,xhtml,emspk}
+\Iii{-itex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env  -cemspkhtf -s4es}
+\Iv{#1 -ewin32/tex4ht.env -cemspk }
+\make{es}
+\Ii{,xhtml,jsml}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env  -cjsmlhtf }
+\Iv{#1 -ewin32/tex4ht.env -cjsml }
+\make{js}
+\Ii{,xhtml,jsmath}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env  -cmozhtf }
+\Iv{#1 -ewin32/tex4ht.env  }
+\make{jm}
+\Ii{,xhtml,tei}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env -cunihtf}
+\Iv{#1 -ewin32/tex4ht.env -cvalidate }
+\make{tei}
+
+\Ii{,xhtml,tei-mml}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env -cunihtf}
+\Iv{#1 -ewin32/tex4ht.env -cvalidate }
+\make{teim}
+\Ii{,xhtml,docbook}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env -cunihtf}
+\Iv{#1 -ewin32/tex4ht.env -cvalidate -cdocbk }
+\make{db}
+
+\Ii{,xhtml,docbook-mml}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env -cunihtf}
+\Iv{#1 -ewin32/tex4ht.env -cvalidate -cdocbk }
+\make{dbm}
+\Ii{,xhtml,word}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env  -csymhtf}
+\Iv{#1 -ewin32/tex4ht.env -cvalidate }
+\make{w}
+\Ii{,html,javahelp,xml,3.2,unicode}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env
+      -cmozhtf -u10}
+\Iv{#1 -ewin32/tex4ht.env -d%1-doc\ -cjavahelp }
+\make{jh}
+\Ii{,html,javahelp,xml,3.2,unicode,jh1.0}
+\Iii{-i/tex4ht/ht-fonts/#1
+     -ewin32/tex4ht.env
+      -cmozhtf -u10}
+\Iv{#1 -ewin32/tex4ht.env -d%1-doc\ -cjavahelp1 }
+\make{jh1}
+
+\immediate\write16{--------------------------------------------------------}
+\immediate\write16{* Compile mkht-scripts.4ht with latex to get the
+                                                              full scripts.}
+\immediate\write16{* For shorter latex2e scripts, compile a file whose
+                                                                content is:}
+\immediate\write16{\space\space\space\space\def\string\latex{2e}
+                                      \string\input\space mkht-scripts.4ht }
+\immediate\write16{* For shorter latex209 scripts, compile a file whose
+                                                                content is:}
+\immediate\write16{\space\space\space\space\def\string\latex{209}
+                                      \string\input\space mkht-scripts.4ht }
+\immediate\write16{* Remove the extension .unix from the file names        }
+\immediate\write16{--------------------------------------------------------}
+
+
+\end{document}
+

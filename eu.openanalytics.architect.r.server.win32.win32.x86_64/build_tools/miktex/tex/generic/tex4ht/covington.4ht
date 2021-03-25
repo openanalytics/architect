@@ -1,0 +1,90 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% covington.4ht                        2009-05-21-09:32 %
+% Copyright (C) 2009             Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \pend:defI\sentence{\a:sentence}
+\append:defI\sentence{\b:sentence}
+\NewConfigure{sentence}{2}
+\bgroup
+\catcode`\^^M=12 \endlinechar=-1 % 12 = other
+\gdef\twosent#1^^M#2^^M%
+   {\getwords(\lineone,\eachwordone)#1 ^^M%
+    \getwords(\linetwo,\eachwordtwo)#2 ^^M%
+    \loop\lastword{\eachwordone}{\lineone}{\wordone}%
+         \lastword{\eachwordtwo}{\linetwo}{\wordtwo}%
+         \global\setbox\gline=\hbox{\unhbox\gline
+                                    \hskip\glossglue
+                                    \vtop{\a:tsent\box\wordone
+                                          \c:tsent
+                                          \box\wordtwo
+                                          \b:tsent
+                                         }%
+                                   }%
+         \testdone
+         \ifnotdone
+    \repeat
+    \egroup % matches \bgroup in \gloss
+}
+
+\gdef\threesent#1^^M#2^^M#3^^M%
+   {\getwords(\lineone,\eachwordone)#1 ^^M%
+    \getwords(\linetwo,\eachwordtwo)#2 ^^M%
+    \getwords(\linethree,\eachwordthree)#3 ^^M%
+    \loop\lastword{\eachwordone}{\lineone}{\wordone}%
+         \lastword{\eachwordtwo}{\linetwo}{\wordtwo}%
+         \lastword{\eachwordthree}{\linethree}{\wordthree}%
+         \global\setbox\gline=\hbox{\unhbox\gline
+                                    \hskip\glossglue
+                                    \vtop{\a:tsent\box\wordone
+                                          \c:tsent
+                                          \box\wordtwo
+                                          \c:tsent
+                                          \box\wordthree
+                                          \b:tsent
+                                         }%
+                                   }%
+         \testdone
+         \ifnotdone
+    \repeat
+    \egroup % matches \bgroup in \gloss
+   }
+
+\egroup
+\NewConfigure{tsent}{3}
+\pend:def\gll{\a:gll}
+\pend:def\glll{\a:gll}
+\NewConfigure{gll}{3}
+\def\:tempc{\b:gll\end{flushleft}\c:gll}
+\HLet\glend\:tempc
+\def\glt{{\hskip -\glossglue}\unhbox\gline\smallskip\a:glt}
+\NewConfigure{glt}{1}
+\def\gln{{\hskip -\glossglue}\unhbox\gline\hfill\a:gln}
+\NewConfigure{gln}{1}
+
+\Hinput{covington}
+\endinput
+

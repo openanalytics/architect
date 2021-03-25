@@ -1,0 +1,61 @@
+% This is a result of my reverse engeneering of the luaotfload.sty package.
+% LuaTeX needs these \directlua in order to \font primitive works like in XeTeX.
+% Petr Olsak     Nov. 2012,  Nov. 2013
+
+\ifx\luafonts\undefined \else \message{...skipping}\endinput\fi
+\global\let\luafonts=\relax
+
+\openin15=ltluatex.tex
+\ifeof15 \else \closein15  %%%%%%%%%%%%% ltluatex exists
+
+\expandafter\ifx\csname e@alloc@attribute@count\endcsname \relax
+   \csname newcount\expandafter \endcsname \csname e@alloc@attribute@count\endcsname
+   \csname e@alloc@attribute@count\endcsname=-1 \fi
+
+\message{processing ltluatex.lua (3)}
+\directlua{
+  require("ltluatex")
+  require('luaotfload-main') local _void = luaotfload.main ()
+}
+\endinput \fi           
+
+\ifnum\luatexversion>75  %%%%%%%%%%%%% LuaTeXversion = 76...80
+
+\ifnum\luatexversion<79 \def\luaotfloadfile{luaotfload}
+\else \def\luaotfloadfile{luaotfload-main}\fi
+
+\message{processing luaotfload.lua (2)}
+\expandafter\ifx\csname LuT@AllocAttribute\endcsname \relax
+   \csname newcount\expandafter \endcsname \csname LuT@AllocAttribute\endcsname \fi
+\csname LuT@AllocAttribute\endcsname=-1
+\directlua{luatexbase = luatexbase or {}
+              luatexbase.luatexversion = \the\luatexversion\space
+              luatexbase.luatexrevision = \luatexrevision\space
+           require('luatexbase.modutils')
+           require('luatexbase.attr')
+           oriwrite = texio.write_nl % I don't need to see unusual info
+           function texio.write_nl(...) end
+           require('luatexbase.mcb')
+           luatexbase.require_module('\luaotfloadfile')
+           texio.write_nl = oriwrite % return to original meaning
+}
+\endinput \fi
+
+\ifnum\luatexversion<76  %%%%%%%%%%%%% LuaTeXvesion < 76: 
+
+\message{processing luaotfload.lua (1)}
+\directlua{luatexbase = luatexbase or {} 
+              luatexbase.luatexversion = \the\luatexversion\space
+              luatexbase.luatexrevision = \luatexrevision\space
+           require('luatexbase.attr')
+           require('luatexbase.cctb')
+           require('luatexbase.modutils')
+	   oriwrite = texio.write_nl % I don't need to see unusual info
+	   function texio.write_nl(...) end
+           require('luatexbase.mcb')
+           luatexbase.require_module('lualibs')
+           luatexbase.require_module('luaotfload')
+	   texio.write_nl = oriwrite % return to original meaning
+}
+\endinput \fi
+

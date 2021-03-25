@@ -1,0 +1,201 @@
+% This is an auxiliary file which prepares reading a CM
+% parametric file using method of
+% Bogus\l{}aw Jackowski \& Marek Ry\'cko
+% ---------------------------------------------------------------------------
+% Copyright (C) 1991--1998   Petr Novak <Petr.Novak@internet.cz>
+%                            Karel Horak <horakk@cesnet.cz>
+%                            Ladislav Lhotka <lhotka@jcu.cz>
+%                            Petr Olsak <olsak@math.feld.cvut.cz>                      
+% 
+%  The files included in this directory are the METAFONT sources 
+%  for CSfonts. It is free software; you can redistribute it and/or 
+%  modify it under the terms of the GNU General Public License as 
+%  published by the Free Software Foundation; either version 2 of 
+%  the License, or (at your option) any later version.
+%
+%  This program is distributed in the hope that it will be useful,
+%  but WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%  GNU General Public License for more details.
+%
+%  You should have received a copy of the GNU General Public License
+%  along with this program; if not, write to the Free Software
+%  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+if unknown cmbase: input cmbase fi
+
+% the following codes correspond to the ISO-Latin2
+numeric lowc[];
+cs_shift = 0; cs_uc = -32;
+%
+for $=225,232,239,236,224,252,237,249,229,197,246,242,243,244,228,248,
+     185,187,250,233,253,190,184:  lowc[$+cs_uc]=$+cs_shift;
+endfor
+lowc[165]:=181;
+lowc[169]:=185;
+lowc[171]:=187;
+lowc[174]:=190;
+%
+      cs_aa =225+cs_shift; cs_AA=cs_aa+cs_uc;
+      cs_cz =232+cs_shift; cs_CZ=cs_cz+cs_uc;
+      cs_dj =239+cs_shift; cs_DJ=cs_dj+cs_uc;
+      cs_ie =236+cs_shift; cs_IE=cs_ie+cs_uc;
+      cs_rr =224+cs_shift; cs_RR=cs_rr+cs_uc;
+      cs_ue =252+cs_shift; cs_UE=cs_ue+cs_uc;
+      cs_ii =237+cs_shift; cs_II=cs_ii+cs_uc;
+      cs_ou =249+cs_shift; cs_OU=cs_ou+cs_uc;
+      cs_ll =229+cs_shift; cs_LL=cs_ll+cs_uc;
+      cs_lj =181;          cs_LJ=165;
+      cs_oe =246+cs_shift; cs_OE=cs_oe+cs_uc;
+      cs_nj =242+cs_shift; cs_NJ=cs_nj+cs_uc;
+      cs_oo =243+cs_shift; cs_OO=cs_oo+cs_uc;
+      cs_uo =244+cs_shift; cs_UO=cs_uo+cs_uc;
+      cs_ae =228+cs_shift; cs_AE=cs_ae+cs_uc;
+      cs_rz =248+cs_shift; cs_RZ=cs_rz+cs_uc;
+      cs_sh =185+cs_shift; cs_SH=169;
+      cs_tj =187+cs_shift; cs_TJ=171;
+      cs_uu =250+cs_shift; cs_UU=cs_uu+cs_uc;
+      cs_ee =233+cs_shift; cs_EE=cs_ee+cs_uc;
+      cs_yy =253+cs_shift; cs_YY=cs_yy+cs_uc;
+      cs_zh =190+cs_shift; cs_ZH=174;
+      cs_ax =184+cs_shift; cs_AX=cs_ax+cs_uc;
+% additional characters
+
+ single_opening_quote:=240; % ,
+ single_closing_quote:=241; % `
+ opening_quotes:=254;       % ,,
+ closing_quotes:=255;       % ``
+ french_opening_quotes:=158; % <<
+ french_closing_quotes:=159; % >>
+ oneperthousand:=141; %.
+ ogonek:=157;
+ cs_hyph = 156;  %% ^^c4(ý) ýý> ^^9c in *.tcp is recommended
+
+%
+% % the following codes correspond to the Cork scheme
+% numeric lowc[];
+% cs_shift = 128; cs_uc = -32;
+%
+% for $=97,66,35,36,37,47,71,124,109,55,40,41,118,44,115,116,100,48,50,
+%     52,122,86,105,88,125,58: lowc[$+cs_shift+cs_uc]=$+cs_shift;
+% endfor
+%
+% cs_aa = 97+cs_shift; cs_AA=cs_aa+cs_uc;
+% cs_qb = 66+cs_shift;%
+% cs_cz = 35+cs_shift; cs_CZ=cs_cz+cs_uc;
+% cs_dj = 36+cs_shift; cs_DJ=cs_dj+cs_uc;
+% cs_ie = 37+cs_shift; cs_IE=cs_ie+cs_uc;
+% cs_rr = 47+cs_shift; cs_RR=cs_rr+cs_uc;
+% cs_qg = 71+cs_shift;%
+% cs_ue = 124+cs_shift; cs_UE=cs_ue+cs_uc;
+% cs_ii = 109+cs_shift; cs_II=cs_ii+cs_uc;
+% cs_ou = 55+cs_shift; cs_OU=cs_ou+cs_uc;
+% cs_ll = 40+cs_shift; cs_LL=cs_ll+cs_uc;
+% cs_lj = 41+cs_shift; cs_LJ=cs_lj+cs_uc;
+% cs_oe = 118+cs_shift; cs_OE=cs_oe+cs_uc;
+% cs_nj = 44+cs_shift; cs_NJ=cs_nj+cs_uc;
+% cs_oo = 115+cs_shift; cs_OO=cs_oo+cs_uc;
+% cs_uo = 116+cs_shift; cs_UO=cs_uo+cs_uc;
+% cs_ae = 100+cs_shift; cs_AE=cs_ae+cs_uc;
+% cs_rz = 48+cs_shift; cs_RZ=cs_rz+cs_uc;
+% cs_sh = 50+cs_shift; cs_SH=cs_sh+cs_uc;
+% cs_tj = 52+cs_shift; cs_TJ=cs_tj+cs_uc;
+% cs_uu = 122+cs_shift; cs_UU=cs_uu+cs_uc;
+% cs_qv = 86+cs_shift;%
+% cs_ee = 105+cs_shift; cs_EE=cs_ee+cs_uc;
+% cs_ax = 88+cs_shift; cs_AX=cs_ax+cs_uc;
+% cs_yy = 125+cs_shift; cs_YY=cs_yy+cs_uc;
+% cs_zh = 58+cs_shift;  cs_ZH=cs_zh+cs_uc;
+
+% % additional characters
+
+% single_opening_quote:=240; % ,
+% single_closing_quote:=241; % `
+% opening_quotes:=254;       % ,,
+% closing_quotes:=255;       % ``
+% french_opening_quotes:=248; % <<
+% french_closing_quotes:=249; % >>
+% oneperthousand:=141; %.
+% ogonek:=157;
+% cs_hyph = 156;  %% ^^c4(ý) ýý> ^^9c in *.tcp is recommended
+
+
+if unknown improve_kerns: boolean improve_kerns; improve_kerns=true; fi;
+
+% redefinition of generate
+% ---------------------------------------------------------------------------
+
+string driver_name,ss; numeric ii;
+
+vardef generate @# = driver_name:=str @#; endgroup enddef;
+
+vardef use_driver @# =
+% |@#| is either empty or equals to the pt-size of the driver
+ if unknown param_base:
+% in sophisticated applications a user may wish to specify
+% |param_base| prior to calling |use_driver|:
+  string param_base; param_base=jobname;
+  string new_param_b;
+  if (substring(0,2) of param_base) = "cs":
+    new_param_b := "cm"&substring(2,8) of param_base;
+  elseif (substring(1,3) of param_base) = "cs":
+    new_param_b := substring(0,1) of param_base&"cm"&
+                   substring(3,8) of param_base;
+  elseif (substring(2,4) of param_base) = "cs":
+   new_param_b := substring(0,2) of param_base&"cm"&
+                  substring(4,8) of param_base;
+  fi;
+  param_base := new_param_b;
+ fi
+ ii:=0;
+ forever:
+  ii:=ii+1;
+  ss:=substring(length(param_base)-ii,length(param_base)-ii+1) of param_base;
+  exitif (ss<"0") or (ss>"9");
+ endfor;
+ ii:=ii-1;
+ if str@# <> "":
+  numeric scale;
+  scale=scantokens(
+   substring(length(param_base)-ii,length(param_base)) of param_base)/@#;
+  numeric true_pt#; true_pt#=pt#; pt#:=scale*true_pt#;
+% |ogonek_pen#| is the only sharp extra PL parameter; it must be treated
+% differently:
+% if known ogonek_pen#: ogonek_pen#:=scale*ogonek_pen#; fi
+  scantokens(
+   "input "&(substring(0,length(param_base)-ii) of param_base)&str @#);
+  pt#:=true_pt#;
+ else:
+  scantokens("input "&param_base);
+ fi
+ font_identifier:=substring(0,length(param_base)-ii) of param_base;
+ scantokens("input "&
+ if driver_name="roman": "kmroman"
+  elseif driver_name="sroman": "kmroman"
+  elseif driver_name="textit": "kmtextit"
+  elseif driver_name="csc": "kmcsc"
+  elseif driver_name="texset": "kmtexset"
+  elseif driver_name="title": "kmtitle"
+  else: driver_name fi);
+enddef;
+
+% The proportion of |vair/stem| depends drastically on resolution;
+% e.g., for 300 dpi cmbx10 |vair=1| and |stem=5|, for 746 dpi cmbx10
+% (300 dpi, magstep 5) |vair=4| and |stem=12|, while, sharply speaking,
+% |stem#/vair#=3.15381|; hence a new variable |xvair| has been introduced
+% to be used in some crucial places instead of |vair|.
+vardef xvair = stem*vair#/stem# enddef;
+
+%%% italcorr corrital
+% correction of italic correction (cf. D. E. Knuth, The \MF{}book, p. 105):
+vardef corrital z suffix $ =
+% |z$| is the rightmost position of a pen (in accent path)
+ if not monospace:
+  save charic_; charic_=(rt(x$)-r)/hppp+slant*y$/vppp+.5u#;
+  if charic_>charic: charic:=charic_; fi
+%| else: %| |charic=mono_charic#|, do nothing
+ fi
+enddef;
+
+endinput;
+%%\end

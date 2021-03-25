@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% amscd.4ht                             2009-05-21-09:32 %
+% Copyright (C) 2000--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:CD{%
+  \CDat
+  \bgroup\relax\iffalse{\fi\let\ampersand@&\iffalse}\fi
+  \CD@true\vcenter\bgroup
+     \let\\\math@cr\restore@math@cr\default@tag
+\SaveMkHalignConf:g{CD}\HRestore\noalign
+   \MkHalign#{&$\m@th#$}%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr
+  \EndMkHalign\RecallMkHalignConfig \b:CD \egroup\egroup
+}
+\HLet\endCD\:tempc
+\def\:temp{\pic:MkHalign{CD}}
+\HLet\CD\:temp
+\NewConfigure{CD}{6}
+\def\:tempc#1>#2>{\ampersand@
+  \ifCD@ \global\bigaw@\minCDarrowwidth \else \global\bigaw@\minaw@ \fi
+  \setboxz@h{$\m@th\scriptstyle\;{#1}\;\;$}%
+  \ifdim\wdz@>\bigaw@\global\bigaw@\wdz@\fi
+  \@ifnotempty{#2}{\setbox\@ne\hbox{$\m@th\scriptstyle\;{#2}\;\;$}%
+    \ifdim\wd\@ne>\bigaw@\global\bigaw@\wd\@ne\fi}%
+  \ifCD@\enskip\fi
+  \csname a: @>\endcsname
+  \mathrel {%
+      \mathop{\hbox to\bigaw@{\rightarrowfill@\displaystyle}}%
+      \if !#2!\limits\sp{#1}\else \limits\sp{#1}\sb{#2}\fi}%
+ \ifCD@\enskip\fi \ampersand@}
+\expandafter\HLet\csname\space @>\endcsname\:tempc
+\NewConfigure{ @>}{1}
+\def\:tempc#1<#2<{\ampersand@
+  \ifCD@ \global\bigaw@\minCDarrowwidth \else \global\bigaw@\minaw@ \fi
+  \setboxz@h{$\m@th\scriptstyle\;\;{#1}\;$}%
+  \ifdim\wdz@>\bigaw@ \global\bigaw@\wdz@ \fi
+  \@ifnotempty{#2}{\setbox\@ne\hbox{$\m@th\scriptstyle\;\;{#2}\;$}%
+    \ifdim\wd\@ne>\bigaw@ \global\bigaw@\wd\@ne \fi}%
+  \ifCD@\enskip\fi
+  \csname a: @<\endcsname
+    \mathrel{\mathop{\hbox to\bigaw@{\leftarrowfill@\displaystyle}}%
+      \if !#2!\limits\sp{#1}\else \limits\sp{#1}\sb{#2}\fi}%
+  \ifCD@\enskip\fi \ampersand@}
+\expandafter\HLet\csname\space @<\endcsname\:tempc
+\NewConfigure{ @<}{1}
+\def\:tempc#1V#2V{\CD@check{V..V..V}{%
+  \csname a: @V\endcsname{#1}{#2}}%
+  \llap{$\m@th\vcenter{\hbox
+  {$\scriptstyle#1$}}$}\Big\downarrow
+  \rlap{$\m@th\vcenter{\hbox{$\scriptstyle#2$}}$}%
+  \csname b: @V\endcsname{#1}{#2}%
+  &&}
+\expandafter\HLet\csname\space @V\endcsname\:tempc
+\NewConfigure{ @V}[2]{%
+   \expandafter\def\csname a: @V\endcsname##1##2{#1}%
+   \expandafter\def\csname b: @V\endcsname##1##2{#2}}
+\Configure{ @V}{}{}
+
+\Hinput{amscd}
+\endinput
+

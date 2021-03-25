@@ -1,0 +1,98 @@
+%!PS-Adobe-3.0 Resource-Encoding
+%
+% @psencodingfile{
+%   author = "Werner Lemberg, Michail Vidiassov",
+%   version = "1.0",
+%   date = "2006-Feb-03",
+%   filename = "groff.enc",
+%   license = "public domain",
+%   email = "groff@gnu.org",
+%   docstring = "Groff default text encoding.  Used with MetaPost."
+% }
+
+%%BeginResource: encoding groffEncoding
+/groffEncoding [
+% 0x00 | 0
+  /asciicircum     /asciitilde        /Scaron            /Zcaron
+  /scaron          /zcaron            /Ydieresis         /trademark
+  /quotesingle     /Euro              /.notdef           /.notdef
+  /.notdef         /.notdef           /.notdef           /.notdef
+% 0x10 | 16
+  /.notdef         /.notdef           /.notdef           /.notdef
+  /.notdef         /.notdef           /.notdef           /.notdef
+  /.notdef         /.notdef           /.notdef           /.notdef
+  /.notdef         /.notdef           /.notdef           /.notdef
+% 0x20 | 32
+  /space           /exclam            /quotedbl          /numbersign
+  /dollar          /percent           /ampersand         /quoteright
+  /parenleft       /parenright        /asterisk          /plus
+  /comma           /hyphen            /period            /slash
+% 0x30 | 48
+  /zero            /one               /two               /three
+  /four            /five              /six               /seven
+  /eight           /nine              /colon             /semicolon
+  /less            /equal             /greater           /question
+% 0x40 | 64
+  /at              /A                 /B                 /C
+  /D               /E                 /F                 /G
+  /H               /I                 /J                 /K
+  /L               /M                 /N                 /O
+% 0x50 | 80
+  /P               /Q                 /R                 /S
+  /T               /U                 /V                 /W
+  /X               /Y                 /Z                 /bracketleft
+  /backslash       /bracketright      /circumflex        /underscore
+% 0x60 | 96
+  /quoteleft       /a                 /b                 /c
+  /d               /e                 /f                 /g
+  /h               /i                 /j                 /k
+  /l               /m                 /n                 /o
+% 0x70 | 112
+  /p               /q                 /r                 /s
+  /t               /u                 /v                 /w
+  /x               /y                 /z                 /braceleft
+  /bar             /braceright        /tilde             /.notdef
+% 0x80 | 128
+  /quotesinglbase  /guillemotleft     /guillemotright    /bullet
+  /florin          /fraction          /perthousand       /dagger
+  /daggerdbl       /endash            /emdash            /ff
+  /fi              /fl                /ffi               /ffl
+% 0x90 | 144
+  /dotlessi        /dotlessj          /grave             /hungarumlaut
+  /dotaccent       /breve             /caron             /ring
+  /ogonek          /quotedblleft      /quotedblright     /oe
+  /lslash          /quotedblbase      /OE                /Lslash
+% 0xA0 | 160
+  /.notdef         /exclamdown        /cent              /sterling
+  /currency        /yen               /brokenbar         /section
+  /dieresis        /copyright         /ordfeminine       /guilsinglleft
+  /logicalnot      /minus             /registered        /macron
+% 0xB0 | 176
+  /degree          /plusminus         /twosuperior       /threesuperior
+  /acute           /mu                /paragraph         /periodcentered
+  /cedilla         /onesuperior       /ordmasculine      /guilsinglright
+  /onequarter      /onehalf           /threequarters     /questiondown
+% 0xC0 | 192
+  /Agrave          /Aacute            /Acircumflex       /Atilde
+  /Adieresis       /Aring             /AE                /Ccedilla
+  /Egrave          /Eacute            /Ecircumflex       /Edieresis
+  /Igrave          /Iacute            /Icircumflex       /Idieresis
+% 0xD0 | 208
+  /Eth             /Ntilde            /Ograve            /Oacute
+  /Ocircumflex     /Otilde            /Odieresis         /multiply
+  /Oslash          /Ugrave            /Uacute            /Ucircumflex
+  /Udieresis       /Yacute            /Thorn             /germandbls
+% 0xE0 | 224
+  /agrave          /aacute            /acircumflex       /atilde
+  /adieresis       /aring             /ae                /ccedilla
+  /egrave          /eacute            /ecircumflex       /edieresis
+  /igrave          /iacute            /icircumflex       /idieresis
+% 0xF0 | 240
+  /eth             /ntilde            /ograve            /oacute
+  /ocircumflex     /otilde            /odieresis         /divide
+  /oslash          /ugrave            /uacute            /ucircumflex
+  /udieresis       /yacute            /thorn             /ydieresis
+] def
+%%EndResource
+
+% eof

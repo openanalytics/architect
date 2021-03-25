@@ -1,0 +1,12 @@
+.sy-anttlz
+htfcss: sy-anttbi  font-style:italic; font-weight: bold;
+htfcss: sy-anttcbi  font-style:italic; font-weight: bold;
+htfcss: sy-anttchi  font-style:italic; font-weight: bold;
+htfcss: sy-anttcli  font-weight: light; font-style:italic;
+htfcss: sy-anttcmi  font-style:italic;
+htfcss: sy-anttcri  font-style:italic;
+htfcss: sy-antthi  font-style:italic; font-weight: bold;
+htfcss: sy-anttli  font-weight: light; font-style:italic;
+htfcss: sy-anttmi  font-style:italic;
+htfcss: sy-anttri  font-style:italic;
+

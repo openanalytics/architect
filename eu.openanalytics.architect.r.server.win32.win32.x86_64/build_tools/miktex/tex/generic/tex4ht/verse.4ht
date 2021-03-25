@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% verse.4ht                             2009-05-21-09:32 %
+% Copyright (C) 2003--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\def\@vsptitle[#1]#2{%
+  \csname phantomsection\endcsname
+%
+  \a:poemtitle
+  \addcontentsline{toc}{\poemtoc}{#1}
+  \poemtitlemark{#1}%
+  \b:poemtitle
+  \@vstypeptitle{#2}%
+  \c:poemtitle
+  \@afterheading}
+\def\@vssptitle#1{%
+  \a:likepoemtitle
+  \@vstypeptitle{#1}%
+  \b:likepoemtitle
+  \@afterheading}
+\NewConfigure{poemtitle}{3}
+\NewConfigure{likepoemtitle}{2}
+\pend:def\@vscentercr{%
+   \let\incr:vsline\incr@vsline
+   \def\incr@vsline{\let\incr@vsline\incr:vsline}%
+}
+\pend:def\start@vsline{\a:verseline  \incr@vsline}
+\renewcommand{\@vsifbang}[1]{\@ifnextchar !{%
+   \b:verseline\incr@vsline \@firstoftwo{#1}}}
+\expand:after{\let\sv:verse}\csname \string\verse\endcsname
+\expandafter\def\csname \string\verse\endcsname[#1]{%
+   \let\:temp\refstepcounter
+   \def\refstepcounter##1\let{\let\refstepcounter\:temp\let}%
+   \sv:verse[#1]%
+   \a:verseline  \expandafter\ifx \csname c@verse\endcsname\relax \else
+   \refstepcounter{verse}%
+\fi
+%
+   \setcounter{poemline}{0}%
+   \setcounter{vslineno}{1}%
+   \incr@vsline
+}
+\NewConfigure{verseline}{2}
+\pend:defI\flagverse{\a:flagverse}
+\append:defI\flagverse{\b:flagverse}
+\NewConfigure{flagverse}{2}
+
+\Hinput{verse}
+\endinput
+

@@ -1,0 +1,9 @@
+.lm-rep-plrm
+htfcss: plss  font-family: sans-serif;
+htfcss: plssbi  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: plssbx  font-family: sans-serif; font-weight: bold;
+htfcss: plssdc  font-family: sans-serif;
+htfcss: plssi  font-family: sans-serif; font-style: oblique;
+htfcss: plssq  font-family: sans-serif;
+htfcss: plssqi  font-family: sans-serif; font-style: oblique;
+

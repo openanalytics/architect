@@ -1,0 +1,12 @@
+.sy-iwona
+htfcss: sy-kurierli  font-weight: light; font-style:italic;
+htfcss: sy-kurierri  font-style:italic;
+htfcss: sy-kuriermi  font-style:italic;
+htfcss: sy-kurierbi  font-style:italic; font-weight: bold;
+htfcss: sy-kurierhi  font-style:italic; font-weight: bold;
+htfcss: sy-kuriercli  font-weight: light; font-style:italic;
+htfcss: sy-kuriercri  font-style:italic;
+htfcss: sy-kuriercmi  font-style:italic;
+htfcss: sy-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: sy-kurierchi  font-style:italic; font-weight: bold;
+

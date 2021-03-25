@@ -1,0 +1,4 @@
+PKGBUILD eol=lf
+*.patch eol=lf
+*.diff eol=lf
+*.sh eol=lf

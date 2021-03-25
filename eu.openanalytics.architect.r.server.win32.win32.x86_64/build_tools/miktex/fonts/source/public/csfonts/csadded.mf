@@ -1,0 +1,219 @@
+% ---------------------------------------------------------------------------
+% opening and closing quotes (european styled) and
+% French quotation marks:  (<< and >>),
+% promile (oneperthousand) in text format are added.
+% The program is based on excerpts from the COMLIG.MF and ROMSUB.MF files.
+% Bogus\l{}aw Jackowski \& Marek Ry\'cko
+% ---------------------------------------------------------------------------
+% This file belongs to the public domain under conditions similar to
+% those of D. E. Knuth specified for the Computer Modern family of fonts.
+% 
+
+
+% ---------------------------------------------------------------------------
+%%% italcorr corrital
+numeric qvair; qvair=max(round(xvair),fine+epsilon); % |qvair| = quotes vair
+% ---------------------------------------------------------------------------
+cmchar "Opening quotes";
+if ligs>0:
+% in typical fonts the opening quotation mark is based on COMLIG's
+% |"Closing quotes"|:
+beginchar(opening_quotes,7u#+max(2u#,dot_size#),dot_size#,
+  comma_depth#);
+ adjust_fit(0,0);
+ x2+.5dot_size=hround(w-1.2u);
+ y2+.5dot_size=h;
+ x2-x1=hround(1.5u+max(2u,dot_size));
+ y2=y1;
+ comma(1,a,dot_size,.25u,comma_depth); % left dot and tail
+ comma(2,b,dot_size,.25u,comma_depth); % right dot and tail
+ penlabels(1,2);
+else:
+% in tt-like fonts the opening quotation mark are based on ROMSUB's
+% |"Straight double quote"|:
+beginchar(opening_quotes,9u#,asc_height#,0);
+ numeric top_width#,spread#,shifth_down;
+ top_width#=if serifs: flare# else: stem# fi;
+ spread#=max(3u#,top_width#+.5u#); define_pixels(spread);
+ adjust_fit(0,0);
+ numeric the_shift;
+ x1=x2; x3=x4=w-x1; x3-x1=spread+2; y1=y3;
+ y2=y4=max(.5[bar_height,x_height]+.5vair,h-x_height)-the_shift;
+ if serifs:
+  y1=flare/2; the_shift=h-.5stem-y1;
+  pickup crisp.nib;
+  pos1(flare,0); pos2(vair,0); pos3(flare,0); pos4(vair,0);
+  filldraw circ_stroke (z1e--z2e); % left stem and bulb
+  filldraw circ_stroke (z3e--z4e); % right stem and bulb
+ else:
+  top y1=stem; the_shift=h-y1;
+  pickup fine.nib;
+  pos1(stem,0); pos2(vair,0); pos3(stem,0); pos4(vair,0);
+  filldraw stroke z1e--z2e; % left stem
+  filldraw stroke z3e--z4e; % right stem
+ fi
+ charht:=dot_size#; chardp:=desc_depth#;
+ penlabels(1,2,3,4);
+fi
+endchar;
+
+cmchar "Closing quotes";
+if ligs>0:
+beginchar(closing_quotes,7u#+max(2u#,dot_size#),asc_height#,0);
+italcorr asc_height#*slant-.1u#;
+adjust_fit(0,0);
+x1-.5dot_size=hround 1.2u; y1+.5dot_size=h-comma_depth;
+x2-x1=hround(1.5u+max(2u,dot_size)); y2=y1;
+ammoc(1,a,dot_size,.25u,comma_depth); % left dot and tail
+ammoc(2,b,dot_size,.25u,comma_depth); % right dot and tail
+penlabels(1,2); 
+else:
+% in tt-like fonts the closing quotation mark are same as ROMSUB's
+% |"Straight double quote"|:
+beginchar(closing_quotes,9u#,asc_height#,0);
+numeric top_width#,spread#; top_width#=if serifs: flare# else: stem# fi;
+spread#=max(3u#,top_width#+.5u#); define_pixels(spread);
+italcorr asc_height#*slant+.5top_width#+.5spread#-4u#;
+adjust_fit(0,0);
+x1=x2; x3=x4=w-x1; x3-x1=spread+2; y1=y3;
+y2=y4=max(.5[bar_height,x_height]+.5vair,h-x_height);
+if serifs: pickup crisp.nib; pos1(flare,0); pos2(vair,0);
+ pos3(flare,0); pos4(vair,0);
+ y1+.5stem=h; filldraw circ_stroke z1e--z2e;  % left stem and bulb
+ filldraw circ_stroke z3e--z4e;  % right stem and bulb
+else: pickup fine.nib; pos1(stem,0); pos2(vair,0);
+ pos3(stem,0); pos4(vair,0);
+ top y1=h; filldraw stroke z1e--z2e;  % left stem
+ filldraw stroke z3e--z4e; fi  % right stem
+penlabels(1,2,3,4);
+fi  endchar;
+% ------------------------------------------------------------------------
+cmchar "French opening quotes";
+
+beginchar(french_opening_quotes,if not serifs or monospace:9u#
+else: 10u# fi,2bar_height#,0); 
+ adjust_fit(0,0); 
+ pickup fine.nib;
+ numeric the_shift,shift_corr;
+ the_shift=hround(max(3u,1.7stem)); shift_corr=the_shift-3u;
+ pos1(qvair,0); pos2(if monospace: qvair else: stem fi,0); pos3(qvair,0);
+ rt x1r=rt x3r=hround(5u-shift_corr)-eps;
+ lft x2l=hround(if not monospace: 2 fi\\ u-shift_corr)-eps;
+ bot y3=0; y2=good.y(h/2); top y1=2y2;
+ for i:=1,2,3:
+  forsuffixes $:=r, ,l: z[i]'$=z[i]$ + the_shift*right; endfor
+ endfor
+ if not serifs or monospace:
+  filldraw stroke z1e--z2e--z3e; filldraw stroke z1'e--z2'e--z3'e;
+ else:
+  filldraw stroke
+   z1e{(x2e-x1e),1.8(y2e-y1e)}..{curl1}z2e{curl1}..
+   {(x3e-x2e),1.8(y3e-y2e)}z3e;
+  filldraw stroke
+   z1'e{(x2'e-x1'e),1.8(y2'e-y1'e)}..{curl1}z2'e{curl1}..
+   {(x3'e-x2'e),1.8(y3'e-y2'e)}z3'e;
+ fi;
+% italic correction is set to |0| in |beginchar|, so let's correct it
+ corrital z1'r;
+ penlabels(1,2,3,1',2',3');
+endchar; % French opening quotes
+% ------------------------------------------------------------------------
+cmchar "French closing quotes";
+
+beginchar(french_closing_quotes,if not serifs or monospace: 9u# 
+else: 10u# fi,2bar_height#,0); 
+ adjust_fit(0,0);
+ pickup fine.nib;
+ numeric the_shift,shift_corr;
+ the_shift=hround(max(3u,1.7stem)); shift_corr=the_shift-3u;
+ pos1(qvair,0); pos2(if monospace: qvair else: stem fi,0); pos3(qvair,0);
+ lft x1l=lft x3l=w-hround(5u-shift_corr)+eps;
+ rt x2r=w-hround(if not monospace: 2 fi\\ u-shift_corr)+eps;
+ bot y3=0; y2=good.y(h/2); top y1=2y2;
+ for i:=1,2,3:
+  forsuffixes $:=r, ,l: z[i]'$=z[i]$ + the_shift*left; endfor
+ endfor
+ if not serifs or monospace:
+  filldraw stroke z1e--z2e--z3e; filldraw stroke z1'e--z2'e--z3'e;
+ else:
+  filldraw stroke
+   z1e{(x2e-x1e),1.8(y2e-y1e)}..{curl1}z2e{curl1}..
+   {(x3e-x2e),1.8(y3e-y2e)}z3e;
+  filldraw stroke
+   z1'e{(x2'e-x1'e),1.8(y2'e-y1'e)}..{curl1}z2'e{curl1}..
+   {(x3'e-x2'e),1.8(y3'e-y2'e)}z3'e;
+ fi;
+% italic correction is set to |0| in |beginchar|, so let's correct it
+ corrital z2r;
+ penlabels(1,2,3,1',2',3');
+endchar; % French closing quotes
+% ------------------------------------------------------------------------
+if ligs>0: % no ligatures in tt fonts
+ ligtable ",": "," =: opening_quotes;
+ ligtable "<": "<" =: french_opening_quotes;
+ ligtable ">": ">" =: french_closing_quotes;
+fi
+% ------------------------------------------------------------------------
+
+cmchar "Per mile sign";
+beginchar(oneperthousand,if monospace: 15u# else: 12u# fi
+          +max(9u#,3fudge*(hair#+stem#)),
+  body_height#,body_height#-asc_height#);
+italcorr if hefty: .4asc_height#*slant-.5u# else: h#*slant-u# fi;
+adjust_fit(0,0); pickup fine.nib;
+numeric percent_width; percent_width=9u+max(6u,2fudge*(hair+stem));
+numeric left_curve,right_curve;
+left_curve=hround 5/6[fudged.hair,fudged.stem];
+right_curve=max(fine.breadth,hround(fudged.hair if hefty:-2stem_corr fi));
+pos1(vair,90); pos2(left_curve,180); pos3(vair,270); pos4(right_curve,360);
+top y1r=h; lft x2r=hround u; rt x4r=hround(.5percent_width-1.5u);
+bot y3r=floor(if monospace: .7 else: .5 fi\\ asc_height);
+x1=x3=.5[x2,x4]; y2=y4=.5[y1,y3];
+filldraw stroke pulled_super_arc.e(1,2)(superpull)
+ & pulled_super_arc.e(2,3)(superpull);  % left half of upper bowl
+filldraw stroke super_arc.e(3,4) & super_arc.e(4,1); % right half of upper bowl
+pos5(vair,90); pos6(left_curve,180); pos7(vair,270); pos8(right_curve,360);
+bot y7r=-d; rt x8r=hround(percent_width-u); lft x6r=hround(.5percent_width+1.5u);
+top y5r=vround(if monospace: .3 else: .5 fi\\ asc_height);
+x5=x7=.5[x6,x8]; y6=y8=.5[y5,y7];
+filldraw stroke pulled_super_arc.e(5,6)(superpull)
+ & pulled_super_arc.e(6,7)(superpull);  % left half of lower bowl
+filldraw stroke super_arc.e(7,8) & super_arc.e(8,5); % right half of lower bowl
+pos51(vair,90); pos52(left_curve,180); pos53(vair,270); pos54(right_curve,360);
+bot y53r=-d; rt x54r=hround(w-u); x54-x52=x8-x6;
+top y51r=vround(if monospace: .3 else: .5 fi\\ asc_height);
+x51=x53=.5[x52,x54]; y52=y54=.5[y51,y53];
+filldraw stroke pulled_super_arc.e(51,52)(superpull)
+ & pulled_super_arc.e(52,53)(superpull);  % left half of 2nd lower bowl
+filldraw stroke super_arc.e(53,54) & super_arc.e(54,51); % right half of 2nd lower bowl
+pickup rule.nib; top y9=h; bot y10=-d;
+if hefty: x9=good.x(x5-eps); x10=good.x(x1+eps);
+ draw z9--z10;  % diagonal
+else: rt x9=hround(percent_width-2.5u); lft x10=hround 2.5u; draw z9--z10;  % diagonal
+ pickup fine.nib; pos9(rule_thickness,angle(z9-z10)+90);
+ pos11(vair,angle(z1r-z4r)-90); pos12(vair,angle(z9-z10)+90);
+ path p; p=super_arc.r(1,4); z11r=point 2/3 of p; z12r=z9r;
+ filldraw stroke z11e{direction 2/3 of p}...{z9-z10}z12e; fi  % link
+penlabels(1,2,3,4,5,6,7,8,9,10,11,12,51,52,53,54); endchar;
+
+%----------------------------------------------
+cmchar "ogonek accent" ;
+beginchar(ogonek,8u#,0,.875desc_depth#) ;
+adjust_fit(0,0) ;
+x1 = .5w+ 1.5u ;
+if serifs: pickup crisp.nib; pos1(hair,-25);
+pos2(.8[vair,stem],45) ; pos3(vair,140) ;
+x1 = x2+.5u ; y2 = .8[y1,y5] ;
+ rt x3l = w ; y3 = .4[y5,y1] ;
+ x5 = 2/5[x2,x3] ; bot y5 =-d ;
+pos5(.6[vair,stem],90) ;
+bot y1 = o ;
+lft x4l = hround(x1-u) ; y4 = .5[y1,y2] ;
+pos4(.4[hair,stem],0) ;
+filldraw stroke z1e ..tension 1.2 .. z4e ..z2e .. z5e ..tension 1.2 .. z3e ;
+fi
+penlabels(1,2,3,4,5);
+endchar ;
+
+endinput;
+%%\end

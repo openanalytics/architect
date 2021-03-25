@@ -1,0 +1,368 @@
+-*-coding: koi8-r;-*-
+
+                         ruhyphen package
+           (Collection of Russian hyphenation patterns)
+
+                  Version 1.7 (March 23, 2003)
+
+
+This package contains hyphenation patterns for Russian language,
+which can be used for various Cyrillic font encodings. It contains
+all Russian hyphenation patterns we know of (currently, these are
+seven different patterns, --- see below), so you can choose your
+favorite pattern. :-)
+
+Copyright notice and distribution conditions are given in the
+beginning of the file `ruhyphen.tex'. It applies to all *.tex files
+in this package (listed below).  Note that seven pattern files
+(ruhyph*.tex, except ruhyphen.tex) are copyrighted by their
+authors.
+
+Thus, all patterns are freely distributable.
+
+To install, copy all *.tex files to your texmf tree. For example,
+create a directory $TEXMF/tex/generic/ruhyphen/ and put all *.tex
+files there.
+
+Before creating a format file, edit the file ruhyphen.tex and select
+the pattern and font encoding to use (see below for the list of
+patterns and supported font encodings).
+
+Usually, hyphenation setup is based on file `hyphen.cfg' which loads
+hyphenation patterns in proper encodings for languages which you will
+use. It is highly recommended to install BABEL package which provides
+a unified mechanism for hyphenation configurations, and comes with
+it's own `hyphen.cfg'.  This is recommended not only to LaTeX users,
+but also if you will use a `cyrplain' bundle of the T2 package to
+`russify' plain TeX-based formats.
+
+You have two options: either use patterns for Russian language in
+separate TeX \language (so to get proper hyphenation you must switch
+languages explicitly in your documents using commands like \Russian,
+\English, \French, etc), or use one `combined' Russian-English
+language.  If you will use only Russian and English languages in your
+documents, the latter option is more convenient (in this case, there
+will be no need to switch between Russian and English languages to get
+proper hyphenation).  This option is recommended especially for
+Plain-TeX based macro packages: Plain TeX, AMS-TeX, Texinfo, BLUe TeX,
+etc; it can be convenient for LaTeX as well, if you mostly typeset
+bilingual Russian-English documents.
+
+In case of using BABEL's mechanism of hyphenation setup, edit the file
+language.dat (it is part of BABEL, and could usually be found in the
+`tex/generic/config' directory of the TDS-compliant TEXMF tree).  In
+the case of using separate languages, use `ruhyphen.tex' as the
+Russian hyphenation file, i.e. put the following lines:
+
+english hyphen
+russian ruhyphen
+
+For combined Russian-English patterns, use `ruenhyph.tex' as the
+hyphenation file, i.e. put the following lines:
+
+ruseng ruenhyph
+=russian
+=english
+
+In both cases, lines for other languages could be commented or leaved
+depending on your needs.
+
+Note that it is better in general to have original English patterns
+preloaded for the default language, so you may use also the following:
+
+english hyphen
+ruseng ruenhyph
+=russian
+
+In this case, documents in English will be hyphenated exactly as they
+should, and English fragments inside a Russian text will be hyphenated
+as close as possible to this. This variant requires, however, more TeX
+memory for patterns, and you should not forget to switch \language to
+Russian when needed (using babel with `russian' as the last option
+will do this automatically).
+
+If you refuse to install BABEL, you can create your own `hyphen.cfg'
+file containing e.g. the following lines:
+
+----------------------------------------------------------------------
+%\def\English{\language0 }
+%\def\Russian{\language1 }
+%\English
+\input hyphen
+%\Russian
+\input ruhyphen
+\lefthyphenmin=2 \righthyphenmin=2 % disallow x- or -x breaks; -xx OK
+%\English
+%\lefthyphenmin=2 \righthyphenmin=3 % disallow x- or -xx breaks
+----------------------------------------------------------------------
+
+or simply
+
+----------------------------------------------------------------------
+\input ruenhyph
+----------------------------------------------------------------------
+
+Basically, if you need to typeset multilingual documents, --- you
+should use LaTeX and T2* Cyrillic encodings. :-)
+
+Note that, when running the file ruhyphen.tex (or ruenhyph.tex)
+through TeX, the only global effect is execution of \patterns (and
+\hyphenation for exceptions) for the current language, and also
+setting the \lefthyphenmin and \righthyphenmin to 2. In particular,
+no global changes of \lccode, \uccode, \catcode, etc. values are
+made. So, to activate hyphenation, you have to set (at least) the
+\lccode values for lowercase and uppercase Russian letters globally in
+your TeX file to match the font encoding (and maybe also make other
+settings, like \uccode and \sfcode). This is usually done in separate
+packages (where those font encodings are defined).
+
+Files in this package are organized in a very flexible and compact
+way, sharing the same hyphenation pattern files for different font
+encodings. Thus, having (currently available) seven different patterns
+and five different font encodings, we have 7*5=35 different possible
+combinations of pattern and encoding (which is specified in the file
+ruhyphen.tex), or, adding also combined `Russian-English' patterns
+(loaded via ruenhyph.tex), we have 70 different combinations
+supported! It is very easy to add the support for any new pattern or
+font encoding, --- just add an additional file ruhyph<pattern>.tex for
+new patterns (and generate the corresponding file cyryo<pattern>.tex
+using `mkcyryo' script), or a file koi2<encoding>.tex for new
+encoding, and add corresponding lines to `ruhyphen.tex'.
+
+Descriptions of files:
+
+1) main hyphenation files
+
+These are Russian hyphenation patterns created by different people.
+Some patterns were generated with `patgen', some were created
+manually. The quality of all patterns is comparable. Nevertheless, for
+the highest quality of hyphenation we recommend using ruhyphal.tex
+(which is switched on by default). The patterns are stored in koi8-r
+Cyrillic encoding (in a form both compact and convenient for reading
+and editing by humans), but we provide a means for re-encoding of
+patterns (using some TeX hackery) to any desired font encoding (see
+below), so there is no need to modify these main files. All patterns
+were (re)named according to the standard scheme ruhyph*.tex, where `*'
+denotes the origin of patterns. The following files are included into
+this collection (in alphabetical order):
+
+ruhyphal.tex
+  10-Mar-03 created by Alexander I. Lebedev <swan@scon155.phys.msu.su>
+  (previously were an extended and corrected variant of Dimitri Vulis'
+  patterns, but now are independenly generated with patgen, using
+  the rus-ispell dictionary).
+  ftp://scon155.phys.msu.su/pub/russian/hyphen/ruhyphal.tar.gz
+ruhyphas.tex
+  v1.0b4a 23-Jul-98 of `ashyphen' created by Andrey Slepuhin
+  <pooh@msu.ru>, ftp://forest.nmd.msu.ru/pub/tex/hyphenation/
+ruhyphct.tex
+  31-Dec-89 is a version found in a CyrTUG TeX distribution
+ruhyphdv.tex
+  The original patterns created by Dimitri Vulis <dlv@bwalk.dm.com>,
+  re-encoded to koi8-r.
+ruhyphmg.tex
+  30-May-98 patterns created by Mikhail Grinchuk <grinchuk@lsil.com>.
+  Created manually, with the aim to get more or less good results
+  with smallest feasible memory usage. Current version hyphenates
+  with relatively big number of errors, but patterns are really small.
+ruhyphvl.tex
+  22-Jul-00 Dimitri Vulis' patterns extended by M. Vorontsova and
+  S. Lvovski <serge@mccme.ru>, and later modified by A.Cherepanov,
+  V.Kryukov and A.Shen,
+  ftp://mccme.ru/users/shen/texkoi/
+ruhyphzn.tex
+  v2.01 beta 23-Mar-03 of `znhyphen' created by Sergei V. Znamenskii
+  <znamensk@rustex.botik.ru>,
+  ftp://ftp.botik.ru/rented/znamensk/tex_dists/03_97/rusifika.zip
+
+
+2) additional patterns for the letter `cyryo'
+
+Generated from the base files using `mkcyryo' script, these files
+provide patterns for the `cyryo' letter to make its behavior with
+respect to hyphenation identical to `cyre'. This can be done by
+making \lccode of `cyryo' equal to the code of `cyre' -- this is not the
+best solution because it will lead to incorrect work of \lowercase,
+and, moreover, in LaTeX it is forbidden to change \lccode values.
+These files should be used with the corresponding main hyphenation
+files.
+
+There are some words with two `cyryo' letters (the following examples
+were provided by Alexander I. Lebedev):
+
+трёхвёдерный трёхвёрстный трёхзвёздочный трёхколёсный трёхрублёвка
+трёхрублёвый трёхшёрстный четырёхвёсельный четырёхзвёздочный четырёхколёсный
+
+because of this, it is insufficient to add patterns with only one
+`cyryo' letter, so we generate also patterns with two `cyryo' (however,
+in practice all of them are `reduced' by the `reduce-patt' script :).
+
+cyryoal.tex
+  generated from ruhyphal.tex
+cyryoas.tex
+  generated from ruhyphas.tex
+cyryoct.tex
+  generated from ruhyphct.tex
+cyryodv.tex
+  generated from ruhyphdv.tex
+cyryomg.tex
+  generated from ruhyphmg.tex
+cyryovl.tex
+  generated from ruhyphvl.tex
+cyryozn.tex
+  generated from ruhyphzn.tex
+
+Makefile
+  rules for generation of `cyryo*.tex' files. Run `make distclean'
+  to remove all `cyryo*.tex' files; run `make' to regenerate them.
+mkcyryo
+  shell script used for generation of `cyryo*.tex' files
+reduce-patt
+  a perl script which could be used to verify which patterns do not
+  correspond to `real' words present in a wordlist. It is used by
+  `mkcyryo' script to remove unnecessary patterns. This was suggested
+  by Alexander Lebedev, and requires his excellent rus-ispell dictionary
+  available at ftp://scon155.phys.msu.su/pub/russian/ispell/rus-ispell.tar.gz
+  (we used version 0.99f4 in preparation of this package).
+
+  The following command will generate a lowercased wordlist with
+  letter `cyryo', needed for `mkcyryo' and `reduce-patt' scripts:
+
+  cat russian.dict | ispell -d russian -e | tr ' Ю-Ъ' '\012ю-ъ' | \
+    grep ё | ./sortkoi8 | uniq > /tmp/.wl-lc-cyryo
+
+  Remove `grep ё' from a pipe to get a full lowercased wordlist
+  /tmp/.wl-lc-full useful for `reduce-patt' in general.
+
+
+3) TeX files for re-encoding of patterns from koi8-r to various TeX
+   font encodings.
+
+These files use commands like \lccode `\<letter>=<number> (instead of
+\lccode <number>=<number>), where <letter> is an 8-bit letter code (in
+koi8-r encoding, in which patterns are stored) and <number> is the
+slot number in the destination font encoding. This makes the patterns
+"stable" against reencoding to any Cyrillic encoding, and also usable
+with non-standard "on the fly" reencoding mechanisms like TCX or TCP
+(switched on at TeX format creation phase) used in some TeX
+implementations (provided that these transformations are 1-to-1 in
+*all* the range 128--255, -- otherwise the results may be incorrect).
+This was suggested by Alexander Cherepanov <cherepan@mccme.ru> (we'd
+like to thank him also for other useful suggestions on the ruhyphen
+package). However, we do not recommend using non-standard mechanisms
+like TCX or TCP in general (in favor of the portable and more powerful
+approach with active characters provided by inputenc LaTeX package and
+also used in cyrplain package).
+
+As suggested by Alexander Fryntov, these files also include support
+for five additional Cyrillic letters present in koi8-ru encoding, so
+that they could be used e.g. for the Ukrainian hyphenation patterns.
+
+koi2t2a.tex
+  koi8-r to T2A encoding (for Russian letters, also T2B, T2C, T2D, X2).
+  This is the main font encoding to be used for typesetting Cyrillic
+  with TeX.
+koi2ucy.tex
+  koi8-r to UCY (Omega Unicode Cyrillic) encoding.
+koi2lcy.tex
+  koi8-r to LCY (similar to cp866) encoding used e.g. in `old' LH
+  fonts.
+koi2ot2.tex
+  koi8-r to OT2 7-bit Cyrillic TeX encoding used e.g. in
+  AMS Washington Cyrillic fonts (wncy*) and LH fonts (wn*).
+  To get better hyphenation and kerning, you may use virtual fonts
+  without WN-ligatures, like WLCY or WL fonts.
+koi2koi.tex
+  koi8-r to koi8-r setup (needed anyway to setup \lccode values).
+  Note, that `koi' is bad name for TeX font encoding.
+
+catkoi.tex
+  Set the \catcode values of the lowercase Russian letters in the
+  koi8-r encoding to 12. The purpose of this file is to avoid strange
+  effects in case of unusual catcodes (e.g. active) for the letters
+  used in hyphenation files.
+
+
+4) files to be used by users
+
+ruhyphen.tex
+  main `head' file which inputs the specified patterns and re-encodes
+  them to the specified font encoding. Users can edit this file,
+  selecting the patterns and font encodings.
+ruenhyph.tex
+  alternative `head' file which inputs combined Russian-English
+  patterns.  Do not mix patterns for 7-bit Cyrillic font encodings
+  (OT2) with English patterns! This can be used only for 8-bit
+  Cyrillic font encodings (and, of course, for UCY).
+
+
+5) other files
+
+README
+  this file
+enrhm2.tex
+  Avoid -xx breaks for English when \righthyphenmin=2. Used by
+  ruenhyph.tex.
+hypht2.tex
+  This file contains additional hyphenation patterns including the
+  character hyphen `-'.  It enables the hyphenation of words containing
+  explicit hyphens when using fonts with \hyphenchar\font <> `\-
+  (e.g. T2* encoded fonts).  Derived from `hypht1.tex' by Bernd Raichle;
+  see comments there. :-) To switch on hyphenation of words containing
+  explicit hyphens, one should (apart from preloading this file into
+  format) set \lccode`\-=`\-, and also \defaulthyphenchar=127 before
+  loading fonts (i.e. before \usepackage[T2A]{fontenc}), or set
+  \hyphenchar\font=127 for already preloaded font. Note that loading
+  these additional patterns requires significant additional amount
+  of TeX hyphenation trie size.
+
+sortkoi8
+  shell script; simple wrapper for `sort' to sort Russian texts
+  in koi8-r encoding alphabetically.
+sorthyph
+  Perl script for sorting hyphenation files (Latin or Cyrillic in
+  koi8-r encoding).
+trans
+  shell script for re-encoding between cp1251, koi8-r, cp866,
+  iso-8859-5, and Mac Cyrillic charsets (not used here).
+
+
+The following properties of patterns are customizable in the file
+ruhyphen.tex:
+
+* which font encoding to use. Note that this setting has nothing to do
+  with the input encodings of your (La)TeX documents!
+
+* which of seven available pattern files to use.
+
+* [1st optional line] whether to load patterns for the letter `cyryo'.
+
+* [2nd optional line] whether to load patterns which enable
+  hyphenation of words containing explicit hyphens (only in case of
+  using T2* font encodings). See the above description of hypht2.tex
+  for additional information.
+
+* [3rd optional line] whether to load two patterns .ne8 and 8ne. which
+  disallow breaking off the `ne' from a word (where `n' and `e' are
+  corresponding Russian letters; `ne' in Russian means `not' and breaking
+  it can confuse the reader). This was suggested by Alexander Lebedev.
+
+* [4th optional line] whether to load patterns which disallow breaking
+  a consonant followed by hard sign from a word. Such words are absent
+  in `modern' Russian language, but were used when `old orthography'
+  was in use. This was suggested by Alexander V. Lukyanov.
+
+And last but not least,
+
+* whether to load the file ruhyphen.tex or ruenhyph.tex (for combined
+  Russian-English hyphenation).
+
+
+Happy TeXing!
+
+
+Mail your comments, questions, and Russian hyphenation patterns which
+are absent in this collection to:
+
+    Werner Lemberg <wl@gnu.org>
+    Vladimir Volovich <vvv@vsu.ru>

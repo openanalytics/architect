@@ -1,0 +1,22 @@
+%%
+%% This is file `laeandlso.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeandlso.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LAE}{andlso}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{andlso}{m}{n}{<-> s*[1.25]  andlso  }{}
+\DeclareFontShape{LAE}{andlso}{bx}{n}{<-> ssub * andlso/m/n }{}
+
+\endinput

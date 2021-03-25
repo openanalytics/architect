@@ -1,0 +1,1344 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the mintty package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mintty\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-21 18:44+0100\n"
+"PO-Revision-Date: 2018-06-24 00:19-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: charset.c:232 charset.c:243 winmain.c:4128 winmain.c:4240 winmain.c:4247
+msgid "(Default)"
+msgstr "(Padrão)"
+
+#: charset.c:254
+msgid "(OEM codepage)"
+msgstr "(Página de código OEM)"
+
+#: charset.c:258
+msgid "(ANSI codepage)"
+msgstr "(Página de código ANSI)"
+
+#: child.c:92
+msgid "There are no available terminals"
+msgstr "Não há terminais disponíveis"
+
+#: child.c:167
+msgid "Error: Could not open log file"
+msgstr "Erro: Não foi possível abrir o arquivo de log"
+
+#: child.c:240
+msgid "Error: Could not fork child process"
+msgstr "Erro: Não foi possível bifurcar o processo filho"
+
+#: child.c:242
+msgid "DLL rebasing may be required; see 'rebaseall / rebase --help'"
+msgstr ""
+"Pode ser necessário um rebasing do DLL; veja 'rebaseall / rebase --help'"
+
+#. __ %1$s: client command (e.g. shell) to be run; %2$s: error message
+#: child.c:320
+msgid "Failed to run '%s': %s"
+msgstr "Falha ao executar '%s': %s"
+
+#. __ %1$s: client command (e.g. shell) terminated, %2$i: exit code
+#: child.c:444
+msgid "%s: Exit %i"
+msgstr "%s: Saiu com código %i"
+
+#. __ default inline notification if ExitWrite=yes
+#: child.c:451
+msgid "TERMINATED"
+msgstr "FINALIZADO"
+
+#: child.c:1046
+msgid "Error: Could not fork child daemon"
+msgstr "Erro: Não foi possível bifurcar o daemon filho"
+
+#. __ Options - Text - Emojis - Placement
+#: config.c:532
+msgid "stretch"
+msgstr ""
+
+#. __ Options - Text - Emojis - Placement
+#: config.c:534
+msgid "align"
+msgstr ""
+
+#. __ Options - Text - Emojis - Placement
+#: config.c:536
+msgid "middle"
+msgstr ""
+
+#. __ Options - Text - Emojis - Placement
+#: config.c:538
+msgid "full"
+msgstr ""
+
+#. __ %s: unknown option name
+#: config.c:639
+msgid "Ignoring unknown option '%s'"
+msgstr "Ignorando opção desconhecida '%s'"
+
+#: config.c:684 config.c:713
+msgid "Internal error: too many options"
+msgstr "Erro interno: opções em excesso"
+
+#: config.c:700
+msgid "Internal error: too many options/comments"
+msgstr "Erro interno: opções/comentários em excesso"
+
+#. __ %2$s: option name, %1$s: invalid value
+#: config.c:846
+msgid "Ignoring invalid value '%s' for option '%s'"
+msgstr "Ignorando valor inválido '%s' para a opção '%s'"
+
+#. __ %s: option name
+#: config.c:858
+msgid "Ignoring option '%s' with missing value"
+msgstr "Ignorando opção '%s' com valor faltando"
+
+#. __ %1$s: config file name, %2$s: error message
+#: config.c:1481
+msgid ""
+"Could not save options to '%s':\n"
+"%s."
+msgstr ""
+"Não foi possível salvar as opções em '%s':\n"
+"%s."
+
+#: config.c:1834
+msgid "◇ None (printing disabled) ◇"
+msgstr "◇ Nenhuma (impressão desativada) ◇"
+
+#: config.c:1836
+msgid "◆ Default printer ◆"
+msgstr "◆ Impressora padrão ◆"
+
+#. __ UI language
+#: config.c:1945
+msgid "– None –"
+msgstr "– Nenhuma –"
+
+#: config.c:1946
+msgid "@ Windows language @"
+msgstr "@ Idioma do Windows @"
+
+#: config.c:1947
+msgid "* Locale environm. *"
+msgstr "* Variável amb. de locale *"
+
+#: config.c:1948
+msgid "= cfg. Text Locale ="
+msgstr "= Cfg. de locale em Texto ="
+
+#: config.c:2030
+msgid "simple beep"
+msgstr "Bipe simples"
+
+#: config.c:2031
+msgid "no beep"
+msgstr "Sem bipe"
+
+#: config.c:2032
+msgid "Default Beep"
+msgstr "Bipe padrão"
+
+#: config.c:2033
+msgid "Critical Stop"
+msgstr "Parada crítica"
+
+#: config.c:2034
+msgid "Question"
+msgstr "Pergunta"
+
+#: config.c:2035
+msgid "Exclamation"
+msgstr "Exclamação"
+
+#: config.c:2036
+msgid "Asterisk"
+msgstr "Asterisco"
+
+#: config.c:2079
+msgid "◇ None (system sound) ◇"
+msgstr "◇ Nenhum (som do sistema) ◇"
+
+#. __ terminal theme / colour scheme
+#. __ emojis style
+#: config.c:2210 config.c:2736
+msgid "◇ None ◇"
+msgstr "◇ Nenhum ◇"
+
+#. __ indicator of unsaved downloaded colour scheme
+#: config.c:2213
+msgid "downloaded / give me a name!"
+msgstr "baixado / me dê um nome!"
+
+#: config.c:2302
+msgid "Could not load web theme"
+msgstr "Não foi possível carregar o tema web"
+
+#: config.c:2351
+msgid "Cannot write theme file"
+msgstr "Não é possível gravar o tema web"
+
+#: config.c:2356
+msgid "Cannot store theme file"
+msgstr "Não é possível salvar o tema web"
+
+#. __ Dialog button - show About text
+#: config.c:2863
+msgid "About..."
+msgstr "Sobre..."
+
+#. __ Dialog button - save changes
+#: config.c:2866
+msgid "Save"
+msgstr "Salvar"
+
+#. __ Dialog button - cancel
+#: config.c:2870 winctrls.c:1164 windialog.c:782
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. __ Dialog button - apply changes
+#: config.c:2874
+msgid "Apply"
+msgstr "Aplicar"
+
+#. __ Dialog button - take notice
+#: config.c:2878 windialog.c:779
+msgid "I see"
+msgstr "Entendi"
+
+#. __ Dialog button - confirm action
+#: config.c:2880 winctrls.c:1163 windialog.c:781
+msgid "OK"
+msgstr "OK"
+
+#. __ Options - Looks: treeview label
+#: config.c:2887 config.c:2918 config.c:2959
+msgid "Looks"
+msgstr "Aparência"
+
+#. __ Options - Looks: panel title
+#: config.c:2889
+msgid "Looks in Terminal"
+msgstr "Aparência no terminal"
+
+#. __ Options - Looks: section title
+#: config.c:2891
+msgid "Colours"
+msgstr "Cores"
+
+#. __ Options - Looks:
+#: config.c:2895
+msgid "&Foreground..."
+msgstr "&Prim. plano..."
+
+#. __ Options - Looks:
+#: config.c:2899
+msgid "&Background..."
+msgstr "&Fundo..."
+
+#. __ Options - Looks:
+#: config.c:2903
+msgid "&Cursor..."
+msgstr "&Cursor..."
+
+#. __ Options - Looks:
+#: config.c:2907
+msgid "&Theme"
+msgstr "&Tema"
+
+#. __ Options - Looks: name of web service
+#: config.c:2912
+msgid "Color Scheme Designer"
+msgstr "Criar esquema de cores"
+
+#. __ Options - Looks: store colour scheme
+#: config.c:2915 winctrls.c:381
+msgid "Store"
+msgstr "Salvar"
+
+#. __ Options - Looks: section title
+#: config.c:2920
+msgid "Transparency"
+msgstr "Transparência"
+
+#. __ Options - Looks: transparency
+#. __ Options - Keys:
+#. __ Options - Mouse:
+#. __ Options - Window:
+#: config.c:2926 config.c:3228 config.c:3372 config.c:3558
+msgid "&Off"
+msgstr "&Desat."
+
+#. __ Options - Looks: transparency
+#: config.c:2928
+msgid "&Low"
+msgstr "&Baixa"
+
+#. __ Options - Looks: transparency, short form of radio button label "Medium"
+#: config.c:2930
+msgid "&Med."
+msgstr "&Méd."
+
+#. __ Options - Looks: transparency
+#: config.c:2932
+msgid "&Medium"
+msgstr "&Média"
+
+#. __ Options - Looks: transparency
+#: config.c:2934
+msgid "&High"
+msgstr "&Alta"
+
+#. __ Options - Looks: transparency
+#: config.c:2936
+msgid "Gla&ss"
+msgstr "&Vidro"
+
+#. __ Options - Looks: transparency
+#: config.c:2943 config.c:2954
+msgid "Opa&que when focused"
+msgstr "&Opaca quando em primeiro plano"
+
+#. __ Options - Looks: transparency
+#: config.c:2948
+msgid "Blu&r"
+msgstr "&Desfoque"
+
+#. __ Options - Looks: section title
+#: config.c:2961
+msgid "Cursor"
+msgstr "Cursor"
+
+#. __ Options - Looks: cursor type
+#: config.c:2966
+msgid "Li&ne"
+msgstr "L&inha"
+
+#. __ Options - Looks: cursor type
+#: config.c:2968
+msgid "Bloc&k"
+msgstr "Blo&co"
+
+#. __ Options - Looks: cursor type
+#: config.c:2970
+msgid "&Underscore"
+msgstr "&Sublinhado"
+
+#. __ Options - Looks: cursor feature
+#: config.c:2975
+msgid "Blinkin&g"
+msgstr "&Piscar"
+
+#. __ Options - Text: treeview label
+#: config.c:2982 config.c:3007 config.c:3021 config.c:3050 config.c:3099
+#: config.c:3121 config.c:3134 config.c:3142
+msgid "Text"
+msgstr "Texto"
+
+#. __ Options - Text: panel title
+#: config.c:2984
+msgid "Text and Font properties"
+msgstr "Propriedades de texto e fonte"
+
+#. __ Options - Text: section title
+#: config.c:2986
+msgid "Font"
+msgstr "Fonte"
+
+#. __ Options - Text:
+#. __ Font chooser:
+#: config.c:2994 winctrls.c:1174
+msgid "Font st&yle:"
+msgstr "E&stilo de fonte:"
+
+#. __ Font chooser:
+#: config.c:2999 winctrls.c:1176
+msgid "&Size:"
+msgstr "&Tamanho:"
+
+#. __ Options - Text:
+#: config.c:3011 config.c:3069
+msgid "Sho&w bold as font"
+msgstr "Most. n&eg. como fonte"
+
+#. __ Options - Text:
+#: config.c:3016 config.c:3074
+msgid "Show &bold as colour"
+msgstr "Most. ne&g. como cor"
+
+#. __ Options - Text:
+#: config.c:3023 config.c:3101
+msgid "Show bold"
+msgstr "Most. negrita"
+
+#. __ Options - Text:
+#: config.c:3027 config.c:3105
+msgid "as font"
+msgstr "como fonte"
+
+#. __ Options - Text:
+#: config.c:3032 config.c:3110
+msgid "as colour"
+msgstr "como cor"
+
+#. __ Options - Text:
+#: config.c:3037 config.c:3115
+msgid "xterm"
+msgstr ""
+
+#. __ Options - Text:
+#: config.c:3054 config.c:3086
+msgid "Font smoothing"
+msgstr "Suavização da fonte"
+
+#. __ Options - Text:
+#: config.c:3057 config.c:3089 config.c:3266 config.c:3299 config.c:3449
+#: config.c:3462
+msgid "&Default"
+msgstr "&Padrão"
+
+#. __ Options - Text:
+#. __ Options - Window: scrollbar
+#: config.c:3059 config.c:3091 config.c:3264 config.c:3297 config.c:3447
+#: config.c:3460 config.c:3539
+msgid "&None"
+msgstr "&Desat."
+
+#. __ Options - Text:
+#: config.c:3061 config.c:3093 config.c:3265 config.c:3298 config.c:3448
+#: config.c:3461
+msgid "&Partial"
+msgstr "&Parcial"
+
+#. __ Options - Text:
+#: config.c:3063 config.c:3095 config.c:3267 config.c:3300 config.c:3450
+#: config.c:3463
+msgid "&Full"
+msgstr "&Total"
+
+#. __ Options - Text:
+#: config.c:3079
+msgid "&Allow blinking"
+msgstr "Pe&rmitir piscar"
+
+#: config.c:3124
+msgid "&Locale"
+msgstr "&Locale"
+
+#: config.c:3127
+msgid "&Character set"
+msgstr "&Conjunto de caracteres"
+
+#. __ Options - Text - Emojis:
+#. __ Options - Text:
+#: config.c:3138 config.c:3144
+msgid "Emojis"
+msgstr ""
+
+#. __ Options - Text - Emojis:
+#: config.c:3148
+msgid "Style"
+msgstr ""
+
+#. __ Options - Text - Emojis:
+#: config.c:3153
+msgid "Placement"
+msgstr ""
+
+#. __ Options - Keys: treeview label
+#: config.c:3161 config.c:3181 config.c:3215
+msgid "Keys"
+msgstr "Teclado"
+
+#. __ Options - Keys: panel title
+#: config.c:3163
+msgid "Keyboard features"
+msgstr "Funcionalidades do teclado"
+
+#. __ Options - Keys:
+#: config.c:3167
+msgid "&Backarrow sends ^H"
+msgstr "&Backspace envia ^H"
+
+#. __ Options - Keys:
+#: config.c:3172
+msgid "&Delete sends DEL"
+msgstr "&Delete envia DEL"
+
+#. __ Options - Keys:
+#: config.c:3177
+msgid "Ctrl+LeftAlt is Alt&Gr"
+msgstr "Ctrl+AltEsq. vira Alt&Gr"
+
+#. __ Options - Keys: section title
+#: config.c:3183
+msgid "Shortcuts"
+msgstr "Atalhos"
+
+#. __ Options - Keys:
+#: config.c:3186
+msgid "Cop&y and Paste (Ctrl/Shift+Ins)"
+msgstr "C&opiar e colar (Ctrl/Shift+Ins)"
+
+#. __ Options - Keys:
+#: config.c:3191
+msgid "&Menu and Full Screen (Alt+Space/Enter)"
+msgstr "&Menu e tela cheia (Alt+Space/Enter)"
+
+#. __ Options - Keys:
+#: config.c:3196
+msgid "&Switch window (Ctrl+[Shift+]Tab)"
+msgstr "&Trocar janela (Ctrl+[Shift+]Tab)"
+
+#. __ Options - Keys:
+#: config.c:3201
+msgid "&Zoom (Ctrl+plus/minus/zero)"
+msgstr "&Zoom (Ctrl+mais/menos/zero)"
+
+#. __ Options - Keys:
+#: config.c:3206
+msgid "&Alt+Fn shortcuts"
+msgstr "Atalhos &Alt+Fn"
+
+#. __ Options - Keys:
+#: config.c:3211
+msgid "&Ctrl+Shift+letter shortcuts"
+msgstr "Atalhos &Ctrl+Shift+letra"
+
+#. __ Options - Keys: section title
+#: config.c:3217
+msgid "Compose key"
+msgstr "Tecla de composição"
+
+#. __ Options - Keys:
+#. __ Options - Mouse:
+#. __ Options - Modifier - Shift:
+#. __ Options - Window:
+#. __ Options - Modifier - Shift:
+#: config.c:3222 config.c:3364 config.c:3383 config.c:3550 config.c:3569
+msgid "&Shift"
+msgstr "&Shift"
+
+#. __ Options - Keys:
+#. __ Options - Mouse:
+#. __ Options - Modifier - Control:
+#. __ Options - Window:
+#. __ Options - Modifier - Control:
+#: config.c:3224 config.c:3366 config.c:3391 config.c:3552 config.c:3577
+msgid "&Ctrl"
+msgstr "Ct&rl"
+
+#. __ Options - Keys:
+#. __ Options - Mouse:
+#. __ Options - Modifier - Alt:
+#. __ Options - Window:
+#. __ Options - Modifier - Alt:
+#: config.c:3226 config.c:3368 config.c:3387 config.c:3554 config.c:3573
+msgid "&Alt"
+msgstr "A&lt"
+
+#. __ Options - Mouse: treeview label
+#: config.c:3236 config.c:3312 config.c:3344
+msgid "Mouse"
+msgstr "Mouse"
+
+#. __ Options - Mouse: panel title
+#: config.c:3238
+msgid "Mouse functions"
+msgstr "Funções do mouse"
+
+#. __ Options - Mouse:
+#. __ Options - Selection:
+#: config.c:3244 config.c:3272 config.c:3283 config.c:3432
+msgid "Cop&y on select"
+msgstr "&Copiar ao selecionar"
+
+#. __ Options - Mouse:
+#. __ Options - Selection:
+#: config.c:3249 config.c:3277 config.c:3288 config.c:3439
+msgid "Copy as &rich text"
+msgstr "Cop. como texto &rico"
+
+#. __ Options - Mouse:
+#. __ Options - Selection:
+#: config.c:3255 config.c:3262 config.c:3295 config.c:3445 config.c:3458
+msgid "Copy as &HTML"
+msgstr "Copiar como &HTML"
+
+#. __ Options - Mouse:
+#: config.c:3308
+msgid "Clic&ks place command line cursor"
+msgstr "Cliques &posicionam o cursor na linha de com."
+
+#. __ Options - Mouse: section title
+#: config.c:3314
+msgid "Click actions"
+msgstr "Ações de clique"
+
+#. __ Options - Mouse:
+#: config.c:3317
+msgid "Right mouse button"
+msgstr "Botão direito do mouse"
+
+#. __ Options - Mouse:
+#: config.c:3320 config.c:3334
+msgid "&Paste"
+msgstr "C&olar"
+
+#. __ Options - Mouse:
+#: config.c:3322 config.c:3336
+msgid "E&xtend"
+msgstr "E&stender"
+
+#. __ Options - Mouse:
+#: config.c:3324
+msgid "&Menu"
+msgstr "&Menu"
+
+#. __ Options - Mouse:
+#: config.c:3326 config.c:3340
+msgid "Ente&r"
+msgstr "Ente&r"
+
+#. __ Options - Mouse:
+#: config.c:3331
+msgid "Middle mouse button"
+msgstr "Botão do meio do mouse"
+
+#. __ Options - Mouse:
+#: config.c:3338
+msgid "&Nothing"
+msgstr "&Nada"
+
+#. __ Options - Mouse: section title
+#: config.c:3346
+msgid "Application mouse mode"
+msgstr "Modo de mouse de aplicativo"
+
+#. __ Options - Mouse:
+#: config.c:3349
+msgid "Default click target"
+msgstr "Alvo padrão do clique"
+
+#. __ Options - Mouse: application mouse mode click target
+#: config.c:3352
+msgid "&Window"
+msgstr "&Janela"
+
+#. __ Options - Mouse: application mouse mode click target
+#: config.c:3354
+msgid "&Application"
+msgstr "&Aplicativo"
+
+#. __ Options - Mouse:
+#: config.c:3361 config.c:3379
+msgid "Modifier for overriding default"
+msgstr "Modificador para sobrescrever o padrão"
+
+#. __ Options - Window:
+#. __ Options - Modifier - Win:
+#. __ Options - Window:
+#. __ Options - Modifier - Win:
+#: config.c:3370 config.c:3395 config.c:3556 config.c:3581
+msgid "&Win"
+msgstr ""
+
+#. __ Options - Modifier - Super:
+#: config.c:3399 config.c:3585
+msgid "&Sup"
+msgstr ""
+
+#. __ Options - Modifier - Hyper:
+#: config.c:3403 config.c:3589
+msgid "&Hyp"
+msgstr ""
+
+#. __ Options - Selection: treeview label
+#: config.c:3413 config.c:3426 config.c:3482
+msgid "Selection"
+msgstr ""
+
+#. __ Options - Selection: panel title
+#: config.c:3415
+msgid "Selection and clipboard"
+msgstr ""
+
+#. __ Options - Selection:
+#: config.c:3419
+msgid "Clear selection on input"
+msgstr ""
+
+#. __ Options - Selection: section title
+#: config.c:3428
+msgid "Clipboard"
+msgstr ""
+
+#. __ Options - Selection:
+#: config.c:3472
+msgid "Trim space from selection"
+msgstr ""
+
+#. __ Options - Selection:
+#: config.c:3477
+msgid "Allow setting selection"
+msgstr ""
+
+#. __ Options - Selection: section title
+#. __ Options - Window: treeview label
+#: config.c:3484 config.c:3506 config.c:3525 config.c:3598
+msgid "Window"
+msgstr "Janela"
+
+#. __ Options - Selection:
+#: config.c:3489
+msgid "Show size while selecting (0..12)"
+msgstr ""
+
+#. __ Options - Selection:
+#: config.c:3496
+msgid "Suspend output while selecting"
+msgstr ""
+
+#. __ Options - Window: panel title
+#: config.c:3508
+msgid "Window properties"
+msgstr "Propriedades da janela"
+
+#. __ Options - Window: section title
+#: config.c:3510
+msgid "Default size"
+msgstr "Tamanho padrão"
+
+#. __ Options - Window:
+#: config.c:3514
+msgid "Colu&mns"
+msgstr "Col&unas"
+
+#. __ Options - Window:
+#: config.c:3518
+msgid "Ro&ws"
+msgstr "&Linhas"
+
+#. __ Options - Window:
+#: config.c:3522
+msgid "C&urrent size"
+msgstr "&Tam. atual"
+
+#. __ Options - Window:
+#: config.c:3529
+msgid "Scroll&back lines"
+msgstr "Linhas de &rol."
+
+#. __ Options - Window:
+#: config.c:3534
+msgid "Scrollbar"
+msgstr "Barra de rolagem"
+
+#. __ Options - Window: scrollbar
+#: config.c:3537
+msgid "&Left"
+msgstr "&Esquerda"
+
+#. __ Options - Window: scrollbar
+#: config.c:3541
+msgid "&Right"
+msgstr "&Direita"
+
+#. __ Options - Window:
+#: config.c:3547 config.c:3565
+msgid "Modifier for scrolling"
+msgstr "Modificador para rolagem"
+
+#. __ Options - Window:
+#: config.c:3594
+msgid "&PgUp and PgDn scroll without modifier"
+msgstr "&PgUp e PgDn rolam sem modificador"
+
+#. __ Options - Window: section title
+#: config.c:3600
+msgid "UI language"
+msgstr "Idioma da interface"
+
+#. __ Options - Terminal: treeview label
+#: config.c:3610 config.c:3623 config.c:3684 config.c:3698
+msgid "Terminal"
+msgstr "Terminal"
+
+#. __ Options - Terminal: panel title
+#: config.c:3612
+msgid "Terminal features"
+msgstr "Recursos do terminal"
+
+#. __ Options - Terminal:
+#: config.c:3616
+msgid "&Type"
+msgstr "&Tipo"
+
+#. __ Options - Terminal:
+#: config.c:3620
+msgid "&Answerback"
+msgstr "&Answerback"
+
+#. __ Options - Terminal: section title
+#: config.c:3625
+msgid "Bell"
+msgstr "Aviso"
+
+#. __ Options - Terminal: bell
+#: config.c:3632
+msgid "► &Play"
+msgstr "► T&ocar"
+
+#. __ Options - Terminal: bell
+#: config.c:3638
+msgid "&Wave"
+msgstr "&Wave"
+
+#. __ Options - Terminal: bell
+#: config.c:3660 config.c:3673
+msgid "&Flash"
+msgstr "&Piscar"
+
+#. __ Options - Terminal: bell
+#: config.c:3662 config.c:3677
+msgid "&Highlight in taskbar"
+msgstr "&Destac. na bar. de tar."
+
+#. __ Options - Terminal: bell
+#: config.c:3664 config.c:3681
+msgid "&Popup"
+msgstr "&Saltar"
+
+#. __ Options - Terminal: section title
+#: config.c:3686
+msgid "Printer"
+msgstr "Impressora"
+
+#. __ Options - Terminal:
+#: config.c:3701
+msgid "Prompt about running processes on &close"
+msgstr "Confirmar &fechar com processos ativos"
+
+#: textprint.c:44 textprint.c:122
+msgid "[Printing...] "
+msgstr "[Imprimindo...] "
+
+#. __ Options - Text: font chooser activation button
+#: winctrls.c:833
+msgid "&Select..."
+msgstr "Selec&..."
+
+#. __ Font chooser: title bar label
+#: winctrls.c:1168
+msgid "Font "
+msgstr "Fonte "
+
+#. __ Font chooser: button
+#: winctrls.c:1170
+msgid "&Apply"
+msgstr "&Aplicar"
+
+#. __ Font chooser:
+#: winctrls.c:1172
+msgid "&Font:"
+msgstr "&Fonte:"
+
+#. __ Font chooser:
+#: winctrls.c:1178
+msgid "Sample"
+msgstr "Exemplo"
+
+#. __ Font chooser: text sample ("AaBbYyZz" by default)
+#: winctrls.c:1182 winctrls.c:1420 winctrls.c:1585
+msgid "Ferqœm’4€"
+msgstr "AaBbYyZz"
+
+#. __ Font chooser: this field is only shown with FontMenu=1
+#: winctrls.c:1199
+msgid "Sc&ript:"
+msgstr "Sc&ript:"
+
+#. __ Font chooser: this field is only shown with FontMenu=1
+#: winctrls.c:1201
+msgid "<A>Show more fonts</A>"
+msgstr "<A>Mostrar mais fontes</A>"
+
+#. __ Colour chooser: title bar label
+#: winctrls.c:1206
+msgid "Colour "
+msgstr "Cor "
+
+#. __ Colour chooser:
+#: winctrls.c:1219 winctrls.c:1231
+msgid "B&asic colours:"
+msgstr "Cores &básicas:"
+
+#. __ Colour chooser:
+#: winctrls.c:1238
+msgid "&Custom colours:"
+msgstr "Cores &personalizadas:"
+
+#. __ Colour chooser:
+#: winctrls.c:1245
+msgid "De&fine Custom Colours >>"
+msgstr "De&finir cores personalizadas >>"
+
+#. __ Colour chooser:
+#: winctrls.c:1248
+msgid "Colour"
+msgstr "Cor"
+
+#. __ Colour chooser:
+#: winctrls.c:1250
+msgid "|S&olid"
+msgstr "|Só&lida"
+
+#. __ Colour chooser:
+#: winctrls.c:1252
+msgid "&Hue:"
+msgstr "&Hue:"
+
+#. __ Colour chooser:
+#: winctrls.c:1255
+msgid "&Sat:"
+msgstr "&Sat:"
+
+#. __ Colour chooser:
+#: winctrls.c:1257
+msgid "&Lum:"
+msgstr "&Lum:"
+
+#. __ Colour chooser:
+#: winctrls.c:1259
+msgid "&Red:"
+msgstr "&Vermelho:"
+
+#. __ Colour chooser:
+#: winctrls.c:1261
+msgid "&Green:"
+msgstr "V&erde:"
+
+#. __ Colour chooser:
+#: winctrls.c:1263
+msgid "&Blue:"
+msgstr "&Azul:"
+
+#. __ Colour chooser:
+#: winctrls.c:1266
+msgid "A&dd to Custom Colours"
+msgstr "A&dicionar às cores personalizadas"
+
+#. __ Options: dialog title
+#: windialog.c:243 windialog.c:729
+msgid "Options"
+msgstr "Opções"
+
+#. __ Options: dialog title: "mintty <release> available (for download)"
+#: windialog.c:245
+msgid "available"
+msgstr "disponível"
+
+#. __ Options: dialog width scale factor (80...200)
+#: windialog.c:676
+msgid "100"
+msgstr "100"
+
+#: windialog.c:811 windialog.c:836
+msgid "Error"
+msgstr "Erro"
+
+#. __ Context menu, session switcher ("virtual tabs") menu label
+#: wininput.c:277
+msgid "Session switcher"
+msgstr "Alternar sessão"
+
+#. __ Context menu, session launcher ("virtual tabs") menu label
+#: wininput.c:296
+msgid "Session launcher"
+msgstr "Iniciar sessão"
+
+#: wininput.c:405 wininput.c:411
+msgid "Ctrl+"
+msgstr "Ctrl+"
+
+#: wininput.c:406 wininput.c:412
+msgid "Alt+"
+msgstr "Alt+"
+
+#: wininput.c:407 wininput.c:413
+msgid "Shift+"
+msgstr "Shift+"
+
+#. __ System menu:
+#: wininput.c:438
+msgid "&Restore"
+msgstr "&Restaurar"
+
+#. __ System menu:
+#: wininput.c:440
+msgid "&Move"
+msgstr "Mo&ver"
+
+#. __ System menu:
+#: wininput.c:442
+msgid "&Size"
+msgstr "&Tamanho"
+
+#. __ System menu:
+#: wininput.c:444
+msgid "Mi&nimize"
+msgstr "Mi&nimizar"
+
+#. __ System menu:
+#: wininput.c:446
+msgid "Ma&ximize"
+msgstr "Ma&ximizar"
+
+#. __ System menu:
+#: wininput.c:448
+msgid "&Close"
+msgstr "&Fechar"
+
+#. __ System menu:
+#: wininput.c:453
+msgid "Ne&w"
+msgstr "N&ova"
+
+#. __ Context menu:
+#: wininput.c:460
+msgid "&Copy"
+msgstr "&Copiar"
+
+#. __ Context menu:
+#: wininput.c:477
+msgid "&Paste "
+msgstr "Co&lar "
+
+#. __ Context menu:
+#: wininput.c:482
+msgid "Copy → Paste"
+msgstr "Copiar → Colar"
+
+#. __ Context menu:
+#: wininput.c:487
+msgid "S&earch"
+msgstr "P&rocurar"
+
+#. __ Context menu:
+#: wininput.c:494
+msgid "&Log to File"
+msgstr "&Registrar em arquivo"
+
+#. __ Context menu:
+#: wininput.c:500
+msgid "Character &Info"
+msgstr "In&formações do caractere"
+
+#. __ Context menu:
+#: wininput.c:506
+msgid "VT220 Keyboard"
+msgstr "Teclado VT220"
+
+#. __ Context menu:
+#: wininput.c:511
+msgid "&Reset"
+msgstr "R&edefinir"
+
+#. __ Context menu:
+#: wininput.c:519
+msgid "&Default Size"
+msgstr "&Tamanho padrão"
+
+#. __ Context menu:
+#: wininput.c:529
+msgid "Scroll&bar"
+msgstr "&Barra de rolagem"
+
+#. __ Context menu:
+#: wininput.c:535
+msgid "&Full Screen"
+msgstr "Tela &cheia"
+
+#. __ Context menu:
+#: wininput.c:541
+msgid "Flip &Screen"
+msgstr "Al&ternar tela"
+
+#. __ System menu:
+#: wininput.c:551 wininput.c:710
+msgid "Copy &Title"
+msgstr "Copiar tít&ulo"
+
+#. __ System menu:
+#. __ Context menu:
+#. __ System menu:
+#: wininput.c:553 wininput.c:694 wininput.c:712
+msgid "&Options..."
+msgstr "O&pções..."
+
+#. __ Context menu:
+#: wininput.c:637
+msgid "Ope&n"
+msgstr "A&brir"
+
+#. __ Context menu:
+#: wininput.c:642
+msgid "Copy as text"
+msgstr "Copiar como texto"
+
+#. __ Context menu:
+#: wininput.c:644
+msgid "Copy as RTF"
+msgstr "Copiar como RTF"
+
+#. __ Context menu:
+#: wininput.c:646
+msgid "Copy as HTML text"
+msgstr "Cop. como HTML texto"
+
+#. __ Context menu:
+#: wininput.c:648
+msgid "Copy as HTML"
+msgstr "Cop. como HTML"
+
+#. __ Context menu:
+#: wininput.c:650
+msgid "Copy as HTML full"
+msgstr "Cop. como HTML total"
+
+#. __ Context menu:
+#: wininput.c:657
+msgid "Select &All"
+msgstr "Se&lecionar tudo"
+
+#. __ Context menu: write terminal window contents as HTML file
+#: wininput.c:662
+msgid "HTML Screen Dump"
+msgstr "Salvar tela como HTML"
+
+#. __ Context menu: clear scrollback buffer (lines scrolled off the window)
+#: wininput.c:670
+msgid "Clear Scrollback"
+msgstr "Limpar tela"
+
+#. __ Context menu: generate a TTY BRK condition (tty line interrupt)
+#: wininput.c:680
+msgid "Send Break"
+msgstr "Enviar break"
+
+#. __ Context menu, user commands
+#: wininput.c:773
+msgid "User commands"
+msgstr "Comandos do usuário"
+
+#: winmain.c:2219
+msgid "Processes are running in session:"
+msgstr "Processos rodando na sessão:"
+
+#: winmain.c:2220
+msgid "Close anyway?"
+msgstr "Fechar mesmo assim?"
+
+#: winmain.c:2338
+msgid "Try '--help' for more information"
+msgstr "Tente '--help' para mais informações"
+
+#: winmain.c:2346
+msgid "Could not load icon"
+msgstr "Não foi possível carregar o ícone"
+
+#: winmain.c:3968
+msgid "Usage:"
+msgstr "Uso:"
+
+#: winmain.c:3969
+msgid "[OPTION]... [ PROGRAM [ARG]... | - ]"
+msgstr "[OPÇÃO]... [ PROGRAMA [ARG]... | - ]"
+
+#. __ help text (output of -H / --help), after initial line ("synopsis")
+#: winmain.c:3972
+msgid ""
+"Start a new terminal session running the specified program or the user's "
+"shell.\n"
+"If a dash is given instead of a program, invoke the shell as a login shell.\n"
+"\n"
+"Options:\n"
+"  -c, --config FILE     Load specified config file (cf. -C or -o ThemeFile)\n"
+"  -e, --exec ...        Treat remaining arguments as the command to execute\n"
+"  -h, --hold never|start|error|always  Keep window open after command "
+"finishes\n"
+"  -p, --position X,Y    Open window at specified coordinates\n"
+"  -p, --position center|left|right|top|bottom  Open window at special "
+"position\n"
+"  -p, --position @N     Open window on monitor N\n"
+"  -s, --size COLS,ROWS  Set screen size in characters (also COLSxROWS)\n"
+"  -s, --size maxwidth|maxheight  Set max screen size in given dimension\n"
+"  -t, --title TITLE     Set window title (default: the invoked command) (cf. "
+"-T)\n"
+"  -w, --window normal|min|max|full|hide  Set initial window state\n"
+"  -i, --icon FILE[,IX]  Load window icon from file, optionally with index\n"
+"  -l, --log FILE|-      Log output to file or stdout\n"
+"      --nobidi|--nortl  Disable bidi (right-to-left support)\n"
+"  -o, --option OPT=VAL  Set/Override config file option with given value\n"
+"  -B, --Border frame|void  Use thin/no window border\n"
+"  -R, --Report s|o      Report window position (short/long) after exit\n"
+"      --nopin           Make this instance not pinnable to taskbar\n"
+"  -D, --daemon          Start new instance with Windows shortcut key\n"
+"  -H, --help            Display help and exit\n"
+"  -V, --version         Print version information and exit\n"
+"See manual page for further command line options and configuration.\n"
+msgstr ""
+"Inicia uma nova sessão de terminal executando o programa especificado na "
+"shell do usuário.\n"
+"Se um hífen foi fornecido ao invés de um programa, invoca a shell como uma "
+"shell de login.\n"
+"\n"
+"Opções:\n"
+"  -c, --config ARQUIVO     Carrega o arquivo de conf. especificado (cf. -C "
+"ou -o ThemeFile)\n"
+"  -e, --exec ...        Trata os argumentos seguintes como o comando a ser "
+"executado\n"
+"  -h, --hold never|start|error|always  Mantém a janela aberta após o comando "
+"terminar\n"
+"  -p, --position X,Y    Abre a janela nas coordenadas especificadas\n"
+"  -p, --position center|left|right|top|bottom  Abre a janela em uma posição "
+"especial\n"
+"  -p, --position @N     Abre a janela no monitor N\n"
+"  -s, --size COLS,LINHAS  Define o tamanho da tela em caracteres (tbm. dá "
+"com COLSxLINHAS)\n"
+"  -s, --size largmax|altmax  Define o tam. máx. da tela nas dimensões "
+"especificadas\n"
+"  -t, --title TÍTULO     Define o título da janela (padrão: o comando "
+"invocado) (cf. -T)\n"
+"  -w, --window normal|min|max|full|hide  Define o estado inicial da janela\n"
+"  -i, --icon ARQUIVO[,IND]  Carrega o ícone da janela de um arquivo, opcion. "
+"com o índice\n"
+"  -l, --log ARQUIVO|-      Registra a saída em um arquivo ou no stdout\n"
+"      --nobidi|--nortl  Desativa o bidi (suporte a esquerda-para-direita)\n"
+"  -o, --option OPC=VAL  Define/sobrescreve a opção no arq. de config. com o "
+"valor dado\n"
+"  -B, --Border frame|void  Usar borda fina/nenhuma borda na janela\n"
+"  -R, --Report s|o      Informar posição da janela (curta/longa) após a "
+"saída\n"
+"      --nopin           Impede que essa instância seja afixável na barra de "
+"tarefas\n"
+"  -D, --daemon          Inicia uma nova instância com tecla de atalho "
+"Windows\n"
+"  -H, --help            Mostra a ajuda e encerra\n"
+"  -V, --version         Mostra informações de versão e encerra\n"
+"Veja a página do manual para mais opções de linha de comando e "
+"configurações.\n"
+
+#: winmain.c:4128 winmain.c:4240 winmain.c:4247
+msgid "WSL distribution '%s' not found"
+msgstr "Distribuição WSL '%s' não encontrada"
+
+#: winmain.c:4278
+msgid "Duplicate option '%s'"
+msgstr "Opção repetida: '%s'"
+
+#: winmain.c:4286 winmain.c:4354
+msgid "Unknown option '%s'"
+msgstr "Opção desconhecida: '%s'"
+
+#: winmain.c:4288
+msgid "Option '%s' requires an argument"
+msgstr "A opção '%s' precisa de um argumento"
+
+#: winmain.c:4315
+msgid "Syntax error in position argument '%s'"
+msgstr "Erro de sintaxe no argumento de posição '%s'"
+
+#: winmain.c:4326
+msgid "Syntax error in size argument '%s'"
+msgstr "Erro de sintaxe no argumento de tamanho '%s'"
+
+#: winmain.c:4463
+msgid "Syntax error in geometry argument '%s'"
+msgstr "Erro de sintaxe no argumento de geometria '%s'"
+
+#: winmain.c:4538
+msgid "Mintty could not detach from caller, starting anyway"
+msgstr "O Mintty não pôde se desanexar do chamador, iniciando mesmo assim"
+
+#: winmain.c:4820
+msgid "Using default title due to invalid characters in program name"
+msgstr "Usando título padrão devido a caracteres inválidos no nome do programa"
+
+#: winsearch.c:222
+msgid "◀"
+msgstr "◀"
+
+#: winsearch.c:223
+msgid "▶"
+msgstr "▶"
+
+#: winsearch.c:224
+msgid "X"
+msgstr "X"
+
+#. __ Options - Text: font properties information: "Leading": total line padding (see option RowSpacing), Bold/Underline modes (font or manual, see options BoldAsFont/UnderlineManual/UnderlineColour)
+#: wintext.c:153
+msgid "Leading: %d, Bold: %s, Underline: %s"
+msgstr "Distância: %d, Negrito: %s, Sublinhado: %s"
+
+#. __ Options - Text: font properties: value taken from font
+#: wintext.c:155
+msgid "font"
+msgstr "fonte"
+
+#. __ Options - Text: font properties: value affected by option
+#: wintext.c:157
+msgid "manual"
+msgstr "manual"
+
+#: wintext.c:471
+msgid "Font not found, using system substitute"
+msgstr "Fonte não encontrada. Usando substituta do sistema."
+
+#: wintext.c:486
+msgid "Font has limited support for character ranges"
+msgstr "A fonte tem suporte limitado a intervalos de caracteres"
+
+#: wintext.c:591
+msgid "Font installation corrupt, using system substitute"
+msgstr "Instalação da fonte está corrompida. Usando substituta do sistema."
+
+#: wintext.c:604
+msgid "Font does not support system locale"
+msgstr "A fonte é incompatível com o idioma do sistema"
+
+#: appinfo.h:61
+msgid "There is no warranty, to the extent permitted by law."
+msgstr "Não há garantia, na medida permitida por lei."
+
+#. __ %s: WEBSITE (URL)
+#: appinfo.h:66
+msgid ""
+"Please report bugs or request enhancements through the issue tracker on the "
+"mintty project page located at\n"
+"%s.\n"
+"See also the Wiki there for further hints, thanks and credits."
+msgstr ""
+"Informe bugs ou sugira melhorias no gerenciador de issues na página do "
+"projeto do Mintty no endereço\n"
+"%s.\n"
+"Veja por lá também a Wiki do projeto para maiores dicas, agradecimentos e "
+"créditos."

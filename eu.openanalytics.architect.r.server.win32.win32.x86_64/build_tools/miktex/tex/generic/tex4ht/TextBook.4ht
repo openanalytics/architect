@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TextBook.4ht                          2009-05-21-09:32 %
+% Copyright (C) 2002--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+
+\def\thesection {\@arabic\c@section}
+\def\@seccntformat#1{\S\csname the#1\endcsname\quad}
+\input book.4ht
+
+\ConfigureToc{section}
+  {\HCode{<span class="sectionToc">}\S}
+  {~}
+  {}
+  {\HCode{</span><br\xml:empty>}}
+\ConfigureToc{subsection}
+  {\HCode{<span class="subsectionToc">}~~\S}
+  {~}
+  {}
+  {\HCode{</span><br\xml:empty>}}
+\ConfigureToc{subsubsection}
+  {\HCode{<span
+       class="subsubsectionToc">}~~~~\S}
+  {~}
+  {}
+  {\HCode{</span><br\xml:empty>}}
+
+\Hinput{TextBook}
+\endinput
+

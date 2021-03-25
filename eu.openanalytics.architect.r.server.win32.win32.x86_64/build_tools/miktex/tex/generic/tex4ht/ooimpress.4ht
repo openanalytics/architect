@@ -1,0 +1,913 @@
+% ooimpress.4ht (2020-10-16-13:48), generated from tex4ht-ooimpress.tex
+% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2001-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2020-10-16-13:48}
+
+\exit:ifnot{foils,% 
+g-brief,% 
+latex,% 
+plain,% 
+tex4ht}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \if:latex  \Hinclude{\input #1.4ht}{latex}
+
+\else      \ifx \contextversion\Un:def
+   \Hinclude{\input #1.4ht}{plain}
+   \def\:temp{t}%
+   \ifx \eplain\:temp
+      \Hinclude{\input #1.4ht}{eplain}
+   \fi
+   \def\:temp{M\kern-.111em\lower.6ex\hbox{E}\kern-.075emX}
+\ifx \nM@X\:temp
+   \expandafter\ifx\csname emulateplain\endcsname\relax \else
+     \Hinclude{\input #1.4ht}{mex}
+\fi\fi
+
+   \ifx \d@nger\:UnDef \else
+      \let\leftheadline\empty
+      \let\rightheadline\empty
+      \Hinclude{\input #1.4ht}{manmac}
+   \fi
+\else
+   \Hinclude{\input #1.4ht}{context}
+\fi
+  \fi
+\newif\ifHCond
+\def\:gobbleM#1->{}
+
+\def\media:type{application/vnd.oasis.opendocument.presentation}
+\Configure{figure-style}{%
+   <style:style style:name="Figure" style:family="section">\Hnewline
+     <style:section-properties
+                               fo:margin-left="0.25in"
+                               fo:margin-right="0.25in"
+                               style:editable="true">\Hnewline
+         <!--style:columns fo:column-count="0"
+                        fo:column-gap="0in"/-->
+     </style:section-properties>
+   </style:style>\Hnewline
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\ifx\InputIfFileExists\UnDef%
+\def\input:if:fileexists#1#2#3{%
+   \openin15 #1.4ht%
+   \ifeof15%
+   #3%
+   \else%
+   \input #1%
+   \fi\closein15%
+}%
+\else
+\let\input:if:fileexists\InputIfFileExists%
+\fi%
+\Hinclude{\input #1.4ht}{fontmath}
+\Hinclude{\@ifpackageloaded{colortbl}{%
+      \no:dupl{array}{\input  array.4ht}%
+      \no:dupl{color}{\input  color.4ht}%
+      \no:dupl{colortbl}{\input  colortbl.4ht}%
+    }{}}{colortbl}
+
+\def\:strip:quotes"#1"#2"#3\relax{\if .#1.#2\else #1\fi}
+\def\h:input#1.#2.#3!*?: {%
+   \edef\:current:package{\:strip:quotes"#1""\relax}
+   \:CheckOption{no_\:current:package}\if:Option
+      \let\:temp\empty
+   \else
+      \let\:temp\empty
+      \no:dupl{\:current:package}{%
+        \def\:warn:msg{}
+        \:CheckOption{debug}\if:Option
+          \def\:warn:msg{%
+            \:warning{No configuration file for \:current:package.\if .#2.tex\else #2\fi}%
+          }
+        \fi%
+        \def\:temp{\input:if:fileexists{\:current:package.4ht}{}{\:warn:msg}}%
+       }%
+   \fi  \:temp}
+\edef\:temp{\noexpand\Hinclude
+   {\noexpand\h:input ##1..!*?: }{\@filelist}}
+\:temp
+
+\expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\Hinclude{\ifx \PsfigVersion\:UnDef \else
+      \no:dupl{#1}{\expand:after{\input psfig.4ht}}\fi}
+   {psfig}
+\Hinclude{\:CheckOption{#1}
+   \if:Option     \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pictex}
+\Hinclude{%
+   \expandafter\ifx \csname PSTricksLoaded\endcsname\relax\else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pstricks}
+\Hinclude{%
+   \ifx \:DraCatCodes\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {dratex}
+\Hinclude{%
+   \ifx \xyloaded\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {xy}
+
+\Hinclude{%
+   \ifx \epsfsetgraph\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {epsf}
+
+\Hinclude{%
+   \ifx \diagram@help@messages\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {diagrams}
+
+\Hinclude{%
+   \ifx \figvisu\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {fig4tex}
+
+\Hinclude{}
+   {pctable}
+\Hinclude{%
+   \:CheckOption{xhtml}\if:Option \fi}
+   {xhtml}
+\Hinclude{\:CheckOption{#1}
+      \if:Option\else   \:CheckOption{ShowFont}\fi
+      \if:Option\else   \:CheckOption{frames-}\fi
+      \if:Option\else   \:CheckOption{frames}\fi
+      \if:Option\else   \:CheckOption{image-maps}\fi
+      \if:Option\else   \:CheckOption{java}\fi
+      \if:Option\else   \:CheckOption{javascript}\fi
+      \if:Option \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {th4}
+\Hinclude{\ifx \sethebrew\:UnDef\else \ifx \ArabTeX\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input hebtex.4ht}}\fi \fi}
+   {hebtex}
+
+\Odef\Link[#1]#2#3{}
+\let\EndLink\empty
+\ConfigureOO{Sect1}{\Hnewline
+   <style:style style:name="Sect1"
+                style:family="section">
+   <\style:sectionproperties>
+      <!--style:columns fo:column-count="1"
+                   fo:column-gap="0cm">
+         <style:column fo:margin-top="0.5cm"
+                      fo:margin-left="0cm"
+                      fo:margin-right="0cm"
+         />
+      </style:columns-->
+   </\style:sectionproperties>
+   </style:style>
+\Hnewline }
+\ConfigureOO{Sect2}{\Hnewline
+<style:style    style:name="Sect2"
+   style:family="section">
+   <\style:sectionproperties>
+      <!--style:columns fo:column-count="0" fo:column-gap="0cm"/-->
+   </\style:sectionproperties>
+</style:style>
+\Hnewline }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\Hinclude{\def\:temp{\ht:everypar={\setbox0=\lastbox\ht:everypar={}}}%
+   \ifx \NoindentAfter\:temp
+      \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {osudeG}
+\Hinclude{\ifx\amstexloaded@\relax
+     \no:dupl{#1}{
+      \ifx  \Space@\:UnDef   \expand:after{\input #1.4ht} %
+      \else                  \input vanilla.4ht  \fi}%
+   \fi}
+   {amstex}
+\Hinclude{\expandafter\ifx \csname amsppt.sty\endcsname\relax \else
+       \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {amsppt}
+\Hinclude{\ifx \texinfoversion\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input texinfo.4ht}}\fi}
+   {texinfo}
+\Hinclude{\ifx \thistubstyle\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input tugboat.4ht}}\fi}
+   {tugboat}
+
+\expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\Hinclude{\ifx \PsfigVersion\:UnDef \else
+      \no:dupl{#1}{\expand:after{\input psfig.4ht}}\fi}
+   {psfig}
+\Hinclude{\:CheckOption{#1}
+   \if:Option     \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pictex}
+\Hinclude{%
+   \expandafter\ifx \csname PSTricksLoaded\endcsname\relax\else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pstricks}
+\Hinclude{%
+   \ifx \:DraCatCodes\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {dratex}
+\Hinclude{%
+   \ifx \xyloaded\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {xy}
+
+\Hinclude{%
+   \ifx \epsfsetgraph\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {epsf}
+
+\Hinclude{%
+   \ifx \diagram@help@messages\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {diagrams}
+
+\Hinclude{%
+   \ifx \figvisu\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {fig4tex}
+
+\Hinclude{}
+   {pctable}
+\Hinclude{%
+   \:CheckOption{xhtml}\if:Option \fi}
+   {xhtml}
+\Hinclude{\:CheckOption{#1}
+      \if:Option\else   \:CheckOption{ShowFont}\fi
+      \if:Option\else   \:CheckOption{frames-}\fi
+      \if:Option\else   \:CheckOption{frames}\fi
+      \if:Option\else   \:CheckOption{image-maps}\fi
+      \if:Option\else   \:CheckOption{java}\fi
+      \if:Option\else   \:CheckOption{javascript}\fi
+      \if:Option \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {th4}
+\Hinclude{\ifx \sethebrew\:UnDef\else \ifx \ArabTeX\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input hebtex.4ht}}\fi \fi}
+   {hebtex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{g-brief}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureOO{g-brief-header}{\Hnewline
+<style:style style:name="header-style" style:family="section">\Hnewline
+   <\style:properties text:dont-balance-text-columns="false"
+                     fo:margin-bottom="2cm">\Hnewline
+      <!--style:columns    fo:column-count="2"
+                        fo:column-gap="1in">\Hnewline
+          <style:column fo:margin-left="0in"
+                        fo:margin-right="0in"/>\Hnewline
+          <style:column fo:margin-left="0in"
+                        fo:margin-right="0in"/>\Hnewline
+      </style:columns-->\Hnewline
+   </\style:properties>\Hnewline
+</style:style>\Hnewline
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{foils}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{BODY}
+  {\HCode{<office:body><office:presentation>}%
+   \let\end:rootslide\empty
+   \start:slide
+   \gdef\end:rootslide{\end:slide \global\let\end:rootslide=\empty}%
+   \par\ShowPar}
+  {\IgnorePar\EndP
+   \end:rootslide
+   \HCode{</office:presentation></office:body>\Hnewline}}
+\Configure{maketitle}
+   {\bgroup
+       \Configure{newpage}{}%
+       \IgnorePar\EndP\HCode{<!--begin maketitle-->}
+       \Configure{tabular}{}{}{}{}{\ifnum \HRow>1
+               \HCode{<text:line-break\Hnewline/>}\fi}{}%
+       \ConfigureEnv{tabular}{}{}{}{}%
+   }
+   {\ifvmode \IgnorePar\fi \EndP
+    \HCode{  </draw:text-box>
+</draw:frame>\Hnewline
+<!--end maketitle-->}\egroup \par}
+   {\ifvmode \IgnorePar\fi \EndP
+    \HCode{<draw:frame presentation:style-name="pr1"
+            draw:layer="layout"
+            svg:width="25.199cm"
+%             svg:height="3.256cm"
+            svg:x="1.4cm"
+            svg:y="3.0cm"
+            presentation:class="title">
+  <draw:text-box>\Hnewline
+%
+           <text:p text:style-name="Title\if@rl-rtl\fi
+" >}}
+   {\HCode{</text:p>  </draw:text-box>
+</draw:frame>\Hnewline
+<draw:frame presentation:style-name="pr1"
+            draw:layer="layout"
+            svg:width="25.199cm"
+%             svg:height="3.256cm"
+            svg:x="1.4cm"
+            svg:y="6.0cm"
+            presentation:class="notes">
+  <draw:text-box>\Hnewline
+}}
+\HAssign\PageN=0
+\Configure{foilhead}
+   {\IgnorePar\EndP \start:slide }
+   {\IgnorePar\EndP
+    \HCode{  </draw:text-box>
+</draw:frame>\Hnewline
+}\end:slide }
+   {\HCode{<draw:frame presentation:style-name="pr1"
+            draw:layer="layout"
+            svg:width="25.199cm"
+%             svg:height="3.256cm"
+            svg:x="1.4cm"
+            svg:y="0.962cm"
+            presentation:class="subtitle">
+  <draw:text-box>\Hnewline
+%
+           <text:p text:style-name="\if@rl-rtl\fi
+" >}%
+    \IgnoreIndent}
+   {\HCode{</text:p>\Hnewline
+             </draw:text-box>
+</draw:frame>\Hnewline
+<draw:frame presentation:style-name="pr1"
+            draw:layer="layout"
+            svg:width="25.199cm"
+%             svg:height="3.256cm"
+            svg:x="1.4cm"
+            svg:y="2.0cm"
+            presentation:class="notes">
+  <draw:text-box>\Hnewline
+}\par\ShowPar}
+
+\def\start:slide{\end:rootslide
+    \HAdvance\PageN by 1
+    \HCode{<!--start of foilhead-->
+    <draw:page draw:name="page\PageN"
+                 draw:style-name="dp1"
+                 draw:master-page-name="Default"> \Hnewline}}
+\def\end:slide{\HCode{
+    </draw:page>
+    <!--end of foilhead-->}}
+\ConfigureOO{foilhead}{\Hnewline
+<style:style style:name="foilhead"
+                  style:family="paragraph"
+   >\Hnewline
+<\style:par:properties fo:font-size="12pt"
+                  fo:font-weight="bold"
+                  style:font-size-asian="14pt"
+                  style:font-weight-asian="bold"
+                  style:font-size-complex="14pt"
+                  style:font-weight-complex="bold"
+                  fo:margin-top="0.42cm"
+                  fo:margin-bottom="0.51cm"
+                  fo:text-align="center"
+                  style:justify-single-word="false"
+/>
+</style:style>
+}
+\ConfigureOO{title}{%
+<style:style style:name="Title"
+             style:family="paragraph"
+  >\Hnewline
+<\style:par:properties fo:margin-top="0.42cm"
+                  fo:margin-bottom="0.51cm"
+                  fo:font-size="20pt"
+                  fo:font-weight="normal"
+                  style:font-size-asian="18pt"
+                  style:font-weight-asian="bold"
+                  style:font-size-complex="18pt"
+                  style:font-weight-complex="bold"
+                  fo:text-align="center"
+                  style:justify-single-word="false"/>
+</style:style> \Hnewline
+ }
+\Configure{thank}
+   {\setbox\tmp:bx=\hbox\bgroup}
+   {\egroup}
+   {\NoFonts   \leavevmode   \bgroup \protect\Configure{$}{}{}{}%
+    \hbox{\HCode{<!--text:note\Hnewline text:note-class="footnote"
+                  text:id="}%
+               \HCode{"><text:note-citation>}}%
+   }
+   {\egroup \EndNoFonts
+    \HCode{</text:note-citation><text:note-body>
+    <text:p\Hnewline text:style-name="Footnote" ><text:s/>}}
+   {\HCode{</text:p></text:note-body></text:note-->}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

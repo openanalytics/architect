@@ -1,0 +1,15 @@
+.greek-iwona
+htfcss: greek-anttbcap  font-weight: bold;
+htfcss: greek-anttbicap  font-style:italic; font-weight: bold;
+htfcss: greek-anttcbcap  font-weight: bold;
+htfcss: greek-anttcbicap  font-style:italic; font-weight: bold;
+htfcss: greek-anttclcap  font-weight: light;
+htfcss: greek-anttclicap  font-weight: light; font-style:italic;
+htfcss: greek-anttcmicap  font-style:italic;
+htfcss: greek-anttcricap  font-style:italic;
+htfcss: greek-anttlcap  font-weight: light;
+htfcss: greek-anttlicap  font-weight: light; font-style:italic;
+htfcss: greek-anttmicap  font-style:italic;
+htfcss: greek-anttricap  font-style:italic;
+
+

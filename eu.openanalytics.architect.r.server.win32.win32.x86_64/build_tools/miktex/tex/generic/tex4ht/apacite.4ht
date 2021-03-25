@@ -1,0 +1,121 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% apacite.4ht                           2009-05-21-09:32 %
+% Copyright (C) 2000--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+   \def\B:my@dummy{\B@my@dummy}
+\def\:citeP{\@citeP}
+
+\def\:tempc<#1>[#2]#3{%
+   \start:cite\a:cite \o:@@cite:<#1>[#2]{#3}\b:cite \end:cite
+}
+\HLet\@@cite=\:tempc
+
+   \ifx \@@citeNP\:UnDef
+     \def\@lbibitem[#1]#2{%
+    \def\BBA{\BBAA}%
+    \item[\@biblabel{#1}]%
+    \if@filesw{%
+        \a:bibcite
+        \def\BBA{\string\BBA}%
+        \def\protect##1{\string ##1}%
+        \immediate\write\@auxout{\string\bibcite{#2}{#1}}%
+        \def\BBA{\BBAA}%
+    }%
+    \fi%
+    \ignorespaces%
+}
+\def\start:cite{%
+   \let\sv:edef\edef
+   \let\gobble:cite=\:gobble
+   \def\edef##1{\def\:temp{##1}%
+      \ifx \:temp\B:my@dummy
+         \ifx \o:BCA\:UnDef
+             \ifx \BCA\:UnDef\else
+                \let\o:BCA=\BCA
+                \def\BCA####1####2{\Protect\cIteLink{X\@citeb}{}%
+                       \o:BCA{####1}{####2}\Protect\EndcIteLink}%
+             \fi
+         \fi
+      \fi
+      \sv:edef##1}%
+}
+\def\end:cite{%
+   \let\edef=\sv:edef
+   \let\BCA=\o:BCA  \let\o:BCA=\:UnDef
+}
+
+   \else
+     \def\start:cite{%
+   \let\sv:edef\edef
+   \let\gobble:cite=\:gobble
+   \def\edef##1{\def\:temp{##1}%
+      \ifx \:temp\B:my@dummy
+         \cIteLink{X\@citeb}{}\let\gobble:cite=\empty
+         \ifx \o:@BBOP\:UnDef
+             \let\o:@BBOP=\@BBOP
+             \let\o:@BBAY=\@BBAY
+             \pend:def\@BBOP{\gobble:cite\EndcIteLink
+                        \let\gobble:cite=\:gobble}%
+             \pend:def\@BBAY{\gobble:cite\EndcIteLink
+                        \let\gobble:cite=\:gobble}%
+         \fi
+      \fi
+      \ifx \:temp\:citeP
+         \gobble:cite\EndcIteLink \let\gobble:cite=\:gobble
+      \fi
+      \sv:edef##1}%
+}
+\def\end:cite{%
+   \let\edef=\sv:edef
+   \let\@BBOP=\o:@BBOP  \let\o:@BBOP=\:UnDef
+   \let\@BBAY=\o:@BBAY  \let\o:@BBAY=\:UnDef
+}
+\def\:tempc[#1]#2{%
+   \start:cite\a:cite \o:@citeA:[#1]{#2}\b:cite \end:cite
+}
+\HLet\@citeA=\:tempc
+\def\:tempc[#1]#2{%
+   \start:cite\a:cite \o:@citeyear:[#1]{#2}\b:cite \end:cite
+}
+\HLet\@citeyear=\:tempc
+\def\:tempc<#1>[#2]#3{%
+   \start:cite\a:cite \o:@@citeNP:<#1>[#2]{#3}\b:cite \end:cite
+}
+\HLet\@@citeNP=\:tempc
+\def\:tempc#1{%
+   \start:cite\a:cite \o:@citeauthor:{#1}\b:cite \end:cite
+}
+\HLet\@citeauthor=\:tempc
+\def\:tempc[#1]#2{%
+   \start:cite\a:cite \o:@citeyearNP:[#1]{#2}\b:cite \end:cite
+}
+\HLet\@citeyearNP=\:tempc
+
+   \fi
+\Hinput{apacite}
+\endinput
+

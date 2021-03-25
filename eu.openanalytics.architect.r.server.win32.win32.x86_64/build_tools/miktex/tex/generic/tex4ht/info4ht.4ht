@@ -1,0 +1,5293 @@
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[1]34...//
+
+% info4ht.4ht (2019-03-18-15:25), generated from tex4ht-info.tex
+% Copyright 2009-2017 TeX Users Group
+% Copyright 2000-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-03-18-15:25}
+{          \catcode`\@=0 \catcode`\\=11 @relax
+  @gdef@infoIVht[#1]#2//{%
+    @ifnum #1>1
+      @def@infoIVht[##1]##2//{%
+        @ifnum ##1>1 @ifnum ##1<#1
+           @bgroup
+             @no:catcodes0{255}{11}%
+             @no:catcodes{91}{91}{12}% [
+             @no:catcodes{47}{47}{12}% /
+             @newlinechar13 %
+             @long@def@infoIVht####1\ifx\infoIVht####2infoIVht[####3//{%
+               @def@infoIVht{******************************************}%
+               @immediate@write-1{@infoIVht}%
+               @immediate@write-1{****** @csname :Hin@endcsname.4ht}%
+               @immediate@write-1{@infoIVht}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup
+               @immediate@write-1{####1}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup
+               @immediate@write-1{@infoIVht}%
+             @egroup}%
+           @expandafter@expandafter@expandafter@infoIVht
+     @fi@fi }%
+  @fi }
+}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[1]34//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[580]608...//
+
+\exit:ifnot{CJK,% 
+Preamble,% 
+ProTex,% 
+aa,% 
+alltt,% 
+amsart,% 
+amsbook,% 
+amscd,% 
+amsfonts,% 
+amsmath,% 
+amsppt,% 
+amsproc,% 
+amstex1,% 
+amsthm,% 
+array,% 
+article,% 
+babel,% 
+book,% 
+color,% 
+colortbl,% 
+doc,% 
+elsart,% 
+emulateapj,% 
+endnotes,% 
+epsfig,% 
+exerquiz,% 
+fancybox,% 
+fancyvrb,% 
+float,% 
+foils,% 
+fontmath,% 
+graphics,% 
+hebtex,% 
+hyperref,% 
+index,% 
+latex,% 
+listings,% 
+longtable,% 
+ltugboat,% 
+minitoc,% 
+moreverb,% 
+ntheorem,% 
+pb-diagram,% 
+pictex,% 
+plain,% 
+psfig,% 
+report,% 
+seminar,% 
+slides,% 
+slidesec,% 
+tex4ht,% 
+th4,% 
+url,% 
+vanilla,% 
+web,% 
+xy}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[580]608//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[580]608...//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]102...//
+
+\Configure{PROLOG}.........1
+
+   #1 Comma separated list of hooks to appear before HTML.
+
+      Each hook E is declared to be configurable by an
+      instruction of the form \NewConfigure{E}{1}
+
+      A star '*' prefix calls for accumulative configurations
+
+   Example:
+
+      \Configure{PROLOG}{VERSION,DOCTYPE,*XML-STYLESHEET}
+      \Configure{VERSION}
+         {\HCode{<?xml version="1.0"?>}}
+
+\Configure{ext}............1
+
+   #1: default extension name for target files  (recorded in \:html)
+
+   Can also be requested through a command line option ext=...
+
+\Preamble...................0
+
+   Records the list of the requested options.  Defined upon entering
+   the environment \Preamble{...}....\EndPreamble, to replace the
+   earlier version of \Preamble.
+
+\ifOption ................. 3
+
+   #1  Argument to be checked  wheteher it is a given option.
+   #2  True part
+   #3  False part
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]102//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]139...//
+
+Wrapper for the Document
+------------------------
+
+\Configure{DOCTYPE}.........1
+\Configure{HTML}............2
+\Configure{HEAD}............2
+\Configure{@HEAD}...........1
+\Configure{BODY}............2
+\Configure{TITLE+}..........1
+\Configure{TITLE}...........2
+\Configure{@TITLE}..........1
+\Configure{Preamble}........2
+
+    <DOCTYPE>
+    <HTML 1>
+      <HEAD 1>
+         <TITLE 1>
+            <@TITLE>
+            <TITLE+>
+         <TITLE 2>
+         <@HEAD>
+      <HEAD 2>
+      <BODY 1>
+      ......
+      <BODY 2>
+    <HTML 2>
+
+The \Configure{@HEAD}{...} command is additive, concatenating the
+content of all of its appearances.  An empty parameter requests
+the cancellation of the earlier contributions.
+
+For instance,
+
+  \Configure{@HEAD}{A}
+  \Configure{@HEAD}{}
+  \Configure{@HEAD}{B}
+  \Configure{@HEAD}{C}
+
+contributes `BC'.
+
+The \Configure{TITLE+} provides the content for the title,
+\Configure{TITLE} sets the envelop, and \Configure{@TITLE} acts as a
+hook for introducing localized configurations. As is the case for
+\Configure{@HEAD}, the contribution of \Configure{@TITLE} is also
+additive.
+
+These configurations should be introduced early enough in the
+compilation. For instance, in the case of LaTeX, between \Preamble
+and \begin{document} of a local configuration file.
+
+           \Preamble
+             %%% here %%%
+           \begin{document}
+             ...
+           \EndPreamble
+
+
+\Configure{@BODY}...........1
+\Configure{@/BODY}..........1
+
+   Variants of \Configure{@HEAD} which contribute their content,
+   respectively, after <body> and before </body>.
+
+\Configure{CutAtTITLE+}.....1
+\Configure{HPageTITLE+}.....1
+
+   #1 an insertion just before the content of <TITLE>;
+
+   If #1 is a one parametric macro, it gets the title content for
+   an argument.
+
+
+Support for Sectioning Commands
+-------------------------------
+
+\Configure{unit-name} ......................4
+
+   #1 start
+   #2 end
+   #3 before title
+   #4 after title
+
+   Example:
+
+        \Configure{section}
+           {\HCode{<section>}}    {\HCode{</section>}}
+           {\HCode{<title>}}      {\HCode{</title>}}
+
+
+\ConfigureMark{unit-name}...................1
+
+   Defines a macro \<<unit-name>>HMark to hold the given argument.
+   Upon entering the unit, \TitleMark gets the content of this macro.
+
+   Some built-in configurations of TeX4ht require an argument for the
+   \<<unit-name>>HMark commands. For safety, these commands should
+   always be followed by a, possiblely empty, argument.  The argument
+   should be a separator between the title mark and its content.
+
+   Example:
+
+        \Configure{section}
+           {}{}
+           {\HCode{<h3>}\TitleMark\space}    {\HCode{</h3>}}
+        \ConfigureMark{section}{\thesection}
+
+
+\Configure{toTocLink}.......................2
+
+   Each unit title contains a \Link{...}{...}...\EndLink command.
+   The first argument of \Link points to the first table of contents
+   referencing the title. The second argument provides an anchor
+   for references to the title (mainly from tables of contents).
+
+   The package option `section+' requests the inclusion of the
+   title within the anchor.  Without this option, the link command
+   resides between the title mark and its content.
+
+   The \Configure{toTocLink} command is provided for configuring
+   the \Link and \EndLink  instructions.  In the default setting,
+   when the `sections+' option is not activated, the \Link
+   command is altered to replace its first argument with an empty
+   argument.
+
+     Example:
+
+          \Configure{toTocLink}
+             {\Link}
+             {\ifx \TitleMark\sectionHMark
+                \Picture[\up]{haut.jpg align="right"}%
+                \EndLink
+                \TitleMark\space
+              \else \EndLink \fi
+             }
+          \def\up{[up]}
+
+\Configure{toToc}...........................2
+
+    #1  unit type
+    #2  desired contents type  (if empty, `unit type' is assumed)
+
+  Example: \Configure{toToc}{chapter}{likechapter}
+           Introduces chapter as likechapter into toc
+
+    #1  empty: stop adding entries of `unit type' to toc
+            @: add entries of `unit type' to toc
+            ?: resume mode in effect before the last stop
+    #2  unit type
+
+  Example: \Configure{toToc}{}{chapter}
+           \chapter{...}
+           \Configure{toToc}{@}{chapter}
+
+\Configure{writetoc}.........................1
+
+    #1  Configuration material for the insertion instruction.
+        New configurations are added to those request earlier
+        by the command.  An empty argument cancels the earlier
+        contributions.
+
+\NoLink.......................1
+
+   Ignore option `section+' for sections of type #1
+
+\TitleCount
+
+   Count of entries submitted to the toc file
+
+\Configure{NoSection}.........2
+
+   Insertions around the parameters of sectioning commands, applied when
+   the parameters are not used to create titles for the divisions.
+
+
+\CutAt{#1,#2,#3,...}
+
+    #1           section type to be placed in a separate web page
+    #2,#3,...    end delimiting section types, other than #1, for
+                 the web pages
+    A `+' before #1 requests hypertext buttons for the web pages
+
+    Examples:
+
+          \CutAt{mychapter,myappendix,mypart}
+          \CutAt{+myappendix,mychapter,mypart}
+
+    Cut points at arbitrary points can be introduced by introducing section-like
+    commands in a manner similar to
+
+         \NewSection\mysection{}
+         \CutAt{mysection}
+
+
+\Configure{+CutAt}.................................3
+
+     #1 sectioning type
+     #2 before
+     #3 after
+
+     Requests delimiters for the \CutAt buttons of the specified
+     sectioning type
+
+    Example:   \Configure{+CutAt}{mysection}{[}{]}
+
+\PauseCutAt{#1}
+\ContCutAt{#1}
+
+    #1  section type
+
+\Configure{CutAt-filename} ........................1
+
+   A 2-parameter hook for tailoring section-based filenames.
+   The section type is available through #1. The section title
+   is accessible through #2.
+
+   Example:   \Configure{CutAt-filename}{\NextFile{#1-#2.html}}
+
+
+Tables of Contents
+------------------
+
+Created from the entries collected in the previous compilation within
+a jobname.4tc file.
+
+\ConfigureToc{unit-name} ......................4
+
+   #1 before unit number
+   #2 before content
+   #3 before page number
+   #4 at end
+
+   * Empty arguments request the omission of the corresponding field.
+
+   * \TocCount  Specifies the entry count withing the jobname.4tc file.
+
+   * \TitleCount Count of entries submitted to the toc file
+
+   * An alternative to \ConfigureToc{unit-name}:
+
+      \def\toc<unit-name>#1#2#3{<before unit number>#1<before content>#2%
+                             <before page number>#3<at end>}
+
+
+   Example:
+
+        \ConfigureToc{section}
+           {}
+           {\Picture[*]{pic.jpg width="13"  height="13"}~}
+           {}
+           {\HCode{<br />}}
+
+
+\Configure{TocLink}..................4
+
+   Configures the link offered in the third arguments of \ConfigureToc
+
+   Example:   \Configure{TocLink}{\Link{#2}{#3}#4\EndLink}
+
+\TocAt{#1,#2,#3,...}
+
+    #1           section type for which local tables of contents
+                 \Toc#1 are requested
+    #2,#3,...    sectioning types to be included in the tables of
+                 contents
+
+    The non-leading arguments may be preceded by slashes '/', in
+    which cases the arguments specify end points for the tables.
+
+    The default setting requests automatic insertion of the local
+    tables immediately after the sectioning heads.
+
+    A star `*' character may be introduced, between the  \TocAt and
+    the left brace, to request the appearances of the tables of
+    contents at the end of the units' prefaces.
+
+    A hyphen `-' character, on the other hand, disables the automatic
+    insertions of the local tables.
+
+    In case of a single argument, the command removes the
+    existing definition of \Toc#1.
+
+    Example:
+      \TocAt{mychapter,mysection,mysubsection,/myappendix,/mypart}
+      \TocAt-{mysection,mysubsection,/mylikesection}
+      \section{...}...\Tocmysection
+
+    The definition  of the local table of contents can be redefined
+    within \csname Toc#1\endcsname.
+
+    Example:
+
+       \TocAt{section}
+       \def\Tocsection{\TableOfContents[section]}
+
+       \Css{div.sectionTOCS {
+                           width : 30\%;
+                           float : right;
+                      text-align : left;
+                  vertical-align : top;
+                     margin-left : 1em;
+                       font-size : 85\%;
+                background-color : \#DDDDDD;
+           }}
+
+    Example: Table of content before the section title.
+
+       \Configure{section}{}{}
+          {\Tocsection \let\saveTocsection=\Tocsection
+           \def\Tocsection{\let\Tocsection=\saveTocsection}%
+           \ifvmode \IgnorePar\fi \EndP\IgnorePar
+           \HCode{<h3 class="sectionHead">}\TitleMark\space\HtmlParOff}
+          {\HCode{</h3>}\HtmlParOn\ShowPar \IgnoreIndent \par}
+
+
+\Configure{TocAt}......................2
+\Configure{TocAt*}.....................2
+
+   #1 before the tables of contents
+   #2 after the tables of contents
+
+
+Navigation Links for Sectioning Divisions
+-----------------------------------------
+
+\Configure{crosslinks}.....................8
+
+   #1  left delimiter
+   #2  right delimiter
+   #3  next
+   #4  previous
+   #5  previous-tail
+   #6  front
+   #7  tail
+   #8  up
+
+  The content to be displayed in the pointers
+
+\Configure{crosslinks*}.................1--7
+
+  Links to be included and their order. Available
+  options: next, prev, prevtail, tail, front, up.
+  The last argument must be empty.
+
+  Default:
+
+      \Configure{crosslinks*}
+         {next}
+         {prev}
+         {prevtail}
+         {tail} {front}
+         {up}
+         {}
+
+\Configure{crosslinks+}.....................4
+
+   #1  before top menu
+   #2  after top menu
+   #3  before bottom menu
+   #4  after bottom menu
+
+  The top cross links are omitted, if both #1 and #2 are empty.
+  The bottom cross links are omitted, if both #3 and #4 are empty.
+
+\Configure{next}.....................1
+    #1  the anchor of the next button of the front page.
+
+    Default: The value provided in \Configure{crosslinks}
+
+\Configure{next+}.............................2
+
+   #1  before the next button of the front page, when the `next'
+       option is active.
+   #2  after the button
+
+    Default: The values provided in \Configure{crosslinks}
+
+\Configure{crosslinks:next}..................1
+\Configure{crosslinks:prev}..................1
+\Configure{crosslinks:prevtail}..............1
+\Configure{crosslinks:tail}..................1
+\Configure{crosslinks:front}.................1
+\Configure{crosslinks:up}....................1
+
+   #1 local configurations for the delimiters and hooks
+
+\Configure{crosslinks-}.....................2
+
+   Asks to show linkless buttons with the following insertions.
+
+      #1  before
+      #2  after
+
+   The default values are used, if both #1 and #2 are empty
+
+   Examples:
+
+       \Configure{crosslinks-}{}{}
+
+       \Configure{crosslinks-}
+           {\HCode{<span class="hidden">}[}
+           {]\HCode{</span>} }
+       \Css{span.hidden {visibility:hidden;}}
+
+Paragraphs
+----------
+
+\Configure{HtmlPar}..........4
+
+   #1 content at the start non-indented paragraphs
+   #2 content at the start indented paragraphs
+   #3 insertion into \EndP, at the start of non-indented paragraphs
+   #4 insertion into \EndP, at the start of indented paragraphs
+
+   \HtmlParOff
+   \HtmlParOn
+
+   \IgnorePar     Asks to ignore the next paragraph
+   \ShowPar       Asks to take into account the following paragraphs
+
+   \IgnoreIndent  asks to ignore indentation in the next paragraph
+   \ShowIndent    asks to check indentation in the following paragraphs
+
+   \SaveEndP      Saves the content of \EndP, and sets it to empty content
+   \RecallEndP
+
+   \SaveHtmlPar
+   \RecallHtmlPar
+
+
+  Example:
+     \Configure{@BODY}
+        {\ifvmode \IgnorePar\fi \EndP
+         \HCode{<div>}\par\ShowPar}
+     \Configure{@/BODY}
+        {\ifvmode \IgnorePar\fi \EndP
+         \HCode{</div>}}
+
+
+Cross-Linking
+-------------
+
+\Link[@1 @2]{@3}{@4}...\EndLink
+
+  Creates
+
+     <a href="@1#@3" name="@4" @2>...</a>
+
+  * When @1 is empty, tex4ht will derive its value automatically.
+    The derived value will be the file name containing the target @3.
+
+  * \Link may be followed by `-', if tex4ht needs not automatically
+    determine (for other \link commands) the file containing @4.
+    In the present of such a flag, tex4ht can spare a definition of
+    one macro.
+
+  * The component [@1 @2] is optional. If omitted, @1 and @2 are
+    assumed to be empty
+
+  * The href attribute is omitted when @1 and @3 are empty
+
+  * The name attribute is omitted when @4 is empty
+
+  Examples:
+
+      \Link{a}{}...\Endlink .....  \Link{}{b}...\EndLink
+      \Link[http://foo  id="fooo"]{a}{b}...\EndLink
+
+\Configure{Link}..............4
+
+   Configures \Link...\EndLink so that
+
+     #1 replaces `a'
+     #2 replaces `href='
+     #3 replaces `name='
+     #4 replaces `#'.  If empty, the older value remains in effect.
+
+  Examples:
+
+   \Configure{Link}{a}{href=}{name=}{}
+   \Configure{Link}{ref}{target=}{id=}{\empty}
+
+\Configure{?Link}..............1
+
+   #1 insertion before broken links
+
+   To help with debugging
+
+\LinkCommand...................1 <= i <= 6
+
+   Creates a \Link-like command
+
+   #1   tag name
+   #2   href-like attribute
+   #3   name-like attribute
+   #4   insertion
+   #5   /, if empty element
+   #6  replacement for #  (ignored if absent)
+
+  Example:
+
+    \LinkCommand\JSLink{a,\noexpand\jsref,name}
+    \def\jsref="#1"{href="javascript:window.open('#1')"}
+
+    \JSLink{a}{}xx\EndJSLink
+    \Link{}{a}\EndLink       % or \JSLink{}{a}\EndJSLink
+
+\Configure{XrefFile}.....................1
+
+   #1 names cross-references of files (appends #1 to `)F' and `)Q'
+      entries of the .xref files). Applicable mainly implicitly
+      within \Link commands
+
+\Tag.....................................2
+
+   #1  label
+   #2  content
+
+\Ref.....................................1
+\LikeRef.................................1
+
+   #1  label
+
+   \Tag and \Ref are tex4ht.sty commands introduced cross-referencing
+   content through .xref auxiliary files.
+
+   \LikeRef is a variant of \Ref which doesn't verify whether the
+   labels exit.  It is mainly used in \Link and \edef environments.
+
+\ifTag ..................................3
+
+   #1  quetioned tag
+   #2  true part
+   #3  false part
+
+\LoadRef-[prefix]+{filename.ext}{pattern}
+
+   Load the named xref-type file
+
+   .xref      optional--`.xref' is assume for a default
+   +          optional-- asks \Ref and \LikeRef commands
+              to use expanded tags `filename::tag', instead of just `tag'
+   [prefix]   optional--asks just for tags starting with the
+              specified prefix.
+   -          optional--deletes the prefixes from the loaded tags
+   {pattern}  to be included only when `[prefix]' or `+' are included.
+              States how tags are to be addressed, with the parameter
+              symbol `#1'  specifying the loaded part.
+
+   Example:
+
+        % a.tex
+        \LoadRef-[to:]{b}{from:#1}      \Ref{from:filename}
+                                        \LikeRef{from:filename}
+
+        % b.tex
+        \Tag{to:filename}{\FileName}
+
+   Example:
+
+        \LoadRef-[)F]{file}{)Ffoo##1}
+        \LoadRef-[)Q]{file}{)Qfoo##1}
+        \Configure{XrefFile}{foo}   \Link...\EndLink
+
+        \LoadRef{another-file}
+
+
+Files
+-----
+
+\FileName    Holds the name of the current hypertext file
+\FileNumber  Holds the internal number of the current hypertext file
+\RefFileNumber...........................1
+    #1  File number
+
+    Provides the file name
+
+\NextFile.................................1
+    #1 Requested name for the next file
+
+\Hinput{#1}
+
+    The command asks to load the configuration files associated
+    with mark #1.
+
+\Hinclude[#1]{#2}
+
+    The command associates configuration file #2 with mark #1.  If
+    the mark is the star character `*', the configuration files is
+    associated to all marks.  The command is applicable until the
+    \Preamble command is processed
+
+    For instance,  \Hinclude[*]{html4.4ht}....\Hinput{latex}
+
+\Hinclude{#1}{#2}
+
+    The command is applicable while the \Preamble command is
+    processed. Its purpose is to load *4ht hook files within
+    the fragments of code specified in #1.
+
+    For instance, \Hinclude{\input plain.4ht}{plain}
+
+
+Fonts
+-----
+
+\Configure{htf}...............................9
+
+    #1         label (integer 0--255)
+    #2         delimiter (a character not appearing in #3,...,#9)
+           even label             odd label
+    #3       start opening tag      start empty tag
+    #4       name                   alt
+    #5       size                   name
+    #6       mag                    size
+    #7                              mag
+    #8       end the tag            ord
+    #9       closing tag            end the tag
+
+    The htf fonts assign a content and a label to each symbol (possibly
+    followed by a comment).  For instance,
+
+        'e'    '1'    epsilon
+        'z'    '3'    zeta
+
+    An even label asks that the content itself will be used for the
+    symbol, and an odd label asks that the symbol will be represented by a
+    bitmap.  In the later case,  the content serves as a substitution for
+    browsers which don't exhibit bitmaps.
+
+    The \Configure{htf}... command provides label-dependent wrappers to
+    chosen representations.
+
+    If they are not empty, `mag' and `ord' must be c-type
+    patterns for integer arguments, and `name' and `size'
+    should be a patterns for strings.  The `mag' entry is
+    ignored for fonts of the default dimension. Together
+    they specify a attribute-value format, mainly for references
+    in the css code.
+
+  Examples:
+
+     \Configure{htf}{0}{+}{<span\Hnewline
+        class="}{\%s}{-\%s}{x-x-\%d}{}{">}{</span>}
+     \Configure{htf}{1}{+}{<img\Hnewline
+        src="}{" alt="}{" class="}{\%s}{-\%d}{x-x-\%x}{" />}
+
+\Configure{htf-attr}....................... 2
+
+     #1  c-pattern for the font name and size
+     #2  c-pattern for font magnification
+
+     Specify the format of the selectors within the css files.
+
+   Example:
+     \Configure{htf-attr}{.\%s-%s}{--\%s}
+
+\Configure{htf-css}....................... 2
+
+    #1  font name or label
+    #2  css entry
+
+    A variant of the \Css command. If #1 is a font name,
+    the contribution replaces the one given within the
+    htf font definition. If #1 is a label for an entry
+    of a htf font, the contribution is added to the css
+    file.  The contribution is offered, only when the
+    font is in use.
+
+  Example:
+
+   \Configure{htf-css}{4}{.small-caps{font-variant: small-caps;}}
+
+
+Bitmaps
+-------
+
+\Configure{Picture}....................... #1
+
+  #1  Extension name for bitmap files of dvi pictures,
+      stored in \PictExt
+
+  Default: \Configure{Picture}{.png}
+
+  The extension names of bitmap files of glyphs of htf fonts may be
+  determined within a g-entry in the environment file tex4ht.env, or a
+  g-flag of the tex4ht.c utility.
+
+\Configure{Picture-alt}......................1
+
+  #1  alt value for \Picture+{...}  and \Picture*{...}
+
+\Configure{Picture+}.........................2
+\Configure{Picture*}.........................2
+
+  #1  before the dvi picture code
+  #2  after the dvi picture code
+
+  Typically, the plus `+' variant is introduced as an inline
+  contribution into paragraphs, and the star `*' variant as an
+  independent block between paragraphs.
+
+\Configure{PictureAlt}........................2
+\Configure{PictureAlt*+}......................2
+\Configure{PictureAlt*+[]}....................2
+
+  #1 definitions before alt
+  #2 definitions after alt
+
+ Apply to \Picture{...}, \Picture*+{...}, and \Picture*+[...]{...}
+
+\Configure{PictureAlt}........................1
+\Configure{PictureAlt*+}......................1
+\Configure{PictureAlt*+[]}....................1
+
+  #1 definition for attributes (introduced through
+     a parameter named `#1')
+
+   Apply to \Picture{...}, \Picture*+{...}, and \Picture*+[...]{...}
+
+\Configure{IMG}...............................5
+
+  #1 before file name
+  #2 between file name and alt
+  #3 close alt for  \Picture without * or +
+  #4 close alt for  \Picture with * and +
+  #5 right delimiter
+
+  Example:
+
+     \Configure{IMG}
+        {\ht:special{t4ht=<img src="}}
+        {\ht:special{t4ht=" alt="}}
+        {" }
+        {\ht:special{t4ht=" }}
+        {\ht:special{t4ht=/>}}
+
+\NextPictureFile.............................1
+
+   Requests a file name for the next created picture.
+
+\PictureFile.............................0
+
+   Records the filename of the most recent created picture.
+
+Math
+----
+
+\Configure{$}................................2
+\Configure{$$}...............................2
+\Configure{DviMath}..........................2
+
+\DviMath ... \EndDviMath
+\MathClass ... \EndMathClass
+\PicMath ... \EndPicMath
+\DisplayMath ... \EndDispalyMath
+
+   Example:
+
+     \Configure{$} {\Tg<math>\DviMath} {\EndDviMath\Tg</math>} {}
+
+
+
+\Configure{PicMath}..........................4
+
+   Example:
+
+       \Configure{PicMath}{}{}{}{ class="math" }
+
+     \Configure{()}{\protect\PicMath$}{$\protect\EndPicMath}
+
+\Configure{SUB}..............................2
+\Configure{SUP}..............................2
+\Configure{SUBSUP}...........................3
+\Configure{SUPSUB}...........................3
+\Configure{SUB/SUP}..........................6
+
+\Configure{putSUB}...........................1
+\Configure{putSUP}...........................1
+
+     #1 the code to be used for realizing subscripts and postcripts
+
+\Configure{afterSUB}.........................2
+
+     #1 look ahead token after subscript
+     #2 the code to be used for realizing subscripts having #1 for
+        lookahead token
+
+\Configure{over}.............................2
+\Configure{atop}.............................2
+\Configure{above}............................2
+\Configure{overwithdelims}...................2
+\Configure{atopwithdelims}...................2
+\Configure{abovewithdelims}..................2
+
+   #1 before \over, \atop, \above
+             \overwithdelims, \atopwithdelims, \abovewithdelims
+   #2 after  \over, \atop, \above <dimension>
+             \overwithdelims <del1> <del2>
+             \atopwithdelims <del1> <del2>
+             \abovewithdelims <del1> <del2> <dimension>
+
+   Example:
+
+     \Configure{over}
+         {\Send{GROUP}{0}{[before]}[before-rule]}
+         {[before-argument]\Send{EndGROUP}{0}{[after]}}
+
+
+\Configure{MathClass}........................5
+
+   #1  class number
+          0: mathord, 1: mathop, 2: mathbin, 3: mathrel,
+          4: mathopen, 5: mathclose, 6: mathpunc
+   #2  delimiter
+   #3  before
+   #4  after
+   #5  characters
+
+   Extra support:
+
+      \PauseMathClass
+      \EndPauseMathClass
+      \NewMathClass<new control sequence>  (7, 8, ...)
+
+\Configure{FormulaClass}.....................4
+
+   #1  class number
+          0: mathord, 1: mathop, 2: mathbin, 3: mathrel,
+          4: mathopen, 5: mathclose, 6: mathpunc
+   #2  a character not in #3 and #4
+   #3  before
+   #4  after
+
+   If #2 is empty, the formula gets the same marking as a
+   single character of the specified type
+
+\Configure{FormulaClass*}....................4
+
+   Like the previous case, but allow marking in the
+   nested content.
+
+\Configure{MathDelimiters}...................2
+
+   #1  left
+   #2  right
+
+\Configure{mathbin*}.........................4
+\Configure{mathclose*}.......................4
+\Configure{mathop*}..........................4
+\Configure{mathopen*}........................4
+\Configure{mathord*}.........................4
+\Configure{mathpunct*}.......................4
+\Configure{mathrel*}.........................4
+
+   #1  a character not presented in #2#3#4
+   #2  code before
+   #3  code after
+   #4  possible definitions for successive cases
+
+  Example:
+     \Configure{mathop*}{*}{}{}
+        {\Configure{mathop}{*}{<mo>}{</mo>}{}}
+     \mathop{\overline{x \mathop{op} y}} \limits^{a=3}
+
+\Configure{mathbin}..........................4
+\Configure{mathclose}........................4
+\Configure{mathopen}.........................4
+\Configure{mathop}...........................4
+\Configure{mathord}..........................4
+\Configure{mathpunct}........................4
+\Configure{mathrel}..........................4
+
+Variants of the above group, requesting to supress nested marks.
+
+\Configure{nolimits}.........................1
+
+\MathSymbol
+
+AtBeginDocument
+---------------
+
+\Configure{AtBeginDocument}..................2
+
+    #1  before the corresponding hook of latex
+    #2  after
+
+   Insertions are accumulative, and can be erased by providing
+   two empty arguments
+
+Other Hooks
+-----------
+
+  \Configure{HChar}...................1
+
+    #1  a character
+
+    The \HChar{i} instruction inserts the character code i with the
+    font information of character #1, when i is positive. If i is
+    negative, the font info is not included.
+
+
+\Configure{Canvas}
+\Configure{ExitHPage}
+\Configure{LinkHPage}......................1
+\Configure{FontCss}
+\Configure{HVerbatim+}
+\Configure{MiniHalign}
+\Configure{Needs-}
+\Configure{Needs}
+
+
+\Configure{TraceTables}
+\Configure{edit}
+\Configure{halignTB}
+\Configure{halignTD}
+\Configure{halign}
+\Configure{hooks}
+\Configure{moveright}
+
+\Configure{noalign-}
+\Configure{pic-halign}
+
+\Configure{accent}
+\Configure{mathaccent}
+\Configure{accented}
+\Configure{accenting}
+
+
+Back-end Specials
+-----------------
+                                                    insertions
+                                                    ----------
+  =    \special{t4ht=...content...}
+           Insert the specified content to the html output, under
+           edef mode of processing, and without using the mapping
+           of the htf fonts.  Used in \HCode{...}.
+  @    \special{t4ht@...integer...}
+           Insert the absolute value as character code to the output.
+           Positve values ask the insertion to be included in place
+           of the next chracter, together with the font information
+           of that character.
+                                                    files
+                                                    -----
+  >    \special{t4ht>...file-name...}
+           Open a new file, if needed, and direct future output
+           to the specified file.  Used in \File{...}.
+  <    \special{t4ht<...file-name...}
+           Close the specified file.  If it is the current file,
+           activate the youngest file. Used in \EndFile{...}.
+  >*   \special{t4ht*>...file-name...}
+           Declare the file to be the oldest.
+       \special{t4ht*>}
+           Reactivate the file that activated the current file.
+  *<   \special{t4ht*<file}
+           Input file (with no processing)
+  +    \special{t4ht++file-name}...dvi...\special{t4ht+}
+           Pipe the dvi code into a dvi page in the secondary dvi file
+           `jobname.idv'.  Used by \Picture{...}, e.g., for requesting
+           gif's.
+  +    \special{t4ht+embeded-specials within idv}
+  .    \special{t4ht.ext}
+           Change default ext of root file
+  @D   \special{t4ht@D....} Writes the content, augmented with a
+           loc stamp, to the .lg file.  The locations stamp consists
+           a byte-address in a named output file.
+
+                                                    character maps
+                                                    --------------
+  !    \special{t4ht!...optional-parameters....}...dvi...\special{t4ht!}
+           Create an approximated character map for the dvi code.
+           Used in \Picture{...}, e.g., for ALT of IMG
+  |    \special{t4ht|}...\special{t4ht|}
+           Use the non-pictorial characters of the htf fonts.
+           Used for character maps of \Picture{....}
+  @    \special{t4ht@-}....\special{t4ht@-}
+           Remove left margin from character map.  Used in \Picture{...}.
+
+                                                    character settings
+                                                    ------------------
+  @    \special{t4ht@@}....\special{t4ht@@}
+           Insert the character codes, instead of their mappings through
+           the htf fonts.  Used in \JavaScript...
+  @    \special{t4ht@...integer...}, \special{t4ht@-...integer...}
+           Introduce the character code into the output.
+           Used by \HChar{...} and \HChar{-...}. The earlier one
+           also inherites the current font info.
+  @    \special{t4ht@+...string...}
+           Replace the character code introduced by the next character
+           with the specified string.  The decoration of the character
+           code is inherited, when the string is not empty. The string
+           might include character codes by enclosing them between braces.
+  @    \special{t4ht@*...string...}
+           A variant \special{t4ht@+...string...} that inserts the content
+           after the character instead of replacing it.
+  @    \special{t4ht@(}
+           Ignore spaces
+  @    \special{t4ht@)}
+           End ignore spaces
+  @    \special{t4ht@[}
+           Ignore chs and spaces
+  @    \special{t4ht@]}
+           End ignore chs and spaces
+  @    \special{t4ht@[...}...\special{t4ht@]...}\special{t4ht@?...}
+           Ignore chs and spaces, if the specials  have the above
+           syntax on identical strings.
+  @    \special{t4ht@!}
+           Get the last ignored spaces (none, if from previous lines).
+  @    \special{t4ht@_....}
+           Output character for rulers. Empty string is also allowed.
+  @    \special{t4ht@.''''}
+           Output for line break characters (empty
+                                         content resets the default).
+  @    \special{t4ht@,''''}
+           Output for space characters (empty content resets the default).
+
+                                                    dvi tracing
+                                                    -----------
+  @    \special{t4ht@%X}...\special{t4ht@%x}
+           Request dvi tracing.
+
+               X  x
+               P  p      groups
+               C  c      characters
+               H  h      horizontal spaces
+               V  v      vertical spaces
+               R  r      rulers
+
+       \special{t4ht@%%X*...open-del....*...close-del....}
+       \special{t4ht@%%x*...open-del....*...close-del....}
+           Tailor dvi tracing
+
+  @    \special{t4ht@/}
+           On/off tracing of specials.
+  @    \special{t4ht@e...}
+           String for tracing errors into the output.
+  ;    \special{t4ht;....}
+           Decorations for htf characters (e.g., css)
+              8    pause
+              9    end pause
+              \let \prOteCt \relax \Protect \csname acp:c\endcsname {14}.. pattern
+              =... show font name of char
+              %... show font size of char
+              ,    don't report next htf class to lg
+              -    set default font info
+              +    unset default font info
+  ^    \special{t4ht^i}$symbols$\special{t4ht^}}'
+           Requests math class i for the listed math symbols.
+
+           Tex assignes class numbers 0--7 to the atoms of math
+           formulas: 0--ordinary symbol, 1--large operator, 2--binary
+           operation, 3--relational operation, 4--math delimiter,
+           5--right delimiter, 6--punctuation mark, and 7--adjustable.
+           TeX4ht adds classes  8 and 9, while using
+           class 7 independently
+       \special{t4ht^}
+           on/off processing delimiters
+       \special{t4ht^-}
+           pause processing delimeters
+       \special{t4ht^+}
+           continue processing delimeters
+       \special{t4ht^i}
+           on/off processing delimiters of class i
+       \special{t4ht^i*...*...}
+           configure delimiters for class i. * can be any
+           character distinguished for the group.
+       \special{t4ht^i(}
+           put delimiters of class i on next group
+       \special{t4ht^i)}
+           As before, but ignore the delimeters within the sub-group.
+       \special{t4ht^)*...*...}
+           put the specified delimiters on next group.
+           Ignore delimeters within the group.
+       \special{t4ht^<*...*...}
+           put the specified delimiters on the next group.
+           Don't ignore delimeters within the group.
+                                                    dvi arithmetic
+                                                    --------------
+  :    \special{t4ht:....}
+           Dvi-mode arithmetics.
+             :+...  increment by 1( define, if not defined)
+             :-...  decrement by 1
+             :>...  push current value
+             :<...  pop current value
+             :!...  display current value
+             :\let \prOteCt \relax \Protect \csname acp:c\endcsname {14}..  display top value
+
+                                                    messages to lg file
+                                                    -------------------
+  +    \special{t4ht+@...message...}
+           Send message to the lg file.  Used in the \Needs{...} command.
+  @    \special{t4ht@D....}
+           Send message to the lg file, together with location and file
+           stamp.
+
+                                                    positional code
+                                                    -------------------
+  "    \special{t4ht"}
+           Start/end positional env
+       \special{t4ht"* before-all * after-all ...** before-char
+                     * after-char * rect
+                     *%A*%B*%C*%D*%E
+                     * optional
+           Configure positioned code
+             * before-all
+             * after-all      %...
+             ** before-char  %x %y
+             * after-char
+             * rect          %x1 %y1 ...
+             * x,x1-coefficients %A(x) + %B
+             * y1-coefficients %C(y1 - %E(height)) + %D
+             * y-coefficients  %C(y) + %D
+             * optional: 1, 2
+
+               %x1 %y1 %length %thickness          default
+               %x1 %y1 %x1+length %y1+thickness    1
+               %x1 %y1 %x1+length %y1 %thickness   2
+
+           A-magnification, B-displacement
+           C-magnification, D-displacement,
+           E- origin (0: top, 0.5: mid, 1: bot)
+
+           The %...'s should be c-type templates (e.g., "%.2f"; "%.0f"
+              gives an integer)
+
+           Multiple after-all templates are allowed. The leading
+             character is a code specifying the dimension type.
+                x           min x
+                X           max x
+                y           min y
+                Y           max y
+                d           dx
+                D           dy
+                otherwise   a string with no values
+           The delimiter `*' can be substitued by another character.
+
+
+  ~    \special{t4ht~...}
+           Grouped-base two-way delivery for content created by
+           inline commands like \over.
+
+       \special{t4ht~}...\special{t4ht~}   on/off
+
+       ~<i...  send forward to the start of the group nested
+                                                at relative level i.
+       ~>i...  send forward to the end of the group nested
+                                                at relative level i.
+               i=0, current group
+
+
+       ~<*...  send back to start of previous token / group.
+       \special{t4ht~<)}...\special{t4ht~<(}
+           activate / deactivate  back token / group submissions
+       \special{~<[}...\special{t4ht~<]}'
+           hide region from back submissions over token / group
+       \special{t4ht~<-} ... \special{t4ht~<+}
+           latex back token / group
+
+       \special{t4ht\string~!...path...<...content}
+           insertion at the start of the group reached by the path
+       \special{t4ht\string~!...path...>...content}
+           insertion at the end of the group reached by the path
+       \special{t4ht\string~!...path.../}
+           ignore content within the group reached by the path
+       \special{t4ht\string~!...path...-}
+           ignore rulers from the group reached by the path
+           until the start of the next group
+        A path may consist only of `e' and `s' characters for,
+        respectively, entering and skipping groups
+
+  *!   \special{t4ht*! system command}
+           System call
+  *^   accent specials
+        t text accent #1#2#1#3#1#4#1#5#1#6 pattern
+                      empty                insertion point
+        m math accent #1#2#1#3#1#4#1#5#1   pattern
+                      empty                insertion point
+        a accented    #1#2#1#3#1#4#1#5#1#6
+        i             #1#2#1#3#1#1
+  *@   halign specials
+
+\HCode...............................1
+
+   A wrapper for \special{t4ht=...}.
+
+   The sharp symbol # may be accessed indirectly through the command.
+
+\Hnewline............................0
+
+   Requests new lines within specials
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]139//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[20]1385...//
+
+Sectioning
+----------
+
+\Configure{@sec @ssect}
+
+
+Tables of Contents
+------------------
+
+
+\Configure{tableofcontents}........................5
+
+   #1 before
+   #2 at end
+   #3 after
+   #4 at indented paragraph break
+   #5 at non-indented paragraph break
+
+   The \tableofcontents command may be followed by a comma separated
+   list of sectioning unit names to be included in the table of
+   contents.  The list should be enclosed within square brackets.
+   Alternatively, a command of the form \TableOfContents[...] might
+   be used.
+
+Lists
+-----
+
+\ConfigureList.....................5
+
+   #1   type of list (e.g., itemize, description, enumerate,
+                            list, trivlist)
+   #2   before list
+   #3   after  list
+   #4   before label
+   #5   after label
+
+   \DeleteMark   removes latex's label; to be placed at the end of #4
+   \AnchorLabel  defines an anchor for \label in current item; to
+                 be placed in #5
+
+
+Tables
+------
+
+\Configure{tabular}...................6
+\Configure{array}.....................6
+
+    #1   before table         #2   after table
+    #3   before row           #4   after row
+    #5   before cell          #6   after cell
+
+    \HRow         current row number
+    \HCol         current column number
+    \HMultispan   number of cells covered by the current cell
+    \ar:cnt       number of columns in the table
+
+  NOTE: Table require a number of compilations that depends
+        on the number of columns.
+
+  Example
+
+   \Configure{tabular}
+       {\HCode{<table>}}
+       {\HCode{</table>}}
+       {\HCode{<tr class="row-\HRow">}}
+       {\HCode{</tr>}}
+       {\HCode{<td
+               \ifnum \HMultispan>1 colspan="\HMultispan"\fi >}}
+       {\HCode{</td>}}
+
+
+\Configure{VBorder}...................4
+
+    Break points, when scanning the pattern of column desriptions, at
+
+    #1  at start of pattern
+    #2  at |
+    #3  at a non-@ entry
+    #4  at a @ entry
+
+  Applies to \begin{tabular / array}{...pattern...}
+
+    \ar:cnt    index of entry in pattern
+    \ch:class  records the current alignment type: -,<,>,p,...
+    \HColAlign produces the \Configure{halignTD} contribution
+               for the current alignment type
+    \HColWidth holds the width of the current p column
+
+\Configure{HBorder}..................10
+
+   hline:
+    #1  insert at start of row (e.g., <tr>)
+    #2  insert at each cell    (e.g., <td><hr/></td>)
+    #3  insert at end of row   (e.g., </tr>)
+
+   cline:
+    #4  insert at start of row         (e.g., <tr>)
+    #5  insert at each `extra' cell    (e.g., <td></td>)
+    #6  insert at each cell            (e.g., <td><hr/></td>)
+    #7  insert at end of row           (e.g., </tr>)
+
+   vspace:
+    #8  insert at start of row (e.g., <tr>)
+    #9  insert at each cell    (e.g., <td>&nbsp;</td>)
+    #10 insert at end of row   (e.g., </tr>)
+
+   The contributions are collected into \HBorder.  (The \InitHBorder
+   clears \HBorder.)
+
+\Configure{putHBorder}...............1
+    #1 Specifies how \HBorder is to be used.
+
+   Example: \Configure{putHBorder}{\HCode{\HBorder}}
+
+
+
+\Configure{halignTD}..................2 + 2i + {}
+
+  interpretation for character codes referenced in \HAlign
+
+  e.g.,
+
+   \Configure{halignTD}
+   {}{}
+   {<}{\HCode{style="text-align:left"}}
+   {-}{\HCode{style="text-align:center"}}
+   {>}{\HCode{style="text-align:right"}}
+   {^}{\HCode{style="vertical-align:top"}}
+   {=}{\HCode{style="vertical-align:baseline"}}
+   {|}{\HCode{style="vertical-align:middle"}}
+   {_}{\HCode{style="vertical-align:bottom"}}
+   {p}{\HCode{style="text-align:left"}}
+   {}
+
+   \halignTD can be used in td elements to extract the alignment.
+   It recieves information from \halignTB.
+
+\Configure{halignTB}..................2
+
+   delimiters for \halignTB{tabular}
+
+   Example
+       \Configure{halignTB}{\HCode{<table }}{\HCode{>}}
+
+\Configure{tabbing}[mag]..................4
+
+   #1 before each line
+   #2 after each line
+   #3 before each entry
+   #4 after each entry
+
+   [mag] optional parameter specifying the magnification desired
+         for the dimensions.  When offered, the other parameters
+         have no effect if all of them are assigned empty arguments
+
+   \TabType   \` or \relax
+   \TabWidth  Provides the entry width; 0 at trailing entry that is
+              not flushed rightward
+
+
+Cross References
+----------------
+
+\Configure{ref}.......................3
+
+  #1   \Link-type command
+  #2   \EndLink-type command
+  #3   anchor (the system anchor is
+               reachable through the parameter name #1)
+  \RefArg   Holds the argument of \ref
+
+  If #1 is empty, the hyper links are ignored
+  If #3 is empty, the anchor is the one provided by the system
+
+  Example:
+
+    \Configure{ref}{\Link}{\EndLink}{{\bf #1}}
+
+\Configure{pageref}...................3
+
+  #1   before
+  #2   after
+  #3   anchor (system anchor, if parameter is empty)
+
+\Configure{newlabel}..................2
+
+  #1   address for hyperlink (\cur:th \:currentlabel, if empty)
+  #2   anchor (the system anchor is
+               reachable through the parameter name #1)
+
+\Configure{@newlabel}.................1
+
+   #1  modifications to the newlabel environment
+
+\Configure{newlabel-ref}..............1
+
+   #1  an intermediate link command for the aux file
+       (Configured by \Configure{ref}...)
+
+   The default for #1 is \rEfLiNK
+
+\Configure{cite}......................4
+
+  #1   before
+  #2   after
+  #3   \Link-type command
+  #4   \EndLink-type command
+
+  If #3 is empty, the hyper links are ignored.
+
+\Configure{bibitem}...................2
+
+  #1   \Link-type command
+  #2   \EndLink-type command
+
+\Configure{bibcite}...................1
+
+  #1  configurations for content transfered by bibitem to the aux file
+
+  Example:
+       \Configure{bibcite}
+                 {\def\hookrightarrow{\string\hookrightarrow}}
+       \bibitem[$\hookrightarrow$...]{...}
+
+
+\LoadLabels[#1]{#2}....................
+
+  [#1]   optional group name
+  #2     aux file name, without the extension
+
+  Loads labels of another file, under the specified group name
+
+\RefLabel.............................2
+
+  #1     group name (for separating files and labels from
+                     different sources)
+  #2     label
+
+  A variant of \ref for loading labels produced for other files
+
+  Example:
+    file1.tex:  \label{foo}
+
+    file2.tex:  \LoadLabels[x]{file1}
+                \RefLabel{x}{foo}
+
+\SkipRefstepAnchor.....................0
+
+    No \Link anchor for next \refstepcounter
+
+\ShowRefstepAnchor.....................0
+\AutoRefstepAnchor.....................0
+
+
+Bibliography on bibtex2 option:
+
+  \Configure{bibliography2}........................ 4
+
+     #1 before anchor
+     #2 anchor
+     #3 after anchor
+     #4 link attributes
+
+    Example:
+
+       \Configure{bibliography2}
+          {\bgroup ~~[\Configure{Link}{a}{target="x"  href=}{ name=}{}}
+          {more} {]\egroup}
+
+  \Configure{bibitem2}..............................3
+
+     #1 at start of bibitem
+     #2 at end of bibitem
+     #3 separator after label
+
+  \Configure{bibliographystyle2}....................1
+
+     #1 an empty argument asks for the same style as the
+        normal aux file (still bibtex may produce different
+        output).
+
+Note: Option `bibtex2' requires compilation
+      of `\jobname j.aux' with bibtex.
+
+Captions
+--------
+
+refcaption
+
+  An option for \Preamble, requesting anchors at \caption. The default
+  setting sends them back to the start of the floating environment.
+
+
+Theorems
+--------
+
+\Configure{newtheorem} ......................3
+
+  #1 before theorem
+  #2 between title and body
+  #3 after theorem
+
+Math
+----
+\Configure{()}...............................2
+\Configure{[]}...............................2
+
+   Example:
+
+     \Configure{()}{\protect\PicMath$}{$\protect\EndPicMath}
+     \Configure{[]} {\Tg<display>\DviMath$$} {$$\EndDviMath\Tg</display>}
+
+\Configure{equation}.........................3
+
+   #1    at start
+   #2    between the equation and its numbering
+   #3    at end
+
+  Examples:
+
+      \Configure{equation}
+           {\IgnorePar\EndP\bgroup \Configure{HtmlPar}{}{}{}{}%
+                    \HCode{<table class="equation"><tr><td>}\IgnorePar
+           }
+           {\HCode{</td><td class="eq-number">}}
+           {\HCode{</td></tr></table>}\egroup}
+
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      \Configure{equation}
+         {\IgnorePar\EndP \bgroup \Configure{$$}{}{}{}%
+          \Configure{@math}{display="inline"}\DviMath
+                  \HCode{<mtable class="equation"><mtr><mtd>}\IgnorePar
+         }
+         {\IgnorePar\HCode{</mtd><mtd class="eq-number">}}
+         {\HCode{</mtd></mtr></mtable>}\EndDviMath\egroup}
+
+
+\Configure{frac}.............................4
+\Configure{sqrtsign}.........................2
+
+\Configure{mbox}.............................2
+
+Environments of latex
+---------------------
+
+  \ConfigureEnv{...}.........................4
+
+     #1 environment name
+     #2 before env
+     #3 after env
+     #4 before underlying list
+     #5 after underlying list
+
+    #2 and #3 are ignore when they are both empty as well as
+    when there is no underlying list
+
+
+   array
+   center
+   flushleft
+   flushright
+   minipage
+   tabbing
+   tabular
+   verbatim*
+   verbatim
+
+
+   \Configure{@begin}........................2
+
+      #1 environment name
+      #2 insertion before the environment
+
+   Example:
+      \Configure{@begin}{theindex}{\section*{\indexname}}
+
+
+Verbatim
+--------
+
+\Configure{verbatim}......................2
+
+   #1 at start of line
+   #2 space character
+
+\Configure{verb}..........................2
+
+   #1 before
+   #2 after
+
+\Configure{obeylines}.....................3
+
+   #1 before
+   #2 at start of line
+   #3 after
+
+\ScriptEnv................................3
+
+  Introduces a verbatim environent
+
+   #1 name
+   #2 before
+   #3 after
+
+  A `-' immediately after \begin{...} designate as an escape symbol
+  the character following the dash
+
+  Example:
+
+     \ScriptEnv{foo}
+       {\HCode{<myscript>}\NoFonts\hfill\break }
+       {\EndNoFonts \HCode{</myscript>}}
+
+     \begin{foo}
+     ....
+     ....
+     \end{foo}
+
+     \begin{foo}-\relax \unhbox \voidb@x \special {t4ht@+&{35}x00A0{59}}x     ....
+     ....
+     \end{foo}
+
+
+Fonts
+-----
+
+\Configure{texttt}........................2
+\Configure{textit}........................2
+\Configure{textrm}........................2
+\Configure{textup}........................2
+\Configure{textsl}........................2
+\Configure{textsf}........................2
+\Configure{textbf}........................2
+\Configure{textsc}........................2
+\Configure{emph}..........................2
+
+  #1  before content
+  #2  after content
+
+
+Footnotes
+---------
+
+\Configure{footnotetext}..................3
+
+    #1 before footnote
+    #2 between mark and content
+    #3 after footnote
+
+   \FNnum     footnote number
+
+\Configure{footnotemark}..................2
+
+    #1 before
+    #2 after
+
+Pictures
+--------
+
+\Configure{picture}.......................2
+
+    #1  before
+    #2  after
+
+Other Hooks
+-----------
+
+\Configure{ }.........................1
+
+   #1 representation for non-breaking space ch
+
+\Configure{hline}.....................1
+
+\Configure{hspace} ...................3
+
+   \tmp:dim      register holding the size
+   #1            before the space
+   #2            after the space
+   #3            after #1 (\tmp:dim mod 6em  copies)
+
+\Configure{vspace} ...................1
+
+   #1 the size of space is prvided in a parameter nmaed `#1'
+
+   Example:
+
+      \Configure{vspace}
+      {\ifhmode
+         \HCode{<br />}%
+         \ifdim #1>1ex \HCode{<br />}\fi
+       \fi
+      }
+
+\Configure{fbox} .................................. 2
+
+   Examples:
+
+        \Configure{fbox}
+          {\HCode{<div class="fbox">}\bgroup \fboxrule=0pt}
+          {\egroup\HCode{</div>}}
+        \Css{div.fbox {border: 1pt solid black;}}
+
+        \Configure{fbox}
+          {\HCode{<table cellspacing="0pt"
+              border="1"><tr><td>}\bgroup \fboxrule=0pt}
+          {\egroup\HCode{</td></tr></table>}}
+
+\Configure{'} ..................................... 3
+
+   #1 at entry to math prime environment
+   #2 at exit
+   #3 content of \prime
+
+\Configure{float}....................................
+   #1 optional, to appear within brakects [ and ].  An anchor for
+      the links preceeding the float, when option refcaption is
+      not active
+   #2 Insertion before the links
+   #3 at start
+   #4 at end
+
+\Configure{textcircled}.............................2n+1
+   2i'th     replaced       i=1,...,n
+   2i+1'st   replacement
+   2n+'nd    empty (terminator)
+
+
+\Configure{add accent}{#1:#2}{#3}{#4}...{}{}
+   #1  encoding
+   #2  font number
+   #3  character under font
+   #4  replacement
+
+   Applies to accents that reach \add@accent
+
+  Example:
+
+     \Configure{add accent}{OT4:18}
+       {E}{\add:acc{00C8}}
+       {e}{\add:acc{00E8}}
+       {}{}
+
+
+
+
+\Configure{//[]}
+\Configure{AfterTitle}
+\Configure{HAccent}
+\Configure{InsertTitle}
+\Configure{accents}
+\Configure{accent}
+\Configure{centercr}
+\Configure{centerline}
+
+\Configure{displaylines}
+\Configure{framebox}
+
+\Configure{leftline}
+\Configure{marginpar}
+\Configure{mathaccent}
+\Configure{newline}
+\Configure{oalign}
+
+\Configure{overline}
+
+\Configure{rightline}
+\Configure{stackrel}
+\Configure{tt}
+\Configure{underline}
+\Configure{thanks}....................2
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[20]1385//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[30]2092...//
+
+
+Title Page
+----------
+\Configure{maketitle}.....................4
+
+   #1 start of maketitle
+   #2 end of maketitle
+   #3 before title
+   #4 after title
+
+\Configure{thanks author date and}........8
+
+   #1  before thanks
+   #2  after thanks
+   #3  before author
+   #4  after author
+   #5  before date
+   #6  after date
+   #7  representation of `and'
+   #8  line breaks (= end of rows, for an embedded tabular environment)
+
+
+Sectioning
+----------
+
+\Configure{part}
+\Configure{section}
+\Configure{subsection}
+\Configure{subsubsection}
+\Configure{paragraph}
+\Configure{subparagraph}
+
+\Configure{likepart}
+\Configure{likechapter}
+\Configure{likesection}
+\Configure{likesubsection}
+\Configure{likesubsubsection}
+\Configure{likeparagraph}
+\Configure{likesubparagraph}
+
+Bibliography
+------------
+
+\ConfigureList{thebibliography}......4
+
+   #1   before list
+   #2   after  list
+   #3   before label
+   #4   after label
+
+   \DeleteMark   removes latex's label; to be placed at the end of #3
+   \AnchorLabel  defines an anchor for \label in current item; to
+                 be placed in #4
+
+\Configure{cite}        see the
+\Configure{bibitem}     latex section
+
+
+
+\ConfigureToc
+
+ lof, lot, appendix, chapter, likechapter, likeparagraph, likepart,
+ likesection, likesubparagraph, likesubsection, likesubsubsection,
+ paragraph, part, section, subparagraph, subsection, subsubsection
+
+
+\Configure{appendixTITLE+}........1
+\Configure{chapterTITLE+}.........1
+\Configure{partTITLE+}............1
+\Configure{sectionTITLE+}.........1
+\Configure{subsectionTITLE+}......1
+\Configure{subsubsectionTITLE+}...1
+
+   #1  the content of <TITLE>
+
+   The insertion overrides the one offered by \Configure{CutAtTITLE+}
+   for the given section type (the `like' counterparts acn also be
+   configured).
+
+   The sectioning title content can be accessed through the parameter #1.
+
+   Example:
+
+     \Configure{chapterTITLE+}{Synodos - #1}
+
+\Configure{endpart}................1
+\Configure{endchapter}.............1
+\Configure{endsection}.............1
+\Configure{endsubsection}..........1
+\Configure{endsubsubsection}.......1
+\Configure{endparagraph}...........1
+\Configure{endsubparagraph}........1
+\Configure{endappendix}............1
+\Configure{endlikepart}............1
+\Configure{endlikechapter}.........1
+\Configure{endlikesection}.........1
+\Configure{endlikesubsection}......1
+\Configure{endlikesubsubsection}...1
+\Configure{endlikeparagraph}.......1
+\Configure{endlikesubparagraph}....1
+
+   #1  a comma separated list specifying the end
+       points for the configured logical unit
+
+   e.g., \Configure{endsection}
+              {likesection,chapter,likechapter,appendix,part,likepart}
+
+
+
+
+\Configure{tableofcontents*}.......................1
+
+    #1  A non-empty  parameter asks to implicitly introduce
+        a \tableofcontents upon reaching the first sectioning
+        command, if no \tableofcontents command is encountered
+        earlier. The parameter assumes a colon-separated list
+        of sectioning types to be included in the output
+        of \tableofcontents.  Starred variants of sectioning
+        types should be referenced with the `like' prefix.
+
+        An empty parameter cancels earlier requests for implicit
+        calls to \tableofcontents (e.g., embedded within requests
+        to package options 1, 2, 3, 4)
+
+   Example:
+
+      \Configure{tableofcontents*}{part,likepart,%
+           section,likesection,subsection,likesubsection}
+
+\contentsname
+
+   A LaTeX macro stating the title for a table of contents division.
+
+
+
+Index (\theindex)
+-----------------
+
+
+\Configure{theindex} ..........................9
+
+     #1    before-env
+     #2    after-env
+     #3    before-item
+     #4    after-item
+     #5    before-subitem
+     #6    after-subitem
+     #7    before-subsubitem
+     #8    after-subsubitem
+     #9    at-indexspace
+
+    Example:
+
+       \Configure{theindex}
+          {\HCode{<ul class="theindex">}\global\let\IndexSpace=\empty}
+          {\HCode{</ul>}}
+          {\HCode{<li \IndexSpace>}\global\let\IndexSpace=\empty}
+                                         {\HCode{</li>\Hnewline}}
+          {\HCode{<li>}\ \ \ \ }         {\HCode{</li>\Hnewline}}
+          {\HCode{<li>}\ \ \ \ \ \ \ \ } {\HCode{</li>\Hnewline}}
+          {\global\def\IndexSpace{class="indexspace"}}
+
+       \Css{.indexspace{margin-top:1em;}}
+
+    The links are indirectly requested in the idx files within
+    \beforeentry macros. For instance, a file try.tex
+
+       \documentclass{article}
+          \makeindex
+       \begin{document}
+
+       \section{xx}
+
+       \index{a1}  x
+       \index{a2}  x
+       \index{a2}  x
+       \index{b1}  x
+       \index{b2}  x
+       \index{b3}  x
+
+       \input \jobname.ind
+
+       \end{document}
+
+    produces a file try.idx of the form
+
+       \beforeentry{try.html}{dx1-1001}{}
+       \indexentry{a1}{1}
+       \beforeentry{try.html}{dx1-1002}{}
+       \indexentry{a2}{1}
+       \beforeentry{try.html}{dx1-1003}{}
+       \indexentry{a2}{1}
+       \beforeentry{try.html}{dx1-1004}{}
+       \indexentry{b1}{1}
+       \beforeentry{try.html}{dx1-1005}{}
+       \indexentry{b2}{1}
+       \beforeentry{try.html}{dx1-1006}{}
+       \indexentry{b3}{1}
+
+    where each pair
+
+        \beforeentry{A}{B}{}\indexetry{C}{D}
+
+    represents an entry of the form
+
+        \indexentry{\Link[A]{B}{}C\EndLink}{D}
+
+    The makeindex utility ignores the \beforeentry records.  To compensate
+    for that, one needs to pre-process the idx file which is introduced to
+    the makeindex utility and/or post-process the output of the utility.
+
+    A script consisting of two instructions similar to
+
+      tex '\def\filename{{try}{idx}{4dx}{ind}} \input idxmake.4ht'
+      makeindex -o try.ind try.4dx
+
+    instead of
+
+      makeindex -o try.ind try.idx
+
+    should do the job.
+
+    On some platforms, the quotation marks ' should be
+    replaced by double quotation marks " or eliminated.
+
+\Configure{makeindex} ..........................1
+
+    The default setting, requests consecutive numbers for the
+    pointers in the indexes.  The current command provides the
+    means to configure the pointers to other values.
+
+    Example: \Configure{makeindex}{Sec \arabic{section}}
+
+
+
+Environments of book:
+---------------------
+
+  \ConfigureEnv{...}.........................4
+
+   description
+   figure
+   figure*
+   quotation
+   quote
+   table
+   table*
+   thebibliography
+   titlepage
+   verse
+
+\Configure{listof}
+
+\Configure{appendix}
+\Configure{caption}
+\Configure{chapter}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[30]2092//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[40]2207...//
+
+
+Title Page
+----------
+\Configure{maketitle}.....................4
+
+   #1 start of maketitle
+   #2 end of maketitle
+   #3 before title
+   #4 after title
+
+\Configure{thanks author date and}........8
+
+   #1  before thanks
+   #2  after thanks
+   #3  before author
+   #4  after author
+   #5  before date
+   #6  after date
+   #7  representation of `and'
+   #8  line breaks (= end of rows, for an embedded tabular environment)
+
+
+Bibliography
+------------
+
+\ConfigureList{thebibliography}......4
+
+   #1   before list
+   #2   after  list
+   #3   before label
+   #4   after label
+
+   \DeleteMark   removes latex's label; to be placed at the end of #3
+   \AnchorLabel  defines an anchor for \label in current item; to
+                 be placed in #4
+
+\Configure{cite}        see the
+\Configure{bibitem}     latex section
+
+
+
+\ConfigureList{description}%
+
+\ConfigureToc
+
+  lof, lot, appendix, chapter, likechapter, likeparagraph, likepart,
+  likesection, likesubparagraph, likesubsection, likesubsubsection,
+  paragraph, part, section, subparagraph, subsection, subsubsection
+
+
+\Configure{appendixTITLE+}
+\Configure{chapterTITLE+}
+\Configure{partTITLE+}
+\Configure{sectionTITLE+}
+\Configure{subsectionTITLE+}
+\Configure{subsubsectionTITLE+}
+
+   #1 an insertion just before the content of <TITLE>;
+
+   The insertion overrides the one offered by \Configure{CutAtTITLE+}
+   for the given section type (the `like' counterparts acn also be
+   configured).
+
+   If #1 is a one parametric macro, it gets the title content for
+   an argument.
+
+
+\Configure{endpart}................1
+\Configure{endchapter}.............1
+\Configure{endsection}.............1
+\Configure{endsubsection}..........1
+\Configure{endsubsubsection}.......1
+\Configure{endparagraph}...........1
+\Configure{endsubparagraph}........1
+\Configure{endappendix}............1
+\Configure{endlikepart}............1
+\Configure{endlikechapter}.........1
+\Configure{endlikesection}.........1
+\Configure{endlikesubsection}......1
+\Configure{endlikesubsubsection}...1
+\Configure{endlikeparagraph}.......1
+\Configure{endlikesubparagraph}....1
+
+   #1  a comma separated list specifying the end
+       points for the configured logical unit
+
+   e.g., \Configure{endsection}
+              {likesection,chapter,likechapter,appendix,part,likepart}
+
+
+
+\Configure{tableofcontents*}.......................1
+
+    #1  A non-empty  parameter asks to implicitly introduce
+        a \tableofcontents upon reaching the first sectioning
+        command, if no \tableofcontents command is encountered
+        earlier. The parameter assumes a colon-separated list
+        of sectioning types to be included in the output
+        of \tableofcontents.  Starred variants of sectioning
+        types should be referenced with the `like' prefix.
+
+        An empty parameter cancels earlier requests for implicit
+        calls to \tableofcontents (e.g., embedded within requests
+        to package options 1, 2, 3, 4)
+
+   Example:
+
+      \Configure{tableofcontents*}{part,likepart,%
+           section,likesection,subsection,likesubsection}
+
+\contentsname
+
+   A LaTeX macro stating the title for a table of contents division.
+
+
+
+\Configure{appendix}................4
+\Configure{chapter}
+\Configure{likechapter}
+\Configure{likeparagraph}
+\Configure{likepart}
+\Configure{likesection}
+\Configure{likesubparagraph}
+\Configure{likesubsection}
+\Configure{likesubsubsection}
+\Configure{paragraph}
+\Configure{part}
+\Configure{section}
+\Configure{subparagraph}
+\Configure{subsection}
+\Configure{subsubsection}
+
+
+
+\Configure{theindex} ..........................9
+
+     #1    before-env
+     #2    after-env
+     #3    before-item
+     #4    after-item
+     #5    before-subitem
+     #6    after-subitem
+     #7    before-subsubitem
+     #8    after-subsubitem
+     #9    at-indexspace
+
+    Example:
+
+       \Configure{theindex}
+          {\HCode{<ul class="theindex">}\global\let\IndexSpace=\empty}
+          {\HCode{</ul>}}
+          {\HCode{<li \IndexSpace>}\global\let\IndexSpace=\empty}
+                                         {\HCode{</li>\Hnewline}}
+          {\HCode{<li>}\ \ \ \ }         {\HCode{</li>\Hnewline}}
+          {\HCode{<li>}\ \ \ \ \ \ \ \ } {\HCode{</li>\Hnewline}}
+          {\global\def\IndexSpace{class="indexspace"}}
+
+       \Css{.indexspace{margin-top:1em;}}
+
+    The links are indirectly requested in the idx files within
+    \beforeentry macros. For instance, a file try.tex
+
+       \documentclass{article}
+          \makeindex
+       \begin{document}
+
+       \section{xx}
+
+       \index{a1}  x
+       \index{a2}  x
+       \index{a2}  x
+       \index{b1}  x
+       \index{b2}  x
+       \index{b3}  x
+
+       \input \jobname.ind
+
+       \end{document}
+
+    produces a file try.idx of the form
+
+       \beforeentry{try.html}{dx1-1001}{}
+       \indexentry{a1}{1}
+       \beforeentry{try.html}{dx1-1002}{}
+       \indexentry{a2}{1}
+       \beforeentry{try.html}{dx1-1003}{}
+       \indexentry{a2}{1}
+       \beforeentry{try.html}{dx1-1004}{}
+       \indexentry{b1}{1}
+       \beforeentry{try.html}{dx1-1005}{}
+       \indexentry{b2}{1}
+       \beforeentry{try.html}{dx1-1006}{}
+       \indexentry{b3}{1}
+
+    where each pair
+
+        \beforeentry{A}{B}{}\indexetry{C}{D}
+
+    represents an entry of the form
+
+        \indexentry{\Link[A]{B}{}C\EndLink}{D}
+
+    The makeindex utility ignores the \beforeentry records.  To compensate
+    for that, one needs to pre-process the idx file which is introduced to
+    the makeindex utility and/or post-process the output of the utility.
+
+    A script consisting of two instructions similar to
+
+      tex '\def\filename{{try}{idx}{4dx}{ind}} \input idxmake.4ht'
+      makeindex -o try.ind try.4dx
+
+    instead of
+
+      makeindex -o try.ind try.idx
+
+    should do the job.
+
+    On some platforms, the quotation marks ' should be
+    replaced by double quotation marks " or eliminated.
+
+\Configure{makeindex} ..........................1
+
+    The default setting, requests consecutive numbers for the
+    pointers in the indexes.  The current command provides the
+    means to configure the pointers to other values.
+
+    Example: \Configure{makeindex}{Sec \arabic{section}}
+
+
+Environments of report:
+----------------------
+
+  \ConfigureEnv{...}.........................4
+
+   abstract
+   description
+   figure
+   figure*
+   quotation
+   quote
+   table
+   table*
+   thebibliography
+   titlepage
+   verse
+
+\Configure{listof}
+\Configure{thanks author date and}
+\Configure{caption}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[40]2207//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[50]2307...//
+
+
+Title Page
+----------
+\Configure{maketitle}.....................4
+
+   #1 start of maketitle
+   #2 end of maketitle
+   #3 before title
+   #4 after title
+
+\Configure{thanks author date and}........8
+
+   #1  before thanks
+   #2  after thanks
+   #3  before author
+   #4  after author
+   #5  before date
+   #6  after date
+   #7  representation of `and'
+   #8  line breaks (= end of rows, for an embedded tabular environment)
+
+
+Sectioning Commands
+-------------------
+\Configure{part}...................4
+\Configure{section}................4
+\Configure{subsection}.............4
+\Configure{subsubsection}..........4
+\Configure{paragraph}..............4
+\Configure{subparagraph}...........4
+
+   #1 before division
+   #2 after division
+   #3 before title
+   #4 after title
+
+\Configure{likepart}...............4
+\Configure{likesection}............4
+\Configure{likesubsection}.........4
+\Configure{likesubsubsection}......4
+\Configure{likeparagraph}..........4
+\Configure{likesubparagraph}.......4
+
+   starred versions of the sectioning commands
+
+\Configure{endpart}................1
+\Configure{endsection}.............1
+\Configure{endsubsection}..........1
+\Configure{endsubsubsection}.......1
+\Configure{endparagraph}...........1
+\Configure{endsubparagraph}........1
+\Configure{endlikepart}............1
+\Configure{endlikesection}.........1
+\Configure{endlikesubsection}......1
+\Configure{endlikesubsubsection}...1
+\Configure{endlikeparagraph}.......1
+\Configure{endlikesubparagraph}....1
+
+   #1  a comma separated list specifying the end
+       points for the configured logical unit
+
+   e.g., \Configure{endsection}
+              {likesection,chapter,likechapter,appendix,part,likepart}
+
+\Configure{partTITLE+}
+\Configure{sectionTITLE+}
+\Configure{subsectionTITLE+}
+\Configure{subsubsectionTITLE+}
+
+
+   #1 an insertion just before the content of <TITLE>;
+
+   The insertion overrides the one offered by \Configure{CutAtTITLE+}
+   for the given section type (the `like' counterparts acn also be
+   configured).
+
+   If #1 is a one parametric macro, it gets the title content for
+   an argument.
+
+
+
+Bibliography
+------------
+
+\ConfigureList{thebibliography}......4
+
+   #1   before list
+   #2   after  list
+   #3   before label
+   #4   after label
+
+   \DeleteMark   removes latex's label; to be placed at the end of #3
+   \AnchorLabel  defines an anchor for \label in current item; to
+                 be placed in #4
+
+\Configure{cite}        see the
+\Configure{bibitem}     latex section
+
+
+Tables of Content
+-----------------
+\ConfigureToc
+
+  lof, lot, appendix, chapter, likechapter, likeparagraph, likepart,
+  likesection, likesubparagraph, likesubsection, likesubsubsection,
+  paragraph, part, section, subparagraph, subsection, subsubsection,
+
+
+\Configure{tableofcontents*}.......................1
+
+    #1  A non-empty  parameter asks to implicitly introduce
+        a \tableofcontents upon reaching the first sectioning
+        command, if no \tableofcontents command is encountered
+        earlier. The parameter assumes a colon-separated list
+        of sectioning types to be included in the output
+        of \tableofcontents.  Starred variants of sectioning
+        types should be referenced with the `like' prefix.
+
+        An empty parameter cancels earlier requests for implicit
+        calls to \tableofcontents (e.g., embedded within requests
+        to package options 1, 2, 3, 4)
+
+   Example:
+
+      \Configure{tableofcontents*}{part,likepart,%
+           section,likesection,subsection,likesubsection}
+
+\contentsname
+
+   A LaTeX macro stating the title for a table of contents division.
+
+
+
+Captions
+--------
+
+\Configure{caption}...............4
+
+   #1   before number          #2    after number
+   #3   before title           #4    after title
+
+Indexes
+-------
+
+
+\Configure{theindex} ..........................9
+
+     #1    before-env
+     #2    after-env
+     #3    before-item
+     #4    after-item
+     #5    before-subitem
+     #6    after-subitem
+     #7    before-subsubitem
+     #8    after-subsubitem
+     #9    at-indexspace
+
+    Example:
+
+       \Configure{theindex}
+          {\HCode{<ul class="theindex">}\global\let\IndexSpace=\empty}
+          {\HCode{</ul>}}
+          {\HCode{<li \IndexSpace>}\global\let\IndexSpace=\empty}
+                                         {\HCode{</li>\Hnewline}}
+          {\HCode{<li>}\ \ \ \ }         {\HCode{</li>\Hnewline}}
+          {\HCode{<li>}\ \ \ \ \ \ \ \ } {\HCode{</li>\Hnewline}}
+          {\global\def\IndexSpace{class="indexspace"}}
+
+       \Css{.indexspace{margin-top:1em;}}
+
+    The links are indirectly requested in the idx files within
+    \beforeentry macros. For instance, a file try.tex
+
+       \documentclass{article}
+          \makeindex
+       \begin{document}
+
+       \section{xx}
+
+       \index{a1}  x
+       \index{a2}  x
+       \index{a2}  x
+       \index{b1}  x
+       \index{b2}  x
+       \index{b3}  x
+
+       \input \jobname.ind
+
+       \end{document}
+
+    produces a file try.idx of the form
+
+       \beforeentry{try.html}{dx1-1001}{}
+       \indexentry{a1}{1}
+       \beforeentry{try.html}{dx1-1002}{}
+       \indexentry{a2}{1}
+       \beforeentry{try.html}{dx1-1003}{}
+       \indexentry{a2}{1}
+       \beforeentry{try.html}{dx1-1004}{}
+       \indexentry{b1}{1}
+       \beforeentry{try.html}{dx1-1005}{}
+       \indexentry{b2}{1}
+       \beforeentry{try.html}{dx1-1006}{}
+       \indexentry{b3}{1}
+
+    where each pair
+
+        \beforeentry{A}{B}{}\indexetry{C}{D}
+
+    represents an entry of the form
+
+        \indexentry{\Link[A]{B}{}C\EndLink}{D}
+
+    The makeindex utility ignores the \beforeentry records.  To compensate
+    for that, one needs to pre-process the idx file which is introduced to
+    the makeindex utility and/or post-process the output of the utility.
+
+    A script consisting of two instructions similar to
+
+      tex '\def\filename{{try}{idx}{4dx}{ind}} \input idxmake.4ht'
+      makeindex -o try.ind try.4dx
+
+    instead of
+
+      makeindex -o try.ind try.idx
+
+    should do the job.
+
+    On some platforms, the quotation marks ' should be
+    replaced by double quotation marks " or eliminated.
+
+\Configure{makeindex} ..........................1
+
+    The default setting, requests consecutive numbers for the
+    pointers in the indexes.  The current command provides the
+    means to configure the pointers to other values.
+
+    Example: \Configure{makeindex}{Sec \arabic{section}}
+
+
+Environments of article:
+------------------------
+
+  \ConfigureEnv{...}.........................4
+
+   abstract
+   description
+   figure
+   figure*
+   quotation
+   quote
+   table
+   table*
+   thebibliography
+   titlepage
+   verse
+
+Other Hooks
+-----------
+\Configure{listof}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[50]2307//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fontmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[60]2418...//
+
+\Configure{mathbf}........................2
+\Configure{mathit}........................2
+\Configure{mathrm}........................2
+\Configure{mathsf}........................2
+\Configure{mathtt}........................2
+
+  #1  before content
+  #2  after content
+
+\Configure{overbrace}.................3
+\Configure{underbrace}................3
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[60]2418//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{graphics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[70]2435...//
+
+\Configure{graphics}...............2
+
+    #1  before \includegraphics
+    #2  after \includegraphics
+
+
+    Examples:
+
+       \Configure{graphics}
+          {\Picture+[PIC]{ class="graphics"}}
+          {\EndPicture }
+
+       \Configure{graphics}
+         {\bgroup
+             \Configure{IMG}
+                {\ht:special{t4ht=<img src="}}
+                {\ht:special{t4ht=" alt="}}
+                {" }
+                {\ht:special{t4ht=" }}
+                {}%
+          \Picture+[PIC]{}}
+         {\EndPicture
+             \def\temp{.pstex}\expandafter\ifx
+                              \csname Gin@ext\endcsname\temp
+                                         \HCode{ width="75\%" }\fi
+             \HCode{ />}%
+          \egroup}
+
+
+\Configure{graphics*}..............2
+
+    #1  extension name
+    #2  insertion
+
+    \Gin@base (file name), \Gin@ext, \Gin@req@width, \Gin@req@height,
+    \noBoundingBox (defined iff bounding box is unknown)
+
+    Allows to configure tex4ht for graphics files named in
+    the \includegraphics macro, based on the type of the files.
+
+    An empty insertion #2 cancels previous requests for the
+    specified extension.
+
+    Example:
+
+       \Configure{graphics*}
+         {jpg}
+         {\Picture[pict]{\csname Gin@base\endcsname.jpg}}
+
+       \Configure{graphics*}
+         {wmf}
+         {\Needs{"convert \csname Gin@base\endcsname.wmf
+                          \csname Gin@base\endcsname.gif"}%
+          \Picture[pict]{\csname Gin@base\endcsname.gif
+                      width="\expandafter\the\csname
+                                Gin@req@width\endcsname"
+                     height="\expandafter\the\csname
+                                Gin@req@height\endcsname"}%
+         }
+
+       \Configure{graphics*}
+         {eps}
+         {\openin15=\csname Gin@base\endcsname\PictExt\relax
+          \ifeof15
+             \Needs{"convert \csname Gin@base\endcsname.eps
+                             \csname Gin@base\endcsname\PictExt"}%
+          \fi
+          \closein15
+          \Picture[pict]{\csname Gin@base\endcsname\PictExt}%
+         }
+
+  Note: Arguments of the \includegraphics command such as angle and
+    scale in
+
+       \includegraphics[angle=-90,scale=0.5]{fig.eps}
+
+    are not known to the given figure (e.g., to fig.eps). To be
+    taken into account, the scripts should handle the transformations
+    they request (e.g., in \csname Grot@angle\endcsname,
+    \csname Gscale@x\endcsname, \csname Gscale@y\endcsname)
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[70]2435//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[130]2655...//
+
+
+\Configure{tableofcontents*}.......................1
+
+    #1  A non-empty  parameter asks to implicitly introduce
+        a \tableofcontents upon reaching the first sectioning
+        command, if no \tableofcontents command is encountered
+        earlier. The parameter assumes a colon-separated list
+        of sectioning types to be included in the output
+        of \tableofcontents.  Starred variants of sectioning
+        types should be referenced with the `like' prefix.
+
+        An empty parameter cancels earlier requests for implicit
+        calls to \tableofcontents (e.g., embedded within requests
+        to package options 1, 2, 3, 4)
+
+   Example:
+
+      \Configure{tableofcontents*}{part,likepart,%
+           section,likesection,subsection,likesubsection}
+
+\contentsname
+
+   A LaTeX macro stating the title for a table of contents division.
+
+
+Title Page
+----------
+\Configure{maketitle}.....................4
+
+   #1 start of maketitle
+   #2 end of maketitle
+   #3 before title
+   #4 after title
+
+\Configure{thanks author date and}........8
+
+   #1  before thanks
+   #2  after thanks
+   #3  before author
+   #4  after author
+   #5  before date
+   #6  after date
+   #7  representation of `and'
+   #8  line breaks (= end of rows, for an embedded tabular environment)
+
+
+\ConfigureList{thebibliography}%
+\Configure{HtmlPar}
+\Configure{HtmlPar}
+\Configure{Needs}
+\Configure{abstract}
+\Configure{authors}
+\Configure{caption}
+\Configure{date}
+\Configure{endlikeparagraph}
+\Configure{endlikepart}
+\Configure{endlikesection}
+\Configure{endlikesubparagraph}
+\Configure{endlikesubsection}
+\Configure{endlikesubsubsection}
+\Configure{endparagraph}
+\Configure{endpart}
+\Configure{endsection}
+\Configure{endsubparagraph}
+\Configure{endsubsection}
+\Configure{endsubsubsection}
+\Configure{keywords}
+\Configure{likeparagraph}
+\Configure{likepart}
+\Configure{likesection}
+\Configure{likesubparagraph}
+\Configure{likesubsection}
+\Configure{likesubsubsection}
+\Configure{paragraph}
+\Configure{partTITLE+}
+\Configure{part}
+\Configure{sectionTITLE+}
+\Configure{section}
+\Configure{setdate}
+\Configure{subjclass}
+\Configure{submaketitle}
+\Configure{subparagraph}
+\Configure{subsectionTITLE+}
+\Configure{subsection}
+\Configure{subsubsectionTITLE+}
+\Configure{subsubsection}
+\Configure{thanks author date and}
+\Configure{thanks}
+\Configure{title}
+
+Environments of amsart:
+
+   abstract
+   abstract
+   picture
+   picture
+   thebibliography
+
+  \ConfigureToc
+
+  likeparagraph likepart, likesection, likesubparagraph,
+  likesubsection, likesubsubsection, paragraph, part, section,
+  subparagraph, subsection, subsubsection,
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[130]2655//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[140]2722...//
+
+
+\Configure{tableofcontents*}.......................1
+
+    #1  A non-empty  parameter asks to implicitly introduce
+        a \tableofcontents upon reaching the first sectioning
+        command, if no \tableofcontents command is encountered
+        earlier. The parameter assumes a colon-separated list
+        of sectioning types to be included in the output
+        of \tableofcontents.  Starred variants of sectioning
+        types should be referenced with the `like' prefix.
+
+        An empty parameter cancels earlier requests for implicit
+        calls to \tableofcontents (e.g., embedded within requests
+        to package options 1, 2, 3, 4)
+
+   Example:
+
+      \Configure{tableofcontents*}{part,likepart,%
+           section,likesection,subsection,likesubsection}
+
+\contentsname
+
+   A LaTeX macro stating the title for a table of contents division.
+
+
+Title Page
+----------
+\Configure{maketitle}.....................4
+
+   #1 start of maketitle
+   #2 end of maketitle
+   #3 before title
+   #4 after title
+
+\Configure{thanks author date and}........8
+
+   #1  before thanks
+   #2  after thanks
+   #3  before author
+   #4  after author
+   #5  before date
+   #6  after date
+   #7  representation of `and'
+   #8  line breaks (= end of rows, for an embedded tabular environment)
+
+
+\ConfigureList{thebibliography}%
+\Configure{HtmlPar}
+\Configure{Needs}
+\Configure{abstract}
+\Configure{addresses}
+\Configure{authors}
+\Configure{caption}
+\Configure{date}
+\Configure{endlikeparagraph}
+\Configure{endlikepart}
+\Configure{endlikesection}
+\Configure{endlikesubparagraph}
+\Configure{endlikesubsection}
+\Configure{endlikesubsubsection}
+\Configure{endparagraph}
+\Configure{endpart}
+\Configure{endsection}
+\Configure{endsubparagraph}
+\Configure{endsubsection}
+\Configure{endsubsubsection}
+\Configure{keywords}
+\Configure{likeparagraph}
+\Configure{likepart}
+\Configure{likesection}
+\Configure{likesubparagraph}
+\Configure{likesubsection}
+\Configure{likesubsubsection}
+\Configure{paragraph}
+\Configure{partTITLE+}
+\Configure{part}
+\Configure{sectionTITLE+}
+\Configure{section}
+\Configure{subjclass}
+\Configure{subparagraph}
+\Configure{subsectionTITLE+}
+\Configure{subsection}
+\Configure{subsubsectionTITLE+}
+\Configure{subsubsection}
+\Configure{thanks author date and}
+\Configure{thanks}
+\Configure{title}
+\Configure{translators}
+
+Environments of amsbook:
+
+   abstract
+   picture
+   thebibliography
+
+  \ConfigureToc
+
+  appendix, chapter, likechapter, likeparagraph, likepart,
+  likesection, likesubparagraph, likesubsection, likesubsubsection,
+  paragraph, part, section, subparagraph, subsection, subsubsection
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[140]2722//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsproc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[150]2785...//
+
+
+\Configure{tableofcontents*}.......................1
+
+    #1  A non-empty  parameter asks to implicitly introduce
+        a \tableofcontents upon reaching the first sectioning
+        command, if no \tableofcontents command is encountered
+        earlier. The parameter assumes a colon-separated list
+        of sectioning types to be included in the output
+        of \tableofcontents.  Starred variants of sectioning
+        types should be referenced with the `like' prefix.
+
+        An empty parameter cancels earlier requests for implicit
+        calls to \tableofcontents (e.g., embedded within requests
+        to package options 1, 2, 3, 4)
+
+   Example:
+
+      \Configure{tableofcontents*}{part,likepart,%
+           section,likesection,subsection,likesubsection}
+
+\contentsname
+
+   A LaTeX macro stating the title for a table of contents division.
+
+
+Title Page
+----------
+\Configure{maketitle}.....................4
+
+   #1 start of maketitle
+   #2 end of maketitle
+   #3 before title
+   #4 after title
+
+\Configure{thanks author date and}........8
+
+   #1  before thanks
+   #2  after thanks
+   #3  before author
+   #4  after author
+   #5  before date
+   #6  after date
+   #7  representation of `and'
+   #8  line breaks (= end of rows, for an embedded tabular environment)
+
+
+\ConfigureList{thebibliography}%
+\Configure{HtmlPar}
+\Configure{Needs}
+\Configure{abstract}
+\Configure{authors}
+\Configure{caption}
+\Configure{date}
+\Configure{endlikeparagraph}
+\Configure{endlikepart}
+\Configure{endlikesection}
+\Configure{endlikesubparagraph}
+\Configure{endlikesubsection}
+\Configure{endlikesubsubsection}
+\Configure{endparagraph}
+\Configure{endpart}
+\Configure{endsection}
+\Configure{endsubparagraph}
+\Configure{endsubsection}
+\Configure{endsubsubsection}
+\Configure{keywords}
+\Configure{likeparagraph}
+\Configure{likepart}
+\Configure{likesection}
+\Configure{likesubparagraph}
+\Configure{likesubsection}
+\Configure{likesubsubsection}
+\Configure{paragraph}
+\Configure{partTITLE+}
+\Configure{part}
+\Configure{sectionTITLE+}
+\Configure{section}
+\Configure{subparagraph}
+\Configure{subsectionTITLE+}
+\Configure{subsection}
+\Configure{subsubsectionTITLE+}
+\Configure{subsubsection}
+\Configure{thanks author date and}
+\Configure{thanks}
+\Configure{title}
+
+Environments of amsproc:
+
+   abstract
+   picture
+   thebibliography
+
+  \ConfigureToc
+
+  likeparagraph, likepart, likesection, likesubparagraph,
+  likesubsection, likesubsubsection, paragraph, part, section,
+  subparagraph, subsection, subsubsection
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[150]2785//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsthm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[160]2845...//
+
+Environments of amsthm:
+
+   proof
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[160]2845//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[110]2584...//
+
+\Configure{tmspace}...................1
+
+  \mathglue   amount of space in math units
+  \textspace  amount of space in points
+
+  Example:
+    \Configure{tmspace}{\mskip\mathglue}
+
+
+\Configure{boxed}.....................2
+\Configure{equations}.................2
+\Configure{equation}..................3
+\Configure{gather*}...................6
+\Configure{gather}....................6
+\Configure{genfrac}...................6
+\Configure{measure@}..................1
+\Configure{multline*}.................4
+\Configure{multline}..................6
+
+    #5  before the label
+    #6  after the label
+\Configure{overset}...................2
+\Configure{smallmatrix}...............6
+\Configure{split}.....................6
+\Configure{subarray}..................4
+\Configure{substack}..................2
+\Configure{underset}..................2
+\Configure{xleftarrow}................2
+\Configure{xrightarrow}...............2
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[110]2584//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsfonts}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[100]2566...//
+
+\Configure{mathbb}........................2
+\Configure{mathfrak}......................2
+
+  #1  before content
+  #2  after content
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[100]2566//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amstex1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[120]2621...//
+
+\Configure{eqn}
+\Configure{gather}
+
+
+Environments of amstex1:
+
+   Vmatrix
+   align*
+   alignat*
+   alignat
+   alignedat
+   aligned
+   aligned
+   align
+   bmatrix
+   equation*
+   equation
+   gather*
+   gathered
+   gather
+   matrix
+   multline*
+   multline
+   pmatrix
+   vmatrix
+   xalignat*
+   xalignat
+   xxalignat
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[120]2621//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsppt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[170]2856...//
+
+  \ConfigureToc
+
+    head,  specialhead, subhead, subsubhead
+
+\Configure{HtmlPar}
+\Configure{Refs}
+\Configure{abstract}
+\Configure{affil}
+\Configure{author}
+\Configure{block}
+\Configure{book}
+\Configure{caption}
+\Configure{date}
+\Configure{footnote}
+\Configure{head}
+\Configure{itemitem}
+\Configure{keyformat}
+\Configure{keywords}
+\Configure{paper}
+\Configure{ref}
+\Configure{roster}
+\Configure{specialhead}
+\Configure{subhead}
+\Configure{subjclass}
+\Configure{subsubhead}
+\Configure{thanks}
+\Configure{title}
+\Configure{vol}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[170]2856//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[80]2523...//
+
+\Configure{accent}
+\Configure{quotedblbase}
+\Configure{quotesinglbase}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[80]2523//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[90]2532...//
+
+
+\Configure{ }
+\Configure{HAccent}
+\Configure{TableOfContents}
+\Configure{accents}
+\Configure{accent}
+\Configure{beginsection}
+\Configure{centerline}
+\Configure{displaylines}
+\Configure{eqalignno}
+\Configure{eqalign}
+\Configure{insert}
+\Configure{item}
+\Configure{leftline}
+\Configure{leqalignno}
+\Configure{line}
+\Configure{mathaccent}
+\Configure{narrower}
+\Configure{noalign}
+\Configure{obeylines}
+\Configure{overline}
+\Configure{proclaim}
+\Configure{rightline}
+\Configure{settabs}
+\Configure{underline}
+\Configure{vfootnote}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[90]2532//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{url}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[340]3136...//
+
+\Configure{url}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[340]3136//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[350]3143...//
+
+A trick like the following one allows a compilation to choose
+between a pdf and a html mode automatically.
+
+   \ifx \HCode\UnDef  \usepackage[pdf]{hyperref}
+   \else              \usepackage[tex4ht]{hyperref}  \fi
+
+The trick assumes the compilations for html are invoked by
+htlatex-like commands.
+
+\Configure{::#1}
+\Configure{::action}
+\Configure{::default}
+\Configure{::menulength}
+\Configure{::method}
+\Configure{::name}
+\Configure{::value}
+\Configure{CheckBox::checked}
+\Configure{CheckBox::}
+\Configure{ChoiceMenu::combo}
+\Configure{ChoiceMenu::popdown}
+\Configure{ChoiceMenu::radio}
+\Configure{ChoiceMenu::}
+\Configure{Form}
+\Configure{PushButton::}
+\Configure{Reset::}
+\Configure{Submit::}
+\Configure{TextField::default}
+\Configure{TextField::multiline}
+\Configure{TextField::password}
+\Configure{TextField::width}
+\Configure{TextField::}
+\Configure{combo::default}
+\Configure{multiline::value}
+\Configure{multiline::width}
+\Configure{radio::default}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[350]3143//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[230]2964...//
+
+\Configure{tabular}
+\Configure{array}
+
+
+\Configure{VBorder}...................4
+
+    Break points, when scanning the pattern of column desriptions, at
+
+    #1  at start of pattern
+    #2  at |
+    #3  at a non-@ entry
+    #4  at a @ entry
+
+  Applies to \begin{tabular / array}{...pattern...}
+
+    \ar:cnt    index of entry in pattern
+    \ch:class  records the current alignment type: -,<,>,p,...
+    \HColAlign produces the \Configure{halignTD} contribution
+               for the current alignment type
+    \HColWidth holds the width of the current p column
+
+\Configure{HBorder}..................10
+
+   hline:
+    #1  insert at start of row (e.g., <tr>)
+    #2  insert at each cell    (e.g., <td><hr/></td>)
+    #3  insert at end of row   (e.g., </tr>)
+
+   cline:
+    #4  insert at start of row         (e.g., <tr>)
+    #5  insert at each `extra' cell    (e.g., <td></td>)
+    #6  insert at each cell            (e.g., <td><hr/></td>)
+    #7  insert at end of row           (e.g., </tr>)
+
+   vspace:
+    #8  insert at start of row (e.g., <tr>)
+    #9  insert at each cell    (e.g., <td>&nbsp;</td>)
+    #10 insert at end of row   (e.g., </tr>)
+
+   The contributions are collected into \HBorder.  (The \InitHBorder
+   clears \HBorder.)
+
+\Configure{putHBorder}...............1
+    #1 Specifies how \HBorder is to be used.
+
+   Example: \Configure{putHBorder}{\HCode{\HBorder}}
+
+
+
+\Configure{@{}}{}
+
+
+Environments of array:
+
+   array
+   tabular
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[230]2964//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{longtable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[270]3047...//
+
+\Configure{longtable}.............................6
+
+    #1   before table         #2   after table
+    #3   before row           #4   after row
+    #5   before cell          #6   after cell
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[270]3047//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{CJK}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[360]3185...//
+
+\Configure{charset}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[360]3185//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{moreverb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[290]3072...//
+
+\Configure{verbatimtab}......................2
+
+   #1 at start of line
+   #2 space character
+
+Environments of moreverb:
+
+   boxedverbatim*
+   boxedverbatim*
+   boxedverbatim
+   boxedverbatim
+   verbatimtab
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[290]3072//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fancyvrb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[280]3057...//
+
+\Configure{fancyvrbcolor}
+\Configure{fancyvrbframe}
+\Configure{fancyvrb}
+
+Environments of fancyvrb:
+
+   verbatim*
+   verbatim
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[280]3057//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{psfig}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[190]2920...//
+
+\Configure{psfig}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[190]2920//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{epsfig}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[200]2927...//
+
+\Configure{epsfig}...........................#1
+
+   #1  before
+   #2  after
+
+   In LaTeX, epsfig reduces to graphicsx
+
+   Example:
+
+    \Configure{epsfig}
+       {\Configure{graphics}
+          {} {\xdef\foo{width="\the\Gin@req@width"
+              height="\the\Gin@req@height"}}%
+        \Picture+[epsfig]{}}
+       {\EndPicture\writesixteen{..... \foo}}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[200]2927//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amscd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[220]2954...//
+
+
+Environments of amscd:
+
+   CD
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[220]2954//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{color}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[310]3100...//
+
+\Configure{HColor}......................2
+
+      #1 color name
+      #2 color value
+
+  Examples:  \Configure{HColor}{blue}{\#0000FF}
+             \Configure{HColor}{light}{rgb(122,251,255)}
+
+\Configure{colorbox}
+\Configure{color}
+\Configure{textcolor}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[310]3100//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[320]3117...//
+
+\Configure{@classz}
+\Configure{rowcolor}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[320]3117//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{minitoc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[240]2981...//
+
+\Configure{minilof}
+\Configure{minilot}
+\Configure{minitoc}
+\Configure{partlof}
+\Configure{partlot}
+\Configure{parttoc}
+\Configure{sectlof}
+\Configure{sectlot}
+\Configure{secttoc}
+\Configure{tableofcontents}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[240]2981//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{index}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[250]2998...//
+
+\Configure{NoSection}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[250]2998//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fancybox}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[300]3090...//
+
+\Configure{Ovalbox}
+\Configure{doublebox}
+\Configure{ovalbox}
+\Configure{shadowbox}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[300]3090//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{alltt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[330]3125...//
+
+Environments of alltt:
+
+   alltt
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[330]3125//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{vanilla}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[370]3192...//
+
+  \ConfigureToc
+
+    heading,  subheading
+
+\Configure{aligned}
+\Configure{align}
+\Configure{author}
+\Configure{demo}
+\Configure{heading}
+\Configure{matrix}
+\Configure{subheading}
+\Configure{title}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[370]3192//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{ntheorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[260]3009...//
+
+Environments of ntheorem:
+
+   Anmerkung
+   Beispiel
+   Bemerkung
+   Beweis
+   Corollary
+   Definition
+   Example
+   Korollar
+   Lemma
+   Proof
+   Proposition
+   Remark
+   Satz
+   Theorem
+   anmerkung
+   beispiel
+   bemerkung
+   beweis
+   corollary
+   definition
+   example
+   korollar
+   lemma
+   proof
+   proposition
+   remark
+   satz
+   theorem
+
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[260]3009//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{hebtex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[540]3742...//
+
+\Configure{arabtext}
+\Configure{chireq}
+\Configure{cholem}
+\Configure{cholem}
+\Configure{chpatach}
+\Configure{chqames}
+\Configure{chsegol}
+\Configure{dagesh}
+\Configure{meteg}
+\Configure{patachf}
+\Configure{patach}
+\Configure{qameschat}
+\Configure{qames}
+\Configure{qibbus}
+\Configure{rdot}
+\Configure{segol}
+\Configure{sere}
+\Configure{shindot}
+\Configure{shwa}
+\Configure{sindot}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[540]3742//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{emulateapj}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[380]3215...//
+
+\Configure{affil}
+\Configure{author}
+\Configure{keywords}
+\Configure{section}
+\Configure{slugcomment}
+\Configure{subjectheadings}
+\Configure{submitted}
+\Configure{subsection}
+\Configure{subtitle}
+\Configure{title}
+
+Environments of emulateapj:
+
+   references
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[380]3215//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{aa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[390]3234...//
+
+
+Title Page
+----------
+\Configure{maketitle}.....................4
+
+   #1 start of maketitle
+   #2 end of maketitle
+   #3 before title
+   #4 after title
+
+\Configure{thanks author date and}........8
+
+   #1  before thanks
+   #2  after thanks
+   #3  before author
+   #4  after author
+   #5  before date
+   #6  after date
+   #7  representation of `and'
+   #8  line breaks (= end of rows, for an embedded tabular environment)
+
+
+\Configure{HtmlPar}
+\Configure{caption}
+\Configure{endlikeparagraph}
+\Configure{endlikepart}
+\Configure{endlikesection}
+\Configure{endlikesubparagraph}
+\Configure{endlikesubsection}
+\Configure{endlikesubsubsection}
+\Configure{endparagraph}
+\Configure{endpart}
+\Configure{endsection}
+\Configure{endsubparagraph}
+\Configure{endsubsection}
+\Configure{endsubsubsection}
+\Configure{likeparagraph}
+\Configure{likepart}
+\Configure{likesection}
+\Configure{likesubparagraph}
+\Configure{likesubsection}
+\Configure{likesubsubsection}
+\Configure{makeheadbox}
+\Configure{paragraph}
+\Configure{partTITLE+}
+\Configure{part}
+\Configure{sectionTITLE+}
+\Configure{section}
+\Configure{subparagraph}
+\Configure{subsectionTITLE+}
+\Configure{subsection}
+\Configure{subsubsectionTITLE+}
+\Configure{subsubsection}
+\Configure{subsubsection}
+\Configure{subtitle institute}
+\Configure{thanks author date and}
+
+Environments of aa:
+
+   abstract
+   picture
+   thebibliography
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[390]3234//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{doc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[430]3310...//
+
+Environments of doc:
+
+   macrocode
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[430]3310//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[440]3322...//
+
+\Configure{lineno}...................2
+
+   Asks lineno.sty to introduce #1\LineNumber #2, instead of \LineNumber,
+   into the output
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[440]3322//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{elsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[450]3336...//
+
+\Configure{abstract}
+\Configure{keyword}
+
+Environments of elsart:
+
+   frontmatter
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[450]3336//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{seminar}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[470]3364...//
+
+
+Environments of seminar:
+
+   slide
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[470]3364//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{slides}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[480]3374...//
+
+\Configure{slidename}....................................1
+\CutAt{slide}.............................................0
+
+\ConfigureList{description}%
+
+Environments of slides:
+
+   note
+   quotation
+   quote
+   slide
+   titlepage
+   verse
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[480]3374//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{foils}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[520]3428...//
+
+    \ConfigureToc
+
+         foilheads
+
+\Configure{foilheads}
+
+
+\Configure{tableofcontents*}.......................1
+
+    #1  A non-empty  parameter asks to implicitly introduce
+        a \tableofcontents upon reaching the first sectioning
+        command, if no \tableofcontents command is encountered
+        earlier. The parameter assumes a colon-separated list
+        of sectioning types to be included in the output
+        of \tableofcontents.  Starred variants of sectioning
+        types should be referenced with the `like' prefix.
+
+        An empty parameter cancels earlier requests for implicit
+        calls to \tableofcontents (e.g., embedded within requests
+        to package options 1, 2, 3, 4)
+
+   Example:
+
+      \Configure{tableofcontents*}{part,likepart,%
+           section,likesection,subsection,likesubsection}
+
+\contentsname
+
+   A LaTeX macro stating the title for a table of contents division.
+
+
+Environments of foils:
+
+   Corollary*
+   Corollary
+   Definition
+   Lemma
+   Proof
+   Proposition
+   Theorem
+   thebibliography
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[520]3428//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{slidesec}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[490]3393...//
+
+    \ConfigureToc
+
+          slidesection
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[490]3393//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{xy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[210]2947...//
+
+\Configure{xypic}
+\Configure{Xy}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[210]2947//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{pictex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[400]3281...//
+
+\Configure{pictex}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[400]3281//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{pb-diagram}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[410]3291...//
+
+Environments of pb-diagram:
+
+   diagram
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[410]3291//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{ltugboat}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[420]3301...//
+
+Environments of ltugboat:
+
+   quote
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[420]3301//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{listings}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[180]2892...//
+
+\Configure{lst@Kerm}...........................2
+
+   #1  width of character
+   #2  width of inter character space
+
+   In LaTeX, Default: \Configure{lst@Kern}{0.499em}{0.1em}
+
+\Configure{listings}...........................4
+
+     #1 start environment
+     #2 end environment
+     #3 before line label
+     #4 between line label and content
+
+\Configure{lstinputlisting}....................2
+\Configure{lstinline}..........................2
+
+     #1 start environment
+     #2 end environment
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[180]2892//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{float}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[560]3790...//
+
+New float environments can be configured with the \ConfigureEnv
+instruction. For instance,
+
+   \newfloat{myfloat}{htb}{}[section]
+
+   \ConfigureEnv{myfloat}
+     {BEFORE MYFLOAT}  {AFTER MYFLOAT}
+     {}{}
+
+   \begin{myfloat}
+    body
+    \caption{title}
+   \end{myfloat}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[560]3790//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{endnotes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[550]3773...//
+
+\Configure{theendnotes}......................2
+\Configure{enoteformat}......................2
+\Configure{makeenmark}.......................2
+
+  Provide markups for the mentioned entities.
+
+\endnoteN
+
+  A built-in counter for end notes.
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[550]3773//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{web}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[500]3401...//
+
+\Configure{maketitle}
+\Configure{webuniversity}
+\Configure{webversion}
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[500]3401//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{exerquiz}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[510]3410...//
+
+\ConfigureList{questions}%
+\Configure{@HEAD}
+\Configure{Form}
+\Configure{ReturnTo}
+\Configure{TextField::}
+\Configure{javascript}
+\Configure{quiz*}
+\Configure{quiz}
+\Configure{shortquiz}
+
+Environments of exerquiz:
+
+   shortquiz
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[510]3410//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{ProTex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[460]3350...//
+
+\Configure{ShowCode}...................6
+
+   #1  start body
+   #2  end body
+   #3  everypar
+   #4  open comment
+   #5  close comment
+   #6  space character
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[460]3350//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{th4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[530]3454...//
+
+\Configure{JavaScript}............2
+
+   Configures the environments
+
+      \JavaScript
+         ....
+      \EndJavaScript
+
+   and
+
+      \javascript{...}
+
+   These environments are activated by the `javascript' option.
+
+  Default:
+
+   \Configure{JavaScript}
+      {\HCode{<script type="text/JavaScript" ><!--\Hnewline}}
+      {\HCode{//-->\Hnewline </script>}}
+
+
+
+    \ConfigureToc
+
+        Chapter,  LikeSection, Section, SubSection
+
+\Configure{Appendix}
+\Configure{Chapter}
+\Configure{Columns}
+\Configure{Columns}
+\Configure{DList}
+\Configure{HTable}
+\Configure{Item}
+\Configure{LikeChapter}
+\Configure{LikeSection}
+\Configure{OList}
+\Configure{Part}
+\Configure{Section}
+\Configure{SubSection}
+\Configure{UList}
+\Configure{Verbatim}
+\Configure{buttonList+}
+\Configure{buttonList}
+\Configure{centerline}
+\Configure{index}
+
+Frames
+------
+
+When the package option `frames-' or `frames' is up,
+TeX4ht introduces the following commands for defining frames.
+
+   \Frame[#1]{#2}
+
+       A variant of the \Link[#1]{#2} portion of the
+       \Link[#1]{#2}{#3}#4\EndLink, for specifying a frame.
+
+   \HorFrames[#1]{#2}, \VerFrames[#1]{#2}
+
+     #1 attributes  ([#1] is optional)
+     #2 list of dimensions
+
+      A container partitioned, respectively, horizontally or
+      vertically. Each partition may hold a sub-container or
+      a frame.
+
+      The list of dimensions determine the cardinality of the
+      partition, and the dimension of each partition.  A dimension
+      can be specified absolutely by pixels (\HorFrames{80,130,50}),
+      relatively by percentage (\HorFrames{20\%,30\%,50\%}), and
+      relatively through ratio (\HorFrames{2*,3*,5*}).
+
+   \EndFrames
+
+      An end delimiter for a container
+
+   \NoFrames
+
+       When used, it should be placed before the outer-most
+       \EndFrames command.  The region \NoFrames...\EndNoFrames
+       provides the content for browsers which do not support frames.
+
+Tailoring configurations for frames is a little tricky, but the
+job is simpler when the configurations don't deal with the root
+file.
+
+Example 1:
+..........
+
+     % Requires the command line option `frames-'
+     \documentclass{article}
+
+     \begin{document}
+
+     \begingroup
+        \Configure{@HEAD}{}
+        \Configure{BODY}{}{}
+        \Configure{DOCTYPE}
+             {\HCode{<!DOCTYPE html
+                  PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+                          "http://www.w3.org/TR/html4/frameset.dtd">}}
+        \Configure{HEAD}{}{}
+        \Configure{HTML}
+            {\HCode{<html><head><title></title></head>}}
+            {\HCode{</html>}}
+        \Configure{HtmlPar}{}{}{}{}
+        \Configure{TITLE}{}{}
+
+        \FileStream+{\jobname f.html}
+           \HorFrames{*,*}
+              \Frame[\jobname.html]{}
+              \VerFrames{3*,*,*}
+                 \Frame[http://www.tug.org]{}
+                 \Frame[\RefFile{z} ]{}
+                 \Frame[ name="y"]{w}
+              \EndFrames
+           \EndPreamble
+           \NoFrames
+               a comment
+           \EndFrames
+        \EndFileStream{\jobname f.html}
+     \endgroup
+
+
+     \HPage[z]{}
+     \bgroup
+       \Configure{Link}{a}{target="y"  href=}{ name=}{}
+       \let\contentsname=\empty   \tableofcontents
+     \egroup
+     \EndHPage{z}
+
+     \tableofcontents
+
+     \section{First} Is first.
+
+     \Link{}{w}\EndLink
+     \section{Second} Is Second.
+
+     \end{document}
+
+Example 1a (allows also compilations for non-html output):
+..........................................................
+     % src.tex
+     \documentclass{article}
+     \begin{document}
+
+       \tableofcontents
+
+       \section{First} Is first.
+
+       \ifx \Link\undefined \else
+          \Link{}{w}\EndLink
+       \fi
+       \section{Second} Is Second.
+
+     \end{document}
+
+     % src.cfg
+     \Preamble{html,frames-}
+     \begin{document}
+     \EndPreamble
+       \begingroup
+          \Configure{@HEAD}{}
+          \Configure{BODY}{}{}
+          \Configure{DOCTYPE}{}
+          \Configure{HEAD}{}{}
+          \Configure{HTML}{}{}
+          \Configure{HtmlPar}{}{}{}{}
+          \Configure{TITLE}{}{}
+
+          \FileStream+{\jobname f.html}
+             \HorFrames{*,*}
+                \Frame[\jobname.html]{}
+                \VerFrames{3*,*,*}
+                   \Frame[http://www.tug.org]{}
+                   \Frame[\RefFile{z} ]{}
+                   \Frame[ name="y"]{w}
+                \EndFrames
+          \EndPreamble
+             \NoFrames
+                 a comment
+             \EndFrames
+          \EndFileStream{\jobname f.html}
+       \endgroup
+
+       \HPage[z]{}
+       \bgroup
+         \Configure{Link}{a}{target="y"  href=}{ name=}{}
+         \let\contentsname=\empty   \tableofcontents
+       \egroup
+       \EndHPage{z}
+     \endinput
+
+Example 2:
+..........
+
+         % Source .tex file
+
+         \documentclass{article}
+           \usepackage{verbatim}
+         \begin{document}
+
+         \section{The Main File: \jobname.tex}
+           \verbatiminput{\jobname.tex}
+         \section{The Configurations File: \jobname.cfg}
+           \verbatiminput{\jobname.cfg}
+         \section{The Command Line}
+           htlatex \jobname\space "\jobname"
+
+         \NextFile{page.html}\HPage{}
+           Hello!
+         \EndHPage{}
+
+         \HPage{}\Link{}{anchor}\EndLink
+           \Link[http://www.ctan.org]{}{}ctan\EndLink
+         \EndHPage{}
+
+         \end{document}
+
+         % configurations .cfg file
+
+         \Preamble{frames}
+
+         \Configure{frames}
+           {\VerFrames{*,5*}
+              \Frame[ name="tex4ht-menu" ]{tex4ht-toc}
+              \HorFrames{*,3*}
+                \VerFrames{6*,*,*}
+                  \Frame[http://www.tug.org]{}
+                  \Frame[page.html]{}
+                  \Frame{anchor}
+                \EndFrames
+                \Frame[ name="tex4ht-main" ]{tex4ht-body}
+              \EndFrames
+            }
+            {\let\contentsname=\empty \tableofcontents}
+
+         \begin{document}
+         \EndPreamble
+
+Example 3:
+..........
+
+         % file.tex
+         \documentclass{book}
+         \begin{document}
+           \chapter{Title}
+              Body.
+           \chapter{Another Title}
+              \Link{}{init-body}\EndLink
+              Another body.
+         \end{document}
+
+         % file.cfg
+         \Preamble{html,frames,3,info}
+           \begin{document}
+               \Configure{frames}
+                  {\HorFrames[rows="*"]{3*,*}
+                     \Frame[ name="body" frameborder="0" ]{init-body}
+                     \Frame[ name="menu" frameborder="0" ]{init-toc}
+                  }
+                  {\Configure{Link}{a}{target="body"  href=}{ id=}{}
+                   \let\contentsname=\empty
+                   \tableofcontents
+                   \Link{}{init-toc}\EndLink
+                  }
+         \EndPreamble
+         \endinput
+
+
+
+The arguments`init-body' and `init-toc' are labels connecting reference points
+\Frame[...]{label} with anchors \Link{}{label}\EndLink.  Their objective
+is to associate initial web pages with the frames.
+
+The name attribute values `body' and `menu' provide
+identifiers to the frames.  They offer the option to dynamically load
+new pages into the frames through hypertext references targeting those
+values.
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[530]3454//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[580]608//
+
+

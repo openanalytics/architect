@@ -1,0 +1,10 @@
+% additional hyphenation patterns for T2* encoded fonts
+% this file MUST be executed inside a group
+\lccode`-`-\lccode`Y0\countdef\i0\toksdef\L0\L{}\toksdef\S2\S{8-7 --8 }
+\def\y{%
+  \i123\def\x{\ifnum\i>97  \advance\i -1 \a\expandafter\x\fi}\x
+  \i189\def\x{\ifnum\i>160 \advance\i -1 \a\expandafter\x\fi}\x
+  \i256\def\x{\ifnum\i>224 \advance\i -1 \a\expandafter\x\fi}\x}
+\def\a{\lccode\i\i\lccode`X\i
+  \lowercase{\S\expandafter{\the\S .X-8 }\L\expandafter{\the\L 8X8Y- -X8Y8 }}}
+\y\patterns{\the\S}\def\a{\lccode`Y\i\patterns{\the\L}}\y

@@ -1,0 +1,6 @@
+.cs-lm
+htfcss: cs-lmcsc font-family: monospace,monospace;
+htfcss: cs-lmtcsc font-family: monospace,monospace;
+htfcss: cs-lmcsco font-style:italic;
+htfcss: cs-lmtcso font-style:italic;
+

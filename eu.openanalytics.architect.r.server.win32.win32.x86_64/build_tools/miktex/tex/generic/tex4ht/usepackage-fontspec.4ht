@@ -1,0 +1,120 @@
+% usepackage-fontspec.4ht (2020-09-02-14:24), generated from tex4ht-4ht.tex
+% Copyright 2017-2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2020-09-02-14:24}
+
+% \RequirePackage{expl3}% we need to disable them before loading
+\ExplSyntaxOn
+\seq_new:N \fontspec_ht_scripts
+\gdef\texfourhtfontspecloaded{yes}% used to prevent subsequent loading of this file
+\ExplSyntaxOff
+\ifdefined\XeTeXversion%
+\xenunidelblock{Latin-expl3}% expl3 package makes some characters active
+\xeuniuseblock{Latin-expl3}% and define again
+\fi%
+\PassOptionsToPackage{no-math}{fontspec}
+\ExplSyntaxOn
+\:AtEndOfPackage{%
+  \tl_gset:Nx \l__fontspec_nfss_enc_tl {T1}
+  \tl_gset:Nx \g_fontspec_encoding_tl {T1}
+  \tl_gset:Nx \l__fontspec_ttfamily_encoding_tl {T1}
+  \tl_gset:Nx \l__fontspec_sffamily_encoding_tl {T1}
+  \tl_gset:Nx \l__fontspec_rmfamily_encoding_tl {T1}
+  \seq_new:N \fontspec_ht_fontfamilies
+  \ifdefined\XeTeXversion
+  \keys_define:nn {fontspec4ht}{
+    Script .code:n = \xeuniuseblock{#1}
+  }
+  \else
+  \keys_define:nn {fontspec4ht}{
+    Script .code:n = \seq_put_right:Nn \fontspec_ht_scripts {#1}
+  }
+  \fi
+\cs_set:Nn \fontspec_set_family:Nnn
+ {
+  % \tl_set:Nn \l__fontspec_family_label_tl { #1 }
+  % \__fontspec_select_font_family:nn {#2}{#3}
+  % \tl_set_eq:NN #1 \l_fontspec_family_tl
+  \def#1{\relax}
+ }
+
+
+\prg_set_conditional:Nnn \fontspec_if_fontspec_font: {TF,T,F}
+{
+  \prg_return_false:
+}
+
+\DeclareDocumentCommand \setmainfont { O{} m O{} }
+ {
+   % Optional argument can be in both first and third parameter
+  \keys_set_known:nn {fontspec4ht}{#1}
+  \keys_set_known:nn {fontspec4ht}{#3}
+  \seq_put_right:Nn \fontspec_ht_fontfamilies {#2}
+  \use:x { \exp_not:n { \DeclareRobustCommand \rmfamily }
+   {
+    \relax
+   }
+  }
+  \normalfont
+  \ignorespaces
+ }
+
+ % define aliases for other user commands
+\cs_set_eq:NN \fontspec\setmainfont
+\cs_set_eq:NN \setsansfont\setmainfont
+\cs_set_eq:NN \setmonofont\setmainfont
+\cs_set_eq:NN \setromanfont\setmainfont
+\cs_set_eq:NN \setmathrm\setmainfont
+\cs_set_eq:NN \setmathsf\setmainfont
+\cs_set_eq:NN \setboldmathrm\cs_set_eq:NN
+\cs_set_eq:NN \setmatht\cs_set_eq:NN
+
+
+
+\DeclareDocumentCommand \newfontfamily { m O{} m O{} }
+ {
+  % \fontspec_set_family:cnn { g__fontspec_ \cs_to_str:N #1 _family } {#2} {#3}
+  \keys_set_known:nn {fontspec4ht}{#4}
+  \seq_put_right:Nn \fontspec_ht_fontfamilies {#3}
+  \use:x
+   {
+    \exp_not:N \DeclareRobustCommand \exp_not:N #1
+     {
+       \relax
+     }
+   }
+ }
+ % \tl_set:Nn \g_fontspec_encoding_tl{T1}
+ %  \tl_set_eq:NN \encodingdefault\g_fontspec_encoding_tl
+ \DeclareDocumentCommand \addfontfeatures {m}
+ {
+   \keys_set_known:nn {fontspec4ht}{#1}
+   \typeout{Add font features}
+ }
+ \cs_set_eq:NN \addfontfeature \addfontfeatures
+  \global\expandafter\let\csname ver@fontenc.sty\endcsname\relax
+  \global\expandafter\let\csname opt@fontenc.sty\endcsname\relax
+}
+\ExplSyntaxOff
+\edef\TivhTcats{%
+  \catcode`:=12%
+  \catcode`@=\the\catcode`@%
+}
+
+\endinput
+

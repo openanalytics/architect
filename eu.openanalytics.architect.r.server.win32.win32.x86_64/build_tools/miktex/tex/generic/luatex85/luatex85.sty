@@ -1,0 +1,122 @@
+%%
+%% This is file `luatex85.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% luatex85.dtx  (with options: `package')
+%% 
+%% Source File: luatex85.dtx
+%% Copyright 2015-2016 LaTeX3 project
+%%
+%% This file may be distributed under the terms of the LPPL.
+%% See README for details.
+\ifx\ProvidesPackage\undefined
+\def\next#1#2[#3]{\wlog{#2 #3}\expandafter\gdef
+\csname ver@luatex85.sty\endcsname{#3}}
+\expandafter\next\fi
+\ProvidesPackage{luatex85}
+       [2016/06/15 v1.4 pdftex aliases for luatex]
+\ifx\pdfvariable\undefined
+  \expandafter\endinput
+\fi
+
+\let\pdfpagewidth        \pagewidth
+\let\pdfpageheight       \pageheight
+\let\pdfadjustspacing    \adjustspacing
+\let\pdfprotrudechars    \protrudechars
+\let\pdfnoligatures      \ignoreligaturesinfont
+\let\pdffontexpand       \expandglyphsinfont
+\let\pdfcopyfont         \copyfont
+\let\pdfxform            \saveboxresource
+\let\pdflastxform        \lastsavedboxresourceindex
+\let\pdfrefxform         \useboxresource
+\let\pdfximage           \saveimageresource
+\let\pdflastximage       \lastsavedimageresourceindex
+\let\pdflastximagepages  \lastsavedimageresourcepages
+\let\pdfrefximage        \useimageresource
+\let\pdfsavepos          \savepos
+\let\pdflastxpos         \lastxpos
+\let\pdflastypos         \lastypos
+\let\pdfoutput           \outputmode
+\let\pdfdraftmode        \draftmode
+\let\pdfpxdimen          \pxdimen
+\let\pdfinsertht         \insertht
+\let\pdfnormaldeviate    \normaldeviate
+\let\pdfuniformdeviate   \uniformdeviate
+\let\pdfsetrandomseed    \setrandomseed
+\let\pdfrandomseed       \randomseed
+\let\pdfprimitive        \primitive
+\let\ifpdfprimitive      \ifprimitive
+\let\ifpdfabsnum         \ifabsnum
+\let\ifpdfabsdim         \ifabsdim
+\directlua{tex.enableprimitives('pdf',{'tracingfonts'})}
+\protected\def\pdftexversion     {\numexpr 140\relax}
+          \def\pdftexrevision    {7}
+\protected\def\pdflastlink       {\numexpr\pdffeedback lastlink\relax}
+\protected\def\pdfretval         {\numexpr\pdffeedback retval\relax}
+\protected\def\pdflastobj        {\numexpr\pdffeedback lastobj\relax}
+\protected\def\pdflastannot      {\numexpr\pdffeedback lastannot\relax}
+          \def\pdfxformname      {\pdffeedback xformname}
+{\outputmode=1
+         \xdef\pdfcreationdate   {\pdffeedback creationdate}
+}
+          \def\pdffontname       {\pdffeedback fontname}
+          \def\pdffontobjnum     {\pdffeedback fontobjnum}
+          \def\pdffontsize       {\pdffeedback fontsize}
+          \def\pdfpageref        {\pdffeedback pageref}
+          \def\pdfcolorstackinit {\pdffeedback colorstackinit}
+\protected\def\pdfliteral        {\pdfextension literal}
+\protected\def\pdfcolorstack     {\pdfextension colorstack}
+\protected\def\pdfsetmatrix      {\pdfextension setmatrix}
+\protected\def\pdfsave           {\pdfextension save\relax}
+\protected\def\pdfrestore        {\pdfextension restore\relax}
+\protected\def\pdfobj            {\pdfextension obj }
+\protected\def\pdfrefobj         {\pdfextension refobj }
+\protected\def\pdfannot          {\pdfextension annot }
+\protected\def\pdfstartlink      {\pdfextension startlink }
+\protected\def\pdfendlink        {\pdfextension endlink\relax}
+\protected\def\pdfoutline        {\pdfextension outline }
+\protected\def\pdfdest           {\pdfextension dest }
+\protected\def\pdfthread         {\pdfextension thread }
+\protected\def\pdfstartthread    {\pdfextension startthread }
+\protected\def\pdfendthread      {\pdfextension endthread\relax}
+\protected\def\pdfinfo           {\pdfextension info }
+\protected\def\pdfcatalog        {\pdfextension catalog }
+\protected\def\pdfnames          {\pdfextension names }
+\protected\def\pdfincludechars   {\pdfextension includechars }
+\protected\def\pdffontattr       {\pdfextension fontattr }
+\protected\def\pdfmapfile        {\pdfextension mapfile }
+\protected\def\pdfmapline        {\pdfextension mapline }
+\protected\def\pdftrailer        {\pdfextension trailer }
+\protected\def\pdfglyphtounicode {\pdfextension glyphtounicode }
+\protected\edef\pdfcompresslevel       {\pdfvariable compresslevel}
+\protected\edef\pdfobjcompresslevel    {\pdfvariable objcompresslevel}
+\protected\edef\pdfdecimaldigits       {\pdfvariable decimaldigits}
+\protected\edef\pdfgamma               {\pdfvariable gamma}
+\protected\edef\pdfimageresolution     {\pdfvariable imageresolution}
+\protected\edef\pdfimageapplygamma     {\pdfvariable imageapplygamma}
+\protected\edef\pdfimagegamma          {\pdfvariable imagegamma}
+\protected\edef\pdfimagehicolor        {\pdfvariable imagehicolor}
+\protected\edef\pdfimageaddfilename    {\pdfvariable imageaddfilename}
+\protected\edef\pdfpkresolution        {\pdfvariable pkresolution}
+\protected\edef\pdfinclusioncopyfonts  {\pdfvariable inclusioncopyfonts}
+\protected\edef\pdfinclusionerrorlevel {\pdfvariable inclusionerrorlevel}
+\protected\edef\pdfgentounicode        {\pdfvariable gentounicode}
+\protected\edef\pdfpagebox             {\pdfvariable pagebox}
+\protected\edef\pdfminorversion        {\pdfvariable minorversion}
+\protected\edef\pdfuniqueresname       {\pdfvariable uniqueresname}
+\protected\edef\pdfhorigin             {\pdfvariable horigin}
+\protected\edef\pdfvorigin             {\pdfvariable vorigin}
+\protected\edef\pdflinkmargin          {\pdfvariable linkmargin}
+\protected\edef\pdfdestmargin          {\pdfvariable destmargin}
+\protected\edef\pdfthreadmargin        {\pdfvariable threadmargin}
+\protected\edef\pdfpagesattr           {\pdfvariable pagesattr}
+\protected\edef\pdfpageattr            {\pdfvariable pageattr}
+\protected\edef\pdfpageresources       {\pdfvariable pageresources}
+\protected\edef\pdfxformattr           {\pdfvariable xformattr}
+\protected\edef\pdfxformresources      {\pdfvariable xformresources}
+\protected\edef\pdfpkmode              {\pdfvariable pkmode}
+\endinput
+%%
+%% End of file `luatex85.sty'.

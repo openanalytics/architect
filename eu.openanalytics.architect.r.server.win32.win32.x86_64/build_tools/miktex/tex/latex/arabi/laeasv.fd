@@ -1,0 +1,19 @@
+%%
+%% This is file `laeasv.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+\ProvidesFile{laeasv.fd}
+        [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+\DeclareFontFamily{LAE}{asv}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{asv}{m}{n}{<-> s*[1.2] asv}{} %s*[1.25]
+\DeclareFontShape{LAE}{asv}{bx}{n}{<-> s*[1.2] asv-bold}{}
+
+\endinput

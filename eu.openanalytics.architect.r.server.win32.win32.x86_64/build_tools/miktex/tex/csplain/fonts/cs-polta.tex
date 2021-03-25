@@ -1,0 +1,81 @@
+% cs-polta.tex: fonts loading file of Antykwa Torunska
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak,  2012, 2016
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Antykwa Poltawskiego] 
+   {\caps \wlight} {\rm \bf \it \bi \lr \mr \li \mi} {} {TX} {8z 8t U}
+
+\ffvars {r}{b}{ri}{bi} 
+\def\wlight{\ffvars{l}{m}{li}{mi}\ffsetX}  
+\def\nowlight{\ffvars{r}{b}{ri}{bi}\ffsetX}
+\def\caps{\ffsetV{caps}{-sc}\ffsetX}
+\def\nocaps{\ffsetV{caps}{}\ffsetX}
+\def\capsV{}
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = ec-antpr10  \sizespec
+   \font\tenbf = ec-antpb10  \sizespec
+   \font\tenit = ec-antpri10 \sizespec
+   \font\tenbi = ec-antpbi10 \sizespec
+
+   \def\ffnamegen{ec-antp\ffvarV\ffoptV\capsV}
+
+\fi
+
+\ismacro\fotenc{8z}\iftrue
+
+   \font\tenrm = cs-antpr10  \sizespec
+   \font\tenbf = cs-antpb10  \sizespec
+   \font\tenit = cs-antpri10 \sizespec
+   \font\tenbi = cs-antpbi10 \sizespec
+
+   \def\ffnamegen{cs-antp\ffvarV\ffoptV\capsV}
+   \input chars-8z
+
+\fi
+
+\ismacro\fotenc{U}\iftrue
+
+   \font\tenrm = "[antpolt-regular]:\fontfeatures"    \sizespec
+   \font\tenbf = "[antpolt-bold]:\fontfeatures"       \sizespec
+   \font\tenit = "[antpolt-italic]:\fontfeatures"     \sizespec
+   \font\tenbi = "[antpolt-bolditalic]:\fontfeatures" \sizespec
+
+   \def\ffnamegen{[antpolt\wliV\ffoptV-\ffvarV]} 
+
+   \ffvars {regular} {bold} {italic} {bolditalic}
+   \def\wlight{\ffsetV{wli}{lt}\ffsetX}  
+   \def\nowlight{\ffsetV{wli}{}\ffsetX}
+   \def\caps{\useff{+smcp}}
+   \def\nocaps{\useff{-smcp}}
+   \def\wliV{}
+
+   \regsizes {}             {0 =expd 7 =semiexpd 9 ={} 11 =semicond 14 =cond}
+   \regsizes {\wlight}      {0 =expd 7 =semiexpd 9 ={} 11 =semicond 14 =cond}
+   \regsizes {\caps}        {0 =expd 7 =semiexpd 9 ={} 11 =semicond 14 =cond}
+   \regsizes {\wlight\caps} {0 =expd 7 =semiexpd 9 ={} 11 =semicond 14 =cond}
+
+\else
+
+   \regsizes {}             {0 =6 7 =8 9 =10 11 =12 14 =17}
+   \regsizes {\wlight}      {0 =6 7 =8 9 =10 11 =12 14 =17}
+   \regsizes {\caps}        {0 =6 7 =8 9 =10 11 =12 14 =17}
+   \regsizes {\wlight\caps} {0 =6 7 =8 9 =10 11 =12 14 =17}
+
+\fi
+
+\tenrm % don't remember to initialize the family with normal font.
+
+\def\liweight{\wlight\fam}
+\def\lr{\wlight\rm}
+\def\mr{\wlight\bf}
+\def\li{\wlight\it}
+\def\mi{\wlight\bi}
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+\endinput

@@ -1,0 +1,14 @@
+.lm-ec
+htfcss: aett font-family: monospace,monospace;
+htfcss: aeit font-style: italic;
+htfcss: aesl font-style: oblique;
+htfcss: aebx font-weight: bold;
+htfcss: aess font-family: sans-serif;
+htfcss: aebxsl font-weight: bold; font-style: oblique;
+htfcss: aebxti font-weight: bold; font-style: italic;
+htfcss: aeitt font-family: monospace,monospace; font-style: italic;
+htfcss: aessdc font-weight: bold;
+htfcss: aessi  font-style: italic; font-family: sans-serif;
+htfcss: aeti  font-style: italic;
+htfcss: aessbx font-family: sans-serif; font-weight: bold;
+

@@ -1,0 +1,164 @@
+blex-bs 0 160
+'('          ''            0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+')'          ''            1 % blex-bs.htf                  2001-03-14  %
+'['          ''            2 % Copyright (C) 2001            Phil Viton %
+']'          ''            3 %                                          %
+' |_ '       '3'lfloor     4 % This file can redistributed and/or       %
+' _| '       '3'rfloor     5 % modified under the terms of the LaTeX    %
+' |~ '       '3'lceil      6 % Project Public License Distributed from  %
+' ~| '       '3'rceil      7 % CTAN archives in directory               %
+'&#x007B;'          ''            8 % macros/latex/base/lppl.txt; either       %
+'&#x007D;'          ''            9 % version 1 of the License, or (at your    %
+'&#x003C;'       ''           10 % option) any later version.               %
+'&#x003E;'       ''           11 %    However, you are allowed to modify    %
+'|'          ''           12 % this file without changing its name, if  %
+'||'         ''           13 % you add a note of your own after this    %
+'/'          ''           14 % copyright note.                          %
+'\\'         ''           15 %                                          %
+'('          ''           16 % I would appreciate being told if you     %
+')'          ''           17 % find bugs                                %
+'('          ''           18 %                          viton.1@osu.edu %
+')'          ''           19 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'['          ''           20
+']'          ''           21
+' |_ '       '3'lfloor   22
+' _| '       '3'rfloor   23
+' |~ '       '3'lceil    24
+' ~| '       '3'rceil    25
+'&#x007B;'          ''           26
+'&#x007D;'          ''           27
+'&#x003C;'       ''           28
+'&#x003E;'       ''           29
+'/'          ''           30
+'\\'         ''           31
+'('          ''           32
+')'          ''           33
+'['          ''           34
+']'          ''           35
+' |_ '       '3'lfloor   36
+' _| '       '3'rfloor   37
+' |~ '       '3'lceil    38
+' ~| '       '3'rceil    39
+'{'          ''           40
+'}'          ''           41
+'&#x003C;'       ''           42
+'&#x003E;'       ''           43
+'/'          ''           44
+'\\'         ''           45
+'/'          ''           46
+'\\'         ''           47
+'('          ''           48
+')'          ''           49
+' |_ '       '3'lfloor   50
+' _| '       '3'rfloor   51
+' |_ '       '3'lfloor   52
+' _| '       '3'rfloor   53
+''           ''           54
+''           ''           55
+''           ''           56
+''           ''           57
+''           ''           58
+''           ''           59
+'{'          ''           60
+'}'          ''           61
+''           ''           62
+''           ''           63
+''           ''           64
+''           ''           65
+''           ''           66
+''           ''           67
+'&#x003C;'       ''           68
+'&#x003E;'       ''           69
+' |_| '      '1'sqcup     70
+'|_|'        '1'sqcup     71
+' gf '       '3'oint     72
+' gf '       '3'oint     73
+' o. '       '1'odot      74
+' o. '       '1'odot      75
+' o+ '       '1'oplus     76
+' o+ '       '1'oplus     77
+' ox '       '1'otimes    78
+' ox '       '1'otimes    79
+' sum '      '1'sum       80
+' prod '     '1'prod      81
+' integral ' '3'int      82
+' U '        '1'cup       83
+' /~\\ '     '1'cap       84
+' U+ '       '1'upplus    85
+' /\\ '      '1'land      86
+' \\/ '      '1'lor       87
+' sum '      '1'sum       88
+' prod '     '1'prod      89
+' integral ' '3'int      90
+' U '        '1'cup       91
+' /~\\ '     '1'cap       92
+' U+ '       '1'upplus    93
+' /\\ '      '1'land      94
+' \\/ '      '1'lor       95
+' |_| '      '1'coprod    96
+' |_| '      '1'coprod    97
+''           ''           98
+''           ''           99
+''           ''          100
+''           ''          101
+''           ''          102
+''           ''          103
+'['          ''          104
+']'          ''          105
+' |_ '       '3'lfloor  106
+' _| '       '3'rfloor  107
+' |~ '       '3'lceil   108
+' ~| '       '3'rceil   109
+'{'          ''          110
+'}'          ''          111
+' V~ '       '3'surd    112
+' V~ '       '3'surd    113
+' V~ '       '3'surd    114
+' V~ '       '3'surd    115
+' V~ '       '3'surd    116
+''           ''          117
+''           ''          118
+''           ''          119
+' |^ '       '1'uparrow  120
+' |, '       '1'downarrow121
+''           ''          122
+''           ''          123
+''           ''          124
+''           ''          125
+' ||^ '      '1'Uparrow  126
+' ||, '      '1'Downarrow127
+'Blex-A'          ''            128 the rest of this is fillin, since blex seems to have 160 chrs
+'Blex-B'          ''            129 Ths3e characters should never be used directory, but to help
+'Blex-C'          ''            130 diagnose problems we will just print some text for each of them
+'Blex-D'          ''            131
+'Blex-E'          ''            132
+'Blex-F'          ''            133
+'Blex-G'          ''            134
+'Blex-H'          ''            135
+'Blex-I'          ''            136
+'Blex-J'          ''            137
+'Blex-K'          ''            138
+'Blex-L'          ''            139
+'Blex-M'          ''            140
+'Blex-N'          ''            141
+'Blex-O'          ''            142
+'Blex-P'          ''            143
+'Blex-Q'          ''            144
+'Blex-R'          ''            145
+'Blex-S'          ''            146
+'Blex-T'          ''            147
+'Blex-U'          ''            148
+'Blex-V'          ''            149
+'Blex-W'          ''            150
+'Blex-X'          ''            151
+'Blex-Y'          ''            152
+'Blex-Z'          ''            153
+'Blex-AA'          ''           154
+'Blex-AB'          ''           155
+'Blex-AC'          ''           156
+'Blex-AD'          ''           157
+'Blex-AE'          ''           158
+'Blex-AF'          ''           159
+'Blex-AG'          ''           160
+blex-bs 0 160
+

@@ -1,0 +1,50 @@
+% The file ctimes.tex (C) Petr Olsak, 1996, 1999, 2012, 2016
+% Use "\input ctimes" to set the Times fonts family
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Times] {\caps{\rm\bf}} {\rm \bf \it \bi} {} {TX} {8z 8t}
+
+\def\caps{\ffvars{r}{b}{!}{!}\ffsetV{caps}{c}\ffsetX} 
+\def\nocaps{\ffvars{r}{b}{ri}{bi}\ffsetV{caps}{}\ffsetX} 
+\nocaps\relax % default 
+\def\ffwarning#1{\ffmessage{FONT warning: Times - \string\caps#1 unavailable}}
+
+\ismacro\fotenc{8z}\ifttrue
+   \font\tenrm=ptmr8z   \sizespec
+   \font\tenbf=ptmb8z   \sizespec
+   \font\tenit=ptmri8z  \sizespec
+   \font\tenbi=ptmbi8z  \sizespec
+   \font\tentt=pcrr8u   \sizespec
+   \let\tensl=\tenit
+
+   \def\ffnamegen{ptm\ffvarV\capsV 8z}
+
+   \input chars-8z
+\fi
+
+\ismacro\fotenc{8t}\ifttrue
+   \font\tenrm=ptmr8t   \sizespec
+   \font\tenbf=ptmb8t   \sizespec
+   \font\tenit=ptmri8t  \sizespec
+   \font\tenbi=ptmbi8t  \sizespec
+   \font\tentt=pcrr8t   \sizespec
+   \let\tensl=\tenit
+
+   \def\ffnamegen{ptm\ffvarV\capsV 8t}
+\fi
+
+\tenrm
+
+\let\setsimplemath=\relax % this command is obsolete
+
+% The \TeX logo corrected by Ivo Jancik for Times fonts family
+\def\tmTeX{T\kern-.1667em\lower.3333ex\hbox{E}\kern-.125emX}
+\ifx\origTeX\undefined \let\origTeX=\TeX \fi
+\let\TeX=\tmTeX
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+% end of ctimes.tex
+

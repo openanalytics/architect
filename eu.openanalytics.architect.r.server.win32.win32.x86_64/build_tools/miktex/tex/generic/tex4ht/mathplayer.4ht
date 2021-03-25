@@ -1,0 +1,528 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% mathplayer.4ht                        2008-09-27-22:19 %
+% Copyright (C) 2002--2008       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3 of this license or (at your option) any    %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3 or later is part of all distributions  %
+% of LaTeX version 2003/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2008-09-27-22:19}
+
+\exit:ifnot{Preamble,% 
+color,% 
+tex4ht}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \edef\Preamble{\Preamble,xht}
+\Configure{ext}{xht}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{DOCTYPE}
+       {\HCode{<!DOCTYPE html PUBLIC
+                "-//W3C//DTD XHTML 1.1 plus MathML 2.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+                "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd"\Hnewline
+                 [\Hnewline
+                     <!ENTITY \% MATHML.prefixed "INCLUDE">\Hnewline
+                     <!ENTITY \% MATHML.prefix "m">\Hnewline
+                 ]\Hnewline
+                >\Hnewline }}
+\Configure{@BODY}
+   {\ifvmode \EndP\fi \IgnorePar\HCode{<script type="text/javascript">\Hnewline<!--\Hnewline
+           if(   navigator.appName=="Microsoft Internet Explorer"   \Hnewline
+   && navigator.platform=="Win32"                        \Hnewline
+){                                                       \Hnewline
+  if( parseFloat(navigator.appVersion.substr(            \Hnewline
+       navigator.appVersion.indexOf("MSIE ")+5))>="5.5"  \Hnewline
+  ){
+    try {                                                  \Hnewline
+      var oMP = new ActiveXObject("MathPlayer.Factory.1"); \Hnewline
+    }                                                      \Hnewline
+    catch(e) { alert("Can't find Design Science's MathPalyer" +  \Hnewline
+          "(http://www.dessci.com/webmath/mathplayer)");} \Hnewline
+  } else {                                                \Hnewline
+    alert("Requires MSIE version 5.5 or later");          \Hnewline
+} }                                                       \Hnewline
+\Hnewline-->\Hnewline
+           </script>\Hnewline
+   }\par\ShowPar}
+   \Configure{@HTML}
+     {xmlns:m="http://www.w3.org/1998/Math/MathML"\Hnewline
+%      xmlns:dsi="http://www.dessci.com/mathml" \Hnewline
+     }
+%\let\dsi:=\empty
+\Configure{halignTD} {}{}
+   {<}{\ifmathml \HCode{ columnalign="left"}\else
+        \HCode{ style="text-align:left" }\fi}
+   {-}{\ifmathml \HCode{ columnalign="center"}\else
+        \HCode{ style="text-align:center" }\fi}
+   {>}{\ifmathml \HCode{ columnalign="right"}\else
+        \HCode{ style="text-align:right" }\fi}
+   {^}{\ifmathml \HCode{ rowalign="top"}\else
+        \HCode{ style="vertical-align:top" }\fi}
+   {=}{\ifmathml \HCode{ rowalign="baseline"}\else
+        \HCode{ style="vertical-align:baseline" }\fi}
+   {|}{\ifmathml \HCode{ rowalign="center"}\else
+        \HCode{ style="vertical-align:middle" }\fi}
+   {_}{\ifmathml \HCode{ rowalign="bottom"}\else
+        \HCode{ style="vertical-align:bottom" }\fi}
+   {p}{\ifmathml \HCode{ columnalign="left"}\else
+        \HCode{ style="text-align:left"}\fi}
+   {}
+\:CheckOption{xht} \if:Option
+\else \:CheckOption{xml} \if:Option
+\else
+\Configure{DviMath}
+   {\a:DviMathML \mathmltrue
+      \ifOption{mml-fonts}{}{\NoFonts}%
+      \IgnoreRule \HCode{<!--l.
+      \the\inputlineno-->}\HCode{<\a:mathml math\Hnewline}%
+         \let\sva:mathml=\a:mathml \let\a:mathml=\empty
+%
+         \HCode{\csname a:math-xmlns\endcsname \Hnewline \a:@math>}%
+      \let\a:mathml=\sva:mathml
+\a:math
+      \edef\sv:ignore{\if:nopar
+    \noexpand\IgnorePar\else \noexpand\ShowPar\fi}%
+\IgnorePar}
+   {\Tg</\a:mathml math>\EndIgnoreRule
+    \ifOption{mml-fonts}{}{\EndNoFonts}%
+    \mathmlfalse \b:DviMathML \sv:ignore
+}
+\fi\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{color}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \let\a:txt:textcolor\a:textcolor
+\let\b:txt:textcolor\b:textcolor
+\Configure{textcolor}
+   {\ifmathml
+      \Configure{color}%
+         {\Configure{SetHColor}
+              {\HCode{<m:mstyle color="\HColor">}}}%
+    \else \a:txt:textcolor \fi
+   }
+   {\ifmathml \HCode{</m:mstyle>}\else \b:txt:textcolor \fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

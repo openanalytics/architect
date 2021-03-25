@@ -1,0 +1,259 @@
+utf8songee 0 255
+'&#xee00;' ''   0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+'&#xee01;' ''   1 % utf8songee.htf (unicode)                    2020-03-16 %
+'&#xee02;' ''   2 % Copyright (C) 2002--2020                      Yu Yuwei % 
+'&#xee03;' ''   3 %                                      acevery@gmail.com %
+'&#xee04;' ''   4 %                                              Shujun Li % 
+'&#xee05;' ''   5 %                                 http://www.hooklee.com % 
+'&#xee06;' ''   6 %                                         Shengjun Zhong % 
+'&#xee07;' ''   7 %                                   iepi@mail.neu.edu.cn % 
+'&#xee08;' ''   8 %                                        Eitan M. Gurari % 
+'&#xee09;' ''   9 %                                         tex4ht@tug.org % 
+'&#xee0a;' ''  10 %                                 https://tug.org/tex4ht % 
+'&#xee0b;' ''  11 %                                                        % 
+'&#xee0c;' ''  12 % This work may be distributed and/or modified under the % 
+'&#xee0d;' ''  13 % conditions of the LaTeX Project Public License, either % 
+'&#xee0e;' ''  14 % version 1.3 of this license or (at your option) any    % 
+'&#xee0f;' ''  15 % later version. The latest version of this license is   % 
+'&#xee10;' ''  16 % in                                                     % 
+'&#xee11;' ''  17 %   http://www.latex-project.org/lppl.txt                % 
+'&#xee12;' ''  18 % and version 1.3 or later is part of all distributions  % 
+'&#xee13;' ''  19 % of LaTeX version 2003/12/01 or later.                  % 
+'&#xee14;' ''  20 %                                                        % 
+'&#xee15;' ''  21 % This work has the LPPL maintenance status "maintained".% 
+'&#xee16;' ''  22 %                                                        % 
+'&#xee17;' ''  23 % The Current Maintainer of this work                    % 
+'&#xee18;' ''  24 % is the TeX4ht Project <tex4ht@tug.org>.                % 
+'&#xee19;' ''  25 %                                                        % 
+'&#xee1a;' ''  26 % If you modify this file without changing its name, your% 
+'&#xee1b;' ''  27 % adding a note of your own after this copyright note    %
+'&#xee1c;' ''  28 % will be appreciated.                                   % 
+'&#xee1d;' ''  29 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+'&#xee1e;' ''  30
+'&#xee1f;' ''  31
+'&#xee20;' ''  32
+'&#xee21;' ''  33
+'&#xee22;' ''  34
+'&#xee23;' ''  35
+'&#xee24;' ''  36
+'&#xee25;' ''  37
+'&#xee26;' ''  38
+'&#xee27;' ''  39
+'&#xee28;' ''  40
+'&#xee29;' ''  41
+'&#xee2a;' ''  42
+'&#xee2b;' ''  43
+'&#xee2c;' ''  44
+'&#xee2d;' ''  45
+'&#xee2e;' ''  46
+'&#xee2f;' ''  47
+'&#xee30;' ''  48
+'&#xee31;' ''  49
+'&#xee32;' ''  50
+'&#xee33;' ''  51
+'&#xee34;' ''  52
+'&#xee35;' ''  53
+'&#xee36;' ''  54
+'&#xee37;' ''  55
+'&#xee38;' ''  56
+'&#xee39;' ''  57
+'&#xee3a;' ''  58
+'&#xee3b;' ''  59
+'&#xee3c;' ''  60
+'&#xee3d;' ''  61
+'&#xee3e;' ''  62
+'&#xee3f;' ''  63
+'&#xee40;' ''  64
+'&#xee41;' ''  65
+'&#xee42;' ''  66
+'&#xee43;' ''  67
+'&#xee44;' ''  68
+'&#xee45;' ''  69
+'&#xee46;' ''  70
+'&#xee47;' ''  71
+'&#xee48;' ''  72
+'&#xee49;' ''  73
+'&#xee4a;' ''  74
+'&#xee4b;' ''  75
+'&#xee4c;' ''  76
+'&#xee4d;' ''  77
+'&#xee4e;' ''  78
+'&#xee4f;' ''  79
+'&#xee50;' ''  80
+'&#xee51;' ''  81
+'&#xee52;' ''  82
+'&#xee53;' ''  83
+'&#xee54;' ''  84
+'&#xee55;' ''  85
+'&#xee56;' ''  86
+'&#xee57;' ''  87
+'&#xee58;' ''  88
+'&#xee59;' ''  89
+'&#xee5a;' ''  90
+'&#xee5b;' ''  91
+'&#xee5c;' ''  92
+'&#xee5d;' ''  93
+'&#xee5e;' ''  94
+'&#xee5f;' ''  95
+'&#xee60;' ''  96
+'&#xee61;' ''  97
+'&#xee62;' ''  98
+'&#xee63;' ''  99
+'&#xee64;' '' 100
+'&#xee65;' '' 101
+'&#xee66;' '' 102
+'&#xee67;' '' 103
+'&#xee68;' '' 104
+'&#xee69;' '' 105
+'&#xee6a;' '' 106
+'&#xee6b;' '' 107
+'&#xee6c;' '' 108
+'&#xee6d;' '' 109
+'&#xee6e;' '' 110
+'&#xee6f;' '' 111
+'&#xee70;' '' 112
+'&#xee71;' '' 113
+'&#xee72;' '' 114
+'&#xee73;' '' 115
+'&#xee74;' '' 116
+'&#xee75;' '' 117
+'&#xee76;' '' 118
+'&#xee77;' '' 119
+'&#xee78;' '' 120
+'&#xee79;' '' 121
+'&#xee7a;' '' 122
+'&#xee7b;' '' 123
+'&#xee7c;' '' 124
+'&#xee7d;' '' 125
+'&#xee7e;' '' 126
+'&#xee7f;' '' 127
+'&#xee80;' '' 128
+'&#xee81;' '' 129
+'&#xee82;' '' 130
+'&#xee83;' '' 131
+'&#xee84;' '' 132
+'&#xee85;' '' 133
+'&#xee86;' '' 134
+'&#xee87;' '' 135
+'&#xee88;' '' 136
+'&#xee89;' '' 137
+'&#xee8a;' '' 138
+'&#xee8b;' '' 139
+'&#xee8c;' '' 140
+'&#xee8d;' '' 141
+'&#xee8e;' '' 142
+'&#xee8f;' '' 143
+'&#xee90;' '' 144
+'&#xee91;' '' 145
+'&#xee92;' '' 146
+'&#xee93;' '' 147
+'&#xee94;' '' 148
+'&#xee95;' '' 149
+'&#xee96;' '' 150
+'&#xee97;' '' 151
+'&#xee98;' '' 152
+'&#xee99;' '' 153
+'&#xee9a;' '' 154
+'&#xee9b;' '' 155
+'&#xee9c;' '' 156
+'&#xee9d;' '' 157
+'&#xee9e;' '' 158
+'&#xee9f;' '' 159
+'&#xeea0;' '' 160
+'&#xeea1;' '' 161
+'&#xeea2;' '' 162
+'&#xeea3;' '' 163
+'&#xeea4;' '' 164
+'&#xeea5;' '' 165
+'&#xeea6;' '' 166
+'&#xeea7;' '' 167
+'&#xeea8;' '' 168
+'&#xeea9;' '' 169
+'&#xeeaa;' '' 170
+'&#xeeab;' '' 171
+'&#xeeac;' '' 172
+'&#xeead;' '' 173
+'&#xeeae;' '' 174
+'&#xeeaf;' '' 175
+'&#xeeb0;' '' 176
+'&#xeeb1;' '' 177
+'&#xeeb2;' '' 178
+'&#xeeb3;' '' 179
+'&#xeeb4;' '' 180
+'&#xeeb5;' '' 181
+'&#xeeb6;' '' 182
+'&#xeeb7;' '' 183
+'&#xeeb8;' '' 184
+'&#xeeb9;' '' 185
+'&#xeeba;' '' 186
+'&#xeebb;' '' 187
+'&#xeebc;' '' 188
+'&#xeebd;' '' 189
+'&#xeebe;' '' 190
+'&#xeebf;' '' 191
+'&#xeec0;' '' 192
+'&#xeec1;' '' 193
+'&#xeec2;' '' 194
+'&#xeec3;' '' 195
+'&#xeec4;' '' 196
+'&#xeec5;' '' 197
+'&#xeec6;' '' 198
+'&#xeec7;' '' 199
+'&#xeec8;' '' 200
+'&#xeec9;' '' 201
+'&#xeeca;' '' 202
+'&#xeecb;' '' 203
+'&#xeecc;' '' 204
+'&#xeecd;' '' 205
+'&#xeece;' '' 206
+'&#xeecf;' '' 207
+'&#xeed0;' '' 208
+'&#xeed1;' '' 209
+'&#xeed2;' '' 210
+'&#xeed3;' '' 211
+'&#xeed4;' '' 212
+'&#xeed5;' '' 213
+'&#xeed6;' '' 214
+'&#xeed7;' '' 215
+'&#xeed8;' '' 216
+'&#xeed9;' '' 217
+'&#xeeda;' '' 218
+'&#xeedb;' '' 219
+'&#xeedc;' '' 220
+'&#xeedd;' '' 221
+'&#xeede;' '' 222
+'&#xeedf;' '' 223
+'&#xeee0;' '' 224
+'&#xeee1;' '' 225
+'&#xeee2;' '' 226
+'&#xeee3;' '' 227
+'&#xeee4;' '' 228
+'&#xeee5;' '' 229
+'&#xeee6;' '' 230
+'&#xeee7;' '' 231
+'&#xeee8;' '' 232
+'&#xeee9;' '' 233
+'&#xeeea;' '' 234
+'&#xeeeb;' '' 235
+'&#xeeec;' '' 236
+'&#xeeed;' '' 237
+'&#xeeee;' '' 238
+'&#xeeef;' '' 239
+'&#xeef0;' '' 240
+'&#xeef1;' '' 241
+'&#xeef2;' '' 242
+'&#xeef3;' '' 243
+'&#xeef4;' '' 244
+'&#xeef5;' '' 245
+'&#xeef6;' '' 246
+'&#xeef7;' '' 247
+'&#xeef8;' '' 248
+'&#xeef9;' '' 249
+'&#xeefa;' '' 250
+'&#xeefb;' '' 251
+'&#xeefc;' '' 252
+'&#xeefd;' '' 253
+'&#xeefe;' '' 254
+'&#xeeff;' '' 255
+utf8songee 0 255
+

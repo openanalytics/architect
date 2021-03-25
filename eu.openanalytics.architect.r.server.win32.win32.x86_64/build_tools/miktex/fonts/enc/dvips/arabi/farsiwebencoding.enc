@@ -1,0 +1,145 @@
+%
+% Encoding file for some PostScript Arabic fonts to use with the 
+% Arabi package to write Farsi texts with LaTeX
+% 
+%   author = "Y. Jabri",
+%   email = "yjabri@ensa.univ-oujda.ac.ma",
+%   version = "0.1",
+%   date = "January 2006",
+%
+%
+%
+/FarsiWebEncoding [          % now 256 chars follow
+% 0          
+  /afii57415.isol /afii57411.isol /afii57411.fina /afii57413.isol
+% 4 
+  /afii57413.fina /afii57410.isol /afii57410.fina /afii57416.init
+% 8 
+  /.notdef /afii57416.fina /afii57416.isol /afii57418.init
+% 12
+  /.notdef /afii57418.fina /afii57418.isol /afii57419.init
+% 16 
+ /afii57419.medi /afii57419.fina /afii57419.isol /afii57420.init 
+% 20
+ /afii57420.medi /afii57420.fina /afii57420.isol /afii57421.init 
+% 24
+ /afii57421.medi /afii57421.fina /afii57421.isol /afii57422.init 
+% 28
+ /afii57422.medi /afii57422.fina /afii57422.isol /.notdef
+% 32 
+ /afii57423.isol /exclam /afii57458 /numbersign              %OK    
+% 36
+ /dollar /afii57381 /ampersand /quotesingle  %ok
+% 40
+ /parenright /parenleft /asterisk /quotedbl % parentheses were refelcted 
+% 44
+  /afii57388 /hyphen /period /slash   %  we should get the "arabicslash" in 4th position 
+% 48
+ /uni06F0 /uni06F1 /uni06F2 /uni06F3 % 0 1 2 3
+% 52
+ /uni06F4 /uni06F5 /uni06F6 /uni06F7  % 4 5 6 7
+% 56
+ /uni06F8 /uni06F9 /colon /afii57403 % 8 9 % colon ok ?? 
+% 60 
+ /guillemotright /.notdef /guillemotleft /afii57407
+% 64
+ /afii57424.fina /afii57415.fina /.notdef /afii57425.isol 
+% 68
+ /.nodef /afii57426.isol /afii57427.init /.notdef 
+% 72
+ /afii57427.fina /uni06CC.media  /afii57428.init /afii57428.medi 
+% 76
+ /afii57428.fina /afii57428.isol /.notdef /afii57429.medi 
+% 80
+ /afii57429.fina /afii57429.isol /afii57430.init /afii57430.medi 
+% 84 
+ /afii57417.fina /afii57448.fina /afii57431.init /afii57431.medi 
+% 88
+ /afii57431.fina /uni06CC.fina /afii57432.init  /bracketright
+% 92
+ /afii57432.medi /bracketleft /afii57432.fina /afii57432.isol
+% 96
+ /afii57433.medi /afii57454 /afii57416.medi /afii57507.medi %% xxx tchehM
+% 100
+ /afii57423.fina /.notdef /afii57441.medi /afii57509.medi %% xxx gafM
+% 104 
+ /afii57470.medi /afii57456 /.notdef /uni06A9.medi
+% 108
+  /afii57444.medi /afii57445.medi /afii57446.medi /.notdef
+% 112
+ /afii57506.medi /afii57442.medi /afii57425.fina /afii57427.medi %%pehM xxx
+% 116
+ /afii57418.medi /afii57455 /.notdef /afii57448.fina
+% 120
+ /afii57427.isol /uni06CC.medi /afii57426.fina /afii57430.fina 
+% 124
+ /afii57430.isol /afii57429.init /.notdef /.notdef % 
+% 128
+ /.notdef /.notdef /.notdef /.notdef 
+% 132
+ /.notdef /.notdef /.notdef /.notdef 
+% 136
+ /afii57433.init /afii57433.fina /afii57433.isol  /afii57434.init
+% 140
+ /afii57434.medi /afii57434.fina /afii57434.isol /afii57441.init
+% 144
+ /afii57441.fina /afii57441.isol /afii57442.init /afii57442.fina
+% 148
+ /afii57442.isol /uni06A9.init /uni06A9.fina /uni06A9.isol
+% 152
+ /afii57444.init /afii57444.fina /afii57444.isol /afii57445.init
+% 156
+ /afii57445.fina /afii57445.isol   /afii57446.init /afii57446.fina
+% 160
+ /afii57446.isol  /afii57470.init /afii57470.fina /afii57470.isol
+% 164
+ /afii57448.isol /afii57412.fina /afii57412.isol /uni06CC.init
+% 168
+ /uni06CC.fina /uni06CC.isol /afii57431.isol /.notdef
+% 172
+ /.notdef /afii57417.isol  /afii57444_afii57415.fina /afii57444_afii57415.isol
+% 176      2nd with dd!!!!
+ /afii57444_afii57411.fina /afii57444_afii57411.isol 
+ /afii57444_afii57413.fina /afii57444_afii57413.isol
+% 180      2nd with dd!!!!
+ /afii57444_afii57410.fina /afii57444_afii57410.isol 
+ /afii57414.init /afii57414.medi
+% 184 
+ /afii57414.fina /afii57414.isol
+ /afii57409 /.notdef
+% 188
+ /.notdef /.notdef /afii57451 /afii57452
+% 192
+ /afii57453 /afii57454 /afii57455 /afii57456 
+% 196
+ /afii57457 /afii57458  /afii57457_afii57451 /afii57457_afii57452
+% 200
+ /afii57457_afii57453 /afii57457_afii57454 /afii57457_afii57455 /afii57457_afii57456 
+% 204 ok
+ /afii57457  /afii57457_afii57454 /afii57457_afii57455 /afii57457_afii57456   
+% 208
+ /afii57424.isol  /afii57508.fina /afii57508.isol /afii57506.init 
+% 212
+ /afii57506.fina /afii57506.isol /afii57509.init /afii57509.fina 
+% 216
+ /afii57509.isol /afii57507.init /afii57507.fina /afii57507.isol
+% 220
+ /.notdef /.notdef /.notdef /.notdef 
+% 224
+ /.notdef /.notdef /.notdef /.notdef 
+% 228
+ /.notdef /.notdef /.notdef /.notdef 
+% 232
+ /.notdef /.notdef /.notdef /.notdef 
+% 236
+ /.notdef /.notdef /.notdef /.notdef 
+% 240
+ /.notdef /.notdef /.notdef /.notdef 
+% 244
+ /.notdef /.notdef /.notdef /.notdef 
+% 248 
+ /.notdef /.notdef /uni066C /uni066B % Arabic Thousands Separator and Arabic decimal separator 
+% 252
+ /uni0644064406510647 /uniFDFC /afii57440 /.notdef % llah  ryal(uniFDFC) tatweel
+] def
+

@@ -1,0 +1,76 @@
+% chars-8z.tex file    
+% Petr Olsak,  Oct 2012
+
+% The simple declarations of more characters from 8z encoded fonts.
+
+\ifx\charsEightZ\undefined \else \endinput \fi
+\def\charsEightZ{}
+
+\chardef\ellipsis   128
+\chardef\dag        129 % plain macro redefined
+\chardef\ddag       130 % plain macro redefined
+\chardef\texbullet  131
+\chardef\sterling   132
+\chardef\paragraphsign  133
+\chardef\euro       134
+\chardef\trademark  136
+\chardef\copyright  137 % plain macro redefined
+\chardef\registered 138
+\chardef\Lslash     163 % plain macro redefined
+\chardef\lslash     179 % plain macro redefined
+\chardef\currency   164
+\chardef\section    167  
+\chardef\clq        154 % czech single left quote
+\chardef\crq         96 % czech single right quote
+\chardef\flq        142 % french single left quote
+\chardef\frq        143 % french single right quote
+
+\let\P=\paragraphsign % plain macro redefined
+\let\S=\section       % plain macro redefined
+\let\pound=\sterling
+\let\L=\Lslash        % plain macro redefined
+\let\l=\lslash        % plain macro redefined
+% \let\dots=\ellipsis, don't do it:  \dots works in mathmode too.
+
+\chardef\Aogonek    161
+\chardef\aogonek    177
+
+\let\oriogonek=\ogonek % defined in csplain
+\def\ogonek#1{\ifx A#1\Aogonek\else\ifx a#1\aogonek\else \oriogonek{#1}\fi\fi}
+
+\chardef\Ccedilla   199
+\chardef\ccedilla   231
+
+\let\oricedilla=\c % defined in plain
+\def\c#1{\ifx C#1\Ccedilla\else\ifx c#1\ccedilla\else \oricedilla{#1}\fi\fi}
+
+\chardef\Edieresis  203
+\chardef\edieresis  235
+
+\let\oridieresis=\"  % defined in plain (or csplain after \csaccents)
+\def\"#1{\ifx E#1\Edieresis\else\ifx e#1\edieresis\else \oridieresis{#1}\fi\fi}
+
+\chardef\Ihat       206
+\chardef\ihat       238
+
+\let\oritexthat=\^  % defined in plain (or csplain after \csaccents)
+\def\^#1{\ifx I#1\Ihat\else\ifx i#1\ihat\else \oritexthat{#1}\fi\fi}
+
+\ifx\mubyte\undefined \expandafter \endinput \fi
+
+% It seems to be usable to interpret these characterss as UTF-8 codes:
+% The characters defined by PlainTeX and csplain are set already. 
+
+\mubyte \ellipsis   ^^e2^^80^^a6\endmubyte
+\mubyte \textbullet ^^e2^^80^^a2\endmubyte
+\mubyte \sterling   ^^c2^^a3\endmubyte
+\mubyte \euro       ^^e2^^82^^ac\endmubyte
+\mubyte \trademark  ^^e2^^84^^a2\endmubyte
+\mubyte \registered ^^c2^^ae\endmubyte
+\mubyte \currency   ^^c2^^a4\endmubyte
+\mubyte \clq        ^^e2^^80^^9a\endmubyte % added Jul. 2014
+\mubyte \crq        ^^e2^^80^^9b\endmubyte
+\mubyte \flq        ^^e2^^80^^b9\endmubyte
+\mubyte \frq        ^^e2^^80^^ba\endmubyte
+
+% end of file

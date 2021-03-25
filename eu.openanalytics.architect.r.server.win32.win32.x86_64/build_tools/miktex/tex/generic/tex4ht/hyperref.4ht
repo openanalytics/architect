@@ -1,0 +1,471 @@
+% hyperref.4ht (2021-01-02-13:53), generated from tex4ht-4ht.tex
+% Copyright 1999-2009 Eitan M. Gurari
+% Copyright 2009-2021 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2021-01-02-13:53}
+
+\csname end:hyperref\endcsname
+
+\expandafter\ifx \csname ifHy@texht\endcsname\relax
+   \expand:after{\expandafter
+      \let \csname ifHy@texht\endcsname}\csname ifhy@texht\endcsname
+\fi
+\expandafter\ifx \csname ifHy@texht\endcsname\relax
+   \expand:after{\expandafter
+      \let \csname ifHy@texht\endcsname}\csname iffalse\endcsname
+\fi
+\ifHy@texht \else
+    \:warning{tex4ht loaded after hyperref}
+    \csname Hy@texhttrue\endcsname
+\fi
+
+\def\auto@setref#1#2#3{\@safe@activestrue
+   \let\:autoref\::autoref
+\T@ref{#3}\@safe@activesfalse}
+\ifx\@refstar\:UnDef
+  \def\@refstar{\let\:autoref\:gobble
+\T@ref}
+\fi
+\def\:temp{\protect \T@ref}
+\ifx \::ref\:temp
+   \edef\::ref{\noexpand\protect \expandafter\noexpand \csname ::ref \endcsname}
+   \expandafter\def\csname ::ref \endcsname{\@ifstar \@refstar \T@ref}
+\fi
+\def\:temp#1{\@safe@activestrue\org@:ref{#1}\@safe@activesfalse}
+\expandafter\ifx \csname :ref \endcsname\:temp
+   \expandafter\def\csname :ref \endcsname{\@ifnextchar*{\:refstar}{\r:ref}}
+   \def\r:ref#1{\@safe@activestrue\org@:ref{#1}\@safe@activesfalse}
+   \def\:refstar#1{\r:ref}
+\fi
+
+\expandafter\ifx \csname real@setref\endcsname\relax
+   \def\@pagerefstar#1{%
+      \HyRef@StarSetRef{#1}\@secondoffive
+   }
+   \def\@namerefstar#1{%
+       \HyRef@StarSetRef{#1}\@thirdoffive
+     }
+   \def\HyRef@StarSetRef#1{%
+     \begingroup
+       \Hy@safe@activestrue
+       \edef\x{#1}%
+       \@onelevel@sanitize\x
+       \edef\x{\endgroup
+         \noexpand\HyRef@@StarSetRef
+           \expandafter\noexpand\csname r@\x\endcsname{\x}%
+       }%
+     \x
+   }
+
+   \def\HyRef@@StarSetRef#1#2#3{%
+     \ifx#1\@undefined
+       \let#1\relax
+     \fi
+     \real@setref#1#3{#2}%
+   }
+\fi
+\expandafter\ifx \csname real@setref\endcsname\relax
+   \let\real@setref\@setref
+\fi
+
+
+
+\DeclareRobustCommand*{\autoref}{%
+  \@ifstar{\HyRef@autoref\@gobbletwo}{\HyRef@autoref\hyper@@link}%
+}
+\def\HyRef@autoref#1#2{%
+  \begingroup
+    \Hy@safe@activestrue
+    \expandafter\HyRef@autosetref\csname r@#2\endcsname{#2}{#1}%
+  \endgroup
+}
+
+\DeclareRobustCommand*{\autopageref}{%
+  \@ifstar{%
+    \HyRef@autopagerefname\pageref*%
+  }\HyRef@autopageref
+}
+\def\HyRef@autopageref#1{%
+  \hyperref[{#1}]{\HyRef@autopagerefname\pageref*{#1}}%
+}
+\def\HyRef@autopagerefname{%
+  \@ifundefined{pageautorefname}{%
+    \@ifundefined{pagename}{%
+      \Hy@Warning{No autoref name for `page'}%
+    }{%
+      \pagename\nobreakspace
+    }%
+  }{%
+    \pageautorefname\nobreakspace
+  }%
+}
+
+\def\HyRef@autosetref#1#2#3{% link command, csname, refname
+  \HyRef@ShowKeysRef{#2}%
+  \ifcase 0\ifx#1\relax 1\fi\ifx#1\Hy@varioref@undefined 1\fi\relax
+    \edef\HyRef@thisref{%
+      \expandafter\@fourthoffive#1\@empty\@empty\@empty
+    }%
+    \expandafter\HyRef@testreftype\HyRef@thisref.\\%
+    \Hy@safe@activesfalse
+    #3{%
+      \expandafter\@fifthoffive#1\@empty\@empty\@empty
+    }{%
+      \expandafter\@fourthoffive#1\@empty\@empty\@empty
+    }{%
+      \HyRef@currentHtag
+      \expandafter\@firstoffive#1\@empty\@empty\@empty
+      \null
+    }%
+  \else
+    \protect\G@refundefinedtrue
+    \nfss@text{\reset@font\bfseries ??}%
+    \@latex@warning{%
+      Reference `#2' on page \thepage\space undefined%
+    }%
+  \fi
+}
+
+\def\HyRef@testreftype#1.#2\\{%
+  \@ifundefined{#1autorefname}{%
+    \@ifundefined{#1name}{%
+      \HyRef@StripStar#1\\*\\\@nil{#1}%
+      \@ifundefined{\HyRef@name autorefname}{%
+        \@ifundefined{\HyRef@name name}{%
+          \def\HyRef@currentHtag{}%
+          \Hy@Warning{No autoref name for `#1'}%
+        }{%
+          \edef\HyRef@currentHtag{%
+            \expandafter\noexpand\csname\HyRef@name name\endcsname
+            \noexpand~%
+          }%
+        }%
+      }{%
+        \edef\HyRef@currentHtag{%
+          \expandafter\noexpand\csname\HyRef@name autorefname\endcsname
+          \noexpand~%
+        }%
+      }%
+    }{%
+      \edef\HyRef@currentHtag{%
+        \expandafter\noexpand\csname#1name\endcsname
+        \noexpand~%
+      }%
+    }%
+  }{%
+    \edef\HyRef@currentHtag{%
+      \expandafter\noexpand\csname#1autorefname\endcsname
+      \noexpand~%
+    }%
+  }%
+}
+
+\def\HyRef@StripStar#1*\\#2\@nil#3{%
+  \def\HyRef@name{#2}%
+  \ifx\HyRef@name\HyRef@CaseStar
+    \def\HyRef@name{#1}%
+  \else
+    \def\HyRef@name{#3}%
+  \fi
+}
+\def\HyRef@CaseStar{*\\}
+\def\HyRef@currentHtag{}
+\let\HyRef@ShowKeysRef\@gobble
+\providecommand*\AMSautorefname{\equationautorefname}
+\providecommand*\Hfootnoteautorefname{\footnoteautorefname}
+\providecommand*\Itemautorefname{\itemautorefname}
+\providecommand*\itemautorefname{item}
+\providecommand*\equationautorefname{Equation}
+\providecommand*\footnoteautorefname{footnote}
+\providecommand*\itemautorefname{item}
+\providecommand*\figureautorefname{Figure}
+\providecommand*\tableautorefname{Table}
+\providecommand*\partautorefname{Part}
+\providecommand*\appendixautorefname{Appendix}
+\providecommand*\chapterautorefname{chapter}
+\providecommand*\sectionautorefname{section}
+\providecommand*\subsectionautorefname{subsection}
+\providecommand*\subsubsectionautorefname{subsubsection}
+\providecommand*\paragraphautorefname{paragraph}
+\providecommand*\subparagraphautorefname{subparagraph}
+\providecommand*\FancyVerbLineautorefname{line}
+\providecommand*\theoremautorefname{Theorem}
+\providecommand*\pageautorefname{page}
+
+\expandafter\ifx \csname H@item\endcsname\relax
+   \def\:temp{dvi}\ifx \XR@ext\:temp \else
+     \def\:temp{html}\ifx \XR@ext\:temp \else
+         \:warning{\string\usepackage[...]{hyperref} assumes `\XR@ext'
+              option, not `tex4ht'}
+   \fi\fi
+\else
+      \:warning{\string\usepackage[...]{hyperref} assumes `\XR@ext'
+           option, not `tex4ht'}
+\fi
+
+\ifx \@@wrindex\:UnDef \else
+   \def\@@wrindex#1|#2|#3\\{%
+     \protected@write\@indexfile{}{\string\indexentry{#1}{\thepage}}%
+     \endgroup \@esphack
+   }
+\fi
+\ifx \HyInd@@wrindex\:UnDef \else
+   \def\HyInd@@wrindex#1#2|#3|#4\\{\HyInd@org@wrindex{#1}{#2}}%
+\fi
+\ifx \Hy@RestoreLastskip\:UnDef
+   \let\Hy@RestoreLastskip\relax
+\fi
+\def\hyperlink#1#2{\Link{#1}{}#2\EndLink}
+\def\hypertarget#1#2{\Link{}{#1}\EndLink#2}
+\ifx \hyperpage\:UnDef  \let\hyperpage=\empty  \fi
+\def\:temp#12->#2//{\def\:temp{#2}}
+\expandafter\:temp\meaning\setkeys2->//
+\ifx\:temp\empty \else
+   \pend:defII\setkeys{%
+      \expandafter\ifx \csname ##1:keys\endcsname\relax
+             \expandafter\def\csname ##1:keys\endcsname{##2}%
+      \else  \expandafter\append:def\csname ##1:keys\endcsname{##2}%
+      \fi  }
+\fi
+\def\:choices#1,#2//#3#4{%
+   \def\AttributeVal{#1}#3\AttributeVal#4%
+   \def\:temp{#2}\ifx \:temp\empty \else
+   \def\:temp{\:choices#2//{#3}{#4}}\expandafter\:temp\fi}
+\def\check:args#1=#2//{\def\:temp{#2}}
+\def\arg:quote#1=#2//{%
+   \del:sp#1//%
+   \expandafter\ifx \csname a:\:form:attr ::\nosp:arg\endcsname\relax
+      \expandafter\ifx \csname a:::\nosp:arg\endcsname\relax
+            \:warning{No configuration for \:form:attr ::\nosp:arg}%
+      \else \def\AttributeVal{#2}\csname a:::\nosp:arg\endcsname
+      \fi
+   \else
+      \def\AttributeVal{#2}\csname a:\:form:attr ::\nosp:arg\endcsname
+   \fi
+   }
+\def\del:sp#1#2//{\def\nosp:arg{#1#2}}
+\def\:form:attr{\ifx\:textarea\empty
+   \default:textarea\else \:textarea\fi}
+\def\scan:args#1{\let\Attributes=\empty \let\:textarea=\empty
+   \expandafter\ifx \csname #1:keys\endcsname\relax
+      \expandafter\scan:arg
+   \else  \expand:after{\expand:after
+      {\expandafter\scan:arg}\csname #1:keys\endcsname,}\fi
+}
+\def\scan:arg#1,#2//{%
+   \def\:temp{#1}\ifx \:temp\empty\else \ifx \:temp\space\else
+      \check:args#1=//%
+      \ifx \:temp\empty
+         \edef\:textarea{\ifx \:textarea\empty\else ,\fi #1}%
+      \else
+         \arg:quote#1//%
+   \fi\fi\fi
+   \def\:temp{#2}\ifx \:temp\empty \else
+   \def\:temp{\scan:arg#2//}\expandafter\:temp\fi
+}
+\def\check:type#1{\:Optionfalse
+   \def\:temp{#1}\expandafter\check:t\:textarea,//}%
+\def\check:t#1,#2//{\def\:tempa{#1}\ifx \:temp\:tempa \:Optiontrue
+   \else
+       \def\:tempa{#2}\ifx\:tempa\empty\else \def\:tempa{\check:t#2//}\fi
+       \expandafter\:tempa
+   \fi}
+
+\def\Hy@MakeCurrentHref#1{%
+  \edef\HyperLocalCurrentHref{#1}%
+  \@onelevel@sanitize\HyperLocalCurrentHref
+  \global\let\HyperGlobalCurrentHref\HyperLocalCurrentHref
+  \let\HyperLocalCurrentHref\HyperGlobalCurrentHref
+  \ifHy@localanchorname
+    \let\@currentHref\HyperLocalCurrentHref
+  \else
+    \global\let\@currentHref\HyperGlobalCurrentHref
+  \fi
+}
+
+\let\Hy@SectionAnchorHref\@gobble
+\newlength\Hy@SectionHShift
+
+\def\Hy@MakeCurrentHrefAuto#1{%
+  \Hy@GlobalStepCount\Hy@linkcounter
+  \Hy@MakeCurrentHref{#1.\the\Hy@linkcounter}%
+}
+
+\def\hyper@makecurrent#1{%
+  \begingroup
+    \edef\Hy@param{#1}%
+    \ifx\Hy@param\Hy@chapterstring
+      \let\Hy@param\Hy@chapapp
+    \fi
+    \ifHy@hypertexnames
+      \let\@number\@firstofone
+      \@ifundefined{latin@Alph}{}{%
+        \ifx\@Alph\greek@Alph
+          \def\@Alph{Alph\@arabic}%
+        \fi
+      }%
+      \ifHy@naturalnames
+        \let\textlatin\@firstofone
+        \xdef\@currentHlabel{\csname the#1\endcsname}%
+      \else
+        \xdef\@currentHlabel{\csname theH#1\endcsname}%
+      \fi
+      \xdef\@currentHref{%
+        \Hy@param.\expandafter\strip@prefix\meaning\@currentHlabel
+      }%
+    \else
+      \Hy@GlobalStepCount\Hy@linkcounter
+      \xdef\@currentHref{\Hy@param.\the\Hy@linkcounter}%
+    \fi
+  \endgroup
+}
+\def\hyper@natlinkend{%
+  \hyper@linkend
+}
+\def\hyper@linkurl#1#2{%
+  \leavevmode  \begingroup    \hyper@chars
+   \ifx \hyper:normalise\:UnDef
+      \expandafter\pend:defI\expandafter\:autoref
+                            \expandafter{\HyRef@currentHtag}%
+      \let\HyRef@currentHtag\empty
+      \Hy@colorlink{\@urlcolor}#1\Hy@endcolorlink
+    \else
+      \Link[#2]{}{}\Hy@colorlink{\@urlcolor}#1\Hy@endcolorlink\EndLink
+      \global\let\hyper:normalise\:UnDef
+    \fi
+  \endgroup }
+\AtBeginDocument{%
+%  \pend:defI\hyper@normalise{\let\hyper:normalise\def}%
+  \expandafter\pend:def\csname hyperref
+                     \endcsname{\let\hyper:normalise\def}%
+  \expandafter\pend:def\csname href \endcsname{\let\hyper:normalise\def}%
+  \pend:defI\T@ref{\edef\RefArg{##1}}}
+\def\label@hyperref[#1]#2{{%
+   \def\hyperrefLabel{#2}%
+   \Configure{ref}
+     {\Link}{\EndLink}{\Configure{ref}{}{}{}#2}\ref{#1}}}
+\Configure{@newlabel}{\@onelevel@sanitize\@currentlabelname}
+\append:def\protect:wrtoc{\def\ref{\protect\o:ref}}
+
+\ifx \H@equation\:UnDef \else
+   \let\o:equation:\H@equation
+\fi
+\ifx \H@endequation\:UnDef \else
+   \let\o:endequation:\H@endequation
+\fi
+\ifx \H@eqnarray\:UnDef \else
+   \let\o:eqnarray:\H@eqnarray
+\fi
+\ifx \H@endsubeqnarray\:UnDef \else
+   \let\o:endsubeqnarray:\H@endsubeqnarray
+\fi
+\ifx \H@subeqnarray\:UnDef \else
+   \let\o:subeqnarray:\H@subeqnarray
+\fi
+\ifx \H@endsubeqnarray\:UnDef \else
+   \let\o:endsubeqnarray:\H@endsubeqnarray
+\fi
+
+
+\csname ReadBookmarks\endcsname
+\ifx \Hy@linkfileprefix\empty\else
+   \:warning{\noexpand\href of hyperref.sty introduces the prefix
+             `\Hy@linkfileprefix' to prefix-free references.
+             The command \string\hyperlinkfileprefix{...}
+             may be used for changing the prefix (probably
+             \string\hyperlinkfileprefix{}).}
+\fi
+\def\hyper@linkfile#1#2#3{\Link[#2]{#3}{}#1\EndLink}
+\def\phantomsection{%
+ \Hy@GlobalStepCount\Hy@linkcounter
+ \xdef\@currentHref{likesection.\the\Hy@linkcounter}%
+ \Hy@raisedlink{\hyper@anchorstart{\@currentHref}\hyper@anchorend}%
+}
+\catcode`\:=12
+\def\@hyper@readexternallink#1#2#3#4:#5:#6\\#7{%
+      \hyper@linkurl{#3}{#7\ifx\\#2\\\else\##2\fi}}
+\catcode`\:=11
+\def\@Form[#1]{%
+   \def\default:textarea{Form}%
+   \scan:args{}#1,//\a:Form }
+                                        \def\@endForm{\b:Form}
+                                         \NewConfigure{Form}{2}
+\def\@TextField[#1]#2{%
+   \def\default:textarea{TextField}%
+   \scan:args{Field}#1,//%
+   \csname a:TextField::\:textarea\endcsname  \leavevmode#2%
+   \csname b:TextField::\:textarea\endcsname  }
+\def\@PushButton[#1]#2{%
+   \def\default:textarea{PushButton}%
+   \scan:args{}#1,value=#2,//%
+   \csname a:PushButton::\:textarea\endcsname }
+\def\@Reset[#1]#2{%
+   \def\default:textarea{Reset}%
+   \scan:args{}#1,value=#2,//%
+   \csname a:Reset::\:textarea\endcsname }
+\def\@Submit[#1]#2{%
+   \def\default:textarea{Submit}%
+   \scan:args{}#1,value=#2,//%
+   \csname a:Submit::\:textarea\endcsname }
+\def\@CheckBox[#1]#2{%
+   \def\default:textarea{CheckBox}%
+   \scan:args{}#1,//%
+   \csname a:CheckBox::\:textarea\endcsname
+   #2\csname b:CheckBox::\:textarea\endcsname}
+\def\@ChoiceMenu[#1]#2#3{%
+   \def\default:textarea{ChoiceMenu}%
+   \scan:args{}#1,//%
+   \csname a:ChoiceMenu::\:textarea\endcsname  \leavevmode#2%
+   \csname b:ChoiceMenu::\:textarea\endcsname
+   \:choices  #3,//{\csname d:ChoiceMenu::\:textarea\endcsname}%
+         {\csname e:ChoiceMenu::\:textarea\endcsname}%
+   \csname c:ChoiceMenu::\:textarea\endcsname }
+
+\def\hyper@linkstart#1#2{%
+  \expandafter\Hy@colorlink\expandafter{\csname @#1color\endcsname}%
+  \def\Hy@tempa{#1}%
+  \ifx\Hy@tempa\@urltype
+    \Link[#2]{}{}%
+  \else
+    {\hyper@chars\ifx\rel:hyper\def\Link{#2}{}\else\Link[\##2]{}{}\fi}%
+  \fi  \global\let\rel:hyper=\:UnDef
+}
+\def\hyper@linkend{%
+  \EndLink
+  \Hy@endcolorlink
+}
+\def\hyper@anchorstart#1{%
+  \Hy@SaveLastskip
+  \begingroup
+    \hyper@chars\Link{}{#1}%
+  \endgroup
+  \Hy@activeanchortrue
+}
+\def\hyper@anchorend{%
+  \EndLink
+  \Hy@activeanchorfalse
+  \Hy@RestoreLastskip
+}
+\def\hyper@anchor#1{\hyper@anchorstart{#1}\hyper@anchorend}
+
+\expandafter\ifx\csname ifHy@hyperindex\endcsname\relax
+\else \Hy@hyperindexfalse
+\fi
+\Hinput{hyperref}
+\endinput
+

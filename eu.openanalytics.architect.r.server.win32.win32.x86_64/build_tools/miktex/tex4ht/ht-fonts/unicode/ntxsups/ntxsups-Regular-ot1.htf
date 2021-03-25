@@ -1,0 +1,96 @@
+ntxsups-Regular-ot1 32 122
+' ' '' space 32
+'!' '' exclam.sup 33
+'' ''
+'#' '' numbersign.sup 35
+'$' '' dollar.sup 36
+'%' '' percent.sup 37
+'&amp;' '' ampersand.sup 38
+'&#x2019;' '' quoteright.sup 39
+'(' '' parenleft.sup 40
+')' '' parenright.sup 41
+'*' '' asterisk.sup 42
+'+' '' plus.sup 43
+',' '' comma.sup 44
+'-' '' hyphen.sup 45
+'.' '' period.sup 46
+'/' '' slash.sup 47
+'0' '' zero.sup 48
+'1' '' one.sup 49
+'2' '' two.sup 50
+'3' '' three.sup 51
+'4' '' four.sup 52
+'5' '' five.sup 53
+'6' '' six.sup 54
+'7' '' seven.sup 55
+'8' '' eight.sup 56
+'9' '' nine.sup 57
+':' '' colon.sup 58
+';' '' semicolon.sup 59
+'&#x00A1;' '' exclamdown.sup 60
+'&#xa;' '' equal.sup 61
+'' ''
+'&#xe;' '' question.sup 63
+'@' '' at.sup 64
+'A' '' A.sup 65
+'B' '' B.sup 66
+'C' '' C.sup 67
+'D' '' D.sup 68
+'E' '' E.sup 69
+'F' '' F.sup 70
+'G' '' G.sup 71
+'H' '' H.sup 72
+'I' '' I.sup 73
+'J' '' J.sup 74
+'K' '' K.sup 75
+'L' '' L.sup 76
+'M' '' M.sup 77
+'N' '' N.sup 78
+'O' '' O.sup 79
+'P' '' P.sup 80
+'Q' '' Q.sup 81
+'R' '' R.sup 82
+'S' '' S.sup 83
+'T' '' T.sup 84
+'U' '' U.sup 85
+'V' '' V.sup 86
+'W' '' W.sup 87
+'X' '' X.sup 88
+'Y' '' Y.sup 89
+'Z' '' Z.sup 90
+'[' '' bracketleft.sup 91
+'' ''
+']' '' bracketright.sup 93
+'' ''
+'' ''
+'&#x2018;' '' quoteleft.sup 96
+'a' '' a.sup 97
+'b' '' b.sup 98
+'c' '' c.sup 99
+'d' '' d.sup 100
+'e' '' e.sup 101
+'f' '' f.sup 102
+'g' '' g.sup 103
+'h' '' h.sup 104
+'i' '' i.sup 105
+'j' '' j.sup 106
+'k' '' k.sup 107
+'l' '' l.sup 108
+'m' '' m.sup 109
+'n' '' n.sup 110
+'o' '' o.sup 111
+'p' '' p.sup 112
+'q' '' q.sup 113
+'r' '' r.sup 114
+'s' '' s.sup 115
+'t' '' t.sup 116
+'u' '' u.sup 117
+'v' '' v.sup 118
+'w' '' w.sup 119
+'x' '' x.sup 120
+'y' '' y.sup 121
+'z' '' z.sup 122
+ntxsups-Regular-ot1 32 122
+htfcss:  ntxsups-Regular-ot1  font-family: 'ntxsups', serif;
+
+

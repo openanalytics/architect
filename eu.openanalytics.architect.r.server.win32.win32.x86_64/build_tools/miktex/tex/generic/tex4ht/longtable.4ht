@@ -1,0 +1,252 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% longtable.4ht                         2020-06-16-13:36 %
+% Copyright (C) 1997-2009       Eitan M. Gurari         %
+% Copyright 2009-2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+   \def\:tempc[#1]#2{%
+  \gHAdvance\float:cnt  1
+\gHAssign\capt:cnt0
+\hbox{\def\flt:anchor{}\get:cptg}%
+%
+  \def\Clr{#2}\a:VBorder
+\HAssign\ar:cnt0
+\let\HAlign\empty
+%
+\def\aa:longtable{%
+   \gdef\aa:longtable{\let\HRow\lt:sv
+       \HAdvance\HRow by 1 \global\let\:MkHalign:\lt:MkHalign:}%
+   \global\setbox\LT:box\vbox{\a:longtable}%
+   \global\let\lt:MkHalign:\:MkHalign:}%
+\def\bb:longtable{%
+   \ifHCond \global\let\bb:longtable\empty
+      \global\setbox\LT:ebox=\vbox{{\ht:everypar{}\leavevmode}\b:longtable}%
+      \global\HCondfalse
+   \fi}
+%
+  \refstepcounter{table}\stepcounter{LT@tables}%
+  \if l#1%
+    \LTleft\z@ \LTright\fill
+  \else\if r#1%
+    \LTleft\fill \LTright\z@
+  \else\if c#1%
+    \LTleft\fill \LTright\fill
+  \fi\fi\fi
+  \let\LT@mcol\multicolumn
+  \let\LT@@tabarray\@tabarray
+  \let\LT@@hl\hline
+  \def\@tabarray{%
+    \let\hline\LT@@hl
+    \LT@@tabarray}%
+  \let\\\LT@tabularcr\let\tabularnewline\\%
+  \let\newpage\empty
+\let\pagebreak\empty
+\let\nopagebreak\empty
+%
+  \let\hline\LT@hline \let\kill\LT@kill\let\caption\LT@caption
+  \@tempdima\ht\strutbox
+  \let\@endpbox\LT@endpbox
+  \ifx\extrarowheight\@undefined
+    \let\@acol\@tabacol
+    \let\@classz\@tabclassz \let\@classiv\@tabclassiv
+    \def\@startpbox{\vtop\LT@startpbox}%
+    \let\@@startpbox\@startpbox
+    \let\@@endpbox\@endpbox
+    \let\LT@LL@FM@cr\@tabularcr
+  \else
+    \advance\@tempdima\extrarowheight
+    \col@sep\tabcolsep
+    \let\@startpbox\LT@startpbox\let\LT@LL@FM@cr\@arraycr
+  \fi
+  \setbox\@arstrutbox\hbox{}%
+  \let\@sharp##\let\protect\relax
+   \begingroup
+    \@mkpream{#2}%
+    \xdef\LT@bchunk{%
+       \global\advance\c@LT@chunks\@ne
+       \global\LT@rows\z@\setbox\z@\vbox\bgroup
+       \LT@setprevdepth
+       \everycr{}\tabskip\LTleft\noexpand\MkHalign\noexpand\@sharp
+   {\tabskip\z@ \@arstrut \@preamble \tabskip\LTright}%
+}%
+       \tmp:cnt=0
+\global\let\:tempa\empty
+\loop\ifnum \ar:cnt>\tmp:cnt
+   \advance\tmp:cnt by 1
+   \expandafter\ifx \csname @testpach \the\tmp:cnt\endcsname\relax
+   \else
+      \xdef\:tempa{%
+          \:tempa
+          \def \expandafter\noexpand
+             \csname @testpach \the\tmp:cnt\endcsname{\csname @testpach
+             \the\tmp:cnt\endcsname}}%
+      \expandafter\let\csname @testpach \the\tmp:cnt\endcsname\relax
+   \fi
+\repeat
+\aftergroup\:tempa
+\xdef\:temp{%
+   \def\noexpand\HAlign{\HAlign}%
+   \def\noexpand\ar:cnt{\ar:cnt}}\aftergroup\:temp
+%
+  \endgroup
+  \LT@cols\ar:cnt
+%
+  \LT@make@row
+  \m@th\let\par\@empty
+  \everycr{}\lineskip\z@\baselineskip\z@
+  \ifx \EndPicture\:UnDef
+     \SaveMkHalignConfig \ifx \recall:ar\:UnDef
+   \edef\recall:ar{%
+      \noexpand\ifx \noexpand\EndPicture\noexpand\:UnDef \noexpand\else
+         \arrayrulewidth\the\arrayrulewidth
+         \doublerulesep\the\doublerulesep
+         \arraycolsep\the\arraycolsep
+         \tabcolsep\the\tabcolsep
+      \noexpand\fi }%
+\fi
+\arrayrulewidth\z@  \doublerulesep\z@
+\arraycolsep\z@     \tabcolsep\z@
+\Configure{MkHalign}
+  \aa:longtable
+  {\bb:longtable \ProperTrTrue}
+  {\a:putHBorder\InitHBorder \ifProperTr{\c:longtable}}
+  {\ifProperTr{\d:longtable}\a:putHBorder\InitHBorder}%
+  {\ifProperTr{\e:longtable}\RecallMkHalignConfig\recall:ar}
+  {\ifProperTr{\f:longtable}}
+%
+     \let\@sharp\relax
+  \else \let\@sharp##\fi
+  \LT@bchunk}
+\HLet\LT@array\:tempc
+\def\:tempc{%
+  \crcr\LT@save@row\cr
+  \ifx \EndPicture\:UnDef \EndMkHalign\else \egroup\fi
+%
+  \global\setbox\@ne\lastbox    \unskip
+  \egroup}
+\HLet\LT@echunk\:tempc
+\let\:tempc\LT@startpbox
+\append:defI\:tempc{\everypar{\HtmlPar}\a:longtableparbox}%
+\HLet\LT@startpbox\:tempc
+\NewConfigure{longtableparbox}{1}
+\NewConfigure{longtable}{6}
+\csname newbox\endcsname\LT:box
+\csname newbox\endcsname\LT:ebox
+\let\:tempc\LT@start
+\pend:def\:tempc{%
+  \ifvoid\LT@head\else
+     \ifvoid\LT@firsthead
+        \global\setbox\LT@firsthead=\hbox{\box\LT@head}%
+     \else
+        \global\setbox\tmp:bx=\hbox{\box\LT@head}%
+  \fi\fi
+  \box\LT:box}
+\HLet\LT@start\:tempc
+\let\:tempc\endlongtable
+\append:def\:tempc{\box\LT:ebox}
+\pend:def\:tempc{\global\HCondtrue}
+\HLet\endlongtable\:tempc
+\let\:tempc\LT@ntabularcr
+\pend:def\:tempc{\global\let\lt:sv\HRow}
+\HLet\LT@ntabularcr\:tempc
+\let\:tempc\LT@end@hd@ft
+\pend:defI\:tempc{\global\let\lt:sv\HRow}
+\HLet\LT@end@hd@ft\:tempc
+%\def\:tempc{\global\let\lt:sv\HRow}
+%\HLet\LT@kill\:tempc
+\def\LT@rebox#1\bgroup{%
+  #1\bgroup
+  \unskip
+}
+\let\:tempc\LT@kill
+\pend:def\:tempc{\global\let\lt:sv\HRow}
+\HLet\LT@kill\:tempc
+\let\LT:argtabularcr\LT@argtabularcr
+\def\:tempc{\global\let\lt:sv\HRow  \LT:argtabularcr}
+\HLet\LT@argtabularcr\:tempc
+\ifx \tmp:bx\:UnDef \csname newbox\endcsname \tmp:bx \fi
+%\def\:tempc{\LT@end@hd@ft\tmp:bx}
+%\HLet\endhead\:tempc
+% \def\:tempc{\LT@end@hd@ft\tmp:bx}
+% \HLet\endfoot\:tempc
+\pend:def\LT@output{%
+  \ifvoid\LT@foot\else
+     \ifvoid\LT@lastfoot
+        \global\setbox\LT@lastfoot=\hbox{\box\LT@foot}%
+     \else
+        \global\setbox\tmp:bx=\hbox{\box\LT@foot}%
+  \fi\fi
+}
+\def\:tempc{\global\HCondtrue \LT@end@hd@ft\LT@lastfoot}
+\HLet\endlastfoot\:tempc
+\def\LT@tabularcr{%
+  \relax\iffalse{\fi\ifnum0=`}\fi
+  \@ifstar
+    {\LT@t@bularcr}%
+    {\LT@t@bularcr}}
+
+   \def\:tempc{%
+  \o:noalign:{\ifnum0=`}\fi
+    \penalty\@M
+    \futurelet\@let@token\LT@@hline}
+\HLet\LT@hline\:tempc
+\def\:tempc{%
+  \ifx\@let@token\hline
+    \global\let\@gtempa\@gobble
+    \gdef\LT@sep{\penalty-\@medpenalty\vskip\doublerulesep}%
+  \else
+    \global\let\@gtempa\@empty
+    \gdef\LT@sep{\penalty-\@lowpenalty\vskip-\arrayrulewidth}%
+  \fi
+  \ifnum0=`{\fi}%
+  \a:hline
+%
+  \o:noalign:{\penalty\@M}%
+  \@gtempa}
+\HLet\LT@@hline\:tempc
+
+   \def\:tempc{%
+  \o:noalign:\bgroup  \gHAdvance\TitleCount  1
+    \@ifnextchar[{\egroup\LT@c@ption\@firstofone}\LT@capti@n}
+\HLet\LT@caption\:tempc
+\def\:tempc#1#2#3{%
+  \LT@mcol\LT@cols c{\hbox{\parbox[t]\LTcapwidth{%
+    \cptA: #1{\cap:ref{#2}}\if\relax\detokenize{#1}\relax\else\cptB:\fi\cptC:#3\cptD:
+    \endgraf\vskip\baselineskip}}}}
+\HLet\LT@makecaption\:tempc
+\def\:tempc#1[#2]#3{%
+  \LT@makecaption#1\fnum@table{#3}%
+  \cur:lbl{}%
+  \def\@tempa{#2}%
+  \ifx\@tempa\@empty\else%
+  {\let\\\space%
+  \protect:wrtoc%
+  \edef\:temp{#2}%
+  \edef\:temp{\the\:tokwrite{\string\doTocEntry%
+  \string\toclot%
+  {\thetable}{\string\csname\space a:TocLink\string\endcsname%
+    {\FileNumber}{\cur:th \:currentlabel}{}{\ifx\:temp\empty\else \ignorespaces #2\fi}}%
+      {}\relax}}\:temp%
+  }%
+  \fi%
+}
+
+\HLet\LT@c@ption\:tempc
+
+\Hinput{longtable}
+\endinput
+

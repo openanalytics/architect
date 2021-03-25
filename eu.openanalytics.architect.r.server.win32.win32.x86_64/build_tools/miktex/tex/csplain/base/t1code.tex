@@ -1,0 +1,313 @@
+% File t1code.tex: 
+%  (0) sets \czech, \slovak to Cork encoded hyphen-pattern numbers,
+%  (1) sets \catcode, \l/uccode for characters (code by Cork),
+%  (2) defines \csaccents for new behavior of \v, \', etc (code by Cork),
+%  (3) defines some \sequences for special cs-fonts characters.
+%  (4) redefines character-like macros from plainTeX as \chardef
+%  (5) if encTeX with \mubytein>0 is activated reads t1enc-u.tex file
+%
+% Created by Petr Olsak <olsak@math.feld.cvut.cz>,       February 2000    
+% Inspired by Jan Kasprzak
+% February 2005: bug in \uccodes removed, thanks to Marek Pomp
+% October 2012: new \lc/\uccode declaration, new parts (4) (5)
+
+\message{Font encoding set to Cork.}
+
+\let\corkencoded\font % macros can do \ifx\font\corkencoded ...\else...\fi
+
+%% (0) \czech, \slovak. You can use \chyph, \shyph after this file is loaded.
+\ifx\chyph\undefined\else \ifx\czCork\undefined 
+  {\newlinechar=`^^J
+   \errhelp={The hyphen patterns are not loaded in Cork encoding in csplain.^^J
+            It means, you are using csplain pre Feb.2000 or^^J
+            or you are using Unicode csplain (XeTeX, LuaTeX) or^^J
+            you initialised csplain by \let\Cork=\relax.^^J
+            You can go on (press Return), but the czech/slovak^^J
+            hyphenations will be work incorectly.}
+  \errmessage
+  {Hyphenation in Cork encoding is not supported in format} % Press h for more help.
+  } 
+\fi\fi
+\csname corklangs\endcsname
+
+%% (1a) \catcodes:
+\catcode225=11  % a-acute       
+\catcode193=11  % A-acute       
+\catcode228=11  % a-diaeresis   
+\catcode196=11  % A-diaeresis   
+\catcode163=11  % c-caron       
+\catcode131=11  % C-caron       
+\catcode164=11  % d-caron       
+\catcode132=11  % D-caron       
+\catcode233=11  % e-acute       
+\catcode201=11  % E-acute       
+\catcode165=11  % e-caron       
+\catcode133=11  % E-caron       
+\catcode237=11  % i-acute       
+\catcode205=11  % I-acute       
+\catcode168=11  % l-acute       
+\catcode136=11  % L-acute       
+\catcode169=11  % l-caron       
+\catcode137=11  % L-caron       
+\catcode172=11  % n-caron       
+\catcode140=11  % N-caron       
+\catcode243=11  % o-acute       
+\catcode211=11  % O-acute       
+\catcode244=11  % o-circumflex  
+\catcode212=11  % O-circumflex  
+\catcode246=11  % o-diaeresis   
+\catcode214=11  % O-diaeresis   
+\catcode175=11  % r-acute       
+\catcode143=11  % R-acute       
+\catcode176=11  % r-caron       
+\catcode144=11  % R-caron       
+\catcode178=11  % s-caron       
+\catcode146=11  % S-caron       
+\catcode180=11  % t-caron       
+\catcode148=11  % T-caron       
+\catcode250=11  % u-acute       
+\catcode218=11  % U-acute       
+\catcode183=11  % u-ring        
+\catcode151=11  % U-ring        
+\catcode252=11  % u-diaeresis   
+\catcode220=11  % U-diaeresis   
+\catcode253=11  % y-acute       
+\catcode221=11  % Y-acute       
+\catcode186=11  % z-caron       
+\catcode154=11  % Z-caron       
+		
+%% (1b) \lccodes, \uccodes:
+\def\tmp #1 {\loop
+      \lccode\count100=\count200 \uccode\count100=\count100
+      \lccode\count200=\count200 \uccode\count200=\count100
+      \ifnum\count100<#1 \advance\count100 by1 \advance\count200 by1
+      \repeat}
+\count100=128  \count200=160  \tmp 156
+\count100=192  \count200=224  \tmp 223
+\lccode 157=105 \uccode 157=157 % dotted I
+\lccode 25=25   \uccode 25=73   % dotless i
+\lccode 26=26   \uccode 26=74   % dotless j
+\lccode 158=158 \uccode 158=158 
+\lccode 159=159 \uccode 159=159
+\lccode 189=189 \uccode 189=189
+\lccode 190=190 \uccode 189=190
+\lccode 191=191 \uccode 189=191
+
+%% (2) \csaccents, \cmaccents
+\def\accentscommands{\string\^,\string\`,\string\',\string\v,\string\",% 
+  \string\r,\string\c,\string\~,\string\H,\string\u,% 
+  \string\. and \string\k}
+\def\csaccentsmessage{%
+  \message{The \accentscommands\space expands to characters by Cork.}}
+\ifx\cmaccentsmessage\undefined 
+  \def\cmaccentsmessage{%
+    \message{The \accentscommands\space are defined similar as plainTeX.}}
+\fi
+\def\csaccents{\csaccentsmessage
+  \def\^##1{\ifx o##1^^f4\else
+            \ifx O##1^^d4\else
+            \ifx a##1^^e2\else
+            \ifx A##1^^c2\else
+            \ifx e##1^^ea\else
+            \ifx E##1^^ca\else
+            \ifx i##1^^ee\else
+            \ifx I##1^^ce\else
+            \ifx u##1^^fb\else
+            \ifx U##1^^db\else
+       {\accent94 ##1}\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}\let\^^D=\^%
+  \def\`##1{\ifx a##1^^e0\else
+            \ifx A##1^^c0\else
+            \ifx e##1^^e8\else
+            \ifx E##1^^c8\else
+            \ifx i##1^^ec\else
+            \ifx I##1^^cc\else
+            \ifx o##1^^f2\else
+            \ifx O##1^^d2\else
+            \ifx u##1^^f9\else
+            \ifx U##1^^d9\else
+      {\accent18 ##1}\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}%
+  \def\'##1{\ifx a##1^^e1\else
+            \ifx e##1^^e9\else
+            \ifx\i##1^^ed\else
+            \ifx i##1^^ed\else
+            \ifx o##1^^f3\else
+            \ifx u##1^^fa\else
+            \ifx y##1^^fd\else
+            \ifx r##1^^af\else
+            \ifx l##1^^a8\else
+            \ifx A##1^^c1\else
+            \ifx E##1^^c9\else
+            \ifx I##1^^cd\else
+            \ifx O##1^^d3\else
+            \ifx U##1^^da\else
+            \ifx Y##1^^dd\else
+            \ifx R##1^^8f\else
+            \ifx L##1^^88\else
+            \ifx C##1^^82\else
+            \ifx N##1^^8b\else
+            \ifx S##1^^91\else
+            \ifx Z##1^^99\else
+            \ifx c##1^^a2\else
+            \ifx n##1^^ab\else
+            \ifx s##1^^b1\else
+            \ifx z##1^^b9\else
+       {\accent19 ##1}%
+            \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+            \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}%
+  \def\v##1{\ifx e##1^^a5\else
+            \ifx s##1^^b2\else
+            \ifx c##1^^a3\else
+            \ifx r##1^^b0\else
+            \ifx z##1^^ba\else
+            \ifx d##1^^a4\else
+            \ifx t##1^^b4\else
+            \ifx l##1^^a9\else
+            \ifx n##1^^ac\else
+            \ifx E##1^^85\else
+            \ifx S##1^^92\else
+            \ifx C##1^^83\else
+            \ifx R##1^^90\else
+            \ifx Z##1^^9a\else
+            \ifx D##1^^84\else
+            \ifx T##1^^94\else
+            \ifx L##1^^89\else
+            \ifx N##1^^8c\else
+                    {\accent20 ##1}%
+            \fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi
+            \fi\fi\fi\fi\fi\fi}\let\^^_=\v%
+  \def\"##1{\ifx a##1^^e4\else
+            \ifx o##1^^f6\else
+            \ifx u##1^^fc\else
+            \ifx A##1^^c4\else
+            \ifx O##1^^d6\else
+            \ifx U##1^^dc\else
+            \ifx Y##1^^98\else
+            \ifx E##1^^cb\else
+            \ifx I##1^^cf\else
+            \ifx y##1^^b8\else
+            \ifx e##1^^eb\else
+            \ifx i##1^^ef\else
+      {\accent"7F ##1}\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}%
+  \def\r##1{\ifx u##1^^b7\else
+            \ifx U##1^^97\else
+            \ifx A##1^^c5\else
+            \ifx a##1^^e5\else
+       {\accent23 ##1}\fi\fi\fi\fi}%
+  \def\c##1{\ifx C##1^^c7\else
+            \ifx c##1^^e7\else
+            \ifx S##1^^93\else
+            \ifx s##1^^b3\else
+            \ifx T##1^^95\else
+            \ifx t##1^^b5\else
+         {\char11 ##1}\fi\fi\fi\fi\fi\fi}%
+  \def\~##1{\ifx A##1^^c3\else
+            \ifx N##1^^d1\else
+            \ifx O##1^^d5\else
+            \ifx a##1^^e3\else
+            \ifx n##1^^f1\else
+            \ifx o##1^^f5\else
+       {\accent3  ##1}\fi\fi\fi\fi\fi\fi}%
+  \def\H##1{\ifx O##1^^8e\else
+            \ifx U##1^^96\else
+            \ifx o##1^^ae\else
+            \ifx u##1^^b6\else
+      {\accent5  ##1}\fi\fi\fi\fi}%
+  \def\u##1{\ifx A##1^^80\else
+            \ifx G##1^^87\else
+            \ifx a##1^^a0\else
+            \ifx g##1^^a7\else
+       {\accent8  ##1}\fi\fi\fi\fi}%
+  \def\=##1{\ifx d##1^^9e\else
+       {\accent9  ##1}\fi}%
+  \def\.##1{\ifx i##1^^69\else
+            \ifx z##1^^bb\else
+            \ifx I##1^^9d\else
+            \ifx Z##1^^9b\else
+       {\accent10 ##1}\fi\fi\fi\fi}%
+  \def\k##1{\ifx A##1^^81\else
+            \ifx E##1^^86\else
+            \ifx a##1^^a1\else
+            \ifx e##1^^a6\else
+         {\char12 ##1}\fi\fi\fi\fi}%
+  %% for backward compatibility:
+  \def\softd{\v{d}}\def\softt{\v{t}}\def\ou{\r{u}}%
+  \def\softl{\v{l}}\def\softL{\v{L}}}
+\def\cmaccents{\cmaccentsmessage
+  \def\^##1{{\accent94 ##1}}\let\^^D=\^%
+  \def\`##1{{\accent18 ##1}}%
+  \def\'##1{{\accent19 ##1}}%
+  \def\v##1{{\accent20 ##1}}\let\^^_=\v%
+  \def\"##1{{\accent"7F ##1}}%
+  \let\r=\undefined\def\ou{{\accent6u}}}
+
+\ifx\r\undefined \else \csaccents \fi  %% re-set \csaccents
+
+%% (3) special \sequences for T1 encoded fonts.
+       %% Czech left a right double qoutes
+\chardef\clqq=18   \sfcode18=0
+\chardef\crqq=16   \sfcode16=0
+       %% French double quotes
+\chardef\flqq=19   \sfcode19=0
+\chardef\frqq=20   \sfcode20=0
+       %% Other characters
+\def\ogonek #1{\setbox0\hbox{#1}\ifdim\ht0=1ex\accent12 #1%
+   \else{\ooalign{\unhbox0\crcr\hss\char12}}\fi}
+\def\promile{\char37 \char24 }
+       %% Alternative \hyphenchar ("je-li" is no "je\hyphenchar li").
+\let\extrahyphenchar=\undefined
+\let\extrahyphens=\undefined
+       %% The czech quotes:
+\def\uv{\bgroup\aftergroup\closequotes\leavevmode
+        \afterassignment\clqq\let\next=}
+\def\closequotes{\unskip\crqq\relax}
+
+%% (4) re-definition character-like macros from plainTeX:
+
+\chardef \S  159  
+\chardef \P  182
+\chardef \ss 255
+\chardef \L  138
+\chardef \l  170
+\chardef \ae 230   
+\chardef \oe 247
+\chardef \o  248 
+\chardef \AE 198   
+\chardef \OE 215    
+\chardef \O  216   
+\chardef \i  25
+\chardef \j  26
+\chardef \aa 229
+\chardef \AA 197   
+
+% new characters in T1 encoding:
+
+\chardef \Eth       208
+\chardef \NG        141
+\chardef \Thorn     222
+\chardef \eth       240
+\chardef \ng        173
+\chardef \thorn     254
+\chardef \flq       14
+\chardef \frq       15
+\chardef \clq       13
+\chardef \crq       60
+\chardef \elqq      16
+\chardef \erqq      17
+\chardef \elq       96
+\chardef \erq       39
+\chardef \exclamdown 189
+\chardef \questiondown 190
+\chardef \sterling  191  
+\let\pound=\sterling
+
+%% (5) reading UTF-8 input encoding from t1enc-u.tex file
+
+\ifx\mubytein\undefined \expandafter \endinput \fi
+\ifnum\mubytein=0 \expandafter \endinput \fi
+
+\input t1enc-u
+
+
+\endinput
+
+

@@ -1,0 +1,127 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: laeenc.dfu
+
+ \ProvidesFile{laeenc.dfu}
+   [2006/01/01 v1.0 UTF-8 support for Arabic and Farsi for use with inputenc]
+%%%%%%%%%%
+% The foolowing Arabic characters are put in the place of 
+% corresponding Latin ones. 
+%
+\DeclareUnicodeCharacter{066A}{\%}%066A;afii57381;ARABIC PERCENT SIGN
+\DeclareUnicodeCharacter{060C}{,}%060C;afii57388;ARABIC COMMA
+\DeclareUnicodeCharacter{0660}{0}%0660;afii57392;ARABIC-INDIC DIGIT ZERO
+\DeclareUnicodeCharacter{0661}{1}%0661;afii57393;ARABIC-INDIC DIGIT ONE  
+\DeclareUnicodeCharacter{0662}{2}%0662;afii57394;ARABIC-INDIC DIGIT TWO
+\DeclareUnicodeCharacter{0663}{3}%0663;afii57395;ARABIC-INDIC DIGIT THREE
+\DeclareUnicodeCharacter{0664}{4}%0664;afii57396;ARABIC-INDIC DIGIT FOUR
+\DeclareUnicodeCharacter{0665}{5}%0665;afii57397;ARABIC-INDIC DIGIT FIVE
+\DeclareUnicodeCharacter{0666}{6}%0666;afii57398;ARABIC-INDIC DIGIT SIX
+\DeclareUnicodeCharacter{0667}{7}%0667;afii57399;ARABIC-INDIC DIGIT SEVEN
+\DeclareUnicodeCharacter{0668}{8}%0668;afii57400;ARABIC-INDIC DIGIT EIGHT
+\DeclareUnicodeCharacter{0669}{9}%0669;afii57401;ARABIC-INDIC DIGIT NINE
+\DeclareUnicodeCharacter{061B}{;}%061B;afii57403;ARABIC SEMICOLON
+\DeclareUnicodeCharacter{061F}{?}%061F;afii57407;ARABIC QUESTION MARK
+%%%%%%%%%%%%%%%
+\DeclareUnicodeCharacter{0621}{\hamza}%0621;afii57409;ARABIC LETTER HAMZA
+\DeclareUnicodeCharacter{0622}{\alefmadda}%0622;afii57410;ARABIC LETTER ALEF WITH MADDA ABOVE
+\DeclareUnicodeCharacter{0623}{\alefhamza}%0623;afii57411;ARABIC LETTER ALEF WITH HAMZA ABOVE
+\DeclareUnicodeCharacter{0624}{\wawhamza} % 0624;afii57412;ARABIC LETTER WAW WITH HAMZA ABOVE
+\DeclareUnicodeCharacter{0625}{\aleflowerhamza}%0625;afii57413;ARABIC LETTER ALEF WITH HAMZA BELOW
+\DeclareUnicodeCharacter{0626}{\yahamza}%0626;afii57414;ARABIC LETTER YEH WITH HAMZA ABOVE
+\DeclareUnicodeCharacter{0627}{\alef}%0627;afii57415;ARABIC LETTER ALEF
+\DeclareUnicodeCharacter{0628}{\baa}%0628;afii57416;ARABIC LETTER BEH
+\DeclareUnicodeCharacter{0629}{\T}%0629;afii57417;ARABIC LETTER TEH MARBUTA
+\DeclareUnicodeCharacter{062A}{\taa}%062A;afii57418;ARABIC LETTER TEH
+\DeclareUnicodeCharacter{062B}{\thaa}%062B;afii57419;ARABIC LETTER THEH
+\DeclareUnicodeCharacter{062C}{\jeem}%062C;afii57420;ARABIC LETTER JEEM
+\DeclareUnicodeCharacter{062D}{\Haa}%062D;afii57421;ARABIC LETTER HAH
+\DeclareUnicodeCharacter{062E}{\kha}%062E;afii57422;ARABIC LETTER KHAH
+\DeclareUnicodeCharacter{062F}{\dal}%062F;afii57423;ARABIC LETTER DAL
+\DeclareUnicodeCharacter{0630}{\dhal}%0630;afii57424;ARABIC LETTER THAL
+\DeclareUnicodeCharacter{0631}{\ra}%0631;afii57425;ARABIC LETTER REH
+\DeclareUnicodeCharacter{0632}{\zay}%0632;afii57426;ARABIC LETTER ZAIN
+\DeclareUnicodeCharacter{0633}{\seen}%0633;afii57427;ARABIC LETTER SEEN
+\DeclareUnicodeCharacter{0634}{\sheen}%0634;afii57428;ARABIC LETTER SHEEN
+\DeclareUnicodeCharacter{0635}{\sad}%0635;afii57429;ARABIC LETTER SAD
+\DeclareUnicodeCharacter{0636}{\dad}%0636;afii57430;ARABIC LETTER DAD
+\DeclareUnicodeCharacter{0637}{\Ta}%0637;afii57431;ARABIC LETTER TAH
+\DeclareUnicodeCharacter{0638}{\za}%0638;afii57432;ARABIC LETTER ZAH
+\DeclareUnicodeCharacter{0639}{\ayn}%0639;afii57433;ARABIC LETTER AIN
+\DeclareUnicodeCharacter{063A}{\ghayn}%063A;afii57434;ARABIC LETTER GHAIN
+\DeclareUnicodeCharacter{0640}{\tatweel}%0640;afii57440;ARABIC TATWEEL
+\DeclareUnicodeCharacter{0641}{\fa} %0641;afii57441;ARABIC LETTER FEH
+\DeclareUnicodeCharacter{0642}{\qaf}%0642;afii57442;ARABIC LETTER QAF
+\DeclareUnicodeCharacter{0643}{\kaf}%0643;afii57443;ARABIC LETTER KAF
+\DeclareUnicodeCharacter{0644}{\lam}%0644;afii57444;ARABIC LETTER LAM
+\DeclareUnicodeCharacter{0645}{\meem}%0645;afii57445;ARABIC LETTER MEEM
+\DeclareUnicodeCharacter{0646}{\nun}%0646;afii57446;ARABIC LETTER NOON
+\DeclareUnicodeCharacter{0647}{\ha}%0647;afii57470;ARABIC LETTER HEH
+\DeclareUnicodeCharacter{0648}{\waw}%0648;afii57448;ARABIC LETTER WAW
+\DeclareUnicodeCharacter{0649}{\alefmaqsura}%0649;afii57449;ARABIC LETTER ALEF MAKSURA
+\DeclareUnicodeCharacter{064A}{\ya}%064A;afii57450;ARABIC LETTER YEH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareUnicodeCharacter{064B}{\nasb}%064B;afii57451;ARABIC FATHATAN
+\DeclareUnicodeCharacter{064C}{\raff}%064C;afii57452;ARABIC DAMMATAN
+\DeclareUnicodeCharacter{064D}{\jarr}%064D;afii57453;ARABIC KASRATAN
+\DeclareUnicodeCharacter{064E}{\fatha}%064E;afii57454;ARABIC FATHA
+\DeclareUnicodeCharacter{064F}{\damma}%064F;afii57455;ARABIC DAMMA
+\DeclareUnicodeCharacter{0650}{\kasra}%0650;afii57456;ARABIC KASRA
+\DeclareUnicodeCharacter{0651}{\shadda}%0651;afii57457;ARABIC SHADDA
+\DeclareUnicodeCharacter{0652}{\sukun}%0652;afii57458;ARABIC SUKUN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The non-Arabic language characters used with languages
+% like Farsi, ...
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Farsi
+\DeclareUnicodeCharacter{067E}{\peh}%067E;afii57506;ARABIC LETTER PEH
+\DeclareUnicodeCharacter{0686}{\tcheh}%0686;afii57507;ARABIC LETTER TCHEH
+\DeclareUnicodeCharacter{0698}{\jeh}%0698;afii57508;ARABIC LETTER JEH
+\DeclareUnicodeCharacter{06A9}{\farsikaf}%06CC;afii?????;FARSI LETTER KAF
+\DeclareUnicodeCharacter{06AF}{\gaf}%06AF;afii57509;ARABIC LETTER GAF
+\DeclareUnicodeCharacter{06CC}{\farsiya}%06CC;afii?????;FARSI LETTER YEH
+% Farsi numbers !
+\DeclareUnicodeCharacter{06F0}{0}%06F0;afii57392;EXTENDED ARABIC-INDIC DIGIT ZERO
+\DeclareUnicodeCharacter{06F1}{1}%06F1;afii57393;EXTENDED ARABIC-INDIC DIGIT ONE  
+\DeclareUnicodeCharacter{06F2}{2}%06F2;afii57394;EXTENDED ARABIC-INDIC DIGIT TWO
+\DeclareUnicodeCharacter{06F3}{3}%06F3;afii57395;EXTENDED ARABIC-INDIC DIGIT THREE
+\DeclareUnicodeCharacter{06F4}{4}%06F4;afii57396;EXTENDED ARABIC-INDIC DIGIT FOUR
+\DeclareUnicodeCharacter{06F5}{5}%06F5;afii57397;EXTENDED ARABIC-INDIC DIGIT FIVE
+\DeclareUnicodeCharacter{06F6}{6}%06F6;afii57398;EXTENDED ARABIC-INDIC DIGIT SIX
+\DeclareUnicodeCharacter{06F7}{7}%06F7;afii57399;EXTENDED ARABIC-INDIC DIGIT SEVEN
+\DeclareUnicodeCharacter{06F8}{8}%06F8;afii57400;EXTENDED ARABIC-INDIC DIGIT EIGHT
+\DeclareUnicodeCharacter{06F9}{9}%06F9;afii57401;EXTENDED ARABIC-INDIC DIGIT NINE
+%
+% Some important special chartacters 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareUnicodeCharacter{200C}{\ZWNJ}%200C;ZWNJ%<< * is a local trick in our font to force final form
+                                   %and the {} to force initial form of the next character
+\DeclareUnicodeCharacter{06D5}{\noboundary}%200D;ZWJ
+
+
+
+\endinput
+
+
+
+
+

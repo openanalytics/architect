@@ -1,0 +1,4 @@
+.t5-lmcsc
+htfcss: t5-lmtcsc  font-family: monospace,monospace;
+htfcss: t5-lmtcso  font-style: oblique; font-family: monospace,monospace;
+

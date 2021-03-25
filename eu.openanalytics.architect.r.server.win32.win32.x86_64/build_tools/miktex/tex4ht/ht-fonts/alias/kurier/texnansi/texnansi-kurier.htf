@@ -1,0 +1,18 @@
+.texnansi-iwona
+htfcss: texnansi-kurierl  font-weight: light;
+htfcss: texnansi-kurierb  font-weight: bold;
+htfcss: texnansi-kurierh  font-weight: bold;
+htfcss: texnansi-kurierli  font-weight: light; font-style:italic;
+htfcss: texnansi-kurierri  font-style:italic;
+htfcss: texnansi-kuriermi  font-style:italic;
+htfcss: texnansi-kurierbi  font-style:italic; font-weight: bold;
+htfcss: texnansi-kurierhi  font-style:italic; font-weight: bold;
+htfcss: texnansi-kuriercl  font-weight: light;
+htfcss: texnansi-kuriercb  font-weight: bold;
+htfcss: texnansi-kurierch  font-weight: bold;
+htfcss: texnansi-kuriercli  font-weight: light; font-style:italic;
+htfcss: texnansi-kuriercri  font-style:italic;
+htfcss: texnansi-kuriercmi  font-style:italic;
+htfcss: texnansi-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: texnansi-kurierchi  font-style:italic; font-weight: bold;
+

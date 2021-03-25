@@ -1,0 +1,411 @@
+% tuenc-xetex.4ht, generated from tex4ht-4ht.tex
+% Copyright 2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-01-17-13:32}
+
+\input binhex
+
+% the code is inspited with newunicodechar.sty
+% call with character's numeric value
+\newcommand\xeuniregisterchar[1]{%
+  \catcode#1=\active% make the character active
+  \begingroup\lccode`\~=#1 % trick to define the character as a command
+  % the code inside \special will be converted back to utf8 by tex4ht
+  \lowercase{\endgroup\protected\def~}{\special{t4ht@+&{35}x\hex{#1}{59}}x}
+}
+
+% remove character definition
+\newcommand\xeuniunregisterchar[1]{%
+  \global\catcode#1=11%
+}
+
+\newcount\xeuniblock
+
+% register unicode range #1 - #2
+\newcommand\xeuniregisterblock[2]{%
+  \xeuniblock=#1%
+  \loop%
+  \expandafter\xeuniregisterchar\expandafter{\the\xeuniblock}%
+  \advance\xeuniblock by 1\relax%
+  \ifnum\xeuniblock<\the\numexpr #2+1\relax%
+  \repeat%
+}
+
+% register unicode range given in hex format
+\newcommand\xeuniregisterblockhex[2]{%
+  \xeuniregisterblock{"#1}{"#2}%
+}
+
+% Define unicode blocks for script name
+\newcommand\xeuniblockdef[2]{%
+  \@namedef{block:#1}{#2}
+}
+
+% delete block definition after use, we don't want to execute the unicode
+% declarations multiple times
+\newcommand\xeuniuseblock[1]{\@nameuse{block:#1}\@namedef{block:#1}{\relax}}
+
+% disable active characters of given block
+\newcommand\xenunidelblock[1]{\bgroup\let\xeuniregisterchar\xeuniunregisterchar\@nameuse{block:#1}\egroup}
+
+% Unicode blocks definitions
+\xeuniblockdef{Latin}{%
+  % \xeuniregisterblockhex{0000}{007F}%
+  \xeuniregisterblockhex{0080}{00FF}%
+  \xeuniregisterblockhex{0100}{017F}%
+  \xeuniregisterblockhex{0180}{024F}%
+  \xeuniregisterblockhex{0250}{02AF}%
+  \xeuniregisterblockhex{02B0}{02FF}%
+  \xeuniregisterblockhex{0300}{036F}%
+  \xeuniregisterblockhex{1E00}{1EFF}%
+  \xeuniregisterblockhex{2C60}{2C7F}%
+  \xeuniregisterblockhex{A720}{A7FF}%
+  \xeuniregisterblockhex{AB30}{AB6F}%
+  \xeuniregisterblockhex{1D00}{1D7F}%
+  \xeuniregisterblockhex{1D80}{1DBF}%
+  \xeuniregisterblockhex{1DC0}{1DFF}%
+  \xeuniregisterblockhex{2000}{206F}%
+  \xeuniregisterblockhex{2070}{209F}%
+  \xeuniregisterblockhex{20A0}{20CF}%
+  \xeuniregisterblockhex{20D0}{20FF}%
+  \xeuniregisterblockhex{2100}{214F}%
+  \xeuniregisterblockhex{2150}{218F}%
+  \xeuniregisterblockhex{2190}{21FF}%
+  \xeuniregisterblockhex{2200}{22FF}%
+  \xeuniregisterblockhex{2300}{23FF}%
+  \xeuniregisterblockhex{2400}{243F}%
+  \xeuniregisterblockhex{2440}{245F}%
+  \xeuniregisterblockhex{2460}{24FF}%
+  \xeuniregisterblockhex{2500}{257F}%
+  \xeuniregisterblockhex{2580}{259F}%
+  \xeuniregisterblockhex{25A0}{25FF}%
+  \xeuniregisterblockhex{2600}{26FF}%
+  \xeuniregisterblockhex{2700}{27BF}%
+  \xeuniregisterblockhex{27C0}{27EF}%
+  \xeuniregisterblockhex{27F0}{27FF}%
+  \xeuniregisterblockhex{2800}{28FF}%
+  \xeuniregisterblockhex{2900}{297F}%
+  \xeuniregisterblockhex{2980}{29FF}%
+  \xeuniregisterblockhex{2A00}{2AFF}%
+  \xeuniregisterblockhex{2B00}{2BFF}%
+}
+% this block is used for temporarily disabling some characters
+% which are made active by expl3
+\xeuniblockdef{Latin-expl3}{
+  \xeuniregisterchar{"00CB}
+  \xeuniregisterchar{"00CC}
+  \xeuniregisterchar{"00CD}
+  \xeuniregisterchar{"0126}
+  \xeuniregisterchar{"0128}
+  \xeuniregisterchar{"012E}
+  \xeuniregisterchar{"012F}
+  \xeuniregisterchar{"0120}
+  \xeuniregisterchar{"0130}
+  \xeuniregisterchar{"0131}
+  \xeuniregisterchar{"0300}
+  \xeuniregisterchar{"0301}
+  \xeuniregisterchar{"0303}
+  \xeuniregisterchar{"0307}
+  \xeuniregisterchar{"1E9C}
+  \xeuniregisterchar{"1E9E}
+  \xeuniregisterchar{"1EA0}
+  \xeuniregisterchar{"01F2}
+  \xeuniregisterchar{"01C0}
+  \xeuniregisterchar{"01C5}
+  \xeuniregisterchar{"01C8}
+  \xeuniregisterchar{"01CB}
+  \xeuniregisterchar{"01CE}
+  \xeuniregisterchar{"02BC}
+  \xeuniregisterchar{"02BE}
+  \xeuniregisterchar{"0342}
+  \xeuniregisterchar{"0345}
+  \xeuniregisterchar{"0308}
+  \xeuniregisterchar{"030A}
+  \xeuniregisterchar{"030C}
+  \xeuniregisterchar{"0313}
+  \xeuniregisterchar{"0331}
+  \xeuniregisterchar{"1E61}
+}
+\xeuniblockdef{Greek}{
+  \xeuniregisterblockhex{0370}{03FF}
+  \xeuniregisterblockhex{1F00}{1FFF}
+  \xeuniregisterblockhex{10140}{1018F}
+  \xeuniregisterblockhex{1D200}{1D24F}
+}
+\xeuniblockdef{Coptic}{
+  \xeuniregisterblockhex{0370}{03FF}
+  \xeuniregisterblockhex{2C80}{2CFF}
+  \xeuniregisterblockhex{102E0}{102FF}
+}
+\xeuniblockdef{Cyrillic}{
+  \xeuniregisterblockhex{0400}{04FF}
+  \xeuniregisterblockhex{0500}{052F}
+  \xeuniregisterblockhex{1C80}{1C8F}
+  \xeuniregisterblockhex{2DE0}{2DFF}
+  \xeuniregisterblockhex{A640}{A69F}
+}
+\xeuniblockdef{Armenian}{\xeuniregisterblockhex{0530}{058F}}
+\xeuniblockdef{Hebrew}{\xeuniregisterblockhex{0590}{05FF}}
+\xeuniblockdef{Arabic}{
+  \xeuniregisterblockhex{0600}{06FF}
+  \xeuniregisterblockhex{0750}{077F}
+  \xeuniregisterblockhex{08A0}{08FF}
+  \xeuniregisterblockhex{FB50}{FDFF}
+  \xeuniregisterblockhex{FE70}{FEFF}
+  \xeuniregisterblockhex{1EE00}{1EEFF}
+}
+\xeuniblockdef{Syriac}{\xeuniregisterblockhex{0700}{074F}}
+\xeuniblockdef{Thaana}{\xeuniregisterblockhex{0780}{07BF}}
+\xeuniblockdef{NKo}{\xeuniregisterblockhex{07C0}{07FF}}
+\xeuniblockdef{Samaritan}{\xeuniregisterblockhex{0800}{083F}}
+\xeuniblockdef{Mandaic}{\xeuniregisterblockhex{0840}{085F}}
+\xeuniblockdef{Devanagari}{
+  \xeuniregisterblockhex{0900}{097F}
+  \xeuniregisterblockhex{A8E0}{A8FF}
+
+}
+\xeuniblockdef{Bengali}{\xeuniregisterblockhex{0980}{09FF}}
+\xeuniblockdef{Gurmukhi}{\xeuniregisterblockhex{0A00}{0A7F}}
+\xeuniblockdef{Gujarati}{\xeuniregisterblockhex{0A80}{0AFF}}
+\xeuniblockdef{Oriya}{\xeuniregisterblockhex{0B00}{0B7F}}
+\xeuniblockdef{Tamil}{\xeuniregisterblockhex{0B80}{0BFF}}
+\xeuniblockdef{Telugu}{\xeuniregisterblockhex{0C00}{0C7F}}
+\xeuniblockdef{Kannada}{\xeuniregisterblockhex{0C80}{0CFF}}
+\xeuniblockdef{Malayalam}{\xeuniregisterblockhex{0D00}{0D7F}}
+\xeuniblockdef{Sinhala}{\xeuniregisterblockhex{0D80}{0DFF}}
+\xeuniblockdef{Thai}{\xeuniregisterblockhex{0E00}{0E7F}}
+\xeuniblockdef{Lao}{\xeuniregisterblockhex{0E80}{0EFF}}
+\xeuniblockdef{Tibetan}{\xeuniregisterblockhex{0F00}{0FFF}}
+\xeuniblockdef{Myanmar}{
+  \xeuniregisterblockhex{1000}{109F}
+  \xeuniregisterblockhex{A9E0}{A9FF}
+  \xeuniregisterblockhex{AA60}{AA7F}
+}
+\xeuniblockdef{Georgian}{\xeuniregisterblockhex{10A0}{10FF}}
+\xeuniblockdef{Hangul}{
+  \xeuniregisterblockhex{1100}{11FF}
+  \xeuniregisterblockhex{3130}{318F}
+  \xeuniregisterblockhex{A960}{A97F}
+  \xeuniregisterblockhex{AC00}{D7AF}
+  \xeuniregisterblockhex{D7B0}{D7FF}
+  \xeuniuseblock{CJK}
+}
+\xeuniblockdef{Ethiopic}{
+  \xeuniregisterblockhex{1200}{137F}
+  \xeuniregisterblockhex{1380}{139F}
+}
+\xeuniblockdef{Cherokee}{\xeuniregisterblockhex{13A0}{13FF}}
+\xeuniblockdef{Unified Canadian Aboriginal Syllabics}{
+  \xeuniregisterblockhex{1400}{167F}
+  \xeuniregisterblockhex{18B0}{18FF}
+}
+\xeuniblockdef{Ogham}{\xeuniregisterblockhex{1680}{169F}}
+\xeuniblockdef{Runic}{\xeuniregisterblockhex{16A0}{16FF}}
+\xeuniblockdef{Tagalog}{\xeuniregisterblockhex{1700}{171F}}
+\xeuniblockdef{Hanunoo}{\xeuniregisterblockhex{1720}{173F}}
+\xeuniblockdef{Buhid}{\xeuniregisterblockhex{1740}{175F}}
+\xeuniblockdef{Tagbanwa}{\xeuniregisterblockhex{1760}{177F}}
+\xeuniblockdef{Khmer}{
+  \xeuniregisterblockhex{1780}{17FF}
+  \xeuniregisterblockhex{19E0}{19FF}
+}
+\xeuniblockdef{Mongolian}{\xeuniregisterblockhex{1800}{18AF}}
+\xeuniblockdef{Limbu}{\xeuniregisterblockhex{1900}{194F}}
+\xeuniblockdef{Tai Le}{
+  \xeuniregisterblockhex{1950}{197F}
+  \xeuniregisterblockhex{1980}{19DF}
+}
+\xeuniblockdef{Buginese}{\xeuniregisterblockhex{1A00}{1A1F}}
+\xeuniblockdef{Tai Tham}{\xeuniregisterblockhex{1A20}{1AAF}}
+\xeuniblockdef{Combining Diacritical Marks Extended}{\xeuniregisterblockhex{1AB0}{1AFF}}
+\xeuniblockdef{Balinese}{\xeuniregisterblockhex{1B00}{1B7F}}
+\xeuniblockdef{Sundanese}{\xeuniregisterblockhex{1B80}{1BBF}}
+\xeuniblockdef{Batak}{\xeuniregisterblockhex{1BC0}{1BFF}}
+\xeuniblockdef{Lepcha}{\xeuniregisterblockhex{1C00}{1C4F}}
+\xeuniblockdef{Ol Chiki}{\xeuniregisterblockhex{1C50}{1C7F}}
+\xeuniblockdef{Sundanese Supplement}{\xeuniregisterblockhex{1CC0}{1CCF}}
+\xeuniblockdef{Vedic Extensions}{\xeuniregisterblockhex{1CD0}{1CFF}}
+\xeuniblockdef{Glagolitic}{\xeuniregisterblockhex{2C00}{2C5F}}
+\xeuniblockdef{Georgian Supplement}{\xeuniregisterblockhex{2D00}{2D2F}}
+\xeuniblockdef{Tifinagh}{\xeuniregisterblockhex{2D30}{2D7F}}
+\xeuniblockdef{Ethiopic Extended}{\xeuniregisterblockhex{2D80}{2DDF}}
+\xeuniblockdef{Supplemental Punctuation}{\xeuniregisterblockhex{2E00}{2E7F}}
+\xeuniblockdef{CJK}{%
+  \xeuniregisterblockhex{2E80}{2EFF}
+  \xeuniregisterblockhex{2F00}{2FDF}
+  \xeuniregisterblockhex{2FF0}{2FFF}
+  \xeuniregisterblockhex{3000}{303F}
+  \xeuniregisterblockhex{3040}{309F}
+  \xeuniregisterblockhex{30A0}{30FF}
+  \xeuniregisterblockhex{31C0}{31EF}
+  \xeuniregisterblockhex{31F0}{31FF}
+  \xeuniregisterblockhex{3200}{32FF}
+  \xeuniregisterblockhex{3100}{312F}
+  \xeuniregisterblockhex{3190}{319F}
+  \xeuniregisterblockhex{31A0}{31BF}
+  \xeuniregisterblockhex{3300}{33FF}
+  \xeuniregisterblockhex{3400}{4DBF}
+  \xeuniregisterblockhex{4DC0}{4DFF}
+  \xeuniregisterblockhex{4E00}{9FFF}
+  \xeuniuseblock{Modifier Tone Letters}
+}
+
+\xeuniblockdef{Hiragana}{\xeuniuseblock{CJK}}
+\xeuniblockdef{Katakana}{\xeuniuseblock{CJK}}
+\xeuniblockdef{Yi Syllables}{\xeuniregisterblockhex{A000}{A48F}}
+\xeuniblockdef{Yi Radicals}{\xeuniregisterblockhex{A490}{A4CF}}
+\xeuniblockdef{Lisu}{\xeuniregisterblockhex{A4D0}{A4FF}}
+\xeuniblockdef{Vai}{\xeuniregisterblockhex{A500}{A63F}}
+\xeuniblockdef{Bamum}{\xeuniregisterblockhex{A6A0}{A6FF}}
+\xeuniblockdef{Modifier Tone Letters}{\xeuniregisterblockhex{A700}{A71F}}
+\xeuniblockdef{Syloti Nagri}{\xeuniregisterblockhex{A800}{A82F}}
+\xeuniblockdef{Common Indic Number Forms}{\xeuniregisterblockhex{A830}{A83F}}
+\xeuniblockdef{Phags-pa}{\xeuniregisterblockhex{A840}{A87F}}
+\xeuniblockdef{Saurashtra}{\xeuniregisterblockhex{A880}{A8DF}}
+\xeuniblockdef{Kayah Li}{\xeuniregisterblockhex{A900}{A92F}}
+\xeuniblockdef{Rejang}{\xeuniregisterblockhex{A930}{A95F}}
+\xeuniblockdef{Javanese}{\xeuniregisterblockhex{A980}{A9DF}}
+\xeuniblockdef{Cham}{\xeuniregisterblockhex{AA00}{AA5F}}
+\xeuniblockdef{Tai Viet}{\xeuniregisterblockhex{AA80}{AADF}}
+\xeuniblockdef{Meetei Mayek Extensions}{\xeuniregisterblockhex{AAE0}{AAFF}}
+\xeuniblockdef{Ethiopic Extended-A}{\xeuniregisterblockhex{AB00}{AB2F}}
+\xeuniblockdef{Cherokee Supplement}{\xeuniregisterblockhex{AB70}{ABBF}}
+\xeuniblockdef{Meetei Mayek}{\xeuniregisterblockhex{ABC0}{ABFF}}
+\xeuniblockdef{High Surrogates}{\xeuniregisterblockhex{D800}{DB7F}}
+\xeuniblockdef{High Private Use Surrogates}{\xeuniregisterblockhex{DB80}{DBFF}}
+\xeuniblockdef{Low Surrogates}{\xeuniregisterblockhex{DC00}{DFFF}}
+\xeuniblockdef{Private Use Area}{\xeuniregisterblockhex{E000}{F8FF}}
+\xeuniblockdef{CJK Compatibility Ideographs}{\xeuniregisterblockhex{F900}{FAFF}}
+\xeuniblockdef{Alphabetic Presentation Forms}{\xeuniregisterblockhex{FB00}{FB4F}}
+\xeuniblockdef{Variation Selectors}{\xeuniregisterblockhex{FE00}{FE0F}}
+\xeuniblockdef{Vertical Forms}{\xeuniregisterblockhex{FE10}{FE1F}}
+\xeuniblockdef{Combining Half Marks}{\xeuniregisterblockhex{FE20}{FE2F}}
+\xeuniblockdef{CJK Compatibility Forms}{\xeuniregisterblockhex{FE30}{FE4F}}
+\xeuniblockdef{Small Form Variants}{\xeuniregisterblockhex{FE50}{FE6F}}
+\xeuniblockdef{Halfwidth and Fullwidth Forms}{\xeuniregisterblockhex{FF00}{FFEF}}
+\xeuniblockdef{Specials}{\xeuniregisterblockhex{FFF0}{FFFF}}
+\xeuniblockdef{Linear B Syllabary}{\xeuniregisterblockhex{10000}{1007F}}
+\xeuniblockdef{Linear B Ideograms}{\xeuniregisterblockhex{10080}{100FF}}
+\xeuniblockdef{Aegean Numbers}{\xeuniregisterblockhex{10100}{1013F}}
+\xeuniblockdef{Ancient Symbols}{\xeuniregisterblockhex{10190}{101CF}}
+\xeuniblockdef{Phaistos Disc}{\xeuniregisterblockhex{101D0}{101FF}}
+\xeuniblockdef{Lycian}{\xeuniregisterblockhex{10280}{1029F}}
+\xeuniblockdef{Carian}{\xeuniregisterblockhex{102A0}{102DF}}
+\xeuniblockdef{Old Italic}{\xeuniregisterblockhex{10300}{1032F}}
+\xeuniblockdef{Gothic}{\xeuniregisterblockhex{10330}{1034F}}
+\xeuniblockdef{Old Permic}{\xeuniregisterblockhex{10350}{1037F}}
+\xeuniblockdef{Ugaritic}{\xeuniregisterblockhex{10380}{1039F}}
+\xeuniblockdef{Old Persian}{\xeuniregisterblockhex{103A0}{103DF}}
+\xeuniblockdef{Deseret}{\xeuniregisterblockhex{10400}{1044F}}
+\xeuniblockdef{Shavian}{\xeuniregisterblockhex{10450}{1047F}}
+\xeuniblockdef{Osmanya}{\xeuniregisterblockhex{10480}{104AF}}
+\xeuniblockdef{Osage}{\xeuniregisterblockhex{104B0}{104FF}}
+\xeuniblockdef{Elbasan}{\xeuniregisterblockhex{10500}{1052F}}
+\xeuniblockdef{Caucasian Albanian}{\xeuniregisterblockhex{10530}{1056F}}
+\xeuniblockdef{Linear A}{\xeuniregisterblockhex{10600}{1077F}}
+\xeuniblockdef{Cypriot Syllabary}{\xeuniregisterblockhex{10800}{1083F}}
+\xeuniblockdef{Imperial Aramaic}{\xeuniregisterblockhex{10840}{1085F}}
+\xeuniblockdef{Palmyrene}{\xeuniregisterblockhex{10860}{1087F}}
+\xeuniblockdef{Nabataean}{\xeuniregisterblockhex{10880}{108AF}}
+\xeuniblockdef{Hatran}{\xeuniregisterblockhex{108E0}{108FF}}
+\xeuniblockdef{Phoenician}{\xeuniregisterblockhex{10900}{1091F}}
+\xeuniblockdef{Lydian}{\xeuniregisterblockhex{10920}{1093F}}
+\xeuniblockdef{Meroitic Hieroglyphs}{\xeuniregisterblockhex{10980}{1099F}}
+\xeuniblockdef{Meroitic Cursive}{\xeuniregisterblockhex{109A0}{109FF}}
+\xeuniblockdef{Kharoshthi}{\xeuniregisterblockhex{10A00}{10A5F}}
+\xeuniblockdef{Old South Arabian}{\xeuniregisterblockhex{10A60}{10A7F}}
+\xeuniblockdef{Old North Arabian}{\xeuniregisterblockhex{10A80}{10A9F}}
+\xeuniblockdef{Manichaean}{\xeuniregisterblockhex{10AC0}{10AFF}}
+\xeuniblockdef{Avestan}{\xeuniregisterblockhex{10B00}{10B3F}}
+\xeuniblockdef{Inscriptional Parthian}{\xeuniregisterblockhex{10B40}{10B5F}}
+\xeuniblockdef{Inscriptional Pahlavi}{\xeuniregisterblockhex{10B60}{10B7F}}
+\xeuniblockdef{Psalter Pahlavi}{\xeuniregisterblockhex{10B80}{10BAF}}
+\xeuniblockdef{Old Turkic}{\xeuniregisterblockhex{10C00}{10C4F}}
+\xeuniblockdef{Old Hungarian}{\xeuniregisterblockhex{10C80}{10CFF}}
+\xeuniblockdef{Rumi Numeral Symbols}{\xeuniregisterblockhex{10E60}{10E7F}}
+\xeuniblockdef{Brahmi}{\xeuniregisterblockhex{11000}{1107F}}
+\xeuniblockdef{Kaithi}{\xeuniregisterblockhex{11080}{110CF}}
+\xeuniblockdef{Sora Sompeng}{\xeuniregisterblockhex{110D0}{110FF}}
+\xeuniblockdef{Chakma}{\xeuniregisterblockhex{11100}{1114F}}
+\xeuniblockdef{Mahajani}{\xeuniregisterblockhex{11150}{1117F}}
+\xeuniblockdef{Sharada}{\xeuniregisterblockhex{11180}{111DF}}
+\xeuniblockdef{Sinhala Archaic Numbers}{\xeuniregisterblockhex{111E0}{111FF}}
+\xeuniblockdef{Khojki}{\xeuniregisterblockhex{11200}{1124F}}
+\xeuniblockdef{Multani}{\xeuniregisterblockhex{11280}{112AF}}
+\xeuniblockdef{Khudawadi}{\xeuniregisterblockhex{112B0}{112FF}}
+\xeuniblockdef{Grantha}{\xeuniregisterblockhex{11300}{1137F}}
+\xeuniblockdef{Newa}{\xeuniregisterblockhex{11400}{1147F}}
+\xeuniblockdef{Tirhuta}{\xeuniregisterblockhex{11480}{114DF}}
+\xeuniblockdef{Siddham}{\xeuniregisterblockhex{11580}{115FF}}
+\xeuniblockdef{Modi}{\xeuniregisterblockhex{11600}{1165F}}
+\xeuniblockdef{Mongolian Supplement}{\xeuniregisterblockhex{11660}{1167F}}
+\xeuniblockdef{Takri}{\xeuniregisterblockhex{11680}{116CF}}
+\xeuniblockdef{Ahom}{\xeuniregisterblockhex{11700}{1173F}}
+\xeuniblockdef{Warang Citi}{\xeuniregisterblockhex{118A0}{118FF}}
+\xeuniblockdef{Pau Cin Hau}{\xeuniregisterblockhex{11AC0}{11AFF}}
+\xeuniblockdef{Bhaiksuki}{\xeuniregisterblockhex{11C00}{11C6F}}
+\xeuniblockdef{Marchen}{\xeuniregisterblockhex{11C70}{11CBF}}
+\xeuniblockdef{Cuneiform}{\xeuniregisterblockhex{12000}{123FF}}
+\xeuniblockdef{Cuneiform Numbers and Punctuation}{\xeuniregisterblockhex{12400}{1247F}}
+\xeuniblockdef{Early Dynastic Cuneiform}{\xeuniregisterblockhex{12480}{1254F}}
+\xeuniblockdef{Egyptian Hieroglyphs}{\xeuniregisterblockhex{13000}{1342F}}
+\xeuniblockdef{Anatolian Hieroglyphs}{\xeuniregisterblockhex{14400}{1467F}}
+\xeuniblockdef{Bamum Supplement}{\xeuniregisterblockhex{16800}{16A3F}}
+\xeuniblockdef{Mro}{\xeuniregisterblockhex{16A40}{16A6F}}
+\xeuniblockdef{Bassa Vah}{\xeuniregisterblockhex{16AD0}{16AFF}}
+\xeuniblockdef{Pahawh Hmong}{\xeuniregisterblockhex{16B00}{16B8F}}
+\xeuniblockdef{Miao}{\xeuniregisterblockhex{16F00}{16F9F}}
+\xeuniblockdef{Ideographic Symbols and Punctuation}{\xeuniregisterblockhex{16FE0}{16FFF}}
+\xeuniblockdef{Tangut}{\xeuniregisterblockhex{17000}{187FF}}
+\xeuniblockdef{Tangut Components}{\xeuniregisterblockhex{18800}{18AFF}}
+\xeuniblockdef{Kana Supplement}{\xeuniregisterblockhex{1B000}{1B0FF}}
+\xeuniblockdef{Duployan}{\xeuniregisterblockhex{1BC00}{1BC9F}}
+\xeuniblockdef{Shorthand Format Controls}{\xeuniregisterblockhex{1BCA0}{1BCAF}}
+\xeuniblockdef{Byzantine Musical Symbols}{\xeuniregisterblockhex{1D000}{1D0FF}}
+\xeuniblockdef{Musical Symbols}{\xeuniregisterblockhex{1D100}{1D1FF}}
+\xeuniblockdef{Tai Xuan Jing Symbols}{\xeuniregisterblockhex{1D300}{1D35F}}
+\xeuniblockdef{Counting Rod Numerals}{\xeuniregisterblockhex{1D360}{1D37F}}
+\xeuniblockdef{Mathematical Alphanumeric Symbols}{\xeuniregisterblockhex{1D400}{1D7FF}}
+\xeuniblockdef{Sutton SignWriting}{\xeuniregisterblockhex{1D800}{1DAAF}}
+\xeuniblockdef{Glagolitic Supplement}{\xeuniregisterblockhex{1E000}{1E02F}}
+\xeuniblockdef{Mende Kikakui}{\xeuniregisterblockhex{1E800}{1E8DF}}
+\xeuniblockdef{Adlam}{\xeuniregisterblockhex{1E900}{1E95F}}
+\xeuniblockdef{Arabic Mathematical Alphabetic Symbols}{}
+\xeuniblockdef{Mahjong Tiles}{\xeuniregisterblockhex{1F000}{1F02F}}
+\xeuniblockdef{Domino Tiles}{\xeuniregisterblockhex{1F030}{1F09F}}
+\xeuniblockdef{Playing Cards}{\xeuniregisterblockhex{1F0A0}{1F0FF}}
+\xeuniblockdef{Enclosed Alphanumeric Supplement}{\xeuniregisterblockhex{1F100}{1F1FF}}
+\xeuniblockdef{Enclosed Ideographic Supplement}{\xeuniregisterblockhex{1F200}{1F2FF}}
+\xeuniblockdef{Miscellaneous Symbols and Pictographs}{\xeuniregisterblockhex{1F300}{1F5FF}}
+\xeuniblockdef{Emoticons}{\xeuniregisterblockhex{1F600}{1F64F}}
+\xeuniblockdef{Ornamental Dingbats}{\xeuniregisterblockhex{1F650}{1F67F}}
+\xeuniblockdef{Transport and Map Symbols}{\xeuniregisterblockhex{1F680}{1F6FF}}
+\xeuniblockdef{Alchemical Symbols}{\xeuniregisterblockhex{1F700}{1F77F}}
+\xeuniblockdef{Geometric Shapes Extended}{\xeuniregisterblockhex{1F780}{1F7FF}}
+\xeuniblockdef{Supplemental Arrows-C}{\xeuniregisterblockhex{1F800}{1F8FF}}
+\xeuniblockdef{Supplemental Symbols and Pictographs}{\xeuniregisterblockhex{1F900}{1F9FF}}
+\xeuniblockdef{CJK Unified Ideographs Extension B}{\xeuniregisterblockhex{20000}{2A6DF}}
+\xeuniblockdef{CJK Unified Ideographs Extension C}{\xeuniregisterblockhex{2A700}{2B73F}}
+\xeuniblockdef{CJK Unified Ideographs Extension D}{\xeuniregisterblockhex{2B740}{2B81F}}
+\xeuniblockdef{CJK Unified Ideographs Extension E}{\xeuniregisterblockhex{2B820}{2CEAF}}
+\xeuniblockdef{CJK Compatibility Ideographs Supplement}{\xeuniregisterblockhex{2F800}{2FA1F}}
+% load default latin block and blocks requested through Script option in fontspec's font
+% selection commands
+\xeuniuseblock{Latin}
+\endinput
+

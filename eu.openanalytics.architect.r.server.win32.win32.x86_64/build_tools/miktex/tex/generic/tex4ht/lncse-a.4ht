@@ -1,0 +1,105 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% llncse-a.4ht                          2009-05-21-09:32 %
+% Copyright (C) 2002--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \ifx \o:@maketitle:\UnDef
+  \let\o:@maketitle:\@maketitle
+\fi
+\def\@maketitle{%
+   \pend:def\@title{\Protect\a:ttl}\append:def\@title{\Protect\b:ttl}
+   \pend:def\@date{\a:date}\append:def\@date{\b:date}%
+   \pend:def\@author{\Protect\a:author}\append:def\@author{\Protect\b:author}%
+   \def\and{\a:and}%
+   \a:mktl \o:@maketitle: \b:mktl
+}
+\let\maketitle\o:maketitle:
+\def\institutename{\par
+ \begingroup
+ \parskip=\z@
+ \parindent=\z@
+ \setcounter{@inst}{1}%
+ \def\and{\c:institute \stepcounter{@inst}\c:inst
+           $\sp{\the@inst}$\d:inst \ignorespaces}%
+ \setbox0=\vbox{\def\thanks##1{}\everypar{}\@institute}%
+ \ifnum\value{@inst}>9\relax\setbox0=\hbox{$\sp{88}$\enspace}%
+                 \else\setbox0=\hbox{$\sp{8}$\enspace}\fi
+ \ignorespaces \a:institute
+ \ifnum\value{@inst}=1\relax  \else
+   \setcounter{footnote}{\c@@inst}%
+   \setcounter{@inst}{1}%
+   \c:inst ${\sp\the@inst}$\d:inst
+ \fi
+ \@institute \b:institute\par
+ \endgroup}
+\def\inst#1{\unskip\a:inst$\sp{#1}$\b:inst}
+\def\fnmsep{\unskip$\sp,$}
+\NewConfigure{institute}{3}
+\NewConfigure{inst}{4}
+
+  \def\:Thm{\o:@Thm:}
+\def\:temp{\let\sv:item\item
+   \def\item[##1]{\nobreak
+\let\item\sv:item
+                  \item[##1]\b:newtheorem}%
+   \a:newtheorem\AutoRefstepAnchor
+   \:Thm }
+\HLet\@Thm\:temp
+
+  \let\:tempb\chapter
+\Def:Section\chapter{\thechapter}{#1}
+\let\:chapter\chapter
+\let\chapter\:tempb
+\def\@makechapterhead#1{}
+\let\no@chapter\@chapter
+\def\@chapter[#1]#2{%
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+   {\SkipRefstepAnchor \let\addcontentsline\:gobbleIII\no@chapter[#1]{}}%
+   \HtmlEnv   \Toc:Title{#1}\:chapter{#2}}
+\Def:Section\likechapter{}{#1}
+\let\:likechapter\likechapter
+\let\likechapter\:UnDef
+\let\no@schapter\@schapter
+\def\@schapter#1{%
+   {\let\addcontentsline\:gobbleIII\no@schapter{}}%
+   \HtmlEnv   \:likechapter{#1}}
+\let\no@appendix\appendix
+\Def:Section\appendix{\thechapter}{#1}
+\let\:appendix\appendix
+\def\appendix{%
+   \def\@chapter[##1]##2{%
+      \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+      {\def\addcontentsline####1####2####3{}\no@chapter[##1]{}}%
+      \HtmlEnv \Toc:Title{##1}\:appendix{##2}}%
+   \no@appendix}
+
+\Hinput{lncse}
+\endinput
+

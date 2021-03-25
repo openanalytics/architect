@@ -1,0 +1,48 @@
+File name:	copyrite.txt
+Author: 	  Dimitrios Filippou
+Date:	   	  Aug. 16, 2004
+
+1. This file contains the copyright statement of the Greek 
+hyphenation-pattern files for TeX/LaTeX prepared by Dimitrios 
+Filippou. 
+
+2. The files listed below are copyrighted by the author.
+
+(c) D. Filippou, 2000-2004:
+
+anc-test.ltx
+anc-test.pdf 
+compound.ltx
+compound.pdf
+grahyph4.tex
+grmhyph4.tex
+grphyph4.tex
+readme.txt
+copyrite.txt
+
+These files can be distributed freely for any purpose, 
+provided that their content and their names remain intact 
+(LaTeX Project Public Licence). 
+
+3. Two other documentation files included in this package 
+have been reproduced from the GTF newsletter "Eutypon" 
+(ISSN 1108-4170):
+
+ancient.pdf  -- from Eutypon, no 5, Oct. 2000, pp. 7-16.
+modern.pdf   -- from Eutypon, no 4, Apr. 2000, pp. 1-16.
+
+Eutypon permits the free distribution of these two last files 
+provided that their origin is acknowledged (just leave them 
+intact).
+
+4. For a short description of these files, please read the 
+file readme.txt.
+
+5. For any other clarification, you may contact the author at:
+
+Dimitrios Filippou
+Kato Gatzea
+GR-385 00 Volos
+Greece
+
+E-mail: dfilipp _at_ hotmail _dot_ com

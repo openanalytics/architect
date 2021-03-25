@@ -1,0 +1,11 @@
+.lm-ec
+htfcss: dcbx  font-weight: bold;
+htfcss: dcbxti font-weight: bold; font-style: italic;
+htfcss: dcit  font-style: italic;
+htfcss: dcitt font-family: monospace,monospace; font-style: italic;
+htfcss: dcss  font-family: sans-serif;
+htfcss: dcssi font-style: italic; font-family: sans-serif;
+htfcss: dcti  font-style: italic;
+htfcss: dctt  font-family: monospace,monospace;
+htfcss: dcff  font-family: fantasy;
+

@@ -1,0 +1,267 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% javahelp-a.4ht                        2008-07-23-00:03 %
+% Copyright (C) 2003--2008       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3 of this license or (at your option) any    %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3 or later is part of all distributions  %
+% of LaTeX version 2003/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2008-07-23-00:03}
+
+\NextFile{\jobname.tmp}
+\HPage{}
+\bgroup
+   \catcode`\:=11
+   \catcode`\@=11
+   \catcode`\"=12
+   \Configure{PROLOG}{}
+   \Configure{HtmlPar}{}{}{}{}
+   \Configure{tableofcontents}{}{}{}{}{}
+   \Configure{htf}{0}{+}{}{}{}{}{}{}{}
+   \ScriptEnv{dito}{\IgnorePar}{}
+   \a:jhxml
+   \def\set:endtocitem#1{%
+   \csname catchAt:#1\endcsname
+   \expandafter\ifx\csname a:end#1\endcsname\relax
+      \HCode{</tocitem>}%
+   \else
+      \expandafter\ifx \csname jh:#1\endcsname\relax
+         \append:def\end:jhhook{%
+   \csname jh:#1\endcsname
+   \expandafter\global\expandafter
+               \let\csname jh:#1\endcsname\:UnDef}%
+\global\let\end:jhhook\end:jhhook
+%
+         \def\:tempc##1,{\if ,##1,%
+               \expandafter\gob:pardel
+            \else
+               \expandafter\ifx \csname catchAt:##1\endcsname \relax
+  \expandafter\gdef\csname
+    catchAt:##1\endcsname{\csname jh:#1\endcsname}%
+\else
+  \expandafter\pend:def\csname
+    catchAt:##1\endcsname{\csname jh:#1\endcsname}%
+  \expandafter\global\expandafter\let\csname
+    catchAt:##1\expandafter\endcsname\csname catchAt:##1\endcsname
+\fi
+%
+               \expandafter\:tempc
+            \fi}%
+         \expandafter\expandafter\expandafter
+             \:tempc\csname a:end#1\endcsname,,!*?: %
+      \fi
+      \csname jh:#1\endcsname
+\expandafter\gdef\csname jh:#1\endcsname{%
+   \expandafter\global\expandafter\let\csname jh:#1\endcsname=\empty
+   \HCode{</tocitem><!--/#1-->}}%
+%
+   \fi
+}
+\def\gob:pardel#1!*?: {}
+
+   \edef\tocLabel{\ifx\contentsname\:UnDef Table Of Contents\else
+               \ifx\contentsname\empty  Table Of Contents\else
+               \contentsname\fi\fi}
+\edef\indexLabel{\ifx\indexname\:UnDef Index\else
+                 \ifx\indexname\empty  Index\else \indexname\fi\fi}
+\ifTag{TITLE+}
+   {\edef\titleLabel{\LikeRef{TITLE+}}}
+   {\def\titleLabel{\jobname}}
+
+\IgnorePar\par\leavevmode\special{t4ht>\jobname.hs}%
+\begin{dito}-\
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+\end{dito}
+\begin{dito}-\
+    <!DOCTYPE helpset PUBLIC
+    "-//Sun Microsystems Inc.//DTD JavaHelp HelpSet Version \dotVersion//\dTdLaNg"
+    "http://java.sun.com/products/javahelp/helpset_\subVersion.dtd">
+\end{dito}
+
+\begin{dito}-\
+<!-\relax- \jhNote
+ -\relax->
+<helpset version="\dotVersion">
+  <title>\titleLabel</title>
+  <maps>
+    <homeID>\jobname</homeID>
+    <mapref location="\jobname.jhm"/>
+  </maps>
+  <view>
+    <name>TOC</name>
+    <label>\tocLabel</label>
+    <type>javax.help.TOCView</type>
+    <data>\jobname-jht.xml</data>
+  </view>
+  <view>
+    <name>Index</name>
+    <label>\indexLabel</label>
+    <type>javax.help.IndexView</type>
+    <data>\jobname-jhi.xml</data>
+  </view>
+  <view>
+    <name>Search</name>
+    <label>Search</label>
+    <type>javax.help.SearchView</type>
+    <data
+      engine="com.sun.java.help.search.DefaultSearchEngine">\jobname-jhs</data>
+  </view>
+</helpset>
+\end{dito}
+\IgnorePar\par\leavevmode\special{t4ht<\jobname.hs}
+
+   \bgroup
+%\immediatetrue
+\Configure{TocLink}
+   {\HCode{<tocitem target="\a:mapIdTarget"\Hnewline
+                    text="}\hbox{#4}\HCode{ ">\Hnewline}}
+\let\jh:doTocEntry\:doTocEntry
+\def\:doTocEntry#1#2#3{%
+   \edef\sectioningKey{\expandafter\gob:IV\string#1}%
+   \edef\:temp{\noexpand\ConfigureToc{\sectioningKey}
+       {}{\noexpand\set:endtocitem{\sectioningKey}}{}{}}\:temp
+   \expandafter\target:info#3//%
+\b:mapIdTarget
+%
+   \jh:doTocEntry#1{#2}{#3}}
+\def\gob:IV#1#2#3#4{}
+\def\sectioningKey{NoToc}
+
+\IgnorePar\par\leavevmode\special{t4ht>\jobname-jht.xml}%
+\begin{dito}-\
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+\end{dito}
+\begin{dito}-\
+   <!DOCTYPE toc PUBLIC
+   "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version \dotVersion//\dTdLaNg"
+   "http://java.sun.com/products/javahelp/toc_\subVersion.dtd">
+\end{dito}
+
+\begin{dito}-\
+<!-\relax- \jhNote
+ -\relax->
+<toc version="\dotVersion">
+  <tocitem target="\jobname" text="\titleLabel ">
+\end{dito}
+\let\end:jhhook=\empty
+\catcode`\:=12 \catcode`\@=12  \let\contentsname\empty
+\NoFonts
+
+     \expandafter\ifx \csname jh:toc\endcsname\relax
+   \tableofcontents
+\else
+   \expandafter\expandafter\expandafter\tableofcontents
+   \expandafter\expandafter\expandafter[\csname
+                                         jh:toc\endcsname]%
+\fi
+%
+\EndNoFonts
+\catcode`\:=11 \catcode`\@=11
+\end:jhhook
+\begin{dito}
+  </tocitem>
+</toc>
+\end{dito}
+\special{t4ht<\jobname-jht.xml}
+
+\egroup
+
+   \bgroup
+
+\IgnorePar\par\leavevmode\special{t4ht>\jobname-jhi.xml}%
+\begin{dito}-\
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+\end{dito}
+\begin{dito}-\
+   <!DOCTYPE index PUBLIC
+   "-//Sun Microsystems Inc.//DTD JavaHelp Index Version \dotVersion//\dTdLaNg"
+   "http://java.sun.com/products/javahelp/index_\subVersion.dtd">
+\end{dito}
+
+\begin{dito}-\
+<!-\relax- \jhNote
+ -\relax->
+<index version="\dotVersion">
+\end{dito}
+
+     \let\indexname\empty
+\def\gobbleLnk#1, \LNK#2#3#4#5{#1\HCode{" target="indexentry-#5"}}
+\Configure{theindex}
+   {}{}
+   {\hbox\bgroup\HCode{<\string !--index-item--><indexitem
+          text="}\gobbleLnk}
+   {\HCode{/>}\egroup\hfill\break}
+   {\hbox\bgroup\HCode{<\string !--subex-item--><indexitem
+          text="}\gobbleLnk}
+   {\HCode{/>}\egroup\hfill\break}
+   {\hbox\bgroup\HCode{<\string !--subsubitem--><indexitem
+          text="}\gobbleLnk}
+   {\HCode{/>}\egroup\hfill\break}
+   {}
+\immediate\openin15=\jobname.ind
+\ifeof15
+   \immediate\closein15
+\else
+   \immediate\closein15
+   \input \jobname.ind
+\fi
+%
+\begin{dito}
+</index>
+\end{dito}
+\special{t4ht<\jobname-jhi.xml}%
+
+\egroup
+
+   \special{t4ht>\jobname.jhm}%
+\bgroup
+   \Configure{Link}{mapID}{target="\a:mapIdTarget" url=}{}{}
+\Configure{TocLink}{\Link{#2}{}\EndLink}
+\let\jh:doTocEntry\:doTocEntry
+\def\:doTocEntry#1#2#3{%
+   \edef\sectioningKey{\expandafter\gob:IV\string#1}%
+   \edef\:temp{\noexpand\ConfigureToc{\sectioningKey}
+               {}{\relax}{}{}}\:temp
+   \expandafter\target:info#3//%
+\b:mapIdTarget
+%
+   \jh:doTocEntry#1{#2}{#3}}
+\def\gob:IV#1#2#3#4{}
+\def\sectioningKey{NoToc}
+
+  \bgroup \catcode`\:=12 \catcode`\@=12 \let\contentsname\empty
+     \expandafter\ifx \csname jh:toc\endcsname\relax
+   \tableofcontents
+\else
+   \expandafter\expandafter\expandafter\tableofcontents
+   \expandafter\expandafter\expandafter[\csname
+                                         jh:toc\endcsname]%
+\fi
+%
+  \egroup
+  \HCode {</map>\Hnewline}
+\egroup
+\special{t4ht*>\jobname.jhm}%
+\special{t4ht*>}%
+
+\egroup
+\EndHPage{}
+

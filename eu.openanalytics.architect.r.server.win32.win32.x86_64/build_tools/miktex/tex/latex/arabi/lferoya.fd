@@ -1,0 +1,24 @@
+%%
+%% This is file `lferoya.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lferoya.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+
+
+\DeclareFontFamily{LFE}{roya}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LFE}{roya}{m}{n}{<-> s*[1.25] roya }{}
+\DeclareFontShape{LFE}{roya}{bx}{n}{<-> s*[1.25] royab }{}
+\DeclareFontShape{LFE}{roya}{b}{n}{<-> ssub * roya/bx/n }{}
+
+\endinput

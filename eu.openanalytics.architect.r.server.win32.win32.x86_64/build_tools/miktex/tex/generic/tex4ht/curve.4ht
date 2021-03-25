@@ -1,0 +1,69 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% curve.4ht                             2009-05-21-09:32 %
+% Copyright (C) 2006--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \def\makeheaders@#1{%
+  \setlength\leftheader@width{\header@scale\textwidth}%
+  \setlength\rightheader@width{\textwidth - \leftheader@width}%
+  \a:makeheaders
+  \@leftheader  \b:makeheaders   \@rightheader  \c:makeheaders}
+\NewConfigure{makeheaders}{3}
+\renewcommand\subrubric[1]{%
+  \@nextentry
+  \noalign{\gdef\@nextentry{}}%
+  \@subrubric{\a:subrubric#1\b:subrubric}\\*}
+\NewConfigure{subrubric}{2}
+\def\@@rubrichead#1{\@rubricfont\a:rubrichead
+    #1\b:rubrichead\par\vspace\rubricspace}
+\renewcommand\maketitle{%
+  \a:maketitle
+  \begin{center}
+    \c:maketitle{\@titlefont\@title}\d:maketitle
+    \ifx\@subtitle\@undefined\else\\%
+        \e:maketitle\@subtitlefont\@subtitle\f:maketitle
+    \fi
+  \end{center}
+  \b:maketitle
+  \vspace\titlespace}
+\NewConfigure{rubrichead}{2}
+\NewConfigure{maketitle}{6}
+\renewcommand\@entry[2][]{%
+  \gdef\@nextentry{}\egroup
+  \a:key\@key{#1}\b:key&\a:prefix\@prefix\b:prefix&#2\\}
+\renewcommand\@sentry[1][]{%
+  \gdef\@nextentry{\\}\egroup
+  \a:key\@key{#1}\b:key&\a:prefix\@prefix \b:prefix&}
+\renewcommand\entry{%
+  \@nextentry
+  \bgroup\gdef\@beforespace{-\subrubricbeforespace}%
+  \@ifstar{\@sentry}{\@entry}}
+\NewConfigure{key}{2}
+\NewConfigure{prefix}{2}
+
+\Hinput{curve}
+\endinput
+

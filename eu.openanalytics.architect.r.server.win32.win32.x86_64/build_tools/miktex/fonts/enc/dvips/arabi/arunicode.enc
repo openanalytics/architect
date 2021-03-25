@@ -1,0 +1,146 @@
+%
+% Encoding file for some PostScript Arabic fonts to use with the 
+% Arabi package to write Arabic texts with LaTeX
+% 
+%   author = "Y. Jabri",
+%   email = "yjabri@ensa.univ-oujda.ac.ma",
+%   version = "0.1",
+%   date = "January 2006",
+%
+%
+%
+/UnicodeGlyphNamesArabicEncoding [          % now 256 chars follow
+% 0          
+  /afii57415 /afii57411 /afii62754 /afii57413
+% 4 
+  /afii62756 /afii52400 /afii62753 /afii62761
+% 8 
+  /.notdef /afii62763 /afii57416 /afii62765
+% 12
+  /.notdef /afii62767 /afii57418 /afii62768
+% 16 
+ /afii62769 /afii62770 /afii57419 /afii62771 
+% 20
+ /afii62772 /afii62773 /afii57420 /afii62774
+% 24
+ /afii62775 /afii62776 /afii57421 /afii62777 
+% 28
+ /afii62778 /afii62779 /afii57422 /.notdef
+% 32 
+ /afii57423 /exclam /afii57458 /numbersign              %OK    
+% 36
+ /dollar /afii57381 /ampersand /quotesingle  %ok
+% 40
+ /afii64061 /afii64060 /asterisk /quotedbl % parentheses were refelcted 
+% 44
+  /afii57388 /endash /period /slash   %  we should get the "arabicslash" in 4th position 
+% 48
+ /afii57392 /afii57393 /afii57394 /afii57395 
+% 52
+ /afii57396 /afii57397 /afii57398 /afii57399
+% 56
+ /afii57400 /afii57401 /colon /afii57403 %colon ok ?? 
+% 60 
+ /guillemotright /.notdef /guillemotleft /afii57407
+% 64
+ /afii62781 /afii62760 /.notdef /afii57425 
+% 68
+ /.nodef /afii57426 /afii62784 /.notdef 
+% 72
+ /afii62786 /afii62361  /afii62787 /afii62788 
+% 76
+ /afii62789 /afii57428 /.notdef /afii62791 
+% 80
+ /afii62792 /afii62792 /afii62790 /afii62794 
+% 84 
+ /afii62764 /afii62829 /afii62796 /afii62797 
+% 88
+ /afii62798 /afii62830 /afii62799  /afii64061
+% 92
+ /afii62800 /afii64060 /afii62801 /afii57432
+% 96
+ /afii62803 /afii57454 /afii62762 /.notdef
+% 100
+ /afii62780 /.notdef /afii62809 /.notdef
+% 104 
+ /afii62827 /afii57456 /.notdef /afii62815
+% 108
+  /afii62818 /afii62821 /afii62824 /.notdef
+% 112
+ /afii62956 /afii62812 /afii62782 /afii62785 
+% 116
+ /afii62766 /afii57455 /.notdef /afii62829
+% 120
+ /afii57427 /afii62832 /afii62783 /afii62795 
+% 124
+ /afii57430 /afii62790 /.notdef /.notdef % 
+% 128
+ /.notdef /.notdef /.notdef /.notdef 
+% 132
+ /.notdef /.notdef /.notdef /.notdef 
+% 136
+ /afii62802 /afii62804 /afii57433  /afii62805
+% 140
+ /afii62806 /afii62807 /afii57434 /afii62808
+% 144
+ /afii62810 /afii57441 /afii62811 /afii62813
+% 148
+% /afii57442 /afii62815 /afii62816 /afii57443
+ /afii57442 /afii52305 /afii62816 /afii57443
+% 152
+ /afii62817 /afii62819 /afii57444 /afii62820
+% 156
+ /afii62822 /afii57445  /afii62823 /afii62825
+% 160
+ /afii57446  /afii57470 /afii62828 /afii57447
+% 164
+ /afii57448 /afii62755 /afii57412 /afii62831
+% 168
+ /afii62833 /afii57450 /afii57431 /afii57449
+% 172
+ /afii.notdef /afii57417  /afii62841 /afii62840
+% 176      2nd with dd!!!!
+ /afii62837 /afii62836 
+ /afii62839 /afii62838
+% 180      2nd with dd!!!!
+ /afii62835 /afii62834 
+ /afii62757 /afii62758
+% 184 
+ /afii62759 /afii57414 
+ /afii52399 /.notdef
+% 188
+ /.notdef /.notdef /afii57451 /afii57452
+% 192
+ /afii57453 /afii57454 /afii57455 /afii57456 
+% 196
+ /afii57457 /afii57458 /afii62881 /afii62882
+% 200
+ /afii62883 /afii62884 /afii62885 /afii62886 
+% 204
+ /afii57457 /afii62884 /afii62885 /afii62886  
+% 208
+ /afii57424  /.notdef /.notdef /.notdef 
+% 212
+ /.notdef /.notdef /.notdef /.notdef 
+% 216
+ /.notdef /.notdef /.notdef /.notdef 
+% 220
+ /.notdef /.notdef /.notdef /.notdef 
+% 224
+ /.notdef /.notdef /.notdef /.notdef 
+% 228
+ /.notdef /.notdef /.notdef /.notdef 
+% 232
+ /.notdef /.notdef /.notdef /.notdef 
+% 236
+ /.notdef /.notdef /.notdef /.notdef 
+% 240
+ /.notdef /.notdef /.notdef /.notdef 
+% 244
+ /.notdef /.notdef /.notdef /.notdef 
+% 248 
+ /.notdef /.notdef /.notdef /.notdef 
+% 252
+ /afii64184 /.notdef /afii57391 /.notdef 
+] def
+

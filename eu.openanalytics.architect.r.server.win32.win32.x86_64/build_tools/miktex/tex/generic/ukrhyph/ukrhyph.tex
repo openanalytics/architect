@@ -1,0 +1,59 @@
+% UKRHYPH package
+% Copyright 1999 Maksym Polyakov.
+% Version of 1999/07/23 (Bug fix 2001/05/10)
+% Derived from RUHYPHEN package,
+% Copyright 1998-1999 Werner Lemberg, Vladimir Volovich
+% This file can be redistributed and/or modified under the terms
+% of the LaTeX Project Public License (lppl).
+% Please, send questions, comments, bug reports via e-mail: 
+%   polyama@auburn.edu                                          
+%   mpoliak@i.com.ua                                            
+
+\begingroup
+
+% If you do not use UKRHYPH.<ENC> files, uncomment, please, 
+% encoding value:
+
+\ifx\Encoding\undefined
+\def\Encoding{t2a}  %% T2A (X2) standard cyrillic output encoding.                               
+%\def\Encoding{lcy} %% LCY output encoding.     
+%\def\Encoding{koi} %% Koi8-u(ru) output encoding (just in case).             
+%\def\Encoding{ot2} %% OT2 (LWN) output encoding.
+%\def\Encoding{ucy} %% UCY Omega Unicode Cyrillic encoding.                           
+\fi
+
+% Please uncomment the pattern value you need before
+% creating a new format file containing Ukrainian hyphenation 
+% patterns. 
+% Note: `sm' offers most break points, so it is better 
+% for narrow columns, `mp' offers least break points,
+% and `st' and `mt' are in between. 
+
+\ifx\Pattern\undefined
+%\def\Pattern{sm}  %% by Andrij Shvaika, modern rules
+%\def\Pattern{st}  %% by Andrij Shvaika, modern rules, 
+                   %%   ``with removed suspicious breaks''
+%\def\Pattern{mt}  %% by Maksym Polyakov old rules
+\def\Pattern{mp}   %% by Maksym Polyakov old rules, breaking 
+                   %%   into syllables according to phonetical principles. 
+%\def\Pattern{fa}  %% derived from Russian patterns created by Dimitri Vulis
+\fi
+
+\message{Ukrainian hyphenation patterns in \Encoding\space encoding}
+
+\input catlcy
+\input lcy2\Encoding
+\input ukrhyp\Pattern
+
+\def\t{ot2}\ifx\Encoding\t
+% To avoid breaking ligatures in ot2 encoding...
+\message{^^JJust type Enter few times....}
+\patterns{ c8h d8j k8h l8j n8j s8h s8h8c8h t8s x8q y8a y8u z8h }
+\fi
+\def\t{t2a}\ifx\t\Encoding\input hypht2 \fi
+\let\t\relax
+
+\endgroup
+
+\lefthyphenmin2
+\righthyphenmin2

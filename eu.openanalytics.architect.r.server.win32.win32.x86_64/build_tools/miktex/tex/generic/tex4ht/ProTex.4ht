@@ -1,0 +1,118 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ProTex.4ht                            2009-05-21-09:32 %
+% Copyright (C) 2003--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\let\c:ProTex:=\:UnDef
+\let\protex:sv\:RestoreCatcodes
+\let\protex:sav\:CheckOption
+\catcode`\:=12
+   \input ProTex.sty
+   \expandafter\expandafter\expandafter\AlProTex
+   \expandafter\expandafter\expandafter{\csname a:ProTex\endcsname}
+\catcode`\:=11
+\let\:RestoreCatcodes\protex:sv
+\let\:CheckOption\protex:sav
+\def\:CheckProtexOption#1{
+  \let\protex:sv=\Preamble
+  \let\Preamble=\a:ProTex
+  \:CheckOption{#1}
+  \let\Preamble=\protex:sv
+}
+
+\:CheckProtexOption{[[]]}\if:Option
+    \NewConfigure{FrameCode}[2]{%
+       \def\a:FrameCode{#1}\def\b:FrameCode{#2}%
+       \def\:FrameCode##1{\ifvmode\vfill\break\fi
+          \vtop{\a:FrameCode ##1\b:FrameCode}}}
+\fi
+\let\tivt:ModifyAppendCode=\ModifyAppendCode
+\def\ModifyAppendCode#1{%
+   \tivt:ModifyAppendCode{#1}\a:ModifyAppendCode}
+\NewConfigure{ModifyAppendCode}[1]{%
+   \concat:config\a:ModifyAppendCode{#1}}
+\Configure{ModifyAppendCode}{}
+\let\tivt:ModifyOutputCode=\ModifyOutputCode
+\def\ModifyOutputCode#1{\tivt:ModifyOutputCode{#1}%
+   \pend:def\ProTexMssg{\Configure{Needs}{File: \:FileName}\Needs{}}%
+   \a:ModifyOutputCode
+}
+\NewConfigure{ModifyOutputCode}[1]{%
+   \concat:config\a:ModifyOutputCode{#1}}
+\Configure{ModifyOutputCode}{}
+\let\tivt:ModifyShowCode=\ModifyShowCode
+\def\ModifyShowCode#1{\tivt:ModifyShowCode{#1}\a:ModifyShowCode}
+\NewConfigure{ModifyShowCode}[1]{%
+   \concat:config\a:ModifyShowCode{#1}}
+\Configure{ModifyShowCode}{}
+\def\frnt:ttl#1{{\parindent=0pt \htmlprotex:par
+      {\expandafter\ifx \csname ListCounter\endcsname\relax
+         \else  \:removeindentfalse \fi   \leavevmode}%
+      \PortTitle{#1}\:AppendSign}\a:protex
+    }
+
+\if:latex \AtBeginDocument{\let\la:ref=\ref}
+\Configure{ModifyAppendCode}
+     {\let\ref\relax}
+\Configure{ModifyShowCode}
+     {\let\ref\prtx:ref}
+\catcode`\(=1
+\catcode`\)=2
+\catcode`\{=12
+\catcode`\}=12
+\def\prtx:ref#1{#2}(\la:ref(#2))
+\catcode`\(=12
+\catcode`\)=12
+\catcode`\{=1
+\catcode`\}=2
+\fi
+\:CheckOption{prog-ref}\if:Option
+   \let\oc:frag:href\frag:href
+   \def\frag:href#1#2{%
+       \expandafter \ifx \csname cw:ofile-#1\endcsname \relax
+          \oc:frag:href{#1}{#2}%
+       \else
+          \HCode {<\tag:A \:newlnch \HREF:
+             "\csname cw:ofile-#1\endcsname "#2>}%
+       \fi }
+   \let\oc:OutputCodE=\OutputCodE
+   \def\OutputCodE\<#1\>{{%
+      \Tag{ofile-)0Z:#1}{#1}%
+      \let\OutputCode=\oc:OutputCode
+      \oc:OutputCodE\<#1\>}}
+   \let\oc:OutputCode=\OutputCode
+   \def\OutputCode#1\<#2\>{%
+      \def\foo##1[##2]##3//{##1.##2}%
+      \Tag{ofile-)0Z:#2}{\foo#2#1[java]//}%
+      \oc:OutputCode#1\<#2\>}
+\else
+   \Log:Note{for pointers to code files from root fragments
+       use the command line option 'prog-ref'}
+\fi
+
+\Hinput{ProTex}
+\endinput
+

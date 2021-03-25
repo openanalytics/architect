@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% web.4ht                               2009-05-21-09:32 %
+% Copyright (C) 1999--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\let\web:startsection=\@startsection
+\def\@startsection{\def\@seccntformat##1{}\web:startsection}
+
+\def\maketitle{{%
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+   \a:mktl
+   \pend:def\webversion{\a:webversion}%
+   \append:def\webversion{\b:webversion}%
+   \pend:def\webtitle{\a:webtitle}%
+   \append:def\webtitle{\b:webtitle}%
+   \pend:def\webauthor{\a:webauthor}%
+   \append:def\webauthor{\b:webauthor}%
+   \pend:def\webuniversity{\a:webuniversity}%
+   \append:def\webuniversity{\b:webuniversity}%
+   \o:maketitle: \b:mktl}}
+
+\NewConfigure{maketitle}[2]{\def\a:mktl{#1}\def\b:mktl{#2}}
+\NewConfigure{webauthor}{2}
+\NewConfigure{webtitle}{2}
+\NewConfigure{webuniversity}{2}
+\NewConfigure{webversion}{2}
+\def\HColor{\:warning{\string\Hcode{...}{...} is deprecated; Use
+   \string\Configure{HColor}{...}{...}}\Configure{HColor}}
+\NewConfigure{HColor}[2]{\if !#1!\if!#2!\let\HColor\relax \else \edef\HColor{#2}\fi
+\else
+   \expandafter\edef\csname CLR:#1\endcsname{#2}\fi}
+\def\:temp#1#2#3{%
+  \@ifundefined{color@#2}%
+    {\c@lor@error{model `#2'}}%
+    {\@ifundefined{\string\color @#1}{}%
+      {\PackageInfo{color}{Redefining color #1}}%
+     \csname color@#2\expandafter\endcsname
+         \csname\string\color @#1\endcsname{#3}}}
+\ifx \definecolor\:temp
+   \pend:defIII\definecolor{%
+     \expandafter\ifx\csname HColor:##2\endcsname\relax\else
+        \csname HColor:##2\endcsname ##3 //%
+        \edef\:temp{{HColor}{##1}{\HColor}}%
+        \expandafter\Configure\:temp
+     \fi}
+\fi
+
+\Hinput{web}
+\endinput
+

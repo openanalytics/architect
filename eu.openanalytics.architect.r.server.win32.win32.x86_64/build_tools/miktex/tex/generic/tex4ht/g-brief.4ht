@@ -1,0 +1,281 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% g-brief.4ht                            2009-05-21-09:32 %
+% Copyright (C) 2004--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \def\ps@firstpage{%
+  \ifcase \@ptsize\relax \normalsize \or \small \or \footnotesize \fi
+  \def\@oddhead{\a:letterhead
+  \ifklassisch \textsl{\quad\name}\else \textsc{\quad\name}\fi
+\b:letterhead
+  \normalsize
+  \ifklassisch
+     \begin{tabular}{r} \textsl{\strasse} \quad \\
+       \ifx \zusatz\empty \else \textsl{\zusatz}\quad \\\fi
+       \textsl{\ort}\quad
+       \ifx \land\empty \else \\ \textsl{\land}\quad \fi
+     \end{tabular}
+  \else
+     \begin{tabular}{r}
+       \textsc{\strasse}\quad \\
+       \ifx \zusatz\empty \else \textsc{\zusatz}\quad \\ \fi
+       \textsc{\ort}\quad
+       \ifx \land\empty \else \\ \textsc{\land}\quad \fi
+     \end{tabular}%
+  \fi
+\c:letterhead
+ \bgroup
+ \scriptsize \ifx \retouradresse\empty
+          \textrm{\name\ $\cdot$\ \strasse\ $\cdot$\ \ort \ifx
+              \land\empty \else \ $\cdot$\ \land \fi } \else
+            \textrm{\retouradresse} \fi
+ \egroup
+\d:letterhead
+ \ifx \postvermerk\empty
+          \else \textbf{\postvermerk} \par  \fi
+\adresse
+\e:letterhead
+}
+  \def\@oddfoot{\def\istsprache{german}
+\a:letterfoot
+\bgroup   \footnotesize
+   \begin{tabular}{ll}
+     \ifx \telefon\empty \else \telefontex & \telefon \\ \fi \ifx
+     \telefax\empty \else \telefaxtext & \telefax \\ \fi \ifx
+     \telex\empty \else \telextext & \telex \\ \fi \ifx
+     \email\empty \else \emailtext & \email \\ \fi \ifx
+     \http\empty \else \httptext & \http \\ \fi \
+   \end{tabular}%
+\egroup
+\b:letterfoot
+   \begin{tabular}{ll}
+     \ifx \bank\empty \else \ifx \blz\empty \else \ifx
+     \konto\empty \else \banktext & \bank \\ & \blztext \space \blz
+     \\ & \kontotext \space \konto \\ \ \fi \fi \fi
+   \end{tabular}%
+\c:letterfoot
+}}
+\NewConfigure{letterfoot}{3}
+\NewConfigure{letterhead}{5}
+\expandafter\pend:def\csname g-brief\endcsname{%
+ \bgroup \ifx\zusatz\empty\else
+   \pend:def\zusatz{\a:zusatz}
+   \append:def\zusatz{\b:zusatz}
+\fi
+\ifx\land\empty\else
+   \pend:def\land{\a:land}
+   \append:def\land{\b:land}
+\fi
+\ifx\strasse\empty\else
+   \pend:def\strasse{\a:strasse}
+   \append:def\strasse{\b:strasse}
+\fi
+
+\ifx\ort\empty\else
+   \pend:def\ort{\a:ort}
+   \append:def\ort{\b:ort}
+\fi
+
+\ifx\postvermerk\empty\else
+   \pend:def\postvermerk{\a:postvermerk}
+   \append:def\postvermerk{\b:postvermerk}
+\fi
+\ifx\retouradresse\empty\else
+   \pend:def\retouradresse{\a:retouradresse}
+   \append:def\retouradresse{\b:retouradresse}
+\fi
+\par \ps@firstpage \@oddhead \let\@oddhead=\empty
+\egroup
+   \csname a:g-brief\endcsname
+   \ifx \betreff\empty \else
+      \pend:def\betreff{\a:betreff}%
+      \append:def\betreff{\b:betreff}%
+   \fi
+   \ifx \anrede\empty \else
+      \pend:def\anrede{\a:anrede}%
+      \append:def\anrede{\b:anrede}%
+   \fi
+}
+\expandafter\append:def\csname g-brief\endcsname{%
+   \csname b:g-brief\endcsname
+}
+\expandafter\pend:def\csname endg-brief\endcsname{%
+   \csname c:g-brief\endcsname
+   \ifx\gruss\empty \else
+   \pend:def\gruss{\a:gruss}%
+   \append:def\gruss{\b:gruss}%
+\fi
+\ifx\unterschrift\empty \else
+   \pend:def\unterschrift{\a:unterschrift}%
+   \append:def\unterschrift{\b:unterschrift}%
+\fi
+\ifx\anlagen\empty \else
+   \pend:def\anlagen{\a:anlagen}%
+   \append:def\anlagen{\b:anlagen}%
+\fi
+\ifx\verteiler\empty \else
+   \pend:def\verteiler{\a:verteiler}%
+   \append:def\verteiler{\b:verteiler}%
+\fi
+}
+\expandafter\append:def\csname endg-brief\endcsname{%
+   \csname d:g-brief\endcsname
+   \bgroup \ifx\email\empty\else
+   \pend:def\email{\a:email}
+   \append:def\email{\b:email}
+\fi
+\ifx\telefon\empty\else
+   \pend:def\telefon{\a:telefon}
+   \append:def\telefon{\b:telefon}
+\fi
+\ifx\telefax\empty\else
+   \pend:def\telefax{\a:telefax}
+   \append:def\telefax{\b:telefax}
+\fi
+\ifx\telex\empty\else
+   \pend:def\telex{\a:telex}
+   \append:def\telex{\b:telex}
+\fi
+\ifx\http\empty\else
+   \pend:def\http{\a:http}
+   \append:def\http{\b:http}
+\fi
+\ifx\bank\empty\else
+   \pend:def\bank{\a:bank}
+   \append:def\bank{\b:bank}
+\fi
+\ifx\blz\empty\else
+   \pend:def\blz{\a:blz}
+   \append:def\blz{\b:blz}
+\fi
+\ifx\konto\empty\else
+   \pend:def\konto{\a:konto}
+   \append:def\konto{\b:konto}
+\fi
+\par \ps@firstpage \@oddfoot\let\@oddfoot=\empty
+\egroup
+}
+\NewConfigure{g-brief}{4}
+\pend:def\datumtext{\a:datumtext}
+\append:def\datumtext{\b:datumtext}
+\NewConfigure{datumtext}{2}
+
+\pend:def\datum{\a:datum}
+\append:def\datum{\b:datum}
+\NewConfigure{datum}{2}
+
+\NewConfigure{anrede}{2}
+\NewConfigure{betreff}{2}
+
+\pend:def\sprache{\a:sprache}
+\append:def\sprache{\b:sprache}
+
+\NewConfigure{gruss}{2}
+\NewConfigure{unterschrift}{2}
+\NewConfigure{anlagen}{2}
+\NewConfigure{verteiler}{2}
+
+\NewConfigure{sprache}{2}
+
+\pend:def\telefontex{\a:telefontex}
+\append:def\telefontex{\b:telefontex}
+\NewConfigure{telefontex}{2}
+
+\pend:def\telefaxtext{\a:telefaxtext}
+\append:def\telefaxtext{\b:telefaxtext}
+\NewConfigure{telefaxtext}{2}
+
+\pend:def\telextext{\a:telextext}
+\append:def\telextext{\b:telextext}
+\NewConfigure{telextext}{2}
+
+\pend:def\emailtext{\a:emailtext}
+\append:def\emailtext{\b:emailtext}
+\NewConfigure{emailtext}{2}
+
+\pend:def\httptext{\a:httptext}
+\append:def\httptext{\b:httptext}
+\NewConfigure{httptext}{2}
+
+\pend:def\banktext{\a:banktext}
+\append:def\banktext{\b:banktext}
+\NewConfigure{banktext}{2}
+
+\pend:def\blztext{\a:blztext}
+\append:def\blztext{\b:blztext}
+\NewConfigure{blztext}{2}
+
+\pend:def\betrefftext{\a:betrefftext}
+\append:def\betrefftext{\b:betrefftext}
+\NewConfigure{betrefftext}{2}
+
+\pend:def\ihrzeichentext{\a:ihrzeichentext}
+\append:def\ihrzeichentext{\b:ihrzeichentext}
+\NewConfigure{ihrzeichentext}{2}
+
+\pend:def\ihrschreibentext{\a:ihrschreibentext}
+\append:def\ihrschreibentext{\b:ihrschreibentext}
+\NewConfigure{ihrschreibentext}{2}
+
+\pend:def\meinzeichentext{\a:meinzeichentext}
+\append:def\meinzeichentext{\b:meinzeichentext}
+\NewConfigure{meinzeichentext}{2}
+
+\pend:def\unserzeichentext{\a:unserzeichentext}
+\append:def\unserzeichentext{\b:unserzeichentext}
+\NewConfigure{unserzeichentext}{2}
+
+\NewConfigure{anlagen}{2}
+\NewConfigure{adresse}{2}
+\NewConfigure{bank}{2}
+\NewConfigure{blz}{2}
+\NewConfigure{email}{2}
+\NewConfigure{gruss}{2}
+\NewConfigure{grussskip}{2}
+\NewConfigure{http}{2}
+\NewConfigure{ihrschreiben}{2}
+\NewConfigure{ihrzeichen}{2}
+\NewConfigure{konto}{2}
+\NewConfigure{land}{2}
+\NewConfigure{meinzeichen}{2}
+\NewConfigure{name}{2}
+\NewConfigure{ort}{2}
+\NewConfigure{postvermerk}{2}
+\NewConfigure{retouradresse}{2}
+\NewConfigure{strasse}{2}
+\NewConfigure{telefax}{2}
+\NewConfigure{telefon}{2}
+\NewConfigure{telex}{2}
+\NewConfigure{unterschrift}{2}
+\NewConfigure{verteiler}{2}
+\NewConfigure{zusatz}{2}
+
+\pend:def\name{\a:name}
+\append:def\name{\b:name}
+
+\Hinput{g-brief}
+\endinput
+

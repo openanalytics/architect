@@ -1,0 +1,131 @@
+pltex 0 127
+'&#x22C5;' ''  0 %
+'&#x2193;' '' downarrow          1 % pltex.htf (unicode)           2020-05-27-14:14  %
+'&#x03B1;' '' alpha              2 % Copyright 2004-2009 Eitan M. Gurari %
+'&#x03B2;' '' beta               3 %
+'&#x2227;' ''      4 % This work may be distributed and/or modified under the conditions
+'&#x00AC;' ''      5 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x1D716;' ''         6 % license or (at your option) any later version. The latest version
+'&#x03C0;' ''              7 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x03BB;' ''          8 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x03B3;' ''           9 % 2003/12/01 or later.
+'&#x03B4;' ''          10 % This work has the LPPL maintenance status "maintained".
+'&#x2191;' ''  uparrow          11 % This work has the LPPL maintenance status "maintained". 
+'&#x00B1;' '' plusminus         12 % If you modify this file, changing the
+'&#x2295;' ''  oplus            13 % If you modify this file, changing the
+'&#x221E;' ''  infinity         14 % version identification would be appreciated.
+'&#x2202;' ''  partial          15 %
+'&#x2282;' ''  subset           16 % tex4ht@tug.org
+'&#x2283;' ''  supset           17 % https://tug.org/tex4ht
+'&#x2229;' ''   18 %
+'&#x222A;' ''          19 
+'&#x2200;' '' forall            20
+'&#x2203;' '' exists            21
+'&#x2297;' '' otimes            22
+'&#x2194;' ''  leftrightarrow   23
+'&#x2190;' ''  leftarrow        24
+'&#x2192;' ''  rightarrow       25
+'&#x2260;' ''  notequal         26
+'&#x25C7;' ''  diamond          27
+'&#x2264;' '' lessorequalslant  28
+'&#x2276;' '' lessorgreater     29
+'&#x2261;' ''  equiv            30
+'&#x2228;' ''      31
+' ' '' space          32
+'!' '' exclam          33
+'&#x0022;' '' quotedbl  34
+'#' '' numbersign      35
+'$' '' dollar           36
+'%' '' percent         37
+'&#x0026;' '' ampersand 38
+'&#x2019;' '' quoteright 39
+'&#x0028;' '' parenleft        40
+'&#x0029;' '' parenright      41
+'*' '' asterisk         42
+'+' '' plus             43
+',' '' comma           44
+'-' '' hyphen           45
+'.' '' period           46
+'/' '' slash            47
+'0' '' zero             48
+'1' '' one              49
+'2' '' two              50
+'3' '' three           51
+'4' '' four             52
+'5' '' five             53
+'6' '' six              54
+'7' '' seven           55
+'8' '' eight           56
+'9' '' nine             57
+':' '' colon           58
+';' '' semicolon        59
+'&#x003C;' '' less 60
+'=' '' equal            61
+'&#x003E;' '' greater  62
+'?' '' question  63
+'@' '' at 64
+'A' '' A 65
+'B' '' B  66
+'C' '' C 67
+'D' '' D  68
+'E' '' E 69
+'F' '' F  70
+'G' '' G   71
+'H' '' H 72
+'I' '' I  73
+'J' '' J 74
+'K' '' K  75
+'L' '' L 76
+'M' '' M  77
+'N' '' N 78
+'O' '' O  79
+'P' '' P 80
+'Q' '' Q  81
+'R' '' R 82
+'S' '' S  83
+'T' '' T 84
+'U' '' U  85
+'V' '' V 86
+'W' '' W  87
+'X' '' X 88
+'Y' '' Y  89
+'Z' '' Z 90
+'&#x005B;' '' bracketleft  91
+'&#x005C;' '' backslash   92
+'&#x005D;' '' bracketright    93
+'^' '' circumflex   94
+'_' '' underscore  95
+'&#x2018;' '' quoteleft   96
+'a' '' a 97
+'b' '' b   98
+'c' '' c 99
+'d' '' d  100
+'e' '' e 101
+'f' '' f 102
+'g' '' g 103
+'h' '' h 104
+'i' '' i 105
+'j' '' j 106
+'k' '' k 107
+'l' '' l 108
+'m' '' m 109
+'n' '' n 110
+'o' '' o 111
+'p' '' p 112
+'q' '' q 113
+'r' '' r 114
+'s' '' s 115
+'t' '' t 116
+'u' '' u 117
+'v' '' v 118
+'w' '' w 119
+'x' '' x 120
+'y' '' y 121
+'z' '' z 122
+'&#x007B;' '' braceleft  123
+'|' '' bar  124
+'&#x007D;' '' braceright  125
+'~' '' asciitilde  126
+'&#x222B;' ''  integral          127
+pltex 0 127
+

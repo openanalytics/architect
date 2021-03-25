@@ -1,0 +1,499 @@
+% plain.4ht (2021-02-06-14:21), generated from tex4ht-4ht.tex
+% Copyright 1997-2009 Eitan M. Gurari
+% Copyright 2009-2021 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2021-02-06-14:21}
+
+\ifx\SaveMkHalignConf:g\:UnDef \else \expandafter\endinput\fi
+
+\def\:tmp#1#2{%
+   \expand:after{\expandafter\let\csname ams:#1\endcsname}%
+      \csname #1\endcsname
+   \pend:def#2{%
+      \expand:after{\expandafter\let\csname #1\endcsname}%
+          \csname ams:#1\endcsname}}
+   
+   \expandafter\ifx \csname amsppt.sty\endcsname\relax
+ \else
+   \ifx  \plainend\:UnDef \else
+      \let\sv:end\end  \let\end\plainend
+   \fi
+   \let\sv:logo\logo@  \let\logo@\empty
+\fi
+
+   
+
+
+
+\def\:tempc#1{{\hbox{\pic:gobble\a:big$\pic:gobble\c:big\left#1\vbox
+    to8.5\p@{}\right.\n@space\pic:gobble\d:big$\pic:gobble\b:big}}}
+\HLet\big=\:tempc
+\def\:tempc#1{{\hbox{\pic:gobble\a:Big$\pic:gobble\c:Big\left#1\vbox
+    to11.5\p@{}\right.\n@space\pic:gobble\d:Big$\pic:gobble\b:Big}}}
+\HLet\Big\:tempc
+\def\:tempc#1{{\hbox{\pic:gobble\a:bigg$\pic:gobble\c:bigg\left#1\vbox
+    to14.5\p@{}\right.\n@space\pic:gobble\d:bigg$\pic:gobble\b:bigg}}}
+\HLet\bigg\:tempc
+\def\:tempc#1{{\hbox{\pic:gobble\a:Bigg$\pic:gobble\c:Bigg\left#1\vbox
+    to17.5\p@{}\right.\n@space\pic:gobble\d:Bigg$\pic:gobble\b:Bigg}}}
+\HLet\Bigg\:tempc
+\HLet\Bigg=\:tempc
+\NewConfigure{big}{4}
+\NewConfigure{Big}{4}
+\NewConfigure{bigg}{4}
+\NewConfigure{Bigg}{4}
+
+\def\:temp#1{\a:overbrace \mathop{\hbox{\b:overbrace
+   $\o:overbrace:{#1}$\c:overbrace}}\limits}
+\HLet\overbrace\:temp
+\NewConfigure{overbrace}{3}
+\def\:temp#1{\a:underbrace \mathop{\hbox{$\b:underbrace
+   \o:underbrace:{#1}\c:underbrace$}}\limits}
+\HLet\underbrace\:temp
+\NewConfigure{underbrace}{3}
+
+\MathSymbol\mathop{angle}
+\MathSymbol\mathop{cong}
+\MathSymbol\mathop{vdots}
+\MathSymbol\mathop{ldots}
+\MathSymbol\mathrel{Longleftrightarrow}
+\MathSymbol\mathrel{Longrightarrow}
+\MathSymbol\mathrel{bowtie}
+\MathSymbol\mathrel{cdots}
+\MathSymbol\mathrel{ddots}
+\MathSymbol\mathrel{doteq}
+\MathSymbol\mathrel{hookleftarrow}
+\MathSymbol\mathrel{hookrightarrow}
+\MathSymbol\mathrel{leftrightharpoons}
+\MathSymbol\mathrel{longleftrightarrow}
+\MathSymbol\mathrel{longmapsto}
+\MathSymbol\mathrel{mapsto}
+\MathSymbol+\mathrel{mid}
+\MathSymbol\mathrel{models}
+\MathSymbol\mathrel{neq} \let\ne\neq   \def\c:ne:{\Configure{neq}}
+\MathSymbol\mathrel{notin}
+\MathSymbol\mathrel{rightleftharpoons}
+
+
+
+\let\:DL:\empty
+\let\:OL:\empty
+
+
+\long\def\vfootnote#1{%
+   \gHAdvance\FNnum  1
+   \def\FNmark{#1}\ifx \FNmark\empty
+      \def\FNmark{*}%
+   \fi
+   \a:vfootnote\b:vfootnote\bgroup
+   \futurelet\:temp\fnt:body}
+\def\fnt:body{\ifx \:temp\bgroup \bgroup
+      \aftergroup\end:vfootnote\def\:temp{\let\:temp}%
+   \else \def\:temp##1{##1\end:vfootnote}\fi
+   \:temp}
+\def\end:vfootnote{\egroup\c:vfootnote}
+\HAssign\FNnum  0
+\NewConfigure{vfootnote}{3}
+
+\def\gt:tab{\def\:temp##1.##2//{##1}\tmp:dim\m:tab\wd\z@}
+\def\t@bb@x{\if@cr\egroup \let\TabWidth\empty
+%
+  \else\hss\egroup  \edef\TabWidth{\expandafter\:temp\the\tmp:dim//}%
+%
+      \global\setbox\tabsyet\hbox{\unhbox\tabsyet
+      \global\setbox\@ne\lastbox}%
+    \ifvoid\@ne\global\setbox\@ne\hbox to\wd\z@{}%
+    \else\setbox\z@\hbox to\wd\@ne{\unhbox\z@}\fi
+    \global\setbox\tabsdone\hbox{\box\@ne\unhbox\tabsdone}\fi
+  \ifx \EndPicture\:UnDef \c:tabalgn \fi \box\z@
+  \ifx \EndPicture\:UnDef \d:tabalgn \fi}
+
+\def\m@ketabbox{\begingroup
+  \global\setbox\tabsyet\copy\tabs
+  \global\setbox\tabsdone\null
+  \def\cr{\@crtrue\crcr\egroup\egroup
+    \ifus@  \ifx \EndPicture\:UnDef \a:tabalgn \fi
+        \unvbox\z@\lastbox
+        \ifx \EndPicture\:UnDef \b:tabalgn \fi
+    \fi\endgroup
+    \setbox\tabs\hbox{\unhbox\tabsyet\unhbox\tabsdone}}%
+  \setbox\z@\vbox\bgroup\@crfalse
+  \everycr{}\tabskip\z@skip\TeXhalign
+\bgroup&\t@bbox##\t@bb@x\crcr}
+
+\pend:def\settabs{\e:tabalgn}
+
+
+\def\:temp{\o:obeylines:
+   \let\obeylines\o:obeylines:
+   \a:obyln \global\let\x:obln\end:obeylines \aftergroup\x:obln
+   \def\:temp{%
+      \ifx\:tempa\par \ht:everypar{\ht:everypar{\b:obyln}}%
+      \else \ht:everypar{\b:obyln}\fi}%
+   \futurelet\:tempa\:temp }
+\HLet\obeylines\:temp
+\NewConfigure{obeylines}[3]{\c:def\a:obyln{#1}\c:def\b:obyln{#3}%
+   \c:def\end:obeylines{#2}}
+\def\:temp#1{\leavevmode\a:oalign\o:oalign:{#1}\b:oalign}
+\HLet\oalign\:temp
+\NewConfigure{oalign}{2}
+
+
+      \let\makeheadline\empty
+      \let\makefootline\empty
+
+
+\pend:defI\centerline{\pic:gobble\cnt:a}
+\append:defI\centerline{\pic:gobble\cnt:b}
+\pend:defI\leftline{\pic:gobble\lft:a}
+\append:defI\leftline{\pic:gobble\lft:b}
+\pend:defI\rightline{\pic:gobble\a:rightline}
+\append:defI\rightline{\pic:gobble\b:rightline}
+
+\let\:ins\@ins
+\let\:endinsert\endinsert
+\def\::ns{\:ins \let\endinsert\:endinsert}
+\def\@ins{\ifx \EndPicture\:UnDef \par\a:insert\par\bgroup
+      \def\endinsert{\egroup\par\b:insert\par}
+   \else \expandafter\::ns\fi }
+
+\HLet\footnote\vfootnote
+
+\:CheckOption{new-accents}     \if:Option
+    \def\:temp#1{{\accent24 #1}}
+\let\c:accent\c   \HLet\c:accent\:temp   \let\c\c:accent
+
+    \def\:temp#1{{\edef\next{\the\font}\rm\accent0 \next#1}}
+\let\b:accent\b   \HLet\b:accent\:temp   \let\b\b:accent
+\def\:temp#1{{\edef\next{\the\font}\rm\accent1 \next#1}}
+\let\d:accent\d   \HLet\d:accent\:temp   \let\d\d:accent
+
+    
+\else
+    \NewConfigure{accents}[2]{\def\a:accents##1##2{#1}%
+   \def\b:accents##1##2##3{#2}}
+
+\fi
+
+\pend:def\protect:wrtoc{\Configure{ }{ }}
+
+\NewConfigure{insert}{2}
+\NewConfigure{TableOfContents}{5}
+\def\E:tabalign#1{\def\e:tabalgn{\ifx \EndPicture\:UnDef #1\fi}}
+\def\c:settabs:{\c:def\:tempa{settabs}\futurelet\:temp\:tblgn}
+\NewConfigure{line}{1}
+\NewConfigure{centerline}[2]{\c:def
+   \cnt:a{\a:leftline{#1}}\c:def\cnt:b{\b:leftline{#2}}}
+\NewConfigure{leftline}[2]{\c:def
+   \lft:a{\a:leftline{#1}}\c:def\lft:b{\b:leftline{#2}}}
+\NewConfigure{rightline}[2]{\c:def
+   \a:rightline{\a:leftline{#1}}\c:def\b:rightline{\b:leftline{#2}}}
+\long\def\a:leftline#1{{\ht:everypar{}#1}\expandafter\hbox\:gobble}
+\long\def\b:leftline#1{{\ht:everypar{}#1}}
+\NewConfigure{narrower}{2}
+
+\:CheckOption{no-halign} \if:Option \else
+   \def\:temp{\everycr{}}
+   \HLet\displ@y\:temp
+\fi
+\def\:tblgn{\ifx [\:temp \expandafter\:tbln
+   \else  \expandafter\c:tblgn \fi}
+\def\:tbln[#1]#2#3#4#5{%
+   \def\m:tab{#2#3#4#5}\ifx \m:tab\empty \else
+      \Configure{\:tempa}{#2}{#3}{#4}{#5}{}\fi
+   \def\m:tab{#1}}
+\long\def\c:tblgn#1#2#3#4{%
+   \c:def\a:tabalgn{\ifx \EndPicture\:UnDef
+                            \let\TabType\relax #1\fi}%
+   \d:def\b:tabalgn{\ifx \EndPicture\:UnDef #2\fi}%
+   \d:def\c:tabalgn{\ifx \EndPicture\:UnDef \gt:tab #3\fi}%
+   \d:def\d:tabalgn{\ifx \EndPicture\:UnDef #4\fi}\E:tabalign}
+\c:def\a:tabalgn{}
+\d:def\b:tabalgn{}
+\d:def\c:tabalgn{}
+\d:def\d:tabalgn{}
+\def\pic:MkHalign#1{%
+  \csname a:#1\endcsname
+  \ifx \EndPicture\:Undef
+     \expandafter\expandafter\csname reg:#1\endcsname
+  \else
+     \vtop\bgroup$$
+     \expandafter\def\csname #1\endcsname{\bgroup
+         \expandafter\def\csname end#1\endcsname{\csname
+              o:#1:\endcsname\egroup}%
+         \csname o:#1:\endcsname}%
+      \expandafter\def\csname end#1\endcsname{\csname
+          o:end#1:\endcsname$$\egroup
+         \csname b:#1\endcsname}\expandafter
+                               \expandafter\csname o:#1:\endcsname
+  \fi}
+\def\SaveMkHalignConf:g#1{\SaveMkHalignConfig
+   \edef\:temp{\noexpand\Configure{MkHalign} {} {}
+     {\expandafter\noexpand\csname c:#1\endcsname}
+     {\expandafter\noexpand\csname d:#1\endcsname }
+     {\expandafter\noexpand\csname e:#1\endcsname
+        \noexpand\RecallMkHalignConfig}
+     {\expandafter\noexpand\csname f:#1\endcsname }}\:temp}
+\tmp:cnt\time  \divide\tmp:cnt  60
+\edef\:temp{\the\tmp:cnt}
+\multiply\tmp:cnt  -60 \advance\tmp:cnt  \time
+\edef\:today{\the\year-\ifnum \month<10 0\fi
+  \the\month-\ifnum \day<10 0\fi\the\day
+   \space\ifnum \:temp<10 0\fi \:temp
+   :\ifnum \tmp:cnt<10 0\fi\the\tmp:cnt :00}
+
+
+\let\sp:c\space \def\ {\relax\ifx \EndPicture\:UnDef \a:sp
+             \else \sp:c\fi}
+\NewConfigure{ }[1]{\def\:temp{#1}%
+   \ifx \:temp\empty \let\a:sp\sp:c\else\def\a:sp{#1}\fi}
+\Configure{ }{\:nbsp}
+%
+\def\:nbsp{\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x}
+\def\:ensp{\leavevmode\special{t4ht@+\string&{35}x2002{59}}x}
+\expandafter\let\csname  beginsection\endcsname\relax
+\NewSection\beginsection{}{}
+\let\begin:section\beginsection
+\expand:after{\csname outer\endcsname\def}\csname
+     beginsection\endcsname#1\par{\smallskip
+  \message{#1}\begin:section{#1}\smallskip\noindent}
+\edef\:temp{\let\noexpand\o:proclaim:\expandafter\noexpand
+   \csname proclaim\endcsname}\:temp
+\expandafter\def\csname proclaim\endcsname#1. #2\par{\medbreak
+  \a:proclaim\noindent{\bf#1.\enspace}\b:proclaim
+  {\sl#2\par}\c:proclaim\medskip}
+\NewConfigure{proclaim}{3}
+
+
+\def\:temp#1{\a:bordermatrix\o:bordermatrix:{#1}\b:bordermatrix}
+\HLet\bordermatrix\:temp
+\NewConfigure{bordermatrix}{2}
+
+\def\tx:halign#1#2{\csname a:#1\endcsname
+   \csname  \ifx \EndPicture\:Undef reg:#1\else o:#1:\fi
+   \endcsname{#2}\csname b:#1\endcsname}
+\def\:tempc#1{\tx:halign{displaylines}{#1}}
+\HLet\displaylines\:tempc
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:displaylines!1{\tabskip\z@skip
+   \SaveMkHalignConf:g{displaylines}\RecallTeXcr
+   \MkHalign#{\hbox{$\@lign\displaystyle#$}}!1\crcr
+   \EndMkHalign\RecallMkHalignConfig}
+                                    \catcode`\#=6 \catcode`\!=12
+\NewConfigure{displaylines}{4}
+
+
+\MathSymbol\mathop{l}
+\MathSymbol\mathop{longleftarrow}
+\MathSymbol\mathop{longrightarrow}
+\MathSymbol\mathop{L}
+\MathSymbol\mathrel{buildrelover}
+
+ \def\:tempc{\relax\csname a:,\endcsname}
+\HLet\,=\:tempc
+\NewConfigure{,}{1}
+\NewConfigure{;}{1}
+\NewConfigure{!}{1}
+\NewConfigure{:}{1}
+\NewConfigure{>}{1}
+\Configure{,}{\relax \ifmmode \mskip \thinmuskip \else \thinspace \fi}
+\def\:temp{\csname a:'\endcsname
+   \bgroup \aftergroup\:pr@m@s
+\prim@s}
+{\catcode`\'=\active \HLet'=\:temp \global\let'=`}
+\let\:tempc\prim@s
+\pend:def\:tempc{\csname c:'\endcsname\:gobble}
+\HLet\prim@s\:tempc
+\NewConfigure{'}{3}
+\Configure{'}{}{}{\prime}
+
+\def\:temp#1{{\a:sqrt{\radical"270370 {#1}}\b:sqrt}}
+\HLet\sqrt\:temp
+\NewConfigure{sqrt}{2}
+\def\:tempc#1{\a:overrightarrow
+   \o:overrightarrow:{#1}\b:overrightarrow}
+\HLet\overrightarrow\:tempc
+\NewConfigure{overrightarrow}{2}
+\def\:tempc#1{\a:overleftarrow
+   \o:overleftarrow:{#1}\b:overleftarrow}
+\HLet\overleftarrow\:tempc
+\NewConfigure{overleftarrow}{2}
+\def\:temp#1{\relax \ifvmode\leavevmode\fi
+   \a:underline\hbox{$#1$}\b:underline}
+\HLet\underline\:temp
+\NewConfigure{underline}{2}
+
+\def\:tempc#1{\tx:halign{eqalign}{#1}}
+\HLet\eqalign\:tempc
+                                 \catcode`\#13 \catcode`\!6
+\def\reg:eqalign!1{\null\vcenter{\m@th
+  \Mk:ialign:egroup
+  {$\displaystyle{#}$&$\displaystyle{{}#}$%
+}{eqalign}{!1}#{}}}
+                                 \catcode`\#=6 \catcode`\!=12
+\NewConfigure{eqalign}{6}
+\def\Mk:ialign:egroup#1#2#3#4#5{%
+%    \csname a:#2\endcsname
+     \ifx \EndPicture\:UnDef
+        \SaveMkHalignConfig
+\Configure{MkHalign}
+  {} {}
+  {\csname c:#2\endcsname} {\csname d:#2\endcsname }
+  {\csname e:#2\endcsname}
+  {\csname f:#2\endcsname }%
+#5\RecallTeXcr
+        \MkHalign#4{#1}#3\crcr\EndMkHalign
+        \RecallMkHalignConfig
+     \else
+        \csname o:#2:\endcsname{#3}%
+     \fi
+%   \csname b:#2\endcsname
+}
+\def\:tempc#1{\tx:halign{eqalignno}{#1}}
+\HLet\eqalignno\:tempc
+                                 \catcode`\#13 \catcode`\!6
+\def\reg:eqalignno!1{\Mk:ialign:egroup
+   {$\@lign\displaystyle{#}$%
+&$\@lign\displaystyle{{}#}$%
+&\hbox{$\@lign#$}%
+}{eqalignno}{!1}#{}}
+                                 \catcode`\#=6 \catcode`\!=12
+\NewConfigure{eqalignno}{6}
+\def\:eqalignno:{\Configure{noalign}{}{}}
+\def\:tempc#1{\tx:halign{leqalignno}{#1}}
+\HLet\leqalignno\:tempc
+                                 \catcode`\#13 \catcode`\!6
+\def\reg:leqalignno!1{\Mk:ialign:egroup
+  {$\@lign\displaystyle{#}$%
+&$\@lign\displaystyle{{}#}$%
+&\hbox{$\@lign#$}%
+}{leqalignno}{!1}#{}}
+                                 \catcode`\#=6 \catcode`\!=12
+\NewConfigure{leqalignno}{6}
+
+\def\bigl#1{\mathopen{\big{#1}}}
+\def\bigm#1{\mathrel{\big{#1}}}
+\def\bigr#1{\mathclose{\big{#1}}}
+\def\Bigl#1{\mathopen{\Big{#1}}}
+\def\Bigm#1{\mathrel{\Big{#1}}}
+\def\Bigr#1{\mathclose{\Big{#1}}}
+\def\biggl#1{\mathopen{\bigg{#1}}}
+\def\biggm#1{\mathrel{\bigg{#1}}}
+\def\biggr#1{\mathclose{\bigg{#1}}}
+\def\Biggl#1{\mathopen{\Bigg{#1}}}
+\def\Biggm#1{\mathrel{\Bigg{#1}}}
+\def\Biggr#1{\mathclose{\Bigg{#1}}}
+\def\:tempc{\a:quad}   \HLet\quad\:tempc
+\def\:tempc{\a:qquad}  \HLet\qquad\:tempc
+\NewConfigure{quad}{1}        \Configure{quad}{\o:quad:}
+\NewConfigure{qquad}{1}       \Configure{qquad}{\o:qquad:}
+\def\atop:choose#1#2#3{\a:choose}
+\def\:temp{%
+   \expandafter \ifx\csname a:choose\endcsname\relax \else
+   \ifx\a:choose\empty \else
+      \Configure{atopwithdelims}{\atop:choose}{}%
+   \fi\fi
+   \o:choose:}
+\HLet\choose=\:temp
+\NewConfigure{choose}{1}
+\def\:temp#1#2{\a:mthpl\o:mathpalette:{#1}{#2}\b:mthpl}
+\HLet\mathpalette\:temp
+\NewConfigure{mathpalette}[2]{\c:def\a:mthpl{#1}\c:def\b:mthpl{#2}}
+\Configure{mathpalette}{}{}
+\def\:temp{\relax
+  \ifmmode \expandafter\o:mathpalette:\expandafter\mathph@nt
+  \else  \expandafter\makeph@nt  \fi}
+\HLet\ph@nt\:temp
+\def\:temp{\relax
+  \ifmmode  \expandafter\o:mathpalette:\expandafter\mathsm@sh
+  \else     \expandafter\makesm@sh  \fi}
+\HLet\smash\:temp
+
+\def\:temp #1\of #2{%
+    {\a:root #1\b:root#2\c:root}}
+\HLet\root\:temp
+\NewConfigure{root}{3}
+\NewConfigure{cases}[8]{\c:def\a:cases{#1}\c:def\b:cases{#2}%
+    \c:def\c:cases{#5}\c:def\d:cases{#6}\c:def\e:cases{#7}%
+    \c:def\f:cases{#8}\c:def\g:cases{#3}\c:def\h:cases{#4}}
+\Configure{cases}{}{}{}{}{}{}{}{}
+\def\:tempc#1{\tx:halign{cases}{#1}}
+\HLet\cases\:tempc
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:cases!1{\left\{\vcenter{\normalbaselines\m@th  \g:cases
+   \SaveMkHalignConf:g{cases}\RecallTeXcr
+   \MkHalign#{$#$&{#}}!1\crcr
+   \EndMkHalign\RecallMkHalignConfig   \h:cases}\right.}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc#1{\tx:halign{matrix}{#1}}
+\HLet\matrix\:tempc
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:matrix!1{\null\,\vcenter{\normalbaselines\m@th
+   \SaveMkHalignConf:g{matrix}\RecallTeXcr
+   \MkHalign#{$#$&&$#$}!1\crcr
+   \EndMkHalign\RecallMkHalignConfig}}
+                                    \catcode`\#=6 \catcode`\!=12
+\NewConfigure{matrix}{6}
+\:CheckOption{no-pmatrix} \if:Option \else
+   \def\:temp#1{\a:pmatrix\o:pmatrix:{#1}\b:pmatrix}
+\HLet\pmatrix\:temp
+\NewConfigure{pmatrix}{2}
+
+\fi
+\def\:temp#1{\relax\ifvmode\leavevmode\fi
+   \a:overline\hbox{${\HCode{}}#1$}\b:overline}
+\HLet\overline\:temp
+\NewConfigure{overline}{2}
+
+\footline={\hfil}   \headline={\hfil}
+
+\:CheckOption{plain-} \if:Option \else
+   \Log:Note{for reduced implementation,
+       use the command line option `plain-'}
+   \def\textindent#1{\indent \ifx \EndPicture\:UnDef \expandafter\hbox
+   \else\expandafter\llap\fi {{#1\enspace}}\ignorespaces}
+\def\:temp#1{\:ilist \let\:ilist\empty
+   \def\EnditemList{\end:ilist \let\EnditemList\empty}%
+   \a:item {#1}\b:item}
+\HLet\item\:temp
+\long\def\c:item:#1#2#3#4{
+   \let\EnditemList\empty
+   \c:def\:ilist{#1}
+   \c:def\end:ilist{#2\c:def\:iilist{#1}}
+   \c:def\a:item{#3}
+   \c:def\b:item{#4}}
+\pend:def\line{\ifx \EndPicture\:UnDef \hbox{\ht:everypar{}\a:line}\fi}
+\pend:def\narrower{\ifx \EndPicture\:UnDef
+    \aftergroup\b:narrower \a:narrower \fi}
+
+   \def\:temp#1{\:iilist \let\:iilist\empty
+   \def\EnditemitemList{\end:iilist \let\EnditemitemList\empty}%
+   \a:iitem {#1}\b:iitem}
+\HLet\itemitem\:temp
+\long\def\c:itemitem:#1#2#3#4{
+   \let\EnditemitemList\empty
+   \c:def\:iilist{#1}%
+   \c:def\end:iilist{#2\c:def\:iilist{#1}}
+   \c:def\a:iitem{#3}
+   \c:def\b:iitem{#4}}
+
+\fi
+             
+\Hinput{plain}
+\endinput
+

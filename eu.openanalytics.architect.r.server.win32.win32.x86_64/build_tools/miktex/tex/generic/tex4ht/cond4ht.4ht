@@ -1,0 +1,746 @@
+%Needs: tex cond4ht.4ht
+%% begin comment 29/09/2016 (dg)
+%% detaching mktex4ht.cnf as
+%% a separate file mktex4ht-cnf.tex (copy of mktex4ht.cnf)
+%% end
+\def\ConfigFiles{\input mktex4ht-cnf.tex}  %  Please, modify the bodies of the
+\def\mkfilename{mktex4ht.4ht}          %  first four macros.
+                                       %  The input file should consist
+                                       %  of records \AddFile{i}{name}
+                             % where i stands for a priority number
+                             % in the range 0--9, and name stands for
+                             % for a sty/cls file name. For instance,
+                             %
+                             % \AddFile{1}{latex}   \AddFile{2}{article}
+                             % \AddFile{5}{amsmath} \AddFile{2}{report} ...
+
+% cond4ht.4ht (2020-10-16-13:47), generated from tex4ht-cond4ht.tex
+% Copyright 2009-2019 TeX Users Group
+% Copyright 1997-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2020-10-16-13:47}
+
+
+\ifx \BREAK\UnDef
+  \def\BREAK{^^J}
+  \input common.tex
+\fi
+
+
+\ifx \OutputCode\UnDef
+
+\def\next{
+  \input tex4ht.sty \Preamble{html}\EndPreamble
+  \input ProTex.sty
+  \AlProTex{sty,<<<>>>,|,title,list,[[]],ClearCode}
+}
+\def\BYE{\csname bye\endcsname}
+\expandafter \next
+\fi
+
+
+\expandafter\def\csname lit0\endcsname{}
+\expandafter\def\csname lit1\endcsname{}
+\expandafter\def\csname lit2\endcsname{}
+\expandafter\def\csname lit3\endcsname{}
+\expandafter\def\csname lit4\endcsname{}
+\expandafter\def\csname lit5\endcsname{}
+\expandafter\def\csname lit6\endcsname{}
+\expandafter\def\csname lit7\endcsname{}
+\expandafter\def\csname lit8\endcsname{}
+\expandafter\def\csname lit9\endcsname{}
+\def\infostyles{}
+\def\hookstyles{}
+\def\XXXXs{}
+
+\def\litstyles{%
+    \csname lit0\endcsname\BREAK
+    \csname lit1\endcsname\BREAK
+    \csname lit2\endcsname\BREAK
+    \csname lit3\endcsname\BREAK
+    \csname lit4\endcsname\BREAK
+    \csname lit5\endcsname\BREAK
+    \csname lit6\endcsname\BREAK
+    \csname lit7\endcsname\BREAK
+    \csname lit8\endcsname\BREAK
+    \csname lit9\endcsname
+}
+      \HAssign\AddFileN = -3
+
+\catcode`\!=14 \catcode`\%=12
+\def\AddFile#1#2{!
+!   \csname append:def\endcsname\hookstyles{\string\LitRow{#2}}!
+   \APPENDHOOK{\string\LitRow{#2}}!
+   \csname expand:after\endcsname{\csname append:def\endcsname}\csname  !
+           lit#1\endcsname{\string\lit\string{#2\string}}!
+   \ifnum\AddFileN<0\else \csname append:def\endcsname\XXXXs{,}\fi !
+   \ifnum \AddFileN=4  !
+      \HAssign\AddFileN = 0 !
+      \csname append:def\endcsname\XXXXs{\BREAK\space\space\space} !
+      \csname expand:after\endcsname{\csname !
+               append:def\endcsname}\csname lit#1\endcsname{\BREAK}!
+!      \csname append:def\endcsname\hookstyles{\BREAK}!
+   \fi !
+   \csname append:def\endcsname\XXXXs{#2}!
+   \ifnum \AddFileN<0  \HAssign\AddFileN = 2 \fi !
+   \HAdvance\AddFileN by 1  !
+   \csname append:def\endcsname\infostyles{\info.#2.}!
+}
+\catcode`\!=12 \catcode`\%=14
+
+
+\def\getNextLit#1#2#3{\def\nextLit{#3 }\def\NextLit{#3}}
+
+\def\APPENDHOOK#1{%
+   \getNextLit#1%
+   \expandafter\let\expandafter\hookstyles\expandafter\empty
+   \expandafter\sorthooks\hookstyles{}{}{}}
+
+\def\sorthooks#1#2#3{%
+   \if !#3!%
+          \expandafter\expandafter\csname append:def\endcsname
+          \expandafter\hookstyles\expandafter{\expandafter\string
+          \expandafter\LitRow\expandafter{\NextLit}}%
+   \else
+      \def\comp{0}%
+      \expandafter\compare\nextLit<>#3 <>%
+      \ifnum \comp<0
+          \expandafter\expandafter\csname append:def\endcsname
+          \expandafter\hookstyles\expandafter{\expandafter\string
+          \expandafter\LitRow\expandafter{\NextLit}}%
+          \let\next=\resthooks
+      \else
+          \let\next\sorthooks
+      \fi
+      \csname append:def\endcsname\hookstyles{#1#2{#3}}%
+      \expandafter\next
+   \fi}
+
+\def\resthooks#1#2#3{%
+   \if !#3!%
+   \else
+      \csname append:def\endcsname\hookstyles{#1#2{#3}}%
+      \expandafter\next
+   \fi}
+
+
+\def\compare#1#2<>#3#4<>{%
+   \ifnum `#1<`#3\def\comp{-1}\let\next=\relax
+   \else \ifnum `#1>`#3\def\comp{1}\let\next=\relax
+   \else \def\next{\compare#2<>#4<>}%
+         \if !#2!\let\next=\relax  \fi
+         \if !#4!\let\next=\relax  \fi
+         \def\tempa{#2}\def\tempb{#4}%
+         \ifx \tempa\space
+             \ifx \tempb\tempa \else \def\comp{-1}\fi
+             \let\next=\relax
+         \else\ifx \tempb\space \def\comp{1}\let\next=\relax
+         \fi\fi
+   \fi\fi
+   \next
+}
+
+\HAssign\resthookN=0
+\def\hookstylesBreaks#1#2#3{%
+   \if !#3!\else
+      \csname append:def\endcsname\hookstyles{#1#2{#3}}%
+      \HAdvance\resthookN by 1
+      \ifnum \resthookN=4
+          \csname append:def\endcsname\hookstyles{\BREAK}%
+          \HAssign\resthookN=0
+      \fi
+      \expandafter\hookstylesBreaks
+   \fi}
+
+\def\finalizeHooks{%
+   \expandafter\let\expandafter\hookstyles\expandafter\empty
+   \expandafter\hookstylesBreaks\hookstyles{}{}{}}
+
+
+
+
+
+
+\ConfigFiles
+
+
+
+
+
+
+\finalizeHooks
+
+\catcode`\%=12
+
+\def\hook.#1.{\BREAK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\BREAK
+ \string\section\string{#1\string}\string\rightline
+   \string{\string\Link\string{#1-b\string}\string
+   {#1-a\string}info\string\EndLink\string}\BREAK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\BREAK
+\BREAK
+\string\<configure 4ht #1\string\><<<  \BREAK
+\BREAK
+>>>\BREAK\BREAK
+}
+
+
+\def\info.#1.{\BREAK \BREAK\BREAK
+   \string\def\string\infolink{[\string\Link\string{#1-a\string}\string
+             {#1-b\string}up\string\EndLink] \string\gdef
+             \string\infolink{}}\BREAK
+   \string\section{#1}\BREAK\BREAK
+\string\begin\string{verbatim\string}\BREAK
+\<info 4ht #1\>
+\string\end\string{verbatim\string}\BREAK
+}
+
+\def\lit.#1.{\BREAK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\BREAK
+\space\space\space\space\space\space\space\space
+\space\space\space\space\space\space\space\space
+  |<configure 4ht|>\string{#1\string}   \BREAK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\BREAK
+\space\space\space\space       |<configure 4ht #1|>
+\space\space  \<end configure 4ht\>                 \BREAK}
+
+\catcode`\%=14
+
+
+
+
+
+\<*.4ht out of order\><<<
+\Hinclude{\@ifpackageloaded{colortbl}{%
+      \no:dupl{array}{\input  array.4ht}%
+      \no:dupl{color}{\input  color.4ht}%
+      \no:dupl{colortbl}{\input  colortbl.4ht}%
+    }{}}{colortbl}
+>>>
+
+\<set Hinclude\><<<
+
+\<Hinclude plain\><<<
+\ifx \contextversion\Un:def
+   \Hinclude{\input #1.4ht}{plain}
+   \def\:temp{t}%
+   \ifx \eplain\:temp
+      \Hinclude{\input #1.4ht}{eplain}
+   \fi
+   ||<include mex||>
+   \ifx \d@nger\:UnDef \else
+      \let\leftheadline\empty
+      \let\rightheadline\empty
+      \Hinclude{\input #1.4ht}{manmac}
+   \fi
+\else
+   \Hinclude{\input #1.4ht}{context}
+\fi
+>|empty>>
+
+\<Hinclude latex\><<<
+\Hinclude{\input #1.4ht}{latex}
+>|empty>>
+
+\<Hinclude plain lib\><<<
+||<Hinclude util||>
+>|empty>>
+
+\<Hinclude latex lib\><<<
+||<Hinclude util||>
+>|empty>>
+
+\<Hinclude plain + latex lib\><<<
+||<Hinclude util||>
+>|empty>>
+
+
+
+
+\<include mex\><<<
+\def\:temp{M\kern-.111em\lower.6ex\hbox{E}\kern-.075emX}
+\ifx \nM@X\:temp
+   \expandafter\ifx\csname emulateplain\endcsname\relax \else
+     \Hinclude{\input #1.4ht}{mex}
+\fi\fi
+>|empty>>
+
+
+
+Style files, like xy, may be loaded in latex with \verb'\usepackage' or
+\verb'\input'.  The latter case doesn't leave footprints, hence we need for
+it an explicitly check. On the other hand, we should avoid duplications.
+
+\<Hinclude util\><<<
+\expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+>|empty>>
+
+
+
+
+\<Hinclude plain lib\><<<
+\Hinclude{\def\:temp{\ht:everypar={\setbox0=\lastbox\ht:everypar={}}}%
+   \ifx \NoindentAfter\:temp
+      \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {osudeG}
+\Hinclude{\ifx\amstexloaded@\relax
+     \no:dupl{#1}{
+      \ifx  \Space@\:UnDef   \expand:after{\input #1.4ht} %
+      \else                  \input vanilla.4ht  \fi}%
+   \fi}
+   {amstex}
+\Hinclude{\expandafter\ifx \csname amsppt.sty\endcsname\relax \else
+       \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {amsppt}
+\Hinclude{\ifx \texinfoversion\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input texinfo.4ht}}\fi}
+   {texinfo}
+\Hinclude{\ifx \thistubstyle\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input tugboat.4ht}}\fi}
+   {tugboat}
+>|empty>>
+
+
+
+\<Hinclude latex lib\><<<
+\ifx\InputIfFileExists\UnDef%
+\def\input:if:fileexists#1#2#3{%
+   \openin15 #1.4ht%
+   \ifeof15%
+   #3%
+   \else%
+   \input #1%
+   \fi\closein15%
+}%
+\else
+\let\input:if:fileexists\InputIfFileExists%
+\fi%
+\Hinclude{\input #1.4ht}{fontmath}
+|<*.4ht out of order|>
+\def\:strip:quotes"#1"#2"#3\relax{\if .#1.#2\else #1\fi}
+\def\h:input#1.#2.#3!*?: {%
+   \edef\:current:package{\:strip:quotes"#1""\relax}
+   \:CheckOption{no_\:current:package}\if:Option
+      \let\:temp\empty
+   \else
+      \let\:temp\empty
+      \no:dupl{\:current:package}{%
+        \def\:warn:msg{}
+        \:CheckOption{debug}\if:Option
+          \def\:warn:msg{%
+            \:warning{No configuration file for \:current:package.\if .#2.tex\else #2\fi}%
+          }
+        \fi%
+        \def\:temp{\input:if:fileexists{\:current:package.4ht}{}{\:warn:msg}}%
+       }%
+   \fi  \:temp}
+\edef\:temp{\noexpand\Hinclude
+   {\noexpand\h:input ##1..!*?: }{\@filelist}}
+\:temp
+>|empty>>
+
+
+
+\<Hinclude plain + latex lib\><<<
+\Hinclude{\ifx \PsfigVersion\:UnDef \else
+      \no:dupl{#1}{\expand:after{\input psfig.4ht}}\fi}
+   {psfig}
+\Hinclude{\:CheckOption{#1}
+   \if:Option     \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pictex}
+\Hinclude{%
+   \expandafter\ifx \csname PSTricksLoaded\endcsname\relax\else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pstricks}
+\Hinclude{%
+   \ifx \:DraCatCodes\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {dratex}
+\Hinclude{%
+   \ifx \xyloaded\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {xy}
+
+\Hinclude{%
+   \ifx \epsfsetgraph\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {epsf}
+
+\Hinclude{%
+   \ifx \diagram@help@messages\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {diagrams}
+
+\Hinclude{%
+   \ifx \figvisu\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {fig4tex}
+
+\Hinclude{|<pctex table 4ht|>}
+   {pctable}
+\Hinclude{%
+   \:CheckOption{xhtml}\if:Option |<xhtml.4ht|>\fi}
+   {xhtml}
+\Hinclude{\:CheckOption{#1}
+      \if:Option\else   \:CheckOption{ShowFont}\fi
+      \if:Option\else   \:CheckOption{frames-}\fi
+      \if:Option\else   \:CheckOption{frames}\fi
+      \if:Option\else   \:CheckOption{image-maps}\fi
+      \if:Option\else   \:CheckOption{java}\fi
+      \if:Option\else   \:CheckOption{javascript}\fi
+      \if:Option \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {th4}
+\Hinclude{\ifx \sethebrew\:UnDef\else \ifx \ArabTeX\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input hebtex.4ht}}\fi \fi}
+   {hebtex}
+>|empty>>
+
+
+
+\<pctex table 4ht\><<<
+\ifx \BeginTable\:UnDef \else\ifx \EndTable\:UnDef \else
+\expandafter\ifx \csname !ttBeginTable\endcsname\relax\else
+  \no:dupl{#1}{\input #1.4ht}%
+\fi\fi\fi
+>|empty>>
+
+
+
+>>>
+
+
+
+
+{\tt \string\EXIST} is needed for styles/classes not coming from
+tex4ht-4ht, e.g., for adding cases to {\tt\string\exit:ifnot}.
+
+
+\input tex4ht-cpright % needed for this generation:
+
+\<\mkfilename\><<<
+% \def\HTML{...}  \def\CONFIG{...}  \def\MAKETITLE{...}  \def\EXIST{...}
+% \def\OPTIONS{...}  \def\PREAMBLE{...}
+%
+%  Compile this file with the command `xhlatex |mkfilename',
+%  and read the instructions at mktex4ht.html => index => mktex4ht.
+%
+%  The compilation needs the files ProTex.sty & AlProTex.sty from
+%    http://ctan.org/pkg/protex
+%
+%  This file is designed for machines--not human beings! You
+%  are strongly advised not to look at the code which follows
+%  the copyright notice.
+%
+% |mkfilename (|version), generated from |jobname.4ht
+% Copyright 2009-2019 TeX Users Group
+% Copyright 1997-2009 Eitan M. Gurari
+|<TeX4ht copywrite|>
+
+|<list of info files|>
+
+\openin15=ProTex.sty \ifeof15
+    \immediate\write16{--- Needs ProTex.sty \& AlProTex.sty
+    from http://ctan.org/pkg/protex --}
+\fi  \closein15
+
+
+
+\edef\RecallCats{\catcode`\noexpand\^=\the\catcode`\^} \catcode`\^=7
+\catcode`\%=12 \catcode`\!=14  \catcode`\^^M=13   \catcode`\:=11
+\def\lit#1{
+\expandafter\ifx\csname !
+     cw:)\clearcode:id P:configure \HTML\space #1\endcsname\relax !
+!  % no code for <configure \HTML\space #1> !
+\else !
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\space\space\space\space\space\space\space\space!
+\space\space\space\space\space\space\space\space!
+ \string\ConfigureHinput\string{#1\string}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\space\space\space\space       \<configure \HTML\space #1\>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\space\space
+  \string\endinput\string\empty\string\empty\string\empty\string\empty !
+  \string\empty\string\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fi !
+}
+\catcode`\%=14  \catcode`\!=12
+
+\def\GetLit#1,{\def\HTML{#1}\ifx \HTML\empty
+   \def\GetLit##1!*?: {}\else%
+   \section{Container of \HTML.4ht}
+   \expandafter\ifx\csname YES\HTML\endcsname\relax\else
+      \<\HTML\><<<
+          \string\exit:ifnot{\csname YES\HTML\endcsname}
+      >>|empty>
+   \fi
+   \<\HTML\><<<
+   |litstyles
+   \ifx \EXIST\UnDef\else \expandafter\moreLit\EXIST,,//\fi
+   \string\endinput
+ >>|empty>  \LitFile  \fi \GetLit}
+\catcode`\^^M=5  \RecallCats
+
+\def\moreLit#1,{\if !#1!\expandafter\SofLit\else
+   \lit{#1}\expandafter\moreLit\fi}
+\def\moreLitRow#1,{\if !#1!\expandafter\SofLit\else
+   \LitRow{#1}\expandafter\moreLitRow\fi}
+\def\SofLit#1//{}
+
+\def\LitFile{\OutputCode[4ht]\<\HTML\>}
+
+\def\cleancom#1,#2(){#1}
+\def\LitRow#1{%
+   \let\next=\LitCols   \def\RowTp{#1}%
+   \HCode{<tr align="center"><td align="left">}\ifx \RowTp\empty \else
+       \edef\temp{\noexpand\Link[\noexpand\cleancom
+          \RefFile{f-#1}}\temp,()]{}{b-#1}#1\EndLink \fi \HCode{</td>}%
+   \HAssign\curf=0
+   \ifx \HTML\:UnDef
+          \expandafter\LitCols\infosources,,!*?: 
+   \else  \expandafter\LitCols\HTML,,!*?: \fi
+   \HCode{</tr>}%
+}
+\def\LitCols#1,{\def\temp{#1}\ifx \temp\empty
+   \def\next##1!*?: {}\else%
+   \ifx \RowTp\empty  \HCode{<th>}\Vth#1:\HCode{</th>}\else
+     \HCode{<td>}\expandafter\ifx\csname
+     cw:)\clearcode:id P:configure #1 \RowTp\endcsname\relax
+   |<non-code pointer|>\else \LinkPort\<configure #1 \RowTp\>*\EndLink
+      \expandafter\edef\csname YES#1\endcsname{%
+         \expandafter\ifx \csname YES#1\endcsname\relax\else
+            \csname YES#1\endcsname,\%\Hnewline\fi \RowTp}%
+\fi
+     \HCode{</td>}\fi
+     \fi
+   \next }
+
+\def\Vth#1{\if #1:\else #1\expandafter\VTH\fi}
+\def\VTH#1{\if #1:\else \HCode{<br />}#1\expandafter\VTH\fi}
+
+\expandafter\def\csname html4hook\endcsname{%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for bootstrapping, when html4.4ht is not available %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifx \b:HEAD\UnDef
+%   \let\tbl:XV=\empty
+   \let\:Hii=\empty
+   \let\End:Hii=\empty
+   \let\:SPAN=\empty
+   %
+\expandafter\def\csname html4hook\endcsname{%
+   \csname newcount\endcsname\pageno
+   \Configure{HtmlPar}{}{}{}{}
+   \Configure{HEAD}{}{}
+   \Configure{CssFile}{}{}
+   \Configure{HTML}{}{}
+   \Configure{TITLE}{}{}
+   \Configure{BODY}{}{}
+   \Configure{Css}{foo}
+   \Configure{TITLE+}{}
+   \Configure{HPageTITLE+}{}
+} \csname html4hook\endcsname
+\fi
+}
+   \catcode`\:=12
+
+
+
+\documentclass{book}
+   \ifx \HCode\UnDef
+      \def\temp{\usepackage[\ifx \OPTIONS\UnDef
+                     xhtml,3,sections+\else \OPTIONS\fi]{tex4ht}}
+      \expandafter\temp
+   \fi
+   \Configure{ProTex}{4ht,<<<>>|empty>,||,title,list,[[]]}
+   \csname PREAMBLE\endcsname
+\begin{document}
+
+\ifx \OPTIONS\UnDef
+   \TocAt{section,subsection}
+\fi
+
+\title{TeX4ht: \ifx\HTML\UnDef Seeded Hooks\else Configuration Files\fi}
+\ifx \MAKETITLE\UnDef \else \expandafter\MAKETITLE\fi
+
+\maketitle
+
+
+
+\noindent
+[\HPage{index}
+\HCode{<table>}\LitRow{}|hookstyles
+\ifx \EXIST\UnDef\else \expandafter\moreLitRow\EXIST,,//\fi
+\ifvmode \IgnorePar\fi\EndP \HCode{</table>}
+\IgnoreIndent\par\rightline{[\ExitHPage{}]} \EndHPage{}]
+       \ifx \HTML\UnDef
+\par
+\let\LitFile=\empty
+  \def\HTML{replace-with-file-name}
+\immediate\write16{-- Missing definition for \noexpand\HTML --}
+See {\tt index => mktex4ht} for directions on how to create
+configuration files with `mktex4t.4ht'.\par
+WARNING: Missing definition for {\tt \string\HTML }
+\else
+[\HPage{the 4ht files}
+\def\Comma{\def\Comma{, }}
+\def\LitFiles#1,{\def\temp{#1}\ifx \temp\empty
+   \def\LitFiles##1!*?: {}\else
+   \Comma\Link[#1.4ht]{}{}#1.4ht\EndLink \fi
+   \LitFiles }
+   \expandafter\LitFiles\HTML,,!*?: 
+\par\ShowPar[\ExitHPage{}] \EndHPage{}]
+ \fi
+
+
+
+\ifx \CONFIG\UnDef
+WARNING: Missing definition for {\tt \string\CONFIG }
+\fi
+
+\IgnorePar\EndP
+
+
+
+
+\ifx \CONFIG\UnDef
+\immediate\write16{-- Missing definition for \noexpand\CONFIG --}
+\else
+\def\temp{\input \CONFIG}\expandafter\temp
+\fi
+
+
+
+\tableofcontents
+
+\chapter{Utilities}
+
+|<set Hinclude|>
+
+%% begin comment 29/09/2016 (dg)
+%% file \jobname.4ct does not exist on first run;
+%% it should be available on second and third run
+%% end
+\newif\ifFirstPass\FirstPassfalse
+\openin15=\Jobname.4ct
+  \ifeof15
+    \FirstPasstrue
+    \message{^^J warning *********** FIRST PASS **************************** ^^J}
+  \fi
+\closein15
+
+
+\chapter{Containers for the Configurations}
+
+%%
+%% Skip processing lit entries on first pass
+%%
+
+\ifFirstPass\else
+
+   \catcode`\:=11
+\expandafter\GetLit\HTML,,,!*?: \relax
+   \catcode`\:=12
+
+\fi
+
+|<include info4ht|>
+
+
+\end{document}
+\endinput
+>>>
+
+\<include info4ht\><<<
+\bgroup
+    \catcode`\:=11      \catcode`\@=0 \catcode`\\=11 @relax
+
+  @def@infoIVht[#1]#2//{@bgroup
+     @no:catcodes0{255}{11}%
+     @no:catcodes{47}{47}{12}% /
+     @def@infoIVht##1\ConfigureHinput{@egroup
+         @let@ConfigureHinput=@ConfigureHINPUT @ConfigureHinput}%
+       @infoIVht }
+
+  @def@ConfigureHINPUT#1{@bgroup
+     @no:catcodes0{255}{11}%
+     @no:catcodes{47}{47}{12}% /
+     @no:catcodes{13}{13}{13}% ^^M
+     @no:catcodes{32}{32}{13}% ^^M
+     @def@ConfigureHinput##1//##2//##3\ifx\infoIVht##4\endinput{@egroup
+       @HPage[f@curf-#1]{#1}%
+         @rightline{@Link{b-#1}{}up@EndLink}@ShowPar@par@textbf{#1}@par
+       @verbshow{##3}@rightline{@Link{b-#1}{}up@EndLink}%
+       @EndHPage{}@par@ShowPar}@ConfigureHinput}
+
+@bgroup
+   @catcode `[= 1  @catcode`]=2 @catcode `@{=12 @catcode `@}=12
+   @catcode`@\=12
+   @long@gdef@verbshow#1[@begin[verbatim]#1\end{verbatim}]
+@egroup
+
+@catcode`@\=0     \catcode`\:=12      \catcode`\@=12  \relax
+
+
+\def\curf{}  \input info4ht.4ht
+\ifx \HTML\empty
+    \HAssign\curf=0
+    \def\nextinfo#1,{\if !#1!\def\nextinfo##1//{}
+        \else  \HAdvance\curf by 1
+               \input #1.4ht \expandafter\nextinfo
+        \fi
+    }
+    \expandafter\nextinfo\infofiles,,//%
+\fi
+\egroup
+
+>>>
+
+\<list of info files\><<<
+\def\infofiles{infoht4,infomml}
+\def\infosources{html4,mathml}
+>>>
+
+\<non-code pointer\><<<
+\HAdvance\curf by 1\relax
+\expandafter\ifx \csname  cw:f\curf-\RowTp(L \endcsname\relax
+ -\else\Link[\csname  cw:f\curf-\RowTp(L \endcsname]{}{}*\EndLink
+\fi
+>>>
+
+
+%%
+%% set a hook for skipping mktex4ht.4ht generation from tex4ht-4ht.tex
+%% The file should be generated when cond4ht.4ht is processed,
+%% not when tex4ht-4ht.
+%%
+%%
+\csname Skipmkfilename\endcsname
+  \expandafter\OutputCodE\expandafter\<\mkfilename\>
+
+\csname BYE\endcsname
+\endinput
+
+

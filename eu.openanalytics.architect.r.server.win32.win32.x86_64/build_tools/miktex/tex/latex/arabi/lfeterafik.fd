@@ -1,0 +1,25 @@
+%%
+%% This is file `lfeterafik.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lfeterafik.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+
+
+\DeclareFontFamily{LFE}{terafik}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LFE}{terafik}{m}{n}{<-> s*[1.25] terafik }{}
+\DeclareFontShape{LFE}{terafik}{b}{n}{<-> s*[1.25] terafikb }{}
+\DeclareFontShape{LFE}{terafik}{bx}{n}{<-> ssub * terafik/b/n }{}
+
+
+\endinput

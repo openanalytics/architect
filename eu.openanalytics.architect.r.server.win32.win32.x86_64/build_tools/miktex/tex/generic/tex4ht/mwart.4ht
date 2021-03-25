@@ -1,0 +1,307 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% mwart.4ht                             2019-12-19-14:27 %
+% Copyright (C) 2003-2009       Eitan M. Gurari         %
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+  \NewConfigure{caption}[4]{\c:def\cptA:{#1}\c:def\cptB:{#2}%
+   \c:def\cptC:{#3}\c:def\cptD:{#4}}
+\long\def\@makecaption#1#2{%
+   {\cptA: \cap:ref{#1}%
+ \if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
+
+\pend:def\caption{\SkipRefstepAnchor}
+
+\append:def\quote{\par\@totalleftmargin\z@}
+
+\long\def\c:theindex:#1#2#3#4#5#6#7#8#9{%
+   \def\theindex{%
+      \def\idx:item{\SaveEverypar\ht:everypar{}#1}%
+      \def\endtheindex{\idx:item#2\RecallEverypar}%
+      \def\item{\idx:item\def\idx:item{#4}\let\index\@gobble #3}%
+      \def\subitem{\idx:item\def\idx:item{#6}\let\index\@gobble #5}%
+      \def\subsubitem{\idx:item\def\idx:item{#8}\let\index\@gobble #7}}%
+   \def\indexspace{\idx:item#9\let\idx:item\empty}}
+\def\warn:idx#1{%
+  \expandafter\ifx \csname #1warn:idx\endcsname\relax
+     \expandafter\global
+         \expandafter\let \csname #1warn:idx\endcsname\def
+     \writesixteen
+        {---------------------------------------------------------}%
+     \:warning{If not done so, the index is to be processed by
+      ^^J\space\space tex '\string\def\string\filename
+         {{#1}{idx}{4dx}{ind}} \noexpand\input\space idxmake.4ht'
+      ^^J\space\space  makeindex -o #1.ind #1.4dx
+      ^^Jinstead of
+      ^^J\space\space  makeindex -o #1.ind #1.idx
+      ^^JOn some platforms, the quotation marks ' should be
+      ^^J      replaced by double quotation marks " or eliminated.
+      ^^J---------------------------------------------------------
+     }%
+     {\Configure{Needs}{File: #1.4idx}\Needs{}}%
+  \fi}
+\ifOption{info}{\Log:Note{
+A script of the form
+^^Jtex '\def\string\filename{{\%\%1}{idx}{4dx}{ind}}
+                                       \string\input\space  idxmake.4ht'
+^^Jmakeindex -o \%\%1.ind \%\%1.4dx
+^^Jin the env file, automatically calls to the revised makeindex
+^^Jcommand.  An extra compilation of the source LaTeX file is required,
+^^Jto get the index correctly into the output.}}{}
+\def\ind:defs{\let\LNKidx\empty
+   \def\LNK##1##2##3##4{\ifx\NewConfigure\:UnDef\else
+        \def\LNK:number{##4}%
+        \a:LNK[##1]{##2}{}\gHAdvance\:LNKno1
+           \def\:THIrd{##3}\ifx\:THIrd\empty
+              \LNKidx{\ifx\c:LNK\empty\:LNKno\else \c:LNK\fi}\else
+              \LNKidx{##3}\fi
+           \global\let\LNKidx\empty
+        \b:LNK
+      \fi}%
+   \def\:LNKno{0}}
+\NewConfigure{LNK}{3}
+\Configure{LNK}{\Link}{\EndLink}{}
+\def\yhbLNK#1{\expandafter\let\expandafter\LNKidx\csname
+          #1\endcsname\LNK}
+
+\Configure{@begin}{theindex}{\ind:defs}
+
+
+\append:def\quotation{\a:quotation\par\@totalleftmargin\z@}
+\NewConfigure{quotation}{1}
+\NewConfigure{listof}{6}
+
+
+% We removed this code from base class declarations, so we can disable it here as well
+% \ifx \@openbib@code\:UnDef \else
+%  \pend:def\@openbib@code{\labelsep\z@}
+% \fi
+% \def\:temp#1#2!*?: {\def\:temp{#1}}
+% \expandafter\:temp\usepackage!*?:
+% \def\:tempa{\@latex@e@error}
+% \ifx \:temp\:tempa \else
+%    \def\:tempa#1#2#3#4{\tmp:toks{#1{#2}}%
+%    \long\expandafter\edef\csname #4 \endcsname{\the\tmp:toks
+%         {\expandafter\noexpand
+%    \csname o:\expandafter\:gobble\string #3:\endcsname}}}
+% \def\:temp#1{%
+%   \expandafter\expandafter\expandafter\:tempa\csname #1 \endcsname{#1}}
+% \:temp{rm}
+% \:temp{sf}
+% \:temp{tt}
+% \:temp{bf}
+% \:temp{it}
+
+% \fi
+
+  \let\:tempc\listoffigures
+\pend:def\:tempc{\begingroup \a:listoffigures
+   \def\@starttoc{\:tableofcontents[lof]\:gobble}}
+\append:def\:tempc{\b:listoffigures \endgroup}
+\HLet\listoffigures\:tempc
+\let\:tempc\listoftables
+\pend:def\:tempc{\begingroup \a:listoftables
+   \def\@starttoc{\:tableofcontents[lot]\:gobble}}
+\append:def\:tempc{\b:listoftables \endgroup}
+\HLet\listoftables\:tempc
+
+  \NewConfigure{listoffigures}{2}
+\NewConfigure{listoftables}{2}
+
+  \let\o:maketitle:\maketitle
+\def\maketitle{\bgroup
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+   \ifx \EndPicture\:UnDef
+      \def\sec:typ{title}%
+      \Configure{HtmlPar}{}{}{}{}%
+      \Configure{newpage}{}%
+      \ConfigureEnv{center}{\empty}{}{\empty}{\empty}
+      \let\a:tabular:sv\a:tabular \let\b:tabular:sv\b:tabular
+\let\c:tabular:sv\c:tabular \let\d:tabular:sv\d:tabular
+\let\e:tabular:sv\e:tabular \let\f:tabular:sv\f:tabular
+\let\before:begintabular:sv\before:begintabular
+%
+      \Configure{tabular}{}{}{}{\e:mktl}
+        {\bgroup \let\a:tabular\a:tabular:sv \let\b:tabular\b:tabular:sv
+\let\c:tabular\c:tabular:sv \let\d:tabular\d:tabular:sv
+\let\e:tabular\e:tabular:sv \let\f:tabular\f:tabular:sv
+\let\before:begintabular\before:begintabular:sv
+}{\egroup}
+      \ConfigureEnv{tabular}{\empty}{}{}{}%
+      %
+      \pend:def\@title{\a:ttl}\append:def\@title{\b:ttl}%
+      \pend:def\@date{\a:date}\append:def\@date{\b:date}%
+      \pend:def\@author{\a:author}\append:def\@author{\b:author}%
+      \def\and{\a:and}
+%
+   \fi
+   \pic:gobble\a:mktl  \o:maketitle:  \pic:gobble\b:mktl
+   \egroup \let\maketitle\empty}
+\NewConfigure{maketitle}[4]{\c:def\a:mktl{#1}\c:def\b:mktl{#2}%
+   \c:def\a:ttl{#3}\c:def\b:ttl{#4}}
+\NewConfigure{thanks author date and}[8]{%
+   \c:def\a:thanks{#1}\c:def\b:thanks{#2}\c:def\a:author{#3}\c:def\b:author{#4}%
+   \c:def\a:date{#5}\c:def\b:date{#6}\c:def\a:and{#7}\c:def\e:mktl{#8}}
+
+  \let\:o:mw@normalheading\mw@normalheading
+\pend:def\mw@normalheading{\def\mw@HeadingBreakBefore{00}}
+\let\mw:sectionx\mw@sectionx
+\def\mw@sectionx{\everypar{\HtmlPar}\mw:sectionx}
+\append:def\mw@runinheading{%
+  \expandafter\everypar\expandafter{\the\everypar
+    \edef\:temp{\the\everypar}\ifx \:temp\empty \everypar{\HtmlPar}\fi
+  }%
+  \expandafter\everypar\expandafter{\expandafter\HtmlPar\the\everypar}%
+}
+\let\no:section\section
+\Def:Section\section{\thesection}{#1}
+  \let\:temp\no:section
+  \let\no:section\section
+  \let\section=\:temp
+  \let\section:head\section@head
+\Def:Section\likesection{}{#1}
+  \let\:likesection\likesection
+  \let\likesection\:UnDef
+\def\section@head{\ifHeadingNumbered
+   \expandafter\no:section \else \expandafter\:likesection\fi{\HeadingText}}
+\let\no:subsection\subsection
+\Def:Section\subsection{\thesubsection}{#1}
+  \let\:temp\no:subsection
+  \let\no:subsection\subsection
+  \let\subsection=\:temp
+  \let\subsection:head\subsection@head
+\Def:Section\likesubsection{}{#1}
+  \let\:likesubsection\likesubsection
+  \let\likesubsection\:UnDef
+\def\subsection@head{\ifHeadingNumbered \expandafter\no:subsection \else
+   \expandafter\:likesubsection\fi{\HeadingText}}
+\let\no:subsubsection\subsubsection
+\Def:Section\subsubsection{\thesubsubsection}{#1}
+  \let\:temp\no:subsubsection
+  \let\no:subsubsection\subsubsection
+  \let\subsubsection=\:temp
+  \let\subsubsection:head\subsubsection@head
+\Def:Section\likesubsubsection{}{#1}
+  \let\:likesubsubsection\likesubsubsection
+  \let\likesubsubsection\:UnDef
+\def\subsubsection@head{\ifHeadingNumbered
+   \expandafter\no:subsubsection \else \expandafter\:likesubsubsection\fi{\HeadingText}}
+\let\no:paragraph\paragraph
+\Def:Section\paragraph{\theparagraph}{#1}
+  \let\:temp\no:paragraph
+  \let\no:paragraph\paragraph
+  \let\paragraph=\:temp
+  \let\paragraph:head\paragraph@head
+\Def:Section\likeparagraph{}{#1}
+  \let\:likeparagraph\likeparagraph
+  \let\likeparagraph\:UnDef
+\def\paragraph@head{\ifHeadingNumbered
+   \expandafter\no:paragraph \else
+   \expandafter\:likeparagraph\fi{\HeadingText}}
+\let\no:subparagraph\subparagraph
+\Def:Section\subparagraph{\thesubparagraph}{#1}
+  \let\:temp\no:subparagraph
+  \let\no:subparagraph\subparagraph
+  \let\subparagraph=\:temp
+  \let\subparagraph:head\subparagraph@head
+\Def:Section\likesubparagraph{}{#1}
+  \let\:likesubparagraph\likesubparagraph
+  \let\likesubparagraph\:UnDef
+\def\subparagraph@head{\ifHeadingNumbered
+  \expandafter\no:subparagraph \else
+  \expandafter\:likesubparagraph\fi {\HeadingText}}
+\let\no:part\part
+\Def:Section\part{\thepart}{#1}
+  \let\:temp\no:part
+  \let\no:part\part
+  \let\part=\:temp
+  \let\part:head\part@head
+\Def:Section\likepart{}{#1}
+  \let\:likepart\likepart
+  \let\likepart\:UnDef
+\def\part@head{\ifHeadingNumbered
+   \expandafter\no:part \else \expandafter\:likepart\fi{\HeadingText}}
+\Configure{UndefinedSec}{likepart}
+\Configure{UndefinedSec}{likechapter}
+\Configure{UndefinedSec}{likesection}
+\Configure{UndefinedSec}{likesubsection}
+
+  \def\:tableofcontents{\futurelet\:temp\:TOC}
+\def\Auto:ent#1{%
+   \edef\auto:toc{\noexpand\:TableOfContents[\ifx \auto:toc\:UnDef
+      #1\else \auto:toc \fi]}  \auto:toc
+   \global\let\auto:toc\:UnDef }
+\def\:tocs{\noexpand\:tableofcontents}
+\pend:defIII\addcontentsline{%
+   \def\:temp{##1}\def\:tempa{toc}\ifx \:temp\:tempa
+   \gHAdvance\TitleCount  1 \fi }
+\def\@dottedtocline#1#2#3#4#5{\hbox{\def\numberline##1{\e:listof
+                ##1\f:listof}\c:listof#4\d:listof}\ignorespaces}
+\def\@starttoc#1{%
+  \begingroup
+    \makeatletter   \Configure{cite}{}{}{}{}%
+    \def\:temp{#1}\def\:tempa{toc}%
+    \a:listof\par
+    \@input{\jobname.\ifx \:temp\:tempa 4ct\else #1\fi}%
+    \b:listof
+    \if@filesw
+      \expandafter\expandafter\csname
+          newwrite\endcsname\csname tf@#1\endcsname
+      \immediate\openout \csname tf@#1\endcsname \jobname.#1\relax
+    \fi
+    \global\@nobreakfalse
+  \endgroup}
+\NewConfigure{tableofcontents*}[1]{%
+   \def\:tempa{#1}\ifx\empty\:tempa
+      \ifx \au:StartSec\:UnDef \else \gdef\:StartSec{\au:StartSec}\fi
+   \else
+      \edef\auto:toc{#1}%
+         \ifx \au:StartSec\:UnDef
+            \let\au:StartSec\:StartSec
+            \def\:StartSec{\:tableofcontents
+               \global\let\auto:toc\:UnDef \:StartSec}%
+            \pend:def\:tableofcontents{\gdef\:StartSec{\au:StartSec}}%
+   \fi  \fi
+}
+
+  \let\mw@markandtoc=\empty
+\def\tableofcontents{%
+   \ifx\contentsname\empty \else
+      \ifx\contentsname\:UnDef \else
+         \Configure{toToc}{}{likesection}%
+         \section*{\contentsname}%
+         \Configure{toToc}{?}{likesection}%
+   \fi\fi
+   \:tableofcontents}
+\edef\:TOC{%
+   \noexpand\ifx [\noexpand\:temp
+      \noexpand\expandafter\noexpand\:TableOfContents
+   \noexpand\else
+      \noexpand\Auto:ent{\ifnum \c@tocdepth >-2 part,likepart,\fi
+\ifnum \c@tocdepth >\z@  section,likesection,\fi
+\ifnum 2>\c@tocdepth \else subsection,likesubsection,\fi
+\ifnum 3>\c@tocdepth \else subsubsection,likesubsubsection,\fi
+\ifnum 4>\c@tocdepth \else paragraph,likeparagraph,\fi
+\ifnum 5>\c@tocdepth \else subparagraph,likesubparagraph,\fi
+UnDFexyz}%
+   \noexpand\fi}
+
+\Hinput{mwart}
+\endinput
+

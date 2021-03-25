@@ -1,0 +1,14 @@
+.lm-ec
+htfcss: t1xi font-style: italic;
+htfcss: t1xss font-family: sans-serif;
+htfcss: t1xtt font-family: monospace,monospace;
+htfcss: t1xb font-weight: bold;
+htfcss: t1xbi font-weight: bold;
+htfcss: t1xbss font-weight: bold; font-family: sans-serif;
+htfcss: t1xbtt font-weight: bold; font-family: monospace,monospace;
+htfcss: t1xbsl font-weight: bold; font-style: italic;
+htfcss: t1xbsssl font-weight: bold; font-family: sans-serif; font-style: italic;
+htfcss: t1xbttsl font-weight: bold; font-style: italic;
+htfcss: t1xsl font-style: italic;
+htfcss: t1xsssl font-family: sans-serif; font-style: italic;
+

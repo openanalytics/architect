@@ -1,0 +1,24 @@
+%%
+%% This is file `laearomega.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laearomega.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LAE}{aromega}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aromega}{m}{n}{<-> s*[1.25] aromega }{}
+\DeclareFontShape{LAE}{aromega}{b}{n}{<-> s*[1.25] aromegab}{}
+\DeclareFontShape{LAE}{aromega}{bx}{n}{<-> ssub * aromega/b/n}{}
+
+
+\endinput

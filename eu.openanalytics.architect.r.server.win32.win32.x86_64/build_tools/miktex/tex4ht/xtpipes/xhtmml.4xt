@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<xtpipes preamble="yes" signature="xhtmml.4xt (2009-01-20-21:08)">
+   <sax content-handler="xtpipes.util.ScriptsManager"
+        lexical-handler="xtpipes.util.ScriptsManagerLH" >
+     <script element="p" >
+   <dom name="." xml="." method="p" class="tex4ht.XhtmmlUtilities" />
+</script>
+<script element="div" >
+   <dom name="." xml="." method="p" class="tex4ht.XhtmmlUtilities" />
+</script>
+
+     <script element="li" >
+   <dom name="." xml="." method="li" class="tex4ht.XhtmmlUtilities" />
+</script>
+
+     <script element="table" >
+   <dom name="." xml="." method="table" class="tex4ht.XhtmmlUtilities" />
+</script>
+
+     <script element="mrow" >
+   <dom name="." xml="." method="mrow" class="tex4ht.XhtmmlUtilities" />
+</script>
+
+     <script element="math" >
+   <dom name="." xml="." method="math" class="tex4ht.XhtmmlUtilities" />
+   <set name="math-mstyle" >
+   <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      xmlns:h="http://www.w3.org/1999/xhtml"
+      xmlns:m="http://www.w3.org/1998/Math/MathML"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+   <xsl:template match=" m:* [
+      not(self::m:math)
+    and
+      child::m:mstyle[
+           @mathvariant
+         and
+           child::text()
+         and
+           (count(child::m:*) = 0)
+      ]
+    and
+      (count(child::m:*) = 1)
+    and
+      not(@mathvariant)
+] " >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="m:mstyle/@*" />
+     <xsl:apply-templates select="m:mstyle/text()" />
+  </xsl:copy>
+</xsl:template>
+
+         <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="math-mstyle" />
+
+</script>
+
+     <script element="mstyle" >
+   <set name="mstyle" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      xmlns:h="http://www.w3.org/1999/xhtml"
+      xmlns:m="http://www.w3.org/1998/Math/MathML"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match=" m:mstyle [
+                  @mathvariant
+             and
+                  child::m:*[ not(@mathvariant) ]
+             and
+                  (count(child::m:*) = 1)
+] " >
+  <xsl:element name="{name(child::m:*[1])}">
+    <xsl:attribute name="mathvariant" >
+         <xsl:value-of select="@mathvariant" />
+    </xsl:attribute>
+    <xsl:apply-templates select="child::m:*/@*" />
+    <xsl:apply-templates select="
+        child::m:*/*
+        | child::m:*/text()
+        | child::m:*/comment()
+      "
+    />
+  </xsl:element>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="mstyle" />
+</script>
+
+   </sax>
+</xtpipes>
+

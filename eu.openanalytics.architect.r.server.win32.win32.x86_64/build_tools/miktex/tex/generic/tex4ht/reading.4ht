@@ -1,0 +1,60 @@
+% reading.4ht (2016-03-31-10:54), generated from tex4ht-4ht.tex
+% Copyright 2008-2009 Eitan M. Gurari
+% Copyright 2009-2016 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2016-03-31-10:54}
+
+   \def\bbx@thebibitem{%
+  \@itempenalty\z@
+  \itemsep4\bibitemsep
+  \item\relax
+  \@itempenalty\@M
+  \itemsep\bibitemsep
+  \begingroup
+  \samepage\bfseries
+  \def\finentrypunct{\strut}%
+  \ifnum\bbx@head<\tw@
+    \usebibmacro{entryhead:full}%
+    \ifbool{bbx:entrykey}%
+      {\def\newblockpunct{%
+         \nobreak\hskip\z@skip\strut
+         \hfill\penalty100\hskip1em\relax
+         \hbox{}\nobreak\hfill\strut}%
+       \def\finentrypunct{%
+         \parfillskip\z@\finalhyphendemerits\z@
+         \par\nobreak}%
+       \newblock
+       \printfield{entrykey}}%
+      {}%
+  \else
+    \usebibmacro{entryhead:name}%
+  \fi
+  \finentry
+  \endgroup
+  \vskip 1.25pt\relax  `%hrule height`%
+  \item\strut}
+\pend:def\bib@macro@entryhead:name{\a:entryhead}
+\append:def\bib@macro@entryhead:name{\b:entryhead}
+\pend:def\bib@macro@entryhead:full{\a:entryhead:full}
+\append:def\bib@macro@entryhead:full{\b:entryhead:full}
+\NewConfigure{entryhead:name}{2}
+\NewConfigure{entryhead:full}{2}
+
+\Hinput{reading}
+\endinput
+

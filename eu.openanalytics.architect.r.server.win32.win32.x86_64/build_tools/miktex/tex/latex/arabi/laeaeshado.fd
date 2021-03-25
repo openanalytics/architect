@@ -1,0 +1,22 @@
+%%
+%% This is file `laeaeshado.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeaeshado.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LAE}{aeshado}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aeshado}{m}{n}{<-> s*[1.25] aeshado }{}
+\DeclareFontShape{LAE}{aeshado}{bx}{n}{<-> ssub * aeshado/m/n }{}
+
+\endinput

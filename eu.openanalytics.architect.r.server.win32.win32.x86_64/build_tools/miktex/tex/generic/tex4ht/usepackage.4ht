@@ -1,0 +1,69 @@
+% usepackage.4ht (2021-02-07-14:58), generated from tex4ht-4ht.tex
+% Copyright 2003-2009 Eitan M. Gurari
+% Copyright 2009-2021 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2021-02-07-14:58}
+
+   \def\:temp{tex4ht}\ifx \:temp\@currname
+   \:warning{\string\usepackage{tex4ht} again?}
+   \def\:temp#1htex4ht.def,tex4ht.sty#2!*?: {\def\:temp{#2}}
+\expandafter\:temp \@filelist htex4ht.def,tex4ht.sty!*?: %
+\ifx \:temp\empty  \else
+   \:warning{if
+    \string\RequirePackage[tex4ht]{hyperref} or
+    \string\usepackage[tex4ht]{hyperref} was
+    used try instead, repectively,
+    \string\RequirePackage{hyperref} or
+    \string\usepackage{hyperref}}
+\fi
+
+\fi
+\gdef\a:usepackage{\use:package ,!*?: }
+\gdef\use:package#1,{%
+   \if :#1:\def\:temp##1!*?: {}\else
+      \def\:temp{#1}\ifx \@currname\:temp
+             \def\:temp##1!*?: {\input usepackage.4ht  }%
+      \else \let\:temp=\use:package \fi
+   \fi \:temp}
+\Configure{PackageHooks}{cleveref.sty}{cleveref-hooks.4ht}
+\Configure{PackageHooks}{xr.sty}{xr-hooks.4ht}
+\Configure{PackageHooks}{xr-hyper.sty}{xrhyper-hooks.4ht}
+\Configure{PackageHooks}{eso-pic.sty}{esopic-hooks.4ht}
+\Configure{PackageHooks}{showframe.sty}{showframe-hooks.4ht}
+\Configure{PackageHooks}{expl3.sty}{expl3-hooks.4ht}
+\Configure{PackageHooks}{savetrees.sty}{savetrees-hooks.4ht}
+\Configure{PackageHooks}{newcomputermodern.sty}{newcomputermodern-hooks.4ht}
+\Configure{PackageHooks}{biblatex.sty}{biblatex-hooks.4ht}
+\Configure{PackageHooks}{xeCJK.sty}{xecjk-hooks.4ht}
+\Configure{PackageHooks}{ctex.sty}{ctex-hooks.4ht}
+\Configure{PackageHooks}{polyglossia.sty}{polyglossia-hooks.4ht}
+\Configure{PackageHooks}{fontspec.sty}{fontspec-hooks.4ht}
+\Configure{PackageHooks}{tikz.sty}{tikz-hooks.4ht}
+\Configure{PackageHooks}{pdfbase.sty}{pdfbase-hooks.4ht}
+\Configure{PackageHooks}{hyperref.sty}{hyperref-hooks.4ht}
+\Configure{PackageHooks}{caption.sty}{caption-hooks.4ht}
+\Configure{PackageHooks}{minted.sty}{minted-sty-hooks.4ht}
+\Configure{PackageHooks}{graphics.sty}{graphics-hooks.4ht}
+\Configure{PackageHooks}{xcolor.sty}{xcolor-hooks.4ht}
+\Configure{PackageHooks}{imakeidx.sty}{imakeidx-hooks.4ht}
+\Configure{PackageHooks}{fancyhdr.sty}{fancyhdr-hooks.4ht}
+\Configure{PackageHooks}{exerquiz.sty}{exerquiz-hooks.4ht}
+
+
+\endinput
+

@@ -1,0 +1,139 @@
+% memoir.4ht (2021-01-29-14:14), generated from tex4ht-4ht.tex
+% Copyright 2003-2009 Eitan M. Gurari
+% Copyright 2009-2021 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2021-01-29-14:14}
+
+\input book.4ht
+\input verse.4ht
+\input booktabs.4ht
+\let\columnlines\empty
+
+\let\rm\empty
+\let\sf\empty
+\let\tt\empty
+\let\bf\empty
+\let\it\empty
+
+\renewcommand*{\@memoldfonterr}[3]{}
+\renewcommand*{\@memoldfontwarn}[3]{}
+
+
+\def\@chapter[#1]#2{%
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+   {\SkipRefstepAnchor \let\addcontentsline\:gobbleIII\no@chapter[#1]{}%
+    \global\let\f@rtoc\f@rtoc
+    \ifx\f@rtoc\empty\gdef\f@rtoc{#2}\fi
+    \global\let\f@rhdr\f@rhdr  }%
+   \HtmlEnv   \Toc:Title{\f@rtoc}\:chapter{#2}}
+\def\:tempc{\@ifstar\o:tableofcontents:\o:tableofcontents:}
+\HLet\tableofcontents\:tempc
+\Def:Section\book{\thebook}{#1}
+\NewConfigure{abstracttitle}{2}
+\newenvironment{abstracttitle4ht}{\a:abstracttitle}{\b:abstracttitle\par\noindent}
+% get rid of all extra <span> elements introduced by smaller font size
+% \renewcommand{\abstracttextfont}{\normalfont}
+% \renewcommand{\abstractnamefont}{\normalfont}
+% use our dummy environment to insert tags around the abstract title
+\renewcommand{\absnamepos}{abstracttitle4ht}
+
+\NewConfigure{poemline}{2}
+\NewConfigure{legend}{2}
+\renewcommand\legend[1]{\a:legend #1\b:legend}
+\@ifpackageloaded{hyperref}{%
+\ifHy@hyperfootnotes
+\Hy@hyperfootnotesfalse
+\newcounter{Hfootnote}
+\fi
+}{}
+
+\ifx \memgobble\:UnDef
+   \pend:defI\getthelinenumber{%
+   \let\sv:thepoemline\thepoemline
+   \pend:def\thepoemline{\a:poemline}%
+   \append:def\thepoemline{\b:poemline}}
+\append:defI\getthelinenumber{\let\thepoemline\sv:thepoemline}
+
+\else
+   \pend:defII\getthelinenumber{%
+   \let\sv:thepoemline\thepoemline
+   \pend:def\thepoemline{\a:poemline}%
+   \append:def\thepoemline{\b:poemline}}
+\append:defII\getthelinenumber{\let\thepoemline\sv:thepoemline}
+
+   \let\no@Msect\M@sect
+\NewConfigure{@sec @ssect}[1]{%
+   \def\rdef:sec##1{#1\csname no@##1\endcsname}}
+\:CheckOption{sections-}     \if:Option
+   \Configure{@sec @ssect}{}
+\else
+   \Configure{@sec @ssect}{%
+      \let\sv:Sc\:Sc \let\sv:sect\@sect \let\sv:ssect\@ssect
+\let\sv:Msect\M@sect
+\let\:Sc\:gobble
+      \def\M@sect##1##2##3##4##5##6[##7][##8]##9{%
+   \ifx \o:@seccntformat:\:UnDef
+  \let\o:@seccntformat:\@seccntformat
+\fi
+\let\@seccntformat\:gobble
+%
+   \let\M@sect\no@Msect   \xdef\c:secnumdepth{##2}%
+   {\SkipRefstepAnchor \let\addcontentsline\:gobbleIII \let\mark\:gobble
+    \no@Msect{##1}{##2}{##3}{##4}{##5}{##6}[{##7}][{##8}]{}}%
+   \let\:Sc\sv:Sc \let\@sect\sv:sect \let\@ssect\sv:ssect
+\let\M@sect\sv:Msect
+%
+   \let\@seccntformat=\o:@seccntformat:
+%
+   \HtmlEnv    \Toc:Title{##8}\csname no:#1\endcsname{##9}}%
+%
+      \def\@sect##1##2##3##4##5##6[##7]##8{%
+   \ifx \o:@seccntformat:\:UnDef
+  \let\o:@seccntformat:\@seccntformat
+\fi
+\let\@seccntformat\:gobble
+%
+   \let\@sect\no@sect   \xdef\c:secnumdepth{##2}%
+   {\SkipRefstepAnchor \let\addcontentsline\:gobbleIII \let\mark\:gobble
+    \no@sect{##1}{##2}{##3}{##4}{##5}{##6}[{##7}]{}}%
+   \let\:Sc\sv:Sc \let\@sect\sv:sect \let\@ssect\sv:ssect
+\let\M@sect\sv:Msect
+%
+   \let\@seccntformat=\o:@seccntformat:
+%
+   \HtmlEnv    \Toc:Title{##7}\csname no:#1\endcsname{##8}}%
+%
+      \def\@ssect##1##2##3##4##5{%
+   \gdef\ssect:ttl{##5}%
+%
+   \let\@ssect\no@ssect
+   {\def\addcontentsline####1####2####3{}%
+    \no@ssect{##1}{##2}{##3}{##4}{}}%
+   \let\:Sc\sv:Sc \let\@sect\sv:sect \let\@ssect\sv:ssect
+\let\M@sect\sv:Msect
+%
+   \HtmlEnv   \csname :like#1\endcsname{##5}}%
+\IgnorePar}
+\fi
+
+\fi
+\Hinput{memoir}
+\endinput
+

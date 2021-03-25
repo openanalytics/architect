@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% sistyle.4ht                           2009-05-21-09:32 %
+% Copyright (C) 2007--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \def\:tempc{{\a:thousandsep}}
+\HLet\SI@thousandsep\:tempc
+\NewConfigure{thousandsep}{1}
+\Configure{thousandsep}{\,}
+\def\SI@numexp#1#2{%
+   \SI@ifempt{#1}{}{%
+      \def\SI@tmpb{#1}%
+      \ifx\SI@tmpb\SI@p@tst\ensuremath{+}\else
+      \ifx\SI@tmpb\SI@m@tst\ensuremath{-}\else
+         \SI@realp{#1}{}\SI@prod%
+      \fi\fi}%
+   \ifmmode
+     {10}\sp{\SI@realp{#2}{}}%
+   \else
+     {10}\textsuperscript{\SI@realp{#2}{}}%
+   \fi
+}
+\AtBeginDocument{%
+    \@ifpackageloaded{textcomp}{}{%
+         \def\degC{%
+             \ensureupmath{{\csname HCode\endcsname{}}\sp
+                                        {\circ}\kern-\scriptspace C}}%
+         \def\degF{%
+             \ensureupmath{{\csname HCode\endcsname{}}\sp
+                                        {\circ}\kern-\scriptspace F}}%
+         \def\arcdeg{\ensureupmath{{\csname HCode\endcsname{}}\sp{\circ}}}%
+    }%
+   \def\:tempc{\a:degC}%
+   \HLet\degC\:tempc
+   \def\:tempc{\a:degF}%
+   \HLet\degF\:tempc
+   \def\:tempc{\a:arcdeg}%
+   \HLet\arcdeg\:tempc
+   \def\arcsec{\ensureupmath{{\csname HCode\endcsname{}}\sp{\prime\prime}}}%
+   \def\:tempc{\a:arcsec}%
+   \HLet\arcsec\:tempc
+   \def\arcmin{\ensureupmath{{\csname HCode\endcsname{}}\sp{\prime}}}%
+   \def\:tempc{\a:arcmin}%
+   \HLet\arcmin\:tempc
+   \def\:tempc{\a:ohm}%
+   \HLet\ohm\:tempc
+   \def\:tempc{\a:micro}%
+   \HLet\micro\:tempc
+   \def\:tempc{\a:angstrom}%
+   \HLet\angstrom\:tempc
+}
+\NewConfigure{degC}{1}
+\Configure{degC}{\o:defC:}
+\NewConfigure{degF}{1}
+\Configure{degF}{\o:defF:}
+\NewConfigure{arcdeg}{1}
+\Configure{arcdeg}{\o:arcdeg:}
+\NewConfigure{arcsec}{1}
+\Configure{arcsec}{\o:arcsec:}
+\NewConfigure{arcmin}{1}
+\Configure{arcsec}{\o:arcmin:}
+\NewConfigure{ohm}{1}
+\Configure{ohm}{\o:ohm:}
+\NewConfigure{micro}{1}
+\Configure{micro}{\o:micro:}
+\NewConfigure{angstrom}{1}
+\Configure{angstrom}{\o:angstrom:}
+
+\Hinput{sistyle}
+\endinput
+

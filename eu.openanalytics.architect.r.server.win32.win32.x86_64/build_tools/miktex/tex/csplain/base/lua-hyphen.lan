@@ -1,0 +1,142 @@
+% luaTeX: dynamical loaded patterns. Petr Olsak, March 2019
+
+%\input hyphen  % plain-TeX hyphen-patterns loaded as language 0 in csplain.ini 
+\global\chardef\enPatt=0
+\gdef\pattlist{\enPatt=0}
+\gdef\langlist{en(USpreloaded)}
+\gdef\enlang{\dolangua{en}\enPatt23\nonfrenchspacing} % \lefthyph=2 \righthyph=3
+
+\input uni-lcuc  % \lccodes, \uccodes in unicode
+
+\def\preplang #1 #2 #3#4 #5 {%
+   \global\chardef#3=#4
+   \expandafter \gdef \csname lan:#4\endcsname {#1}
+   \def\next{\expandafter\noexpand\csname #1lang\endcsname}
+   \expandafter\xdef \csname #1lang\endcsname {%
+      \noexpand\loadpattrs #2 #4 
+      \gdef\next{\noexpand\dolangua{#1}#3#5}%
+      \next
+   }
+   \xdef\langlist{\langlist\space #1(#2)}
+}
+\def\loadpattrs#1 #2 {%
+   \directlua{
+      require("luatex-hyphen")
+      luatexhyphen.loadlanguage("#1",#2)
+   }%
+}
+\def\dolangua#1#2#3#4{\language=#2\lefthyphenmin=#3\righthyphenmin=#4\relax
+   \frenchspacing  % \nonfrenchspacing can be set in \initlanguage{lan}
+   \initlanguage{#1}%
+}
+\def\initlanguage#1{}
+
+\preplang enus usenglishmax \enusPatt 100 23
+\preplang engb ukenglish    \engbPatt 101 23
+\preplang it   italian      \itPatt 102 22
+\preplang ia   interlingua  \iaPatt 103 22
+\preplang id   indonesian   \idPatt 104 22
+
+\preplang cs   czech      \csPatt 115 23
+\preplang sk   slovak     \skPatt 116 23
+\preplang de   ngerman    \dePatt 121 22
+\preplang fr   french     \frPatt 122 22
+\preplang pl   polish     \plPatt 123 22 
+\preplang cy   welsh      \cyPatt 124 23
+\preplang da   danish     \daPatt 125 22
+\preplang es   spanish    \esPatt 126 22
+\preplang sl   slovenian  \slPatt 128 22
+\preplang fi   finnish    \fiPatt 129 22
+\preplang hy   hungarian  \huPatt 130 22
+\preplang tr   turkish    \trPatt 131 22
+\preplang et   estoniak   \etPatt 132 23
+\preplang eu   basque     \euPatt 133 22
+\preplang ga   irish      \gaPatt 134 23
+\preplang nb   bokmal     \nbPatt 135 22
+\preplang nn   nynorsk    \nnPatt 136 22
+\preplang nl   dutch      \nlPatt 137 22
+\preplang pt   portuguese \ptPatt 138 23
+\preplang ro   romanian   \roPatt 139 22
+\preplang hr   croatian   \hrPatt 140 22
+\preplang zh   pinyin     \zhPatt 141 11
+\preplang is   icelandic  \isPatt 142 22
+\preplang hsb  uppersorbian \hsbPatt 143 22
+\preplang af   afrikaans  \afPatt 144 12
+\preplang gl   galician   \glPatt 145 22
+\preplang kmr  kurmanji   \kmrPatt 146 22
+\preplang tk   turkmen    \tkPatt 147 22
+\preplang la   latin      \laPatt 148 22
+\preplang lac  classiclatin \lacPatt 149 22
+\preplang lal  liturgicallatin \lalPatt 150 22
+\preplang elm  monogreek  \elmPatt 201 11
+\preplang elp  greek      \elpPatt 202 11
+\preplang grc  ancientgreek \grcPatt 203 11
+\preplang ca   catalan    \caPatt 204 22
+\preplang cop  coptic     \copPatt 205 11
+\preplang mn   mongolian  \mnPatt 206 22
+\preplang sa   sanskrit   \saPatt 207 13
+\preplang ru   russian    \ruPatt 208 22
+\preplang uk   ukrainian  \ukPatt 209 22
+\preplang hy   armenian   \hyPatt 210 12
+\preplang as   assamese   \asPatt 211 11
+\preplang hi   hindi      \hiPatt 212 11
+\preplang kn   kannada    \knPatt 213 11
+\preplang lv   latvian    \lvPatt 215 22
+\preplang lt   lithuanian \ltPatt 216 22
+\preplang ml   malayalam  \mlPatt 217 11
+\preplang mr   marathi    \mrPatt 218 11
+\preplang or   oriya      \orPatt 219 11
+\preplang pa   panjabi    \paPatt 220 11
+\preplang ta   tamil      \taPatt 221 11
+\preplang te   telugu     \tePatt 222 11
+
+% For backward compatibility:
+
+\let\uslang=\enlang  \let\ehyph=\enlang  
+\def\chyph{\cslang}  \def\shyph{\sklang}
+\let\csUnicode=\csPatt \let\czUnicode=\csPatt \let\skUnicode=\skPatt
+
+\xdef\langlist{\langlist.
+   Use \string\<shortname>lang to initialize language,
+   \string\cslang\space for example}
+\message{Language hyph.patterns ready to load: \langlist}
+
+\endinput
+
+%%%%%%%%%%%%%%%%%
+
+The \<shortname>lang macros are prepared, like \cslang, \delang, \pllang.
+You can expand \langlist to see which languages are prepared.
+
+For example \preplang cs czech \csPatt 115 23 does: 
+
+   \global\chardef\csPatt=115
+   \gdef\lan:115{cs}
+   \gdef\cslang{\loadpattrs czech 115
+                 \gdef\cslang{\dolangua{cs}\csPatt23}%
+                 \cslang}
+   \xdef\langlist{\langlist\space #1(#2)}
+
+and \dolangua{cs}\csPatt23 does: 
+
+   \language=\csPatt \lefthyphenmin=2 \righthyphenmin=3 
+   \frenchspacing \initlanguage{cs}
+
+finally \initlanguage{cs} does nothing by default. But user can redefine
+it and specify another features for selected lanuages here. For example:
+
+\def\initlanguage#1{\csname set#1lang\endcsname}
+\def\setenuslang {\nonfrenchspacing}
+\def\setcslang   {...czech specific}
+\def\setpllang   {...polish specific}
+\def\seteslang   {...spanish specific}
+\def\setrulang   {...russian specific}
+...
+
+You can see that \<shortname>lang macros can be used more than once but 
+\loadpattrs will be done only once because \<shortname>lang redefines itself.
+
+
+%%%%%%%%%%%%%%%%
+
+ 

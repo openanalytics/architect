@@ -1,0 +1,107 @@
+% This file belongs to the Latin Modern package. The work is released under
+% the GUST Font License. See the MANIFEST-Latin-Modern.txt and
+% README-Latin-Modern.txt files for the details. For the most recent version of
+% this license see http://www.gust.org.pl/fonts/licenses/GUST-FONT-LICENSE.txt
+% or http://tug.org/fonts/licenses/GUST-FONT-LICENSE.txt
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp,lmodern}
+
+\newcommand*{\tekst}{%
+  \setlength{\spaceskip}{0.15em minus .05em}%
+  \texteuro\
+  \textoneoldstyle\
+  \textthreeoldstyle\
+  \'a
+  \capitalacute A
+  \textborn\
+  \ \textmarried\
+  \ \textmusicalnote\
+  \textbullet\
+  32\textcelsius\
+  \textdollaroldstyle\
+  \textnineoldstyle\
+  \textrecipe\
+  \texttrademark\
+  \textcopyright\
+  \textsection\
+  \textcopyleft\
+  \textinterrobang%
+}
+\makeatletter
+\newcommand*{\test}[3]{{%
+  \rightskip-10mm\relax
+  #1\fontseries{#2}\fontshape{#3}\selectfont
+  \edef\opis{\f@encoding/\f@family/\f@series/\f@shape/\f@size:}%
+  \noindent\hbox to15mm{\kern-20mm\small\usefont{OT1}{cmtt}{m}{n}\opis\hfil}%
+  \tekst\par
+}}
+
+\newcommand*{\testsize}{%
+  \test{\rmfamily}{m}{n}
+  \test{\rmfamily}{m}{sl}
+  \test{\rmfamily}{m}{it}
+  \test{\rmfamily}{m}{sc}
+  \test{\rmfamily}{m}{scsl}
+  \test{\rmfamily}{b}{n}
+  \test{\rmfamily}{b}{sl}
+  \test{\rmfamily}{bx}{n}
+  \test{\rmfamily}{bx}{it}
+  \test{\rmfamily}{bx}{sl}
+  \test{\sffamily}{m}{n}
+%  \test{\sffamily}{m}{it}
+  \test{\sffamily}{m}{sl}
+%  \test{\sffamily}{m}{sc}
+  \test{\sffamily}{sbc}{n}
+%  \test{\sffamily}{sbc}{it}
+  \test{\sffamily}{sbc}{sl}
+  \test{\sffamily}{bx}{n}
+%  \test{\sffamily}{bx}{it}
+  \test{\sffamily}{bx}{sl}
+  \test{\ttfamily}{m}{n}
+  \test{\ttfamily}{m}{it}
+  \test{\ttfamily}{m}{sl}
+  \test{\ttfamily}{m}{sc}
+  \test{\ttfamily}{lc}{n}
+  \test{\ttfamily}{lc}{sl}
+  \test{\ttfamily}{l}{n}
+  \test{\ttfamily}{l}{sl}
+  \test{\ttfamily}{b}{n}
+  \test{\ttfamily}{b}{sl}
+% \test{\ttfamily}{bx}{n}
+% \test{\ttfamily}{bx}{it}
+% \test{\ttfamily}{bx}{sl}
+% \test{\ttfamily}{bx}{sc}
+  \test{\fontfamily{lmvtt}}{m}{n}
+  \test{\fontfamily{lmvtt}}{m}{sl}
+  \test{\fontfamily{lmvtt}}{l}{n}
+  \test{\fontfamily{lmvtt}}{l}{sl}
+  \test{\fontfamily{lmvtt}}{b}{n}
+  \test{\fontfamily{lmvtt}}{b}{sl}
+  \test{\fontfamily{lmssq}}{m}{n}
+  \test{\fontfamily{lmssq}}{m}{sl}
+  \test{\fontfamily{lmssq}}{bx}{n}
+  \test{\fontfamily{lmssq}}{bx}{sl}
+  \medskip
+}
+
+
+\begin{document}
+\tiny\testsize
+\scriptsize\testsize
+\footnotesize\testsize
+\small\testsize
+\normalsize\testsize
+\large\testsize
+\Large\testsize
+\LARGE\testsize
+%\huge\testsize
+%\Huge\testsize
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

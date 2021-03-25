@@ -1,0 +1,58 @@
+% graphics.4ht (2019-10-13-14:32), generated from tex4ht-4ht.tex
+% Copyright 1997-2009 Eitan M. Gurari
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+
+   \expandafter\let\csname includegraphics \endcsname\includegraphics
+\def\includegraphics{\expandafter\protect\csname includegraphics \endcsname}
+\def\grf:removequote"#1"{#1}
+\def\grf:thrashname#1\relax{}
+\def\grf:fixquotes{%
+    \@ifnextchar"{\edef\Gin@base{\expandafter\grf:removequote\Gin@base}\grf:thrashname}{\grf:thrashname}}
+\def\grp:warning#1{\no:bound#1(no BoundingBox)//\:warning{#1}}
+\def\no:bound#1(no BoundingBox)#2//{\gdef\noBoundingBox{#2}\ifx
+   \noBoundingBox\empty \global\let\noBoundingBox\:UnDef\fi}
+\let\:tempc\Gin@setfile
+\pend:defIII\:tempc{\a:graphics
+    \global\let\noBoundingBox\:UnDef
+    \let\@latex@error\grp:warning \let\@ehc\empty}
+\append:defIII\:tempc{\b:graphics\grf:gobble\leavevmode grf:gobble}
+\HLet\Gin@setfile\:tempc
+\NewConfigure{graphics*}[2]{%
+   \expandafter\ifx \csname :.#1\endcsname\relax
+      \pend:defIII\n:Gin@setfile:{\csname :.#1\endcsname}%
+   \fi
+   \def\:temp{#2}\ifx \:temp\empty
+     \expandafter\let\csname :.#1\endcsname\:UnDef
+   \else
+     \expandafter\def\csname :.#1\endcsname{\edef\:temp{\detokenize{.#1}}%
+        \ifx \:temp\Gin@ext  \let\a:graphics\relax
+           \def\G:cnfg{#2}\expandafter\grf:gobble \fi}%
+   \fi }
+\NewConfigure{graphics}{2}
+\def\grf:gobble#1\leavevmode#2grf:gobble{%
+   \PictureOff\expandafter\grf:fixquotes\Gin@base\relax#1\PictureOn \G:cnfg \let\G:cnfg\relax}
+\let\G:cnfg\relax
+
+\let\old:GreadEps\Gread@eps
+\def\Gread@eps#1{\old:GreadEps{"#1"}}
+\def\if:boundingbox#1#2{\ifdim\Gin@req@width=\Gin@nat@width\ifx\noBoundingBox\UnDefined#1\else#2\fi\else#1\fi}
+
+\Hinput{graphics}
+\endinput
+

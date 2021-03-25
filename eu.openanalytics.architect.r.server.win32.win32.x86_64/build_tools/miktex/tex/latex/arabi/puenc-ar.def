@@ -1,0 +1,67 @@
+\ProvidesFile{puenc-ar.def}
+  [2006/09/26 v1.0a
+  Hyperref: PDF Unicode definition for Arabic characters Youssef Jabri]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareTextCommand{\hamza}{PU}{\9006\041}%0621;afii57409;ARABIC LETTER HAMZA
+\DeclareTextCommand{\alefmadda}{PU}{\9006\042}%0622;afii57410;ARABIC LETTER ALEF WITH MADDA ABOVE
+\DeclareTextCommand{\alefhamza}{PU}{\9006\043}%0623;afii57411;ARABIC LETTER ALEF WITH HAMZA ABOVE
+\DeclareTextCommand{\wawhamza}{PU}{\9006\044} % 0624;afii57412;ARABIC LETTER WAW WITH HAMZA ABOVE
+\DeclareTextCommand{\aleflowerhamza}{PU}{\9006\045}%0625;afii57413;ARABIC LETTER ALEF WITH HAMZA BELOW
+\DeclareTextCommand{\yahamza}{PU}{\9006\046}%0626;afii57414;ARABIC LETTER YEH WITH HAMZA ABOVE
+\DeclareTextCommand{\alef}{PU}{\9006\047}%0627;afii57415;ARABIC LETTER ALEF
+\DeclareTextCommand{\baa}{PU}{\9006\050}%0628;afii57416;ARABIC LETTER BEH
+\DeclareTextCommand{\T}{PU}{\9006\051}%0629;afii57417;ARABIC LETTER TEH MARBUTA
+\DeclareTextCommand{\taa}{PU}{\9006\052}%062A;afii57418;ARABIC LETTER TEH
+\DeclareTextCommand{\thaa}{PU}{\9006\053}%062B;afii57419;ARABIC LETTER THEH
+\DeclareTextCommand{\jeem}{PU}{\9006\054}%062C;afii57420;ARABIC LETTER JEEM
+\DeclareTextCommand{\Haa}{PU}{\9006\055}%062D;afii57421;ARABIC LETTER HAH
+\DeclareTextCommand{\kha}{PU}{\9006\056}%062E;afii57422;ARABIC LETTER KHAH
+\DeclareTextCommand{\dal}{PU}{\9006\057}%062F;afii57423;ARABIC LETTER DAL
+\DeclareTextCommand{\dhal}{PU}{\9006\060}%0630;afii57424;ARABIC LETTER THAL
+\DeclareTextCommand{\ra}{PU}{\9006\061}%0631;afii57425;ARABIC LETTER REH
+\DeclareTextCommand{\zay}{PU}{\9006\062}%0632;afii57426;ARABIC LETTER ZAIN
+\DeclareTextCommand{\seen}{PU}{\9006\063}%0633;afii57427;ARABIC LETTER SEEN
+\DeclareTextCommand{\sheen}{PU}{\9006\064}%0634;afii57428;ARABIC LETTER SHEEN
+\DeclareTextCommand{\sad}{PU}{\9006\065}%0635;afii57429;ARABIC LETTER SAD
+\DeclareTextCommand{\dad}{PU}{\9006\066}%0636;afii57430;ARABIC LETTER DAD
+\DeclareTextCommand{\Ta}{PU}{\9006\067}%0637;afii57431;ARABIC LETTER TAH
+\DeclareTextCommand{\za}{PU}{\9006\070}%0638;afii57432;ARABIC LETTER ZAH
+\DeclareTextCommand{\ayn}{PU}{\9006\071}%0639;afii57433;ARABIC LETTER AIN
+\DeclareTextCommand{\ghayn}{PU}{\9006\072}%063A;afii57434;ARABIC LETTER GHAIN
+\DeclareTextCommand{\tatweel}{PU}{\9006\100}%0640;afii57440;ARABIC TATWEEL
+\DeclareTextCommand{\fa}{PU}{\9006\101}%0641;afii57441;ARABIC LETTER FEH
+\DeclareTextCommand{\qaf}{PU}{\9006\102}%0642;afii57442;ARABIC LETTER QAF
+\DeclareTextCommand{\kaf}{PU}{\9006\103}%0643;afii57443;ARABIC LETTER KAF
+\DeclareTextCommand{\lam}{PU}{\9006\104}%0644;afii57444;ARABIC LETTER LAM
+\DeclareTextCommand{\meem}{PU}{\9006\105}%0645;afii57445;ARABIC LETTER MEEM
+\DeclareTextCommand{\nun}{PU}{\9006\106}%0646;afii57446;ARABIC LETTER NOON
+\DeclareTextCommand{\ha}{PU}{\9006\107}%0647;afii57470;ARABIC LETTER HEH
+\DeclareTextCommand{\waw}{PU}{\9006\110}%0648;afii57448;ARABIC LETTER WAW
+\DeclareTextCommand{\alefmaqsura}{PU}{\9006\111}%0649;afii57449;ARABIC LETTER ALEF MAKSURA
+\DeclareTextCommand{\ya}{PU}{\9006\112}%064A;afii57450;ARABIC LETTER YEH
+%
+\DeclareTextCommand{\nasb}{PU}{\9006\113}%064B;afii57451;ARABIC FATHATAN
+\DeclareTextCommand{\raff}{PU}{\9006\114}%064C;afii57452;ARABIC DAMMATAN
+\DeclareTextCommand{\jarr}{PU}{\9006\115}%064D;afii57453;ARABIC KASRATAN
+\DeclareTextCommand{\fatha}{PU}{\9006\116}%064E;afii57454;ARABIC FATHA
+\DeclareTextCommand{\damma}{PU}{\9006\117}%064F;afii57455;ARABIC DAMMA
+\DeclareTextCommand{\kasra}{PU}{\9006\120}%0650;afii57456;ARABIC KASRA
+\DeclareTextCommand{\shadda}{PU}{\9006\121}%0651;afii57457;ARABIC SHADDA
+\DeclareTextCommand{\sukun}{PU}{\9006\122}%0652;afii57458;ARABIC SUKUN
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Farsi
+\DeclareTextCommand{\peh}{PU}{\9006\176}%067E;afii57506;ARABIC LETTER PEH
+\DeclareTextCommand{\tcheh}{PU}{\9006\206}%0686;afii57507;ARABIC LETTER TCHEH
+\DeclareTextCommand{\jeh}{PU}{\9006\230}%0698;afii57508;ARABIC LETTER JEH
+\DeclareTextCommand{\farsikaf}{PU}{\9006\251}%06A9???;afii?????;FARSI LETTER KAF
+\DeclareTextCommand{\gaf}{PU}{\9006\257}%06AF;afii57509;ARABIC LETTER GAF
+\DeclareTextCommand{\farsiya}{PU}{\9006\314}%06CC;afii?????;FARSI LETTER YEH
+%
+\DeclareTextCommand{\ZWNJ}{PU}{\9040\014}%200C;ZWNJ%
+\DeclareTextCommand{\noboundary}{PU}{\9006\325}%200D;ZWJ
+%
+\endinput
+
+
+066A arabicpercentsign

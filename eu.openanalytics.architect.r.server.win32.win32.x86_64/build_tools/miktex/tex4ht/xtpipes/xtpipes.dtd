@@ -1,0 +1,77 @@
+<!ELEMENT xtpipes (#PCDATA | set
+| get
+| print
+| return
+| if
+| xslt
+| dom
+| sax
+)* >
+<!ATTLIST xtpipes
+          preamble  CDATA #IMPLIED DEFAULT (yes | no) "no"
+          signature CDATA #IMPLIED                         >
+<!ELEMENT set (#PCDATA) >
+<!ATTLIST set
+          name CDATA #REQUIRED >
+<!ELEMENT get EMPTY >
+<!ATTLIST get
+          name CDATA #REQUIRED
+          file CDATA #REQUIRED
+>
+<!ELEMENT print EMPTY >
+<!ATTLIST print
+          name CDATA #REQUIRED
+          file CDATA #IMPLIED
+>
+<!ELEMENT return EMPTY >
+<!ATTLIST return
+          name CDATA #REQUIRED
+>
+<!ELEMENT if (#PCDATA | set
+| get
+| print
+| return
+| if
+| xslt
+| dom
+| sax
+)* >
+<!ATTLIST if
+          xml CDATA #REQUIRED
+          dtd CDATA #REQUIRED
+          root CDATA #REQUIRED
+>
+<!ELEMENT xslt EMPTY >
+<!ATTLIST xslt
+          name CDATA #IMPLIED
+          xml  CDATA #REQUIRED
+          xsl  CDATA #REQUIRED
+>
+<!ELEMENT dom EMPTY >
+<!ATTLIST dom
+          name   CDATA #REQUIRED
+          xml    CDATA #REQUIRED
+          method CDATA #REQUIRED
+          class  CDATA #REQUIRED
+          dcl    CDATA #IMPLIED DEFAULT (yes | no) "no"
+>
+<!ELEMENT sax (#PCDATA | script)*  >
+<!ELEMENT script (#PCDATA | set
+| get
+| print
+| return
+| if
+| xslt
+| dom
+| sax
+ )*  >
+<!ATTLIST sax
+          name            CDATA #IMPLIED
+          xml             CDATA #IMPLIED
+          content-handler CDATA #REQUIRED
+          lexical-handler CDATA #IMPLIED
+>
+<!ATTLIST script
+          element CDATA #REQUIRED
+>
+

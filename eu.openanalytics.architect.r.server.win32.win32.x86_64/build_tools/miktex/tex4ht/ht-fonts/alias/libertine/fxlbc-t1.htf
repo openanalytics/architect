@@ -1,0 +1,6 @@
+.fxlrc-t1
+htfcss: fxlbc-t1 font-weight:bold;
+htfcss: fxlbc-t1c font-weight:bold;
+htfcss: fxlbc-t1os font-weight:bold;
+htfcss: fxlbc-t1fitted font-weight:bold;
+

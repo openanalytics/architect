@@ -1,0 +1,18 @@
+.rm-iwona
+htfcss: rm-kurierl  font-weight: light;
+htfcss: rm-kurierb  font-weight: bold;
+htfcss: rm-kurierh  font-weight: bold;
+htfcss: rm-kurierli  font-weight: light; font-style:italic;
+htfcss: rm-kurierri  font-style:italic;
+htfcss: rm-kuriermi  font-style:italic;
+htfcss: rm-kurierbi  font-style:italic; font-weight: bold;
+htfcss: rm-kurierhi  font-style:italic; font-weight: bold;
+htfcss: rm-kuriercl  font-weight: light;
+htfcss: rm-kuriercb  font-weight: bold;
+htfcss: rm-kurierch  font-weight: bold;
+htfcss: rm-kuriercli  font-weight: light; font-style:italic;
+htfcss: rm-kuriercri  font-style:italic;
+htfcss: rm-kuriercmi  font-style:italic;
+htfcss: rm-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: rm-kurierchi  font-style:italic; font-weight: bold;
+

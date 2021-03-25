@@ -1,0 +1,2832 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<xtpipes signature="jsml.4xt (2007-09-01-14:10)">
+   <sax content-handler="xtpipes.util.ScriptsManager, tex4ht.GroupMn, tex4ht.JsmlFilter"
+        lexical-handler="xtpipes.util.ScriptsManagerLH" >
+     <script element="mn-group" >
+   <dom name="." xml="." method="mnGroup" class="tex4ht.HtJsml" />
+<set name="rmXmlDecl" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="rmXmlDecl" />
+
+
+   <set name="merge" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+      <xsl:template match="mn-group" >
+   <xsl:choose>
+      <xsl:when test=" not(child::mn) ">
+        <xsl:apply-templates select="*|text()" />
+      </xsl:when>
+      <xsl:otherwise>
+         <mn>
+           <xsl:value-of select="." />
+         </mn>
+      </xsl:otherwise>
+   </xsl:choose>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="merge" />
+</script>
+
+     <script element="msup" >
+   <set name="m-sub-sup" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="*[
+    (self::msup or self::msub or self::msubsup)
+  and
+    not(
+        child::mrow[ @class = 'mrow-sub' ]
+        / child::*[ not(@title = 'speech-extra')
+                    and
+                    (normalize-space(.) != '')
+                  ]
+    )
+  and
+    not(
+        child::mrow[ @class = 'mrow-super' ]
+        / child::*[ not(@title = 'speech-extra')
+                    and
+                    (normalize-space(.) != '')
+                  ]
+    )
+]" >
+   <xsl:apply-templates select="child::mrow[
+                          @class = 'mrow-base' ]/*" />
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="m-sub-sup" />
+   <set name="m-sup-2-3" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+  <xsl:template match="msup[
+    (normalize-space(
+      child::mrow[ (@class = 'mrow-super') ]
+        / child::*[ not (@class = 'begin-script')
+                    and
+                    not (@class = 'end-script')
+                  ]
+     ) = '2')
+  and not(
+  child::mrow[ @class = 'mrow-base' ]
+    / child::span[ not( @title = 'speech-extra' ) ]
+                 [ position() = last() ]
+    / self::* [ @class = 'mo-op' ]
+)
+
+  and (normalize-space(mrow[@class = 'mrow-base']) != '' )
+]" >
+   <xsl:copy>
+      <xsl:apply-templates select="*|@*|text()|comment()"
+                           mode="squared" />
+   </xsl:copy>
+</xsl:template>
+<xsl:template match="*|@*|text()|comment()"
+                           mode="squared" >
+   <xsl:copy>
+     <xsl:choose>
+        <xsl:when test=" @class = 'mrow-super' ">
+           <xsl:apply-templates select="@*" />
+           <mo class="mo-op">
+             <xsl:text> squared </xsl:text>
+           </mo>
+       </xsl:when>
+        <xsl:otherwise>
+           <xsl:apply-templates select="*|@*|text()" />
+        </xsl:otherwise>
+     </xsl:choose>
+   </xsl:copy>
+</xsl:template>
+<xsl:template match="msup[
+    (normalize-space(
+      child::mrow[ (@class = 'mrow-super') ]
+        / child::*[ not (@class = 'begin-script')
+                    and
+                    not (@class = 'end-script')
+                  ]
+     ) = '3')
+  and not(
+  child::mrow[ @class = 'mrow-base' ]
+    / child::span[ not( @title = 'speech-extra' ) ]
+                 [ position() = last() ]
+    / self::* [ @class = 'mo-op' ]
+)
+
+  and (normalize-space(mrow[@class = 'mrow-base']) != '' )
+]" >
+   <xsl:copy>
+      <xsl:apply-templates select="*|@*|text()|comment()"
+                           mode="cube" />
+   </xsl:copy>
+</xsl:template>
+<xsl:template match="*|@*|text()|comment()"
+                           mode="cube" >
+   <xsl:copy>
+     <xsl:choose>
+        <xsl:when test=" @class = 'mrow-super' ">
+           <xsl:apply-templates select="@*" />
+           <mo class="mo-op">
+             <xsl:text> cube </xsl:text>
+           </mo>
+        </xsl:when>
+        <xsl:otherwise>
+           <xsl:apply-templates select="*|@*|text()" />
+        </xsl:otherwise>
+     </xsl:choose>
+   </xsl:copy>
+</xsl:template>
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="m-sup-2-3" />
+
+</script>
+<script element="msub" >
+  <set name="m-sub-sup" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+  <xsl:template match="*[
+    (self::msup or self::msub or self::msubsup)
+  and
+    not(
+        child::mrow[ @class = 'mrow-sub' ]
+        / child::*[ not(@title = 'speech-extra')
+                    and
+                    (normalize-space(.) != '')
+                  ]
+    )
+  and
+    not(
+        child::mrow[ @class = 'mrow-super' ]
+        / child::*[ not(@title = 'speech-extra')
+                    and
+                    (normalize-space(.) != '')
+                  ]
+    )
+]" >
+   <xsl:apply-templates select="child::mrow[
+                          @class = 'mrow-base' ]/*" />
+</xsl:template>
+
+  <xsl:template match="
+   msub [
+    normalize-space(child::*[1]) = 'log'
+   or
+    normalize-space(child::*[1]) = 'ln'
+]" >
+  <xsl:copy>
+    <xsl:apply-templates select="@*" />
+    <xsl:apply-templates select="child::*[1]" />
+    <xsl:apply-templates select="child::*[2]"
+                         mode="log" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*" mode="log" >
+  <xsl:copy>
+    <xsl:apply-templates select="@*" />
+    <xsl:choose>
+       <xsl:when test="parent::mrow[ @class = 'mrow-sub' ]" >
+         <BREAK SIZE="small"/>
+         <xsl:apply-templates select="*" />
+         <BREAK SIZE="small"/>
+         <span title="speech-extra">
+             <xsl:text>of</xsl:text>
+         </span>
+         <BREAK SIZE="small"/>
+       </xsl:when>
+       <xsl:otherwise>
+          <xsl:apply-templates
+                 select="*[ not(@title = 'speech-extra') ]"
+                 mode="log" />
+       </xsl:otherwise>
+    </xsl:choose>
+   </xsl:copy>
+</xsl:template>
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="m-sub-sup" />
+
+</script>
+<script element="msubsup" >
+  <set name="subsup-prime" >
+   <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+   <xsl:template match="msubsup[
+    (count(
+        child::mrow [ @class='mrow-super' ]
+       / child::* [ not(@title = 'speech-extra') ]
+    ) = 1)
+  and
+    not(
+        child::mrow [ @class='mrow-super' ]
+       / child::* [ not(@title = 'speech-extra') ]
+       / descendant::*[ preceding-sibling::*
+                        or following-sibling::*]
+    )
+  and
+    child::mrow [ @class='mrow-super' ]
+       / child::* [ not(@title = 'speech-extra') ]
+       / descendant-or-self::span[ @class='char' ]
+       / child::span[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+         ]
+]" >
+  <msub>
+    <mrow class="mrow-base">
+       <xsl:apply-templates select="
+             child::mrow[@class = 'mrow-base'] / *
+          " />
+       <BREAK SIZE="small"/>
+       <xsl:apply-templates select="
+             child::mrow[@class = 'mrow-super']
+             / child::* [ not(@title = 'speech-extra') ]
+          " />
+    </mrow>
+    <mrow class="mrow-sub">
+       <xsl:apply-templates
+             select="*[@class = 'mrow-sub'] /* " />
+       <xsl:apply-templates select="
+             child::mrow[@class = 'mrow-super']
+             / child::* [ @class = 'end-script' ]
+          " />
+    </mrow>
+  </msub>
+</xsl:template>
+
+         <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="subsup-prime" />
+
+  <set name="m-sub-sup" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+  <xsl:template match="*[
+    (self::msup or self::msub or self::msubsup)
+  and
+    not(
+        child::mrow[ @class = 'mrow-sub' ]
+        / child::*[ not(@title = 'speech-extra')
+                    and
+                    (normalize-space(.) != '')
+                  ]
+    )
+  and
+    not(
+        child::mrow[ @class = 'mrow-super' ]
+        / child::*[ not(@title = 'speech-extra')
+                    and
+                    (normalize-space(.) != '')
+                  ]
+    )
+]" >
+   <xsl:apply-templates select="child::mrow[
+                          @class = 'mrow-base' ]/*" />
+</xsl:template>
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="m-sub-sup" />
+
+  <set name="m-subsup-2-3" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+  <xsl:template match="msubsup[
+    (normalize-space(
+      child::mrow[ (@class = 'mrow-super') ]
+        / child::span[ (@class != 'mid-script')
+                       and
+                       (@class != 'end-script')
+                     ]
+     ) = '2')
+  and not(
+  child::mrow[ @class = 'mrow-base' ]
+    / child::span[ not( @title = 'speech-extra' ) ]
+                 [ position() = last() ]
+    / self::* [ @class = 'mo-op' ]
+)
+
+]" >
+   <xsl:copy>
+      <xsl:attribute name="class" >
+         <xsl:text>msub</xsl:text>
+      </xsl:attribute>
+      <xsl:apply-templates select="*|text()|comment()"
+                           mode="sub-squared" />
+   </xsl:copy>
+</xsl:template>
+<xsl:template match="*|@*|text()|comment()"
+                           mode="sub-squared" >
+   <xsl:copy>
+     <xsl:choose>
+        <xsl:when test=" @class = 'mrow-sub' ">
+           <xsl:apply-templates select="*[
+                       not( @class = 'end-script' )
+                     ]
+                           |@*|text()|comment()" />
+           <xsl:apply-templates select="
+               following-sibling::*[1] / *[
+                        @class = 'end-script'
+                  ] " />
+        </xsl:when>
+        <xsl:when test=" @class = 'mrow-super' ">
+           <xsl:attribute name="class" >
+               <xsl:text>squared-super</xsl:text>
+           </xsl:attribute>
+           <mo class="mo-op">
+             <xsl:text> squared </xsl:text>
+           </mo>
+        </xsl:when>
+        <xsl:otherwise>
+           <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:otherwise>
+     </xsl:choose>
+   </xsl:copy>
+</xsl:template>
+<xsl:template match="msubsup[
+    (normalize-space(
+      child::mrow[ (@class = 'mrow-super') ]
+        / child::span[ (@class != 'mid-script')
+                       and
+                       (@class != 'end-script')
+                     ]
+     ) = '3')
+  and not(
+  child::mrow[ @class = 'mrow-base' ]
+    / child::span[ not( @title = 'speech-extra' ) ]
+                 [ position() = last() ]
+    / self::* [ @class = 'mo-op' ]
+)
+
+]" >
+   <xsl:copy>
+      <xsl:attribute name="class" >
+         <xsl:text>msub</xsl:text>
+      </xsl:attribute>
+      <xsl:apply-templates select="*|text()|comment()"
+                           mode="sub-cube" />
+   </xsl:copy>
+</xsl:template>
+<xsl:template match="*|@*|text()|comment()"
+                           mode="sub-cube" >
+   <xsl:copy>
+     <xsl:choose>
+        <xsl:when test=" @class = 'mrow-sub' ">
+           <xsl:apply-templates select="*[
+                       not( @class = 'end-script' )
+                     ]
+                           |@*|text()|comment()" />
+           <xsl:apply-templates select="
+               following-sibling::*[1] / *[
+                        @class = 'end-script'
+                  ] " />
+        </xsl:when>
+        <xsl:when test=" @class = 'mrow-super' ">
+           <xsl:attribute name="class" >
+               <xsl:text>cube-super</xsl:text>
+           </xsl:attribute>
+           <mo class="mo-op">
+             <xsl:text> cube </xsl:text>
+           </mo>
+        </xsl:when>
+        <xsl:otherwise>
+           <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:otherwise>
+     </xsl:choose>
+   </xsl:copy>
+</xsl:template>
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="m-subsup-2-3" />
+
+</script>
+
+     <script element="mfrac" >
+  <set name="mfrac" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="mfrac" >
+  <xsl:copy>
+    <xsl:choose>
+       <xsl:when test="
+   (string-length(
+      normalize-space(child::mrow[ @class = 'mrow-numerator' ][1])
+     ) = 1)
+   and
+   (string-length(
+     normalize-space(child::mrow[ @class = 'mrow-enumerator' ][1])
+     ) = 1)
+">
+   <xsl:variable name="a">
+   <xsl:value-of select="
+      normalize-space(child::mrow[ @class = 'mrow-numerator' ][1])
+   " />
+</xsl:variable>
+<xsl:variable name="b">
+   <xsl:value-of select="
+      normalize-space(child::mrow[ @class = 'mrow-enumerator' ][1])
+   " />
+</xsl:variable>
+
+   <xsl:choose>
+      <xsl:when test="
+           (translate($a,'123456789','') != '')
+           or
+           (translate($b,'123456789','') != '')
+       " >
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+      </xsl:when>
+      <xsl:when test=" $a &lt; $b ">
+         <xsl:attribute  name="class">
+             <xsl:text>word-frac</xsl:text>
+         </xsl:attribute>
+         <xsl:choose>
+   <xsl:when test=" $a = 1 "><xsl:text> one </xsl:text></xsl:when>
+   <xsl:when test=" $a = 2 "><xsl:text> two </xsl:text></xsl:when>
+   <xsl:when test=" $a = 3 "><xsl:text> three </xsl:text></xsl:when>
+   <xsl:when test=" $a = 4 "><xsl:text> four </xsl:text></xsl:when>
+   <xsl:when test=" $a = 5 "><xsl:text> five </xsl:text></xsl:when>
+   <xsl:when test=" $a = 6 "><xsl:text> six </xsl:text></xsl:when>
+   <xsl:when test=" $a = 7 "><xsl:text> seven </xsl:text></xsl:when>
+   <xsl:when test=" $a = 8 "><xsl:text> eight </xsl:text></xsl:when>
+   <xsl:when test=" $a = 9 "><xsl:text> nine </xsl:text></xsl:when>
+</xsl:choose>
+
+         <xsl:choose>
+   <xsl:when test=" $b = 2 "><xsl:text> half</xsl:text></xsl:when>
+   <xsl:when test=" $b = 3 "><xsl:text> third</xsl:text></xsl:when>
+   <xsl:when test=" $b = 4 "><xsl:text> fourth</xsl:text></xsl:when>
+   <xsl:when test=" $b = 5 "><xsl:text> fifth</xsl:text></xsl:when>
+   <xsl:when test=" $b = 6 "><xsl:text> sixth</xsl:text></xsl:when>
+   <xsl:when test=" $b = 7 "><xsl:text> seventh</xsl:text></xsl:when>
+   <xsl:when test=" $b = 8 "><xsl:text> eighth</xsl:text></xsl:when>
+   <xsl:when test=" $b = 9 "><xsl:text> nineth</xsl:text></xsl:when>
+</xsl:choose>
+<xsl:if test=" $a &gt; 1 "><xsl:text>s</xsl:text></xsl:if>
+<xsl:text> </xsl:text>
+
+      </xsl:when>
+      <xsl:otherwise>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+      </xsl:otherwise>
+   </xsl:choose>
+</xsl:when>
+
+       <xsl:when test="
+      self::mfrac
+    and
+      child::mrow[ @class = 'mrow-enumerator' ]
+        / child::mfrac[ @class = 'continued-mfrac' ]
+    and
+      ( normalize-space(
+          child::mrow[ @class = 'mrow-numerator' ]
+        )
+        =
+        normalize-space(
+          child::mrow[ @class = 'mrow-enumerator' ]
+           / child::mfrac[ @class = 'continued-mfrac' ]
+           / child::mrow[ @class = 'mrow-numerator' ]
+        )
+      )
+    and (
+   normalize-space(
+   child::span[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   preceding-sibling::*[1] )
+   =
+   normalize-space(
+   child::span[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   child::span[ @class = 'mrow-enumerator' ] /
+   child::span[ @class = 'continued-mfrac' ] /
+   preceding-sibling::*[1] )
+)
+
+" >
+  <xsl:variable name="a">
+   <xsl:apply-templates select="
+         child::span[ @class = 'mrow-enumerator' ] /
+         child::span[ @class = 'mcontinued-mfrac' ] /
+         preceding-sibling::*[2]
+   "  mode="enum-op" />
+</xsl:variable>
+<xsl:variable name="b">
+   <xsl:apply-templates select="
+         child::span[ @class = 'mrow-enumerator' ] /
+         child::span[ @class = 'mcontinued-mfrac' ] /
+         child::span[ @class = 'mrow-enumerator' ] /
+         child::span[
+           self::mfrac or (@class = 'mcontinued-mfrac')
+         ] /
+         preceding-sibling::*[2]
+   "  mode="enum-op" />
+</xsl:variable>
+
+  <xsl:choose>
+     <xsl:when test="
+         normalize-space($a)=normalize-space($b)
+     " >
+         <xsl:attribute name="class">
+            <xsl:value-of select=" 'continued-mfrac' " />
+         </xsl:attribute>
+         <xsl:apply-templates select="*|text()|comment()" />
+     </xsl:when>
+     <xsl:otherwise>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+     </xsl:otherwise>
+  </xsl:choose>
+</xsl:when>
+
+       <xsl:when test="          
+   (translate(
+      normalize-space(
+      child::mrow[ @class = 'mrow-numerator' ]),
+                              '0123456789','')= '')
+   and (  normalize-space(
+   child::mrow[ @class = 'mrow-numerator' ])
+  and
+   normalize-space(
+   child::mrow[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   child::mrow[ @class = 'mrow-numerator' ])
+)
+and
+(  normalize-space(
+   child::mrow[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   child::mrow[ @class = 'mrow-numerator' ])
+  and
+   normalize-space(
+   child::mrow[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   child::mrow[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   child::mrow[ @class = 'mrow-numerator' ])
+)
+
+   and (  child::mrow[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   preceding-sibling::*[1][@class = 'MathClass-bin']
+)
+and
+(  normalize-space(
+   child::mrow[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   preceding-sibling::*[1] )
+   =
+   normalize-space(
+   child::mrow[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   child::mrow[ @class = 'mrow-enumerator' ] /
+   child::mfrac /
+   preceding-sibling::*[1] )
+)
+
+">
+  <xsl:variable name="a">
+   <xsl:apply-templates select="
+         child::mrow[ @class = 'mrow-enumerator' ] /
+         child::mfrac /
+         preceding-sibling::*[2]
+   "  mode="enum-op" />
+</xsl:variable>
+<xsl:variable name="b">
+   <xsl:apply-templates select="
+         child::mrow[ @class = 'mrow-enumerator' ] /
+         child::mfrac /
+         child::mrow[ @class = 'mrow-enumerator' ] /
+         child::mfrac /
+         preceding-sibling::*[2]
+   "  mode="enum-op" />
+</xsl:variable>
+<xsl:variable name="c">
+   <xsl:value-of select="
+    normalize-space(
+      child::mrow[ @class = 'mrow-enumerator' ] /
+      child::mfrac /
+      child::mrow[ @class = 'mrow-enumerator' ] /
+      child::mfrac /
+      child::mrow[ @class = 'mrow-enumerator' ] )
+   "  />
+</xsl:variable>
+
+  <xsl:choose>
+     <xsl:when test="
+         ( translate($a,'0123456789 ','') = '')
+         and (normalize-space($a)=normalize-space($b))
+         and starts-with( $c, normalize-space( $a ))
+         and starts-with(
+               normalize-space(
+                 substring-after( $c, normalize-space( $a )) )
+               ,
+               normalize-space(
+                    child::mrow[ @class = 'mrow-enumerator' ] /
+                    child::mfrac /
+                    preceding-sibling::*[1]                  )
+             )
+     " >
+         <xsl:attribute name="class">
+            <xsl:value-of select=" 'continued-mfrac' " />
+         </xsl:attribute>
+         <xsl:apply-templates select="*|text()|comment()" />
+     </xsl:when>
+     <xsl:otherwise>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+     </xsl:otherwise>
+  </xsl:choose>
+</xsl:when>
+
+       <xsl:otherwise>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+       </xsl:otherwise>
+    </xsl:choose>
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*" mode="enum-op">
+   <xsl:if test="preceding-sibling::*" >
+      <xsl:apply-templates select=" preceding-sibling::*[1] " />
+   </xsl:if>
+   <xsl:value-of select="." />
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="mfrac" />
+</script>
+
+     <script element="munder::munder-underline" >
+  <set name="munder" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="*" mode="content" >
+  <xsl:choose>
+     <xsl:when test=" @class = 'char' " >
+       <xsl:if test="not( child::*[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+       ] )">
+         <xsl:text>x</xsl:text>
+       </xsl:if>
+     </xsl:when>
+     <xsl:when test=" not(
+            (@title = 'speech-extra') or (@class = 'accent-char')
+         ) " >
+       <xsl:apply-templates select="*|text()" mode="content" />
+     </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+     <xsl:template match="munder[
+    (@class = 'munder-underline')
+   and
+    child::mrow[
+       (@class = 'mo-0332')
+       and
+       descendant::mi
+   ]
+]" >
+    <xsl:variable name="content">
+       <xsl:apply-templates select="*" mode="content" />
+    </xsl:variable>
+    <xsl:choose>
+       <xsl:when test="
+          string-length( normalize-space( $content )) = 1
+       " >
+           <xsl:copy>
+              <xsl:apply-templates select="@*" />
+              <xsl:apply-templates
+                 select=" *[ @class != 'begin-end' ] " />
+              <span class="begin-end" title="speech-extra" >
+                 <BREAK SIZE="small"/>
+                 <xsl:text> under bar </xsl:text>
+                 <BREAK SIZE="small"/>
+              </span>
+           </xsl:copy>
+       </xsl:when>
+       <xsl:otherwise>
+          <xsl:choose>
+   <xsl:when test="child::mrow / child::mover">
+         <xsl:apply-templates select="child::mrow / child::mover"
+                                mode="under-mover" />
+   </xsl:when>
+   <xsl:otherwise>
+     <xsl:copy>
+        <xsl:apply-templates select=" *|@*|text() " />
+     </xsl:copy>
+   </xsl:otherwise>
+</xsl:choose>
+
+       </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+<xsl:template match="*" mode="under-mover" >
+   <xsl:choose>
+      <xsl:when test="self::mover">
+         <xsl:copy>
+           <xsl:apply-templates select="@*" />
+           <xsl:apply-templates select="*" mode="under-mover" />
+         </xsl:copy>
+      </xsl:when>
+      <xsl:when test="self::mrow[ parent::mover ]">
+         <xsl:copy>
+           <xsl:apply-templates select="@*" />
+           <xsl:choose>
+   <xsl:when test="child::mover">
+      <xsl:apply-templates select="*" mode="under-mover" />
+   </xsl:when>
+   <xsl:otherwise>
+      <munder class="munder-underline">
+         <xsl:apply-templates select="
+  ancestor::munder[1] / child::*[following-sibling::mrow]
+"/>
+
+         <mrow class="mo-0032">
+            <xsl:apply-templates select="*"  />
+         </mrow>
+         <xsl:apply-templates select="
+  ancestor::munder[1] / child::*[preceding-sibling::mrow]
+"/>
+
+      </munder>
+   </xsl:otherwise>
+</xsl:choose>
+
+         </xsl:copy>
+      </xsl:when>
+      <xsl:otherwise>
+         <xsl:apply-templates select="." />
+      </xsl:otherwise>
+   </xsl:choose>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="munder" />
+</script>
+<script element="mover::mover-overline" >
+  <set name="mover" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="*" mode="content" >
+  <xsl:choose>
+     <xsl:when test=" @class = 'char' " >
+       <xsl:if test="not( child::*[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+       ] )">
+         <xsl:text>x</xsl:text>
+       </xsl:if>
+     </xsl:when>
+     <xsl:when test=" not(
+            (@title = 'speech-extra') or (@class = 'accent-char')
+         ) " >
+       <xsl:apply-templates select="*|text()" mode="content" />
+     </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+     <xsl:template match="mover[
+    (@class = 'mover-overline')
+   and
+    child::mrow[
+       (@class = 'mo-00AF')
+       and
+       descendant::mi
+   ]
+]" >
+    <xsl:variable name="content">
+       <xsl:apply-templates select="*" mode="content" />
+    </xsl:variable>
+    <xsl:choose>
+       <xsl:when test="
+          string-length( normalize-space( $content )) = 1
+       " >
+          <BREAK SIZE="small"/>
+<xsl:choose>
+   <xsl:when test="child::mrow / child::munder">
+         <xsl:apply-templates select="child::mrow / child::munder"
+                       mode="under-munder" />
+   </xsl:when>
+   <xsl:otherwise>
+     <xsl:copy>
+       <xsl:apply-templates select="@*" />
+       <xsl:apply-templates
+           select=" *[ @class != 'begin-end' ] " />
+         <span class="begin-end" title="speech-extra" >
+   <BREAK SIZE="small"/>
+   <xsl:text> over bar </xsl:text>
+   <BREAK SIZE="small"/>
+</span>
+
+     </xsl:copy>
+   </xsl:otherwise>
+</xsl:choose>
+
+       </xsl:when>
+       <xsl:otherwise>
+          <xsl:copy>
+             <xsl:apply-templates select="@*" />
+             <xsl:apply-templates
+                     select="*|text()|comment()" />
+          </xsl:copy>
+       </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+<xsl:template match="*" mode="under-munder" >
+   <xsl:choose>
+      <xsl:when test="self::munder">
+         <xsl:copy>
+           <xsl:apply-templates select="@*" />
+           <xsl:apply-templates select="*" mode="under-munder" />
+         </xsl:copy>
+      </xsl:when>
+      <xsl:when test="self::mrow[ parent::munder ]">
+         <xsl:copy>
+           <xsl:apply-templates select="@*" />
+           <xsl:choose>
+   <xsl:when test="child::munder">
+      <xsl:apply-templates select="*" mode="under-munder" />
+   </xsl:when>
+   <xsl:otherwise>
+      <mover class="mover-overline">
+         <mrow class="mo-00AF">
+            <xsl:apply-templates select="*"  />
+         </mrow>
+         <span class="begin-end" title="speech-extra" >
+   <BREAK SIZE="small"/>
+   <xsl:text> over bar </xsl:text>
+   <BREAK SIZE="small"/>
+</span>
+
+      </mover>
+   </xsl:otherwise>
+</xsl:choose>
+
+         </xsl:copy>
+      </xsl:when>
+      <xsl:otherwise>
+         <xsl:apply-templates select="." />
+      </xsl:otherwise>
+   </xsl:choose>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="mover" />
+</script>
+
+     <script element="msub::limits-msub-msup" >
+  <set name="smash" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="*[
+       (@class = 'limits-msub-msup')
+     and
+       child::*[ (position() = 1)
+                 and (@class = 'limits-mrow-base')
+                 and child::*[ (position() = 1)
+                         and (@class = 'limits-msub-msup')
+       ]             ]
+]" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="
+                   *[1]
+                   / *[1]
+                   / *[ not(@class='limits-mrow-super') ]  " />
+     <xsl:apply-templates select=" *[
+                   preceding-sibling::*
+                 and
+                   not(@class='limits-mrow-super') ]" />
+     <xsl:apply-templates select="
+                   *[1]
+                   / *[1]
+                   / *[@class='limits-mrow-super' ]  " />
+     <xsl:apply-templates select=" *[
+                   preceding-sibling::*
+                 and
+                   (@class='limits-mrow-super') ]" />
+  </xsl:copy>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="smash" />
+</script>
+<script element="msup::limits-msub-msup" >
+  <set name="smash" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="*[
+       (@class = 'limits-msub-msup')
+     and
+       child::*[ (position() = 1)
+                 and (@class = 'limits-mrow-base')
+                 and child::*[ (position() = 1)
+                         and (@class = 'limits-msub-msup')
+       ]             ]
+]" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="
+                   *[1]
+                   / *[1]
+                   / *[ not(@class='limits-mrow-super') ]  " />
+     <xsl:apply-templates select=" *[
+                   preceding-sibling::*
+                 and
+                   not(@class='limits-mrow-super') ]" />
+     <xsl:apply-templates select="
+                   *[1]
+                   / *[1]
+                   / *[@class='limits-mrow-super' ]  " />
+     <xsl:apply-templates select=" *[
+                   preceding-sibling::*
+                 and
+                   (@class='limits-mrow-super') ]" />
+  </xsl:copy>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="smash" />
+</script>
+<script element="msubsup::limits-msub-msup" >
+  <set name="smash" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="*[
+       (@class = 'limits-msub-msup')
+     and
+       child::*[ (position() = 1)
+                 and (@class = 'limits-mrow-base')
+                 and child::*[ (position() = 1)
+                         and (@class = 'limits-msub-msup')
+       ]             ]
+]" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="
+                   *[1]
+                   / *[1]
+                   / *[ not(@class='limits-mrow-super') ]  " />
+     <xsl:apply-templates select=" *[
+                   preceding-sibling::*
+                 and
+                   not(@class='limits-mrow-super') ]" />
+     <xsl:apply-templates select="
+                   *[1]
+                   / *[1]
+                   / *[@class='limits-mrow-super' ]  " />
+     <xsl:apply-templates select=" *[
+                   preceding-sibling::*
+                 and
+                   (@class='limits-mrow-super') ]" />
+  </xsl:copy>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="smash" />
+</script>
+
+     
+     <script element="mi" >
+  <set name="math-cap" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="mi" >
+  <xsl:copy>
+      <xsl:apply-templates select="@*" />
+      <xsl:if test=" string-length(.) = 1 " >
+         <xsl:if test="
+                     (translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+                                  '') = '' )
+                  " >
+            <span class="capital-description"
+                  title="speech-extra" >
+               <xsl:text> capital </xsl:text>
+            </span>
+         </xsl:if>
+      </xsl:if>
+      <xsl:apply-templates select="*|text()|comment()" />
+  </xsl:copy>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="math-cap" />
+</script>
+
+     <script element="tr" >
+  <set name="eqnum" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="div[
+    (parent::tr or parent::mtr)
+    and ( normalize-space(.) = '' )
+    and not( normalize-space(following-sibling::*) != '' )
+]" >
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="eqnum" />
+</script>
+<script element="mtr" >
+  <set name="eqnum" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="div[
+    (parent::tr or parent::mtr)
+    and ( normalize-space(.) = '' )
+    and not( normalize-space(following-sibling::*) != '' )
+]" >
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="eqnum" />
+</script>
+
+     <script element="span::inline-math" >
+    <set name="num-sub" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="msub[
+  (
+    (count( child::mrow[ @class = 'mrow-base' ]
+           / child::* ) = 1 )
+  and child::mrow[ @class = 'mrow-base' ] / descendant::mi
+  and not( ancestor::*[
+      self::msub or self::msup or self::msubsup
+    ] )
+
+    or
+    (
+  count( child::mrow[ @class = 'mrow-base' ]
+        / child::* [
+          not(self::BREAK)
+        ]
+  ) = 2 )
+  and child::mrow[ @class = 'mrow-base' ] [
+         child::*[1][ self::mi ]
+         and
+         child::*[
+           (position() &gt; 1)
+           and
+           (normalize-space(.) =
+            normalize-space(
+               descendant-or-self::span[
+                  (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+               ]
+            ))
+         ]
+      ]
+   and not( ancestor::*[
+      self::msub or self::msup or self::msubsup
+    ] )
+
+  )
+  and
+    child::mrow[ @class = 'mrow-sub' ]
+    / child::*[ not(@title = 'speech-extra') ][1]
+    / self::*[
+          normalize-space(.)
+          = normalize-space( descendant::mn ) ]
+]" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <BREAK SIZE="small"/>
+     <xsl:apply-templates select="*[1]" />
+     <mrow class="mrow-sub">
+        <xsl:apply-templates
+           select="*[2] / *[
+                    not(@title = 'speech-extra')
+          ]" />
+        <BREAK SIZE="small"/>
+     </mrow>
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="msubsup[
+  (
+    (count( child::mrow[ @class = 'mrow-base' ]
+           / child::* ) = 1 )
+  and child::mrow[ @class = 'mrow-base' ] / descendant::mi
+  and not( ancestor::*[
+      self::msub or self::msup or self::msubsup
+    ] )
+
+  )
+  and
+    child::mrow[ @class = 'mrow-sub' ]
+    / child::*[ not(@title = 'speech-extra') ][1]
+    / self::*[
+          normalize-space(.)
+          = normalize-space( descendant::mn ) ]
+]" >
+  <msup>
+     <BREAK SIZE="small"/>
+     <xsl:apply-templates select="*[1]" />
+     <mrow class="mrow-sub">
+        <xsl:apply-templates
+           select="*[2] / *[
+                    not(@title = 'speech-extra')
+          ]" />
+        <BREAK SIZE="small"/>
+     </mrow>
+     <xsl:apply-templates select="*[3]" />
+  </msup>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="num-sub" />
+
+  <dom name="." xml="." method="fracLevel" class="tex4ht.HtJsml" />
+<set name="rmXmlDecl" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="rmXmlDecl" />
+
+
+  <dom name="." xml="." method="scriptLevel" class="tex4ht.HtJsml" />
+<set name="rmXmlDecl" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="rmXmlDecl" />
+
+
+  <dom name="." xml="." method="rootLevel" class="tex4ht.HtJsml" />
+<set name="rmXmlDecl" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="rmXmlDecl" />
+
+
+  <set name="inline-math" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="mn-group-s" >
+  <xsl:apply-templates select="*|@*|text()|comment()" />
+</xsl:template>
+
+<xsl:template match="mo[
+    (@class='MathClass-punc')
+    and ( (.='.') or (.=',')  or (.='!')
+          or (.=';') or (.=':') or (.='?') )
+]" >
+  <xsl:copy>
+    <xsl:apply-templates select="@*" />
+    <BREAK SIZE="small"/>
+    <xsl:choose>
+       <xsl:when test=" .='.' " >
+          <SAYAS SUB="dot">.</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .=',' " >
+          <SAYAS SUB="comma">,</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .=';' " >
+          <SAYAS SUB="semicolon">;</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .=':' " >
+          <SAYAS SUB="colon">:</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .='!' " >
+          <SAYAS SUB="exclamation mark">!</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .='?' " >
+          <SAYAS SUB="question mark">?</SAYAS>
+       </xsl:when>
+    </xsl:choose>
+    <BREAK SIZE="small"/>
+  </xsl:copy>
+</xsl:template>
+
+<xsl:template match="mn[
+   ancestor::mover[
+  not( descendant::*[
+        (count( child::*[ not(@title = 'speech-extra')
+          and not( self::BREAK )
+        ]
+ ) &gt; 1)
+     ])
+  and
+  (
+     preceding-sibling::*[1][self::dot or self::mn-group-s]
+     or
+     following-sibling::*[1][self::dot or self::mn-group-s]
+  )
+]
+
+   or
+   ancestor::munder[
+  not( descendant::*[
+        (count( child::*[ not(@title = 'speech-extra')
+          and not( self::BREAK )
+        ]
+ ) &gt; 1)
+     ])
+  and
+  (
+     preceding-sibling::*[1][self::dot or self::mn-group-s]
+     or
+     following-sibling::*[1][self::dot or self::mn-group-s]
+  )
+]
+
+]" >
+  <xsl:copy>
+    <SAYAS CLASS="digits">
+      <xsl:value-of select="." />
+    </SAYAS>
+  </xsl:copy>
+</xsl:template>
+
+
+<xsl:template match="*" mode="content" >
+  <xsl:choose>
+     <xsl:when test=" @class = 'char' " >
+       <xsl:if test="not( child::*[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+       ] )">
+         <xsl:text>x</xsl:text>
+       </xsl:if>
+     </xsl:when>
+     <xsl:when test=" not(
+            (@title = 'speech-extra') or (@class = 'accent-char')
+         ) " >
+       <xsl:apply-templates select="*|text()" mode="content" />
+     </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="span[
+   (@class = 'end-script')
+   and
+   ancestor::* [ following-sibling::* [
+                         not( @class = 'content-less' )
+                      ]
+               ][1]
+           / following-sibling::* [
+                         not( @class = 'content-less' )
+                     ][1]
+           / self::*
+    [
+       (@class = 'end-math')
+       or
+       (@class = 'end-script')
+       or
+       (@class = 'end-root')
+       or
+       (@class = 'end-stack')
+       or
+       (@class = 'mid-stack')
+       or
+       (@class = 'end-array')
+       or
+        self::td or self::mtd or self::tr or self::mtr
+       or
+       (@title = 'implicit-baseline')
+    ]
+]"  >
+  <BREAK SIZE="small"/>
+</xsl:template>
+<xsl:template match="span[
+   (@class = 'end-script')
+   and
+    parent::mrow / parent::msub
+   and
+   ancestor::* [ following-sibling::* ][1]
+   / following-sibling::* [ normalize-space(.) != '' ][1]
+    [
+       (self::msub or self::msubsup)
+     and
+       (normalize-space(child::mrow[
+          @class = 'mrow-base' ]) = '')
+    ]
+]"  >
+  <BREAK SIZE="small"/>
+</xsl:template>
+<xsl:template match="span[
+   (@class = 'end-script')
+   and
+     parent::mrow /parent::*[ self::msup or self::msubsup]
+   and
+   ancestor::* [ following-sibling::* ][1]
+   / following-sibling::* [ normalize-space(.) != '' ][1]
+    [
+       self::msup
+     and
+       (normalize-space(child::mrow[
+          @class = 'mrow-base' ]) = '')
+    ]
+]"  >
+  <BREAK SIZE="small"/>
+</xsl:template>
+
+<xsl:template match="span[
+   (@class = 'begin-script')
+   or (@class = 'mid-script')
+]" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="*|text()|comment()"
+                          mode="clean-script" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*"  mode="clean-script" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="*|text()|comment()"
+                          mode="clean-script" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="text()"  mode="clean-script" >
+</xsl:template>
+<xsl:template match="span[@class = 'scripts-extra']"
+               mode="clean-script" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:value-of select="
+        ancestor::span[
+          (@class = 'begin-script')
+           or (@class = 'mid-script') ] [1]
+      " />
+  </xsl:copy>
+</xsl:template>
+
+<xsl:template match="mfrac[
+   (
+      (translate(
+         concat(
+           mrow[ (@class = 'mrow-numerator')],
+           mrow[ (@class = 'mrow-enumerator')]
+         )  ,'0123456789','') = '')
+      and
+         not(descendant::*/descendant::*
+                          /descendant::mn-group-s)
+      or
+         (@class = 'word-frac')
+   )
+   and
+     preceding-sibling::*[1]
+       / self::mn-group-s[ child::*[
+            (position() = last())
+            and
+            self::mn
+         ] ]
+ ]" >
+  <xsl:text> and </xsl:text>
+  <xsl:copy>
+    <xsl:apply-templates select="*|@*|text()|comment()" />
+  </xsl:copy>
+</xsl:template>
+
+<xsl:template match="mo[
+    (@class = 'MathClass-bin')
+  and
+    ( normalize-space(.) =
+      normalize-space(descendant::span[@class = 'ch 2212'])
+    )
+  and
+    (   preceding-sibling::*[1][
+             (@title='speech-extra')
+             or (@class='MathClass-bin')
+             or (@class='MathClass-rel')
+             or (@class='MathClass-punc')
+             or (@class='MathClass-op')
+             or self::mn-group-s [ child::* [
+                   (position() = last())
+                  and
+                   (@class='MathClass-punc')
+        ]       ] ]
+        and
+        (
+           following-sibling::*[1][ self::mn-group-s
+                                 or self::mi ]
+          or
+           (count(following-sibling::*[
+               not(@title = 'speech-extra')
+            ]) = 1)
+        )
+      or
+        not(preceding-sibling::*) and following-sibling::*
+    )
+]" >
+  <xsl:copy>
+    <xsl:attribute name="class">
+       <xsl:text>mo-unary</xsl:text>
+    </xsl:attribute>
+    <xsl:apply-templates select="*|text()|comment()"
+                         mode="minus-neg" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*|@*|text()|comment()" mode="minus-neg" >
+  <xsl:copy>
+    <xsl:apply-templates select="*|@*|text()|comment()"
+                         mode="minus-neg" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="text()" mode="minus-neg" >
+  <xsl:choose>
+    <xsl:when test=" . = 'minus' " >
+      <xsl:text>negative</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="." />
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="span[ @class = 'end-limits-script' ]" >
+  <xsl:if test=" parent::*[ not(following-sibling::*) ] ">
+    <xsl:copy>
+       <xsl:apply-templates select=" @* " />
+       <xsl:choose>
+          <xsl:when test="
+                parent::*[ preceding-sibling::mrow[
+                                  @class != 'limits-mrow-base'
+                         ]  ]
+            " >
+            <BREAK SIZE="small"/>
+            <xsl:text> end scripts </xsl:text>
+            <BREAK SIZE="small"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <BREAK SIZE="small"/>
+            <xsl:text> end script </xsl:text>
+            <BREAK SIZE="small"/>
+          </xsl:otherwise>
+       </xsl:choose>
+    </xsl:copy>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="span[ @class = 'begin-limits-script' ]" >
+    <xsl:copy>
+       <xsl:apply-templates select=" @* " />
+       <xsl:choose>
+          <xsl:when test="
+                parent::*[ @class = 'limits-mrow-super'  ]
+          " >
+              <xsl:apply-templates
+                  select=" parent::*
+                           / preceding-sibling::*[1] "
+                  mode = "extra-over" />
+          </xsl:when>
+          <xsl:when test="
+                parent::*[ @class = 'limits-mrow-sub'  ]
+          " >
+              <xsl:apply-templates
+                  select=" parent::*
+                           / preceding-sibling::*[1] "
+                  mode = "extra-under" />
+          </xsl:when>
+       </xsl:choose>
+       <xsl:apply-templates select="*|text()|comment()" />
+    </xsl:copy>
+</xsl:template>
+<xsl:template match="*" mode="extra-over" >
+   <xsl:if   test = " self::mrow[ @class = 'limits-mrow-super' ] " >
+     <xsl:text> over </xsl:text>
+     <xsl:apply-templates select=" preceding-sibling::*[1] "
+                    mode = "extra-over" />
+   </xsl:if>
+</xsl:template>
+<xsl:template match="*" mode="extra-under" >
+   <xsl:if   test = " self::mrow[ @class = 'limits-mrow-sub' ] " >
+     <xsl:text> under </xsl:text>
+     <xsl:apply-templates select=" preceding-sibling::*[1] "
+                    mode = "extra-under" />
+   </xsl:if>
+</xsl:template>
+
+<xsl:template match="span[
+    (@class = 'begin-script')
+  and
+    following-sibling::*[ not(@title = 'speech-extra') ] [1]
+    / descendant-or-self::*[ not( self::PROS ) ][1]
+    /
+         child::span / child::span[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+    ]
+]" >
+  <BREAK SIZE="small"/>
+</xsl:template>
+<xsl:template match="span[
+    (@class = 'end-script')
+  and
+    preceding-sibling::*[ not(@title = 'speech-extra') ] [1]
+    / descendant-or-self::*[ not( self::PROS ) ][1]
+    /
+         child::span / child::span[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+    ]
+]" >
+  <BREAK SIZE="small"/>
+</xsl:template>
+
+<xsl:template match="mrow[
+   (@class = 'mrow-super')
+  and
+    parent::msup
+  and
+    (count( child::*[ not(@title = 'speech-extra')
+          and not( self::BREAK )
+        ]
+ ) = 1)
+  and
+    child::*[ not(@title = 'speech-extra')
+          and not( self::BREAK )
+        ]
+ [1][
+       normalize-space(.)
+       =
+       normalize-space(
+          descendant::span[@class = 'ch 2218']
+       )
+    ]
+]" >
+  <xsl:copy>
+    <xsl:apply-templates select="@*" />
+    <xsl:apply-templates
+          select="*[not(@title = 'speech-extra')
+                    and
+                    not(self::BREAK)
+                   ]"
+                           mode="degree" />
+    <BREAK SIZE="small"/>
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*" mode="degree" >
+  <xsl:copy>
+    <xsl:apply-templates select="@*" />
+    <xsl:choose>
+       <xsl:when test="self::span[ @class='ch 2218' ]" >
+         <xsl:text>degree</xsl:text>
+       </xsl:when>
+       <xsl:otherwise>
+         <xsl:apply-templates
+                select="*[not(self::BREAK)]|text()"
+                mode="degree"/>
+       </xsl:otherwise>
+    </xsl:choose>
+   </xsl:copy>
+</xsl:template>
+
+
+     
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="inline-math" />
+  <sax name="." xml="." content-handler="tex4ht.JsmlMathBreak" />
+
+  <set name="inline-math-2" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="*" mode="content" >
+  <xsl:choose>
+     <xsl:when test=" @class = 'char' " >
+       <xsl:if test="not( child::*[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+       ] )">
+         <xsl:text>x</xsl:text>
+       </xsl:if>
+     </xsl:when>
+     <xsl:when test=" not(
+            (@title = 'speech-extra') or (@class = 'accent-char')
+         ) " >
+       <xsl:apply-templates select="*|text()" mode="content" />
+     </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="span[
+     (@class = 'end-script')
+   and
+     ancestor::*[ preceding-sibling::* [
+       ((@class = 'begin-script') or (@class = 'mid-script')) ]]
+]" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="
+            ancestor::*[ preceding-sibling::* [
+                           ((@class = 'begin-script') or
+                            (@class = 'mid-script'))     ]][1]
+            / preceding-sibling::* [
+                           ((@class = 'begin-script') or
+                            (@class = 'mid-script'))  ][1]
+      "  mode="script-copy" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*|@*|text()|comment()"
+               mode="script-copy" >
+  <xsl:copy>
+     <xsl:apply-templates select="*|@*|text()|comment()" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="span[
+     (@class = 'begin-script') or
+     (@class = 'mid-script')       ]"  mode="script-copy" >
+   <xsl:apply-templates select="*|text()|comment()" />
+</xsl:template>
+
+<xsl:template match="span[
+     ((@class = 'begin-script') or (@class = 'mid-script'))
+   and
+     following-sibling::*
+     / following-sibling::span[ @class = 'end-script' ]
+   and
+     following-sibling::*[1]
+     / descendant-or-self::*[ not(self::PROS) ][1]
+     / child::*[1][
+           (@class = 'mrow-base')
+         and
+           (normalize-space(.)='')
+       ]
+]" >
+</xsl:template>
+
+<xsl:template match="span[
+     (@class = 'begin-script')
+   and
+     following-sibling::* [1] / child::*[
+       (position() = 1)
+       and
+       (@class = 'mrow-base')
+       and
+       ( normalize-space(.) = '' )
+     ]
+]"  >
+</xsl:template>
+
+
+     
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="inline-math-2" />
+</script>
+
+     <script element="div::display-math" >
+    <set name="num-sub" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="msub[
+  (
+    (count( child::mrow[ @class = 'mrow-base' ]
+           / child::* ) = 1 )
+  and child::mrow[ @class = 'mrow-base' ] / descendant::mi
+  and not( ancestor::*[
+      self::msub or self::msup or self::msubsup
+    ] )
+
+    or
+    (
+  count( child::mrow[ @class = 'mrow-base' ]
+        / child::* [
+          not(self::BREAK)
+        ]
+  ) = 2 )
+  and child::mrow[ @class = 'mrow-base' ] [
+         child::*[1][ self::mi ]
+         and
+         child::*[
+           (position() &gt; 1)
+           and
+           (normalize-space(.) =
+            normalize-space(
+               descendant-or-self::span[
+                  (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+               ]
+            ))
+         ]
+      ]
+   and not( ancestor::*[
+      self::msub or self::msup or self::msubsup
+    ] )
+
+  )
+  and
+    child::mrow[ @class = 'mrow-sub' ]
+    / child::*[ not(@title = 'speech-extra') ][1]
+    / self::*[
+          normalize-space(.)
+          = normalize-space( descendant::mn ) ]
+]" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <BREAK SIZE="small"/>
+     <xsl:apply-templates select="*[1]" />
+     <mrow class="mrow-sub">
+        <xsl:apply-templates
+           select="*[2] / *[
+                    not(@title = 'speech-extra')
+          ]" />
+        <BREAK SIZE="small"/>
+     </mrow>
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="msubsup[
+  (
+    (count( child::mrow[ @class = 'mrow-base' ]
+           / child::* ) = 1 )
+  and child::mrow[ @class = 'mrow-base' ] / descendant::mi
+  and not( ancestor::*[
+      self::msub or self::msup or self::msubsup
+    ] )
+
+  )
+  and
+    child::mrow[ @class = 'mrow-sub' ]
+    / child::*[ not(@title = 'speech-extra') ][1]
+    / self::*[
+          normalize-space(.)
+          = normalize-space( descendant::mn ) ]
+]" >
+  <msup>
+     <BREAK SIZE="small"/>
+     <xsl:apply-templates select="*[1]" />
+     <mrow class="mrow-sub">
+        <xsl:apply-templates
+           select="*[2] / *[
+                    not(@title = 'speech-extra')
+          ]" />
+        <BREAK SIZE="small"/>
+     </mrow>
+     <xsl:apply-templates select="*[3]" />
+  </msup>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="num-sub" />
+
+  <dom name="." xml="." method="fracLevel" class="tex4ht.HtJsml" />
+<set name="rmXmlDecl" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="rmXmlDecl" />
+
+
+  <dom name="." xml="." method="scriptLevel" class="tex4ht.HtJsml" />
+<set name="rmXmlDecl" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="rmXmlDecl" />
+
+
+  <dom name="." xml="." method="rootLevel" class="tex4ht.HtJsml" />
+<set name="rmXmlDecl" >
+  <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+        <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="rmXmlDecl" />
+
+
+  <set name="display-math" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="mn-group-s" >
+  <xsl:apply-templates select="*|@*|text()|comment()" />
+</xsl:template>
+
+<xsl:template match="mo[
+    (@class='MathClass-punc')
+    and ( (.='.') or (.=',')  or (.='!')
+          or (.=';') or (.=':') or (.='?') )
+]" >
+  <xsl:copy>
+    <xsl:apply-templates select="@*" />
+    <BREAK SIZE="small"/>
+    <xsl:choose>
+       <xsl:when test=" .='.' " >
+          <SAYAS SUB="dot">.</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .=',' " >
+          <SAYAS SUB="comma">,</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .=';' " >
+          <SAYAS SUB="semicolon">;</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .=':' " >
+          <SAYAS SUB="colon">:</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .='!' " >
+          <SAYAS SUB="exclamation mark">!</SAYAS>
+       </xsl:when>
+       <xsl:when test=" .='?' " >
+          <SAYAS SUB="question mark">?</SAYAS>
+       </xsl:when>
+    </xsl:choose>
+    <BREAK SIZE="small"/>
+  </xsl:copy>
+</xsl:template>
+
+<xsl:template match="mn[
+   ancestor::mover[
+  not( descendant::*[
+        (count( child::*[ not(@title = 'speech-extra')
+          and not( self::BREAK )
+        ]
+ ) &gt; 1)
+     ])
+  and
+  (
+     preceding-sibling::*[1][self::dot or self::mn-group-s]
+     or
+     following-sibling::*[1][self::dot or self::mn-group-s]
+  )
+]
+
+   or
+   ancestor::munder[
+  not( descendant::*[
+        (count( child::*[ not(@title = 'speech-extra')
+          and not( self::BREAK )
+        ]
+ ) &gt; 1)
+     ])
+  and
+  (
+     preceding-sibling::*[1][self::dot or self::mn-group-s]
+     or
+     following-sibling::*[1][self::dot or self::mn-group-s]
+  )
+]
+
+]" >
+  <xsl:copy>
+    <SAYAS CLASS="digits">
+      <xsl:value-of select="." />
+    </SAYAS>
+  </xsl:copy>
+</xsl:template>
+
+
+<xsl:template match="*" mode="content" >
+  <xsl:choose>
+     <xsl:when test=" @class = 'char' " >
+       <xsl:if test="not( child::*[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+       ] )">
+         <xsl:text>x</xsl:text>
+       </xsl:if>
+     </xsl:when>
+     <xsl:when test=" not(
+            (@title = 'speech-extra') or (@class = 'accent-char')
+         ) " >
+       <xsl:apply-templates select="*|text()" mode="content" />
+     </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="span[
+   (@class = 'end-script')
+   and
+   ancestor::* [ following-sibling::* [
+                         not( @class = 'content-less' )
+                      ]
+               ][1]
+           / following-sibling::* [
+                         not( @class = 'content-less' )
+                     ][1]
+           / self::*
+    [
+       (@class = 'end-math')
+       or
+       (@class = 'end-script')
+       or
+       (@class = 'end-root')
+       or
+       (@class = 'end-stack')
+       or
+       (@class = 'mid-stack')
+       or
+       (@class = 'end-array')
+       or
+        self::td or self::mtd or self::tr or self::mtr
+       or
+       (@title = 'implicit-baseline')
+    ]
+]"  >
+  <BREAK SIZE="small"/>
+</xsl:template>
+<xsl:template match="span[
+   (@class = 'end-script')
+   and
+    parent::mrow / parent::msub
+   and
+   ancestor::* [ following-sibling::* ][1]
+   / following-sibling::* [ normalize-space(.) != '' ][1]
+    [
+       (self::msub or self::msubsup)
+     and
+       (normalize-space(child::mrow[
+          @class = 'mrow-base' ]) = '')
+    ]
+]"  >
+  <BREAK SIZE="small"/>
+</xsl:template>
+<xsl:template match="span[
+   (@class = 'end-script')
+   and
+     parent::mrow /parent::*[ self::msup or self::msubsup]
+   and
+   ancestor::* [ following-sibling::* ][1]
+   / following-sibling::* [ normalize-space(.) != '' ][1]
+    [
+       self::msup
+     and
+       (normalize-space(child::mrow[
+          @class = 'mrow-base' ]) = '')
+    ]
+]"  >
+  <BREAK SIZE="small"/>
+</xsl:template>
+
+<xsl:template match="span[
+   (@class = 'begin-script')
+   or (@class = 'mid-script')
+]" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="*|text()|comment()"
+                          mode="clean-script" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*"  mode="clean-script" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="*|text()|comment()"
+                          mode="clean-script" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="text()"  mode="clean-script" >
+</xsl:template>
+<xsl:template match="span[@class = 'scripts-extra']"
+               mode="clean-script" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:value-of select="
+        ancestor::span[
+          (@class = 'begin-script')
+           or (@class = 'mid-script') ] [1]
+      " />
+  </xsl:copy>
+</xsl:template>
+
+<xsl:template match="mfrac[
+   (
+      (translate(
+         concat(
+           mrow[ (@class = 'mrow-numerator')],
+           mrow[ (@class = 'mrow-enumerator')]
+         )  ,'0123456789','') = '')
+      and
+         not(descendant::*/descendant::*
+                          /descendant::mn-group-s)
+      or
+         (@class = 'word-frac')
+   )
+   and
+     preceding-sibling::*[1]
+       / self::mn-group-s[ child::*[
+            (position() = last())
+            and
+            self::mn
+         ] ]
+ ]" >
+  <xsl:text> and </xsl:text>
+  <xsl:copy>
+    <xsl:apply-templates select="*|@*|text()|comment()" />
+  </xsl:copy>
+</xsl:template>
+
+<xsl:template match="mo[
+    (@class = 'MathClass-bin')
+  and
+    ( normalize-space(.) =
+      normalize-space(descendant::span[@class = 'ch 2212'])
+    )
+  and
+    (   preceding-sibling::*[1][
+             (@title='speech-extra')
+             or (@class='MathClass-bin')
+             or (@class='MathClass-rel')
+             or (@class='MathClass-punc')
+             or (@class='MathClass-op')
+             or self::mn-group-s [ child::* [
+                   (position() = last())
+                  and
+                   (@class='MathClass-punc')
+        ]       ] ]
+        and
+        (
+           following-sibling::*[1][ self::mn-group-s
+                                 or self::mi ]
+          or
+           (count(following-sibling::*[
+               not(@title = 'speech-extra')
+            ]) = 1)
+        )
+      or
+        not(preceding-sibling::*) and following-sibling::*
+    )
+]" >
+  <xsl:copy>
+    <xsl:attribute name="class">
+       <xsl:text>mo-unary</xsl:text>
+    </xsl:attribute>
+    <xsl:apply-templates select="*|text()|comment()"
+                         mode="minus-neg" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*|@*|text()|comment()" mode="minus-neg" >
+  <xsl:copy>
+    <xsl:apply-templates select="*|@*|text()|comment()"
+                         mode="minus-neg" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="text()" mode="minus-neg" >
+  <xsl:choose>
+    <xsl:when test=" . = 'minus' " >
+      <xsl:text>negative</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="." />
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="span[ @class = 'end-limits-script' ]" >
+  <xsl:if test=" parent::*[ not(following-sibling::*) ] ">
+    <xsl:copy>
+       <xsl:apply-templates select=" @* " />
+       <xsl:choose>
+          <xsl:when test="
+                parent::*[ preceding-sibling::mrow[
+                                  @class != 'limits-mrow-base'
+                         ]  ]
+            " >
+            <BREAK SIZE="small"/>
+            <xsl:text> end scripts </xsl:text>
+            <BREAK SIZE="small"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <BREAK SIZE="small"/>
+            <xsl:text> end script </xsl:text>
+            <BREAK SIZE="small"/>
+          </xsl:otherwise>
+       </xsl:choose>
+    </xsl:copy>
+  </xsl:if>
+</xsl:template>
+<xsl:template match="span[ @class = 'begin-limits-script' ]" >
+    <xsl:copy>
+       <xsl:apply-templates select=" @* " />
+       <xsl:choose>
+          <xsl:when test="
+                parent::*[ @class = 'limits-mrow-super'  ]
+          " >
+              <xsl:apply-templates
+                  select=" parent::*
+                           / preceding-sibling::*[1] "
+                  mode = "extra-over" />
+          </xsl:when>
+          <xsl:when test="
+                parent::*[ @class = 'limits-mrow-sub'  ]
+          " >
+              <xsl:apply-templates
+                  select=" parent::*
+                           / preceding-sibling::*[1] "
+                  mode = "extra-under" />
+          </xsl:when>
+       </xsl:choose>
+       <xsl:apply-templates select="*|text()|comment()" />
+    </xsl:copy>
+</xsl:template>
+<xsl:template match="*" mode="extra-over" >
+   <xsl:if   test = " self::mrow[ @class = 'limits-mrow-super' ] " >
+     <xsl:text> over </xsl:text>
+     <xsl:apply-templates select=" preceding-sibling::*[1] "
+                    mode = "extra-over" />
+   </xsl:if>
+</xsl:template>
+<xsl:template match="*" mode="extra-under" >
+   <xsl:if   test = " self::mrow[ @class = 'limits-mrow-sub' ] " >
+     <xsl:text> under </xsl:text>
+     <xsl:apply-templates select=" preceding-sibling::*[1] "
+                    mode = "extra-under" />
+   </xsl:if>
+</xsl:template>
+
+<xsl:template match="span[
+    (@class = 'begin-script')
+  and
+    following-sibling::*[ not(@title = 'speech-extra') ] [1]
+    / descendant-or-self::*[ not( self::PROS ) ][1]
+    /
+         child::span / child::span[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+    ]
+]" >
+  <BREAK SIZE="small"/>
+</xsl:template>
+<xsl:template match="span[
+    (@class = 'end-script')
+  and
+    preceding-sibling::*[ not(@title = 'speech-extra') ] [1]
+    / descendant-or-self::*[ not( self::PROS ) ][1]
+    /
+         child::span / child::span[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+    ]
+]" >
+  <BREAK SIZE="small"/>
+</xsl:template>
+
+<xsl:template match="mrow[
+   (@class = 'mrow-super')
+  and
+    parent::msup
+  and
+    (count( child::*[ not(@title = 'speech-extra')
+          and not( self::BREAK )
+        ]
+ ) = 1)
+  and
+    child::*[ not(@title = 'speech-extra')
+          and not( self::BREAK )
+        ]
+ [1][
+       normalize-space(.)
+       =
+       normalize-space(
+          descendant::span[@class = 'ch 2218']
+       )
+    ]
+]" >
+  <xsl:copy>
+    <xsl:apply-templates select="@*" />
+    <xsl:apply-templates
+          select="*[not(@title = 'speech-extra')
+                    and
+                    not(self::BREAK)
+                   ]"
+                           mode="degree" />
+    <BREAK SIZE="small"/>
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*" mode="degree" >
+  <xsl:copy>
+    <xsl:apply-templates select="@*" />
+    <xsl:choose>
+       <xsl:when test="self::span[ @class='ch 2218' ]" >
+         <xsl:text>degree</xsl:text>
+       </xsl:when>
+       <xsl:otherwise>
+         <xsl:apply-templates
+                select="*[not(self::BREAK)]|text()"
+                mode="degree"/>
+       </xsl:otherwise>
+    </xsl:choose>
+   </xsl:copy>
+</xsl:template>
+
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="display-math" />
+  <sax name="." xml="." content-handler="tex4ht.JsmlMathBreak" />
+
+  <set name="display-math-2" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="*" mode="content" >
+  <xsl:choose>
+     <xsl:when test=" @class = 'char' " >
+       <xsl:if test="not( child::*[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+       ] )">
+         <xsl:text>x</xsl:text>
+       </xsl:if>
+     </xsl:when>
+     <xsl:when test=" not(
+            (@title = 'speech-extra') or (@class = 'accent-char')
+         ) " >
+       <xsl:apply-templates select="*|text()" mode="content" />
+     </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template match="span[
+     (@class = 'end-script')
+   and
+     ancestor::*[ preceding-sibling::* [
+       ((@class = 'begin-script') or (@class = 'mid-script')) ]]
+]" >
+  <xsl:copy>
+     <xsl:apply-templates select="@*" />
+     <xsl:apply-templates select="
+            ancestor::*[ preceding-sibling::* [
+                           ((@class = 'begin-script') or
+                            (@class = 'mid-script'))     ]][1]
+            / preceding-sibling::* [
+                           ((@class = 'begin-script') or
+                            (@class = 'mid-script'))  ][1]
+      "  mode="script-copy" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*|@*|text()|comment()"
+               mode="script-copy" >
+  <xsl:copy>
+     <xsl:apply-templates select="*|@*|text()|comment()" />
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="span[
+     (@class = 'begin-script') or
+     (@class = 'mid-script')       ]"  mode="script-copy" >
+   <xsl:apply-templates select="*|text()|comment()" />
+</xsl:template>
+
+<xsl:template match="span[
+     ((@class = 'begin-script') or (@class = 'mid-script'))
+   and
+     following-sibling::*
+     / following-sibling::span[ @class = 'end-script' ]
+   and
+     following-sibling::*[1]
+     / descendant-or-self::*[ not(self::PROS) ][1]
+     / child::*[1][
+           (@class = 'mrow-base')
+         and
+           (normalize-space(.)='')
+       ]
+]" >
+</xsl:template>
+
+<xsl:template match="span[
+     (@class = 'begin-script')
+   and
+     following-sibling::* [1] / child::*[
+       (position() = 1)
+       and
+       (@class = 'mrow-base')
+       and
+       ( normalize-space(.) = '' )
+     ]
+]"  >
+</xsl:template>
+
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="display-math-2" />
+  
+</script>
+
+     <script element="PARA" >
+  <set name="apostro" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="span[
+     (@class = 'char-del')
+    and  child::span [ @class = 'ch 2019' ]
+]" >
+   <xsl:text>'</xsl:text>
+</xsl:template>
+
+     <xsl:template match="PROS[  parent::SENT[@class='ol-mark'] ]" >
+   <xsl:copy>
+      <xsl:apply-templates
+           select="*[not(@class='char-del')]|@*|text()|comment()" />
+   </xsl:copy>
+</xsl:template>
+
+     <xsl:template match=" PARA[ normalize-space(.) = '' ] " >
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="apostro" />
+</script>
+
+     <script element="div::split-side" >
+  <set name="clean-split" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="*" mode="content" >
+  <xsl:choose>
+     <xsl:when test=" @class = 'char' " >
+       <xsl:if test="not( child::*[
+            (@class = 'ch 2032') or (@class = 'ch 2033')
+                                 or (@class = 'ch 2034')
+       ] )">
+         <xsl:text>x</xsl:text>
+       </xsl:if>
+     </xsl:when>
+     <xsl:when test=" not(
+            (@title = 'speech-extra') or (@class = 'accent-char')
+         ) " >
+       <xsl:apply-templates select="*|text()" mode="content" />
+     </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+     <xsl:template match=" div[ @class='split-side' ]
+" >
+    <xsl:variable name="content">
+       <xsl:apply-templates select="*" mode="content" />
+    </xsl:variable>
+    <xsl:if test="
+       string-length( normalize-space( $content )) != 0
+    " >
+       <xsl:copy>
+          <xsl:apply-templates select=" *|@*|text()|comment() " />
+       </xsl:copy>
+    </xsl:if>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="clean-split" />
+</script>
+
+     <script element="div::newtheorem" >
+  <set name="newtheorem" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="
+    div[   (@class='newtheorem')
+         and
+           descendant::*[ self::p ][1]
+           / descendant::*[ self::span ][1]
+                          [ @class = 'theorem-head' ]
+    ]
+" >
+   <xsl:copy>
+     <xsl:apply-templates select="*|@*|text()|comment()" />
+     <div class="begin-end" title="speech-extra">
+        <BREAK SIZE="small"/>
+        <xsl:value-of select="
+           concat( ' end ',
+              substring-before(concat(
+  normalize-space(
+    string(
+       descendant::*[ self::p ][1]
+       / descendant::*[ self::span ][1]
+                      [ @class = 'theorem-head' ]
+  ) )
+  , ' '
+)
+, ' ')
+           ) " />
+     </div>
+   </xsl:copy>
+</xsl:template>
+
+     
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="newtheorem" />
+</script>
+
+     <script element="br" >
+  <set name="br" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="br" >
+   <xsl:copy>
+       <xsl:apply-templates select="@*" />
+   </xsl:copy>
+   <BREAK SIZE="small"/>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="br" />
+</script>
+
+     <script element="BREAK" >
+  <set name="BREAK" >
+     <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+     <xsl:template match="BREAK" >
+   <xsl:copy>
+       <xsl:apply-templates select="@*" />
+   </xsl:copy>
+</xsl:template>
+
+           <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+  </set>
+  <xslt name="." xml="." xsl="BREAK" />
+</script>
+
+   </sax>
+</xtpipes>
+

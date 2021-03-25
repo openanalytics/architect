@@ -1,0 +1,2108 @@
+% jsml.4ht (2016-07-04-10:35), generated from tex4ht-jsml.tex
+% Copyright 2009-2016 TeX Users Group
+% Copyright 2006-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2016-07-04-10:35}
+
+\exit:ifnot{JHEP,% 
+Preamble,% 
+aa,% 
+acm-proc-article-sp,% 
+amsart,% 
+amsbook,% 
+amsproc,% 
+amsthm,% 
+array,% 
+article,% 
+book,% 
+frenchb,% 
+latex,% 
+letter,% 
+plain,% 
+report,% 
+scrbook,% 
+scrreprt,% 
+slides,% 
+tex4ht,% 
+tex4ht2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\Configure{ext}{jsml}
+\Configure{PROLOG}{JSML,VERSION,DOCTYPE,*XML-STYLESHEET}
+\Configure{JSML}
+    {\HCode{<jsml>\Hnewline}}
+\def\add:description#1#2{<span class="#1"
+           title="speech-extra" >\Hnewline #2\Hnewline</span>}
+\def\add:vdescription#1#2{<div class="#1"
+           title="speech-extra" >\Hnewline #2\Hnewline</div>}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{HTML}
+  {\IgnorePar\HCode{<html \a:@HTML
+       xmlns="http://www.w3.org/1999/xhtml"
+\Hnewline>\Hnewline}}
+  {\ifvmode\IgnorePar\fi\HCode{</html>\Hnewline
+   </jsml>\Hnewline}}
+\Configure{VERSION}
+    {\HCode{\Hnewline<!--?xml version="1.0" encoding="\expandafter\ifx \csname a:charset\endcsname\relax
+         \expandafter\:encoding\A:charset
+   \else \expandafter\:encoding\a:charset\fi"
+ ?-->\Hnewline
+            <?xtpipes file="jsml.4xt" ?>\Hnewline}}
+\Configure{DOCTYPE}
+  {\HCode{% <!DOCTYPE html \xhtml:DOCTYPE>            \Hnewline
+          <!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->
+          \Hnewline}}
+\def\xhtml:DOCTYPE{PUBLIC
+     "-//W3C//DTD XHTML 1.0 Transitional//"\Hnewline
+    \space\space "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"}
+\Configure{htf}{0}{+}{}{}{}{}{}{}{}
+\def\ord:pos#1{%
+   \ifcase #1
+   \or first
+   \or second
+   \or third
+   \or fourth
+   \or fifth
+   \or sixth
+   \or seventh
+   \or eighth
+   \or nineth
+   \else #1th
+   \fi
+}
+\HAssign\HRow=0
+\let\Link\M:Link        \let\M:Link\:UnDef
+\let\EndLink\M:EndLink  \let\M:EndLink\:UnDef
+\Configure{crosslinks}{ }{ }{next}{previous}{previous-tail}{front}{tail}{up}
+\Configure{crosslinks+}
+   {\IgnorePar\EndP\HCode{<!--l. \the\inputlineno-->%
+%
+                          <div class="crosslinks"><p class="noindent">
+        \add:vdescription{begin-end}{\a:speak:crosslinks}}}
+   {\HCode{\add:vdescription{begin-end}{\b:speak:crosslinks}
+           </p></div>}\par\ShowPar}
+   {\IgnorePar\EndP\HCode{<!--l. \the\inputlineno-->%
+%
+                          <div class="crosslinks"><p class="noindent">
+        \add:vdescription{begin-end}{\a:speak:crosslinks}}}
+   {\HCode{\add:vdescription{begin-end}{\b:speak:crosslinks}
+           </p></div>}\par\ShowPar}
+\:CheckOption{next}     \if:Option
+   \Configure{next+}
+     {\ShowPar\par\noindent \HCode{<span class="next">
+      \add:description{added-description}{\c:speak:crosslinks}}}
+     {\HCode{</span>}}
+\fi
+\NewConfigure{speak:crosslinks}{3}
+\Configure{speak:crosslinks}
+   {Navigation links}
+   {End navigation links}
+   {Navigation link}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{embedded-halign}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{marginpar}
+   {\ifvmode
+      \IgnorePar\EndP\HCode{<p class="marginpar"><PROS
+                PITCH="+30" >}%
+         \HCode{<div>
+     \add:description{begin-end}{<PROS PITCH="-15">\a:speak:marginpar
+                      </PROS>}</div><div>}%
+%
+      \def\end:margp{\ifvmode \IgnorePar\fi \EndP
+         \HCode{</div><div>
+    \add:description{begin-end}{\b:speak:marginpar}</div>}%
+\HCode{</PROS></p><BREAK SIZE="small"/>}}%
+      \par
+    \else
+      \SaveEndP
+      \HCode{<SENT><span class="marginpar"><PROS
+                PITCH="+30" >}\HCode{\add:description{begin-end}{<PROS pitch="-15">\a:speak:marginpar
+                      </PROS>}}%
+%
+      \bgroup
+         \Configure{HtmlPar}
+             {<BREAK SIZE="small" />}
+             {\HCode{<BREAK SIZE="small" />}}
+             {}{}%
+      \def\end:margp{\egroup
+             \HCode{\add:description{begin-end}{\b:speak:marginpar}}%
+\HCode{</PROS><BREAK SIZE="small"/></span></SENT>}\RecallEndP}%
+    \fi
+   }
+   {\end:margp}
+\NewConfigure{speak:marginpar}{2}
+\Configure{speak:marginpar}
+   {<BREAK SIZE="small"/>margin note<BREAK SIZE="small"/>}
+   {}
+\Configure{footnote-mark}
+   {\HCode{<SENT><span class="footnote-mark"><PROS
+                PITCH="+30" >}\HCode{\add:description{added-description}{<PROS
+             pitch="-15">\a:speak:footnote</PROS>}}%
+}
+   {\HCode{}%
+\HCode{</PROS><BREAK SIZE="small"/></span></SENT>}}
+\NewConfigure{speak:footnote}{1}
+\Configure{speak:footnote}
+   { <BREAK SIZE="small"/>footnote<BREAK SIZE="small"/>}
+
+\ConfigureList{trivlist}%
+   {\EndP\HCode{<dl \a:LRdir class="trivlist">}%
+       \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd></dl>}\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
+        class="trivlist">}\bgroup \bf}
+   {\egroup\HCode{</dt><dd\Hnewline class="trivlist">}}
+\ConfigureList{list}%
+   {\EndP\HCode{<dl \a:LRdir class="list\expandafter\the
+         \csname @listdepth\endcsname">}%
+    \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd></dl>}\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\Tg</dd>}\HCode{<dt
+        class="list">}\bgroup \bf}
+   {\egroup\HCode{</dt><dd\Hnewline class="list">}}
+\ConfigureList{itemize}%
+   {\EndP\HCode{<ul
+           \a:LRdir class="ul-itemize\expandafter\the
+          \csname @itemdepth\endcsname"><PROS PITCH="+15">}%
+     \HCode{<div class="itemize">%
+      <div class="added-list-description">%
+     \add:description{added-description}{\a:speak:itemize}</div>}%
+%
+     \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\ifvmode \IgnorePar\fi
+    \EndP \HCode{</li>}\HCode{<div class="added-list-description">%
+     \add:description{added-description}{\b:speak:itemize}</div></div>}%
+%
+    \HCode{</PROS></ul>}\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</li>}}%
+    \HCode{<li class="li-itemize">}\HCode{<span class="added-list-description">%
+    \add:description{added-description}{\c:speak:itemize}</span>}%
+\DeleteMark
+   }
+   {\HCode{}}
+\NewConfigure{speak:itemize}{3}
+\Configure{speak:itemize}
+   {<BREAK SIZE="small"/>begin \ifcase\csname @listdepth\endcsname
+          \or \or sub \or sub sub \or sub sub sub \else\fi
+       list}
+   {<BREAK SIZE="small"/>end \ifcase\csname @listdepth\endcsname
+         \or sub \or sub sub \or sub sub sub \else\fi
+       list<BREAK SIZE="small"/>}
+   {<BREAK SIZE="medium"/><PROS PITCH="-5">
+       item</PROS><BREAK SIZE="small"/>}
+\ConfigureList{enumerate}%
+      {\EndP \HCode{<ol \a:enumerate:\space
+      class="ol-enumerate\expandafter\the\csname @enumdepth\endcsname"
+      \a:LRdir
+     ><PROS PITCH="+15">}%
+\HCode{<div class="enumerate">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:enumerate}</div>}%
+%
+\PushMacro\end:itm
+\global\let\end:itm=\empty
+}
+      {\PopMacro\end:itm \global\let\end:itm \end:itm
+%
+\EndP \HCode{</li>}%
+\HCode{<div class="added-list-description">%
+   \add:description{added-description}{\b:speak:enumerate}</div></div>}%
+%
+\HCode{</PROS></ol>}\ShowPar
+}
+      {\end:itm \gdef\end:itm{\EndP\HCode{</li>}}%
+\HCode{<li class="li-enumerate" \Hnewline><SENT><span
+   class="ol-mark"><BREAK
+       SIZE="medium"/><PROS PITCH="-5" >}\HCode{<span class="added-list-description">%
+       \add:description{added-description}{\c:speak:enumerate}</span>}%
+%\DeleteMark
+}
+      {\HCode{</PROS><BREAK SIZE="small"/></span></SENT>}%\AnchorLabel
+}
+\NewConfigure{speak:enumerate}{3}
+\Configure{speak:enumerate}
+   {<BREAK SIZE="small"/>begin \ifcase\csname @listdepth\endcsname
+          \or \or sub \or sub sub \or sub sub sub \else\fi
+      list}
+   {<BREAK SIZE="small"/>end \ifcase\csname @listdepth\endcsname
+         \or sub \or sub sub \or sub sub sub \else\fi
+      list<BREAK SIZE="small"/>}
+   {
+       item <BREAK SIZE="small"/>}
+
+\Configure{verbatim}
+   {\HAdvance\Verb:N by 1 \ifnum \Verb:N>1
+      \:nbsp \HCode{<br />}\fi}
+   {\a:sp}
+\def\env:verb#1{\ifinner\else \vfill\break\fi
+  \IgnorePar\EndP  \HAssign\Verb:N=0
+  \HCode{<PARA><div class="#1"\a:LRdir>%
+    \add:description{added-description}{begin verbatim}%
+    <PROS \a:verbatim::style >}\EndNoFonts}
+\def\endenv:verb{\NoFonts
+  \EndP \ht:special{t4ht=</PROS>%
+    \add:description{added-description}{end verbatim}%
+    </div></PARA>}\ShowPar \par{\HCondtrue\noindent}%
+}
+\NewConfigure{verbatim::style}{1}
+\Configure{verbatim::style}{RATE="150" PITCH="-10" RANGE="0"}
+\Configure{verb}
+   {\HCode{<SENT><span class="verb"\a:LRdir><PROS \a:verbatim::style >}}
+   {\HCode{</PROS></span></SENT>}}
+\ConfigureEnv{figure}
+   {\IgnorePar\EndP
+     \HCode{<PARA><div class="figure"\Hnewline><div>\add:description{begin-end}{\a:speak:figure}</div>%
+}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+    \IgnorePar\EndP\HCode{<div>\add:description{begin-end}{\b:speak:figure}</div>%
+</div></PARA>}%
+    \ShowPar
+\par}
+   {}{}
+\NewConfigure{speak:caption}{3}
+\Configure{speak:caption}
+   {}
+   {}
+   {caption of}
+\NewConfigure{speak:figure}{2}
+\Configure{speak:figure}
+   {<BREAK
+       SIZE="small"/><PROS PITCH="-15" >begin figure</PROS>}
+   {<BREAK
+       SIZE="small"/><PROS PITCH="-15" >end figure</PROS>}
+\Configure{texttt}
+   {\Protect\HCode{<SENT><span class="texttt"><PROS
+      \a:verbatim::style}}
+   {\Protect\HCode{</PROS></span></SENT>}}
+\Configure{emph}
+   {\Protect\HCode{<SENT><span class="emph"><EMP
+            LEVEL="moderate">}}
+   {\Protect\HCode{</EMP></span></SENT>}}
+\Configure{textbf}
+   {\Protect\HCode{<span class="textbf"><EMP
+            LEVEL="strong">}}
+   {\Protect\HCode{</EMP></span>}}
+\HAssign\TableNo=0
+\Configure{tabular}
+   {\ifvmode \IgnorePar\fi \EndP
+    \HCode{<PARA><table class="tabular" >}%
+     \HCode{%
+   <BREAK SIZE="small"/><PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{begin table with
+       \ifTag{tabular-\TableNo}{\LikeRef{tabular-\TableNo}}{}
+      rows and \ar:cnt columns}%
+   </PROS>
+}%
+}
+   {\Tag{tabular-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+   <BREAK SIZE="small"/>%
+   <PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{end table}%
+   </PROS><BREAK SIZE="small"/>%
+}%
+\HCode{</table></PARA>}}
+   {\HCode{<tr><!--row \HRow-->}%
+    \HCode{%
+   <BREAK SIZE="medium"/><PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{<span class="ord-row">\ord:pos{\HRow}</span>%
+ row}%
+   </PROS><BREAK SIZE="medium"/>%
+}%
+}
+   {\xdef\hrow:s{\HRow}\HCode{</tr>}}
+   {\HCode{<td><!--entry \HRow-\HCol\ifnum
+          \HMultispan>1 \, span \HMultispan\fi-->}%
+      \HCode{%
+  <BREAK SIZE="medium"/>%
+  \ifnum \HMultispan>1
+    <PROS PITCH="-5" >%
+    \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell
+       spans \HMultispan \space columns}%
+    </PROS><BREAK SIZE="medium"/>%
+  \else
+    \ifnum \HCol>1
+       <PROS PITCH="-5" >%
+       \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell}%
+       </PROS><BREAK SIZE="medium"/>%
+    \fi
+  \fi
+}%
+\HCode{<div>}\SaveEndP
+      \PushStack\Table:Stck\TableNo
+      \par  \ShowPar}
+   {\PopStack\Table:Stck\TableNo
+    \IgnorePar \EndP \ifvmode \IgnorePar \fi \EndP
+    \HCode{</div>}%
+    \HCode{</td>\Hnewline}\RecallEndP }
+
+\def\@cite#1#2{%
+   \HCode{\add:description{added-description}{\a:speak:citation}}%
+   {#1\if@tempswa , #2\fi}}
+\def\@biblabel#1{%
+   \HCode{<BREAK SIZE="small" />}%
+   \HCode{\add:description{added-description}{\a:speak:bib}}%
+   #1\HCode{<BREAK SIZE="small" />}}
+\NewConfigure{speak:citation}{1}
+\Configure{speak:citation}{citation }
+\NewConfigure{speak:bib}{1}
+\Configure{speak:bib}{Bibliography entry}\Configure{newtheorem}
+   {\ifvmode\IgnorePar\fi\EndP
+     \HCode{<BREAK SIZE="medium"/>%
+     <PARA><div class="newtheorem">}\par\noindent
+     \HCode{<SENT><PROS PITCH="-10" ><span class="theorem-head">}}
+   {\HCode{</span></PROS></SENT><BREAK SIZE="small"/>}}
+   {\EndP\IgnorePar\HCode{</div></PARA><BREAK SIZE="medium"/>}\ShowPar\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{maketitle}
+   {\ifvmode \IgnorePar\fi \EndP %
+     \HCode{<PARA><div class="maketitle">}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<BREAK SIZE="medium" /></div></PARA>}}
+   {\NoFonts\IgnorePar\HCode{<h2
+     class="titleHead"\a:LRdir><EMP
+              LEVEL="moderate">}\IgnorePar}
+   {\HCode{</EMP></h2>}\IgnoreIndent\EndNoFonts}
+\Configure{thanks author date and}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<SENT><span class="thanks"><BREAK SIZE="small" />}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</span></SENT>}}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<SENT><span class="author" ><BREAK SIZE="small" />}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</span></SENT>}}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<BREAK SIZE="small" /><SAYS CLASS="date" >}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</SAYS><BREAK SIZE="small" />}}
+   {\HCode{<br />}}
+   {\HCode{<br />}}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+\Configure{section}{}{}
+   {\ifvmode \IgnorePar\fi \EndP\IgnorePar
+    \HCode{<h3 class="sectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\TitleMark\space\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn\ShowPar \IgnoreIndent \par}
+\Configure{likesection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\IgnorePar\HCode{<h3
+                class="likesectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn \IgnoreIndent \par}
+\Configure{subsection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\bgroup \IgnorePar\HCode{<h4
+             class="subsectionHead"\a:LRdir><EMP
+                 LEVEL="moderate">}%
+    \TitleMark\space \HtmlParOff}
+   {\HCode{</EMP></h4>}\HtmlParOn
+    \IgnoreIndent\egroup\par\ShowPar}
+\Configure{likesubsection}{}{}{\EndP\bgroup
+   \ifvmode \IgnorePar\fi
+   \HCode{<h4 class="likesubsectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff }
+  {\HCode{</EMP></h4>}\HtmlParOn
+   \IgnoreIndent\egroup\par\ShowPar}
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+\ConfigureList{description}%
+   {\EndP
+    \HCode{<dl \a:LRdir class="dl-description"><PROS PITCH="+15">}%
+      \HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+%
+    \HCode{</PROS></dl>}%
+    \ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</dd>}}\HCode{<SENT><span><dt
+        class="dt-description"><EMP
+            LEVEL="moderate">}\HCode{<span class="added-list-description">%
+  \add:description{added-description}{\c:speak:description}%
+ </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</EMP><BREAK
+      SIZE="small"/></dt></span></SENT><dd\Hnewline class="dd-description">}}
+
+\ConfigureEnv{quote}
+   {}{}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="quote"><PROS
+                PITCH="-10" >}}
+   {\IgnorePar\EndP
+    \HCode{</PROS></div></PARA>}\ShowPar\ShowIndent}
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+\ConfigureEnv{quote}
+   {}{}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="quote"><PROS
+                PITCH="-10" >}}
+   {\IgnorePar\EndP
+    \HCode{</PROS></div></PARA>}\ShowPar\ShowIndent}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{maketitle}
+   {\ifvmode \IgnorePar\fi \EndP %
+     \HCode{<PARA><div class="maketitle">}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<BREAK SIZE="medium" /></div></PARA>}}
+   {\NoFonts\IgnorePar\HCode{<h2
+     class="titleHead"\a:LRdir><EMP
+              LEVEL="moderate">}\IgnorePar}
+   {\HCode{</EMP></h2>}\IgnoreIndent\EndNoFonts}
+\Configure{thanks author date and}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<SENT><span class="thanks"><BREAK SIZE="small" />}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</span></SENT>}}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<SENT><span class="author" ><BREAK SIZE="small" />}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</span></SENT>}}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<BREAK SIZE="small" /><SAYS CLASS="date" >}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</SAYS><BREAK SIZE="small" />}}
+   {\HCode{<br />}}
+   {\HCode{<br />}}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+\Configure{section}{}{}
+   {\ifvmode \IgnorePar\fi \EndP\IgnorePar
+    \HCode{<h3 class="sectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\TitleMark\space\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn\ShowPar \IgnoreIndent \par}
+\Configure{likesection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\IgnorePar\HCode{<h3
+                class="likesectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn \IgnoreIndent \par}
+\Configure{subsection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\bgroup \IgnorePar\HCode{<h4
+             class="subsectionHead"\a:LRdir><EMP
+                 LEVEL="moderate">}%
+    \TitleMark\space \HtmlParOff}
+   {\HCode{</EMP></h4>}\HtmlParOn
+    \IgnoreIndent\egroup\par\ShowPar}
+\Configure{likesubsection}{}{}{\EndP\bgroup
+   \ifvmode \IgnorePar\fi
+   \HCode{<h4 class="likesubsectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff }
+  {\HCode{</EMP></h4>}\HtmlParOn
+   \IgnoreIndent\egroup\par\ShowPar}
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+\ConfigureList{description}%
+   {\EndP
+    \HCode{<dl \a:LRdir class="dl-description"><PROS PITCH="+15">}%
+      \HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+%
+    \HCode{</PROS></dl>}%
+    \ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</dd>}}\HCode{<SENT><span><dt
+        class="dt-description"><EMP
+            LEVEL="moderate">}\HCode{<span class="added-list-description">%
+  \add:description{added-description}{\c:speak:description}%
+ </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</EMP><BREAK
+      SIZE="small"/></dt></span></SENT><dd\Hnewline class="dd-description">}}
+
+\ConfigureEnv{quote}
+   {}{}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="quote"><PROS
+                PITCH="-10" >}}
+   {\IgnorePar\EndP
+    \HCode{</PROS></div></PARA>}\ShowPar\ShowIndent}
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+\ConfigureEnv{quote}
+   {}{}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="quote"><PROS
+                PITCH="-10" >}}
+   {\IgnorePar\EndP
+    \HCode{</PROS></div></PARA>}\ShowPar\ShowIndent}
+
+
+\ConfigureEnv{abstract}
+   {\IgnorePar\EndP
+    \HCode{<div clas="abstract"\Hnewline>}\par\ShowPar
+    \bgroup
+       \pend:def\abstractname{\HCode{<BREAK SIZE="small"/><EMP
+                        LEVEL="moderate" class="abstractname">}}
+       \append:def\abstractname{\HCode{</EMP><BREAK SIZE="small"/>}}
+   }
+   {\egroup \ifvmode \IgnorePar\fi
+    \EndP\HCode{<BREAK SIZE="small" /></div>}}
+   {} {}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{maketitle}
+   {\ifvmode \IgnorePar\fi \EndP %
+     \HCode{<PARA><div class="maketitle">}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<BREAK SIZE="medium" /></div></PARA>}}
+   {\NoFonts\IgnorePar\HCode{<h2
+     class="titleHead"\a:LRdir><EMP
+              LEVEL="moderate">}\IgnorePar}
+   {\HCode{</EMP></h2>}\IgnoreIndent\EndNoFonts}
+\Configure{thanks author date and}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<SENT><span class="thanks"><BREAK SIZE="small" />}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</span></SENT>}}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<SENT><span class="author" ><BREAK SIZE="small" />}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</span></SENT>}}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<BREAK SIZE="small" /><SAYS CLASS="date" >}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</SAYS><BREAK SIZE="small" />}}
+   {\HCode{<br />}}
+   {\HCode{<br />}}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+\Configure{section}{}{}
+   {\ifvmode \IgnorePar\fi \EndP\IgnorePar
+    \HCode{<h3 class="sectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\TitleMark\space\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn\ShowPar \IgnoreIndent \par}
+\Configure{likesection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\IgnorePar\HCode{<h3
+                class="likesectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn \IgnoreIndent \par}
+\Configure{subsection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\bgroup \IgnorePar\HCode{<h4
+             class="subsectionHead"\a:LRdir><EMP
+                 LEVEL="moderate">}%
+    \TitleMark\space \HtmlParOff}
+   {\HCode{</EMP></h4>}\HtmlParOn
+    \IgnoreIndent\egroup\par\ShowPar}
+\Configure{likesubsection}{}{}{\EndP\bgroup
+   \ifvmode \IgnorePar\fi
+   \HCode{<h4 class="likesubsectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff }
+  {\HCode{</EMP></h4>}\HtmlParOn
+   \IgnoreIndent\egroup\par\ShowPar}
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+\ConfigureList{description}%
+   {\EndP
+    \HCode{<dl \a:LRdir class="dl-description"><PROS PITCH="+15">}%
+      \HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+%
+    \HCode{</PROS></dl>}%
+    \ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</dd>}}\HCode{<SENT><span><dt
+        class="dt-description"><EMP
+            LEVEL="moderate">}\HCode{<span class="added-list-description">%
+  \add:description{added-description}{\c:speak:description}%
+ </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</EMP><BREAK
+      SIZE="small"/></dt></span></SENT><dd\Hnewline class="dd-description">}}
+
+\ConfigureEnv{quote}
+   {}{}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="quote"><PROS
+                PITCH="-10" >}}
+   {\IgnorePar\EndP
+    \HCode{</PROS></div></PARA>}\ShowPar\ShowIndent}
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+\ConfigureEnv{quote}
+   {}{}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="quote"><PROS
+                PITCH="-10" >}}
+   {\IgnorePar\EndP
+    \HCode{</PROS></div></PARA>}\ShowPar\ShowIndent}
+
+
+\ConfigureEnv{abstract}
+   {\IgnorePar\EndP
+    \HCode{<div clas="abstract"\Hnewline>}\par\ShowPar
+    \bgroup
+       \pend:def\abstractname{\HCode{<BREAK SIZE="small"/><EMP
+                        LEVEL="moderate" class="abstractname">}}
+       \append:def\abstractname{\HCode{</EMP><BREAK SIZE="small"/>}}
+   }
+   {\egroup \ifvmode \IgnorePar\fi
+    \EndP\HCode{<BREAK SIZE="small" /></div>}}
+   {} {}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP
+    \HCode{<dl \a:LRdir class="dl-description"><PROS PITCH="+15">}%
+      \HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+%
+    \HCode{</PROS></dl>}%
+    \ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</dd>}}\HCode{<SENT><span><dt
+        class="dt-description"><EMP
+            LEVEL="moderate">}\HCode{<span class="added-list-description">%
+  \add:description{added-description}{\c:speak:description}%
+ </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</EMP><BREAK
+      SIZE="small"/></dt></span></SENT><dd\Hnewline class="dd-description">}}
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+\ifx \deferred@thm@head\:UnDef\else
+   \Configure{proof}
+   {\ifvmode \IgnorePar \fi \EndP
+    \HCode{<div class="newtheorem" title="proof">}\par\ShowPar
+    \HCode{<span class="theorem-head">}\IgnorePar}
+   {\HCode{</span>}\ShowPar}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{</div>}\par}
+
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureMark{subsection}
+  {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                     {\a:speak:section}}\@ifundefined{sectionname}{}{%
+          \ignorespaces\sectionname\space}%
+          \@seccntformat{section}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+\ConfigureMark{subsection}
+  {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">%
+             \add:description{added-description}
+               {\a:speak:section}}\@ifundefined{sectionname}{}{%
+          \ignorespaces\sectionname\space}%
+          \@seccntformat{section}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsproc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP
+    \HCode{<dl \a:LRdir class="dl-description"><PROS PITCH="+15">}%
+      \HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+%
+    \HCode{</PROS></dl>}%
+    \ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</dd>}}\HCode{<SENT><span><dt
+        class="dt-description"><EMP
+            LEVEL="moderate">}\HCode{<span class="added-list-description">%
+  \add:description{added-description}{\c:speak:description}%
+ </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</EMP><BREAK
+      SIZE="small"/></dt></span></SENT><dd\Hnewline class="dd-description">}}
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+\ifx \deferred@thm@head\:UnDef\else
+   \Configure{proof}
+   {\ifvmode \IgnorePar \fi \EndP
+    \HCode{<div class="newtheorem" title="proof">}\par\ShowPar
+    \HCode{<span class="theorem-head">}\IgnorePar}
+   {\HCode{</span>}\ShowPar}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{</div>}\par}
+
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsthm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{proof}
+   {\ifvmode \IgnorePar \fi \EndP
+    \HCode{<div class="newtheorem" title="proof">}\par\ShowPar
+    \HCode{<span class="theorem-head">}\IgnorePar}
+   {\HCode{</span>}\ShowPar}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{</div>}\par}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{eqalign}
+   {\:xhtml{\IgnorePar\EndP}\HCode
+      {<div class="eqalign"><table class="eqalign">}}
+   {\HCode{</table></div>}}
+   {\HCode{<tr \Hnewline class="eqalign"
+         valign="middle">}}{\IgnorePar\HCode{</tr>}}
+   {\HCode{<td align="\ifnum \HCol=2
+         left\else right\fi"\Hnewline  class="eqalign\HCol"
+         style="white-space:nowrap;">}}
+   {\HCode{</td>}}
+\def\:eqalign:{\Configure{noalign}
+  {\HCode{<tr><td class="noalign" colspan="2">}}%
+  {\HCode{</td></tr>}}}
+
+\Configure{eqalignno}
+   {\:xhtml{\IgnorePar\EndP}\HCode{<table class="eqalignno">}}
+   {\HCode{</table>}}
+   {\HCode{<tr\Hnewline class="eqalignno">}}{\IgnorePar\HCode{</tr>}}
+   {\HCode{\ifnum \HCol=3 <td\Hnewline width="10"
+           class="eqalignno-sp"></td>\fi
+           <td align="\ifnum \HCol=2 left\else right\fi"\Hnewline
+           class="eqalignno\HCol">}}
+   {\HCode{</td>}}
+\def\:eqalignno:{\Configure{noalign}
+  {\HCode{<tr><td class="noalign" colspan="2">}}%
+  {\HCode{</td></tr>}}}
+
+\Configure{leqalignno}
+   {\:xhtml{\IgnorePar\EndP}\HCode{<table class="leqalignno">}}
+   {\HCode{</table>}}
+   {\HCode{<tr \Hnewline
+           class="leqalignno">}}{\IgnorePar\HCode{</tr>}}
+   {\HCode{\ifnum \HCol=3 <td\Hnewline width="30"
+           class="eqalignno-sp"></td>\fi
+           <td align="\ifnum \HCol=2 left\else right\fi"\Hnewline
+           class="leqalignno\HCol">}}
+   {\HCode{</td>}}
+\def\:leqalignno:{\Configure{noalign}
+  {\HCode{<tr><td class="noalign" colspan="2">}}%
+  {\HCode{</td></tr>}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{letter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP
+    \HCode{<dl \a:LRdir class="dl-description"><PROS PITCH="+15">}%
+      \HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+%
+    \HCode{</PROS></dl>}%
+    \ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</dd>}}\HCode{<SENT><span><dt
+        class="dt-description"><EMP
+            LEVEL="moderate">}\HCode{<span class="added-list-description">%
+  \add:description{added-description}{\c:speak:description}%
+ </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</EMP><BREAK
+      SIZE="small"/></dt></span></SENT><dd\Hnewline class="dd-description">}}
+
+\ConfigureEnv{quote}
+   {}{}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="quote"><PROS
+                PITCH="-10" >}}
+   {\IgnorePar\EndP
+    \HCode{</PROS></div></PARA>}\ShowPar\ShowIndent}
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \HAssign\TableNo=0
+\Configure{tabular}
+   {\ifvmode \IgnorePar\fi \EndP
+    \HCode{<PARA><table class="tabular" >}%
+     \HCode{%
+   <BREAK SIZE="small"/><PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{begin table with
+       \ifTag{tabular-\TableNo}{\LikeRef{tabular-\TableNo}}{}
+      rows and \ar:cnt columns}%
+   </PROS>
+}%
+}
+   {\Tag{tabular-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+   <BREAK SIZE="small"/>%
+   <PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{end table}%
+   </PROS><BREAK SIZE="small"/>%
+}%
+\HCode{</table></PARA>}}
+   {\HCode{<tr><!--row \HRow-->}%
+    \HCode{%
+   <BREAK SIZE="medium"/><PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{<span class="ord-row">\ord:pos{\HRow}</span>%
+ row}%
+   </PROS><BREAK SIZE="medium"/>%
+}%
+}
+   {\xdef\hrow:s{\HRow}\HCode{</tr>}}
+   {\HCode{<td><!--entry \HRow-\HCol\ifnum
+          \HMultispan>1 \, span \HMultispan\fi-->}%
+      \HCode{%
+  <BREAK SIZE="medium"/>%
+  \ifnum \HMultispan>1
+    <PROS PITCH="-5" >%
+    \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell
+       spans \HMultispan \space columns}%
+    </PROS><BREAK SIZE="medium"/>%
+  \else
+    \ifnum \HCol>1
+       <PROS PITCH="-5" >%
+       \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell}%
+       </PROS><BREAK SIZE="medium"/>%
+    \fi
+  \fi
+}%
+\HCode{<div>}\SaveEndP
+      \PushStack\Table:Stck\TableNo
+      \par  \ShowPar}
+   {\PopStack\Table:Stck\TableNo
+    \IgnorePar \EndP \ifvmode \IgnorePar \fi \EndP
+    \HCode{</div>}%
+    \HCode{</td>\Hnewline}\RecallEndP }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{frenchb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{frenchb-nbsp}
+   {\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x%
+    \setbox\tmp:bx=\hbox\bgroup}
+   {\egroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{aa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+\Configure{section}{}{}
+   {\ifvmode \IgnorePar\fi \EndP\IgnorePar
+    \HCode{<h3 class="sectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\TitleMark\space\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn\ShowPar \IgnoreIndent \par}
+\Configure{likesection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\IgnorePar\HCode{<h3
+                class="likesectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn \IgnoreIndent \par}
+\Configure{subsection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\bgroup \IgnorePar\HCode{<h4
+             class="subsectionHead"\a:LRdir><EMP
+                 LEVEL="moderate">}%
+    \TitleMark\space \HtmlParOff}
+   {\HCode{</EMP></h4>}\HtmlParOn
+    \IgnoreIndent\egroup\par\ShowPar}
+\Configure{likesubsection}{}{}{\EndP\bgroup
+   \ifvmode \IgnorePar\fi
+   \HCode{<h4 class="likesubsectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff }
+  {\HCode{</EMP></h4>}\HtmlParOn
+   \IgnoreIndent\egroup\par\ShowPar}
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+\Configure{caption}
+   {\IgnorePar\EndP
+    \HCode{<PARA><div class="caption"><SENT><span class="mark">%
+        <BREAK SIZE="small"/><EMP
+                   LEVEL="medium">}\HCode{\add:description{added-description}{\c:speak:caption}}%
+}
+   {: \HCode{</EMP><BREAK SIZE="small"/>}}
+   {\HCode{</span></SENT>%
+      <SENT><span \Hnewline class="content">%
+        \add:description{added-description}{\a:speak:caption}}}
+   {\HCode{\add:description{added-description}{\b:speak:caption}%
+         </span></SENT></div></PARA>}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP
+    \HCode{<dl \a:LRdir class="dl-description"><PROS PITCH="+15">}%
+      \HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+%
+    \HCode{</PROS></dl>}%
+    \ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</dd>}}\HCode{<SENT><span><dt
+        class="dt-description"><EMP
+            LEVEL="moderate">}\HCode{<span class="added-list-description">%
+  \add:description{added-description}{\c:speak:description}%
+ </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</EMP><BREAK
+      SIZE="small"/></dt></span></SENT><dd\Hnewline class="dd-description">}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrreprt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP
+    \HCode{<dl \a:LRdir class="dl-description"><PROS PITCH="+15">}%
+      \HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+%
+    \HCode{</PROS></dl>}%
+    \ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</dd>}}\HCode{<SENT><span><dt
+        class="dt-description"><EMP
+            LEVEL="moderate">}\HCode{<span class="added-list-description">%
+  \add:description{added-description}{\c:speak:description}%
+ </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</EMP><BREAK
+      SIZE="small"/></dt></span></SENT><dd\Hnewline class="dd-description">}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{JHEP}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+\Configure{section}{}{}
+   {\ifvmode \IgnorePar\fi \EndP\IgnorePar
+    \HCode{<h3 class="sectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\TitleMark\space\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn\ShowPar \IgnoreIndent \par}
+\Configure{likesection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\IgnorePar\HCode{<h3
+                class="likesectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn \IgnoreIndent \par}
+\Configure{subsection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\bgroup \IgnorePar\HCode{<h4
+             class="subsectionHead"\a:LRdir><EMP
+                 LEVEL="moderate">}%
+    \TitleMark\space \HtmlParOff}
+   {\HCode{</EMP></h4>}\HtmlParOn
+    \IgnoreIndent\egroup\par\ShowPar}
+\Configure{likesubsection}{}{}{\EndP\bgroup
+   \ifvmode \IgnorePar\fi
+   \HCode{<h4 class="likesubsectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff }
+  {\HCode{</EMP></h4>}\HtmlParOn
+   \IgnoreIndent\egroup\par\ShowPar}
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{slides}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureList{description}%
+   {\EndP
+    \HCode{<dl \a:LRdir class="dl-description"><PROS PITCH="+15">}%
+      \HCode{<div class="description">%
+   <div class="added-list-description">%
+   \add:description{added-description}{\a:speak:description}</div>}%
+%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP\HCode{</dd>}%
+    \HCode{<div class="added-list-description">%
+    \add:description{added-description}{\b:speak:description}</div></div>}%
+%
+    \HCode{</PROS></dl>}%
+    \ShowPar}
+   {\end:itm \global\def\end:itm{\EndP\HCode{</dd>}}\HCode{<SENT><span><dt
+        class="dt-description"><EMP
+            LEVEL="moderate">}\HCode{<span class="added-list-description">%
+  \add:description{added-description}{\c:speak:description}%
+ </span>}%
+\bgroup \bf}
+   {\egroup\EndP\HCode{</EMP><BREAK
+      SIZE="small"/></dt></span></SENT><dd\Hnewline class="dd-description">}}
+
+\Configure{enumiii}
+    {\HCode{<span class="roman-numeral">}%
+     Roman numeral \HCode{}\the\c@enumiii
+     \HCode{}\:gobbleII}
+    {\HCode{</span>}}
+\long\def\:tempc{(\theenumii)}
+\ifx \labelenumii\:tempc
+   \def\:tempc{(\HCode{}\theenumii\HCode{})}
+   \HLet\labelenumii\:tempc
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{acm-proc-article-sp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span><BREAK SIZE="small" />}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+\Configure{section}{}{}
+   {\ifvmode \IgnorePar\fi \EndP\IgnorePar
+    \HCode{<h3 class="sectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\TitleMark\space\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn\ShowPar \IgnoreIndent \par}
+\Configure{likesection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\IgnorePar\HCode{<h3
+                class="likesectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff}
+   {\HCode{</EMP></h3>}\HtmlParOn \IgnoreIndent \par}
+\Configure{subsection}{}{}
+   {\ifvmode \IgnorePar\fi
+    \EndP\bgroup \IgnorePar\HCode{<h4
+             class="subsectionHead"\a:LRdir><EMP
+                 LEVEL="moderate">}%
+    \TitleMark\space \HtmlParOff}
+   {\HCode{</EMP></h4>}\HtmlParOn
+    \IgnoreIndent\egroup\par\ShowPar}
+\Configure{likesubsection}{}{}{\EndP\bgroup
+   \ifvmode \IgnorePar\fi
+   \HCode{<h4 class="likesubsectionHead"\a:LRdir><EMP
+            LEVEL="moderate">}\HtmlParOff }
+  {\HCode{</EMP></h4>}\HtmlParOn
+   \IgnoreIndent\egroup\par\ShowPar}
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:section}}\@seccntformat{section}%
+       \HCode{</span>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth  \expandafter\:gobble
+    \else
+       \HCode{<span class="titlemark">\add:description{added-description}
+                              {\a:speak:subsection}}\@seccntformat{subsection}%
+       \HCode{</span>}\fi }
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+\NewConfigure{speak:section}{1}
+\Configure{speak:section}{section}
+\NewConfigure{speak:subsection}{1}
+\Configure{speak:subsection}{subsection}
+
+
+
+
+\Configure{proof}
+   {\ifvmode\IgnorePar\fi\EndP
+     \HCode{<BREAK SIZE="medium"/>%
+     <PARA><div class="newtheorem" title="proof">}\par\noindent
+     \HCode{<SENT><PROS PITCH="-10" ><span  class="theorem-head">}}
+   {\HCode{</span></PROS></SENT><BREAK SIZE="small"/>}}
+   {\EndP\IgnorePar\HCode{</div></div></PARA><BREAK SIZE="medium"/>}\ShowPar\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

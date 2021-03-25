@@ -1,0 +1,142 @@
+%
+% Encoding file for some PostScript Arabic fonts to use with the 
+% Arabi package to write Farsi texts with LaTeX
+% 
+%   author = "Y. Jabri",
+%   email = "yjabri@ensa.univ-oujda.ac.ma",
+%   version = "0.1",
+%   date = "January 2006",
+%
+%
+%
+/FarsisimpleEncoding[          % now 256 chars follow
+% 0          
+  /uniFE8D /uniFE83 /uniFE84 /uniFE87
+% 4 
+  /uniFE88 /uniFE81 /uniFE82 /uniFE91
+% 8 
+  /.notdef /uniFE90 /uniFE8F /uniFE97
+% 12
+  /.notdef /uniFE96 /uniFE95 /uniFE9B
+% 16 
+ /uniFE9C /uniFE9A /uniFE99 /uniFE9F 
+% 20
+ /uniFEA0 /uniFE9E /uniFE9D /uniFEA3
+% 24
+ /uniFEA4 /uniFEA2 /uniFEA1 /uniFEA7 
+% 28
+ /uniFEA8 /uniFEA6 /uniFEA5 /.notdef
+% 32 
+ /uniFEA9 /exclam /.notdef /numbersign   %OK    
+% 36
+ /dollar /uni066A /ampersand /quotesingle  %ok
+% 40
+ /parenright /parenleft /asterisk /quotedbl % parentheses were refelcted 
+% 44
+ /uni060C /hyphen /uni06D4 /backslash   %  we should get the "arabicslash" in 4th position 
+% 48
+ /uni06F00 /uni06F1 /uni06F2 /uni06F3 
+% 52
+ /uni06F4 /uni06F5 /uni06F6 /uni06F7
+% 56
+ /uni06F8 /uni06F9 /colon /uni061B %colon ok ?? 
+% 60 
+ /guillemotright /.notdef /guillemotleft /uni061F
+% 64
+ /uniFEAC /uniFE8E /.notdef /uniFEAD 
+% 68
+ /.nodef /uniFEAF /uniFEB3 /.notdef 
+% 72
+ /uniFEB2 /uniFEF4  /uniFEB7 /uniFEB8 
+% 76
+ /uniFEB6 /uniFEB5 /.notdef /uniFEBC 
+% 80
+ /uniFEBA /uniFEB9 /uniFEBF /uniFEC0 
+% 84 
+ /uniFE94 /uniFEEE /uniFEC3 /uniFEC4 
+% 88
+ /uniFEC2 /uniFEF0 /uniFEC7  /uniFD3F
+% 92
+ /uniFEC8 /uniFD3E /uniFEC6 /uniFEC5
+% 96
+ /uniFECC /uni0653 /uniFE92 /uniFB7D
+% 100
+ /uniFEAA /.notdef /uniFED4 /uniFB95
+% 104 
+ /uniFEEC /.notdef /.notdef /uniFB91
+% 108
+  /uniFEE0 /uniFEE4 /uniFEE8 /.notdef
+% 112
+ /uniFB59 /uniFED8 /uniFEAE /uniFEB4 
+% 116
+ /uniFE98 /.notdef /.notdef /uniFEEE
+% 120
+ /uniFEB1 /uniFEF4 /uniFEB0 /uniFEBE 
+% 124
+ /uniFEBD /uniFEBB /.notdef /.notdef % 
+% 128
+ /.notdef /.notdef /.notdef /.notdef 
+% 132
+ /.notdef /.notdef /.notdef /.notdef 
+% 136
+ /uniFECB /uniFECA /uniFEC9  /uniFECF
+% 140
+ /uniFED0 /uniFECE /uniFECD /uniFED3
+% 144
+ /uniFED2 /uniFED1 /uniFED7 /uniFED6
+% 148
+ /uniFED5 /uniFB90 /uniFB8F /uniFB8E
+% 152
+ /uniFEDF /uniFEDE /uniFEDD /uniFEE3
+% 156
+ /uniFEE2 /uniFEE1  /uniFEE7 /uniFEE6
+% 160
+ /uniFEE5  /uniFEEB /uniFEEA /uniFEE9
+% 164
+ /uniFEED /uniFE86 /uniFE85 /uniFEF3
+% 168
+ /uniFEF0 /uniFEEF /uniFEC1 /.notdef
+% 172
+ /.notdef /uniFE93  /uniFEFC /uniFEFB
+% 176      2nd with dd!!!!
+ /uniFEF8 /uniFEF7  /uniFEFA /uniFEF9
+% 180      2nd with dd!!!!
+ /uniFEF6 /uniFEF5  /uniFE8B /uniFE8C
+% 184 
+ /uniFE8A /uniFE89  /uniFE80 /.notdef
+% 188
+ /.notdef /.notdef /.notdef /.notdef
+% 192
+ /.notdef /.notdef /.notdef /.notdef 
+% 196
+ /.notdef /.notdef /.notdef /.notdef
+% 200
+ /.notdef /.notdef /.notdef /.notdef 
+% 204
+ /.notdef /.notdef /.notdef /.notdef 
+% 208
+ /uniFEAB  /uniFB8B /uniFB8A /uniFB58 
+% 212
+ /uniFB57 /uniFB56 /uniFB94 /uniFB93 
+% 216
+ /uniFB92 /uniFB7C /uniFB7B /uniFB7A 
+% 220
+ /.notdef /.notdef /.notdef /.notdef 
+% 224
+ /.notdef /.notdef /.notdef /.notdef 
+% 228
+ /.notdef /.notdef /.notdef /.notdef 
+% 232
+ /.notdef /.notdef /.notdef /.notdef 
+% 236
+ /.notdef /.notdef /.notdef /.notdef 
+% 240
+ /.notdef /.notdef /.notdef /.notdef 
+% 244
+ /.notdef /.notdef /.notdef /.notdef 
+% 248 
+ /.notdef /.notdef /.notdef /uni066C 
+% 252
+ /uniFDF2 /.notdef /uni0640 /.notdef 
+] def
+

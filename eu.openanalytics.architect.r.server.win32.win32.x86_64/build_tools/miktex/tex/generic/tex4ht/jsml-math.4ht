@@ -1,0 +1,3172 @@
+% jsml-math.4ht (2016-07-04-10:35), generated from tex4ht-jsml.tex
+% Copyright 2009-2016 TeX Users Group
+% Copyright 2006-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2016-07-04-10:35}
+
+\exit:ifnot{Preamble,% 
+amsmath,% 
+amsopn,% 
+array,% 
+fontmath,% 
+latex,% 
+plain,% 
+tex4ht}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{math-}     \if:Option
+    \edef\Preamble{\Preamble,mathml-}
+\else
+   \Log:Note{for sources failing to produce
+       clean math code, try the command line option `math-'}%
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \NewConfigure{speak:description}{3}
+\Configure{speak:description}
+   {<BREAK SIZE="small"/>begin \ifcase\csname @listdepth\endcsname
+          \or \or sub \or sub sub \or sub sub sub \else\fi
+       list}
+   {<BREAK SIZE="small"/>end \ifcase\csname @listdepth\endcsname
+         \or sub \or sub sub \or sub sub sub \else\fi
+       list<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>
+       item}
+\Configure{DviMath}
+    {\a:DviMathSpk \mathmltrue
+       \ifOption{mml-fonts}{}{\NoFonts}%
+       \IgnoreRule \HCode{<!--l.
+       \the\inputlineno-->}\a:math
+       \edef\sv:ignore{\if:nopar
+    \noexpand\IgnorePar\else \noexpand\ShowPar\fi}%
+\IgnorePar}
+    {\EndIgnoreRule
+     \mathmlfalse \b:DviMathSpk \sv:ignore
+}
+\NewConfigure{DviMathSpk}{2}
+\Configure{math}{}
+\Configure{$}
+   {\Configure{DviMathSpk}
+      {\HCode{<span class="inline-math">%
+              \add:description{begin-math}{\a:speak:math}}}
+      {\HCode{\add:description{end-math}{\b:speak:math}</span>}}%
+\DviMath}
+   {\EndDviMath}{}
+\Configure{$$}
+   {\Configure{@math}{div}\IgnorePar
+    \ifvmode\else \HCode{<!--tex4ht:inline-->}\fi
+\EndP
+    \Configure{DviMathSpk}
+      {\HCode{<div class="display-math">%
+              \add:description{begin-math}{\a:speak:math}}}
+      {\HCode{\add:description{end-math}{\b:speak:math}</div>}}%
+\DviMath}
+   {\EndDviMath
+       \ShowPar\par{\csname HCondtrue\endcsname\noindent}}
+   {\DisplayMathtrue}
+\NewConfigure{speak:math}{2}
+\Configure{speak:math}
+   {%<BREAK SIZE="small"/><PROS PITCH="-5" >math</PROS>
+    <BREAK SIZE="small"/>}
+   {%<BREAK SIZE="small"/><PROS PITCH="-5" >end math</PROS>
+    <BREAK SIZE="small"/>}
+\Configure{SUB}
+   {\Send{BACK}
+     {<msub><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-sub"\Hnewline
+   >\add:description{begin-script}{\a:speak:subsup}%
+   <PROS PITCH="-10">}\trap:base
+}
+   {\HCode{</PROS>\add:description{end-script}{\c:speak:subsup}%
+   </mrow></msub\Hnewline>}%
+}
+\Configure{SUP}
+   {\Send{BACK}
+   {<msup><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-super"\Hnewline
+    >\add:description{begin-script}{\b:speak:subsup}%
+       <PROS PITCH="+10">}\trap:base
+}
+   {\HCode{</PROS>\add:description{end-script}{\c:speak:subsup}%
+       </mrow></msup\Hnewline>}%
+}
+\Configure{SUBSUP}
+   {\Send{BACK}
+   {<msubsup><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-sub"\Hnewline
+   >\add:description{begin-script}{\a:speak:subsup}%
+        <PROS PITCH="-10">}\trap:base
+}
+   {\HCode{</PROS></mrow><mrow class="mrow-super"\Hnewline
+   >\add:description{mid-script}{\b:speak:subsup}%
+        <PROS PITCH="+10">}\trap:base
+}
+   {\HCode{</PROS>\add:description{end-script}{\c:speak:subsup}%
+   </mrow></msubsup\Hnewline>}%
+}
+
+\Configure{limits}{\let\pl:SUB =\:UnDef
+\let\pl:SUP  =\:UnDef
+\ifx \:temp\sp \def\pl:SUP{\Configure{SUP}}%
+\expandafter\append:def
+   \expandafter\pl:SUP\expandafter{\expandafter{\a:SUP}}%
+\expandafter\append:def
+   \expandafter\pl:SUP\expandafter{\expandafter{\b:SUP}}%
+%
+\Configure{SUP}
+   {\Send{BACK}{<msup
+   class="limits-msub-msup"><mrow
+   class="limits-mrow-base"\Hnewline>%
+}%
+\HCode{</mrow><mrow class="limits-mrow-super"\Hnewline
+    >\add:description{begin-limits-script}{\b:speak:underover}}%
+    \trap:base
+%
+\bgroup
+     \ifx \pl:SUBSUP\:UnDef \else
+   \let\SUBSUP:=\pl:SUBSUP
+\fi
+%
+     \Configure{SUP}
+   {\Send{BACK}
+{<msup><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-super"\Hnewline
+    >\add:description{begin-script}{\b:speak:subsup}%
+       <PROS PITCH="+10">}\trap:base
+%
+\bgroup
+    \Configure{SUP}
+   {\Send{BACK}
+{<msup><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-super"\Hnewline
+    >\add:description{begin-script}{\b:speak:subsup}%
+       <PROS PITCH="+10">}\trap:base
+%
+\bgroup \trap:base}
+   {\egroup \HCode{</PROS>\add:description{end-script}{\c:speak:subsup}%
+       </mrow></msup\Hnewline>}%
+%
+}%
+\trap:base}
+   {\egroup\HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msup\Hnewline
+                        >}\aftergroup\pl:SUP  %
+}%
+\trap:base}
+   {}%
+\else
+\ifx \:temp\sb \def\pl:SUB{\Configure{SUB}}%
+\expandafter\append:def
+   \expandafter\pl:SUB\expandafter{\expandafter{\a:SUB}}%
+\expandafter\append:def
+   \expandafter\pl:SUB\expandafter{\expandafter{\b:SUB}}%
+%
+\Configure{SUB}
+   {\Send{BACK}{<msub
+   class="limits-msub-msup"><mrow
+   class="limits-mrow-base"\Hnewline>%
+}%
+\HCode{</mrow><mrow class="limits-mrow-sub"\Hnewline
+   >\add:description{begin-limits-script}{\a:speak:underover}}%
+   \trap:base
+%
+\bgroup
+     \ifx \pl:SUBSUP\:UnDef \else
+   \let\SUBSUP:=\pl:SUBSUP
+\fi
+%
+     \Configure{SUB}
+   {\Send{BACK}
+{<msub><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-sub"\Hnewline
+   >\add:description{begin-script}{\a:speak:subsup}%
+   <PROS PITCH="-10">}\trap:base
+%
+\bgroup
+    \Configure{SUB}
+   {\Send{BACK}
+{<msub><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-sub"\Hnewline
+   >\add:description{begin-script}{\a:speak:subsup}%
+   <PROS PITCH="-10">}\trap:base
+%
+\bgroup \trap:base}
+   {\egroup \HCode{</PROS>\add:description{end-script}{\c:speak:subsup}%
+   </mrow></msub\Hnewline>}%
+%
+}%
+\trap:base}
+   {\egroup\HCode{\add:description{end-limits-script}{\c:speak:underover}%
+</mrow></msub\Hnewline >}\aftergroup\pl:SUB %
+}%
+\trap:base}
+   {}%
+\fi\fi
+\let\pl:SUBSUP=\SUBSUP:
+%
+\Configure{SUBSUP}
+   {\ifx \pl:SUB \:UnDef\else  \pl:SUB \fi
+    \ifx \pl:SUP  \:UnDef\else  \pl:SUP  \fi
+    \ifx \pl:SUBSUP\:UnDef \else
+   \let\SUBSUP:=\pl:SUBSUP
+\fi
+%
+    \Send{BACK}
+      {<msubsup class="limits-msub-msup"><mrow
+                 class="limits-mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="limits-mrow-sub"\Hnewline
+   >\add:description{begin-limits-script}{\a:speak:underover}}%
+   \trap:base
+}
+   {\HCode{</mrow><mrow class="limits-mrow-super"\Hnewline
+  >\add:description{mid-limits-script}{\b:speak:underover}}\trap:base
+}
+   {\HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msubsup\Hnewline>}%
+}
+%
+}
+\def\disp:limits{\let\pl:SUB =\:UnDef
+\let\pl:SUP  =\:UnDef
+\ifx \:temp\sp \def\pl:SUP{\Configure{SUP}}%
+\expandafter\append:def
+   \expandafter\pl:SUP\expandafter{\expandafter{\a:SUP}}%
+\expandafter\append:def
+   \expandafter\pl:SUP\expandafter{\expandafter{\b:SUP}}%
+%
+\Configure{SUP}
+   {\Send{BACK}{<msup
+   class="limits-msub-msup"><mrow
+   class="limits-mrow-base"\Hnewline>%
+}%
+\HCode{</mrow><mrow class="limits-mrow-super"\Hnewline
+    >\add:description{begin-limits-script}{\b:speak:underover}}%
+    \trap:base
+%
+\bgroup
+     \ifx \pl:SUBSUP\:UnDef \else
+   \let\SUBSUP:=\pl:SUBSUP
+\fi
+%
+     \Configure{SUP}
+   {\Send{BACK}
+{<msup><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-super"\Hnewline
+    >\add:description{begin-script}{\b:speak:subsup}%
+       <PROS PITCH="+10">}\trap:base
+%
+\bgroup
+    \Configure{SUP}
+   {\Send{BACK}
+{<msup><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-super"\Hnewline
+    >\add:description{begin-script}{\b:speak:subsup}%
+       <PROS PITCH="+10">}\trap:base
+%
+\bgroup \trap:base}
+   {\egroup \HCode{</PROS>\add:description{end-script}{\c:speak:subsup}%
+       </mrow></msup\Hnewline>}%
+%
+}%
+\trap:base}
+   {\egroup\HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msup\Hnewline
+                        >}\aftergroup\pl:SUP  %
+}%
+\trap:base}
+   {}%
+\else
+\ifx \:temp\sb \def\pl:SUB{\Configure{SUB}}%
+\expandafter\append:def
+   \expandafter\pl:SUB\expandafter{\expandafter{\a:SUB}}%
+\expandafter\append:def
+   \expandafter\pl:SUB\expandafter{\expandafter{\b:SUB}}%
+%
+\Configure{SUB}
+   {\Send{BACK}{<msub
+   class="limits-msub-msup"><mrow
+   class="limits-mrow-base"\Hnewline>%
+}%
+\HCode{</mrow><mrow class="limits-mrow-sub"\Hnewline
+   >\add:description{begin-limits-script}{\a:speak:underover}}%
+   \trap:base
+%
+\bgroup
+     \ifx \pl:SUBSUP\:UnDef \else
+   \let\SUBSUP:=\pl:SUBSUP
+\fi
+%
+     \Configure{SUB}
+   {\Send{BACK}
+{<msub><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-sub"\Hnewline
+   >\add:description{begin-script}{\a:speak:subsup}%
+   <PROS PITCH="-10">}\trap:base
+%
+\bgroup
+    \Configure{SUB}
+   {\Send{BACK}
+{<msub><mrow class="mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="mrow-sub"\Hnewline
+   >\add:description{begin-script}{\a:speak:subsup}%
+   <PROS PITCH="-10">}\trap:base
+%
+\bgroup \trap:base}
+   {\egroup \HCode{</PROS>\add:description{end-script}{\c:speak:subsup}%
+   </mrow></msub\Hnewline>}%
+%
+}%
+\trap:base}
+   {\egroup\HCode{\add:description{end-limits-script}{\c:speak:underover}%
+</mrow></msub\Hnewline >}\aftergroup\pl:SUB %
+}%
+\trap:base}
+   {}%
+\fi\fi
+\let\pl:SUBSUP=\SUBSUP:
+%
+\Configure{SUBSUP}
+   {\ifx \pl:SUB \:UnDef\else  \pl:SUB \fi
+    \ifx \pl:SUP  \:UnDef\else  \pl:SUP  \fi
+    \ifx \pl:SUBSUP\:UnDef \else
+   \let\SUBSUP:=\pl:SUBSUP
+\fi
+%
+    \Send{BACK}
+      {<msubsup class="limits-msub-msup"><mrow
+                 class="limits-mrow-base"\Hnewline>%
+}\HCode{</mrow><mrow class="limits-mrow-sub"\Hnewline
+   >\add:description{begin-limits-script}{\a:speak:underover}}%
+   \trap:base
+}
+   {\HCode{</mrow><mrow class="limits-mrow-super"\Hnewline
+  >\add:description{mid-limits-script}{\b:speak:underover}}\trap:base
+}
+   {\HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msubsup\Hnewline>}%
+}
+%
+}
+\ifx \a:putSUB\:UnDef \else
+   \pend:def\a:putSUB{\ifx \pl:SUBSUP\:UnDef\else
+         \let\SUBSUP:=\pl:SUBSUP
+         \let\pl:SUBSUP=\:UnDef
+      \fi}%
+\fi
+\ifx \a:putSUP\:UnDef \else
+   \pend:def\a:putSUP{\ifx \pl:SUBSUP\:UnDef\else
+         \let\SUBSUP:=\pl:SUBSUP
+         \let\pl:SUBSUP=\:UnDef
+      \fi}%
+\fi
+
+\NewConfigure{speak:subsup}{3}
+\Configure{speak:subsup}
+   {<PROS PITCH="-5"><BREAK SIZE="small"/>
+    <span class="scripts-extra"> subscript </span>
+    <BREAK SIZE="small"/></PROS>}
+   {<PROS PITCH="+5"><BREAK SIZE="small"/>
+    <span class="scripts-extra"> superscript </span>
+    <BREAK SIZE="small"/></PROS>}
+   {<PROS PITCH="-5"><BREAK SIZE="medium"/>
+    <span class="scripts-extra"> baseline </span>
+    <BREAK SIZE="small"/></PROS>}
+\Configure{over}
+   {\Send{GROUP}{0}{<mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+}\HCode{</mrow>}%
+}
+   {\HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+}}
+\Configure{atop}
+   {\Send{GROUP}{0}{<mover class="atop">%
+\add:description{begin-stack}{\a:speak:atop}%
+<mrow class="mrow-upper">%
+}\HCode{</mrow>}%
+}
+   {\HCode{\add:description{added-description}{\c:speak:atop}<mrow class="mrow-under">}%
+\Send{EndGROUP}{0}{</mrow>\add:description{end-stack}{\b:speak:atop}</mover>%
+}}
+\Configure{above}
+   {\Send{GROUP}{0}{<mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+%
+}%
+    \HCode{</mrow>}%
+%
+\o:over:\:gobbleII}
+   {\HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+%
+}}
+\def\abovewithdelims:III#1#2#3{%
+   \def\:temp{#2#3}\def\:tempa{..}\ifx \:temp\:tempa
+      \Send{GROUP}{0}{<mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+%
+}%
+      \HCode{</mrow>}%
+%
+\o:over:
+      \HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+%
+}
+   \else
+      \Send{GROUP}{0}%
+         {<mo class="mfenced-open">\expandafter
+\ifx \csname \string#2:lr del\endcsname\relax #2\else
+     \csname \string#2:lr del\endcsname\fi
+</mo>%
+          <mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+%
+}%
+      \HCode{</mrow>}%
+%
+\o:over:
+      \HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+%
+%
+         <mo class="mfenced-close">\expandafter
+\ifx \csname \string#3:lr del\endcsname\relax #3\else
+     \csname \string#3:lr del\endcsname\fi
+</mo>}
+   \fi
+   \tmp:dim
+ }
+\def\atopwithdelims:III#1#2#3{%
+   \def\:temp{#2#3}\def\:tempa{..}\ifx \:temp\:tempa
+      \Send{GROUP}{0}{<mover class="atop">%
+\add:description{begin-stack}{\a:speak:atop}%
+<mrow class="mrow-upper">%
+}%
+      \HCode{</mrow>}%
+\o:atop:
+      \HCode{\add:description{added-description}{\c:speak:atop}<mrow class="mrow-under">}%
+\Send{EndGROUP}{0}{</mrow>\add:description{end-stack}{\b:speak:atop}</mover>%
+}
+   \else
+      \Send{GROUP}{0}%
+         {<mo class="mfenced-open">\expandafter
+\ifx \csname \string#2:lr del\endcsname\relax #2\else
+     \csname \string#2:lr del\endcsname\fi
+</mo>%
+          <mover class="atop">%
+\add:description{begin-stack}{\a:speak:atop}%
+<mrow class="mrow-upper">%
+}%
+      \HCode{</mrow>}%
+\o:atop:
+      \HCode{\add:description{added-description}{\c:speak:atop}<mrow class="mrow-under">}%
+%
+      \Send{EndGROUP}{0}{</mrow>\add:description{end-stack}{\b:speak:atop}</mover>%
+%
+         <mo class="mfenced-close">\expandafter
+\ifx \csname \string#3:lr del\endcsname\relax #3\else
+     \csname \string#3:lr del\endcsname\fi
+</mo>}
+   \fi
+ }
+\def\overwithdelims:III#1#2#3{%
+   \def\:temp{#2#3}\def\:tempa{..}\ifx \:temp\:tempa
+      \Send{GROUP}{0}{<mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+}\HCode{</mrow>}%
+\o:over:
+      \HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+}
+   \else
+      \Send{GROUP}{0}%
+         {<mo class="mfenced-open">\expandafter
+\ifx \csname \string#2:lr del\endcsname\relax #2\else
+     \csname \string#2:lr del\endcsname\fi
+</mo>%
+          <mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+}%
+      \HCode{</mrow>}%
+\o:over:
+      \HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+%
+             <mo class="mfenced-close">\expandafter
+\ifx \csname \string#3:lr del\endcsname\relax #3\else
+     \csname \string#3:lr del\endcsname\fi
+</mo>}
+   \fi
+ }
+\NewConfigure{speak:fraction}{3}
+\Configure{speak:fraction}
+   {<BREAK SIZE="small"/><level prefix="begin"
+               continued="begin continued fraction">begin
+         fraction</level><BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/><level prefix="end"
+               continued="end continued fraction">end
+         fraction</level><BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/><level prefix="over">%
+         over</level><BREAK SIZE="small"/>}
+\NewConfigure{speak:atop}{3}
+\Configure{speak:atop}
+   {<BREAK SIZE="small"/>begin stack<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>end stack<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>over<BREAK SIZE="small"/>}
+\Configure{radical}
+  {\HCode{<msqrt>%
+          \add:description{begin-root}{\a:speak:radical}}%
+   \special{t4ht\string~!e<<mrow class="root-base">}%
+   \special{t4ht\string~!e></mrow>%
+          \add:description{end-root}{\b:speak:radical}</msqrt>}%
+   \special{t4ht\string~!ee/}%
+   \special{t4ht\string~!ese-}%
+  }
+\NewConfigure{speak:radical}{2}
+\Configure{speak:radical}
+   {<BREAK SIZE="small"/><level prefix="begin">begin
+             root</level><BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/><level prefix="end">end
+             root</level><BREAK SIZE="small"/>}
+\NewConfigure{speak:underover}{3}
+\Configure{speak:underover}
+   {<BREAK SIZE="small"/>under script<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>over script<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>end scripts<BREAK SIZE="small"/>}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{[]}
+  {\Configure{@math}{div}\IgnorePar
+    \ifvmode\else \HCode{<!--tex4ht:inline-->}\fi
+\EndP
+    \Configure{DviMathSpk}
+      {\HCode{<div class="display-math">%
+              \add:description{begin-math}{\a:speak:math}}}
+      {\HCode{\add:description{end-math}{\b:speak:math}</div>}}%
+\DviMath $$\DisplayMathtrue }
+  {$$\EndDviMath}
+\Configure{()}
+  {\Configure{DviMathSpk}
+      {\HCode{<span class="inline-math">%
+              \add:description{begin-math}{\a:speak:math}}}
+      {\HCode{\add:description{end-math}{\b:speak:math}</span>}}%
+\DviMath $}
+  {$\EndDviMath}
+\Configure{choose}
+   {\Send{GROUP}{0}{<mover class="choose">%
+       \add:description{begin-stack}{\a:speak:choose}%
+       <mrow class="mrow-upper">}%
+    \HCode{</mrow>}\o:atop:
+    \HCode{\add:description{added-description}%
+       {\c:speak:choose}<mrow class="mrow-under">}%
+    \Send{EndGROUP}{0}%
+      {</mrow>\add:description{end-stack}{\b:speak:choose}</mover>}%
+   }
+\NewConfigure{speak:choose}{3}
+\Configure{speak:choose}
+   {<BREAK SIZE="small"/>binomial coefficient<BREAK SIZE="small"/>}
+   {<BREAK SIZE="medium"/>}
+   {<BREAK SIZE="small"/>choose<BREAK SIZE="small"/>}
+\Configure{mfenced}{\vert}{\string&\#x007C;}
+\Configure{mfenced}{\{}{\string&\#x007B;}
+\Configure{mfenced}{\}}{\string&\#x007D;}
+\Configure{mfenced}{\lbrace}{\string&\#x007B;}
+\Configure{mfenced}{\rbrace}{\string&\#x007D;}
+\Configure{mfenced}{\rgroup}{\string&\#x0028;}
+\Configure{mfenced}{\lgroup}{\string&\#x0029;}
+\Configure{mfenced}{(}{\string&\#x0028;}
+\Configure{mfenced}{)}{\string&\#x0029;}
+\Configure{mfenced}{[}{\string&\#x0058;}
+\Configure{mfenced}{]}{\string&\#x0059;}
+\Configure{mfenced}{|}{\string&\#x007C;}
+\Configure{mfenced}{\bracevert}{\string&\#x007C;}
+\Configure{mfenced}{\bracevert}{\string&\#x007C;}
+\def\mathop:prefix#1{%
+   \Configure{mathop}{*}{<mo class="mo-op"
+                               #1\Hnewline>}{</mo>}%
+    {\Configure{mathop}{*}{<mo class="mo-op">}{</mo>}{}}}
+\Configure{quad}{\HCode{<span class="space"><BREAK SIZE="small"/></span>%
+}}
+\Configure{qquad}{\HCode{<span class="space"><BREAK SIZE="small"/></span>%
+}}
+\Configure{,}{\HCode{<span class="tiny-space"><BREAK SIZE="small"/></span>%
+}}
+\Configure{ }{\:nbsp}
+\def\:nbsp{\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x}
+\Configure{root}
+    {\HCode{<mroot>%
+       \add:description{begin-root}{\a:speak:root}%
+       <mrow class="root-index">}}
+    {\HCode{</mrow>\add:description{mid-root}{\b:speak:root}%
+            <mrow class="root-base">}}
+    {\HCode{</mrow>\add:description{end-root}{\c:speak:root}</mroot>}}
+\NewConfigure{speak:root}{3}
+\Configure{speak:root}
+   {<BREAK SIZE="medium"/><level prefix="root">root
+         index</level><BREAK SIZE="medium"/>}
+   {<BREAK SIZE="medium"/><level prefix="begin">begin
+         root</level><BREAK SIZE="medium"/>}
+   {<BREAK SIZE="medium"/><level prefix="end">end
+         root</level><BREAK SIZE="medium"/>}
+\Configure{left}
+   {}
+   {\HCode{\expandafter
+\ifx \csname \string#1:lr del\endcsname\relax #1\else
+     \csname \string#1:lr del\endcsname\fi
+}\bgroup
+    \HCode{<mrow>}\bgroup}
+\Configure{right}
+   {\egroup\HCode{</mrow>}\egroup
+           \HCode{\expandafter
+\ifx \csname \string#1:lr del\endcsname\relax #1\else
+     \csname \string#1:lr del\endcsname\fi
+}}
+   {}
+\Configure{mfenced}{\vert}{|}
+\edef\:temp{\noexpand\Configure{mfenced}{\noexpand\{}{\string&\#x007B;}}\:temp
+\edef\:temp{\noexpand\Configure{mfenced}{\noexpand\}}{\string&\#x007D;}}\:temp
+\edef\:temp{\noexpand
+   \Configure{mfenced}{\noexpand\lbrace}{\string&\#x007B;}}\:temp
+\edef\:temp{\noexpand
+   \Configure{mfenced}{\noexpand\rbrace}{\string&\#x007D;}}\:temp
+\def\mathinner#1{\Tg<span
+   class="mathinner">#1\Tg</span>}
+\:CheckOption{new-accents}     \if:Option \else
+  \Configure{accent}\widetilde\widetilde{{}{}}
+  {}
+  {\HCode{<mover class="mover-tilde">%
+          \add:description{begin-end}{\b:speak:modified}%
+          <mrow class="mo-0303"\Hnewline>}%
+       #2%
+   \HCode{</mrow>\add:description{begin-end}{\a:speak:modified:tilde}%
+          </mover>}}
+\Configure{accent}\widehat\widehat{{}{}}
+  {}
+  {\HCode{<mover class="mover-hat">%
+          \add:description{begin-end}{\a:speak:modified}%
+          <mrow class="mo-0302"\Hnewline>}%
+       #2%
+   \HCode{</mrow>\add:description{begin-end}{
+                        \a:speak:modified:hat}</mover>}} 
+\Configure{accents}
+  {\ifmmode \expandafter\mathord\fi
+     {\leavevmode
+\if !#1!\ht:special{t4ht@+&{35}x#2;}%
+\else \expandafter \ifx\csname U#2#1\endcsname\relax
+    \ht:special{t4ht@+&{35}x#2;}%
+\else
+    \ht:special{t4ht@+&{35}x\csname U#2#1\endcsname;}%
+\fi \fi x%
+%
+   \ht:special{t4ht@[}\if!#1!x\else#2\fi
+   \ht:special{t4ht@]}}}
+  {\ifmathml
+      \ifmtext \expandafter\ifx \csname :#1:over\endcsname\relax
+   \expandafter\ifx \csname :#1:under\endcsname\relax
+      \AccentMath{\expandafter\ifx \csname :#1:over\endcsname\relax
+  \HCode{<munder\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+      \csname :#1:under\endcsname
+   \HCode{</munder>}%
+%
+\else \expandafter\ifx \csname :#1:under\endcsname\relax
+  \HCode{<mover class="mover-accent">%
+       <mrow\Hnewline><BREAK SIZE="small"/>}%
+       #3\HCode{</mrow>}%
+   \csname prefix:#1:over\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</mover>}%
+%
+\else
+  \HCode{<munderover\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+   \csname :#1:under\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</munderover>}%
+%
+\fi \fi
+}%
+   \else #3\csname :#1:under\endcsname \fi
+\else #3\csname :#1:over\endcsname \fi
+%
+      \else    \AccentMath{\expandafter\ifx \csname :#1:over\endcsname\relax
+  \HCode{<munder\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+      \csname :#1:under\endcsname
+   \HCode{</munder>}%
+%
+\else \expandafter\ifx \csname :#1:under\endcsname\relax
+  \HCode{<mover class="mover-accent">%
+       <mrow\Hnewline><BREAK SIZE="small"/>}%
+       #3\HCode{</mrow>}%
+   \csname prefix:#1:over\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</mover>}%
+%
+\else
+  \HCode{<munderover\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+   \csname :#1:under\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</munderover>}%
+%
+\fi \fi
+}\fi
+   \else       \expandafter\ifx \csname :#1:over\endcsname\relax
+   \expandafter\ifx \csname :#1:under\endcsname\relax
+      \AccentMath{\expandafter\ifx \csname :#1:over\endcsname\relax
+  \HCode{<munder\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+      \csname :#1:under\endcsname
+   \HCode{</munder>}%
+%
+\else \expandafter\ifx \csname :#1:under\endcsname\relax
+  \HCode{<mover class="mover-accent">%
+       <mrow\Hnewline><BREAK SIZE="small"/>}%
+       #3\HCode{</mrow>}%
+   \csname prefix:#1:over\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</mover>}%
+%
+\else
+  \HCode{<munderover\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+   \csname :#1:under\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</munderover>}%
+%
+\fi \fi
+}%
+   \else #3\csname :#1:under\endcsname \fi
+\else #3\csname :#1:over\endcsname \fi
+\fi
+  }
+
+\fi
+\Configure{cases}
+    {}{} {\HCode{<PARA><mtable>}}{\HCode{</mtable></PARA>}}
+    {\Tg<mtr>}{\Tg</mtr>}
+    {\Tg<mtd class="cases">}{\Tg</mtd>}
+\Configure{matrix}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<PARA><mtable class="array">}%
+    \HCode{\add:vdescription{begin-array}{\a:speak:array}}}
+   {\Tag{array-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+           \add:vdescription{end-array}{\b:speak:array}}%
+    \ifvmode \IgnorePar\fi \HCode{</mtable></PARA>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>}\c:speak:array}%
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}%
+   {\HCode{<mtd>}%
+    \e:speak:array\HCode{<div>}}
+   {\HCode{</div>}\f:speak:array
+    \HCode{</mtd>\Hnewline}}
+\Configure{pmatrix}
+  {\bgroup\HCode{<PARA><div class="pmatrix"><BREAK SIZE="small"/>}}
+  {\HCode{<BREAK SIZE="small"/></div></PARA>}\egroup}
+\NewConfigure{speak:array}{6}
+\Configure{speak:array}
+   {<BREAK SIZE="small"/>begin array with
+       \ifTag{array-\TableNo}{\LikeRef{array-\TableNo}}{}
+       rows<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>end array<BREAK SIZE="small"/>}
+   {\HCode{%
+   <BREAK SIZE="medium"/><PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{<span class="ord-row">\ord:pos{\HRow}</span>%
+ row}%
+   </PROS><BREAK SIZE="medium"/>%
+}%
+}
+   {}
+   {\HCode{%
+  <BREAK SIZE="medium"/>%
+  \ifnum \HMultispan>1
+    <PROS PITCH="-5" >%
+    \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell
+       spans \HMultispan \space columns}%
+    </PROS><BREAK SIZE="medium"/>%
+  \else
+    \ifnum \HCol>1
+       <PROS PITCH="-5" >%
+       \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell}%
+       </PROS><BREAK SIZE="medium"/>%
+    \fi
+  \fi
+}%
+}
+   {}
+\NewConfigure{speak:smallmatrix}{6}
+\Configure{speak:smallmatrix}
+   {begin matrix with
+       \ifTag{smallmatrix-\TableNo}{\LikeRef{smallmatrix-\TableNo}}{}
+       rows}
+   {end  matrix}
+   {\HCode{%
+   <BREAK SIZE="medium"/><PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{<span class="ord-row">\ord:pos{\HRow}</span>%
+ row}%
+   </PROS><BREAK SIZE="medium"/>%
+}%
+}
+   {}
+   {\HCode{%
+  <BREAK SIZE="medium"/>%
+  \ifnum \HMultispan>1
+    <PROS PITCH="-5" >%
+    \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell
+       spans \HMultispan \space columns}%
+    </PROS><BREAK SIZE="medium"/>%
+  \else
+    \ifnum \HCol>1
+       <PROS PITCH="-5" >%
+       \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell}%
+       </PROS><BREAK SIZE="medium"/>%
+    \fi
+  \fi
+}%
+}
+   {}
+
+\Configure{frac}
+   {\HCode{<mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+}}
+   {\HCode{</mrow>}%
+\Configure{over}{}{}}
+   {\HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+}
+   {\HCode{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+}}
+\def\:MM{m}
+\Configure{HBorder}
+   {<mtr\Hnewline class="hline">}
+   {<mtd><mo> \string&\#x0332; </mo></mtd>
+}
+   {</mtr>}
+   {<mtr\Hnewline class="cline">}
+   {<mtd></mtd>}
+   {<mtd><mo> \string&\#x0332; </mo></mtd>
+}
+   {</mtr>}
+   {<mtr\Hnewline class="vspace" style="font-size:\HBorderspace">}
+   {<mtd\Hnewline></mtd>}
+   {</mtr>}
+
+\Configure{overline}
+   {\bgroup\ifmathml \HCode{<mover class="mover-overline"\Hnewline>%
+       \add:description{begin-end}{\b:speak:modified}%
+       <mrow class="mo-00AF">}%
+\else
+         \HCode{<mover class="overline">}\fi}
+   {\ifmathml \HCode{</mrow>%
+  \add:description{begin-end}{\a:speak:modified:line}%
+  </mover>}%
+\else
+                  \HCode{</mover>}\fi\egroup}
+\Configure{underline}
+   {\bgroup
+    \ifmathml \HCode{<munder class="munder-underline">%
+       \add:description{begin-end}{\a:speak:modified}%
+       <mrow class="mo-0332"><BREAK SIZE="small"/>}%
+%
+    \else \expandafter\everymath
+\expandafter{\expandafter\everymath
+             \expandafter{\the\everymath}}%
+\let\o::@underline:\o:@@underline:
+\def\o:@@underline:{\let\o:@@underline:\o::@underline:}%
+%
+          \HCode{<mover class="underline">}\fi}
+   {\ifmathml \HCode{<BREAK SIZE="small"/></mrow>%
+      \add:description{begin-end}{\a:speak:modified:line}%
+      </munder>}%
+\else
+                   \HCode{</mover>}\fi \egroup}
+\NewConfigure{speak:modified}{2}
+\Configure{speak:modified}
+   {<BREAK SIZE="small"/>modified
+                            under<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>modified
+                            above<BREAK SIZE="small"/>}
+\NewConfigure{speak:modified:brace}{1}
+\NewConfigure{speak:modified:hat}{1}
+\NewConfigure{speak:modified:line}{1}
+\NewConfigure{speak:modified:tilde}{1}
+\Configure{speak:modified:brace}
+    {<BREAK SIZE="small"/>with brace<BREAK SIZE="small"/>}
+\Configure{speak:modified:hat}
+    {<BREAK SIZE="small"/>with wide hat<BREAK SIZE="small"/>}
+\Configure{speak:modified:line}
+    {<BREAK SIZE="small"/>with bar<BREAK SIZE="small"/>}
+\Configure{speak:modified:tilde}
+    {<BREAK SIZE="small"/>with wide tilde<BREAK SIZE="small"/>}
+\Configure{hspace}{ }{}{ }
+\def\:temp#1#2{\expandafter\def\csname prefix:#1:over\endcsname
+      {\HCode{\add:description{added-description}{ #2 }}}}
+\:temp{vec}{\b:speak:underover}
+\:temp{dddot}{\b:speak:underover}
+\:temp{ddddot}{\b:speak:underover}
+\Configure{array}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<PARA><mtable class="array">}%
+    \HCode{\add:vdescription{begin-array}{\a:speak:array}}}
+   {\Tag{array-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+           \add:vdescription{end-array}{\b:speak:array}}%
+    \ifvmode \IgnorePar\fi
+    \expandafter\tmp:toks\expandafter{\Clr}%
+\HCode{<!--\the\tmp:toks-->}%
+\HCode{</mtable></PARA>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>}\c:speak:array}%
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}%
+   {\HCode{<mtd>}%
+    \e:speak:array\HCode{<div>}}
+   {\HCode{</div>}\f:speak:array
+    \HCode{</mtd>\Hnewline}}
+\ConfigureEnv{array}
+   {\bgroup\Configure{$}{}{}{}}
+   {\egroup}
+   {}{}
+
+\ConfigureEnv{array}
+   {\PushStack\Col:Marg\AllColMargins
+    \bgroup\Configure{$}{}{}{}}
+   {\egroup \PopStack\Col:Marg\AllColMargins}
+   {}{}
+\def\:MM{\ifmathml m\fi}
+\Configure{HBorder}
+   {<\:MM tr\Hnewline
+       \ifmathml \expandafterclass\else class\fi="hline">}
+   {\ifmathml<mtd><mo> \string&\#x0332; </mo></mtd>
+\else
+            <td><hr\xml:empty></td>\fi}
+   {</\:MM tr>}
+   {<\:MM tr\Hnewline
+       \ifmathml \expandafterclass\else class\fi ="cline">}
+   {<\:MM td></\:MM td>}
+   {\ifmathml<mtd><mo> \string&\#x0332; </mo></mtd>
+\else
+            <td><hr\xml:empty></td>\fi}
+   {</\:MM tr>}
+   {<\:MM tr\Hnewline
+         \ifmathml \expandafterclass\else  class\fi="vspace"
+         style="font-size:\HBorderspace">}
+   {<\:MM td\Hnewline>\ifmathml\else\string&\#x00A0;\fi
+      </\:MM td>}
+   {</\:MM tr>}
+\Configure{halign}
+   {\EndP\halignTB{halign}}   \t:HA
+   \R:HA\r:HA\D:HA\d:HA
+\Configure{multicolumn}
+   {\let\sv:VBorder\VBorder
+    \let\VBorder\empty
+    \Configure{VBorder}{}{}{}{}%
+   }
+   {\let\VBorder\sv:VBorder}
+   {\ifmmode \else
+       \ifvmode\IgnorePar\fi
+    \fi   \HCode{<div class="multicolumn" title="\HMultispan">}}
+   {\ifmmode \else
+       \ifvmode\IgnorePar\fi \EndP\fi \HCode{</div>} }
+\def\gob:sp#1{#1}
+
+\Configure{equation}
+  {\IgnorePar\ifvmode\else \HCode{<!--tex4ht:inline-->}\fi
+\EndP
+   \PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+   \HCode{<div class="display-math">%
+      \add:description{begin-math}{\a:speak:equation}%
+      <div class="equation">}\IgnorePar
+     \Configure{$$}
+   {\Configure{@math}{%
+                       class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{</div>}%
+   \let\@eqnnum\empty
+  }
+  {\HCode{%
+       \add:description{end-math}{\b:speak:equation}%
+      </div>}%
+   \Tag{eq-\TableNo-num}{\theequation}%
+   \ShowPar \par{\HCondtrue\noindent}%
+}
+\NewConfigure{speak:equation}{2}
+\Configure{speak:equation}
+   {<BREAK SIZE="medium"/>begin equation
+         \ifTag{eq-\TableNo-num}{\LikeRef{eq-\TableNo-num}}{}%
+    <BREAK SIZE="small"/>
+   }
+   {<BREAK SIZE="small"/>end equation \theequation
+    <BREAK SIZE="medium"/>}
+\def\AA:text#1{\mtexttrue
+\HCode{ <span\Hnewline class="mstyle-#1">}%
+         \ht:special{t4ht@,&\#x00A0;}%
+\PauseMathClass
+   \Configure{$}%
+  {\EndPauseMathClass \HCode{<span \Hnewline
+                             class="text-math">}\mtextfalse
+      \ht:special{t4ht@,}%
+}%
+  {\HCode{</span>}\ht:special{t4ht@,&\#x00A0;}%
+\PauseMathClass \mtexttrue}%
+  {}%
+%
+}
+\def\BB:text{\mtextfalse\EndPauseMathClass\ht:special{t4ht@,}%
+\HCode
+     {</span>}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fontmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{MathClass}{1}{*}{<mo\Hnewline
+      class="MathClass-op"><BREAK SIZE="small"/>}
+    {<BREAK SIZE="small"/></mo>}{}
+\Configure{MathClass}{2}{*}{<mo\Hnewline
+      class="MathClass-bin"><BREAK SIZE="small"/>}
+    {<BREAK SIZE="small"/></mo>}{}
+\Configure{MathClass}{3}{*}{<mo\Hnewline
+             class="MathClass-rel"><BREAK SIZE="small"/>}
+       {<BREAK SIZE="small"/></mo>}{}
+\:CheckOption{mathml-}     \if:Option
+   \Configure{MathClass}{4}{*}{<mo\Hnewline
+             class="MathClass-open">}
+                   {</mo><BREAK SIZE="small"/>}{}
+   \Configure{MathClass}{5}{*}{<BREAK SIZE="small"/>%
+             <mo\Hnewline
+             class="MathClass-close">}
+                           {</mo>}{}
+\else
+   \Configure{MathClass}{4}{*}{<mfenced><mo\Hnewline
+             class="MathClass-open">}
+       {</mo><mrow><BREAK SIZE="small"/>}{}
+   \Configure{MathClass}{5}{*}{<BREAK SIZE="small"/>%
+                         </mrow><mo\Hnewline
+             class="MathClass-close">}
+                           {</mo></mfenced>}{}
+\fi
+\def\sin{\mathop {\operator@font sine}\nolimits}
+\def\cos{\mathop {\operator@font cosine}\nolimits}
+\def\lim{\mathop {\operator@font limit}}
+\Configure{overbrace}
+   {\Configure{mathop*}{*}
+         {<mover class="mover-overline">%
+                  \add:description{begin-end}{\b:speak:modified}%
+                  <mrow class="mo-FE37">}
+         {</mrow>\add:description{begin-end}{\a:speak:modified:brace}%
+          </mover>}
+         {\Configure{mathop}{}{}{}{}}%
+   }
+   {\let\o:overbrace:=\displaystyle}
+   {}
+\Configure{underbrace}
+   {\Configure{mathop*}{*}
+         {<munder class="munder-underline">%
+               \add:description{begin-end}{\a:speak:modified}%
+               <mrow class="mo-FE38">}
+         {</mrow>\add:description{begin-end}{\a:speak:modified:brace}%
+          </munder>}
+         {\Configure{mathop}{}{}{}{}}%
+   }
+   {\let\o:underbrace:=\displaystyle}
+   {}
+\Configure{overrightarrow}
+  {\HCode{<mover class="mover-rightarrow">%
+      \add:description{begin-end}{\b:speak:modified}%
+      <mrow class="mo-20D5"\Hnewline>}\:gobble}
+  {\HCode{</mrow>%
+          \add:description{begin-end}{\a:speak:modified:rightarrow}%
+          </mover>}}
+\Configure{overleftarrow}
+  {\HCode{<mover class="mover-leftarrow">%
+      \add:description{begin-end}{\b:speak:modified}%
+      <mrow class="mo-20D6"\Hnewline>}\:gobble}
+  {\HCode{</mrow>%
+      \add:description{begin-end}{\a:speak:modified:leftarrow}%
+      </mover>}}
+\NewConfigure{speak:modified:leftarrow}{1}
+\NewConfigure{speak:modified:leftrightarrow}{1}
+\NewConfigure{speak:modified:rightarrow}{1}
+\Configure{speak:modified:leftarrow}
+      {<BREAK SIZE="small"/>with left
+                             right arrow<BREAK SIZE="small"/>}
+\Configure{speak:modified:leftrightarrow}
+      {<BREAK SIZE="small"/>with left
+                             right arrow<BREAK SIZE="small"/>}
+\Configure{speak:modified:rightarrow}
+      {<BREAK SIZE="small"/>with
+                             right arrow<BREAK SIZE="small"/>}
+\def\:tempc{\HCode{\add:description{added-description}{real part
+                    symbol capital }}\o:Re:}
+\HLet\Re\:tempc
+\def\:tempc{\HCode{\add:description{added-description}{real part
+                    symbol capital }}\o:Im:}
+\HLet\Im\:tempc
+\Configure{big}
+   {}{}
+   {}
+   {}
+\Configure{Big}
+   {}{}
+   {}
+   {}
+\Configure{bigg}
+   {}{}
+   {}
+   {}
+\Configure{Bigg}
+   {}{}
+   {}
+   {}
+\Configure{Biggm}
+   {\bgroup
+       \Configure{Bigg}{}{}{}{}%
+       \Configure{mathrel}{*}
+          {<span class="MathClass-rel" title="Bigg" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathrel}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{Bigm}
+   {\bgroup
+       \Configure{Big}{}{}{}{}%
+       \Configure{mathrel}{*}
+          {<span class="MathClass-rel" title="Big" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathrel}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{biggm}
+   {\bgroup
+       \Configure{bigg}{}{}{}{}%
+       \Configure{mathrel}{*}
+          {<span class="MathClass-rel" title="bigg" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathrel}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{bigm}
+   {\bgroup
+       \Configure{big}{}{}{}{}%
+       \Configure{mathrel}{*}
+          {<span class="MathClass-rel" title="big" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathrel}{}{}{}{}}%
+   }
+   {\egroup}
+
+\:CheckOption{mathml-}     \if:Option
+   \Configure{Biggl}
+   {\bgroup
+       \Configure{Bigg}{}{}{}{}%
+       \Configure{mathopen}{*}
+          {<span class="MathClass-open" title="Bigg" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathopen}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{Biggr}
+   {\bgroup
+       \Configure{Bigg}{}{}{}{}%
+       \Configure{mathclose}{*}
+          {<span class="MathClass-close" title="Bigg" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathclose}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{Bigl}
+   {\bgroup
+       \Configure{Big}{}{}{}{}%
+       \Configure{mathopen}{*}
+          {<span class="MathClass-open" title="Big" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathopen}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{Bigr}
+   {\bgroup
+       \Configure{Big}{}{}{}{}%
+       \Configure{mathclose}{*}
+          {<span class="MathClass-close" title="Big" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathclose}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{biggl}
+   {\bgroup
+       \Configure{bigg}{}{}{}{}%
+       \Configure{mathopen}{*}
+          {<span class="MathClass-open" title="bigg" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathopen}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{biggr}
+   {\bgroup
+       \Configure{bigg}{}{}{}{}%
+       \Configure{mathclose}{*}
+          {<span class="MathClass-close" title="bigg" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathclose}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{bigl}
+   {\bgroup
+       \Configure{big}{}{}{}{}%
+       \Configure{mathopen}{*}
+          {<span class="MathClass-open" title="big" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathopen}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{bigr}
+   {\bgroup
+       \Configure{big}{}{}{}{}%
+       \Configure{mathclose}{*}
+          {<span class="MathClass-close" title="big" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span>}
+          {\Configure{mathclose}{}{}{}{}}%
+   }
+   {\egroup}
+
+\else
+   \Configure{Biggl}
+   {\bgroup
+       \Configure{Bigg}{}{}{}{}%
+       \Configure{mathopen}{*}
+          {<span class="Biggl"><span class="MathClass-open" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span><span>}
+          {\Configure{mathopen}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{Biggr}
+   {\bgroup
+       \Configure{Bigg}{}{}{}{}%
+       \Configure{mathclose}{*}
+          {</span><span class="MathClass-close" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span></span>}
+          {\Configure{mathclose}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{Bigl}
+   {\bgroup
+       \Configure{Big}{}{}{}{}%
+       \Configure{mathopen}{*}
+          {<span class="Bigl"><span class="MathClass-open"><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span><span>}
+          {\Configure{mathopen}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{Bigr}
+   {\bgroup
+       \Configure{Big}{}{}{}{}%
+       \Configure{mathclose}{*}
+          {</span><span class="MathClass-close" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span></span>}
+          {\Configure{mathclose}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{biggl}
+   {\bgroup
+       \Configure{bigg}{}{}{}{}%
+       \Configure{mathopen}{*}
+          {<span class="biggl"><span class="MathClass-open"><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span><span>}
+          {\Configure{mathopen}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{biggr}
+   {\bgroup
+       \Configure{bigg}{}{}{}{}%
+       \Configure{mathclose}{*}
+          {</span><span class="MathClass-close" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span></span>}
+          {\Configure{mathclose}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{bigl}
+   {\bgroup
+       \Configure{big}{}{}{}{}%
+       \Configure{mathopen}{*}
+          {<span class="bigl"><span class="MathClass-open"><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span><span>}
+          {\Configure{mathopen}{}{}{}{}}%
+   }
+   {\egroup}
+\Configure{bigr}
+   {\bgroup
+       \Configure{big}{}{}{}{}%
+       \Configure{mathclose}{*}
+          {</span><span class="MathClass-close" ><BREAK SIZE="small"/>}
+          {<BREAK SIZE="small"/></span></span>}
+          {\Configure{mathclose}{}{}{}{}}%
+   }
+   {\egroup}
+
+\fi
+
+\def\bold:version{bold}
+\Configure{mathbf}%
+  {\bgroup \HCode{<span class="mathvariant-bold">%
+      <BREAK SIZE="small"/>%
+      \add:vdescription{font}{bold}<PROS PITCH="-10" >}}%
+  {\HCode{</PROS><BREAK SIZE="small"/></span>}\egroup }%
+\Configure{mathit}%
+  {\bgroup \HCode{<span
+     class="mathvariant-\ifx
+         \bold:version\math@version bold-\fi italic">}}%
+  {\HCode{</span>}\egroup }%
+\Configure{mathrm}%
+  {\bgroup \HCode{<span class="mathvariant-normal">}}%
+  {\HCode{</span>}\egroup }%
+\Configure{mathsf}%
+  {\bgroup \HCode{<span
+     class="mathvariant-\ifx
+     \bold:version\math@version bold-\fi sans-serif">}}%
+  {\HCode{</span>}\egroup }%
+\Configure{mathtt}%
+  {\bgroup \HCode{<span class="mathvariant-monospace">}}%
+  {\HCode{</span>}\egroup }%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{above}
+   {\Send{GROUP}{0}{<mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+%
+}%
+                    \HCode{</mrow>}%
+%
+\o:@@over:\:gobbleII}
+   {\HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+%
+}}
+\Configure{tbinom}
+ {\Send{GROUP}{0}{<mover class="tbinom">%
+       \add:description{begin-stack}{\a:speak:choose}%
+       <mrow class="mrow-upper">}%
+    \HCode{</mrow>}\o:@@abovewithdelims: ..\z@{}%
+    \HCode{\add:description{added-description}%
+       {\c:speak:choose}<mrow class="mrow-under">}%
+    \Send{EndGROUP}{0}%
+      {</mrow>\add:description{end-stack}{\b:speak:choose}</mover>}%
+   }
+\Configure{dbinom}
+ {\Send{GROUP}{0}{<mover class="dbinom">%
+       \add:description{begin-stack}{\a:speak:choose}%
+       <mrow class="mrow-upper">}%
+    \HCode{</mrow>}\o:@@abovewithdelims: ..\z@{}%
+    \HCode{\add:description{added-description}{\c:speak:choose}<mrow class="mrow-under">}%
+    \Send{EndGROUP}{0}%
+      {</mrow>\add:description{end-stack}{\b:speak:choose}</mover>}%
+   }
+\Configure{binom}
+ {\Send{GROUP}{0}{<mover class="binom">%
+       \add:description{begin-stack}{\a:speak:choose}%
+       <mrow class="mrow-upper">}%
+    \HCode{</mrow>}\o:@@abovewithdelims: ..\z@{}%
+    \HCode{\add:description{added-description}{\c:speak:choose}<mrow class="mrow-under">}%
+    \Send{EndGROUP}{0}%
+      {</mrow>\add:description{end-stack}{\b:speak:choose}</mover>}%
+   }
+\def\abovewithdelims:III#1#2#3{%
+   \def\:temp{#2#3}\def\:tempa{..}\ifx \:temp\:tempa
+      \Send{GROUP}{0}{<mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+%
+}%
+      \HCode{</mrow>}%
+%
+\o:@@over:
+      \HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+%
+}
+   \else
+      \Send{GROUP}{0}%
+         {<mo class="mfenced-open">\expandafter
+\ifx \csname \string#2:lr del\endcsname\relax #2\else
+     \csname \string#2:lr del\endcsname\fi
+</mo>%
+          <mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+%
+}%
+      \HCode{</mrow>}%
+%
+\o:@@over:
+      \HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+%
+%
+         <mo class="mfenced-close">\expandafter
+\ifx \csname \string#3:lr del\endcsname\relax #3\else
+     \csname \string#3:lr del\endcsname\fi
+</mo>}
+   \fi
+   \tmp:dim
+ }
+\def\atopwithdelims:III#1#2#3{%
+   \def\:temp{#2#3}\def\:tempa{..}\ifx \:temp\:tempa
+      \Send{GROUP}{0}{<mover class="atop">%
+\add:description{begin-stack}{\a:speak:atop}%
+<mrow class="mrow-upper">%
+}%
+      \HCode{</mrow>}%
+\o:@@atop:
+      \HCode{\add:description{added-description}{\c:speak:atop}<mrow class="mrow-under">}%
+\Send{EndGROUP}{0}{</mrow>\add:description{end-stack}{\b:speak:atop}</mover>%
+}
+   \else
+      \Send{GROUP}{0}%
+         {<mo class="mfenced-open">\expandafter
+\ifx \csname \string#2:lr del\endcsname\relax #2\else
+     \csname \string#2:lr del\endcsname\fi
+</mo>%
+          <mover class="atop">%
+\add:description{begin-stack}{\a:speak:atop}%
+<mrow class="mrow-upper">%
+}%
+      \HCode{</mrow>}%
+\o:@@atop:
+      \HCode{\add:description{added-description}{\c:speak:atop}<mrow class="mrow-under">}%
+\Send{EndGROUP}{0}{</mrow>\add:description{end-stack}{\b:speak:atop}</mover>%
+%
+             <mo class="mfenced-close">\expandafter
+\ifx \csname \string#3:lr del\endcsname\relax #3\else
+     \csname \string#3:lr del\endcsname\fi
+</mo>}
+   \fi
+ }
+\def\overwithdelims:III#1#2#3{%
+   \def\:temp{#2#3}\def\:tempa{..}\ifx \:temp\:tempa
+      \Send{GROUP}{0}{<mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+}%
+      \HCode{</mrow>}%
+\o:over:
+      \HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+}
+   \else
+      \Send{GROUP}{0}%
+         {<mo class="mfenced-open">\expandafter
+\ifx \csname \string#2:lr del\endcsname\relax #2\else
+     \csname \string#2:lr del\endcsname\fi
+</mo>%
+          <mfrac>\add:description{begin-end}{\a:speak:fraction}%
+<mrow class="mrow-numerator"\Hnewline>%
+}%
+      \HCode{</mrow>}%
+\o:@@over:
+      \HCode{\add:description{begin-end}{\c:speak:fraction}
+       <mrow class="mrow-enumerator"\Hnewline>}%
+\Send{EndGROUP}{0}{</mrow>\add:description{begin-end}{\b:speak:fraction}</mfrac>%
+%
+         <mo class="mfenced-close">\expandafter
+\ifx \csname \string#3:lr del\endcsname\relax #3\else
+     \csname \string#3:lr del\endcsname\fi
+</mo>}
+   \fi
+ }
+\Configure{underrightarrow}
+  {\HCode{<munder class="munder-rightarrow">%
+      \add:description{begin-end}{\a:speak:modified}%
+      <mrow class="mo-2092"\Hnewline>}\:gobble}
+  {\HCode{</mrow>%
+          \add:description{begin-end}{\a:speak:modified:rightarrow}%
+          </munder>}}
+\Configure{underleftarrow}
+  {\HCode{<munder class="munder-leftarrow">%
+      \add:description{begin-end}{\a:speak:modified}%
+      <mrow class="mo-2090"\Hnewline>}\:gobble}
+  {\HCode{</mrow>%
+          \add:description{begin-end}{speak:modified:leftarrow}%
+          </munder>}}
+\Configure{overleftrightarrow}
+  {\HCode{<mover class="mover-leftrightarrow">%
+      \add:description{begin-end}{\b:speak:modified}%
+      <mrow class="mo-20E1"\Hnewline>}\:gobble}
+  {\HCode{</mrow>%
+      \add:description{begin-end}{\a:speak:modified:leftrightarrow}%
+      </mover>}}
+\Configure{underleftrightarrow}
+  {\HCode{<munder class="munder-leftrightarrow">%
+      \add:description{begin-end}{\a:speak:modified}%
+      <mrow class="mo-2194"\Hnewline>}\:gobble}
+  {\HCode{</mrow>%
+      \add:description{begin-end}{\a:speak:modified:leftrightarrow}%
+      </munder>}}
+\def\:tempc{\HCode{<mspace width="0.2em"/>}\mathbin{mod} }
+\HLet\bmod\:tempc
+\def\:tempc#1{ (#1)}
+\HLet\pod=\:tempc
+\def\:tempc#1{\pod{\mathop{mod} #1}}
+\HLet\pmod=\:tempc
+\def\:tempc#1{ \mathop{mod} #1}
+\HLet\mod=\:tempc
+\Configure{hdotsfor}{\dots}
+\Configure{tmspace}
+   {\HCode{<span class="space"><BREAK SIZE="small"/></span>%
+}}
+\renewcommand{\xrightarrow}[2][]{%
+   \if :#1:
+      \HCode{<msup
+   class="limits-msub-msup"><mrow
+   class="limits-mrow-base"\Hnewline>%
+}%
+        \rightarrow
+        \HCode{</mrow><mrow class="limits-mrow-super"\Hnewline
+    >\add:description{begin-limits-script}{\b:speak:underover}}%
+    \trap:base
+#2%
+        \HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msup\Hnewline>}%
+%
+   \else
+      \HCode{<msubsup class="limits-msub-msup"><mrow
+                 class="limits-mrow-base"\Hnewline>%
+}%
+        \leftarrow
+        \HCode{</mrow><mrow class="limits-mrow-sub"\Hnewline
+   >\add:description{begin-limits-script}{\a:speak:underover}}%
+   \trap:base
+#1%
+        \HCode{</mrow><mrow class="limits-mrow-super"\Hnewline
+  >\add:description{mid-limits-script}{\b:speak:underover}}\trap:base
+#2%
+        \HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msubsup\Hnewline>}%
+%
+   \fi
+}
+\renewcommand{\xleftarrow}[2][]{%
+   \if :#1:
+      \HCode{<msup
+   class="limits-msub-msup"><mrow
+   class="limits-mrow-base"\Hnewline>%
+}%
+        \leftarrow
+        \HCode{</mrow><mrow class="limits-mrow-super"\Hnewline
+    >\add:description{begin-limits-script}{\b:speak:underover}}%
+    \trap:base
+#2%
+        \HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msup\Hnewline>}%
+%
+   \else
+      \HCode{<msubsup class="limits-msub-msup"><mrow
+                 class="limits-mrow-base"\Hnewline>%
+}%
+        \leftarrow
+        \HCode{</mrow><mrow class="limits-mrow-sub"\Hnewline
+   >\add:description{begin-limits-script}{\a:speak:underover}}%
+   \trap:base
+#1%
+        \HCode{</mrow><mrow class="limits-mrow-super"\Hnewline
+  >\add:description{mid-limits-script}{\b:speak:underover}}\trap:base
+#2%
+        \HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msubsup\Hnewline>}%
+%
+   \fi
+}
+\def\overset#1#2{{%
+      \HCode{<msup
+   class="limits-msub-msup"><mrow
+   class="limits-mrow-base"\Hnewline>%
+}%
+        #2%
+        \HCode{</mrow><mrow class="limits-mrow-super"\Hnewline
+    >\add:description{begin-limits-script}{\b:speak:underover}}%
+    \trap:base
+#1%
+        \HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msup\Hnewline>}%
+%
+}}
+\def\underset#1#2{{%
+      \HCode{<msub
+   class="limits-msub-msup"><mrow
+   class="limits-mrow-base"\Hnewline>%
+}%
+        #2%
+        \HCode{</mrow><mrow class="limits-mrow-sub"\Hnewline
+   >\add:description{begin-limits-script}{\a:speak:underover}}%
+   \trap:base
+#1%
+        \HCode{\add:description{end-limits-script}{\c:speak:underover}%
+       </mrow></msub\Hnewline>}%
+%
+}}
+\def\sideset#1#2#3{{\Tg<mrow class="sideset"\Hnewline
+        >{\HCode{}}#1{\HCode{}#3}#2\Tg</mrow>}}
+\Configure{aligned}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<PARA><mtable class="aligned">}%
+    \HCode{\add:vdescription{begin-array}{\a:speak:aligned}}}
+   {\Tag{aligned-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+           \add:vdescription{end-array}{\b:speak:aligned}}%
+    \ifvmode \IgnorePar\fi
+    \HCode{</mtable></PARA>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>}\c:speak:aligned}%
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}%
+   {\HCode{<mtd>}%
+    \e:speak:aligned \HCode{<div>}}
+   {\HCode{</div>}\f:speak:aligned
+    \HCode{</mtd>\Hnewline}}
+\NewConfigure{speak:aligned}{6}
+\Configure{speak:aligned}
+   {begin
+       \ifTag{aligned-\TableNo}{\LikeRef{aligned-\TableNo}}{}
+       aligned equations}
+   {end  equations}
+   {\HCode{%
+   <BREAK SIZE="medium"/><PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{<span class="ord-row">\ord:pos{\HRow}</span>%
+ row}%
+   </PROS><BREAK SIZE="medium"/>%
+}%
+}
+   {}
+   {\HCode{%
+  <BREAK SIZE="medium"/>%
+  \ifnum \HMultispan>1
+    <PROS PITCH="-5" >%
+    \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell
+       spans \HMultispan \space columns}%
+    </PROS><BREAK SIZE="medium"/>%
+  \else
+    \ifnum \HCol>1
+       <PROS PITCH="-5" >%
+       \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell}%
+       </PROS><BREAK SIZE="medium"/>%
+    \fi
+  \fi
+}%
+}
+   {}
+\Configure{alignedat}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<PARA><mtable class="aligned">}%
+    \HCode{\add:vdescription{begin-array}{\a:speak:aligned}}}
+   {\Tag{aligned-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+           \add:vdescription{end-array}{\b:speak:aligned}}%
+    \ifvmode \IgnorePar\fi \HCode{</mtable></PARA>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>}\c:speak:aligned}%
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}%
+   {\HCode{<mtd>}%
+    \e:speak:aligned \HCode{<div>}}
+   {\HCode{</div>}\f:speak:aligned
+    \HCode{</mtd>\Hnewline}}
+\ConfigureEnv{cases}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<div class="cases">}%
+    \bgroup
+       \let\sv:a:left=\a:left
+\let\sv:b:left=\b:left
+\let\sv:a:right=\a:right
+\let\sv:b:right=\b:right
+%
+       \Configure{array}
+   {\HCode{<mtable class="cases">%
+           \add:vdescription{begin-array}{<BREAK SIZE="small"/>begin
+      \ifTag{cases-\TableNo}{\LikeRef{cases-\TableNo}}{}
+      cases<BREAK SIZE="small"/>}%
+}} %
+   {\Tag{cases-\TableNo}{\HRow}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+           \add:vdescription{end-array}
+   {<BREAK SIZE="small"/>end cases<BREAK SIZE="small"/>}
+}%
+    \ifvmode \IgnorePar\fi \Tg</mtable>}
+   {\HCode{<mtr>%
+           \add:vdescription{begin-end}
+   {<BREAK SIZE="small"/><span class="ord-row">\ord:pos{\HRow}</span>%
+ case}%
+}}
+   {\HCode{</mtr>}}%
+   {\HCode{<mtd  class="sub-case-\HCol" >%
+           <BREAK SIZE="\ifnum \HCol>1 medium\else
+                                        small\fi"/>}%
+    \bgroup
+       \Configure{array}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<PARA><mtable class="array">}%
+    \HCode{\add:vdescription{begin-array}{\a:speak:array}}}
+   {\Tag{array-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+           \add:vdescription{end-array}{\b:speak:array}}%
+    \ifvmode \IgnorePar\fi
+    \expandafter\tmp:toks\expandafter{\Clr}%
+\HCode{<!--\the\tmp:toks-->}%
+\HCode{</mtable></PARA>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>}\c:speak:array}%
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}%
+   {\HCode{<mtd>}%
+    \e:speak:array\HCode{<div>}}
+   {\HCode{</div>}\f:speak:array
+    \HCode{</mtd>\Hnewline}}
+\ConfigureEnv{array}
+   {\bgroup\Configure{$}{}{}{}}
+   {\egroup}
+   {}{}
+%
+       \let\a:left=\sv:a:left
+\let\b:left=\sv:b:left
+\let\a:right=\sv:a:right
+\let\b:right=\sv:b:right
+%
+   }
+   {\egroup \HCode{</mtd>\Hnewline}}
+%
+       \Configure{left}
+   {}
+   {\bgroup}
+\Configure{right}
+   {\egroup}
+   {}
+%
+   }
+   {\egroup\HCode{</div>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {}{}
+\Configure{eqref}
+   {\bgroup\let\tagform@\empty
+    \HCode{<span class="eqref" >
+       \add:description{added-description}{\a:speak:eqref}}}
+   {\HCode{</span>}\egroup}
+\NewConfigure{speak:eqref}{1}
+\Configure{speak:eqref}{ equation }
+\ifx \mathdisplay@@pop\:UnDef
+   \ifx \emdf@La\:UnDef
+      
+   \else
+      
+   \fi
+\else
+   \Configure{equation}
+  {\ifvmode \IgnorePar\fi\EndP
+   \PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+   \HCode{<div class="display-math">%
+      \add:description{begin-math}{\a:speak:equation}%
+   <div class="equation">}%
+   \Configure{gather}
+     {\HCode{<div\Hnewline class="equation"><div
+                                       class="gather">}\IgnorePar
+         \Configure{$$}
+   {\Configure{@math}{%
+                       class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+     {\HCode{</div></div>}}
+     {}
+     {}
+     {\ifnum\HCol=2 \IgnorePar
+         \HCode{</div><div>}\fi }
+     {}
+%
+   \Configure{$$}
+   {\Configure{@math}{%
+                       class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+%
+  }
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{</div>}%
+   \let\@eqnnum\empty
+  }
+  {\ifvmode \IgnorePar\fi\EndP
+    \HCode{%
+       \add:description{end-math}{\b:speak:equation}%
+       </div>}%
+    \Tag{eq-\TableNo-num}{\theequation}%
+    \PopStack\Table:Stck\TableNo
+%
+    \ShowPar\IgnoreIndent\par}
+\Configure{equation*}
+  {\ifvmode \IgnorePar\fi\EndP
+   \PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+   \HCode{<div class="display-math">%
+      \add:description{begin-math}{\csname
+                               a:speak:equation*\endcsname}}%
+   \Configure{gather*}
+     {\HCode{<div\Hnewline class="equation-star"><div
+                                  class="gather-star">}\IgnorePar
+         \Configure{$$}
+   {\Configure{@math}{%
+                       class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+     {\HCode{</div></div>}}
+     {}
+     {}
+     {\ifnum\HCol=2 \IgnorePar
+         \HCode{</div><div>}\fi }
+     {}
+%
+   \Configure{$$}
+   {\Configure{@math}{%
+                       class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+%
+  }
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{\add:description{end-math}{\csname
+                         b:speak:equation*\endcsname}</div>}%
+   \PopStack\Table:Stck\TableNo
+%
+   \ShowPar\IgnoreIndent\par}
+\Configure{speak:equation}
+   {<BREAK SIZE="medium"/>begin equation
+         \ifTag{eq-\TableNo-num}{\LikeRef{eq-\TableNo-num}}{}%
+    <BREAK SIZE="small"/>
+   }
+   {<BREAK SIZE="small"/>end equation
+                     \theequation<BREAK SIZE="medium"/>}
+\NewConfigure{speak:equation*}{2}
+\Configure{speak:equation*}
+   {<BREAK SIZE="medium"/>begin equation<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>end equation<BREAK SIZE="medium"/>}
+
+\fi
+\Configure{split}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \HCode{<mtable class="split">\add:vdescription{begin-array}{<BREAK SIZE="medium"/>begin
+    \ifTag{split-\TableNo}{\LikeRef{split-\TableNo}}{}
+    sub equations<BREAK SIZE="small"/>}%
+}}
+   {\ifvmode\IgnorePar\fi
+    \Tag{split-\TableNo}{\HRow:s}%
+    \HCode{\add:vdescription{end-array}{<BREAK SIZE="small"/>end sub equations<BREAK SIZE="medium"/>}%
+</mtable>}%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr\Hnewline>}%
+    \xdef\HRow:s{\HRow}%
+   }
+   {\HCode{</mtr>}}
+   {\HCode{<mtd\Hnewline class="split-side"
+                         title="implicit-baseline" >%
+           \add:vdescription{begin-end}{<BREAK SIZE="small"/>%
+  \ifnum \HCol=1 left \else right  \fi
+  <span class="ord-row">\ord:pos{\HRow}</span>%
+ sub equation<BREAK SIZE="small"/>}%
+}%
+   }
+   {\HCode{</mtd>}}
+\ConfigureEnv{multline}
+   {\bgroup \Configure{$$}
+   {\Configure{@math}{%
+                       class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+   {\egroup}
+   {}{}
+\ConfigureEnv{multline*}
+   {\bgroup \Configure{$$}
+   {\Configure{@math}{%
+                       class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+   {\egroup}
+   {}{}
+\Configure{multline}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<div\Hnewline  class="display-math">%
+    \add:vdescription{begin-math}{%
+   <BREAK SIZE="medium"/>%
+   begin equation
+   \ifTag{multline-\TableNo-num}{\LikeRef{multline-\TableNo-num}}{}
+   with
+   \ifTag{multline-\TableNo}{\LikeRef{multline-\TableNo}}{}
+   lines<BREAK SIZE="small"/>}%
+<div class="multline">%
+%
+    <mtable>}}
+   {\Tag{multline-\TableNo}{\hrow:s}%
+    \HCode{</mtable></div>%
+\add:vdescription{end-math}{end equation
+   <BREAK SIZE="small"/>%
+   \ifTag{multline-\TableNo-num}{\LikeRef
+                               {multline-\TableNo-num}}{}%
+   <BREAK SIZE="medium"/>%
+}%
+</div>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr><mtd\Hnewline class="multline-1">%
+    \add:vdescription{begin-end}{%
+   <BREAK SIZE="small"/><span class="ord-row">\ord:pos{\HRow}</span>%
+ line<BREAK SIZE="small"/>}%
+}}
+   {\xdef\hrow:s{\HRow}\HCode{</mtd></mtr>}}
+   {\HCode{</mtd><mtd class="multline-2">}}
+   {}
+\Configure{multline-num}
+   {\Tag{multline-\TableNo-num}{\theequation}\let\tagform@\:gobble}
+   {}
+\Configure{multline*}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<div\Hnewline class="display-math">%
+           <mtable class="multline-star">%
+        \add:vdescription{begin-math}{%
+   <BREAK SIZE="medium"/>%
+   begin equation with
+   \ifTag{multline-\TableNo}{\LikeRef{multline-\TableNo}}{}
+   lines<BREAK SIZE="small"/>}%
+<div class="multline-star">%
+}}
+   {\Tag{multline-\TableNo}{\hrow:s}%
+    \HCode{</div>%
+\add:vdescription{end-math}{%
+   <BREAK SIZE="small"/>end equation<BREAK SIZE="medium"/>}%
+</mtable></div>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr\Hnewline><mtd>%
+            \add:vdescription{begin-end}{%
+   <BREAK SIZE="small"/><span class="ord-row">\ord:pos{\HRow}</span>%
+ line<BREAK SIZE="small"/>}%
+}}
+   {\xdef\hrow:s{\HRow}\HCode{</mtd></mtr>}}
+\ConfigureEnv{gather}
+   {\bgroup \Configure{$$}
+   {\Configure{@math}{%
+                       class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+   {\egroup}
+   {}{}
+\ConfigureEnv{gather*}
+   {\bgroup \Configure{$$}
+   {\Configure{@math}{%
+                       class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+   {\egroup}
+   {}{}
+\Configure{gather}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<div\Hnewline class="display-math">%
+           \add:vdescription{begin-math}{<BREAK SIZE="small"/>begin group of
+    \ifTag{gather-\TableNo}{\LikeRef{gather-\TableNo}}{}
+    equations<BREAK SIZE="small"/>}%
+%
+       <mtable class="gather">%
+   }}
+   {\HCode{</mtable>\add:vdescription{end-math}{<BREAK SIZE="small"/>end equations<BREAK SIZE="small"/>}%
+%
+           </div>}%
+    \Tag{gather-\TableNo}{\hrow:s}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>%
+    \add:vdescription{begin-end}{<BREAK SIZE="small"/><span class="ord-row">\ord:pos{\HRow}</span>%
+ equation<BREAK SIZE="small"/>}%
+%
+   }}
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}
+   {\HCode{\Hnewline<mtd \ifnum \HCol=1   class="col-\HCol"
+\else            class="content-less" title="col-\HCol"
+\fi
+ >}%
+    \ifnum \HCol>1 \let\tagform@\:gobble \fi
+   }
+   {\HCode{</mtd>}}
+\Configure{gather*}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<div\Hnewline class="display-math">%
+           \add:vdescription{begin-math}{<BREAK SIZE="small"/>begin group of
+  \ifTag{gather-\TableNo}{\LikeRef{gather-\TableNo}}{}
+  equations<BREAK SIZE="small"/>}%
+%
+         <mtable class="gather-star">%
+    }}
+   {\HCode{</mtable>\add:vdescription{end-math}{%
+   <BREAK SIZE="small"/>end equations<BREAK SIZE="small"/>}%
+%
+           </div>}%
+    \Tag{gather-\TableNo}{\hrow:s}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>%
+    \add:vdescription{begin-math}{%
+   <BREAK SIZE="small"/><span class="ord-row">\ord:pos{\HRow}</span>%
+ equation<BREAK SIZE="small"/>}%
+%
+   }}
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}
+   {\HCode{\Hnewline<mtd \ifnum \HCol=1   class="col-\HCol"
+\else            class="content-less" title="col-\HCol"
+\fi
+ >}}
+   {\HCode{</mtd>}}
+\Configure{gathered}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<div\Hnewline class="display-math">%
+           \add:vdescription{begin-math}{<BREAK SIZE="small"/>begin group of
+   \ifTag{gather-\TableNo}{\LikeRef{gather-\TableNo}}{}
+   equations<BREAK SIZE="small"/>}
+%
+       <mtable class="gather">%
+   }}
+   {\HCode{</mtable>\add:vdescription{end-math}{%
+   <BREAK SIZE="small"/>end equations<BREAK SIZE="small"/>}%
+%
+           </div>}%
+    \Tag{gather-\TableNo}{\hrow:s}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>%
+    \add:vdescription{begin-end}{%
+   <BREAK SIZE="small"/><span class="ord-row">\ord:pos{\HRow}</span>%
+ equation<BREAK SIZE="small"/>}%
+%
+   }}
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}
+   {\HCode{\Hnewline<mtd \ifnum \HCol=1   class="col-\HCol"
+\else            class="content-less" title="col-\HCol"
+\fi
+ >}%
+    \ifnum \HCol>1 \let\tagform@\:gobble \fi
+   }
+   {\HCode{</mtd>}}
+\Configure{subarray}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<mtable class="subarray\if c\Hlcr-c\fi">%
+       \add:vdescription{begin-array}{\a:speak:subarray}%
+    }}
+   {\HCode{\add:vdescription{end-array}{\b:speak:subarray}%
+           </mtable>}%
+    \Tag{subarray-\TableNo}{\hrow:s}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr><mtd>%
+    \add:vdescription{begin-end}{\c:speak:subarray}%
+   }}
+   {\xdef\hrow:s{\HRow}\HCode{</mtd></mtr>}}
+\NewConfigure{speak:subarray}{3}
+\Configure{speak:subarray}
+   {<BREAK SIZE="small"/>begin sub array with
+         \ifTag{subarray-\TableNo}{\LikeRef{subarray-\TableNo}}{}
+         rows<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>end sub array<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/><span class="ord-row">\ord:pos{\HRow}</span>%
+ row<BREAK SIZE="small"/>}
+
+\Configure{substack}
+   {\bgroup
+    \Configure{speak:subarray}
+      {<BREAK SIZE="small"/>begin sub stack with
+            \ifTag{subarray-\TableNo}{\LikeRef{subarray-\TableNo}}{}
+            entries<BREAK SIZE="small"/>}
+      {<BREAK SIZE="small"/>end sub stack<BREAK SIZE="small"/>}
+      {<BREAK SIZE="small"/><span class="ord-row">\ord:pos{\HRow}</span>%
+
+             entry<BREAK SIZE="small"/>}
+   }
+   {\egroup}
+\Configure{smallmatrix}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<PARA><mtable class="smallmatrix">}%
+    \HCode{\add:vdescription{begin-array}{\a:speak:smallmatrix}}}
+   {\Tag{smallmatrix-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+           \add:vdescription{end-array}{\b:speak:smallmatrix}}%
+    \ifvmode \IgnorePar\fi
+    \HCode{</mtable></PARA>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>}\c:speak:smallmatrix}%
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}%
+   {\HCode{<mtd>}%
+    \e:speak:smallmatrix \HCode{<div>}}
+   {\HCode{</div>}\f:speak:smallmatrix
+    \HCode{</mtd>\Hnewline}}
+\def\:tempc#1#2{%
+   \ConfigureEnv{#1}
+     {\def\end:al:env{}\ifmmode\else
+       \ifvmode\else \def\end:al:env{\par\ShowPar\IgnoreIndent}\fi\fi}
+     {\end:al:env }
+     {}{}%
+   \Configure{#1}
+   {\IgnorePar
+    \ifvmode \EndP  \else \EndP  \HCode{<!--tex4ht:inline-->}\fi
+    \ifmathml
+       \Tg<span class="mrow">\def\end:mathalign{\Tg</span>}%
+    \else
+       \DviMath
+       \def\end:mathalign{\EndDviMath \DisplayMathfalse}%
+       \DisplayMathtrue
+    \fi
+    \PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<div\Hnewline class="display-math"><mtable>%
+        \add:description{begin-array}{\a:speak:align}%
+       }}
+   {\HCode{%
+        \add:description{end-array}{\b:speak:align}%
+       </mtable></div>}%
+    \Tag{align-\TableNo}{\hrow:s}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+\end:mathalign }
+   {\HCode{<mtr>\add:description{begin-end}{\c:speak:align}%
+}}
+   {\HCode{</mtr>}\ifst@rred\else
+        \Tag{align-\TableNo-\HRow}{\theequation}%
+    \fi \xdef\hrow:s{\HRow}}
+   {\HCode{<mtd\Hnewline
+      class="align-\ifnum \HCol>\maxfields@ label\else
+         \ifodd\HCol\space  odd\else     even\fi
+       \fi">}%
+    \ifnum \HCol>\maxfields@ \let\tagform@\:gobble \fi
+   }
+   {\HCode{</mtd>}}
+}
+\:tempc{align}{align}
+\:tempc{alignat}{alignat}
+\:tempc{xalignat}{xalignat}
+\:tempc{xxalignat}{xxalignat}
+\:tempc{flalign}{flalign}
+\:tempc{align*}{align-star}
+\:tempc{alignat*}{alignat-star}
+\:tempc{xalignat*}{xalignat-star}
+\:tempc{flalign*}{flalign-star}
+\NewConfigure{speak:align}{3}
+\Configure{speak:align}
+   {<BREAK SIZE="small"/>begin
+           \ifTag{align-\TableNo}{\LikeRef{align-\TableNo}}{}
+           aligned equations<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>end aligned equations<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>\ifst@rred  <span class="ord-row">\ord:pos{\HRow}</span>%
+ equation
+    \else
+       equation number \ifst@rred\else
+          \ifTag{align-\TableNo-\HRow}%
+                {\LikeRef{align-\TableNo-\HRow}}{}
+       \fi
+    \fi <BREAK SIZE="small"/>%
+   }
+\Configure{boxed}
+   {\HCode{<span class="boxed">%
+    \add:description{begin-end}{\a:speak:boxed}}}
+   {\HCode{\add:description{begin-end}{\b:speak:boxed}</span>}}
+\NewConfigure{speak:boxed}{2}
+\Configure{speak:boxed}
+   {<BREAK SIZE="small"/>begin boxed<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>end boxed<BREAK SIZE="small"/>}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{eqalignno}
+   {\HCode{<PARA><mtable class="eqalignno">}}
+   {\HCode{</mtable></PARA>}}
+   {\HCode{<mtr\Hnewline class="eqalignno">}}
+   {\HCode{</mtr>}}
+   {\HCode{<mtd \Hnewline class="eqalignno-\HCol">}}
+   {\HCode{</mtd>}}
+\def\:eqalignno:{\Configure{noalign}
+  {\HCode{<mtr><mtd class="noalign" colspan="2">}}%
+  {\HCode{</mtd></mtr>}}}
+\Configure{leqalignno}
+   {\HCode{<PARA><mtable class="leqalignno">}}
+   {\HCode{</mtable></PARA>}}
+   {\HCode{<mtr\Hnewline class="leqalignno">}}
+   {\HCode{</mtr>}}
+   {\HCode{<mtd \Hnewline class="leqalignno-\HCol">}}
+   {\HCode{</mtd>}}
+\def\:leqalignno:{\Configure{noalign}
+  {\HCode{<mtr><mtd class="noalign" colspan="2">}}%
+  {\HCode{</mtd></mtr>}}}
+
+\Configure{choose}
+   {\Send{GROUP}{0}{<mover class="choose">%
+       \add:description{begin-stack}{\a:speak:choose}%
+       <mrow class="mrow-upper">}%
+    \HCode{</mrow>}\o:atop:
+    \HCode{\add:description{added-description}%
+       {\c:speak:choose}<mrow class="mrow-under">}%
+    \Send{EndGROUP}{0}%
+      {</mrow>\add:description{end-stack}{\b:speak:choose}</mover>}%
+   }
+\NewConfigure{speak:choose}{3}
+\Configure{speak:choose}
+   {<BREAK SIZE="small"/>binomial coefficient<BREAK SIZE="small"/>}
+   {<BREAK SIZE="medium"/>}
+   {<BREAK SIZE="small"/>choose<BREAK SIZE="small"/>}
+\Configure{mfenced}{\vert}{\string&\#x007C;}
+\Configure{mfenced}{\{}{\string&\#x007B;}
+\Configure{mfenced}{\}}{\string&\#x007D;}
+\Configure{mfenced}{\lbrace}{\string&\#x007B;}
+\Configure{mfenced}{\rbrace}{\string&\#x007D;}
+\Configure{mfenced}{\rgroup}{\string&\#x0028;}
+\Configure{mfenced}{\lgroup}{\string&\#x0029;}
+\Configure{mfenced}{(}{\string&\#x0028;}
+\Configure{mfenced}{)}{\string&\#x0029;}
+\Configure{mfenced}{[}{\string&\#x0058;}
+\Configure{mfenced}{]}{\string&\#x0059;}
+\Configure{mfenced}{|}{\string&\#x007C;}
+\Configure{mfenced}{\bracevert}{\string&\#x007C;}
+\Configure{mfenced}{\bracevert}{\string&\#x007C;}
+\def\mathop:prefix#1{%
+   \Configure{mathop}{*}{<mo class="mo-op"
+                               #1\Hnewline>}{</mo>}%
+    {\Configure{mathop}{*}{<mo class="mo-op">}{</mo>}{}}}
+\Configure{quad}{\HCode{<span class="space"><BREAK SIZE="small"/></span>%
+}}
+\Configure{qquad}{\HCode{<span class="space"><BREAK SIZE="small"/></span>%
+}}
+\Configure{,}{\HCode{<span class="tiny-space"><BREAK SIZE="small"/></span>%
+}}
+\Configure{ }{\:nbsp}
+\def\:nbsp{\leavevmode\special{t4ht@+\string&{35}x00A0{59}}x}
+\Configure{root}
+    {\HCode{<mroot>%
+       \add:description{begin-root}{\a:speak:root}%
+       <mrow class="root-index">}}
+    {\HCode{</mrow>\add:description{mid-root}{\b:speak:root}%
+            <mrow class="root-base">}}
+    {\HCode{</mrow>\add:description{end-root}{\c:speak:root}</mroot>}}
+\NewConfigure{speak:root}{3}
+\Configure{speak:root}
+   {<BREAK SIZE="medium"/><level prefix="root">root
+         index</level><BREAK SIZE="medium"/>}
+   {<BREAK SIZE="medium"/><level prefix="begin">begin
+         root</level><BREAK SIZE="medium"/>}
+   {<BREAK SIZE="medium"/><level prefix="end">end
+         root</level><BREAK SIZE="medium"/>}
+\Configure{left}
+   {}
+   {\HCode{\expandafter
+\ifx \csname \string#1:lr del\endcsname\relax #1\else
+     \csname \string#1:lr del\endcsname\fi
+}\bgroup
+    \HCode{<mrow>}\bgroup}
+\Configure{right}
+   {\egroup\HCode{</mrow>}\egroup
+           \HCode{\expandafter
+\ifx \csname \string#1:lr del\endcsname\relax #1\else
+     \csname \string#1:lr del\endcsname\fi
+}}
+   {}
+\Configure{mfenced}{\vert}{|}
+\edef\:temp{\noexpand\Configure{mfenced}{\noexpand\{}{\string&\#x007B;}}\:temp
+\edef\:temp{\noexpand\Configure{mfenced}{\noexpand\}}{\string&\#x007D;}}\:temp
+\edef\:temp{\noexpand
+   \Configure{mfenced}{\noexpand\lbrace}{\string&\#x007B;}}\:temp
+\edef\:temp{\noexpand
+   \Configure{mfenced}{\noexpand\rbrace}{\string&\#x007D;}}\:temp
+\def\mathinner#1{\Tg<span
+   class="mathinner">#1\Tg</span>}
+\:CheckOption{new-accents}     \if:Option \else
+  \Configure{accent}\widetilde\widetilde{{}{}}
+  {}
+  {\HCode{<mover class="mover-tilde">%
+          \add:description{begin-end}{\b:speak:modified}%
+          <mrow class="mo-0303"\Hnewline>}%
+       #2%
+   \HCode{</mrow>\add:description{begin-end}{\a:speak:modified:tilde}%
+          </mover>}}
+\Configure{accent}\widehat\widehat{{}{}}
+  {}
+  {\HCode{<mover class="mover-hat">%
+          \add:description{begin-end}{\a:speak:modified}%
+          <mrow class="mo-0302"\Hnewline>}%
+       #2%
+   \HCode{</mrow>\add:description{begin-end}{
+                        \a:speak:modified:hat}</mover>}} 
+\Configure{accents}
+  {\ifmmode \expandafter\mathord\fi
+     {\leavevmode
+\if !#1!\ht:special{t4ht@+&{35}x#2;}%
+\else \expandafter \ifx\csname U#2#1\endcsname\relax
+    \ht:special{t4ht@+&{35}x#2;}%
+\else
+    \ht:special{t4ht@+&{35}x\csname U#2#1\endcsname;}%
+\fi \fi x%
+%
+   \ht:special{t4ht@[}\if!#1!x\else#2\fi
+   \ht:special{t4ht@]}}}
+  {\ifmathml
+      \ifmtext \expandafter\ifx \csname :#1:over\endcsname\relax
+   \expandafter\ifx \csname :#1:under\endcsname\relax
+      \AccentMath{\expandafter\ifx \csname :#1:over\endcsname\relax
+  \HCode{<munder\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+      \csname :#1:under\endcsname
+   \HCode{</munder>}%
+%
+\else \expandafter\ifx \csname :#1:under\endcsname\relax
+  \HCode{<mover class="mover-accent">%
+       <mrow\Hnewline><BREAK SIZE="small"/>}%
+       #3\HCode{</mrow>}%
+   \csname prefix:#1:over\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</mover>}%
+%
+\else
+  \HCode{<munderover\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+   \csname :#1:under\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</munderover>}%
+%
+\fi \fi
+}%
+   \else #3\csname :#1:under\endcsname \fi
+\else #3\csname :#1:over\endcsname \fi
+%
+      \else    \AccentMath{\expandafter\ifx \csname :#1:over\endcsname\relax
+  \HCode{<munder\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+      \csname :#1:under\endcsname
+   \HCode{</munder>}%
+%
+\else \expandafter\ifx \csname :#1:under\endcsname\relax
+  \HCode{<mover class="mover-accent">%
+       <mrow\Hnewline><BREAK SIZE="small"/>}%
+       #3\HCode{</mrow>}%
+   \csname prefix:#1:over\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</mover>}%
+%
+\else
+  \HCode{<munderover\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+   \csname :#1:under\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</munderover>}%
+%
+\fi \fi
+}\fi
+   \else       \expandafter\ifx \csname :#1:over\endcsname\relax
+   \expandafter\ifx \csname :#1:under\endcsname\relax
+      \AccentMath{\expandafter\ifx \csname :#1:over\endcsname\relax
+  \HCode{<munder\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+      \csname :#1:under\endcsname
+   \HCode{</munder>}%
+%
+\else \expandafter\ifx \csname :#1:under\endcsname\relax
+  \HCode{<mover class="mover-accent">%
+       <mrow\Hnewline><BREAK SIZE="small"/>}%
+       #3\HCode{</mrow>}%
+   \csname prefix:#1:over\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</mover>}%
+%
+\else
+  \HCode{<munderover\Hnewline
+   accent="true"><mrow\Hnewline><BREAK SIZE="small"/>}%
+   #3\HCode{</mrow>}%
+   \csname :#1:under\endcsname
+   \csname :#1:over\endcsname
+   \HCode{</munderover>}%
+%
+\fi \fi
+}%
+   \else #3\csname :#1:under\endcsname \fi
+\else #3\csname :#1:over\endcsname \fi
+\fi
+  }
+
+\fi
+\Configure{cases}
+    {}{} {\HCode{<PARA><mtable>}}{\HCode{</mtable></PARA>}}
+    {\Tg<mtr>}{\Tg</mtr>}
+    {\Tg<mtd class="cases">}{\Tg</mtd>}
+\Configure{matrix}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<PARA><mtable class="array">}%
+    \HCode{\add:vdescription{begin-array}{\a:speak:array}}}
+   {\Tag{array-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+           \add:vdescription{end-array}{\b:speak:array}}%
+    \ifvmode \IgnorePar\fi \HCode{</mtable></PARA>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>}\c:speak:array}%
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}%
+   {\HCode{<mtd>}%
+    \e:speak:array\HCode{<div>}}
+   {\HCode{</div>}\f:speak:array
+    \HCode{</mtd>\Hnewline}}
+\Configure{pmatrix}
+  {\bgroup\HCode{<PARA><div class="pmatrix"><BREAK SIZE="small"/>}}
+  {\HCode{<BREAK SIZE="small"/></div></PARA>}\egroup}
+\NewConfigure{speak:array}{6}
+\Configure{speak:array}
+   {<BREAK SIZE="small"/>begin array with
+       \ifTag{array-\TableNo}{\LikeRef{array-\TableNo}}{}
+       rows<BREAK SIZE="small"/>}
+   {<BREAK SIZE="small"/>end array<BREAK SIZE="small"/>}
+   {\HCode{%
+   <BREAK SIZE="medium"/><PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{<span class="ord-row">\ord:pos{\HRow}</span>%
+ row}%
+   </PROS><BREAK SIZE="medium"/>%
+}%
+}
+   {}
+   {\HCode{%
+  <BREAK SIZE="medium"/>%
+  \ifnum \HMultispan>1
+    <PROS PITCH="-5" >%
+    \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell
+       spans \HMultispan \space columns}%
+    </PROS><BREAK SIZE="medium"/>%
+  \else
+    \ifnum \HCol>1
+       <PROS PITCH="-5" >%
+       \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell}%
+       </PROS><BREAK SIZE="medium"/>%
+    \fi
+  \fi
+}%
+}
+   {}
+\NewConfigure{speak:smallmatrix}{6}
+\Configure{speak:smallmatrix}
+   {begin matrix with
+       \ifTag{smallmatrix-\TableNo}{\LikeRef{smallmatrix-\TableNo}}{}
+       rows}
+   {end  matrix}
+   {\HCode{%
+   <BREAK SIZE="medium"/><PROS PITCH="-5" >%
+   \add:vdescription{begin-end}{<span class="ord-row">\ord:pos{\HRow}</span>%
+ row}%
+   </PROS><BREAK SIZE="medium"/>%
+}%
+}
+   {}
+   {\HCode{%
+  <BREAK SIZE="medium"/>%
+  \ifnum \HMultispan>1
+    <PROS PITCH="-5" >%
+    \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell
+       spans \HMultispan \space columns}%
+    </PROS><BREAK SIZE="medium"/>%
+  \else
+    \ifnum \HCol>1
+       <PROS PITCH="-5" >%
+       \add:vdescription{added-description}{\ord:pos{\HCol}%
+ cell}%
+       </PROS><BREAK SIZE="medium"/>%
+    \fi
+  \fi
+}%
+}
+   {}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsopn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:tempc{\mathop{\underrightarrow\lim}\displaylimits}  \HLet\varinjlim\:tempc
+\def\:tempc{\mathop{\underleftarrow\lim}\displaylimits}   \HLet\varprojlim\:tempc
+\def\:tempc{\mathop{\overline\lim}\displaylimits}         \HLet\varlimsup\:tempc
+\def\:tempc{\mathop{\underline\lim}\displaylimits}        \HLet\varliminf\:tempc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{array}
+   {\PushStack\Table:Stck\TableNo
+\gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \PushStack\Row:Stck\HRow     \HAssign\HRow=0\relax
+%
+    \HCode{<PARA><mtable class="array">}%
+    \HCode{\add:vdescription{begin-array}{\a:speak:array}}}
+   {\Tag{array-\TableNo}{\hrow:s}%
+    \HCode{<!--l. \the\inputlineno-->%
+%
+           \add:vdescription{end-array}{\b:speak:array}}%
+    \ifvmode \IgnorePar\fi
+    \expandafter\tmp:toks\expandafter{\Clr}%
+\HCode{<!--\the\tmp:toks-->}%
+\HCode{</mtable></PARA>}%
+    \PopStack\Row:Stck\HRow
+%
+    \PopStack\Table:Stck\TableNo
+}
+   {\HCode{<mtr>}\c:speak:array}%
+   {\xdef\hrow:s{\HRow}\HCode{</mtr>}}%
+   {\HCode{<mtd>}%
+    \e:speak:array\HCode{<div>}}
+   {\HCode{</div>}\f:speak:array
+    \HCode{</mtd>\Hnewline}}
+\ConfigureEnv{array}
+   {\bgroup\Configure{$}{}{}{}}
+   {\egroup}
+   {}{}
+
+\ConfigureEnv{array}
+   {\PushStack\Col:Marg\AllColMargins
+    \bgroup\Configure{$}{}{}{}}
+   {\egroup \PopStack\Col:Marg\AllColMargins}
+   {}{}
+\Configure{multicolumn}
+   {\let\sv:VBorder\VBorder
+    \let\VBorder\empty
+    \Configure{VBorder}{}{}{}{}%
+   }
+   {\let\VBorder\sv:VBorder}
+   {\ifmmode \else
+       \ifvmode\IgnorePar\fi
+    \fi   \HCode{<div class="multicolumn" title="\HMultispan">}}
+   {\ifmmode \else
+       \ifvmode\IgnorePar\fi \EndP\fi \HCode{</div>} }
+\def\gob:sp#1{#1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

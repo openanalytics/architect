@@ -1,0 +1,18 @@
+.wncy-iwona
+htfcss: wncy-kurierl  font-weight: light;
+htfcss: wncy-kurierb  font-weight: bold;
+htfcss: wncy-kurierh  font-weight: bold;
+htfcss: wncy-kurierli  font-weight: light; font-style:italic;
+htfcss: wncy-kurierri  font-style:italic;
+htfcss: wncy-kuriermi  font-style:italic;
+htfcss: wncy-kurierbi  font-style:italic; font-weight: bold;
+htfcss: wncy-kurierhi  font-style:italic; font-weight: bold;
+htfcss: wncy-kuriercl  font-weight: light;
+htfcss: wncy-kuriercb  font-weight: bold;
+htfcss: wncy-kurierch  font-weight: bold;
+htfcss: wncy-kuriercli  font-weight: light; font-style:italic;
+htfcss: wncy-kuriercri  font-style:italic;
+htfcss: wncy-kuriercmi  font-style:italic;
+htfcss: wncy-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: wncy-kurierchi  font-style:italic; font-weight: bold;
+

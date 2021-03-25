@@ -1,0 +1,22 @@
+%%
+%% This is file `laeaepetra.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeaepetra.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LAE}{aepetra}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aepetra}{m}{n}{<-> s*[1.25]  aepetra }{}
+\DeclareFontShape{LAE}{aepetra}{bx}{n}{<-> ssub * aepetra/m/n }{}
+
+\endinput

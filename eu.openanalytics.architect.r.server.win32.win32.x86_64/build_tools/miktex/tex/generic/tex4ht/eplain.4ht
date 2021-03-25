@@ -1,0 +1,287 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% eplain.4ht                            2018-06-12-16:01 %
+% Copyright (C) 2004-2009       Eitan M. Gurari         %
+% Copyright 2009-2018 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+  \pend:def\protect:wrtoc{\Configure{ }{ }}
+
+  \pend:def\flushleft{\a:flushleft}
+\append:def\flushleft{\pend:def\@eoljustifyaction{\c:flushleft}}
+\pend:def\@endflushleft{\b:flushleft}
+\NewConfigure{flushleft}{3}
+\pend:def\flushright{\a:flushright}
+\append:def\flushright{\pend:def\@eoljustifyaction{\c:flushright}}
+\pend:def\@endflushright{\b:flushright}
+\NewConfigure{flushright}{3}
+\pend:def\center{\a:center}
+\append:def\center{\pend:def\@eoljustifyaction{\c:center}}
+\pend:def\@endcenter{\b:center}
+\NewConfigure{center}{3}
+\def\:tempc#1#2#3{%
+   \html:addr
+   \o:definexref:{#1}{\Protect
+      \Link{xref\last:haddr}{}#2\Protect\EndLink}{#3}%
+   \Link{}{xref\last:haddr}\EndLink
+}
+\HLet\definexref\:tempc
+
+  \def\listing#1{\par \begingroup
+   \a:listing
+    \@setuplisting  \setuplistinghook
+    \input #1 \b:listing
+   \endgroup
+}%
+\append:def\linenumberedlisting{%
+   \everypar = {\advance\lineno by 1 \HtmlPar \printlistinglineno}}
+\NewConfigure{listing}{2}
+
+  \def\@citedef#1#2{\expandafter\gdef\csname
+   \@citelabel{#1}\endcsname{\a:cite\Link{#1}{}#2\EndLink\b:cite}}
+\NewConfigure{cite}{2}
+\def\biblabelprint#1{%
+   \noindent
+   \hbox to \biblabelwidth{%
+      \biblabelprecontents
+      \a:bibitem
+         \bgroup
+            \def\csname##1##2##3{##2}%
+            \edef\:temp{\noexpand\Link{}{#1}}%
+         \expandafter\egroup \:temp
+      \biblabelcontents{#1}%
+         \EndLink
+      \b:bibitem
+      \biblabelpostcontents
+   }%
+   \kern\biblabelextraspace
+}%
+\NewConfigure{bibitem}{2}
+\def\:tempc{%
+   \let\:bblhook\bblhook
+   \append:def\bblhook{\expandafter\everypar
+                       \expandafter{\the\everypar \HtmlPar}}%
+   \a:bibliography \o:@readbblfile: \b:bibliography
+   \let\bblhook\:bblhook}
+\HLet\@readbblfile=\:tempc
+\NewConfigure{bibliography}{2}
+
+  \pend:defI\readcontentsfile{\a:contents}
+\append:defI\readcontentsfile{\b:contents}
+\NewConfigure{contents}{2}
+\def\tocchapterentry#1#2{\line{\bf
+   \a:tocchapterentry #1\b:tocchapterentry #2\c:tocchapterentry}}%
+\def\tocsectionentry#1#2{\line{\sl
+   \a:tocsectionentry #1\b:tocsectionentry #2\c:tocsectionentry}}%
+\def\tocsubsectionentry#1#2{\line{\rm
+   \a:tocsubsectionentry #1\b:tocsubsectionentry
+                         #2\c:tocsubsectionentry}}%
+\NewConfigure{tocchapterentry}{3}
+\NewConfigure{tocsectionentry}{3}
+\NewConfigure{tocsubsectionentry}{3}
+\HAssign\toc:N=0
+\def\:tempc#1#2#3#4{%
+  \def\:temp##1{%
+    \o:writenumberedcontentsentry:{#1}{#2}%
+      {\Link{toc-##1}{}#3\EndLink}{#4}}%
+  \expandafter\:temp\expandafter{\toc:N}%
+  \Link{}{toc-\toc:N}\EndLink \gHAdvance\toc:N by 1
+}
+\HLet\writenumberedcontentsentry=\:tempc
+
+  \pend:defII\@idxwrite{%
+  \csname if@\@idxprefix indexfileopened\endcsname \else
+    \expandafter\immediate\openout\csname @\@idxprefix indexfile\endcsname =
+      \indexfilebasename.\@idxprefix dx
+    \expandafter\global\csname @\@idxprefix indexfileopenedtrue\endcsname
+  \fi
+  \warn:idx{\jobname}\html:addr
+  \hbox{\Link-{}{x\last:haddr}\EndLink}{}%
+  \edef\:temp{\write\expandafter\noexpand\csname
+     @\@idxprefix indexfile\endcsname{\string \beforeentry{\RefFileNumber
+     \FileNumber}{x\last:haddr}{}}}\:temp
+}
+\def\warn:idx#1{%
+  \expandafter\ifx \csname #1warn:idx\endcsname\relax
+     \expandafter\global
+         \expandafter\let \csname #1warn:idx\endcsname\def
+     \writesixteen
+        {---------------------------------------------------------}%
+     \:warning{If not done so, the index is to be processed by
+      ^^J\space\space tex '\string\def\string\filename
+         {{#1}{idx}{4dx}{ind}} \noexpand\input\space idxmake.4ht'
+      ^^J\space\space  makeindex -o #1.ind #1.4dx
+      ^^Jinstead of
+      ^^J\space\space  makeindex -o #1.ind #1.idx
+      ^^JOn some platforms, the quotation marks ' should be
+      ^^J      replaced by double quotation marks " or eliminated.
+      ^^J---------------------------------------------------------
+     }%
+     {\Configure{Needs}{File: #1.4idx}\Needs{}}%
+  \fi}
+\ifOption{info}{\Log:Note{
+A script of the form
+^^Jtex '\def\string\filename{{\%\%1}{idx}{4dx}{ind}}
+                                       \string\input\space  idxmake.4ht'
+^^Jmakeindex -o \%\%1.ind \%\%1.4dx
+^^Jin the env file, automatically calls to the revised makeindex
+^^Jcommand.  An extra compilation of the source LaTeX file is required,
+^^Jto get the index correctly into the output.}}{}
+\def\ind:defs{\let\LNKidx\empty
+   \def\LNK##1##2##3##4{\ifx\NewConfigure\:UnDef\else
+        \def\LNK:number{##4}%
+        \a:LNK[##1]{##2}{}\gHAdvance\:LNKno1
+           \def\:THIrd{##3}\ifx\:THIrd\empty
+              \LNKidx{\ifx\c:LNK\empty\:LNKno\else \c:LNK\fi}\else
+              \LNKidx{##3}\fi
+           \global\let\LNKidx\empty
+        \b:LNK
+      \fi}%
+   \def\:LNKno{0}}
+\NewConfigure{LNK}{3}
+\Configure{LNK}{\Link}{\EndLink}{}
+\def\yhbLNK#1{\expandafter\let\expandafter\LNKidx\csname
+          #1\endcsname\LNK}
+
+\ind:defs
+
+  \let\:tempc\monthname
+\pend:def\:tempc{\a:monthname}
+\append:def\:tempc{\b:monthname}
+\HLet\monthname\:tempc
+\let\:tempc\fullmonthname
+\pend:def\:tempc{\a:monthname}
+\append:def\:tempc{\b:monthname}
+\HLet\fullmonthname\:tempc
+\NewConfigure{monthname}{2}
+\let\:tempc\timestring
+\pend:def\:tempc{\a:timestring}
+\append:def\:tempc{\b:timestring}
+\HLet\timestring\:tempc
+\NewConfigure{timestring}{2}
+\let\:tempc\timestamp
+\pend:def\:tempc{\a:timestamp}
+\append:def\:tempc{\b:timestamp}
+\HLet\timestamp\:tempc
+\NewConfigure{timestamp}{2}
+\let\:tempc\today
+\pend:def\:tempc{\a:today}
+\append:def\:tempc{\b:today}
+\HLet\today\:tempc
+\NewConfigure{today}{2}
+
+  \long\def\vfootnote#1{%
+   \gHAdvance\FNnum  1 \def\:temp{#1}\ifx \:temp\empty
+      \def\:temp##1[##2]##3{##1[##2]{*}}\expandafter\:temp \fi
+   \def\FNmark{#1}%
+   \a:vfootnote\b:vfootnote\bgroup
+   \futurelet\:temp\fnt:body}
+\def\fnt:body{\ifx \:temp\bgroup \bgroup
+      \aftergroup\end:vfootnote\def\:temp{\let\:temp}%
+   \else \def\:temp##1{##1\end:vfootnote}\fi
+   \:temp}
+\def\end:vfootnote{\egroup\c:vfootnote}
+\HAssign\FNnum  0
+\NewConfigure{vfootnote}{3}
+
+  \NewConfigure{li}{2}
+\def\@finli{%
+  \a:li
+  \ifnum\itemnumber=1 \else \interitemskip \fi
+  \printitem
+  \b:li
+  \ifx\@optionalarg\empty \else
+    \expandafter\writeitemxref\expandafter{\@optionalarg}%
+  \fi
+  \advance\itemnumber by 1
+  \advance\itemletter by 1
+  \advance\itemromannumeral by 1
+  \ignorespaces
+}
+\NewConfigure{numberedlist}{4}
+\append:def\numberedlist{\a:numberedlist
+  \Configure{li}{\c:numberedlist}{\d:numberedlist}}
+\pend:def\endnumberedlist{\b:numberedlist}
+\NewConfigure{orderedlist}{4}
+\append:def\orderedlist{\a:orderedlist
+  \Configure{li}{\c:orderedlist}{\d:orderedlist}}
+\pend:def\endorderedlist{\b:orderedlist}
+\NewConfigure{unorderedlist}{4}
+\append:def\unorderedlist{\a:unorderedlist
+  \Configure{li}{\c:unorderedlist}{\d:unorderedlist}}
+\pend:def\endunorderedlist{\b:unorderedlist}
+
+  \catcode`\:=12
+\def\makecolumns#1/#2: {\par \begingroup
+   \@columndepth = #1
+   \advance\@columndepth by #2
+   \advance\@columndepth by -1
+   \divide \@columndepth by #2
+   \@linestogoincolumn = \@columndepth
+   \@linestogo = #1
+   \currentcolumn = 1
+   \def\@endcolumnactions{%
+      \ifnum \@linestogo<2
+         \the\crtok \egroup
+         \csname b:makecolumns\endcsname \endgroup \par
+      \else
+         \global\advance\@linestogo by -1
+         \ifnum\@linestogoincolumn<2
+            \global\advance\currentcolumn by 1
+            \global\@linestogoincolumn = \@columndepth
+            \expandafter\gdef\csname :makecolumn\endcsname{\csname
+               c:makecolumns\endcsname
+               \expandafter\global\expandafter\let
+                  \csname :makecolumn\endcsname\empty}\the\crtok
+         \else
+            &\global\advance\@linestogoincolumn by -1
+         \fi
+      \fi
+   }%
+   \makeactive\^^M
+   \letreturn \@endcolumnactions
+   \@columnwidth = \hsize
+     \advance\@columnwidth by -\parindent
+     \divide\@columnwidth by #2
+   \penalty\abovecolumnspenalty
+   \noindent \csname a:makecolumns\endcsname
+   \valign\bgroup
+     &\hbox to \@columnwidth{\strut \hsize = \@columnwidth
+           \csname d:makecolumns\endcsname
+           ##\csname e:makecolumns\endcsname
+           \csname :makecolumn\endcsname \hfil}\cr
+}
+\catcode`\:=11
+\let\:makecolumn=\empty
+\NewConfigure{makecolumns}{5}
+\def\@columns#1{\def\NumColumns{#1}\a:columns\singlecolumn
+   \ifx \@ndcolumns\relax \let\@ndcolumns=\empty \fi
+   \append:def\@ndcolumns{\b:columns}}
+\NewConfigure{columns}{2}
+
+  \footline={\hfil}   \headline={\hfil}
+\tmp:cnt\time  \divide\tmp:cnt  60
+\edef\:temp{\the\tmp:cnt}
+\multiply\tmp:cnt  -60 \advance\tmp:cnt  \time
+\edef\:today{\the\year-\ifnum \month<10 0\fi
+  \the\month-\ifnum \day<10 0\fi\the\day
+   \space\ifnum \:temp<10 0\fi \:temp
+   :\ifnum \tmp:cnt<10 0\fi\the\tmp:cnt :00}
+
+
+\Hinput{eplain}
+\endinput
+

@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% bibtex.4ht                            2009-05-21-09:32 %
+% Copyright (C) 1999--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Usage:  \input bibtex.4ht  \bibtex{file.bib}                   %
+% Provides: \bibkey, \thisbib, \Configure{@...}, \Configure{...} %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\expandafter\ifx\csname :RestoreCatcodes\endcsname\relax
+    \expandafter\let\csname :RestoreCatcodes\endcsname=\empty
+\fi
+\edef\bibstack{\noexpand\PushStack\expandafter\noexpand
+    \csname Cat:Stack\endcsname
+    \expandafter\noexpand \csname :RestoreCatcodes\endcsname}
+\bibstack
+\expandafter\edef\csname :RestoreCatcodes\endcsname{%
+   \catcode`\noexpand :\the\catcode`:%
+   \catcode`\noexpand "\the\catcode`"%
+   \catcode`\noexpand @\the\catcode`@%
+   \catcode`\noexpand _\the\catcode`_%
+   \catcode`\noexpand ^\the\catcode`^%
+   \catcode`\noexpand |\the\catcode`|%
+   \csname no:restore\endcsname
+   \noexpand\PopStack\expandafter\noexpand\csname Cat:Stack\endcsname
+        \expandafter\noexpand \csname :RestoreCatcodes\endcsname}
+\catcode`\:11 \catcode`\@11   \catcode`\^7 \catcode`\|=12
+\catcode`"12
+
+\catcode`\_=13
+\gdef\bib:parse#1,{{\def_{\string_}%
+   \xdef\bibkey{#1}\open:tag{\bib:type}{entry}\hfil\break}\cont:parse}
+\catcode`\_=8
+\gdef\bib:eat{\bgroup \catcode`\@=12  \catcode`\^^M=10 \catcode`\#=12
+   \a:@bibtex \csname a:@\bib:type\endcsname
+   \ifx \thisbib\:UnDef \expandafter\bib:conteat
+   \else \pend:defI\thisbib{\egroup}\expandafter\thisbib \fi}
+\NewConfigure{@bibtex}{1}
+\def\get:key#1 #2///{\def\:temp{#2}\ifx\:temp\empty \def\bib:tag{#1}\else
+      \def\:temp{\get:key#1#2///}\expandafter\:temp
+   \fi}
+\long\def\bib:conteat#1{\egroup
+  {\bib:parse #1@="@"}\csname b:\bib:type\endcsname \vfil\break}
+\def\open:tag#1#2{%
+  \expandafter\ifx \csname a:#1\endcsname\relax
+     \:warning{no configuration for #2 <#1>...</#1>}%
+     \global\expandafter\let \csname a:#1\endcsname\empty
+  \fi \csname a:#1\endcsname}
+\def\bib:scan{\ifx \:next\bgroup \expandafter\bib:eat
+   \else \expandafter\bib:more \fi}
+\def\bib:more#1{\edef\bib:type{\bib:type#1}\futurelet\:next\bib:scan}
+
+\def\b:btitem#1{\egroup\def\bib:type{#1}\futurelet\:next\bib:scan}
+
+\catcode`\@=13\relax
+\gdef\bibtex#1{\begingroup
+     \def@{\bgroup \catcode`\@=12\b:btitem}%
+   \catcode`\@=13\relax
+   \input #1\endgroup}
+\catcode`\@=11\relax
+
+\def\cont:parse{\futurelet\:next\cont:parseY}
+\def\cont:parseY{%
+   \expandafter\ifx \space\:next
+       \expandafter       \def\expandafter\:temp\space{\cont:parse}%
+   \else \let\:temp\cont:parseX \fi \:temp}
+\long\def\cont:parseX#1={%%
+   \expandafter\get:key#1 ///\futurelet\:next\parse:value}
+\def\parse:value{%
+   \expandafter\ifx \space\:next
+      \expandafter\def\expandafter\:temp\space{\futurelet
+           \:next\parse:value}%
+   \else \if "\:next   \let\:temp=\parse:valueX
+   \else
+      \ifx \bgroup\:next \let\:temp=\parse:valueG
+      \else \let\:temp=\parse:valueC  \fi
+   \fi \fi \:temp}
+\def\parse:valueC#1,{\parse:valueY{#1},}
+\def\parse:valueX"#1"{\parse:valueY{#1}}
+\def\parse:valueG#1{\parse:valueY{#1}}
+\def\parse:valueY#1{%
+   \def\:temp{@}\def\:tempa{#1}\ifx \:temp\:tempa \else
+     \def\:tempb{#1}\ifx \:tempb\empty\else \open:tag\bib:tag{key}%
+        \:tempb\csname b:\bib:tag\endcsname\hfil\break
+     \fi
+     \expandafter\tail:parse
+   \fi}
+\def\tail:parse{\futurelet\:next\tail:parseY}
+\def\tail:parseY{\ifx \:com\:next  \def\:temp##1{\cont:parse}%
+   \else \expandafter\ifx \space\:next
+       \expandafter       \def\expandafter\:temp\space{\tail:parse}%
+   \else \ifx\:next\egroup \let\:temp\empty
+         \else\def\:temp##1{\tail:parse}\fi
+   \fi\fi \:temp}
+\let\:com=,
+
+\:RestoreCatcodes
+\endinput
+

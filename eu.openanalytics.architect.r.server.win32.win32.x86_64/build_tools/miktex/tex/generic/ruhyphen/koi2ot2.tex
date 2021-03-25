@@ -1,0 +1,59 @@
+% koi8-r to OT2 translation for Russian hyphenation patterns
+%
+% additional patterns to avoid ugly results when breaking OT2-specific ligatures
+%\patterns{ c8h d8j k8h l8j n8j s8h s8h8c8h t8s x8q y8a y8u z8h }
+\lccode `\Á=97  % \cyra
+\lccode `\Â=98  % \cyrb
+\lccode `\×=118 % \cyrv
+\lccode `\Ç=103 % \cyrg
+\lccode `\Ä=100 % \cyrd
+\lccode `\Å=101 % \cyre
+\lccode `\Ú=122 % \cyrz
+\lccode `\É=105 % \cyri
+\lccode `\Ë=107 % \cyrk
+\lccode `\Ì=108 % \cyrl
+\lccode `\Í=109 % \cyrm
+\lccode `\Î=110 % \cyrn
+\lccode `\Ï=111 % \cyro
+\lccode `\Ð=112 % \cyrp
+\lccode `\Ò=114 % \cyrr
+\lccode `\Ó=115 % \cyrs
+\lccode `\Ô=116 % \cyrt
+\lccode `\Õ=117 % \cyru
+\lccode `\Æ=102 % \cyrf
+\lccode `\È=104 % \cyrh
+\iftrue
+\lccode `\£=27  % \cyryo
+\lccode `\Ö=25  % \cyrzh
+\lccode `\Ê=26  % \cyrishrt
+\lccode `\Ã=99  % \cyrc
+\lccode `\Þ=113 % \cyrch
+\lccode `\Û=120 % \cyrsh
+\lccode `\Ý=119 % \cyrshch
+\lccode `\ß=127 % \cyrhrdsn
+\lccode `\Ù=121 % \cyrery
+\lccode `\Ø=126 % \cyrsftsn
+\lccode `\Ü=3   % \cyrerev
+\lccode `\À=24  % \cyryu
+\lccode `\Ñ=31  % \cyrya
+\else
+\lccode`0=`0
+\lccode`1=`1
+\lccode`2=`2
+\catcode `\£=13 \def £{e00}  % \cyryo
+\catcode `\Ö=13 \def Ö{zh}   % \cyrzh
+\catcode `\Ê=13 \def Ê{i00}  % \cyrishrt
+\catcode `\Ã=13 \def Ã{ts}   % \cyrc
+\catcode `\Þ=13 \def Þ{ch}   % \cyrch
+\catcode `\Û=13 \def Û{sh}   % \cyrsh
+\catcode `\Ý=13 \def Ý{shch} % \cyrshch
+\catcode `\ß=13 \def ß{p02}  % \cyrhrdsn
+\catcode `\Ù=13 \def Ù{y}    % \cyrery
+\catcode `\Ø=13 \def Ø{p01}  % \cyrsftsn
+\catcode `\Ü=13 \def Ü{e01}  % \cyrerev
+\catcode `\À=13 \def À{yu}   % \cyryu
+\catcode `\Ñ=13 \def Ñ{ya}   % \cyrya
+\fi
+% additional letters for koi8-ru
+\lccode `\¤=13 % \cyrie
+\lccode `\¦=12 % \cyrii

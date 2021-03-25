@@ -1,0 +1,131 @@
+blsy-bs 0 127
+'-'          ''                                0  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'\183\'      ''cdot                            1  % blsy-bs.htf (symbol)         2001-03-14  %
+'\215\'      ''times                           2  % Copyright (C) 2001            Phil Viton %
+'*'          ''                                3  %                                          %
+'\247\'      '' div                            4  % This file can redistributed and/or       %
+'<font face="SYMBOL">\224\</font>'   ''diamond 5  % modified under the terms of the LaTeX    %
+'\177\'                              ''pm      6  % Project Public License Distributed from  %
+'\177\'                              '1'mp     7  % CTAN archives in directory               %
+'<font face="SYMBOL">\197\</font>'   ''oplus   8  % macros/latex/base/lppl.txt; either       %
+' o- '                               '1'ominus 9  % version 1 of the License, or (at your    %
+'<font face="SYMBOL">\196\</font>'   ''otimes 10  % option) any later version.               %
+'<font face="SYMBOL">\198\</font>'   ''oslash 11  %    However, you are allowed to modify    %
+' o. '       '1' odot                         12  % this file without changing its name, if  %
+'O'          '1' bigcirc                      13  % you add a note of your own after this    %
+'o'          '1' circ                         14  % copyright note.                          %
+'&#8226;'    ''                               15  %                                          %
+' )( '       '1' asymp                        16  % I would appreciate being told if you     %
+'<font face="SYMBOL">\186\</font>'    ''equiv  17 % find bugs                                %
+'<font face="SYMBOL">\205\</font>'  '1' subsete18 %                                          %
+'<font face="SYMBOL">\203\</font>'  '1' supsete19 %                          viton.1@osu.edu %
+'<font face="SYMBOL">\163\</font>'  ''<=       20 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'<font face="SYMBOL">\179\</font>'  ''-        21
+'&#x003C;='      '1' -preceq      22
+'&#x003E;='      '1' -succeq      23
+'\126\'      '1' si          24
+'<font face="SYMBOL">&#x00BB;</font>'  ''approx   25
+'<font face="SYMBOL">\201\</font>'  ''subset   26
+'<font face="SYMBOL">\204\</font>'  ''supset   27
+'\171\'      ''   <<         28
+'\187\'      ''   >>         29
+'&#x003C;'       '1'prec         30
+'&#x003E;'       '1'succ         31
+'<font face="SYMBOL">\172\</font>'  ''leftarrow     32
+'<font face="SYMBOL">\174\</font>'  ''rightarrow    33
+'<font face="SYMBOL">\173\</font>'  ''uparrow       34
+'<font face="SYMBOL">\175\</font>'  ''downarrow     35
+'<font face="SYMBOL">&#x00AB;</font>'  ''leftrightarrow36
+' /^ '       '1'nearrow      37
+' \\, '      '1'searrow      38
+' -~ '       '1'simeq        39
+'<font face="SYMBOL">\220\</font>'  ''Leftarrow     40
+'<font face="SYMBOL">\222\</font>'  ''Rightarrow    41
+'<font face="SYMBOL">\221\</font>'  ''Uparrow       42
+'<font face="SYMBOL">\223\</font>'  ''Downarrow     43
+'<font face="SYMBOL">\219\</font>'  ''Leftrightarrow44
+' ^\\ '      '1'nwarrow      45
+' ,/ '       '1'swarrow      46
+'<font face="SYMBOL">\181\</font>'  ''propto        47
+-'-          --              48
+'<font face="SYMBOL">\165\</font>'  ''infty         49
+'<font face="SYMBOL" SIZE="+1">\206\</font>' ''in   50
+'<font face="SYMBOL" SIZE="+1">\39\</font>'  ''ni   51
+' /_\\ '     '1'triangle     52
+' \\~/ '     '1'triangleup   53
+'/'          ''              54
+*'*          **              55
+'<font face="SYMBOL">\34\</font>'        ''forall   56
+'<font face="SYMBOL">\36\</font>'        ''exists   57
+'\172\'      '1' ne          58
+'\216\'      '1' emptyse     59
+'<font face="SYMBOL">\194\</font>'       ''Re       60
+'<font face="SYMBOL">\193\</font>'       ''Im       61
+' T '        '1'top          62
+'<font face="SYMBOL">\94\</font>'        ''bot      63
+-<font face="SYMBOL">\192\</font>-     --aleph      64
+'A'          ''             65
+'B'          ''             66
+'C'          ''             67
+'D'          ''             68
+'E'          ''             69
+'F'          ''             70
+'G'          ''             71
+'H'          ''             72
+'I'          ''             73
+'J'          ''             74
+'K'          ''             75
+'L'          ''             76
+'M'          ''             77
+'N'          ''             78
+'O'          ''             79
+'P'          ''             80
+'Q'          ''             81
+'R'          ''             82
+'S'          ''             83
+'T'          ''             84
+'U'          ''             85
+'V'          ''             86
+'W'          ''             87
+'X'          ''             88
+'Y'          ''             89
+'Z'          ''             90
+'<font face="SYMBOL">\200\</font>'     ''cup           91
+'<font face="SYMBOL">\199\</font>'     ''cap           92
+' U+ '       '1'upplus       93
+'<font face="SYMBOL">\217\</font>'     ''land          94
+'<font face="SYMBOL">\218\</font>'     ''lor           95
+' |- '       '1'vdash        96
+' -| '       '1'dashv        97
+'<font face="SYMBOL">\235\</font>'      ''lfloor        98
+'<font face="SYMBOL">\251\</font>'      ''rfloor        99
+'<font face="SYMBOL">\233\</font>'      ''lceil        100
+'<font face="SYMBOL">\249\</font>'      ''rceil        101
+'{'          ''             102
+'}'          ''             103
+'<font face="SYMBOL">\225\</font>'       ''<           104
+'<font face="SYMBOL">\241\</font>'       ''>           105
+'|'          ''             106
+'||'         ''             107
+' ,|^ '      '1'updownarrow 108
+' ,||^ '     '1'Updownarrow 109
+'\\'         ''             110
+'|'          ''             111
+'<font face="SYMBOL">\114\</font>'       ''surd        112
+' |_| '      '1'coprod      113
+'<font face="SYMBOL">\209\</font>'      ''nabla        114
+'<font face="SYMBOL">\242\</font>'      ''int          115
+' |~| '      '1'sqcap       116
+' [_] '      '1'sqcup       117
+' [_ '       '3'sqsubseteq 118
+' ]_ '       '3'sqsupseteq 119
+'\167\'      ''\S           120
+'&#8224;'      ''dag          121
+'&#8225;'       ''ddag        122
+'\182\'      ''\P           123
+'<font face="SYMBOL">\167\</font>'       ''clubsuit     124
+'<font face="SYMBOL">\168\</font>' ''diamondsuit  125
+'<font face="SYMBOL">\169\</font>'      ''heartsuit    126
+'<font face="SYMBOL">\170\</font>'      ''spadsuit     127
+blsy-bs 0 127
+

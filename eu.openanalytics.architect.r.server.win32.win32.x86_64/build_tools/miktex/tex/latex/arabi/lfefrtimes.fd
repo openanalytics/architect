@@ -1,0 +1,23 @@
+%%
+%% This is file `lfefrtimes.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lfefrtimes.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LFE}{frtimes}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LFE}{frtimes}{m}{n}{<-> s*[1.25]  frtimes }{}
+\DeclareFontShape{LFE}{frtimes}{bx}{n}{<->  s*[1.25] frtimesbd }{}
+\DeclareFontShape{LFE}{frtimes}{b}{n}{<-> ssub * frtimes/bx/n }{}
+
+\endinput

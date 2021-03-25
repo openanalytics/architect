@@ -1,0 +1,679 @@
+% This file loads mathpazo + TX math fonts by plainTeX macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak, 2016
+
+% Pazo fonts combines Palatino + spec. designed characters + CM using
+% virtual fonts. They are intended for Palatino / Pagella text fonts.
+% Usage:
+% \input cs-pagella  \input pazo-math
+ 
+\message{FONT: Pazo math fonts - \string\mathchardef's prepared, 13 math families preloaded.}
+\let\mathpreloaded=Z
+
+\def\normalmath{%
+  \loadmathfamily  0 zplmr7t % Pazo Roman
+  \loadmathfamily  1 zplmr7m % Pazo Math Italic
+  \loadmathfamily  2 zplmr7y % Pazo Standard symbols
+  \loadmathfamily  3 zplmr7v % Pazo extra symbols   
+  \loadmathfamily  4 txsya   % TX symbols from AMSTeX
+  \loadmathfamily  5 txsyb   % TX symbols from AMSTeX
+  \loadmathfamily  6 txsyc   % symbols from TX fonts
+  \loadmathfamily  7 txexa   % TX new extra symbols
+  \loadmathfamily  8 txmia   % fraktur, upright greek
+  \loadmathfamily  9 rsfs10  % script
+  \loadmathfamily 10 phvb8z  % sans serif bold
+  \loadmathfamily 11 phvbo8z % sans serif bold slanted (for vectors)
+  \loadmathfamily 12 fplmbb  % Pazo black board
+  \setmathdimens
+}
+\def\boldmath{%
+  \loadmathfamily  0 zplmb7t % Pazo Roman
+  \loadmathfamily  1 zplmb7m % Pazo Math Italic
+  \loadmathfamily  2 zplmb7y % Pazo Standard symbols
+  \loadmathfamily  3 zplmr7v % Pazo extra symbols (bold isn't available)  
+  \loadmathfamily  4 txbsya  % TX symbols from AMSTeX
+  \loadmathfamily  5 txbsyb  % TX symbols from AMSTeX
+  \loadmathfamily  6 txbsyc  % symbols from TX fonts
+  \loadmathfamily  7 txbexa  % TX new extra symbols
+  \loadmathfamily  8 txbmia  % fraktur, upright greek
+  \loadmathfamily  9 rsfs10  % \bf script is unavailable
+  \loadmathfamily 10 phvb8z  % sans serif bold
+  \loadmathfamily 11 phvbo8z % sans serif bold slanted (for vectors)
+  \loadmathfamily 12 fplmbb  % Pazo black board
+  \setmathdimens
+}
+\count18=12
+
+\let\normalPZmath=\normalmath  \let\boldPZmath=\boldmath
+
+\def\bi{\tenbi \fam\bifam} % in csplain is done \def\bi{\tenbi} only
+\def\bbchar{\fam12 }       % double stroked letters
+\def\frak{\fam8 }          % fraktur
+\def\script{\fam9 }        % more extensive script than \cal
+\chardef\bffam 10          % sans serif bold
+\chardef\bifam 11          % sans serif bold slanted
+\chardef\rmfam 12          % for \rm (can differ from CM Roman)
+\chardef\itfam 13          % normal italic
+\let\slfam=\itfam \let\ttfam=\rmfam % for raw similarity with plainTeX
+
+\def\corrmsizes{\ptmunit=1\ptunit\relax
+     \ifnum\tmp=10 \ptmunit=.83\ptmunit \fi   % wee need to correct
+     \ifnum\tmp=11 \ptmunit=.83\ptmunit \fi}  % the sizes o phvb(o)8t
+
+% macros:
+
+\ifx\rfontskipat\undefined \input csfontsm \fi
+
+\def\loadmathfamily #1 #2 {\chardef\tmp#1\corrmsizes
+  \let\dgsize=\sizemtext    \font\mF=\whichtfm{#2} at\dgsize \textfont#1=\mF
+  \let\dgsize=\sizemscript  \font\mF=\whichtfm{#2} at\dgsize \scriptfont#1=\mF
+  \let\dgsize=\sizemsscript \font\mF=\whichtfm{#2} at\dgsize \scriptscriptfont#1=\mF
+  \let\dgsize=\undefined
+}
+\def\setmathfamily #1 #2{\let\mF=#2\chardef\tmp#1\corrmsizes
+  \let\dgsize=\sizemtext    \letfont#2=#2 at\dgsize \textfont#1=#2%
+  \let\dgsize=\sizemscript  \letfont#2=#2 at\dgsize \scriptfont#1=#2%
+  \let\dgsize=\sizemsscript \letfont#2=#2 at\dgsize \scriptscriptfont#1=#2%
+  \let\dgsize=\undefined \let#2=\mF
+}
+%\def\itvariables{\def\rm{\fam\rmfam \tenrm}%
+%  \mathcodechanges C:0-9\mathcodechanges D:A-Z\mathcodechanges D:a-z}
+\def\mitvariables{\def\rm{\fam0\tenrm}%
+  \mathcodechanges 0:0-9\mathcodechanges 1:A-Z\mathcodechanges 1:a-z}
+
+\def\mathcodechanges#1:#2-#3{\edef\tmp{\count0=\the\count0 \count1=\the\count1 }%
+   \count0=`#2  \count1=\count0  \advance\count1 by"7#100
+   \loop \mathcode\count0=\count1
+         \ifnum\count0<`#3 \advance\count0 by1 \advance\count1 by1 \repeat
+   \tmp\relax
+}
+\ifx\whichtfm\undefined \def\whichtfm#1{#1}\fi
+
+\def\setmathdimens{% PlainTeX sets these dimens for 10pt size only:
+  \delimitershortfall=0.5\fontdimen6\textfont3 
+  \nulldelimiterspace=0.12\fontdimen6\textfont3
+  \scriptspace=0.05\fontdimen6\textfont3
+  \skewchar\textfont1=127 \skewchar\scriptfont1=127
+  \skewchar\scriptscriptfont1=127
+  \skewchar\textfont2=48  \skewchar\scriptfont2=48
+  \skewchar\scriptscriptfont2=48
+  \fontdimen8\scriptfont3 = \fontdimen8\textfont3  
+  \fontdimen8\scriptscriptfont3 = \fontdimen8\textfont3
+}
+\def\setmathsizes[#1/#2/#3]{%
+   \def\sizemtext{#1\ptmunit}\def\sizemscript{#2\ptmunit}% 
+   \def\sizemsscript{#3\ptmunit}%
+}
+\ifx\ptuint\undefined  \def\ptunit{pt}\fi
+\ifx\ptmunit\undefined \csname newdimen\endcsname\ptmunit\fi \ptmunit=1\ptunit
+\ifx\sizemtext\undefined \setmathsizes[10/7/5]\fi
+
+\ifx\tenbi\undefined \font\tenbi=ptmbi8z \relax \fi
+\ifx\normalmathloading\relax\else \normalmath \fi  % load families, normal shape
+\mitvariables  
+
+%% \mathchardef declarations
+
+\def\amsafam{4} \def\amsbfam{5} \def\txsycfam{6} 
+\def\txexafam{7} \def\txmiafam{8}
+
+%% AMSA
+
+\mathchardef \boxdot   "2\amsafam 00
+\mathchardef \boxplus   "2\amsafam 01
+\mathchardef \boxtimes   "2\amsafam 02
+\mathchardef \square   "0\amsafam 03
+\mathchardef \blacksquare   "0\amsafam 04
+\mathchardef \centerdot   "2\amsafam 05
+\mathchardef \lozenge   "0\amsafam 06
+\mathchardef \blacklozenge   "0\amsafam 07
+\mathchardef \circlearrowright   "3\amsafam 08
+\mathchardef \circlearrowleft   "3\amsafam 09
+\mathchardef \rightleftharpoons   "3\amsafam 0A
+\mathchardef \leftrightharpoons   "3\amsafam 0B
+\mathchardef \boxminus   "2\amsafam 0C
+\mathchardef \Vdash   "3\amsafam 0D
+\mathchardef \Vvdash   "3\amsafam 0E
+\mathchardef \vDash   "3\amsafam 0F
+\mathchardef \twoheadrightarrow   "3\amsafam 10
+\mathchardef \twoheadleftarrow   "3\amsafam 11
+\mathchardef \leftleftarrows   "3\amsafam 12
+\mathchardef \rightrightarrows   "3\amsafam 13
+\mathchardef \upuparrows   "3\amsafam 14
+\mathchardef \downdownarrows   "3\amsafam 15
+\mathchardef \upharpoonright   "3\amsafam 16
+\mathchardef \downharpoonright   "3\amsafam 17
+\mathchardef \upharpoonleft   "3\amsafam 18
+\mathchardef \downharpoonleft   "3\amsafam 19
+\mathchardef \rightarrowtail   "3\amsafam 1A
+\mathchardef \leftarrowtail   "3\amsafam 1B
+\mathchardef \leftrightarrows   "3\amsafam 1C
+\mathchardef \rightleftarrows   "3\amsafam 1D
+\mathchardef \Lsh   "3\amsafam 1E
+\mathchardef \Rsh   "3\amsafam 1F
+\mathchardef \rightsquigarrow   "3\amsafam 20
+\mathchardef \leftrightsquigarrow   "3\amsafam 21
+\mathchardef \looparrowleft   "3\amsafam 22
+\mathchardef \looparrowright   "3\amsafam 23
+\mathchardef \circeq   "3\amsafam 24
+\mathchardef \succsim   "3\amsafam 25
+\mathchardef \gtrsim   "3\amsafam 26
+\mathchardef \gtrapprox   "3\amsafam 27
+\mathchardef \multimap   "3\amsafam 28
+\mathchardef \therefore   "3\amsafam 29
+\mathchardef \because   "3\amsafam 2A
+\mathchardef \doteqdot   "3\amsafam 2B
+\mathchardef \triangleq   "3\amsafam 2C
+\mathchardef \precsim   "3\amsafam 2D
+\mathchardef \lesssim   "3\amsafam 2E
+\mathchardef \lessapprox   "3\amsafam 2F
+\mathchardef \eqslantless   "3\amsafam 30
+\mathchardef \eqslantgtr   "3\amsafam 31
+\mathchardef \curlyeqprec   "3\amsafam 32
+\mathchardef \curlyeqsucc   "3\amsafam 33
+\mathchardef \preccurlyeq   "3\amsafam 34
+\mathchardef \leqq   "3\amsafam 35
+\mathchardef \leqslant   "3\amsafam 36
+\mathchardef \lessgtr   "3\amsafam 37
+\mathchardef \backprime   "0\amsafam 38
+\mathchardef \risingdotseq   "3\amsafam 3A
+\mathchardef \fallingdotseq   "3\amsafam 3B
+\mathchardef \succcurlyeq   "3\amsafam 3C
+\mathchardef \geqq   "3\amsafam 3D
+\mathchardef \geqslant   "3\amsafam 3E
+\mathchardef \gtrless   "3\amsafam 3F
+\mathchardef \sqsubset   "3\amsafam 40
+\mathchardef \sqsupset   "3\amsafam 41
+\mathchardef \vartriangleright   "3\amsafam 42
+\mathchardef \vartriangleleft   "3\amsafam 43
+\mathchardef \trianglerighteq   "3\amsafam 44
+\mathchardef \trianglelefteq   "3\amsafam 45
+\mathchardef \bigstar   "0\amsafam 46
+\mathchardef \between   "3\amsafam 47
+\mathchardef \blacktriangledown   "0\amsafam 48
+\mathchardef \blacktriangleright   "3\amsafam 49
+\mathchardef \blacktriangleleft   "3\amsafam 4A
+\mathchardef \vartriangle   "3\amsafam 4D
+\mathchardef \blacktriangle   "0\amsafam 4E
+\mathchardef \triangledown   "0\amsafam 4F
+\mathchardef \eqcirc   "3\amsafam 50
+\mathchardef \lesseqgtr   "3\amsafam 51
+\mathchardef \gtreqless   "3\amsafam 52
+\mathchardef \lesseqqgtr   "3\amsafam 53
+\mathchardef \gtreqqless   "3\amsafam 54
+\mathchardef \Rrightarrow   "3\amsafam 56
+\mathchardef \Lleftarrow   "3\amsafam 57
+\mathchardef \veebar   "2\amsafam 59
+\mathchardef \barwedge   "2\amsafam 5A
+\mathchardef \doublebarwedge   "2\amsafam 5B
+\mathchardef \angle   "0\amsafam 5C
+\mathchardef \measuredangle   "0\amsafam 5D
+\mathchardef \sphericalangle   "0\amsafam 5E
+\mathchardef \varpropto   "3\amsafam 5F
+\mathchardef \smallsmile   "3\amsafam 60
+\mathchardef \smallfrown   "3\amsafam 61
+\mathchardef \Subset   "3\amsafam 62
+\mathchardef \Supset   "3\amsafam 63
+\mathchardef \Cup   "2\amsafam 64
+\mathchardef \Cap   "2\amsafam 65
+\mathchardef \curlywedge   "2\amsafam 66
+\mathchardef \curlyvee   "2\amsafam 67
+\mathchardef \leftthreetimes   "2\amsafam 68
+\mathchardef \rightthreetimes   "2\amsafam 69
+\mathchardef \subseteqq   "3\amsafam 6A
+\mathchardef \supseteqq   "3\amsafam 6B
+\mathchardef \bumpeq   "3\amsafam 6C
+\mathchardef \Bumpeq   "3\amsafam 6D
+\mathchardef \lll   "3\amsafam 6E
+\mathchardef \ggg   "3\amsafam 6F
+\def \ulcorner {\delimiter"4\amsafam 70\amsafam 70 }
+\def \urcorner {\delimiter"5\amsafam 71\amsafam 71 }
+\mathchardef \circledS   "0\amsafam 73
+\mathchardef \pitchfork   "3\amsafam 74
+\mathchardef \dotplus   "2\amsafam 75
+\mathchardef \backsim   "3\amsafam 76
+\mathchardef \backsimeq   "3\amsafam 77
+\def \llcorner {\delimiter"4\amsafam 78\amsafam 78 }
+\def \lrcorner {\delimiter"5\amsafam 79\amsafam 79 }
+\mathchardef \complement   "0\amsafam 7B
+\mathchardef \intercal   "2\amsafam 7C
+\mathchardef \circledcirc   "2\amsafam 7D
+\mathchardef \circledast   "2\amsafam 7E
+\mathchardef \circleddash   "2\amsafam 7F
+\mathchardef \rhd   "2\amsafam 42
+\mathchardef \lhd   "2\amsafam 43
+\mathchardef \unrhd   "2\amsafam 44
+\mathchardef \unlhd   "2\amsafam 45
+
+   \let\restriction\upharpoonright
+   \let\Doteq\doteqdot
+   \let\doublecup\Cup
+   \let\doublecap\Cap
+   \let\llless\lll
+   \let\gggtr\ggg
+   \let\Box=\square % LaTeX symbol
+   \let\Box=\square % LaTeX symbol
+
+%% AMSB
+
+\mathchardef \lvertneqq   "3\amsbfam 00
+\mathchardef \gvertneqq   "3\amsbfam 01
+\mathchardef \nleq   "3\amsbfam 02
+\mathchardef \ngeq   "3\amsbfam 03
+\mathchardef \nless   "3\amsbfam 04
+\mathchardef \ngtr   "3\amsbfam 05
+\mathchardef \nprec   "3\amsbfam 06
+\mathchardef \nsucc   "3\amsbfam 07
+\mathchardef \lneqq   "3\amsbfam 08
+\mathchardef \gneqq   "3\amsbfam 09
+\mathchardef \nleqslant   "3\amsbfam 0A
+\mathchardef \ngeqslant   "3\amsbfam 0B
+\mathchardef \lneq   "3\amsbfam 0C
+\mathchardef \gneq   "3\amsbfam 0D
+\mathchardef \npreceq   "3\amsbfam 0E
+\mathchardef \nsucceq   "3\amsbfam 0F
+\mathchardef \precnsim   "3\amsbfam 10
+\mathchardef \succnsim   "3\amsbfam 11
+\mathchardef \lnsim   "3\amsbfam 12
+\mathchardef \gnsim   "3\amsbfam 13
+\mathchardef \nleqq   "3\amsbfam 14
+\mathchardef \ngeqq   "3\amsbfam 15
+\mathchardef \precneqq   "3\amsbfam 16
+\mathchardef \succneqq   "3\amsbfam 17
+\mathchardef \precnapprox   "3\amsbfam 18
+\mathchardef \succnapprox   "3\amsbfam 19
+\mathchardef \lnapprox   "3\amsbfam 1A
+\mathchardef \gnapprox   "3\amsbfam 1B
+\mathchardef \nsim   "3\amsbfam 1C
+\mathchardef \ncong   "3\amsbfam 1D
+\mathchardef \diagup   "0\amsbfam 1E
+\mathchardef \diagdown   "0\amsbfam 1F
+\mathchardef \varsubsetneq   "3\amsbfam 20
+\mathchardef \varsupsetneq   "3\amsbfam 21
+\mathchardef \nsubseteqq   "3\amsbfam 22
+\mathchardef \nsupseteqq   "3\amsbfam 23
+\mathchardef \subsetneqq   "3\amsbfam 24
+\mathchardef \supsetneqq   "3\amsbfam 25
+\mathchardef \varsubsetneqq   "3\amsbfam 26
+\mathchardef \varsupsetneqq   "3\amsbfam 27
+\mathchardef \subsetneq   "3\amsbfam 28
+\mathchardef \supsetneq   "3\amsbfam 29
+\mathchardef \nsubseteq   "3\amsbfam 2A
+\mathchardef \nsupseteq   "3\amsbfam 2B
+\mathchardef \nparallel   "3\amsbfam 2C
+\mathchardef \nmid   "3\amsbfam 2D
+\mathchardef \nshortmid   "3\amsbfam 2E
+\mathchardef \nshortparallel   "3\amsbfam 2F
+\mathchardef \nvdash   "3\amsbfam 30
+\mathchardef \nVdash   "3\amsbfam 31
+\mathchardef \nvDash   "3\amsbfam 32
+\mathchardef \nVDash   "3\amsbfam 33
+\mathchardef \ntrianglerighteq   "3\amsbfam 34
+\mathchardef \ntrianglelefteq   "3\amsbfam 35
+\mathchardef \ntriangleleft   "3\amsbfam 36
+\mathchardef \ntriangleright   "3\amsbfam 37
+\mathchardef \nleftarrow   "3\amsbfam 38
+\mathchardef \nrightarrow   "3\amsbfam 39
+\mathchardef \nLeftarrow   "3\amsbfam 3A
+\mathchardef \nRightarrow   "3\amsbfam 3B
+\mathchardef \nLeftrightarrow   "3\amsbfam 3C
+\mathchardef \nleftrightarrow   "3\amsbfam 3D
+\mathchardef \divideontimes   "2\amsbfam 3E
+\mathchardef \varnothing   "0\amsbfam 3F
+\mathchardef \nexists   "0\amsbfam 40
+\mathchardef \Finv   "0\amsbfam 60
+\mathchardef \Game   "0\amsbfam 61
+\mathchardef \mho   "0\amsbfam 66
+\mathchardef \eth   "0\amsbfam 67
+\mathchardef \eqsim   "3\amsbfam 68
+\mathchardef \beth   "0\amsbfam 69
+\mathchardef \gimel   "0\amsbfam 6A
+\mathchardef \daleth   "0\amsbfam 6B
+\mathchardef \lessdot   "2\amsbfam 6C
+\mathchardef \gtrdot   "2\amsbfam 6D
+\mathchardef \ltimes   "2\amsbfam 6E
+\mathchardef \rtimes   "2\amsbfam 6F
+\mathchardef \shortmid   "3\amsbfam 70
+\mathchardef \shortparallel   "3\amsbfam 71
+\mathchardef \smallsetminus   "2\amsbfam 72
+\mathchardef \thicksim   "3\amsbfam 73
+\mathchardef \thickapprox   "3\amsbfam 74
+\mathchardef \approxeq   "3\amsbfam 75
+\mathchardef \precapprox   "3\amsbfam 76
+\mathchardef \succapprox   "3\amsbfam 77
+\mathchardef \curvearrowleft   "3\amsbfam 78
+\mathchardef \curvearrowright   "3\amsbfam 79
+\mathchardef \digamma   "0\amsbfam 7A
+\mathchardef \varkappa   "0\amsbfam 7B
+\mathchardef \Bbbk   "0\amsbfam 7C
+\mathchardef \hslash   "0\amsbfam 7D
+\mathchardef \hbar   "0\amsbfam 7E
+\mathchardef \backepsilon   "3\amsbfam 7F
+
+%% TXC
+
+\mathchardef \mappedfromchar   "3\txsycfam 00
+\mathchardef \Mapstochar   "3\txsycfam 01
+\mathchardef \Mappedfromchar   "3\txsycfam 02
+\mathchardef \mmapstochar   "3\txsycfam 03
+\mathchardef \mmappedfromchar   "3\txsycfam 04
+\mathchardef \Mmapstochar   "3\txsycfam 05
+\mathchardef \Mmappedfromchar   "3\txsycfam 06
+\mathchardef \medcirc   "2\txsycfam 07
+\mathchardef \medbullet   "2\txsycfam 08
+\mathchardef \varparallel   "3\txsycfam 09
+\mathchardef \varparallelinv   "3\txsycfam 0A
+\mathchardef \nvarparallel   "3\txsycfam 0B
+\mathchardef \nvarparallelinv   "3\txsycfam 0C
+\mathchardef \colonapprox   "3\txsycfam 0D
+\mathchardef \colonsim   "3\txsycfam 0E
+\mathchardef \Colonapprox   "3\txsycfam 0F
+\mathchardef \Colonsim   "3\txsycfam 10
+\mathchardef \doteq   "3\txsycfam 11
+\mathchardef \multimapinv   "3\txsycfam 12
+\mathchardef \multimapboth   "3\txsycfam 13
+\mathchardef \multimapdot   "3\txsycfam 14
+\mathchardef \multimapdotinv   "3\txsycfam 15
+\mathchardef \multimapdotboth   "3\txsycfam 16
+\mathchardef \multimapdotbothA   "3\txsycfam 17
+\mathchardef \multimapdotbothB   "3\txsycfam 18
+\mathchardef \VDash   "3\txsycfam 19
+\mathchardef \VvDash   "3\txsycfam 1A
+\mathchardef \cong   "3\txsycfam 1B
+\mathchardef \preceqq   "3\txsycfam 1C
+\mathchardef \succeqq   "3\txsycfam 1D
+\mathchardef \nprecsim   "3\txsycfam 1E
+\mathchardef \nsuccsim   "3\txsycfam 1F
+\mathchardef \nlesssim   "3\txsycfam 20
+\mathchardef \ngtrsim   "3\txsycfam 21
+\mathchardef \nlessapprox   "3\txsycfam 22
+\mathchardef \ngtrapprox   "3\txsycfam 23
+\mathchardef \npreccurlyeq   "3\txsycfam 24
+\mathchardef \nsucccurlyeq   "3\txsycfam 25
+\mathchardef \ngtrless   "3\txsycfam 26
+\mathchardef \nlessgtr   "3\txsycfam 27
+\mathchardef \nbumpeq   "3\txsycfam 28
+\mathchardef \nBumpeq   "3\txsycfam 29
+\mathchardef \nbacksim   "3\txsycfam 2A
+\mathchardef \nbacksimeq   "3\txsycfam 2B
+\mathchardef \neq   "3\txsycfam 2C
+\mathchardef \nasymp   "3\txsycfam 2D
+\mathchardef \nequiv   "3\txsycfam 2E
+\mathchardef \nsim   "3\txsycfam 2F
+\mathchardef \napprox   "3\txsycfam 30
+\mathchardef \nsubset   "3\txsycfam 31
+\mathchardef \nsupset   "3\txsycfam 32
+\mathchardef \nll   "3\txsycfam 33
+\mathchardef \ngg   "3\txsycfam 34
+\mathchardef \nthickapprox   "3\txsycfam 35
+\mathchardef \napproxeq   "3\txsycfam 36
+\mathchardef \nprecapprox   "3\txsycfam 37
+\mathchardef \nsuccapprox   "3\txsycfam 38
+\mathchardef \npreceqq   "3\txsycfam 39
+\mathchardef \nsucceqq   "3\txsycfam 3A
+\mathchardef \nsimeq   "3\txsycfam 3B
+\mathchardef \notin   "3\txsycfam 3C
+\mathchardef \notni   "3\txsycfam 3D
+\mathchardef \nSubset   "3\txsycfam 3E
+\mathchardef \nSupset   "3\txsycfam 3F
+\mathchardef \nsqsubseteq   "3\txsycfam 40
+\mathchardef \nsqsupseteq   "3\txsycfam 41
+\mathchardef \coloneqq   "3\txsycfam 42
+\mathchardef \eqqcolon   "3\txsycfam 43
+\mathchardef \coloneq   "3\txsycfam 44
+\mathchardef \eqcolon   "3\txsycfam 45
+\mathchardef \Coloneqq   "3\txsycfam 46
+\mathchardef \Eqqcolon   "3\txsycfam 47
+\mathchardef \Coloneq   "3\txsycfam 48
+\mathchardef \Eqcolon   "3\txsycfam 49
+\mathchardef \strictif   "3\txsycfam 4A
+\mathchardef \strictfi   "3\txsycfam 4B
+\mathchardef \strictiff   "3\txsycfam 4C
+\mathchardef \invamp   "2\txsycfam 4D
+\def \lbag {\delimiter"4\txsycfam 4E\txexafam 30 }
+\def \rbag {\delimiter"5\txsycfam 4F\txexafam 31 }
+\mathchardef \Lbag   "4\txsycfam 50
+\mathchardef \Rbag   "5\txsycfam 51
+\mathchardef \circledless   "3\txsycfam 52
+\mathchardef \circledgtr   "3\txsycfam 53
+\mathchardef \circledwedge   "2\txsycfam 54
+\mathchardef \circledvee   "2\txsycfam 55
+\mathchardef \circledbar   "2\txsycfam 56
+\mathchardef \circledbslash   "2\txsycfam 57
+\mathchardef \lJoin   "3\txsycfam 58
+\mathchardef \rJoin   "3\txsycfam 59
+\mathchardef \Join   "3\txsycfam 5A
+\mathchardef \openJoin   "3\txsycfam 5B
+\mathchardef \lrtimes   "3\txsycfam 5C
+\mathchardef \opentimes   "3\txsycfam 5D
+\mathchardef \Diamond   "0\txsycfam 5E
+\mathchardef \Diamondblack   "0\txsycfam 5F
+\mathchardef \nplus   "2\txsycfam 60
+\mathchardef \nsqsubset   "3\txsycfam 61
+\mathchardef \nsqsupset   "3\txsycfam 62
+\mathchardef \dashleftarrow   "3\txsycfam 63
+\mathchardef \dashrightarrow   "3\txsycfam 64
+\mathchardef \dashleftrightarrow   "3\txsycfam 65
+\mathchardef \leftsquigarrow   "3\txsycfam 66
+\mathchardef \ntwoheadrightarrow   "3\txsycfam 67
+\mathchardef \ntwoheadleftarrow   "3\txsycfam 68
+\mathchardef \boxast   "2\txsycfam 69
+\mathchardef \boxbslash   "2\txsycfam 6A
+\mathchardef \boxbar   "2\txsycfam 6B
+\mathchardef \boxslash   "2\txsycfam 6C
+\mathchardef \Wr   "2\txsycfam 6D
+\mathchardef \lambdaslash   "0\txsycfam 6E
+\mathchardef \lambdabar   "0\txsycfam 6F
+\mathchardef \varclubsuit   "0\txsycfam 70
+\mathchardef \vardiamondsuit   "0\txsycfam 71
+\mathchardef \varheartsuit   "0\txsycfam 72
+\mathchardef \varspadesuit   "0\txsycfam 73
+\mathchardef \Nearrow   "3\txsycfam 74
+\mathchardef \Searrow   "3\txsycfam 75
+\mathchardef \Nwarrow   "3\txsycfam 76
+\mathchardef \Swarrow   "3\txsycfam 77
+\mathchardef \Top   "0\txsycfam 78
+\mathchardef \Bot   "0\txsycfam 79
+\mathchardef \Perp   "3\txsycfam 79
+\mathchardef \leadstoext   "3\txsycfam 7A
+\mathchardef \leadsto   "3\txsycfam 7B
+\mathchardef \sqcupplus   "2\txsycfam 7C
+\mathchardef \sqcapplus   "2\txsycfam 7D
+\def \llbracket {\delimiter"4\txsycfam 7E\txexafam 12 }
+\def \rrbracket {\delimiter"5\txsycfam 7F\txexafam 13 }
+\mathchardef \boxright   "3\txsycfam 80
+\mathchardef \boxleft   "3\txsycfam 81
+\mathchardef \boxdotright   "3\txsycfam 82
+\mathchardef \boxdotleft   "3\txsycfam 83
+\mathchardef \Diamondright   "3\txsycfam 84
+\mathchardef \Diamondleft   "3\txsycfam 85
+\mathchardef \Diamonddotright   "3\txsycfam 86
+\mathchardef \Diamonddotleft   "3\txsycfam 87
+\mathchardef \boxRight   "3\txsycfam 88
+\mathchardef \boxLeft   "3\txsycfam 89
+\mathchardef \boxdotRight   "3\txsycfam 8A
+\mathchardef \boxdotLeft   "3\txsycfam 8B
+\mathchardef \DiamondRight   "3\txsycfam 8C
+\mathchardef \DiamondLeft   "3\txsycfam 8D
+\mathchardef \DiamonddotRight   "3\txsycfam 8E
+\mathchardef \DiamonddotLeft   "3\txsycfam 8F
+\mathchardef \Diamonddot   "0\txsycfam 90
+\mathchardef \circleright   "3\txsycfam 91
+\mathchardef \circleleft   "3\txsycfam 92
+\mathchardef \circleddotright   "3\txsycfam 93
+\mathchardef \circleddotleft   "3\txsycfam 94
+\mathchardef \multimapbothvert   "3\txsycfam 95
+\mathchardef \multimapdotbothvert   "3\txsycfam 96
+\mathchardef \multimapdotbothBvert   "3\txsycfam 97
+\mathchardef \multimapdotbothAvert   "3\txsycfam 98
+
+   \def\mappedfrom{\leftarrow\mappedfromchar}
+   \def\longmappedfrom{\longleftarrow\mappedfromchar}
+   \def\Mapsto{\Mapstochar\Rightarrow}
+   \def\Longmapsto{\Mapstochar\Longrightarrow}
+   \def\Mappedfrom{\Leftarrow\Mappedfromchar}
+   \def\Longmappedfrom{\Longleftarrow\Mappedfromchar}
+   \def\mmapsto{\mmapstochar\rightarrow}
+   \def\longmmapsto{\mmapstochar\longrightarrow}
+   \def\mmappedfrom{\leftarrow\mmappedfromchar}
+   \def\longmmappedfrom{\longleftarrow\mmappedfromchar}
+   \def\Mmapsto{\Mmapstochar\Rightarrow}
+   \def\Longmmapsto{\Mmapstochar\Longrightarrow}
+   \def\Mmappedfrom{\Leftarrow\Mmappedfromchar}
+   \def\Longmmappedfrom{\Longleftarrow\Mmappedfromchar}
+   \let\ne=\neq
+   \let\notowns=\notni
+   \let\lrJoin=\Join
+   % \let\bowtie\lrtimes
+   \let\dasharrow\dashrightarrow
+   \let\circledotright\circleddotright
+   \let\circledotleft\circleddotleft
+
+
+%% TXexa large symbols
+
+\mathchardef \bignplus   "1\txexafam 00
+\mathchardef \bigsqcupplus   "1\txexafam 02
+\mathchardef \bigsqcapplus   "1\txexafam 04
+\mathchardef \bigsqcap   "1\txexafam 06
+\mathchardef \oiintop   "1\txexafam 08
+\mathchardef \ointctrclockwiseop   "1\txexafam 0A
+\mathchardef \ointclockwiseop   "1\txexafam 0C
+\mathchardef \sqintop   "1\txexafam 0E
+\mathchardef \varprod   "1\txexafam 10
+\mathchardef \braacext   "0\txexafam 20
+\mathchardef \iintop   "1\txexafam 21
+\mathchardef \iiintop   "1\txexafam 23
+\mathchardef \iiiintop   "1\txexafam 25
+\mathchardef \idotsintop   "1\txexafam 27
+\mathchardef \oiiintop   "1\txexafam 29
+\mathchardef \varointctrclockwiseop   "1\txexafam 2B
+\mathchardef \varointclockwiseop   "1\txexafam 2D
+\mathchardef \fintop   "1\txexafam 3E
+\mathchardef \oiintctrclockwiseop   "1\txexafam 40
+\mathchardef \varoiintclockwiseop   "1\txexafam 42
+\mathchardef \oiintclockwiseop   "1\txexafam 48
+\mathchardef \varoiintctrclockwiseop   "1\txexafam 4A
+\mathchardef \oiiintctrclockwiseop   "1\txexafam 44
+\mathchardef \varoiiintclockwiseop   "1\txexafam 46
+\mathchardef \oiiintclockwiseop   "1\txexafam 4C
+\mathchardef \varoiiintctrclockwiseop   "1\txexafam 4E
+\mathchardef \sqiintop   "1\txexafam 50
+\mathchardef \sqiiintop   "1\txexafam 52
+
+   \def\oiint{\oiintop\nolimits}
+   \def\ointctrclockwise{\ointctrclockwiseop\nolimits}
+   \def\ointclockwise{\ointclockwiseop\nolimits}
+   \def\iint{\iintop\nolimits}
+   \def\iiint{\iiintop\nolimits}
+   \def\sqint{\sqintop\nolimits}
+   \def\iiiint{\iiiintop\nolimits}
+   \def\oiiint{\oiiintop\nolimits}
+   \def\idotsint{\idotsintop\nolimits}
+   \def\varointctrclockwise{\varointctrclockwiseop\nolimits}
+   \def\varointclockwise{\varointclockwiseop\nolimits}
+   \def\fint{\fintop\nolimits}
+   \def\oiintctrclockwise{\oiintctrclockwiseop\nolimits}
+   \def\varoiintclockwise{\varoiintclockwiseop\nolimits}
+   \def\oiintclockwise{\oiintclockwiseop\nolimits}
+   \def\varoiintctrclockwise{\varoiintctrclockwiseop\nolimits}
+   \def\oiiintctrclockwise{\oiiintctrclockwiseop\nolimits}
+   \def\varoiiintclockwise{\varoiiintclockwiseop\nolimits}
+   \def\oiiintclockwise{\oiiintclockwiseop\nolimits}
+   \def\varoiiintctrclockwise{\varoiiintctrclockwiseop\nolimits}
+   \def\sqiint{\sqiintop\nolimits}
+   \def\sqiiint{\sqiiintop\nolimits}
+
+%% TXMIA
+
+\mathchardef \upalpha   "0\txmiafam 0B
+\mathchardef \upbeta   "0\txmiafam 0C
+\mathchardef \upgamma   "0\txmiafam 0D
+\mathchardef \updelta   "0\txmiafam 0E
+\mathchardef \upepsilon   "0\txmiafam 0F
+\mathchardef \upzeta   "0\txmiafam 10
+\mathchardef \upeta   "0\txmiafam 11
+\mathchardef \uptheta   "0\txmiafam 12
+\mathchardef \upiota   "0\txmiafam 13
+\mathchardef \upkappa   "0\txmiafam 14
+\mathchardef \uplambda   "0\txmiafam 15
+\mathchardef \upmu   "0\txmiafam 16
+\mathchardef \upnu   "0\txmiafam 17
+\mathchardef \upxi   "0\txmiafam 18
+\mathchardef \uppi   "0\txmiafam 19
+\mathchardef \uprho   "0\txmiafam 1A
+\mathchardef \upsigma   "0\txmiafam 1B
+\mathchardef \uptau   "0\txmiafam 1C
+\mathchardef \upupsilon   "0\txmiafam 1D
+\mathchardef \upphi   "0\txmiafam 1E
+\mathchardef \upchi   "0\txmiafam 1F
+\mathchardef \uppsi   "0\txmiafam 20
+\mathchardef \upomega   "0\txmiafam 21
+\mathchardef \upvarepsilon   "0\txmiafam 22
+\mathchardef \upvartheta   "0\txmiafam 23
+\mathchardef \upvarpi   "0\txmiafam 24
+\mathchardef \upvarrho   "0\txmiafam 25
+\mathchardef \upvarsigma   "0\txmiafam 26
+\mathchardef \upvarphi   "0\txmiafam 27
+
+%%%  macros
+
+\def\joinrel{\mathrel{\mkern-2.5mu}}  %-3mu in plain TeX
+
+\let\circledplus\oplus
+\let\circledminus\ominus
+\let\circledtimes\otimes
+\let\circledslash\oslash
+\let\circleddot\odot
+
+%%% For \underbrace and \overbrace:
+%%% use brace extenstion bar (in "20 of txexa) instead of vrule
+
+\def\downbracefill{$\mathsurround0pt
+   \braceld\mkern-1mu
+   \cleaders\hbox{$\mkern-.5mu\braacext\mkern-.5mu$}\hfill
+   \mkern-1mu\braceru\bracelu\mkern-1mu
+   \cleaders\hbox{$\mkern-.5mu\braacext\mkern-.5mu$}\hfill
+   \mkern-1mu\bracerd$}
+
+\def\upbracefill{$\mathsurround0pt
+   \bracelu\mkern-1mu
+   \cleaders\hbox{$\mkern-.5mu\braacext\mkern-.5mu$}\hfill
+   \mkern-1mu\bracerd\braceld\mkern-1mu
+   \cleaders\hbox{$\mkern-.5mu\braacext\mkern-.5mu$}\hfill
+   \mkern-1mu\braceru$}
+
+%%% \big, \bigg, etc.
+
+\def\scalebig#1#2{{\left#1\vbox to#2\fontdimen6\textfont3{}%
+                   \kern-\nulldelimiterspace\right.}}
+\def\big#1{\scalebig{#1}{.85}}  
+\def\Big#1{\scalebig{#1}{1.15}} 
+\def\bigg#1{\scalebig{#1}{1.45}}
+\def\Bigg#1{\scalebig{#1}{1.75}}
+
+%%% \not redefined:
+%%%    \not= becomes \ne
+%%%    \not< becomes \nless
+%%%    \not> becomes \ngtr
+%%%    if \notXXX is defined, \not\XXX becomes \notXXX;
+%%%    if \nXXX is defined, \not\XXX becomes \nXXX;
+%%%    otherwise, \not\XXX is done in the usual way.
+
+\mathchardef \notchar  "3236
+
+\def\not#1{%
+  \ifx\TeX\relax \noexpand\not \else % \let\TeX=\relax in \output routine
+  \ifx #1=\ne \else
+  \ifx #1<\nless \else
+  \ifx #1>\ngtr \else
+  \begingroup\escapechar=-1\xdef\tmpn{\string#1}\endgroup
+  \expandafter\ifx \csname not\tmpn\endcsname \relax
+     \expandafter\ifx \csname n\tmpn\endcsname \relax
+         \mathrel{\mathord{\notchar}\mathord{#1}}%
+     \else \csname n\tmpn\endcsname \fi
+  \else \csname not\tmpn\endcsname \fi
+  \fi\fi\fi\fi}
+
+\endinput
+

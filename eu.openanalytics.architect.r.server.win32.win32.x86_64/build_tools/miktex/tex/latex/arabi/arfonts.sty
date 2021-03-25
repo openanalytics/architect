@@ -1,0 +1,191 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: `ARfonts.sty' Arabic font .....
+% the Arabi package.
+%
+%% 
+\ProvidesPackage{ARfonts}[2006/01/01 Part of the Arabi package]
+
+
+\newif\iffree\newif\ifmixed\newif\ifmscore
+
+\DeclareOption{free}{\mixedfalse\mscorefalse\freetrue}
+\DeclareOption{mixed}{\freefalse\mscorefalse\mixedtrue}
+\DeclareOption{mscore}{\freefalse\mixedfalse\mscoretrue}
+\ExecuteOptions{free}
+\ProcessOptions
+
+\ifmixed
+\DeclareFontFamily{LAE}{\rmdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{n}{<->   s*[1.25] dtpn }{}%traditionalarabic
+\DeclareFontShape{LAE}{\rmdefault}{m}{it}{<->  s*[1.25] aedimnah }{}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{sl}{<->  s*[1.25] aedimnah }{}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{sc}{<->  s*[1.25] aenada }{}%
+%
+\DeclareFontShape{LAE}{\rmdefault}{bx}{n}{<->  s*[1.25] traditionalarabicbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{bx}{sl}{<-> s*[1.25] traditionalarabicbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{bx}{it}{<-> s*[1.25] traditionalarabicbold }{}%
+%%%%
+\DeclareFontShape{LAE}{\rmdefault}{b}{n}{<->   s*[1.25] traditionalarabicbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{b}{sl}{<->  s*[1.25] traditionalarabicbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{b}{it}{<->  s*[1.25] traditionalarabicbold }{}%
+
+\DeclareFontFamily{LAE}{\sfdefault}{\hyphenchar\font=-1}
+\DeclareFontShape{LAE}{\sfdefault}{m}{n}{<->   s*[1.25] arsimpo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{it}{<->  s*[1.25] arsimpo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{sl}{<->  s*[1.25] arsimpo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{sc}{<->  s*[1.25] arsimpo }{}%
+%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{n}{<->  s*[1.25] arsimpbdo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{sl}{<-> s*[1.25] arsimpbdo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{it}{<-> s*[1.25] arsimpbdo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{sc}{<-> s*[1.25] arsimpbdo }{}%
+%%%%
+\DeclareFontShape{LAE}{\sfdefault}{b}{n}{<->   s*[1.25] arsimpbdo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{b}{sl}{<->  s*[1.25] arsimpbdo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{b}{it}{<->  s*[1.25] arsimpbdo }{}%
+
+
+\DeclareFontFamily{LAE}{\ttdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{n}{<->   s*[1.25] aenice }{}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{it}{<->  s*[1.25] aenice }{}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{sl}{<->  s*[1.25] aenice }{}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{sc}{<->  s*[1.25] aenice }{}%
+%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{n}{<->  s*[1.25] aegraph }{}%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{sl}{<-> s*[1.25] aegraph }{}%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{it}{<-> s*[1.25] aegraph }{}%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{sc}{<-> s*[1.25] aegraph }{}%
+%%%%
+\DeclareFontShape{LAE}{\ttdefault}{b}{n}{<->   s*[1.25] aegraph }{}%
+\DeclareFontShape{LAE}{\ttdefault}{b}{sl}{<->  s*[1.25] aegraph }{}%
+\DeclareFontShape{LAE}{\ttdefault}{b}{it}{<->  s*[1.25] aegraph }{}%
+\else
+\iffree
+\DeclareFontFamily{LAE}{\rmdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{n}{<->  s*[1.25] aealmohanadb }{}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{it}{<-> s*[1.25] aealmohanadbolditalic }{}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{sl}{<-> s*[1.25] aealmohanadbolditalic }{}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{sc}{<-> s*[1.25] aenada }{}%
+%
+\DeclareFontShape{LAE}{\rmdefault}{bx}{n}{<-> s*[1.25] ae_almohanad_xxbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{bx}{sl}{<->s*[1.25] aealmohanadbolditalic }{}%
+\DeclareFontShape{LAE}{\rmdefault}{bx}{it}{<->s*[1.25] aealmohanadbolditalic }{}%
+%%%%
+\DeclareFontShape{LAE}{\rmdefault}{b}{n}{<->  s*[1.25] ae_almohanad_xxbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{b}{sl}{<-> s*[1.25] aealmohanadbolditalic }{}%
+\DeclareFontShape{LAE}{\rmdefault}{b}{it}{<-> s*[1.25] aealmateen }{}%
+%
+%%%%%%%%%%%%%%%%%%%%%%% Nice for typewriter type  %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% and graph for typewriter type Bold face %%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{LAE}{\ttdefault}{\hyphenchar\font=-1}
+\DeclareFontShape{LAE}{\ttdefault}{m}{n}{<->  s*[1.25] aenice }{}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{sl}{<-> s*[1.25] aenice }{}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{it}{<-> s*[1.25] aenice }{}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{sc}{<-> s*[1.25] aenice }{}%Andalus for small caps!
+%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{n}{<-> s*[1.25] aegraph }{}%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{sl}{<->s*[1.25] aegraph }{}%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{it}{<->s*[1.25] aegraph }{}%
+%%%%
+\DeclareFontShape{LAE}{\ttdefault}{b}{n}{<->  s*[1.25] aegraph }{}%
+\DeclareFontShape{LAE}{\ttdefault}{b}{sl}{<-> s*[1.25] aegraph }{}%
+\DeclareFontShape{LAE}{\ttdefault}{b}{it}{<-> s*[1.25] aegraph }{}%
+%
+%%%%%%%%%%%%%%%%%%%%%%% Sindibad for Sans Serif  !! %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% Didn't find better ?! and looks sans serif
+%%%%
+\DeclareFontFamily{LAE}{\sfdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{n}{<->  s*[1.25] aesindibad }{}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{sl}{<-> s*[1.25] aesindibad }{}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{it}{<-> s*[1.25] aesindibad }{}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{sc}{<-> s*[1.25] aesindibad }{}%
+%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{n}{<-> s*[1.25] aesindibad }{}%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{sl}{<->s*[1.25] aesindibad }{}%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{it}{<->s*[1.25] aesindibad }{}%
+%%%%
+\DeclareFontShape{LAE}{\sfdefault}{b}{n}{<->  s*[1.25] aesindibad }{}%
+\DeclareFontShape{LAE}{\sfdefault}{b}{sl}{<-> s*[1.25] aesindibad }{}%
+\DeclareFontShape{LAE}{\sfdefault}{b}{it}{<-> s*[1.25] aesindibad }{}%
+%
+\else
+\ifmscore
+\DeclareFontFamily{LAE}{\rmdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{n}{<->  s*[1.25] traditionalarabic }{}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{it}{<-> s*[1.25] traditionalarabic }{}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{sl}{<-> s*[1.25] traditionalarabic }{}%
+\DeclareFontShape{LAE}{\rmdefault}{m}{sc}{<-> s*[1.25] andlso }{}%
+%
+\DeclareFontShape{LAE}{\rmdefault}{bx}{n}{<-> s*[1.25] traditionalarabicbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{bx}{sl}{<->s*[1.25] traditionalarabicbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{bx}{it}{<->s*[1.25] traditionalarabicbold }{}%
+%%%%
+\DeclareFontShape{LAE}{\rmdefault}{b}{n}{<->  s*[1.25] traditionalarabicbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{b}{sl}{<-> s*[1.25] traditionalarabicbold }{}%
+\DeclareFontShape{LAE}{\rmdefault}{b}{it}{<-> s*[1.25] traditionalarabicbold }{}%
+%
+%%%%%%%%%%%%%%%%%%%%%%% Arial for typewriter type ?! %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Courier seems to have a BAD spacing ?! %%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{LAE}{\ttdefault}{\hyphenchar\font=-1}
+\DeclareFontShape{LAE}{\ttdefault}{m}{n}{<->  s*[1.25] ararial }{}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{sl}{<-> s*[1.25] ararial }{}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{it}{<-> s*[1.25] ararial }{}%
+\DeclareFontShape{LAE}{\ttdefault}{m}{sc}{<-> s*[1.25] andlso  }{}%Andalus for small caps!
+%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{n}{<-> s*[1.25] ararialbd }{}%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{sl}{<->s*[1.25] ararialbd }{}%
+\DeclareFontShape{LAE}{\ttdefault}{bx}{it}{<->s*[1.25] ararialbd }{}%
+%%%%
+\DeclareFontShape{LAE}{\ttdefault}{b}{n}{<->  s*[1.25] ararialbd }{}%
+\DeclareFontShape{LAE}{\ttdefault}{b}{sl}{<-> s*[1.25] ararialbd }{}%
+\DeclareFontShape{LAE}{\ttdefault}{b}{it}{<-> s*[1.25] ararialbd }{}%
+%
+%%%%%%%%%%%%%%%%%%%%%%% Simplified Arabic for Sans Serif  !! %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareFontFamily{LAE}{\sfdefault}{\hyphenchar\font=-1}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{n}{<->  s*[1.25] arsimpo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{sl}{<-> s*[1.25] arsimpo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{it}{<-> s*[1.25] arsimpo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{m}{sc}{<-> s*[1.25] arsimpo }{}%
+%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{n}{<-> s*[1.25] arsimpbdo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{sl}{<->s*[1.25] arsimpbdo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{bx}{it}{<->s*[1.25] arsimpbdo }{}%
+%%%%
+\DeclareFontShape{LAE}{\sfdefault}{b}{n}{<->  s*[1.25] arsimpbdo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{b}{sl}{<-> s*[1.25] arsimpbdo }{}%
+\DeclareFontShape{LAE}{\sfdefault}{b}{it}{<-> s*[1.25] arsimpbdo }{}%
+\fi
+\fi
+\fi
+
+
+
+
+
+
+
+
+
+
+
+\endinput

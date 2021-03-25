@@ -1,0 +1,100 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hebtex.4ht                            2009-05-21-09:32 %
+% Copyright (C) 2000--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\let\:tempc\arabtext
+\pend:def\:tempc{\a:arabtext}
+\HLet\arabtext\:tempc
+\let\:tempc\endarabtext
+\pend:def\:tempc{\Configure{HtmlPar}{}{}{}{}}
+\append:def\:tempc{\b:arabtext}
+\HLet\endarabtext\:tempc
+\HLet\RLtext  \arabtext     \HLet\endRLtext  \endarabtext
+\HLet\hebtext \arabtext     \HLet\endhebtext \endarabtext
+\HLet\hebtex  \arabtext     \HLet\endhebtex  \endarabtext
+\let\:tempc\a@arab@codes
+\pend:def\:tempc{%
+    \chardef\up:de = \catcode`\^   \catcode`\^=7
+    \chardef\dn:de = \catcode`\_   \catcode`\_=8 }
+\append:def\:tempc {%
+   \catcode`\^=\up:de  \catcode`\_=\dn:de}
+\HLet\a@unarab@codes\:tempc
+\let\put@ab@x\:tempc
+\pend:def\:tempc{%
+   \let\sv:noindent=\noindent
+   \def\rc:noindent{\let\noindent=\sv:noindent}%
+   \def\noindent{\rc:noindent  \noindent   \c:arabtext
+      \let\sv:endgraf=\endgraf
+      \def\endgraf{\d:arabtext\sv:endgraf \aftergroup\rc:noindent }}%
+}
+\append:def\:tempc{\let\noindent\sv:noindent}
+\HLet\put@ab@x\:tempc
+\def\:tempc {\:nbsp}
+\HLet\arab@space\:tempc
+\NewConfigure{arabtext}{4}
+\def\:tempc{\a:chireq} \HLet \put@chireq=\:tempc
+\NewConfigure{chireq}{1}
+\def\:tempc{\a:cholem} \HLet \put@cholem=\:tempc
+\NewConfigure{cholem}{1}
+\def\:tempc{\a:cholem} \HLet\h@cholem=\:tempc
+\NewConfigure{cholem}{1}
+\def\:tempc{\a:chpatach} \HLet \put@chpatach=\:tempc
+\NewConfigure{chpatach}{1}
+\def\:tempc{\a:chqames} \HLet \put@chqames=\:tempc
+\NewConfigure{chqames}{1}
+\def\:tempc{\a:chsegol} \HLet \put@chsegol=\:tempc
+\NewConfigure{chsegol}{1}
+\def\:tempc{\a:dagesh} \HLet\put@dagesh=\:tempc
+\NewConfigure{dagesh}{1}
+\def\:tempc{\a:meteg} \HLet\h@meteg=\:tempc
+\NewConfigure{meteg}{1}
+\def\:tempc{\a:patachf} \HLet \put@patachf=\:tempc
+\NewConfigure{patachf}{1}
+\def\:tempc{\a:patach} \HLet \put@patach=\:tempc
+\NewConfigure{patach}{1}
+\def\:tempc{\a:qameschat} \HLet\put@qameschat=\:tempc
+\NewConfigure{qameschat}{1}
+\def\:tempc{\a:qames} \HLet \put@qames=\:tempc
+\NewConfigure{qames}{1}
+\def\:tempc{\a:qibbus} \HLet\put@qibbus=\:tempc
+\NewConfigure{qibbus}{1}
+\def\:tempc{\a:rdot} \HLet\h@rdot=\:tempc
+\NewConfigure{rdot}{1}
+\def\:tempc{\a:segol} \HLet\put@segol=\:tempc
+\NewConfigure{segol}{1}
+\def\:tempc{\a:sere} \HLet \put@sere=\:tempc
+\NewConfigure{sere}{1}
+\def\:tempc{\a:shindot} \HLet\h@shindot=\:tempc
+\NewConfigure{shindot}{1}
+\def\:tempc{\a:shwa} \HLet \put@shwa=\:tempc
+\NewConfigure{shwa}{1}
+\def\:tempc{\a:sindot} \HLet\h@sindot=\:tempc
+\NewConfigure{sindot}{1}
+
+\Hinput{hebtex}
+\endinput
+

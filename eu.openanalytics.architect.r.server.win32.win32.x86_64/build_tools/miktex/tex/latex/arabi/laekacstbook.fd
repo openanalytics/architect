@@ -1,0 +1,29 @@
+%%
+%% This is file `laekacstbook.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laekacstbook.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LAE}{kacstbook}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{kacstbook}{m}{n}{<-> s*[1.25] kacstbook }{}
+\DeclareFontShape{LAE}{kacstbook}{m}{it}{<-> s*[1.25] kacstbookitalic }{}
+\DeclareFontShape{LAE}{kacstbook}{m}{sl}{<-> s*[1.25] kacstbookitalic }{}
+\DeclareFontShape{LAE}{kacstbook}{bx}{n}{<-> s*[1.25] kacstbookbold }{}
+\DeclareFontShape{LAE}{kacstbook}{b}{n}{<-> s*[1.25] kacstbookbold }{}
+\DeclareFontShape{LAE}{kacstbook}{bx}{it}{<-> s*[1.25] kacstbookbolditalic }{}
+\DeclareFontShape{LAE}{kacstbook}{b}{it}{<-> s*[1.25] kacstbookbolditalic }{}
+\DeclareFontShape{LAE}{kacstbook}{bx}{sl}{<-> s*[1.25] kacstbookbolditalic }{}
+\DeclareFontShape{LAE}{kacstbook}{b}{sl}{<-> s*[1.25] kacstbookbolditalic }{}
+
+\endinput

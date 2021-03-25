@@ -1,0 +1,24 @@
+%%
+%% This is file `laeararial.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeararial.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+
+\DeclareFontFamily{LAE}{ararial}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{ararial}{m}{n}{<-> s*[1.25] ararial }{}
+\DeclareFontShape{LAE}{ararial}{b}{n}{<-> s*[1.25] ararialbd }{}
+\DeclareFontShape{LAE}{ararial}{bx}{n}{<-> ssub * ararial/b/n }{}
+
+\endinput

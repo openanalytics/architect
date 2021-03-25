@@ -1,0 +1,6 @@
+.blmi-bs
+htfcss: BLMI font-style: italic;
+htfcss: BLMIB font-style: italic; font-weight: bold;
+htfcss: blmi font-style: italic;
+htfcss: blmib font-style: italic; font-weight: bold;
+

@@ -1,0 +1,9 @@
+.tipa
+htfcss: xipab   font-weight: bold;
+htfcss: xipabs  font-weight: bold; font-family: sans-serif;
+htfcss: xipasi  font-style: italic;
+htfcss: xipass  font-family: sans-serif;
+htfcss: xipab   font-weight: bold;
+htfcss: xipasb  font-weight: bold;
+htfcss: xipasl  font-family: sans-serif;
+

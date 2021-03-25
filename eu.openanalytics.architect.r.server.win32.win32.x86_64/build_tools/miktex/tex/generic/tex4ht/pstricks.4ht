@@ -1,0 +1,168 @@
+% pstricks.4ht (2019-01-23-14:26), generated from tex4ht-4ht.tex
+% Copyright 1997-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-01-23-14:26}
+
+\pend:def\pst@picture{\global\let\pst:EndPicture\EndPicture
+    \let\EndPicture=\empty}
+\expand:after{\let\fi@star}\csname fi\endcsname
+\NewConfigure{pspicture}{2}
+\HAssign\ps:level=0
+
+\def\rput@iv(#1){\pst@killglue \gHAdvance\ps:level by 1
+     \pst@makebox{\gHAdvance\ps:level by -1 \rput@v{#1}}}
+\def\rput@v#1{\begingroup
+   \use@par
+   \if@star\pst@starbox\fi
+   \pst@makesmall\pst@hbox
+   \pst@rotate\psk@rot\pst@hbox
+   \ifnum \ps:level=0
+      \expandafter\ifx \csname pspicture:dim\endcsname\relax
+         \ht:everypar{}\psput@{#1}\pst@hbox
+      \else
+         \def\psput@cartesian##1{%
+   \hbox to \pst@dimg{{\vbox to \pst@dimh{\vss\box##1}\hss}}}%
+\global\let\pspicture:dim=\:UnDef
+\let\sv:leavevmode=\leavevmode
+\def\leavevmode{%
+   \let\leavevmode=\sv:leavevmode
+   %
+   \let\EndPicture\pst:EndPicture
+   \global\let\pst:EndPicture=\:UnDef
+   \a:pspicture \leavevmode}%
+\psput@{#1}\pst@hbox\b:pspicture
+%
+      \fi
+   \else
+      \psput@{#1}\pst@hbox
+   \fi
+\endgroup \ignorespaces}
+
+\pend:def\psframebox@ii{\a:pspicture}
+\append:def\psframebox@ii{\b:pspicture}
+
+\ifx\psset@linecap\:UnDef
+   \def\endpspicture{%
+\pst@killglue
+\endgroup
+\egroup
+\ifdim\wd\pst@hbox=\z@\else
+   \:warning{Hidden \string\@pstrickserr
+        {Extraneous space in the pspicture environment}}%
+\fi
+\ht\pst@hbox=\pst@dimd
+\dp\pst@hbox=-\pst@dimb
+\setbox\pst@hbox=\hbox{%
+\kern-\pst@dima
+\ifx\pst@tempa\@undefined\else
+\advance\pst@dimd-\pst@dimb
+\pst@dimd=\pst@tempa\pst@dimd
+\advance\pst@dimd\pst@dimb
+\lower\pst@dimd
+\fi
+\box\pst@hbox
+\kern\pst@dimc}%
+\if@star\setbox\pst@hbox=\hbox{\clipbox@@\z@}\fi@star
+\ifnum \ps:level=0
+   \let\EndPicture\pst:EndPicture
+   \global\let\pst:EndPicture=\:UnDef
+   \a:pspicture\box\pst@hbox\b:pspicture
+\else
+   \xdef\pspicture:dim{\the\wd\pst@hbox,
+         \the\ht\pst@hbox, \the\ht\pst@hbox}%
+   \box\pst@hbox
+\fi
+%
+\endgroup}
+
+\else
+   
+   \ifx \pst@LaTeX@Setup\:UnDef
+      \def\endpspicture{%
+  \pst@killglue
+%  \global\pst@shift=\psk@shift% in fact of the following endgroup
+  \endgroup
+  \egroup
+  \ifdim\wd\pst@hbox=\z@\else
+     \:warning{Hidden \string\@pstrickserr
+        {Extraneous space in the pspicture environment}}%
+  \fi
+  \ht\pst@hbox=\pst@dimd
+  \dp\pst@hbox=-\pst@dimb
+  \setbox\pst@hbox=\hbox{%
+    \kern-\pst@dima
+    \pst@dimd-\pst@shift
+    \advance\pst@dimd\pst@dimb
+    \lower\pst@dimd%
+    \box\pst@hbox%
+    \kern\pst@dimc}%
+  \if@star\setbox\pst@hbox=\hbox{\clipbox@@\z@}\fi@star
+  \ifnum \ps:level=0
+   \let\EndPicture\pst:EndPicture
+   \global\let\pst:EndPicture=\:UnDef
+   \a:pspicture\box\pst@hbox\b:pspicture
+\else
+   \xdef\pspicture:dim{\the\wd\pst@hbox,
+         \the\ht\pst@hbox, \the\ht\pst@hbox}%
+   \box\pst@hbox
+\fi
+%
+  \endgroup%
+  \psset@shift{0}% reset value
+%  \global\psk@shift\z@% restore value
+}
+
+   \else
+      \def\endpspicture{%
+  \pst@killglue
+  \global\pst@shift=\psk@shift% in fact of the following endgroup
+  \endgroup
+  \egroup
+  \ifdim\wd\pst@hbox=\z@\else
+     \:warning{Hidden \string\@pstrickserr
+        {Extraneous space in the pspicture environment}}%
+  \fi
+  \ht\pst@hbox=\pst@dimd
+  \dp\pst@hbox=-\pst@dimb
+  \setbox\pst@hbox=\hbox{%
+    \kern-\pst@dima
+    \pst@dimd-\pst@shift
+    \advance\pst@dimd\pst@dimb
+    \lower\pst@dimd%
+    \box\pst@hbox%
+    \kern\pst@dimc}%
+  \if@star\setbox\pst@hbox=\hbox{\clipbox@@\z@}\fi@star
+  \ifnum \ps:level=0
+   \let\EndPicture\pst:EndPicture
+   \global\let\pst:EndPicture=\:UnDef
+   \a:pspicture\box\pst@hbox\b:pspicture
+\else
+   \xdef\pspicture:dim{\the\wd\pst@hbox,
+         \the\ht\pst@hbox, \the\ht\pst@hbox}%
+   \box\pst@hbox
+\fi
+%
+  \endgroup%
+  \global\psk@shift\z@% restore value
+}
+
+   \fi
+\fi
+\Hinput{pstricks}
+\endinput
+

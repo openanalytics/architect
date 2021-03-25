@@ -1,0 +1,969 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: `Arabicore.sty' 
+% The common Macros to Arabic and Farsi
+% The core of the Arabi package macros responsible for Right-to-Left 
+%
+% 
+\def\fileversion{1.0}
+\def\filedate{2006/01/01}
+%%%%%%%%%%%%%%%%%%%%%%%% Font Names %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Check if file is loaded and announce file on terminal:
+%
+\csname ArabiCoreLoaded\endcsname
+\let\ArabiCoreLoaded\endinput
+
+\message{\space\space Arabi Core switching commands v\fileversion\space\space\filedate}
+\message{\space\space (may still change)\space\space}
+%
+%\ProvidesPackage{arabicore}[2006/01/01 v1.0 Arabi Core switching 
+% commands (may still change)]
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         MACROS FOR Arabic/Latin TYPESETTING			   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Some flags to keep trace where we are 
+%
+\newif\if@rl
+\newif\if@farsi
+\newif\if@arabic
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ArabTeX has already  \R as well as \RL command
+% While (La)TeX defines already \L
+% In addition to the fact that the Hebrew package for Babel
+% has \R and \L !!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The \cs{R} will mean either Arabic or Farsi according to 
+% which one has been loaded last!
+%
+% To force one or the other form use instead \cs{@arabic@R} or \cs{@farsi@R}
+%
+%
+% To avoid bad surprised we use \def to define the \R control sequence, 
+% many packages ``like'' to use , like ArabTeX and the Hebrew package 
+% supporting Babel 
+
+\newcommand{\ARmbox}[1]{\mbox{\textAR{#1}}}
+\newcommand{\FRmbox}[1]{\mbox{\textFR{#1}}}
+\newcommand{\LRmbox}[1]{\mbox{\textLR{#1}}}
+\def\@ensure@R#1{\if@rl#1\else\textRL{#1}\fi}
+\def\@ensure@L#1{\if@rl\textLR{#1}\else#1\fi}
+%
+% shorthands \RL and LR necessary?
+%
+%\DeclareRobustCommand{\R}[1]{\RL{#1}}
+%\DeclareRobustCommand{\L}[1]{\LR{#1}}
+%
+% The command \L exists already to write Polish. We got some
+% complaints that this penalize all peolple using the Polish
+% Language and prevents them from using Arabi at TUG 2006.
+% This is also used by the hyperref package. So we will adapt \textLR instead.
+\def\textLR#1{\bgroup\beginL\latintext #1\endL\egroup}
+%
+
+
+
+\DeclareRobustCommand{\bbl@arabi}{% arabi NOT Arabic :)
+% Flag to detect Arabic, also responsible for the 
+% switching direction with \Arabi@rl@everypar
+\@rltrue
+%
+\hyphenpenalty=\@MM
+\binoppenalty=\@MM
+\relpenalty=\@MM
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%          Arabic formatting 
+%  ``everypar Token''  \& noindent	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% make paragraphs Right-to-Left instead of Left-to-Right 
+% and cure the paragraph indent that will appear
+% on the left hand side of the page, instead of
+% the right if nothing is done.
+%
+% Here we define a macro \Arabi@rl@everypar
+% This avoids problems when \everypar is redefined for some reason,
+% in lists for example, and that the default Left-to-Right is restored
+% at the end!
+%
+% If we want to be able to use the paragraph indent without problems, 
+% we have to enhance the \everypar defintion a little.
+% Since a paragraph indent is created by inserting a \box at 
+% the start of the horizontal list for the paragraph, before \everypar is 
+% called. We just need to move that box so that it follows the \beginR. 
+% 
+%
+%  \def\rl@everypar{\if@rl{\setbox\z@\lastbox\beginR\usebox\z@}\fi} 
+%
+ \def\Arabi@rl@everypar{\if@rl{\setbox\z@\lastbox\beginR\usebox\z@}\fi} 
+   \let\o@everypar=\everypar 
+   \newtoks\n@everypar 
+   \n@everypar\expandafter{\the\o@everypar} 
+   \o@everypar{\Arabi@rl@everypar\the\n@everypar} 
+   \let\everypar=\n@everypar 
+
+
+\AtEndOfPackage{\edef\latinencoding{\cf@encoding}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% USE OF ARABIC NUMBERING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Not yet used!
+%
+\protect\def\arabordinal#1{"
+\ifcase#1\or ÇáÃæá \or ÇáËÇäí 
+\or ÇáËÇáË \or ÇáÑÇÈÚ \or ÇáÎÇãÓ 
+\or ÇáÓÇÏÓ \or ÇáÓÇÈÚ \or ÇáËÇãä 
+\or ÇáÊÇÓÚ \or ÇáÚÇÔÑ
+\or ÇáÍÇÏí ÚÔÑ\or ÇáËÇäí  ÚÔÑ
+\or ÇáËÇáË  ÚÔÑ\or ÇáÑÇÈÚ  ÚÔÑ\or ÇáÎÇãÓ  ÚÔÑ
+\or ÇáÓÇÏÓ  ÚÔÑ\or ÇáÓÇÈÚ  ÚÔÑ\or ÇáËÇãä  ÚÔÑ
+\or ÇáÊÇÓÚ  ÚÔÑ\or ÇáÚÔÑæä
+\fi}
+
+
+% Numbers in Arabic contexts, must be written as input, not reflected!
+% They are already Right-to-Left! Sometimes written in Arabic digits and 
+% other times with Arabo-Indic digits. And in Farsi they use Extended 
+% Arabo-Indic digits.
+% They have to be input using the \I control sequence or
+% the \EI control sequence.
+
+\newcommand{\I}[1]{\if@farsi\FarsiEncoding\else\ArabicEncoding\fi\beginL#1\endL}%
+\newcommand{\EI}[1]{\textLR{\FarsiEncoding  #1}}%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                             abjad numerals support
+%                    defined like "\greeknumeral" macro 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The command \abjadnumeral {#1}
+% produces the old `abjad' numeral form of the argument,
+% which must be a legal number between 1 and 1999.
+% Otherwise, the normal form is printed instead, in arabic or Latin 
+% according to the context.
+%
+\def\Aabjadnumeral#1{\textRL{%
+\ifnum#1>1999 \PackageWarning{babel}{Illegal value (#1) for abjad numeral}\I{#1}
+\else
+  \ifnum#1<\@ne\space\PackageWarning{babel}{Illegal value (#1) for abjad numeral}%
+  \else
+    \ifnum#1<10\expandafter\abj@num@i\number#1%
+    \else
+      \ifnum#1<100\expandafter\abj@num@ii\number#1%
+      \else
+        \ifnum#1<\@m\expandafter\abj@num@iii\number#1%
+        \else
+          \ifnum#1<\@M\expandafter\abj@num@iv\number#1%since #1<2000, we must have 1000
+          \fi
+        \fi
+      \fi
+    \fi
+  \fi
+\fi
+}}
+
+\def\abj@num@i#1{%
+  \ifcase#1\or \alef\or \baa\or \jeem\or \dal\or \ha\or \waw\or \zay\or \Haa\or \Ta\fi
+  \ifnum#1=\z@\fi}
+\def\abj@num@ii#1{%\ya instead of \alefmaqsura
+  \ifcase#1\or \ya\or \kaf\or \lam\or \meem\or \nun\or \seen\or \ayn\or \fa\or \sad\fi
+  \ifnum#1=\z@\fi\abj@num@i}
+\def\abj@num@iii#1{%
+  \ifcase#1\or \qaf\or \ra\or \sheen\or \taa\or \thaa \or \kha\or \dhal\or \dad\or \za\fi
+  \ifnum#1=\z@\fi\abj@num@ii}
+\def\abj@num@iv#1{%
+  \ifcase#1\or \ghayn\fi
+  \ifnum#1=\z@\fi\abj@num@iii}
+
+\def\Fabjadnumeral#1{\textFR{%
+\ifnum#1>32 \PackageWarning{babel}{Illegal value (#1) for Farsi abjad numeral}\EI{#1}
+\else\F@abjadnumber{#1}\fi}}
+
+\def\F@abjadnumber#1{\ifcase#1\or \alef\or \baa\or \peh\or \taa\or \thaa\or \jeem\or
+              \tcheh\or \Haa\or \kha\or \dal\or \dhal\or \ra\or \zay\or \jeh\or 
+              \seen\or \sheen\or \sad\or \dad\or \Ta\or \za\or \ayn\or \ghayn\or \fa\or
+              \qaf\or \kaf\or \gaf\or \lam\or \meem \or \nun\or \waw\or \ha\or\ya\fi}
+
+%
+% Internal form of abjad numerotation
+% To allow it to be used with \pagenumbering command 
+% like \pagenumbering{abjad} 
+% adapted from "ltpageno.dvi"
+%
+\def\@abjad#1{\if@farsi{\Fabjadnumeral{#1}}\else\Aabjadnumeral{#1}\fi}
+\DeclareRobustCommand{\abjadnumeral}[1]{\@abjad{#1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  NOT SUPPORTED YET !!!!!!!!!!!!!!!!!!!!!!
+% We provide a ---limited--- support for ArabTeX 7 bit encoding but since 
+% we can also use ArabteX with our package, it's better to use an 
+% arabtext environment to typeset it.
+% the fonts are not the same, but ur text may need a lot of change to get
+% usable with Arabic LaTeX, the best solution to process ArabTeX input is still 
+% ArabTeX
+%
+%%%%%%%%%%%%%%%%%%%%%% Do not load our macros if ArabTeX is active %%%%%%%%%%%
+\AtBeginDocument{
+\ifx \ar@batcode \undefined %\RequirePackage{lagally}
+\else 
+\message{ArabTeX is aleready loaded,}
+\message{ No support is provided} 
+\message{with ArabTeX 7 bit input encoding}%\expandafter \endinput
+% avoid problematic use of < and > when arabtex is loaded
+% since they are active with Arabtex and have a special meaning
+% we do need these symbols to write left and right guillemots in
+% an Arabic context.
+\addto\extrasarabic{%
+\chardef \@other = 12
+%\catcode`\<=\@other
+%\catcode`\>=\@other
+%\catcode`\.=\@other
+%\catcode`\_=\@other
+%\catcode`\^=\@other
+\setnone
+}
+\fi 
+}
+
+%%%%%%%%%%%%%%  In ArabTeX you have to use %%%%%%%%%%%%%%%%%
+% <\abjad> to get the <\abjadnumeral>s
+%\let\abjad=\abjadnumeral  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%% LOGOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Arabi}{\textLR{\sffamily A\kern-.2ex\lower.25ex\hbox{r}\kern-.25exa%
+                       \kern-.22exb\kern-.15exi}}  %Logo
+
+
+%    ****************************************
+%    *             FOOTNOTES                *
+%    ****************************************
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% More space between the last line of main text 
+% and the top of the first footnote
+
+%\addtolength{\skip\footins}{2mm}
+
+%%%%%%%%%%%%%%%%%%% The footnote rule %%%%%%%%%%%%%%%%%%%%%
+%%%% works equally with ams[classes] %%%%%%%%%%%%%%%%%%%%%%
+
+\let\SAV@footnoterule=\footnoterule%
+\def\footnoterule{\if@rl\hb@xt@\hsize{\hss\vbox{\SAV@footnoterule}}%
+                  \else\SAV@footnoterule\fi}
+
+
+\renewcommand{\thefootnote}
+     {\if@rl {\textRL{(\I{\number\c@footnote})}}%
+    \else {\number\c@footnote}\fi}
+    
+
+
+%    ****************************************
+%    *             PUNCTUATION              *
+%    ****************************************
+%
+%        TEMPORARILY
+
+\addto\extrasfarsi{%
+\frenchspacing}
+
+%%%%%%%%%%%%%%%%%%%%%%% A patch from rlbabel %%%%%%%%%%%%%%%
+\def\raggedright{%
+  \let\\\@centercr
+  \leftskip\z@skip\rightskip\@flushglue
+  \parindent\z@\parfillskip\z@skip}
+\let\@@raggedleft=\raggedleft
+\let\@@raggedright=\raggedright
+\renewcommand\raggedleft{\if@rl\@@raggedright%
+                         \else\@@raggedleft\fi}
+\renewcommand\raggedright{\if@rl\@@raggedleft%
+                          \else\@@raggedright\fi}
+
+
+
+%%%% a small utility %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand{\gobbleone}[1]{\relax}
+
+
+
+
+%%%%%%%%%% To test if the main (TOC) language is Arabic
+%
+\newif\if@rlmain
+%
+%
+% If \mainlanguage{arabic} was not met yet at the
+% beginning of the document, suppose that the "TOC direction et al."
+% is "english" (a Left-to-Right language), if you want a different
+% formatting you should specify your specific TOC language
+%
+\AtBeginDocument{\if@rlmain\relax\else\TOCLanguage{\bbl@main@language}\fi}
+
+
+\def\TOCLanguage#1{\gdef\main@Arabi@language{#1}%
+\edef\tmp{arabic}%
+\edef\tmpp{farsi}% 
+\ifx\main@Arabi@language\tmp\global\@rlmaintrue\else
+\ifx\main@Arabi@language\tmpp\global\@rlmaintrue\else
+\global\@rlmainfalse\fi\fi%
+}
+% 
+\let\SAV@@part\@part  
+\let\SAV@spart\@spart  
+%
+%
+\let\SAV@@chapter\@chapter  
+\let\SAV@schapter\@schapter  
+%
+\let\SAV@section\section  
+\let\SAV@subsection\subsection  
+\let\SAV@subsubsection\subsubsection  
+%
+\let\SAV@paragraph\paragraph  
+\let\SAV@subparagraph\subparagraph  
+
+
+
+
+
+
+ 
+\def\@part[#1]#2{%
+\addtocontents{toc}{\xstring\select@language{\main@Arabi@language}}%
+\if@rl{\SAV@@part[\textRL{#1}]{\textRL{#2}}}%
+\else{\SAV@@part[\textLR{#1}]{\textLR{#2}}}%
+\fi} 
+
+%\renewcommand{\@spart}[1]{%
+\def\@spart#1{%
+\addtocontents{toc}{\xstring\select@language{\main@Arabi@language}}%
+\if@rl{\SAV@spart{\textRL{#1}}}%
+\else{\SAV@spart{\textLR{#1}}}%
+\fi}  
+
+\def\@chapter[#1]#2{%
+\addtocontents{toc}{\xstring\select@language{\main@Arabi@language}}%
+\if@rl{\SAV@@chapter[\textRL{#1}]{\textRL{#2}}}%
+\else{\SAV@@chapter[\textLR{#1}]{\textLR{#2}}}%
+\fi} 
+
+%\renewcommand{\@schapter}[1]{%
+\def\@schapter#1{%
+\addtocontents{toc}{\xstring\select@language{\main@Arabi@language}}%
+\if@rl{\SAV@schapter{\textRL{#1}}}%
+\else{\SAV@schapter{\textLR{#1}}}%
+\fi}  
+
+
+
+
+%% Wa added a line to the TOC to select the TOCLAnguage after a test with \cs{if@rlmain}
+%% Then we protect the \#7 argument according to the 
+%% <TOC language>
+%% Now the starred forms of the \cs{section} family work too.
+%% Taken and modified from Latex.ltx 
+%%
+\def\@sect#1#2#3#4#5#6[#7]#8{%
+  \ifnum #2>\c@secnumdepth
+    \let\@svsec\@empty
+  \else
+    \refstepcounter{#1}%
+    \protected@edef\@svsec{\@seccntformat{#1}\relax}%
+  \fi
+  \@tempskipa #5\relax
+  \ifdim \@tempskipa>\z@
+    \begingroup
+      #6{%
+        \@hangfrom{\hskip #3\relax\@svsec}%
+          \interlinepenalty \@M #8\@@par}%
+    \endgroup
+    \csname #1mark\endcsname{#7}%
+    \addtocontents{toc}{\xstring\select@language{\main@Arabi@language}}%
+    \addcontentsline{toc}{#1}{%
+      \ifnum #2>\c@secnumdepth \else
+        \protect\numberline{\csname the#1\endcsname}%
+      \fi
+      \if@rl\textRL{#7}\else\textLR{#7}\fi}%
+  \else
+    \def\@svsechd{%
+      #6{\hskip #3\relax
+      \@svsec #8}%
+      \csname #1mark\endcsname{#7}%
+    \addtocontents{toc}{\xstring\select@language{\main@Arabi@language}}%
+      \addcontentsline{toc}{#1}{%
+        \ifnum #2>\c@secnumdepth \else
+          \protect\numberline{\csname the#1\endcsname}%
+        \fi
+        \if@rl\textRL{#7}\else\textLR{#7}\fi}}%
+  \fi
+  \@xsect{#5}%
+}
+
+  
+%% Whenever \leftskip or rightskip add a test \if@rlmain and 
+%% swap the two. Also format the page number \#5 according to the 
+%% <TOC language>
+%% See Latex.ltx classes.dvi and
+%% see page 32 of the LaTeX companion Ed. 1
+%%
+\def\@dottedtocline#1#2#3#4#5{%
+  \ifnum #1>\c@tocdepth \else
+    \vskip \z@ \@plus.2\p@
+    {\if@rlmain\rightskip\else\leftskip\fi #2\relax
+      \if@rlmain\leftskip\else\rightskip\fi \@tocrmarg \parfillskip
+      -\if@rlmain\leftskip\else\rightskip\fi
+     \parindent #2\relax\@afterindenttrue
+     \interlinepenalty\@M
+     \leavevmode
+     \@tempdima #3\relax
+     \advance\if@rlmain\rightskip\else\leftskip\fi \@tempdima
+     \null\nobreak\hskip -\if@rlmain\rightskip\else\leftskip\fi
+     {#4}\nobreak
+     \leaders\hbox{$\m@th
+        \mkern \@dotsep mu\hbox{.}\mkern \@dotsep
+        mu$}\hfill
+     \nobreak
+     \hb@xt@\@pnumwidth{\hfil\normalfont \normalcolor \if@rlmain\I{#5}\else\textLR{#5}\fi}%
+     \par}%
+  \fi}  
+  
+
+
+
+%% We redefine \l@part to avoid a bad space that occurs with the normal layout
+%%
+\@ifclassloaded{book}{%
+\let\SAV@l@part\l@part %in the case where needed ....
+\renewcommand*\l@part[2]{\ifnum \c@tocdepth >\m@ne
+    \addpenalty{-\@highpenalty}%
+    \vskip 1.0em \@plus\p@
+    \setlength\@tempdima{1.5em}%
+    \begingroup
+      \parindent \z@ \rightskip \@pnumwidth
+      \parfillskip -\@pnumwidth
+      \leavevmode \bfseries
+      \advance\leftskip\@tempdima
+      \hskip -\leftskip
+      {\leavevmode
+       \Large  #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}}\par
+      \penalty\@highpenalty
+    \endgroup
+  \fi}
+}{}
+
+
+\let\SAV@tableofcontents\tableofcontents
+\renewcommand{\tableofcontents}{{\select@language{\main@Arabi@language}\SAV@tableofcontents}}
+
+%\listoffigures
+%\listoftables
+
+
+
+
+
+
+
+
+
+%
+% Temporary partial support of \cs{Arabi} for amsbook class
+%
+\@ifclassloaded{amsbook}{
+\def\@sect#1#2#3#4#5#6[#7]#8{%
+  \edef\@toclevel{\ifnum#2=\@m 0\else\number#2\fi}%
+  \ifnum #2>\c@secnumdepth \let\@secnumber\@empty
+  \else \@xp\let\@xp\@secnumber\csname the#1\endcsname\fi
+  \@tempskipa #5\relax
+  \ifnum #2>\c@secnumdepth
+    \let\@svsec\@empty
+  \else
+    \refstepcounter{#1}%
+    \edef\@secnumpunct{%
+      \ifdim\@tempskipa>\z@ % not a run-in section heading
+        \@ifnotempty{#8}{.\@nx\enspace}%
+      \else
+        \@ifempty{#8}{.}{.\@nx\enspace}%
+      \fi
+    }%
+    \protected@edef\@svsec{%
+      \ifnum#2<\@m
+        \@ifundefined{#1name}{}{%
+          \ignorespaces\csname #1name\endcsname\space
+        }%
+      \fi
+      \@seccntformat{#1}%
+    }%
+  \fi
+  \ifdim \@tempskipa>\z@ % then this is not a run-in section heading
+    \begingroup #6\relax
+    \@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty\@M #8\par}%
+    \endgroup
+  \csname #1mark\endcsname{#7}%
+    \ifnum#2>\@m \else \addtocontents{toc}{\xstring\select@language{\main@Arabi@language}}
+    \@tocwrite{#1}{\if@rl\textRL{#8}\else\textLR{#8}\fi}\fi
+  \else
+  \def\@svsechd{#6\hskip #3\@svsec
+    \@ifnotempty{#8}{\ignorespaces#8\unskip
+       \@addpunct.}%
+    \ifnum#2>\@m \else \addtocontents{toc}{\xstring\select@language{\main@Arabi@language}}
+    \@tocwrite{#1}{\if@rl\textRL{#8}\else\textLR{#8}\fi}\fi
+  }%
+  \fi
+  \global\@nobreaktrue
+  \@xsect{#5}}%
+}{}
+
+%
+% We change  \alph{counter} so that we get abjad numerals instead,
+% we change  \Alph{counter} to get abjad numerals since no Uppercase
+% exists in Arabic, just to avoid bad surprises.
+%
+% Good for Farsi? Change!?
+%
+
+\let\latin@Alph\Alph
+\let\latin@alph\alph
+\def\arabic@alph#1{\expandafter\abjadnumeral\expandafter{\number#1}}
+\def\arabic@Alph#1{\expandafter\abjadnumeral\expandafter{\number#1}}
+\addto\extrasfarsi{%
+\def\alph#1{\expandafter\abjadnumeral\csname c@#1\endcsname}
+\def\Alph#1{\expandafter\abjadnumeral\csname c@#1\endcsname}
+}
+
+\addto\noextrasfarsi{%
+  \let\alph\latin@alph
+  \let\Alph\latin@Alph}
+
+
+
+\@ifclassloaded{book}{%book
+\renewcommand{\thechapter}{\if@rl\protect\I{\number\c@chapter}\else\protect\textLR{\number\c@chapter}\fi}
+}{%not book
+\@ifclassloaded{amsbook}{%amsbook
+\renewcommand{\thechapter}{\if@rl\protect\I{\number\c@chapter}\else\protect\textLR{\number\c@chapter}\fi}
+}{}}
+
+
+\@ifclassloaded{book}{%book
+\let\SAV@thepart\thepart
+\renewcommand{\thepart}{\if@rl\protect\abjadnumeral{\number\c@part}%
+\else\protect\textLR{\SAV@thepart}\fi}%
+}{%not book
+\@ifclassloaded{amsbook}{%amsbook
+\renewcommand{\thepart}{\if@rl\protect\abjadnumeral{\number\c@part}%
+\else\protect\textLR{\SAV@thepart}\fi}%
+}{}}
+
+
+%    ****************************************
+%    *         PAGE STYLES                  *
+%    ****************************************
+
+
+%%%%%%%%% from latex.ltx
+%% \ps@empty does not need any fix
+\def\ps@plain{\let\@mkboth\@gobbletwo
+     \let\@oddhead\@empty\def\@oddfoot{\reset@font\hfil\if@rlmain
+     \I{\thepage}\else\textLR{\thepage}\fi
+     \hfil}\let\@evenhead\@empty\let\@evenfoot\@oddfoot}
+
+
+
+%
+% Temporary solution TODO
+%
+\def\ps@headings{\ps@plain}
+
+
+
+
+
+
+
+
+%
+\def\ps@myheadings{%
+\gdef\thepage{%
+\protect\if@rlmain\protect\I{\number\c@page}%
+\protect\else\protect\textLR{\number\c@page}%
+\protect\fi}%
+    \let\@oddfoot\@empty\let\@evenfoot\@empty
+    \def\@evenhead{\thepage\hfil\slshape\leftmark}%
+    \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+    \let\@mkboth\@gobbletwo
+    \let\chaptermark\@gobble
+    \let\sectionmark\@gobble
+    \let\subsectionmark\@gobble
+    }
+%
+%
+
+
+\let\SAV@ps@plain\ps@plain
+\let\SAV@ps@myheadings\ps@myheadings
+\let\SAV@ps@headings\ps@headings
+%
+\def\ps@plain{\ps@empty%
+\gdef\thepage{\protect\if@rlmain\protect\I{\number\c@page}%
+\protect\else\protect\textLR{\number\c@page}%
+\protect\fi}%
+\SAV@ps@plain}
+%
+\def\ps@myheadings{\ps@empty%
+\gdef\thepage{%
+\protect\if@rlmain\protect\I{\number\c@page}%
+\protect\else\protect\textLR{\number\c@page}%
+\protect\fi}%
+\SAV@ps@myheadings}
+%
+\def\ps@headings{\ps@empty%
+\gdef\thepage{%
+\protect\if@rlmain\protect\I{\number\c@page}%
+\protect\else\protect\textLR{\number\c@page}%
+\protect\fi}%
+\SAV@ps@headings}
+
+
+
+
+
+
+%*********************************************************************
+%                                TODO 
+%           Referencing
+% 
+%           CHAPTERS   (in part)        
+%
+%           SECTIONS   (in part)            
+%
+%
+% Arabize some counters
+%
+\@ifclassloaded{letter}{}{%not letter
+\@ifclassloaded{slide}{}{%not slide
+\@ifclassloaded{article}{%
+\def\thesection{\protect\if@rl\protect\I{\number\c@section}%
+\protect\else\protect\textLR{\number\c@section}%
+\protect\fi}
+\def\thesubsection{\protect\if@rl\protect\I{\number\c@subsection.\number\c@section}%
+\protect\else\protect\textLR{\number\c@section.\number\c@subsection}%
+\protect\fi}%
+}{%book or report [or other]
+\def\thesection{\protect\if@rl\protect\I{\number\c@section.\number\c@chapter}%
+\protect\else\protect\textLR{\number\c@chapter.\number\c@section}%
+\protect\fi}
+\def\thesubsection{\protect\if@rl\protect\I{\number\c@subsection.\number\c@section.\number\c@chapter}%
+\protect\else\protect\textLR{\number\c@chapter.\number\c@section.\number\c@subsection}%
+\protect\fi}%
+}}}%
+
+%
+% Specific to Hyperref
+% TODO
+%
+
+
+%              
+% LISTS
+%
+\def\list#1#2{%
+  \ifnum \@listdepth >5\relax
+    \@toodeep
+  \else
+    \global\advance\@listdepth\@ne
+  \fi
+  \rightmargin\z@
+  \listparindent\z@
+  \itemindent\z@
+  \csname @list\romannumeral\the\@listdepth\endcsname
+  \def\@itemlabel{#1}%
+  \let\makelabel\@mklab
+  \@nmbrlistfalse
+  #2\relax
+  \@trivlist
+  \parskip\parsep
+  \parindent\listparindent
+  \advance\linewidth -\rightmargin
+  \advance\linewidth -\leftmargin
+  \if@rl
+    \advance\@totalleftmargin \rightmargin
+  \else
+    \advance\@totalleftmargin \leftmargin
+  \fi
+  \parshape \@ne \@totalleftmargin \linewidth
+  \ignorespaces}
+%
+%%%%%%%%%%%%%%%%%%%%%% ENUMERATE %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% In the ``second level'' of an enumeration, which uses 
+% (\@alph) by default in \LaTeX
+% latin alphabet and parenthese, we use abjad numerals. 
+% Should we add parentheses to abjad numerals in \labelenumii ??
+% They look bad with arabic abjad numerals,
+% so parentheses are just suppressed! A "dot" is added after.
+% 
+% We do the same for the ``fourth level''  which uses \@Alph 
+% uppercase latin alphabet, withoutout parentheses.
+%
+% We keep the 1st and 3rd levels as in standard LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%  the counters
+\renewcommand{\theenumii}
+   {\if@rl\expandafter\abjadnumeral{\number\c@enumii}%
+    \else\protect\textLR{\protect\@alph{\number\c@enumii}}\fi}
+    
+\renewcommand{\theenumiv}
+   {\if@rl\expandafter\abjadnumeral{\number\c@enumiv}%
+    \else\protect\textLR{\protect\@alph{\number\c@enumiv}}\fi}
+
+%%%%%%%%%%%%%%  Now the labels for the items
+
+\renewcommand{\labelenumi}
+     {\if@rl(\I{\number\c@enumi}).%
+    \else{\number\c@enumi}.\fi}
+    
+\renewcommand{\labelenumii}
+     {\if@rl\abjadnumeral{\number\c@enumii}. %
+    \else({\number\c@enumii})\fi}
+
+\renewcommand{\labelenumiii}
+     {\if@rl\I{\number\c@enumiii}$\space-\space$ %
+    \else({\number\c@enumiii})\fi}
+
+\renewcommand{\labelenumiv}
+     {\if@rl\abjadnumeral{\number\c@enumiv}$\space-\space$ %
+    \else({\number\c@enumiv})\fi}
+
+
+%	\def\theenumii{\arabic{enumii}}
+%	\def\theenumiii{\arabic{enumiii}}
+%	\def\theenumiv{\arabic{enumiv}} 
+%
+%
+
+%%%%%%%%%%%%%%%%%%%%%% ITEMIZE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The itemize four levels are modified. The \textperiodcentred looks too
+% "thin" with arabic fonts. We removed it and used new symbols 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\labelitemi}
+     {\if@rl\protect\textLR{$\bullet$} %
+      \else\protect\textbullet\fi}
+      
+\renewcommand{\labelitemii}
+     {\if@rl\protect\textLR{$\circ$} %
+      \else\protect\textLR{ \normalfont\bfseries\textendash}\fi}
+      
+\renewcommand{\labelitemiii}
+     {\if@rl\protect\textLR{$*$} %
+      \else\protect\textasteriskcentered\fi}
+      
+\renewcommand{\labelitemiv}
+     {\if@rl\protect $-$ %
+      \else\protect\textperiodcentred\fi}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% DESCRIPTION %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% should change the \texttradb with the more logical \bfseries 
+% in the case the user use an other font family but seems not to work all 
+% the time !!
+\def \descriptionlabel #1{\if@rl{\if@farsi\textFR{\textbf{#1}}\else\textRL{\textbf{#1}}\fi\hskip \labelsep}%
+ \else{\hspace\labelsep \normalfont{\bfseries #1}}%
+\fi}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The patch to get correct captions for figures and Tables
+% Adapted from "book.cls"                               
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%% First from latex.ltx  %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\long\def\@caption#1[#2]#3{%
+  \par
+  \addtocontents{\csname ext@#1\endcsname}{\xstring\select@language{\main@Arabi@language}}%
+  \addcontentsline{\csname ext@#1\endcsname}{#1}%
+    {\protect\numberline{\csname the#1\endcsname}{\ignorespaces \if@rl{\textRL{#2}}\else\textLR{#2}\fi}}%
+  \begingroup
+    \@parboxrestore
+    \if@minipage
+      \@setminipage
+    \fi
+    \normalsize
+    \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces \if@rl{\textRL{#3}}\else\textLR{#3}\fi}\par
+  \endgroup}
+
+
+
+
+\newsavebox\@Arabitempboxa
+
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1: #2}%
+  \sbox\@Arabitempboxa{\textRL{#2} : #1}%
+  \if@rl{
+    \ifdim \wd\@Arabitempboxa >\hsize
+    \textRL{#2} : #1\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@Arabitempboxa\hfil}%
+  \fi}\else{
+  \ifdim \wd\@tempboxa >\hsize
+    #1: #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi}\fi
+  \vskip\belowcaptionskip}
+
+
+\def\fnum@table{\if@rl{\I{\thetable}\nobreakspace\tablename}%
+\else
+{\tablename\nobreakspace\thetable}%
+\fi}
+
+\def\fnum@figure{\if@rl{\I{\thefigure}\nobreakspace\figurename}%
+\else
+{\figurename\nobreakspace\thefigure}%
+\fi}
+
+
+\@ifclassloaded{letter}{}{%not letter
+\@ifclassloaded{slide}{}{%not slide
+\@ifclassloaded{article}{%
+\def\thetable{\protect\if@rl\protect\I{\number\c@table}%
+\protect\else\protect\textLR{\number\c@table}%
+\protect\fi}%
+\def\thefigure{\protect\if@rl\protect\I{\number\c@figure}%
+\protect\else\protect\textLR{\number\c@figure}%
+\protect\fi}%
+}{%report or book
+\def\thetable{\protect\if@rl\protect\I{\number\c@table.\number\c@chapter}%
+\protect\else\protect\textLR{\number\c@chapter.\number\c@table}%
+\protect\fi}
+\def\thefigure{\protect\if@rl\protect\I{\number\c@figure.\number\c@chapter}%
+\protect\else\protect\textLR{\number\c@chapter.\number\c@figure}%
+\protect\fi}
+}%article
+}%slide
+}%letter
+
+
+
+
+
+% the package \pkg{ifthen} is needed. We test if the font contains a character 
+% \cs{rial}. Else we define it just to be the \cs{rial} of the font \texttt{nazli]
+% which has one
+\AtBeginDocument{\RequirePackage{ifthen}}
+\newlength{\llahheight}
+\newlength{\Decimalheight}
+
+\DeclareRobustCommand{\llah}{%The Final Glyph
+    \settoheight{\llahheight}{\llahchar}%
+    \ifthenelse{\lengthtest{\llahheight=0pt}}%
+                {\mbox{\textFR{\textnazli{\llahchar{}}}}}%
+                {\llahchar{}}%
+                }
+
+%\DeclareRobustCommand{\llah}{%The Final Glyph
+%                \llahchar{}}%
+%
+%\DeclareRobustCommand{\allah}{%The whole word
+%    \settoheight{\llahheight}{\llahchar}%
+%    \ifthenelse{\lengthtest{\llahheight=0pt}}%
+%                {\mbox{\textFR{\textnazli{\alef\llahchar{}}}}}%
+%                {\alef\llahchar{}}%
+%                }
+
+\DeclareRobustCommand{\allah}{%The whole word
+                \alef\llah{}}%
+
+\DeclareRobustCommand{\Decimal}{%
+    \settoheight{\Decimalheight}{\Decimalchar}%
+    \ifthenelse{\lengthtest{\Decimalheight=0pt}}%
+                {\mbox{\textFR{\textnazli{\Decimalchar}}}}%
+                {\Decimalchar}%
+                }
+
+
+\DeclareRobustCommand{\openguill}{<~}
+\DeclareRobustCommand{\closguill}{~>}
+%
+
+%  
+%                 TITLE AUTHOR DATE   
+%  
+\let\@@title=\title
+\renewcommand{\title}[1]{\@@title{\if@rl\beginR #1\endR\else #1\fi}}
+\let\@@author=\author
+\renewcommand{\author}[1]{\@@author{\if@rl\beginR #1\endR\else #1\fi}}
+\let\@@date=\date
+\renewcommand{\date}[1]{\@@date{\if@rl\beginR #1\endR\else #1\fi}}
+
+
+
+
+
+
+
+\AtBeginDocument{%
+%%%%%%%%%%%%%%%% require a TeX--XeT/eTeX engine %%%%%%%%%%%%
+\ifx\TeXXeTstate\undefined\else%
+   \TeXXeTstate=1 %ensures that TeX--XeT/eTeX  is active
+\fi
+\ifx\beginL\@undefined%
+   \newlinechar`\^^J
+   \typeout{^^JTo avoid this error message,^^J%
+     run TeX--XeT or e-TeX engine instead of regular TeX.^^J}
+   \errmessage{Right-to-Left Support Error: use TeX--XeT or e-TeX
+     engine}%
+\fi
+}
+
+\endinput
+

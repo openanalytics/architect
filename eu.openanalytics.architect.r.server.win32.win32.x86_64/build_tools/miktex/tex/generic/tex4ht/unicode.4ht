@@ -1,0 +1,2147 @@
+% unicode.4ht (2021-02-06-14:21), generated from tex4ht-unicode.tex
+% Copyright 2009-2019 TeX Users Group
+% Copyright 1998-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2021-02-06-14:21}
+
+\exit:ifnot{8859-6,% 
+SIunits,% 
+amsart,% 
+amsldoc,% 
+amsmath,% 
+amsppt,% 
+amsproc,% 
+amstex1,% 
+amsthm,% 
+babel,% 
+cp1250,% 
+cp1252,% 
+cp1256,% 
+cp437,% 
+cp437de,% 
+cp850,% 
+cp852,% 
+cp862,% 
+cp865,% 
+croatian,% 
+eurosym,% 
+fontmath,% 
+greek,% 
+latex,% 
+plain,% 
+revsymb,% 
+romanian,% 
+sistyle,% 
+slovak,% 
+slovene,% 
+spanish,% 
+tex4ht}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifdefined\protect%
+\def\x:unicode#1{\protect\leavevmode\ht:special{t4ht@+\string&{35}x#1{59}}x}
+\else
+\def\x:unicode#1{\leavevmode\ht:special{t4ht@+\string&{35}x#1{59}}x}
+\fi
+
+\Configure{htf}{12}{+}
+   {<!--span\Hnewline class="htf-calligraphy"-->}{}{}{}{}{}{<!--/span-->}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\def\UAacute{00C1}
+\def\UCacute{0106}
+\def\UDacute{010E}
+\def\UEacute{00C9}
+\def\UGacute{01F4}
+\def\UIacute{00CD}
+\def\ULacute{0139}
+\def\UNacute{0147}
+\def\UOacute{00D3}
+\def\URacute{0154}
+\def\USacute{015A}
+\def\UUacute{00DA}
+\def\UYacute{00DD}
+\def\UZacute{0179}
+\def\Uacute{00B4}
+\def\Uaacute{00E1}
+\def\Ucacute{0107}
+\def\Udacute{010F}
+\def\Ueacute{00E9}
+\def\Ugacute{01F5}
+\def\Uiacute{00ED}
+\def\Ulacute{013A}
+\def\Unacute{0144}
+\def\Uoacute{00F3}
+\def\Uracute{0155}
+\def\Usacute{015B}
+\def\Uuacute{00FA}
+\def\Uyacute{00FD}
+\def\Uzacute{017A}
+\def\Ujacute{FFFD}
+\def\UJacute{FFDD}
+
+
+\def\UAbar{0100}
+\def\UCbar{FFFD}
+\def\UDbar{FFFD}
+\def\UEbar{0112}
+\def\UIbar{012A}
+\def\ULbar{FFFD}
+\def\UNbar{FFFD}
+\def\UObar{014C}
+\def\URbar{FFFD}
+\def\USbar{FFFD}
+\def\UTbar{FFFD}
+\def\UUbar{016A}
+\def\UYbar{FFFD}
+\def\UZbar{FFFD}
+\def\Uabar{0101}
+\def\Ubar{00A7}
+\def\Ucbar{FFFD}
+\def\Uebar{0113}
+\def\Uibar{012B}
+\def\Unbar{FFFD}
+\def\Uobar{014D}
+\def\Urbar{FFFD}
+\def\Uubar{016B}
+\def\Uybar{FFFD}
+\def\Ubreve{02D8}
+
+\def\UCcheck{010C}
+\def\UEcheck{011A}
+\def\URcheck{0158}
+\def\UScheck{0160}
+\def\UTcheck{0164}
+\def\UZcheck{017D}
+\def\Uccheck{010D}
+\def\Ucheck{02C7}
+\def\Uecheck{011B}
+\def\Uncheck{0148}
+\def\Uocheck{00F4}
+\def\Uscheck{0161}
+\def\Uucheck{0159}
+\def\Uzcheck{017E}
+
+\def\UAddot{00C4}
+\def\UOddot{00D6}
+\def\UUddot{00DC}
+\def\Uaddot{00E4}
+\def\Uddot{00A8}
+\def\Uoddot{00F6}
+\def\Uuddot{00FC}
+
+\def\UUodot{016E}
+
+\def\UAgrave{00C0}
+\def\Uagrave{00E0}
+\def\Ugrave{0060}
+
+\def\UOhat{00D4}
+
+\def\Utilde{0098}
+
+\def\UAuml{00C4}
+\def\UEuml{00CB}
+\def\UIuml{00CF}
+\def\UOuml{00D6}
+\def\UUuml{00DC}
+\def\UYuml{0178}
+\def\Uauml{00E4}
+\def\Ueuml{00EB}
+\def\Uiuml{00EF}
+\def\Uouml{00F6}
+\def\Uuml{00A8}
+\def\Uuuml{00FC}
+\def\Uyuml{00FF}
+
+% This will be redefined in mathml.4ht to produce a better markup
+\def\unicode:mathop#1{\mathop{#1}}
+
+\:CheckOption{new-accents}     \if:Option \else
+   \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}i{00EC}n{01F9}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\'\endcsname
+    \acute{A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{acute}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+    \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}Z{1E90}z{1E91}\i{00EE}\j{0135}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{hat}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+    \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}V{1E7C}v{1E7D}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\ddot\ddot{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+   \endcsname
+   \csname OT1\string\"\endcsname{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\r\endcsname
+   \mathring{A{00C5}a{00E5}U{016E}u{016F}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{ring}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\d\endcsname}%
+   \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}B{1E04}b{1E05}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{d}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\c\endcsname}%
+   \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}D{1E10}d{1E11}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\t\endcsname}%
+   \csname OT1\string\t\endcsname{c{22C5}{}{}}
+   {\a:accents{}{#1}}     {\b:accents{udot}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\H\endcsname}%
+   \csname OT1\string\H\endcsname{o{0151}O{0150}U{0170}u{0171}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{Huml}{#1}{#2}}
+\Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\u\endcsname
+    \breve{g{011F}I{012C}i{012D}O{014E}o{014F}%
+U{016C}u{016D}A{0102}a{0103}E{0114}%
+e{0115}G{011E}\i{012D}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}
+    {\a:accents{}{#1}}    {\b:accents{vec}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}H{021E}h{021F}\i{01D0}\j{01F0}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{check}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}Y{0232}%
+y{0233}G{1E20}g{1E21}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{bar}{#1}{#2}}
+
+   \ifx \mathml:on\:UnDef
+      \Configure{accents}
+        {\ifmmode \expandafter\mathord\fi
+         {\leavevmode
+\if !#1!\ht:special{t4ht@+&\#x#2;}%
+\else \expandafter \ifx\csname U#2#1\endcsname\relax
+    \ht:special{t4ht@+&{35}x#2;}%
+\else
+    \ht:special{t4ht@+&{35}x\csname U#2#1\endcsname;}%
+\fi \fi x%
+%
+         \ht:special{t4ht@[}x\ht:special{t4ht@]}}}
+        {\ifmmode \expandafter\mathord\fi
+          {\HCode{<span class='accent#1'>}#3\HCode{</span>}}}
+   \else
+      \:warning{unicode.4ht loaded after mathml.4ht}
+   \fi
+   \expand:after{\Configure{accent}}\csname OT1\string\b\endcsname
+    \b{B{1E06}b{1E07}%
+D{1E0E}d{1E0F}K{1E34}k{1E35}L{1E3A}l{1E3B}N{1E48}n{1E49}%
+R{1E5E}r{1E5F}T{1E6E}t{1E6F}Z{1E94}z{1E95}h{1E96}%
+{}{}}
+      {\a:accents{}{#1}}     {\b:accents{b}{#1}{#2}}
+   \def\:vec:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{2192}}}
+   \def\:grave:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0060}}}
+   \def\:acute:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00B4}}}
+   \def\:hat:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{005E}}}
+   \def\:widehat:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{005E}}}
+   \def\:tilde:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{007E}}}
+   \def\:widetilde:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{007E}}}
+   \def\:bar:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00AF}}}
+   \def\:breve:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02D8}}}
+   \def\:dot:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02D9}}}
+   \def\:ddot:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00A8}}}
+   \def\:uml:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00A8}}}
+   \def\:ring:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02DA}}}
+   \def\:Huml:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02DD}}}
+   \def\:check:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02C7}}}
+   \def\:d:under{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02D9}}}
+   \def\:cedil:under{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00B8}}}
+   \def\:b:under{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00AF}}}
+   \def\:udot:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0361}}} % inverted breve exists only as combined character
+\fi
+
+\Configure{L}                     {\x:unicode{0141}}
+\Configure{l}                     {\x:unicode{0142}}
+
+
+\def\textellipsis{\x:unicode{2026}}
+
+\def\:nbsp{\x:unicode{00A0}}
+\:CheckOption{new-accents}     \if:Option \else
+   \expand:after{\Configure{accent}}\csname T1\string\`\expandafter\endcsname
+    \csname T1\string\`\endcsname{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}i{00EC}n{01F9}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname T1\string\'\expandafter\endcsname
+    \csname T1\string\'\endcsname{A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{acute}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname T1\string\^\expandafter\endcsname
+    \csname T1\string\^\endcsname{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}Z{1E90}z{1E91}\i{00EE}\j{0135}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{hat}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname T1\string\~\expandafter\endcsname
+    \csname T1\string\~\endcsname{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}V{1E7C}v{1E7D}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\ddot\ddot{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname T1\string\"\expandafter
+   \endcsname
+   \csname T1\string\"\endcsname{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname T1\string\r\endcsname
+   \mathring{A{00C5}a{00E5}U{016E}u{016F}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname T1\string\d\endcsname}%
+   \csname T1\string\d\endcsname{A{1EA0}a{1Ea1}B{1E04}b{1E05}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{d}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname T1\string\c\endcsname}%
+   \csname T1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}D{1E10}d{1E11}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname T1\string\t\endcsname}%
+   \csname T1\string\t\endcsname{c{22C5}{}{}}
+   {\a:accents{}{#1}}     {\b:accents{udot}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname T1\string\H\endcsname}%
+   \csname T1\string\H\endcsname{o{0151}O{0150}U{0170}u{0171}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{Huml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname T1\string\.\expandafter\endcsname
+    \csname T1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname T1\string\u\expandafter\endcsname
+    \csname T1\string\u\endcsname{g{011F}I{012C}i{012D}O{014E}o{014F}%
+U{016C}u{016D}A{0102}a{0103}E{0114}%
+e{0115}G{011E}\i{012D}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}
+    {\a:accents{}{#1}}    {\b:accents{vec}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname T1\string\v\expandafter\endcsname
+    \csname T1\string\v\endcsname{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}H{021E}h{021F}\i{01D0}\j{01F0}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{check}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname T1\string\=\expandafter\endcsname
+    \csname T1\string\=\endcsname{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}Y{0232}%
+y{0233}G{1E20}g{1E21}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{bar}{#1}{#2}}
+
+   \expand:after{\Configure{accent}}\csname T1\string\b\expandafter\endcsname
+   \csname T1\string\b\endcsname{B{1E06}b{1E07}%
+D{1E0E}d{1E0F}K{1E34}k{1E35}L{1E3A}l{1E3B}N{1E48}n{1E49}%
+R{1E5E}r{1E5F}T{1E6E}t{1E6F}Z{1E94}z{1E95}h{1E96}%
+{}{}}
+      {\a:accents{}{#1}}     {\b:accents{b}{#1}{#2}}
+\fi
+\Configure{roman}
+  {\x:unicode{2170}}{\x:unicode{2174}}{\x:unicode{2179}}
+  {\x:unicode{217C}}{\x:unicode{217D}}{\x:unicode{217E}}
+  {\x:unicode{217F}}
+\Configure{Roman}
+  {\x:unicode{2160}}{\x:unicode{2164}}{\x:unicode{2169}}
+  {\x:unicode{216C}}{\x:unicode{216D}}{\x:unicode{216E}}
+  {\x:unicode{216F}}
+\def\:tempc{\special{t4ht@+\string&{35}xAE{59}}x}
+\HLet\textregistered\:tempc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fontmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{mathellipsis}          {\textellipsis}
+\Configure{cdots}                 {\x:unicode{22EF}}
+\Configure{hbar}                  {\x:unicode{210F}}
+\Configure{Longrightarrow}        {\x:unicode{21D2}}
+\Configure{bowtie}                {\x:unicode{22C8}}
+\Configure{doteq}                 {\x:unicode{2250}}
+\Configure{cong}                  {\x:unicode{2245}}
+\Configure{ddots}                 {\x:unicode{22F1}}
+\Configure{hookleftarrow}         {\x:unicode{21A9}}
+\Configure{hookrightarrow}        {\x:unicode{21AA}}
+\Configure{longleftarrow}         {\x:unicode{2190}}
+\Configure{longleftrightarrow}    {\x:unicode{2194}}
+\Configure{Longleftrightarrow}    {\x:unicode{21D4}}
+\Configure{longmapsto}            {\x:unicode{21A6}}
+\Configure{longrightarrow}        {\x:unicode{2192}}
+\Configure{mid}                   {\x:unicode{2223}}
+\Configure{models}                {\x:unicode{22A7}}
+\Configure{mapsto}                {\x:unicode{21A6}}
+\Configure{neq}                   {\x:unicode{2260}}
+\Configure{notin}                 {\x:unicode{2209}}
+\Configure{vdots}                 {\x:unicode{22EE}}
+\Configure{angle}                 {\x:unicode{2220}}
+\Configure{rightleftharpoons}     {\x:unicode{21CC}}
+\Configure{leftrightharpoons}     {\x:unicode{21CB}}
+
+\:CheckOption{new-accents}     \if:Option \else
+   \Configure{accent}\not\not{\equiv{2262}%
+\exists{2204}%
+\in{2209}%
+\ni{220C}%
+\vert{2224}%
+\parallel{2226}%
+\sim{2241}%
+\simeq{2244}%
+\cong{2247}%
+\approx{2249}%
+={2260}%
+\asymp{226D}%
+<{226E}%
+>{226F}%
+\leq{2270}%
+\geq{2271}%
+\prec{2280}%
+\succ{2281}%
+\subset{2284}%
+\supset{2285}%
+\subseteq{2288}%
+\supseteq{2289}%
+\vdash{22AC}%
+\models{22AD}%
+\sqsubseteq{22E2}%
+\sqsupseteq{22E3}%
+{}{\ht:special{t4ht@+\string&{35}x2044;}x}%
+}%
+      {\ht:special{t4ht@+\string&{35}x#1;}=}
+      {\ht:special{t4ht@*\string&{35}x0338;}#2}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsproc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsldoc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{qedsymbol}{\x:unicode{25A1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsthm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{qedsymbol}{\x:unicode{25A1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifx \mathdisplay@@pop\:UnDef
+   \ifx \emdf@La\:UnDef
+      \HLet\:tempc\rightarrowfill@
+\pend:defI\:tempc{\bgroup \let\relbar=\relax}
+\append:defI\:tempc{\egroup}
+\HLet\rightarrowfill@\:tempc
+\let\:tempc\leftarrowfill@
+\pend:defI\:tempc{\bgroup \let\relbar=\relax}
+\append:defI\:tempc{\egroup}
+\HLet\leftarrowfill@\:tempc
+\def\:tempc#1{\bgroup
+   \let \relbar =\relax \m@th
+   \setboxz@h {$#1\relax $}\ht \z@ \z@ $#1\mathord {\mathchar"3224}%
+   \mkern -6mu\cleaders \hbox {$#1\mkern -2mu\copy \z@ \mkern -2mu$}\hfill
+   \mkern -6mu\box \z@ $\egroup}
+\HLet\leftrightarrowfill@\:tempc
+
+   \else
+      \def\:tempc{\arrowfill@ \relax \relax \rightarrow}
+\HLet\rightarrowfill@\:tempc
+\def\:tempc{\arrowfill@ \leftarrow \relax \relax}
+\HLet\leftarrowfill@\:tempc
+\def\:tempc{\arrowfill@ \relax \relax {\mathchar"3224}}
+\HLet\leftrightarrowfill@\:tempc
+
+
+   \fi
+\else
+   \def\:tempc{\arrowfill@ \relax \relax \rightarrow}
+\HLet\rightarrowfill@\:tempc
+\def\:tempc{\arrowfill@ \leftarrow \relax \relax}
+\HLet\leftarrowfill@\:tempc
+\def\:tempc{\arrowfill@ \relax \relax {\mathchar"3224}}
+\HLet\leftrightarrowfill@\:tempc
+
+\fi
+\:CheckOption{new-accents}     \if:Option \else
+   \Configure{accent}\dddot\dddot{{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dddot}{#1}{#2}}
+\Configure{accent}\ddddot\ddddot{{}{}}
+    {\a:accents{}{#1}}    {\b:accents{ddddot}{#1}{#2}}
+\def\:dddot:over{\mathord{\HCode{...}}}
+\def\:ddddot:over{\mathord{\HCode{....}}}
+
+\fi
+\Configure{@cdots}                {\x:unicode{22EF}}
+\Configure{iint}                  {\x:unicode{222C}}
+\Configure{iiint}                 {\x:unicode{222D}}
+\Configure{iiiint}                {\iint\iint}
+\Configure{idotsint}              {\int\cdots\int}
+\Configure{doteq}                 {\x:unicode{2250}}
+\Configure{longleftarrow}         {\x:unicode{2190}}
+\Configure{longrightarrow}        {\x:unicode{2192}}
+\Configure{dotsc}                 {\x:unicode{2026}}
+\Configure{dotso}                 {\x:unicode{2026}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amstex1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{longleftarrow}         {\x:unicode{2190}}
+\Configure{longrightarrow}        {\x:unicode{2192}}
+\Configure{dotsc}                 {\x:unicode{2026}}
+\Configure{dotso}                 {\x:unicode{2026}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsppt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+          
+\ifx \EnditemitemList\:UnDef
+   \Configure{itemitem}{}{}{\par\leavevmode}{}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{quotedblbase}{\x:unicode{201E}}
+\Configure{quotesinglbase}{\x:unicode{201A}}
+\:CheckOption{new-accents}\if:Option\else
+\Configure{accent}\bbl@umlauta
+   \bbl@umlaute{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\def\UAacute{00C1}
+\def\UCacute{0106}
+\def\UDacute{010E}
+\def\UEacute{00C9}
+\def\UGacute{01F4}
+\def\UIacute{00CD}
+\def\ULacute{0139}
+\def\UNacute{0147}
+\def\UOacute{00D3}
+\def\URacute{0154}
+\def\USacute{015A}
+\def\UUacute{00DA}
+\def\UYacute{00DD}
+\def\UZacute{0179}
+\def\Uacute{00B4}
+\def\Uaacute{00E1}
+\def\Ucacute{0107}
+\def\Udacute{010F}
+\def\Ueacute{00E9}
+\def\Ugacute{01F5}
+\def\Uiacute{00ED}
+\def\Ulacute{013A}
+\def\Unacute{0144}
+\def\Uoacute{00F3}
+\def\Uracute{0155}
+\def\Usacute{015B}
+\def\Uuacute{00FA}
+\def\Uyacute{00FD}
+\def\Uzacute{017A}
+\def\Ujacute{FFFD}
+\def\UJacute{FFDD}
+
+
+\def\UAbar{0100}
+\def\UCbar{FFFD}
+\def\UDbar{FFFD}
+\def\UEbar{0112}
+\def\UIbar{012A}
+\def\ULbar{FFFD}
+\def\UNbar{FFFD}
+\def\UObar{014C}
+\def\URbar{FFFD}
+\def\USbar{FFFD}
+\def\UTbar{FFFD}
+\def\UUbar{016A}
+\def\UYbar{FFFD}
+\def\UZbar{FFFD}
+\def\Uabar{0101}
+\def\Ubar{00A7}
+\def\Ucbar{FFFD}
+\def\Uebar{0113}
+\def\Uibar{012B}
+\def\Unbar{FFFD}
+\def\Uobar{014D}
+\def\Urbar{FFFD}
+\def\Uubar{016B}
+\def\Uybar{FFFD}
+\def\Ubreve{02D8}
+
+\def\UCcheck{010C}
+\def\UEcheck{011A}
+\def\URcheck{0158}
+\def\UScheck{0160}
+\def\UTcheck{0164}
+\def\UZcheck{017D}
+\def\Uccheck{010D}
+\def\Ucheck{02C7}
+\def\Uecheck{011B}
+\def\Uncheck{0148}
+\def\Uocheck{00F4}
+\def\Uscheck{0161}
+\def\Uucheck{0159}
+\def\Uzcheck{017E}
+
+\def\UAddot{00C4}
+\def\UOddot{00D6}
+\def\UUddot{00DC}
+\def\Uaddot{00E4}
+\def\Uddot{00A8}
+\def\Uoddot{00F6}
+\def\Uuddot{00FC}
+
+\def\UUodot{016E}
+
+\def\UAgrave{00C0}
+\def\Uagrave{00E0}
+\def\Ugrave{0060}
+
+\def\UOhat{00D4}
+
+\def\Utilde{0098}
+
+\def\UAuml{00C4}
+\def\UEuml{00CB}
+\def\UIuml{00CF}
+\def\UOuml{00D6}
+\def\UUuml{00DC}
+\def\UYuml{0178}
+\def\Uauml{00E4}
+\def\Ueuml{00EB}
+\def\Uiuml{00EF}
+\def\Uouml{00F6}
+\def\Uuml{00A8}
+\def\Uuuml{00FC}
+\def\Uyuml{00FF}
+
+% This will be redefined in mathml.4ht to produce a better markup
+\def\unicode:mathop#1{\mathop{#1}}
+
+\:CheckOption{new-accents}     \if:Option \else
+   \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}i{00EC}n{01F9}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\'\endcsname
+    \acute{A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{acute}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+    \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}Z{1E90}z{1E91}\i{00EE}\j{0135}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{hat}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+    \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}V{1E7C}v{1E7D}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\ddot\ddot{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+   \endcsname
+   \csname OT1\string\"\endcsname{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\r\endcsname
+   \mathring{A{00C5}a{00E5}U{016E}u{016F}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{ring}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\d\endcsname}%
+   \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}B{1E04}b{1E05}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{d}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\c\endcsname}%
+   \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}D{1E10}d{1E11}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\t\endcsname}%
+   \csname OT1\string\t\endcsname{c{22C5}{}{}}
+   {\a:accents{}{#1}}     {\b:accents{udot}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\H\endcsname}%
+   \csname OT1\string\H\endcsname{o{0151}O{0150}U{0170}u{0171}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{Huml}{#1}{#2}}
+\Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\u\endcsname
+    \breve{g{011F}I{012C}i{012D}O{014E}o{014F}%
+U{016C}u{016D}A{0102}a{0103}E{0114}%
+e{0115}G{011E}\i{012D}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}
+    {\a:accents{}{#1}}    {\b:accents{vec}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}H{021E}h{021F}\i{01D0}\j{01F0}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{check}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}Y{0232}%
+y{0233}G{1E20}g{1E21}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{bar}{#1}{#2}}
+
+   \ifx \mathml:on\:UnDef
+      \Configure{accents}
+        {\ifmmode \expandafter\mathord\fi
+         {\leavevmode
+\if !#1!\ht:special{t4ht@+&\#x#2;}%
+\else \expandafter \ifx\csname U#2#1\endcsname\relax
+    \ht:special{t4ht@+&{35}x#2;}%
+\else
+    \ht:special{t4ht@+&{35}x\csname U#2#1\endcsname;}%
+\fi \fi x%
+%
+         \ht:special{t4ht@[}x\ht:special{t4ht@]}}}
+        {\ifmmode \expandafter\mathord\fi
+          {\HCode{<span class='accent#1'>}#3\HCode{</span>}}}
+   \else
+      \:warning{unicode.4ht loaded after mathml.4ht}
+   \fi
+   \expand:after{\Configure{accent}}\csname OT1\string\b\endcsname
+    \b{B{1E06}b{1E07}%
+D{1E0E}d{1E0F}K{1E34}k{1E35}L{1E3A}l{1E3B}N{1E48}n{1E49}%
+R{1E5E}r{1E5F}T{1E6E}t{1E6F}Z{1E94}z{1E95}h{1E96}%
+{}{}}
+      {\a:accents{}{#1}}     {\b:accents{b}{#1}{#2}}
+   \def\:vec:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{2192}}}
+   \def\:grave:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0060}}}
+   \def\:acute:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00B4}}}
+   \def\:hat:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{005E}}}
+   \def\:widehat:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{005E}}}
+   \def\:tilde:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{007E}}}
+   \def\:widetilde:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{007E}}}
+   \def\:bar:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00AF}}}
+   \def\:breve:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02D8}}}
+   \def\:dot:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02D9}}}
+   \def\:ddot:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00A8}}}
+   \def\:uml:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00A8}}}
+   \def\:ring:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02DA}}}
+   \def\:Huml:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02DD}}}
+   \def\:check:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02C7}}}
+   \def\:d:under{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{02D9}}}
+   \def\:cedil:under{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00B8}}}
+   \def\:b:under{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{00AF}}}
+   \def\:udot:over{\ifmmode\expandafter\unicode:mathop\fi{\x:unicode{0361}}} % inverted breve exists only as combined character
+\fi
+
+\Configure{L}                     {\x:unicode{0141}}
+\Configure{l}                     {\x:unicode{0142}}
+
+\Configure{Longrightarrow}        {\x:unicode{21D2}}
+\Configure{bowtie}                {\x:unicode{22C8}}
+\Configure{doteq}                 {\x:unicode{2250}}
+\Configure{cong}                  {\x:unicode{2245}}
+\Configure{ddots}                 {\x:unicode{22F1}}
+\Configure{hookleftarrow}         {\x:unicode{21A9}}
+\Configure{hookrightarrow}        {\x:unicode{21AA}}
+\Configure{longleftarrow}         {\x:unicode{2190}}
+\Configure{longleftrightarrow}    {\x:unicode{2194}}
+\Configure{Longleftrightarrow}    {\x:unicode{21D4}}
+\Configure{longmapsto}            {\x:unicode{21A6}}
+\Configure{longrightarrow}        {\x:unicode{2192}}
+\Configure{mid}                   {\x:unicode{2223}}
+\Configure{models}                {\x:unicode{22A7}}
+\Configure{mapsto}                {\x:unicode{21A6}}
+\Configure{neq}                   {\x:unicode{2260}}
+\Configure{notin}                 {\x:unicode{2209}}
+\Configure{vdots}                 {\x:unicode{22EE}}
+\Configure{angle}                 {\x:unicode{2220}}
+\Configure{rightleftharpoons}     {\x:unicode{21CC}}
+\Configure{leftrightharpoons}     {\x:unicode{21CB}}
+
+\Configure{cdots}                 {\x:unicode{22EF}}
+\Configure{ldots}                 {\x:unicode{2026}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{revsymb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{REV@lesssim }{\x:unicode{2272}}
+\Configure{REV@gtrsim }{\x:unicode{2273}}
+\Configure{openone }{\x:unicode{1D7D9}}
+\Configure{altsuccsim }{\x:unicode{227F}}
+\Configure{altprecsim }{\x:unicode{227E}}
+\Configure{corresponds }{\x:unicode{225C}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{cp1256}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{8859-6}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{eurosym}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{geneuro}{\ht:special{t4ht@+\string&{35}x20AC{59}}x}
+\Configure{geneuronarrow}{\ht:special{t4ht@+\string&{35}x20AC{59}}x}
+\Configure{geneurowide}{\ht:special{t4ht@+\string&{35}x20AC{59}}x}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{SIunits}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{degree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{sistyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{degC}{\leavevmode\ht:special{t4ht@+&{35}x00B0;}xC}
+\Configure{degF}{\leavevmode\ht:special{t4ht@+&{35}x00B0;}xF}
+\Configure{arcdeg}{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}
+\Configure{arcmin}{\leavevmode\ht:special{t4ht@+&{35}x2032;}x}
+\Configure{arcsec}{\leavevmode\ht:special{t4ht@+&{35}x2033;}x}
+\Configure{ohm}{\leavevmode\ht:special{t4ht@+&{35}x2126;}x}
+\Configure{micro}{\leavevmode\ht:special{t4ht@+&{35}x00B5;}x}
+\Configure{angstrom}{\leavevmode\ht:special{t4ht@+&{35}x212B;}x}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{cp850}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{cp852}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{cp862}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{cp1250}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{cp1252}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{cp437}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{cp437de}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{cp865}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textdegree}{{\leavevmode\ht:special{t4ht@+&{35}x00B0;}x}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{romanian}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{new-accents}     \if:Option \else
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}i{00EC}n{01F9}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\'\endcsname
+    \acute{A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{acute}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+    \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}Z{1E90}z{1E91}\i{00EE}\j{0135}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{hat}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+    \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}V{1E7C}v{1E7D}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\ddot\ddot{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+   \endcsname
+   \csname OT1\string\"\endcsname{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\r\endcsname
+   \mathring{A{00C5}a{00E5}U{016E}u{016F}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{ring}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\d\endcsname}%
+   \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}B{1E04}b{1E05}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{d}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\c\endcsname}%
+   \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}D{1E10}d{1E11}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\t\endcsname}%
+   \csname OT1\string\t\endcsname{c{22C5}{}{}}
+   {\a:accents{}{#1}}     {\b:accents{udot}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\H\endcsname}%
+   \csname OT1\string\H\endcsname{o{0151}O{0150}U{0170}u{0171}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{Huml}{#1}{#2}}
+\Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\u\endcsname
+    \breve{g{011F}I{012C}i{012D}O{014E}o{014F}%
+U{016C}u{016D}A{0102}a{0103}E{0114}%
+e{0115}G{011E}\i{012D}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}
+    {\a:accents{}{#1}}    {\b:accents{vec}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}H{021E}h{021F}\i{01D0}\j{01F0}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{check}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}Y{0232}%
+y{0233}G{1E20}g{1E21}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{bar}{#1}{#2}}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{slovak}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{new-accents}     \if:Option \else
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}i{00EC}n{01F9}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\'\endcsname
+    \acute{A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{acute}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+    \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}Z{1E90}z{1E91}\i{00EE}\j{0135}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{hat}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+    \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}V{1E7C}v{1E7D}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\ddot\ddot{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+   \endcsname
+   \csname OT1\string\"\endcsname{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\r\endcsname
+   \mathring{A{00C5}a{00E5}U{016E}u{016F}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{ring}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\d\endcsname}%
+   \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}B{1E04}b{1E05}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{d}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\c\endcsname}%
+   \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}D{1E10}d{1E11}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\t\endcsname}%
+   \csname OT1\string\t\endcsname{c{22C5}{}{}}
+   {\a:accents{}{#1}}     {\b:accents{udot}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\H\endcsname}%
+   \csname OT1\string\H\endcsname{o{0151}O{0150}U{0170}u{0171}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{Huml}{#1}{#2}}
+\Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\u\endcsname
+    \breve{g{011F}I{012C}i{012D}O{014E}o{014F}%
+U{016C}u{016D}A{0102}a{0103}E{0114}%
+e{0115}G{011E}\i{012D}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}
+    {\a:accents{}{#1}}    {\b:accents{vec}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}H{021E}h{021F}\i{01D0}\j{01F0}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{check}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}Y{0232}%
+y{0233}G{1E20}g{1E21}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{bar}{#1}{#2}}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{slovene}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{new-accents}     \if:Option \else
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}i{00EC}n{01F9}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\'\endcsname
+    \acute{A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{acute}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+    \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}Z{1E90}z{1E91}\i{00EE}\j{0135}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{hat}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+    \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}V{1E7C}v{1E7D}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\ddot\ddot{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+   \endcsname
+   \csname OT1\string\"\endcsname{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\r\endcsname
+   \mathring{A{00C5}a{00E5}U{016E}u{016F}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{ring}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\d\endcsname}%
+   \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}B{1E04}b{1E05}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{d}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\c\endcsname}%
+   \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}D{1E10}d{1E11}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\t\endcsname}%
+   \csname OT1\string\t\endcsname{c{22C5}{}{}}
+   {\a:accents{}{#1}}     {\b:accents{udot}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\H\endcsname}%
+   \csname OT1\string\H\endcsname{o{0151}O{0150}U{0170}u{0171}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{Huml}{#1}{#2}}
+\Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\u\endcsname
+    \breve{g{011F}I{012C}i{012D}O{014E}o{014F}%
+U{016C}u{016D}A{0102}a{0103}E{0114}%
+e{0115}G{011E}\i{012D}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}
+    {\a:accents{}{#1}}    {\b:accents{vec}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}H{021E}h{021F}\i{01D0}\j{01F0}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{check}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}Y{0232}%
+y{0233}G{1E20}g{1E21}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{bar}{#1}{#2}}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{spanish}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\A:charset{charset=iso-8859-1}
+\Configure{es@accents}{\es:accents}{}
+\def\es:accents#1\b:es@accents{\HCode{&\#x#1;}}
+\Configure{es@accent}
+  {\string\OT1\string\'}
+  {A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+}
+\Configure{guillemotleft}{\HCode{&\#x00AB;}}
+\Configure{guillemotright}{\HCode{&\#x00BB;}}
+\Configure{spanish"a}{\HCode{&\#x00AA;}}
+\Configure{spanish"o}{\HCode{&\#x00BA;}}
+\Configure{spanish"e}{\HCode{e}}
+\Configure{spanish"A}{\HCode{A}}
+\Configure{spanish"O}{\HCode{O}}
+\Configure{spanish"E}{\HCode{E}}
+\Configure{spanish'i}{\HCode{&\#x00ED;}}
+\Configure{es@accent}
+  {\string\OT1\string\'}
+  {A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+}
+\Configure{es@accent}
+  {\string\OT1\string\"}
+  {H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+\Configure{es@accent}
+  {\string\OT1\string\~}
+  {A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}V{1E7C}v{1E7D}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{croatian}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{new-accents}     \if:Option \else
+  \expand:after{\Configure{accent}}\csname OT1\string\`\endcsname
+    \grave{A{00C0}E{00C8}I{00CC}N{01F8}O{00D2}U{00D9}W{1E80}%
+Y{1EF2}a{00E0}e{00E8}i{00EC}n{01F9}o{00F2}u{00F9}%
+w{1E81}y{1EF3}\i{00EC}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{grave}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\'\endcsname
+    \acute{A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{acute}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\^\endcsname
+    \hat{A{00C2}E{00CA}I{00CE}O{00D4}U{00DB}a{00E2}e{00EA}%
+i{00EE}o{00F4}u{00FB}C{0108}c{0109}G{011C}g{011D}%
+H{0124}h{0125}J{0134}j{0135}S{015C}s{015D}W{0174}%
+w{0175}Y{0176}y{0177}Z{1E90}z{1E91}\i{00EE}\j{0135}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{hat}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\~\endcsname
+    \tilde{A{00C3}N{00D1}O{00D5}a{00E3}n{00F1}o{00F5}I{0128}%
+i{0129}U{0168}u{0169}V{1E7C}v{1E7D}E{1EBC}e{1EBD}%
+Y{1EF8}y{1EF9}\i{0129}%
+{}{}}
+   {\a:accents{}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\ddot\ddot{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\"\expandafter
+   \endcsname
+   \csname OT1\string\"\endcsname{H{1E26}h{1E27}W{1E84}w{1E85}X{1E8C}x{1E8D}%
+t{1E97}A{00C4}E{00CB}I{00CF}O{00D6}U{00DC}%
+a{00E4}e{00EB}i{00EF}o{00F6}u{00FC}y{00FF}%
+Y{0178}\i{00EF}%
+{}{34}}
+   {\a:accents{}{#1}}     {\b:accents{uml}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\r\endcsname
+   \mathring{A{00C5}a{00E5}U{016E}u{016F}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{ring}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\d\endcsname}%
+   \csname OT1\string\d\endcsname{A{1EA0}a{1Ea1}B{1E04}b{1E05}D{1E0C}d{1E0D}%
+E{1EB8}e{1EB9}H{1E24}h{1E25}I{1ECA}i{1ECB}%
+K{1E32}k{1E33}L{1E36}l{1E37}M{1E42}m{1E43}%
+N{1E46}n{1E47}O{1ECC}o{1ECD}R{1E5A}r{1E5B}%
+S{1E62}s{1E63}T{1E6C}t{1E6D}U{1EE4}u{1EE5}%
+V{1E7E}v{1E7F}W{1E88}w{1E89}Y{1EF4}y{1EF5}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{d}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\c\endcsname}%
+   \csname OT1\string\c\endcsname{K{0136}k{0137}L{013B}l{013C}N{0145}n{0146}%
+R{0156}r{0157}S{015E}s{015F}T{0162}t{0163}%
+E{0228}e{0229}D{1E10}d{1E11}H{1E28}h{1E29}%
+C{00C7}c{00E7}G{0122}g{0123}%
+{}{}}
+   {\a:accents{}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\t\endcsname}%
+   \csname OT1\string\t\endcsname{c{22C5}{}{}}
+   {\a:accents{}{#1}}     {\b:accents{udot}{#1}{#2}}
+\expand:after{\expand:after{\Configure{accent}}%
+   \csname OT1\string\H\endcsname}%
+   \csname OT1\string\H\endcsname{o{0151}O{0150}U{0170}u{0171}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{Huml}{#1}{#2}}
+\Configure{accent}\dot\dot{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\.\expandafter
+    \endcsname
+      \csname OT1\string\.\endcsname{C{010A}c{010B}E{0116}e{0117}G{0120}g{0121}%
+I{0130}Z{017B}z{017C}A{0226}a{0227}O{022E}%
+o{022F}B{1E02}b{1E03}D{1E0A}d{1E0B}F{1E1E}%
+f{1E1F}H{1E22}h{1E23}M{1E40}m{1E41}N{1E44}%
+n{1E45}P{1E56}p{1E57}R{1E58}r{1E59}S{1E60}%
+s{1E61}T{1E6A}t{1E6B}W{1E86}w{1E87}X{1E8A}%
+x{1E8B}Y{1E8E}y{1E8F}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{dot}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\u\endcsname
+    \breve{g{011F}I{012C}i{012D}O{014E}o{014F}%
+U{016C}u{016D}A{0102}a{0103}E{0114}%
+e{0115}G{011E}\i{012D}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}
+    {\a:accents{}{#1}}    {\b:accents{vec}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\v\endcsname
+    \check{C{010C}c{010D}D{010E}d{010F}%
+E{011A}e{011B}L{013D}l{013E}N{0147}n{0148}R{0158}r{0159}%
+S{0160}s{0161}T{0164}t{0165}Z{017D}z{017E}A{01CD}a{01CE}I{01CF}%
+i{01D0}O{01D1}o{01D2}U{01D3}u{01D4}G{01E6}g{01E7}K{01E8}k{01E9}%
+j{01F0}H{021E}h{021F}\i{01D0}\j{01F0}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{check}{#1}{#2}}
+\expand:after{\Configure{accent}}\csname OT1\string\=\endcsname
+    \bar{A{0100}a{0101}E{0112}%
+e{0113}I{012A}i{012B}O{014C}o{014D}U{016A}u{016B}Y{0232}%
+y{0233}G{1E20}g{1E21}%
+{}{}}
+    {\a:accents{}{#1}}    {\b:accents{bar}{#1}{#2}}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{greek}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \expand:after{\Configure{accent}}\csname OT1\string\'\endcsname
+   \acute{A{00C1}C{0106}D{010E}E{00C9}G{01F4}I{00CD}L{0139}N{0143}%
+O{00D3}R{0154}S{015A}U{00DA}Y{00DD}Z{0179}a{00E1}c{0107}%
+d{010F}e{00E9}g{01F5}i{00ED}l{013A}n{0144}o{00F3}r{0155}%
+s{015B}u{00FA}y{00FD}z{017A}j{FFFD}J{FFDD}\i{00ED}\j{FFFD}%
+%
+{\@use@text@encoding \@curr@enc a}{03AC}%
+{\@use@text@encoding \@curr@enc e}{03AD}%
+{\@use@text@encoding \@curr@enc h}{03AE}%
+{\@use@text@encoding \@curr@enc i}{03AF}%
+{\@use@text@encoding \@curr@enc o}{03CC}%
+{\@use@text@encoding \@curr@enc u}{03CD}%
+{\@use@text@encoding \@curr@enc w}{03CE}%
+{}{}}
+   {\a:accents{}{#1}}  {\b:accents{acute}{#1}{#2}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

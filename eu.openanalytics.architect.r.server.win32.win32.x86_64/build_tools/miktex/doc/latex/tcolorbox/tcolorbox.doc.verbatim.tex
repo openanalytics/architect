@@ -1,0 +1,117 @@
+% !TeX root = tcolorbox.tex
+% include file of tcolorbox.tex (manual of the LaTeX package tcolorbox)
+\clearpage
+\section{Saving and Loading of Verbatim Texts}%
+\tcbset{external/prefix=external/verbatim_}%
+The following macros are slightly modified versions of the original macros
+from the known packages |moreverb| and |verbatim|.
+They are used implicitly inside of a |tcolorbox| environment,
+but they can be used outside also.
+\enlargethispage*{1.5cm}
+
+\begin{docEnvironment}{tcbverbatimwrite}{\marg{file name}}
+  Saves the \meta{environment content} to a file named by \meta{file name}.
+  \TeX\ macros inside the environment are not expanded.
+\begin{dispExample}
+\begin{tcbverbatimwrite}{\jobname_verbexp.tex}
+  This text is saved \textit{as is}.
+\end{tcbverbatimwrite}
+
+Now, we are using the file:\par
+\input{\jobname_verbexp.tex}
+\end{dispExample}
+
+This environment may be used inside an own environment. Note, that inside
+the environment definition |\tcbverbatimwrite| has to be used instead of
+|\begin{tcbverbatimwrite}| and |\endtcbverbatimwrite| instead of |\end{tcbverbatimwrite}|.
+\begin{dispExample}
+\newenvironment{myverbatim}{%
+  \begingroup\tcbverbatimwrite{\jobname_myverb.tex}}%
+  {\endtcbverbatimwrite\endgroup}
+
+\begin{myverbatim}
+  This is the text which is saved by my own environment.
+\end{myverbatim}
+
+Now, we are using the file:\par
+\input{\jobname_myverb.tex}
+\end{dispExample}
+\end{docEnvironment}
+
+\begin{docEnvironment}{tcbwritetemp}{}
+  Has the same function as \refEnv{tcbverbatimwrite}, but uses the key value
+  of |tempfile| for the file name.
+\begin{dispExample}
+\begin{tcbwritetemp}
+  This text is saved \textit{as is}.
+\end{tcbwritetemp}
+
+Now, we are using the file:\par
+\tcbusetemp
+\end{dispExample}
+\end{docEnvironment}
+
+
+\begin{docCommand}{tcbusetemp}{}
+  Loads the current temporary file which was saved by \refEnv{tcbwritetemp}.
+\end{docCommand}
+
+\clearpage
+
+\begin{docTcbKey}[][doc new=2017-07-05]{verbatim ignore percent}{\colOpt{=true\textbar false}}{default |true|, initially |false|}
+  If this option is set to be |true|, the percent sign \% is silently
+  ignored for \refEnv{tcbverbatimwrite} and all macros and environments
+  which are built using \refEnv{tcbverbatimwrite}, e.g.\ 
+  \refEnv{tcbwritetemp}, \refEnv{tcblisting}, or \refEnv{dispExample}.\par
+  This option may be useful for creating some special effects, but mainly
+  it is intended to be applied for documentation with DocStrip.
+  The creation of this option was motivated by Yudai Nakata.
+  Note that this option is not getting reset by \refKey{/tcb/reset}.
+\begin{dispExample*}{sidebyside}
+Normal usage:
+\begin{tcbwritetemp}
+%\begin{center}\bfseries
+This is my text.
+%\end{center}
+\end{tcbwritetemp}
+
+\tcbusetemp
+
+\tcbset{verbatim ignore percent}
+\bigskip Option applied:
+\begin{tcbwritetemp}
+%\begin{center}\bfseries
+This is my text.
+%\end{center}
+\end{tcbwritetemp}
+
+\tcbusetemp
+\end{dispExample*}
+
+\begin{marker}
+Note that \emph{every} percent sign is removed, also escaped ones.
+\end{marker}
+
+\begin{dispExample*}{sidebyside}
+% \tcbuselibrary{listings}
+\def\percent{\%}
+
+\begin{tcblisting}{title=Normal}
+%\begin{center}\bfseries
+This is my 5\percent\ text
+and this is my 10\% text.
+%\end{center}
+\end{tcblisting}
+
+\begin{tcblisting}{
+  title=Option applied,
+  verbatim ignore percent}
+%\begin{center}\bfseries
+This is my 5\percent\ text
+and this is my 10\% text.
+%\end{center}
+\end{tcblisting}
+\end{dispExample*}
+
+\end{docTcbKey}
+

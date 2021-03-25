@@ -1,0 +1,8 @@
+.times
+htfcss: COURBD  font-weight: bold;
+htfcss: COURBI font-style: italic;    font-weight: bold;
+htfcss: COURI font-style: italic;
+htfcss: courbd  font-weight: bold;
+htfcss: courbi font-style: italic;    font-weight: bold;
+htfcss: couri font-style: italic;
+

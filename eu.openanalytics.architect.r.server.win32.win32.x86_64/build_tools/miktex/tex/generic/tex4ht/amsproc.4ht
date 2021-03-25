@@ -1,0 +1,373 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% amsproc.4ht                           2020-06-07-13:32 %
+% Copyright (C) 1997-2009       Eitan M. Gurari         %
+% Copyright 2009-2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+
+\append:def\quote{\par\@totalleftmargin\z@}
+\NewConfigure{caption}[4]{\c:def\cptA:{#1}\c:def\cptB:{#2}%
+   \c:def\cptC:{#3}\c:def\cptD:{#4}}
+\long\def\@makecaption#1#2{%   
+{\cptA: \cap:ref{#1}%
+\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
+
+
+\pend:def\caption{\SkipRefstepAnchor}
+\long\def\c:theindex:#1#2#3#4#5#6#7#8#9{%
+   \def\theindex{%
+      \def\idx:item{\SaveEverypar\ht:everypar{}#1}%
+      \def\endtheindex{\idx:item#2\RecallEverypar}%
+      \def\item{\idx:item\def\idx:item{#4}\let\index\@gobble #3}%
+      \def\subitem{\idx:item\def\idx:item{#6}\let\index\@gobble #5}%
+      \def\subsubitem{\idx:item\def\idx:item{#8}\let\index\@gobble #7}}%
+   \def\indexspace{\idx:item#9\let\idx:item\empty}}
+\def\warn:idx#1{%
+  \expandafter\ifx \csname #1warn:idx\endcsname\relax
+     \expandafter\global
+         \expandafter\let \csname #1warn:idx\endcsname\def
+     \writesixteen
+        {---------------------------------------------------------}%
+     \:warning{If not done so, the index is to be processed by
+      ^^J\space\space tex '\string\def\string\filename
+         {{#1}{idx}{4dx}{ind}} \noexpand\input\space idxmake.4ht'
+      ^^J\space\space  makeindex -o #1.ind #1.4dx
+      ^^Jinstead of
+      ^^J\space\space  makeindex -o #1.ind #1.idx
+      ^^JOn some platforms, the quotation marks ' should be
+      ^^J      replaced by double quotation marks " or eliminated.
+      ^^J---------------------------------------------------------
+     }%
+     {\Configure{Needs}{File: #1.4idx}\Needs{}}%
+  \fi}
+\ifOption{info}{\Log:Note{
+A script of the form
+^^Jtex '\def\string\filename{{\%\%1}{idx}{4dx}{ind}}
+                                       \string\input\space  idxmake.4ht'
+^^Jmakeindex -o \%\%1.ind \%\%1.4dx
+^^Jin the env file, automatically calls to the revised makeindex
+^^Jcommand.  An extra compilation of the source LaTeX file is required,
+^^Jto get the index correctly into the output.}}{}
+\def\ind:defs{\let\LNKidx\empty
+   \def\LNK##1##2##3##4{\ifx\NewConfigure\:UnDef\else
+        \def\LNK:number{##4}%
+        \a:LNK[##1]{##2}{}\gHAdvance\:LNKno1
+           \def\:THIrd{##3}\ifx\:THIrd\empty
+              \LNKidx{\ifx\c:LNK\empty\:LNKno\else \c:LNK\fi}\else
+              \LNKidx{##3}\fi
+           \global\let\LNKidx\empty
+        \b:LNK
+      \fi}%
+   \def\:LNKno{0}}
+\NewConfigure{LNK}{3}
+\Configure{LNK}{\Link}{\EndLink}{}
+\def\yhbLNK#1{\expandafter\let\expandafter\LNKidx\csname
+          #1\endcsname\LNK}
+
+\Configure{@begin}{theindex}{\ind:defs}
+
+
+\Configure{UndefinedSec}{likepart}
+\Configure{UndefinedSec}{likechapter}
+\Configure{UndefinedSec}{likesection}
+\Configure{UndefinedSec}{likesubsection}
+\let\no@section\section
+\Def:Section\section{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesection \fi}{#1}
+\let\no:section\section
+\def\section{\rdef:sec{section}}
+\let\no@subsection\subsection
+\Def:Section\subsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsection \fi}{#1}
+\let\no:subsection\subsection
+\def\subsection{\rdef:sec{subsection}}
+\let\no@subsubsection\subsubsection
+\Def:Section\subsubsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsubsection \fi}{#1}
+\let\no:subsubsection\subsubsection
+\def\subsubsection{\rdef:sec{subsubsection}}
+\let\no@paragraph\paragraph
+\Def:Section\paragraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \theparagraph \fi}{#1}
+\let\no:paragraph\paragraph
+\def\paragraph{\rdef:sec{paragraph}}
+\let\no@subparagraph\subparagraph
+\Def:Section\subparagraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubparagraph \fi}{#1}
+\let\no:subparagraph\subparagraph
+\def\subparagraph{\rdef:sec{subparagraph}}
+
+\let\:setaddresses=\@setaddresses
+\def\@setaddresses{\bgroup
+   \pend:def\addresses{%
+     \let\:address=\address
+\def\address########1########2{%
+  \@ifnotempty{########2}{%
+     \def\:temp{########1}\ifx \:temp\empty
+        \:address{}{\a:address\b:address########2\c:address}%
+     \else
+        \:address{\a:address
+              ########1}{\b:address########2\c:address}%
+     \fi }}%
+\let\:curraddr=\curraddr
+\def\curraddr########1########2{%
+  \@ifnotempty{########2}{\a:curraddr
+      \:curraddr{########1}{\b:curraddr########2\c:curraddr}%
+}}%
+\let\:email=\email
+\def\email########1########2{%
+  \@ifnotempty{########2}{\a:email
+      \:email{########1}{\b:email########2\c:email}%
+}}%
+\let\:urladdr=\urladdr
+\def\urladdr########1########2{%
+  \@ifnotempty{########2}{\a:urladdr
+      \:urladdr{########1}{\b:urladdr########2\c:urladdr}%
+}}%
+%
+   }%
+  \a:addresses \:setaddresses \b:addresses\egroup }
+\NewConfigure{addresses}{2}
+\NewConfigure{address}{3}
+\NewConfigure{curraddr}{3}
+\NewConfigure{email}{3}
+\NewConfigure{urladdr}{3}
+\pend:def\@settranslators{\a:translators\bgroup
+   \def\and{\unskip{ } \d:translators and~\c:translators\ignorespaces}%
+   \def\andify{\nxandlist{\unskip, }{\unskip{} \and}{\unskip, \and}}%
+   \pend:def\@translators{\c:translators}%
+   \append:def\@translators{\d:translators}%
+}
+\append:def\@settranslators{\egroup\b:translators}
+\NewConfigure{translators}{4}
+\NewConfigure{maketitle}[4]{\c:def\a:mktl{#1}\c:def\b:mktl{#2}%
+   \c:def\a:ttl{#3}\c:def\b:ttl{#4}}
+\append:def\@maketitle{\a:@maketitle\after:maketitle\b:@maketitle}
+\long\def\end:maketitle#1#2{\ifx #1\empty \else
+   \expandafter\let\csname :\string #1\endcsname=#1
+   \let#1=\empty
+   \append:def\after:maketitle{\expand:after{\let#1=}\csname
+        :\string #1\endcsname#2}\fi}
+\NewConfigure{@maketitle}{2}
+\HRestore\thanks
+\let\@adminfootnotes\relax
+\def\:thanks#1{\par \a:thanks#1\@addpunct.\b:thanks}
+\NewConfigure{thanks author date and}[8]{%
+   \c:def\a:thanks{#1}\c:def\b:thanks{#2}\c:def\a:author{#3}\c:def\b:author{#4}%
+   \c:def\a:date{#5}\c:def\b:date{#6}\c:def\a:and{#7}\c:def\e:mktl{#8}}
+\NewConfigure{subjclass}{2}
+\NewConfigure{keywords}{2}
+\pend:def\@setabstracta{\ifvoid\abstractbox
+   \else\a:setabstract \fi}
+\append:def\@setabstracta{\ifvoid\abstractbox
+   \else\b:setabstract \fi}
+\NewConfigure{setabstract}{2}
+\pend:defI\@seccntformat{%
+  \def\@secnumpunct{\ifnum \c:secnumdepth>0
+     \expandafter\ifx\csname the##1\endcsname\relax \else. \fi\fi}}
+
+\pend:def\@maketitle{%
+     \pend:def\newpage{\IgnorePar}%
+     \let\after:maketitle=\empty
+     \end:maketitle\@subjclass{\a:subjclass\@setsubjclass\b:subjclass}%
+\end:maketitle\@keywords{\a:keywords\@setkeywords\b:keywords}%
+\end:maketitle\@setthanks{\let\thanks=\:thanks\thankses}%
+}
+
+\def\tableofcontents{%
+   \ifx\contentsname\empty \else
+      \ifx\contentsname\:UnDef \else
+%         \Configure{toToc}{}{section}%
+         %
+\section*{\contentsname}%
+         %
+%
+%         \Configure{toToc}{?}{section}%
+   \fi\fi
+   \:tableofcontents}
+
+\let\o:maketitle:\maketitle
+\def\maketitle{\bgroup
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+   \ifx \EndPicture\:UnDef
+      \def\sec:typ{title}%
+      %
+      \pend:def\@author{\a:author}\append:def\@author{\b:author}%
+\def\and{\a:and}
+%
+%
+   \fi
+   \pic:gobble\a:mktl  \o:maketitle:  \pic:gobble\b:mktl
+   \egroup \let\maketitle\empty}
+
+\pend:defII\@starttoc{\par}
+
+\ifx \deferred@thm@head\:UnDef\else
+   \ifx \deferred@thm@head\:UnDef\else
+   \expandafter\dth@everypar\expandafter{%
+     \the\dth@everypar
+     \edef\:temp{\the\ht:everypar}\ifx \:temp\empty
+        \ht:everypar{\HtmlPar}\ShowPar
+     \fi
+   }%
+   \def\deferred@thm@head#1{%
+  \if@inlabel \indent \par \fi 
+  \if@nobreak
+    \adjust@parskip@nobreak
+  \else
+    \addpenalty\@beginparpenalty
+    \addvspace\@topsep
+    \addvspace{-\parskip}%
+  \fi
+  \global\@inlabeltrue
+  \ht:everypar\dth@everypar
+  \let\sv:newtheorem=\b:newtheorem \let\b:newtheorem=\empty
+  \item[\normalfont#1]%
+  \let\b:newtheorem=\sv:newtheorem \b:newtheorem \ignorespaces
+}
+
+\fi
+\def\:temp#1{%
+   \def\:temp{#1}%
+   \edef\:temp{\expandafter\eorem:syle  \meaning\:temp!*?: }%
+   \expandafter\let\expandafter\@tmp:sv\csname th@\:temp\endcsname
+   \def\:tempa##1{%
+      \expandafter\append:def\csname th@##1\endcsname{%
+         \expandafter\let\csname th@##1\endcsname=\@tmp:sv
+         \let\thm:headnl=\thmheadnl
+         \pend:def\thmheadnl{\let\thmheadnl\thm:headnl \b:newtheorem}%
+         \append:def\thmheadnl{\expandafter
+             \ht:everypar\expandafter{\the\ht:everypar
+             \ht:everypar{\HtmlPar}}}}}%
+   \expandafter\:tempa\expandafter{\:temp}%
+   \let\sv:trivlist=\trivlist
+   \def\trivlist{\let\trivlist\sv:trivlist \let\sv:trivlist\:unDef
+      \a:newtheorem \trivlist}%
+   \aftergroup\c:newtheorem
+   \:thm{#1}}
+\HLet\@thm\:temp
+\HRestore\@endtheorem
+\bgroup
+\def\bgroup{\catcode`\\=0 \catcode`\t=11 }
+\catcode`\/=0
+\catcode`\@=12
+\catcode`\h=12
+\catcode`\\=12
+/catcode`/t=12
+/edef~{/def/noexpand/eorem:syle##1\th@##2 !*?: {##2}}
+/bgroup
+\expandafter\egroup ~
+\long\def\:temp[#1]{\par\a:proof
+    \csname o:\string\proof :\endcsname[#1]\b:proof}
+\expandafter\HLet\csname \string\proof \endcsname=\:temp
+\append:def\endproof{\c:proof}
+\NewConfigure{proof}{3}
+
+   \def\:tempc{\ifmmode \mathqed \else
+    \leavevmode \a:qed\hbox {\qedsymbol}\b:qed\fi}
+\expandafter\HLet\csname qed \endcsname=\:tempc
+\NewConfigure{qed}{2}
+
+\fi
+
+\pend:def\@settitle{\a:ttl}
+\append:def\@settitle{\b:ttl\par}
+\pend:defI\@setauthors{\a:author \bgroup
+   \def\andify{\nxandlist{\unskip, }{\unskip{} \and}{\unskip, \and}}%
+   \def\@no@lnbk ########1[########2]{\a:newline}}
+\append:defI\@setauthors{\egroup \b:author\par}
+\let\no@part\part
+\Def:Section\part{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thepart \fi}{#1}
+\let\no:part\part
+\def\part{\rdef:sec{part}}
+
+\def\no@sect#1#2#3#4#5#6[#7]#8{%
+  \edef\@toclevel{\ifnum#2=\@m 0\else\number#2\fi}%
+  \ifnum #2>\c@secnumdepth \let\@secnumber\@empty
+  \else \@xp\let\@xp\@secnumber\csname the#1\endcsname
+        \refstepcounter{#1}\fi
+  \let\@svsec\empty
+  \let\@svsechd\empty
+  \global\@nobreaktrue
+  \@xsect{#5}}
+\let\@ssect=\relax
+
+
+\def\endtable{\end@float}
+\def\endfigure{\end@float}
+
+\def\:tableofcontents{\futurelet\:temp\:TOC}
+\def\Auto:ent#1{%
+   \edef\auto:toc{\noexpand\:TableOfContents[\ifx \auto:toc\:UnDef
+      #1\else \auto:toc \fi]}  \auto:toc
+   \global\let\auto:toc\:UnDef }
+
+\def\tableofcontents{%
+   \ifx\contentsname\empty \else
+      \ifx\contentsname\:UnDef \else
+         %
+\section*{\contentsname}%
+         %
+%
+   \fi\fi
+   \:tableofcontents}
+
+\edef\:TOC{%
+   \noexpand\ifx [\noexpand\:temp
+      \noexpand\expandafter\noexpand\:TableOfContents
+   \noexpand\else
+      \noexpand\Auto:ent{\ifnum \c@tocdepth >\m@ne part,likepart,\fi
+\ifnum \c@tocdepth >\z@ section,likesection,\fi
+\ifnum \c@tocdepth >1 subsection,likesubsection,\fi
+\ifnum \c@tocdepth >2 subsubsection,likesubsubsection,\fi
+\ifnum \c@tocdepth >3 paragraph,\fi
+\ifnum \c@tocdepth >4 subparagraph,\fi
+UnDFexyz
+}\noexpand\fi}
+\ConfigureToc{likeparagraph} {}{\empty}{}{\newline}
+\ConfigureToc{likepart} {}{\empty}{}{\newline}
+\ConfigureToc{likesection} {}{\empty}{}{\newline}
+\ConfigureToc{likesubparagraph} {}{\empty}{}{\newline}
+\ConfigureToc{likesubsection} {}{\empty}{}{\newline}
+\ConfigureToc{likesubsubsection} {}{\empty}{}{\newline}
+\ConfigureToc{paragraph} {\empty}{\ }{}{\newline}
+\ConfigureToc{part} {\empty}{\ }{}{\newline}
+\ConfigureToc{section} {\empty}{\ }{}{\newline}
+\ConfigureToc{subparagraph} {\empty}{\ }{}{\newline}
+\ConfigureToc{subsection} {\empty}{\ }{}{\newline}
+\ConfigureToc{subsubsection} {\empty}{\ }{}{\newline}
+
+
+\NewConfigure{tableofcontents*}[1]{%
+   \def\:tempa{#1}\ifx\empty\:tempa
+      \ifx \au:StartSec\:UnDef \else \gdef\:StartSec{\au:StartSec}\fi
+   \else
+      \edef\auto:toc{#1}%
+         \ifx \au:StartSec\:UnDef
+            \let\au:StartSec\:StartSec
+            \def\:StartSec{\:tableofcontents
+               \global\let\auto:toc\:UnDef \:StartSec}%
+            \pend:def\:tableofcontents{\gdef\:StartSec{\au:StartSec}}%
+   \fi  \fi
+}
+     
+\Hinput{amsproc}
+\endinput
+

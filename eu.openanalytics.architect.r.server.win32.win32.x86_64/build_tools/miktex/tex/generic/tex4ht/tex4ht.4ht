@@ -1,0 +1,370 @@
+\ifnum\the\catcode`\%=14\else \expandafter\edef\csname
+  \string:RestoreCatcodes\endcsname{\catcode`\%\the
+  \catcode`\%}\catcode`\%14\fi
+% tex4ht.4ht (2020-03-12-14:03), generated from tex4ht-options.tex
+% Copyright 2009-2018 TeX Users Group
+% Copyright 1997-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2020-03-12-14:03}
+
+\expandafter\edef\csname :RestoreCatcodes\endcsname{%
+   \expandafter\ifx \csname :RestoreCatcodes\endcsname\relax\else
+      \csname :RestoreCatcodes\endcsname \fi
+   \catcode`\noexpand :\the\catcode`:%
+   \ifnum \the\catcode`\#=6 \else
+      \catcode`\noexpand \#\the\catcode`\#\fi
+   \ifnum \the\catcode`\^=7 \else
+      \catcode`\noexpand \^\the\catcode`\^\fi
+   \let\expandafter\noexpand\csname :RestoreCatcodes\endcsname
+                                   \noexpand\UnDefcS}
+\catcode`\:11  \catcode`\#6   \catcode`\^7
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% It is highly recommended NOT TO CHANGE THIS FILE. Options
+%                          ^^^^^^^^^^^^^^^^^^^^^^^
+% defined in this file may be redefined, and new ones may be
+% added, within a user supplied file named tex4ht.usr.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\:CheckOption{info}\if:Option
+               \Hinclude[*]{info4ht.4ht}
+   \Log:Note{For additional information,
+      compile `xhlatex mktex4ht.4ht'^^J and review the appropriate
+      pointers under mktex4ht.html => index}
+\else
+   \Log:Note{for additional information, use
+      the command line option `info'}
+\fi
+\writesixteen{::::::::::::::::::::::::::::::::::::::::::}
+\writesixteen{ TeX4ht info is available in the log file }
+\writesixteen{::::::::::::::::::::::::::::::::::::::::::}
+\let\:tempd\Configure
+\def\Configure#1#2{%
+   \:CheckOption{#1}\if:Option \def\:tempc{#2}\fi}
+
+\def\:tempc{\:CheckOption{info}\if:Option
+                        \Hinclude[*]{infoht4.4ht}%
+            \:CheckOption{javahelp}\if:Option
+                        \Hinclude[*]{infojh.4ht}\fi
+            \fi
+            \Hinclude[*]{html4.4ht}%
+            \Hinclude[*]{html4-math.4ht}%
+            \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option
+                \Hinclude[*]{svg-option.4ht}%
+                \Hinclude[*]{html4-svg.4ht}%
+                \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+}
+\Configure{uni-html4}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{html4-math.4ht}%
+   \Hinclude[*]{unicode.4ht}
+   \Hinclude[*]{html4-uni.4ht}%
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg-option.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+   }
+\Configure{mathml}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infomml.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{mathml.4ht}%
+   \Hinclude[*]{html-mml.4ht}%
+   \Hinclude[*]{html4-uni.4ht}%
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg-option.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+   \:CheckOption{mathplayer}\if:Option
+      \:CheckOption{pmathml}\if:Option \else
+      \:CheckOption{pmathml-css}\if:Option \else
+         \Hinclude[*]{mathplayer.4ht}
+      \fi\fi
+   \else
+       \Log:Note{For MathML on MSIE + MathPlayer use
+           the command line option `mathplayer'}
+   \fi
+}
+
+\Configure{0.0}{%
+   \Hinclude[*]{html0.4ht}%
+}
+\Configure{3.2}{%
+   \:CheckOption{info}\if:Option
+       \:CheckOption{javahelp}\if:Option
+               \Hinclude[*]{infojh.4ht}\fi\fi
+   \Hinclude[*]{html32.4ht}%
+   \Hinclude[*]{html32-math.4ht}%
+   \:CheckOption{javahelp}\if:Option
+       \Hinclude[*]{javahelp.4ht}%
+\:CheckOption{jh-}     \if:Option
+\else
+   \edef\Preamble{\Preamble,xml}%
+   \Log:Note{for sources failing to produce
+       XML versions of HTML, try the command line option `jh-'}%
+\fi
+%
+   \fi
+   \:CheckOption{unicode}\if:Option \Hinclude[*]{unicode.4ht}\fi
+}
+
+\Configure{mozilla}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infomml.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{mathml.4ht}%
+   \Hinclude[*]{html-mml.4ht}%
+   \Hinclude[*]{mozilla.4ht}%
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg-option.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+   \:CheckOption{mathplayer}\if:Option
+       \Hinclude[*]{mathplayer.4ht}
+   \else
+       \Log:Note{For MathML on MSIE + MathPlayer use
+           the command line option `mathplayer'}
+   \fi
+}
+
+\Configure{html5}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infomml.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \:CheckOption{mathml}\if:Option%
+   \else\:CheckOption{mathml-}\fi%
+   \if:Option%
+      \Hinclude[*]{mathml.4ht}%
+      \Hinclude[*]{html-mml.4ht}%
+   \else
+      \Hinclude[*]{html4-math.4ht}%
+   \fi
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg-option.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+   \Hinclude[*]{html5.4ht}%
+}
+
+\Configure{tei}{%
+   \Hinclude[*]{tei.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \:CheckOption{mathml}\if:Option%
+   \else\:CheckOption{mathml-}\fi%
+   \if:Option%
+      \Hinclude[*]{mathml.4ht}%
+      \Hinclude[*]{tei-mml.4ht}%
+   \else
+      \Hinclude[*]{tei-math.4ht}%
+   \fi
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg-option.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+}
+\Configure{tei-mml}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infomml.4ht}\fi
+   \Hinclude[*]{tei.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{mathml.4ht}%
+   \Hinclude[*]{tei-mml.4ht}%
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg-option.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+}
+
+\Configure{jats}{%
+   \Hinclude[*]{html4.4ht}% we will build upon HTML
+   \Hinclude[*]{mathml.4ht}%
+   \Hinclude[*]{html-mml.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{jats.4ht}%
+}
+
+\Configure{docbook}{%
+   \Hinclude[*]{docbook.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \:CheckOption{mathml}\if:Option%
+   \else\:CheckOption{mathml-}\fi%
+   \if:Option%
+      \Hinclude[*]{mathml.4ht}%
+      \Hinclude[*]{docbook-mml.4ht}%
+   \else
+      \Hinclude[*]{docbook-math.4ht}%
+   \fi
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg-option.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+}
+\Configure{docbook-mml}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infomml.4ht}\fi
+   \Hinclude[*]{docbook.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{mathml.4ht}%
+   \Hinclude[*]{docbook-mml.4ht}%
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg-option.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+}
+
+\Configure{word}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{html4-math.4ht}%
+   \Hinclude[*]{htmlw.4ht}%
+   \:CheckOption{svg}%
+             \if:Option \else\:CheckOption{svg-}\fi
+             \if:Option \else\:CheckOption{svg-obj}\fi
+             \if:Option \else\:CheckOption{svg-inline}\fi
+             \if:Option \Hinclude[*]{svg-option.4ht}%
+                        \:CheckOption{info}\if:Option \Hinclude[*]{infosvg.4ht}\fi
+             \fi
+}
+
+\Configure{ooffice}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}%
+               \Hinclude[*]{infomml.4ht}%
+               \Hinclude[*]{infoof.4ht}\fi
+   \Hinclude[*]{ooffice.4ht}%
+   \:CheckOption{1}\if:Option\else
+      \:CheckOption{2}\if:Option\else
+      \:CheckOption{3}\if:Option\else
+      \:CheckOption{4}\if:Option\else
+      \:CheckOption{5}\if:Option\else
+      \:CheckOption{6}\if:Option\else
+      \:CheckOption{7}
+      \fi
+      \fi
+      \fi
+      \fi
+      \fi
+   \fi
+   \if:Option
+               \Hinclude[*]{ooimpress.4ht}%
+   \fi
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{mathml.4ht}%
+   \Hinclude[*]{ooffice-mml.4ht}%
+}
+
+\Configure{mathltx}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{html4-uni.4ht}%
+   \Hinclude[*]{mathltx.4ht}%
+   \Hinclude[*]{html-mltx.4ht}%
+}
+
+\Configure{jsmath}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{html4-uni.4ht}%
+   \Hinclude[*]{mathltx.4ht}%
+   \Hinclude[*]{html-mltx.4ht}%
+   \Hinclude[*]{jsmath.4ht}%
+   \Hinclude[*]{html-jsmath.4ht}%
+}
+
+\Configure{emspk}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{html4-uni.4ht}%
+   \Hinclude[*]{mathml.4ht}%
+   \Hinclude[*]{html-mml.4ht}%
+   \Hinclude[*]{html-speech.4ht}%
+   \Hinclude[*]{html-speech-math.4ht}%
+   \Hinclude[*]{emacspeak.4ht}%
+}
+\Configure{jsml}{%
+   \:CheckOption{info}\if:Option
+               \Hinclude[*]{infoht4.4ht}\fi
+   \Hinclude[*]{html4.4ht}%
+   \Hinclude[*]{unicode.4ht}%
+   \Hinclude[*]{html4-uni.4ht}%
+   \Hinclude[*]{mathml.4ht}%
+   \Hinclude[*]{html-mml.4ht}%
+   \Hinclude[*]{jsml.4ht}%
+   \Hinclude[*]{jsml-math.4ht}%
+}
+
+
+\openin15=tex4ht.usr \ifeof15 \else \closein15
+   \input tex4ht.usr
+\fi
+
+\let\Configure\:tempd
+
+\:tempc
+
+\:RestoreCatcodes
+\endinput
+

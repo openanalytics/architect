@@ -1,0 +1,22 @@
+%%
+%% This is file `laeaenice.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeaenice.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LAE}{aenice}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aenice}{m}{n}{<-> s*[1.25] aenice }{}
+\DeclareFontShape{LAE}{aenice}{bx}{n}{<-> ssub * aenice/m/n }{}
+
+\endinput

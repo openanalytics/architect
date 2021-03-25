@@ -1,0 +1,70 @@
+% frenchb.4ht (2015-12-22-15:58), generated from tex4ht-4ht.tex
+% Copyright 2001-2009 Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\def\frenchb:shorthand#1#2#3#4{%
+  \ifhmode
+     \ifdim \lastskip >\z@ \unskip \penalty \@M
+        \csname a:#1-#2\endcsname#3\csname b:#1-#2\endcsname
+     \else
+        \csname a:#1-#2\endcsname#4\csname b:#1-#2\endcsname
+  \fi \fi }
+
+\def\:temp{\leavevmode \nobreak \csname a:system-nbsp\endcsname\ \csname
+                  b:system-nbsp\endcsname}
+\expandafter\HLet\csname \system@group @sh@\string ~@\endcsname=\:temp
+\expandafter \ifx \csname FDP@space\endcsname\relax
+  \AtBeginDocument{%
+ \def\:temp{\frenchb:shorthand{frenchb}{nbsp}{\ }{\FDP@colonspace}\string :}%
+ \expandafter\HLet\csname\language@group @sh@\string :@\endcsname=\:temp
+}
+
+\else
+  \AtBeginDocument{%
+ \def\:temp{\frenchb:shorthand{frenchb}{nbsp}{\ }{\FDP@space}\string :}%
+ \expandafter\HLet\csname\language@group @sh@\string :@\endcsname=\:temp
+}
+
+\fi
+\AtBeginDocument{%
+ \def\:temp{\frenchb:shorthand{frenchb}{thinspace}
+                              {\thinspace }{\FDP@thinspace}\string ;}%
+ \expandafter\HLet\csname\language@group @sh@\string ;@\endcsname=\:temp
+ \def\:temp{\frenchb:shorthand{frenchb}{thinspace}
+                              {\thinspace }{\FDP@thinspace}\string !}%
+ \expandafter\HLet\csname\language@group @sh@\string !@\endcsname=\:temp
+ \def\:temp{\frenchb:shorthand{frenchb}{thinspace}
+                              {\thinspace }{\FDP@thinspace}\string ?}%
+ \expandafter\HLet\csname\language@group @sh@\string ?@\endcsname=\:temp
+}
+\NewConfigure{frenchb-nbsp}{2}
+\NewConfigure{frenchb-thinspace}{2}
+\NewConfigure{system-nbsp}{2}
+\catcode`\:=13
+\expandafter\let\csname protect\string:\endcsname=:
+\expandafter\def\csname active\string
+    :prefix\endcsname#1{\protect#1\ifx#1:{}\fi}
+\catcode`\:=11
+
+\ifFB@luatex@punct
+\FB@luatex@punctfalse
+\fi
+
+\Hinput{frenchb}
+\endinput
+

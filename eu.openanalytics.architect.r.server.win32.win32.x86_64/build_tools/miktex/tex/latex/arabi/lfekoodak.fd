@@ -1,0 +1,23 @@
+%%
+%% This is file `lfekoodak.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lfekoodak.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LFE}{koodak}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LFE}{koodak}{m}{n}{<-> s*[1.25] koodak }{}
+\DeclareFontShape{LFE}{koodak}{bx}{n}{<-> ssub * koodak/m/n }{}
+\DeclareFontShape{LFE}{koodak}{b}{n}{<->  ssub * koodak/m/n }{}
+
+\endinput

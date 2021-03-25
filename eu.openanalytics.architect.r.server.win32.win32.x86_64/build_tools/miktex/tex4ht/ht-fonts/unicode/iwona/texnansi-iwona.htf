@@ -1,0 +1,18 @@
+.lm-texnansi
+htfcss: texnansi-iwonab  font-weight: bold;
+htfcss: texnansi-iwonabi  font-style:italic; font-weight: bold;
+htfcss: texnansi-iwonacb  font-weight: bold;
+htfcss: texnansi-iwonacbi  font-style:italic; font-weight: bold;
+htfcss: texnansi-iwonach  font-weight: bold;
+htfcss: texnansi-iwonachi  font-style:italic; font-weight: bold;
+htfcss: texnansi-iwonacl  font-weight: light;
+htfcss: texnansi-iwonacli  font-weight: light; font-style:italic;
+htfcss: texnansi-iwonacmi  font-style:italic;
+htfcss: texnansi-iwonacri  font-style:italic;
+htfcss: texnansi-iwonah  font-weight: bold;
+htfcss: texnansi-iwonahi  font-style:italic; font-weight: bold;
+htfcss: texnansi-iwonal  font-weight: light;
+htfcss: texnansi-iwonali  font-weight: light; font-style:italic;
+htfcss: texnansi-iwonami  font-style:italic;
+htfcss: texnansi-iwonari  font-style:italic;
+

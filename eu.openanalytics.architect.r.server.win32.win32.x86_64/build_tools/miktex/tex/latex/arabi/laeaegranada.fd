@@ -1,0 +1,28 @@
+%%
+%% This is file `laeaegranada.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeaegranada.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+\DeclareFontFamily{LAE}{aegranada}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aegranada}{m}{n}{<-> s*[1.25] aegranada}{}
+\DeclareFontShape{LAE}{aegranada}{m}{it}{<-> ssub * aegranada/m/n }{}
+\DeclareFontShape{LAE}{aegranada}{m}{sl}{<->  ssub * aegranada/m/n }{}
+\DeclareFontShape{LAE}{aegranada}{bx}{n}{<-> ssub * aegranada/m/n }{}
+\DeclareFontShape{LAE}{aegranada}{bx}{it}{<-> ssub * aegranada/m/n }{}
+\DeclareFontShape{LAE}{aegranada}{bx}{sl}{<-> ssub * aegranada/m/n }{}
+\DeclareFontShape{LAE}{aegranada}{b}{n}{<-> ssub * aegranada/m/n }{}
+\DeclareFontShape{LAE}{aegranada}{b}{sl}{<-> ssub * aegranada/m/n }{}
+\DeclareFontShape{LAE}{aegranada}{b}{it}{<-> ssub * aegranada/m/n }{}
+
+\endinput

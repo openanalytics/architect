@@ -1,0 +1,38 @@
+% cs-all.tex : reports about font-macro-files only
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak, 2012
+
+% If you make your new font-macro-file, add the information about it here,
+% please
+
+\newtoks\ttoks
+\def\w#1#2#3{\ttoks{#3}\immediate\write16{#1 : \space== #2 ==}
+   \immediate\write16{\space\space\space\the\ttoks}}
+
+\immediate\write16{----------- Font packages from csplain available -----------}
+\w{ctimes}{Times}{\rm, \it, \bf, \bi, \tt}
+\w{cavant}{AvantGarde}{\rm, \it, \bf, \bi, \tt}
+\w{cbookman}{Bookman}{\rm, \it, \bf, \bi, \tt}
+\w{chelvet}{Helvetica}{\rm, \it, \bf, \bi, \tt, \cond\rm, ..., \cond\bi}
+\w{cncent}{NewCentury}{\rm, \it, \bf, \bi, \tt}
+\w{cpalatin}{Palatino}{\rm, \it, \bf, \bi, \tt.}
+\w{cs-bera}{Bera}{\rm, \it, \bf, \bi, \rms, ..., \bis, \tt, \ttit, \ttbf, \ttbi}
+\w{cs-arev}{ArevSans}{\rm, \it, \bf, \bi}
+\w{cs-charter}{Charter}{\rm, \it, \bf, \bi}
+\w{cs-antt}{Antykwa Torunska}{\rm, \it, \bf, \bi, \lr, \li, \mr, \mi, \caps\rm...}
+\w{cs-polta}{Antykwa Poltawskiego}{\rm,\it,\bf,\bi,\lr,\li,\mr,\mi,\caps\rm...}
+\w{cs-termes}{TeX Gyre Termes}{\rm, \it, \bf, \bi, \caps\rm, ...}
+\w{cs-adventor}{TeX Gyre Adventor}{\rm, \it, \bf, \bi, \caps\rm, ...}
+\w{cs-bonum}{TeX Gyre Bonum}{\rm, \it, \bf, \bi, \caps\rm, ...}
+\w{cs-heros}{TeX Grye Heros}{\rm, \it, \bf, \bi, \caps\rm, ..., \narrow}
+\w{cs-pagella}{TeX Gyre Pagella}{\rm, \it, \bf, \bi, \caps\rm, ...}
+\w{cs-schola}{TeX Gyre Schola}{\rm, \it, \bf, \bi, \caps\rm, ...}
+\w{cs-cursor}{TeX Gyre Cursor}{\rm, \it, \bf, \bi, \caps\rm, ...}
+\w{lmfonts}{Latin Modern}{\rm, \it, \bf, \bi + math}
+\w{kp-fonts}{KP-fonts}{\rm, \it, \bf, \bi + many font modifiers + math}
+\w{cs-libertine}{Linux Libertine}{\rm, \it, \bf, \bi + mono, Unicode only}
+\w{tx-math}{TX math fonts}{14 families, \mathchardef's prepared. Loaded automatically.}
+\w{ntx-math}{NTX math fonts}{14 families, \mathchardef's prepared. Another TX.}
+\w{ams-math}{AMS math fonts}{12 families, \mathchardef's prepared. You can load it.}
+\w{uni-math}{Unocode Math font}{given by \unimathfont macro}
+\endinput

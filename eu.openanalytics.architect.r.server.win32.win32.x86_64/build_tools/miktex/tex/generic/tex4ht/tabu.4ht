@@ -1,0 +1,69 @@
+% tabu.4ht (2018-12-30-09:31), generated from tex4ht-4ht.tex
+% Copyright 2018 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2018-12-30-09:31}
+
+% we must suppress \everyrow redefintion by tabu, so some macro patching is necessary
+\def\tabu@AtBeginDocument{
+\ifdefined\CT@arc@ \else \let\CT@arc@  \relax \fi
+\ifdefined\CT@drsc@\else \let\CT@drsc@ \relax \fi
+ \let\tabu@arc@L \CT@arc@ \let\tabu@drsc@L \CT@drsc@
+% \everyrow{}%
+}
+
+\let\orig:hline\hline
+\def\tabu@firstline{\orig:hline}
+\def\tabu@firsthline{\orig:hline}
+\def\tabu@lastline  {\orig:hline}
+\def\tabu@lasthline {\orig:hline}
+% there is a clash between tabu and tex4ht on \hline handling
+% we will just use \cr in place of \hline
+\def\tabu@hline {\cr}% \tabu@hline
+
+% this is basically a rewrite of the \tabu@select macro
+% the original code just crashed everything
+\def\tabu@select {%
+        \expandafter \tabuthepreamble
+}% \tabu@select
+
+
+\def\tabu@setup{\tabu@alloc@
+    \ifcase \tabu@nested
+        \ifmmode \else \iftabu@spread\else \ifdim\tabu@target=\z@
+            \let\tabu@afterendpar \par
+        \fi\fi\fi
+        \def\tabu@aligndefault{c}
+        \tabu@init
+        \tabu@indent
+    \else       % <nested tabu>
+        \def\tabu@aligndefault{t}
+        \let\tabudefaulttarget \linewidth
+    \fi
+    \let\tabu@thetarget \tabudefaulttarget \let\tabu@restored \@undefined
+    \edef\tabu@NC@list{\the\NC@list}\NC@list{\NC@do \tabu@rewritefirst}%
+    %\everycr{} % don't let tabu redefine \everycr
+   \let\@startpbox \tabu@startpbox % for nested tabu inside longtabu...
+             \let\@endpbox   \tabu@endpbox   % idem "    "    "    "    "    "
+             \let\@tabarray  \tabu@tabarray  % idem "    "    "    "    "    "
+    \tabu@setcleanup
+    % \tabu@setreset % this causes issues
+}% \tabu@setup
+
+\Hinput{tabu}
+\endinput
+

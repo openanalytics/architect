@@ -1,0 +1,114 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% spanish.4ht (2015-02-17-15:57), generated from tex4ht-4ht.tex
+% Copyright (C) 2000-2009 Eitan M. Gurari
+% Copyright 2009-2015 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2015-02-17-15:57}
+
+  \expandafter\def\csname spanish:"shorthand\endcsname
+               #1{\leavevmode \hbox{\csname a:spanish"#1\endcsname}}
+\edef\:temp{\expandafter\noexpand
+               \csname spanish:"shorthand\endcsname\space a}
+\expandafter\HLet\csname spanish@sh@\string"@a@\endcsname=\:temp
+\NewConfigure{spanish"a}{1}
+\edef\:temp{\expandafter\noexpand
+               \csname spanish:"shorthand\endcsname\space o}
+\expandafter\HLet\csname spanish@sh@\string"@o@\endcsname=\:temp
+\NewConfigure{spanish"o}{1}
+\edef\:temp{\expandafter\noexpand
+               \csname spanish:"shorthand\endcsname\space e}
+\expandafter\HLet\csname spanish@sh@\string"@e@\endcsname=\:temp
+\NewConfigure{spanish"e}{1}
+\edef\:temp{\expandafter\noexpand
+               \csname spanish:"shorthand\endcsname\space A}
+\expandafter\HLet\csname spanish@sh@\string"@A@\endcsname=\:temp
+\NewConfigure{spanish"A}{1}
+\edef\:temp{\expandafter\noexpand
+               \csname spanish:"shorthand\endcsname\space O}
+\expandafter\HLet\csname spanish@sh@\string"@O@\endcsname=\:temp
+\NewConfigure{spanish"O}{1}
+\edef\:temp{\expandafter\noexpand
+               \csname spanish:"shorthand\endcsname\space E}
+\expandafter\HLet\csname spanish@sh@\string"@E@\endcsname=\:temp
+\NewConfigure{spanish"E}{1}
+\edef\:tempc{\expandafter\noexpand
+               \csname spanish:'shorthand\endcsname\space i}
+\expandafter\HLet\csname spanish@sh@\string'@i@\endcsname=\:tempc
+\NewConfigure{spanish'i}{1}
+\def\:tempc{\csname a:spanish'i\endcsname}
+\expandafter\HLet\csname \string\OT1\string\'-i\endcsname\:tempc
+\AtBeginDocument{
+   \def\:tempc{\a:guillemotright}
+   \HLet\guillemotright\:tempc
+   \def\:tempc{\a:guillemotleft}
+   \HLet\guillemotleft\:tempc
+}
+\NewConfigure{guillemotright}{1}
+\Configure{guillemotright}{\o:guillemotright:}
+\NewConfigure{guillemotleft}{1}
+\Configure{guillemotleft}{\o:guillemotright:}
+\let\:tempc\es@accent
+\pend:defIII\:tempc{%
+    \expandafter\:text@composite@x
+    \csname OT1\string##1\endcsname##3\@empty}
+\HLet\es@accent\:tempc
+\def\:text@composite@x#1#2{%
+   \expandafter\ifx \csname \string#1-\string#2\endcsname\relax
+      \expandafter\ifx \csname \string#1- :\endcsname\relax
+          \expandafter\expandafter\expandafter\:gobble
+      \else
+          \expandafter\expandafter
+          \expandafter\expandafter
+          \expandafter\expandafter
+          \csname \string#1- :\endcsname
+      \fi
+   \else \expandafter\:gobble
+   \fi
+   {#2}%
+   }
+\def\chk:acc#1#2#3{%
+   \if !#2!\expandafter\:gobbleIII \else
+       \if \noexpand#1\noexpand#2%
+          \a:es@accents#3\b:es@accents
+          \expandafter\expandafter\expandafter\gob:accc
+       \else
+          \expandafter\expandafter\expandafter\chk:acc
+       \fi
+   \fi
+   {#1}%
+}
+\def\gob:accc#1{\gob:acc}
+\def\gob:acc#1#2{\if !#2!\expandafter\gobe:acc
+   \else \expandafter\gob:acc\fi
+}
+\expandafter\ifx\csname documentclass\endcsname\relax\then
+   \def\gobe:acc#1\@text@composite#2\@text@composite#3{}
+\else
+   \let\gobe:acc=\:gobble
+\fi
+\NewConfigure{es@accent}[2]{\expandafter
+   \def\csname #1- :\endcsname##1{\chk:acc{##1}#2{}{}}}
+\NewConfigure{es@accents}{2}
+\AtBeginDocument{%
+   \def\bbl@umlauta{\ifx \EndPicture \:UnDef \expandafter \n:bbl@umlauta:
+                    \else \expandafter \o:bbl@umlauta: \fi }%
+}
+
+\Hinput{spanish}
+\endinput
+

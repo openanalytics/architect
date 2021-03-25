@@ -1,0 +1,4 @@
+% UKRHYPH.T2A
+\def\Encoding{t2a}
+\input ukrhyph
+\endinput

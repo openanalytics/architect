@@ -1,0 +1,8 @@
+.ex-iwona
+htfcss: ex-kurierl  font-weight: light;
+htfcss: ex-kurierb  font-weight: bold;
+htfcss: ex-kurierh  font-weight: bold;
+htfcss: ex-kuriercl  font-weight: light;
+htfcss: ex-kuriercb  font-weight: bold;
+htfcss: ex-kurierch  font-weight: bold;
+

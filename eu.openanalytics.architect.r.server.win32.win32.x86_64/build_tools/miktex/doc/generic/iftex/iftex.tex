@@ -1,0 +1,199 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\hypersetup{colorlinks}
+\usepackage{iftex}
+
+\title{The iftex package}
+\author{The \LaTeX\ Project Team\thanks{%
+\url{https://github.com/latex3/iftex}}}
+
+\date{\csname ver@iftex.sty\endcsname}
+
+\newcommand\cs[1]{{\ttfamily\textbackslash #1}}
+\renewcommand*\descriptionlabel[1]{\makebox[\dimexpr\textwidth][l]{%
+                                \normalfont\bfseries #1}}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{Introduction}
+This original \textsf{iftex} was written as part of the \textsf{bidi}
+collection (by the Persian TeX Group / Vafa Khalighi) 
+and provided checks for whether a document was being
+processed with PDF\TeX, or Xe\TeX, or Lua\TeX. This version recodes
+the package and incorporates similar tests from the \textsf{ifetex}
+package by Martin Scharrer, the \textsf{ifxetex} package by Will
+Robertson, the \textsf{ifluatex} and \textsf{ifvtex}
+packages from Heiko Oberdiek and parts of \textsf{ifptex} by Takayuki
+Yato.
+
+For each \TeX\ variant engine supported two commands are provided:
+\begin{itemize}
+\item 
+ a conditional, \verb|\iffootex| that is true if the \textsf(footex)
+engine (or a compatible extension) is being used.
+
+For compatibility with earlier packages which did not all use the same
+naming convention all these conditionals are provided in two forms, a
+lowercase name \verb|\iffootex| and a mixed case name \verb|\iffooTeX|.
+
+\item a command \verb|RequireFooTeX| which checks that \textsf{footex}
+  is being used, and stops the run with an error message if a
+  different engine is detected.
+\end{itemize}
+
+\section{Loading the package}
+The package can be loaded in the usual way in both Plain \TeX\ and \LaTeX.
+\subsection{Loading the package in plain \TeX}
+\begin{verbatim}
+\input iftex.sty
+\end{verbatim}
+
+\subsection{Loading the package in \LaTeX}
+\begin{verbatim}
+\usepackage{iftex}
+\end{verbatim}
+
+\subsection{Loading the package in ini\TeX}
+The package assumes no existing macros and may be loaded
+during format setup in a format without the plain \TeX\ or \LaTeX\
+format being loaded. From an initial ini\TeX\ setup the package may
+be loaded as for plain \TeX.
+
+\section{Engine test conditionals}
+All the conditionals defined here are used in the same way:
+\begin{verbatim}
+\ifluatex
+  luatex specific code
+\else
+  code for other engines
+\fi
+\end{verbatim}
+
+
+
+\begin{description}
+\item[\cs{ifetex},      \cs{ifeTeX}]
+True if an e\TeX\ enabled format is in use. (This is necessarily true
+in all \LaTeX\ variants.)
+\item[\cs{ifpdftex},    \cs{ifPDFTeX}]
+True if PDF\TeX\ is in use (whether writing PDF or DVI), so this is
+true for documents processed with both the  \textsf{latex} and
+\textsf{pdflatex} commands.
+\item[\cs{ifxetex},     \cs{ifXeTeX}]
+True if Xe\TeX\ is in use.
+\item[\cs{ifluatex},    \cs{ifLuaTeX}]
+True if Lua\TeX\ and extensions such as LuaHB\TeX\ are in use.
+\item[\cs{ifluahbtex},  \cs{ifLuaHBTeX}]
+True if the \textsf{luaharftex} Lua module is available.
+This will be true in \textsf{luahbtex} and may be true in
+\textsf{luatex} if a binary Lua \textsf{luaharftex} module has been
+compiled and is available in Lua's search path.
+\item[\cs{ifptex},      \cs{ifpTeX}]
+True if any of the p\TeX\ variants are in use.
+\item[\cs{ifuptex},     \cs{ifupTeX}]
+True if any of the up\TeX\ variants are in use. (\verb|\ifetex| could
+be used in addition to distinguish \textsf{uptex} and \textsf{euptex}.)
+\item[\cs{ifptexng},    \cs{ifpTeXng}]
+True if p\TeX-ng (Asiatic p\TeX) is in use.
+\item[\cs{ifvtex},      \cs{ifVTeX}]
+True if V\TeX\ is in use.
+\item[\cs{ifalephtex},  \cs{ifAlephTeX}]
+True if Aleph is in use. (The \textsf{aleph}-based \LaTeX\ command is
+\textsf{lamed}.)
+\item[\cs{iftutex},     \cs{ifTUTeX}]
+This is not strictly an engine variant, but it is true if
+\verb|\Umathchardef| is available, which essentially means that it is
+true for Lua\TeX\ and Xe\TeX, allowing constructs such as
+\begin{verbatim}
+\iftutex
+  \usepackage{fontspec}
+  \setmainfont{TeX Gyre Termes}
+  \usepackage{unicode-math}
+  \setmathfont{Stix Two Math}
+\else
+  \usepackage{newtxtext,newtxmath}
+\fi
+\end{verbatim}
+
+\end{description}
+
+\section{Requiring specific engines}
+For each supported engine, the package provides a command
+\verb|\Require...| which checks that the document is being processed
+with a suitable engine, and stops with an error message if not.
+
+\begin{description}
+\item[\cs{RequireeTeX}]
+\item[\cs{RequirePDFTeX}]
+\item[\cs{RequireXeTeX}]
+\item[\cs{RequireLuaTeX}]
+\item[\cs{RequireLuaHBTeX}]
+\item[\cs{RequirepTeX}]
+\item[\cs{RequireupTeX}]
+\item[\cs{RequirepTeXng}]
+\item[\cs{RequireVTeX}]
+\item[\cs{RequireAlephTeX}]
+\item[\cs{RequireTUTeX}]
+\end{description}
+
+
+\section{Output mode conditional}
+This package also provides an \verb|\ifpdf| conditional that is true
+if the format is set up to output in PDF mode rather than DVI. This is
+equivalent to the test in the existing \textsf{ifpdf} package.
+
+Unlike the engine tests above this is defined as if by \verb|\newif|
+with user-documented commands \verb|\pdftrue| and \verb|\pdffalse| that can
+change the boolean value. These would be needed to reset the boolean
+if the output mode is reset (for example by setting
+\verb|\pdfoutput=0| in PDF\LaTeX).
+
+Unlike the original \textsf{ifpdf} package, the version here also
+detects PDF output mode if running in V\TeX.
+
+\section{Additional packages}
+This extended \textsf{iftex} is designed to replace the original
+\textsf{iftex} and also the packages
+\textsf{ifetex},
+\textsf{ifluatex},
+\textsf{ifvtex},
+\textsf{ifxetex},
+\textsf{ifpdf}.
+
+This collection includes small packages with these names that include
+the main \textsf{iftex} package, and in some cases define additional
+commands for increased compatibility. These packages should mean that
+authors do not need to change existing documents, although it is
+recommended that new documents use the \textsf{iftex} package
+directly.
+
+
+Note that while this package provides basic support for detecting
+p\TeX\ (Japanese \TeX) variants and is broadly compatible with the
+\textsf{ifptex} package, the \textsf{ifptex} package has many more detailed
+tests for p\TeX\ variants and this package does \emph{not} replace the
+\textsf{ifptex} (or \textsf{ifxptex}) packages, which are maintained
+by their original authors and recommended for Japanese documents that
+need fine control over the Japanese \TeX\ system in use.
+
+\section{Compatibility with \textsf{scrbase}}
+The \textsf{scrbase} package (which is automatically included in the
+popular \textsf{KOMA-Script} classes) by default defines
+\verb|\ifpdftex| and \verb|\ifVTeX| with a different syntax.  If you
+use the \textsf{scrbase} option \verb|internalonly| then
+\textsf{scrbase} will not define these and the definitions as
+described here will take effect. This is recommended and will not
+affect any \textsf{scrbase} package code as internally
+\textsf{scrbase} uses private versions of those commands prefixed with
+\verb|\scr@|.  However this package detects if the \textsf{scrbase}
+definitions are in effect and if so does not redefine them, for
+compatibility with existing documents. The \textsf{iftex} versions
+will still be available under the names \verb|\ifPDFTeX| and
+\verb|\ifvtex|.
+
+\end{document}

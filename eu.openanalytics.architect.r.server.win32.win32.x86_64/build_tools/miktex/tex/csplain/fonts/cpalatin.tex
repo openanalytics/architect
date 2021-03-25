@@ -1,0 +1,50 @@
+% The file cpalatin.tex (C) Petr Olsak, 1996, 1999, 2012, 2016
+% Use "\input cpalatin" to set the Palatino fonts family
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Palatino] {\caps{\rm\bf}} {\rm \bf \it \bi} {} {TX} {8z 8t}
+
+\def\caps{\ffvars{r}{b}{!}{!}\ffsetV{caps}{c}\ffsetX} 
+\def\nocaps{\ffvars{r}{b}{ri}{bi}\ffsetV{caps}{}\ffsetX} 
+\nocaps\relax % default 
+\def\ffwarning#1{\ffmessage{FONT warning: Palatino - \string\caps#1 unavailable}}
+
+\ismacro\fotenc{8z}\ifttrue
+   \font\tenrm=pplr8z   \sizespec
+   \font\tenbf=pplb8z   \sizespec
+   \font\tenit=pplri8z  \sizespec
+   \font\tenbi=pplbi8z  \sizespec
+   \font\tentt=pcrr8u   \sizespec
+   \let\tensl=\tenit
+
+   \def\ffnamegen{ppl\ffvarV\capsV 8z}
+
+   \input chars-8z
+\fi
+
+\ismacro\fotenc{8t}\ifttrue
+   \font\tenrm=pplr8t   \sizespec
+   \font\tenbf=pplb8t   \sizespec
+   \font\tenit=pplri8t  \sizespec
+   \font\tenbi=pplbi8t  \sizespec
+   \font\tentt=pcrr8t   \sizespec
+   \let\tensl=\tenit
+
+   \def\ffnamegen{ppl\ffvarV\capsV 8t}
+\fi
+
+\tenrm
+
+\let\setsimplemath=\relax % this command is obsolete
+
+% The \TeX logo corrected by Ivo Jancik for Palatino fonts family
+\def\palTeX{T\kern-.1667em\lower.3333ex\hbox{E}\kern-.125emX}
+\ifx\origTeX\undefined \let\origTeX=\TeX \fi
+\let\TeX=\palTeX
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+% end of ctimes.tex
+

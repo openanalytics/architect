@@ -1,0 +1,5532 @@
+% docbook.4ht (2021-02-08-13:37), generated from tex4ht-docbook.tex
+% Copyright 2009-2019 TeX Users Group
+% Copyright 2000-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2021-02-08-13:37}
+
+\exit:ifnot{Preamble,% 
+algorithmic,% 
+amsart,% 
+amsbook,% 
+amsmath,% 
+amsproc,% 
+amsthm,% 
+array,% 
+article,% 
+beamer,% 
+biblatex,% 
+book,% 
+color,% 
+dcolumn,% 
+fancyvrb,% 
+fontmath,% 
+graphics,% 
+index,% 
+jurabib,% 
+latex,% 
+listings,% 
+llncs,% 
+longtable,% 
+makeidx,% 
+memoir,% 
+multind,% 
+multirow,% 
+pgf,% 
+plain,% 
+prosper,% 
+report,% 
+scrartcl,% 
+scrbook,% 
+scrreprt,% 
+splitidx,% 
+subeqnarray,% 
+tex4ht,% 
+texinfo}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{ext}{xml}
+\edef\Preamble{\Preamble,refcaption}
+\:CheckOption{debug-} \if:Option
+    \def\IgnoreDebug#1{}
+\else
+    \def\IgnoreDebug#1{#1}
+\fi
+\Configure{PROLOG}{VERSION,DOCTYPE,*XML-STYLESHEET}
+\:CheckOption{no-DOCTYPE} \if:Option
+   \Configure{PROLOG}{VERSION,*XML-STYLESHEET}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \if:latex  \Hinclude{\input #1.4ht}{latex}
+
+\else      \ifx \contextversion\Un:def
+   \Hinclude{\input #1.4ht}{plain}
+   \def\:temp{t}%
+   \ifx \eplain\:temp
+      \Hinclude{\input #1.4ht}{eplain}
+   \fi
+   \def\:temp{M\kern-.111em\lower.6ex\hbox{E}\kern-.075emX}
+\ifx \nM@X\:temp
+   \expandafter\ifx\csname emulateplain\endcsname\relax \else
+     \Hinclude{\input #1.4ht}{mex}
+\fi\fi
+
+   \ifx \d@nger\:UnDef \else
+      \let\leftheadline\empty
+      \let\rightheadline\empty
+      \Hinclude{\input #1.4ht}{manmac}
+   \fi
+\else
+   \Hinclude{\input #1.4ht}{context}
+\fi
+  \fi
+\Configure{HTML}{}{}
+\Configure{HEAD}{\bgroup \Configure{TITLE}{}{}}{\egroup}
+\Configure{BODY}{}{}
+\Configure{TITLE+} {}
+\ifx \a:TITLE\:UnDef
+\Configure{TITLE}{}{}
+\fi
+
+\Configure{HtmlPar}
+   {\EndP\HCode{<!--l. \the\inputlineno--><para>}}
+   {\EndP\HCode{<!--l. \the\inputlineno--><para>}}
+   {\HCode{</para>}}     {\HCode{</para>}}
+
+%\LinkCommand\DBLink{ulink, url}
+\LinkCommand\DBLink{link, xlink:href}
+\LinkCommand\Anchor{anchor,, xml:id,,,\empty}
+\Odef\Link[#1]#2#3{%
+   \global\let\EndLink=\empty
+   \if ]#3]\else \Anchor{}{#3}\EndAnchor
+             \gdef\M:EndLink{\HCode{<!--end anchor-->}}\fi
+   \if ]#1#2]\else
+     \EndLink\DBLink[#1]{#2}{}\global\let\EndLink=\EndDBLink\fi
+}
+\let\do:Link=\Link
+\def\Link{\Protect\p:Link}
+\def\p:Link{\futurelet\:next\choose:Link}
+\def\choose:Link{\ifx -\:next \expandafter\minus:Link
+                 \else\expandafter\do:Link\fi}
+\def\minus:Link#1{\do:Link}
+
+\Configure{Link}{anchor}{linkend=}{xml:id=}{}
+
+\newif\ifHCond
+\Configure{Picture+}{}{}
+\Configure{Picture*}{}{}
+\Configure{IMG}
+  {\ht:special{t4ht=<inlinemediaobject><imageobject><imagedata\Hnewline
+                                                       fileref="}}
+  {\ht:special{t4ht="}}
+  {}
+  {}
+  {\ht:special{t4ht=></imagedata></imageobject></inlinemediaobject>}}
+\Configure{pic-halign}{}
+\Configure{PictureAlt*+}
+   {\let\sv:HtmlPar=\HtmlPar   \let\HtmlPar=\empty
+     \def\PsCode##1{{\ht:special{\PsCodeSpecial##1}}}%
+%
+     \iffalse{\fi
+\let\sv:halign=\halign
+\let\sv:cr=\cr
+\let\sv:crcr=\crcr
+\iffalse}\fi
+\RecallTeXcr \let\halign =\TeXhalign
+%
+     \NoFonts\csname PauseMathClass\endcsname \SUBOff \SUPOff
+     \let\HCode=\:gobble     
+     \let\EndPicture=\empty
+     \ht:special{t4ht@[}%
+   }
+   {\ht:special{t4ht@]}%
+     \let\HCode=\:HCode
+     \let\EndPicture=\:UnDef \let\HtmlPar=\sv:HtmlPar \SUBOn \SUPOn
+     \csname EndPauseMathClass\endcsname \EndNoFonts
+     \iffalse{\fi
+\let\halign=\sv:halign
+\let\cr=\sv:cr
+\let\crcr=\sv:crcr
+\iffalse}\fi
+%
+     \let\PsCode=\relax
+%
+   }
+\Configure{TocLink}{\Link{#2}{#3}\EndLink#4}
+\ScriptCommand{\CssFile}{%
+  \immediate\write-1{--- file \aa:CssFile\space ---}%
+  \def\FontSize##1##2{\:Context{##1}\ht:special{t4ht;\%##2}\%}%
+  \def\FontName##1{\:Context{##1}\ht:special{t4ht;=}}%
+  \def\:Context##1{\ht:special{t4ht>\jobname.tmp}##1\ht:special
+     {t4ht>\aa:CssFile}}%
+  \ht:special{t4ht>\jobname.tmp}\ht:special{t4ht>\aa:CssFile}\bb:CssFile
+  \hfil\break\NoFonts}{\EndNoFonts
+  \ht:special{t4ht<\aa:CssFile}\ht:special{t4ht<\jobname.tmp}}
+\let\Css:File\let \prOteCt \relax \Protect \csname acp:c\endcsname {18}\CssFile
+\def\CssFile{\futurelet\:temp\Css:Fl}
+\def\Css:Fl{\ifx [\:temp  \expandafter\Css:fl
+   \else \expand:after{\Css:File \space}\fi}
+\def\Css:fl[#1]{\Css:File\space \css:files #1,,}
+\def\css:files#1,#2{\def\:temp{#1}\ifx \:temp\empty
+   \else \def\:temp{\in:css#1.\css:files#2,,}\fi
+   \:temp }
+\def\in:css#1.#2{\def\:temp{#2}\ifx \:temp\empty \input #1.css
+   \else \inc:ss#1.#2\fi}
+\def\inc:ss#1.{\input #1 }
+\NewConfigure{CssFile}[2]{\def\aa:CssFile{#1}\def\bb:CssFile{#2}}
+\def\Css#1{{\def\:temp{\Configure{Needs}}%
+   \expandafter\:temp\expandafter{\aa:Css}\Needs{#1}}}
+
+\Configure{Preamble}
+   {{\ifdim \lastskip>\z@ \unskip\fi  \IgnorePar\parindent\z@
+\leavevmode}%
+\immediate\write-1{--- file \aa:CssFile\space ---}%
+\ht:special{t4ht>\aa:CssFile}\ht:special{t4ht=\Hnewline /* css.sty */}%
+\ht:special{t4ht<\aa:CssFile}%
+} {}
+\Configure{CssFile}{\jobname.css}
+  {/* \aa:CssFile\space from \jobname.tex (TeX4ht) */}
+\Configure{Needs}{l.
+   \the\inputlineno\space--- needs --- #1 ---}
+\Configure{Needs-}{l.
+   \the\inputlineno\space--- needs --- #1 ---}
+\ifx \a:FontCss:\:UnDef
+   \Configure{FontCss}{Font\string_Css##1}
+                   {Font\string_Css\string_Plus\space##1}
+\fi
+\expandafter\ifx \csname aa:Css\endcsname\relax
+   \Configure{Css}{Css: ##1}
+\fi
+\:CheckOption{jpg} \if:Option
+   \Configure{Picture}{.jpg}
+\else
+   \Log:Note{for jpg bitmaps of pictures, use the `jpg'
+       command line option. (Character bitmaps are controled only by `g' records of tex4ht.env and `-g'
+switches of tex4ht.c)
+}
+\fi
+\:CheckOption{gif} \if:Option
+   \Configure{Picture}{.gif}
+\else
+   \Log:Note{for gif bitmaps of pictures, use the `gif'
+       command line option. (Character bitmaps are controled only by `g' records of tex4ht.env and `-g'
+switches of tex4ht.c)
+}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\ifx\InputIfFileExists\UnDef%
+\def\input:if:fileexists#1#2#3{%
+   \openin15 #1.4ht%
+   \ifeof15%
+   #3%
+   \else%
+   \input #1%
+   \fi\closein15%
+}%
+\else
+\let\input:if:fileexists\InputIfFileExists%
+\fi%
+\Hinclude{\input #1.4ht}{fontmath}
+\Hinclude{\@ifpackageloaded{colortbl}{%
+      \no:dupl{array}{\input  array.4ht}%
+      \no:dupl{color}{\input  color.4ht}%
+      \no:dupl{colortbl}{\input  colortbl.4ht}%
+    }{}}{colortbl}
+
+\def\:strip:quotes"#1"#2"#3\relax{\if .#1.#2\else #1\fi}
+\def\h:input#1.#2.#3!*?: {%
+   \edef\:current:package{\:strip:quotes"#1""\relax}
+   \:CheckOption{no_\:current:package}\if:Option
+      \let\:temp\empty
+   \else
+      \let\:temp\empty
+      \no:dupl{\:current:package}{%
+        \def\:warn:msg{}
+        \:CheckOption{debug}\if:Option
+          \def\:warn:msg{%
+            \:warning{No configuration file for \:current:package.\if .#2.tex\else #2\fi}%
+          }
+        \fi%
+        \def\:temp{\input:if:fileexists{\:current:package.4ht}{}{\:warn:msg}}%
+       }%
+   \fi  \:temp}
+\edef\:temp{\noexpand\Hinclude
+   {\noexpand\h:input ##1..!*?: }{\@filelist}}
+\:temp
+
+\expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\Hinclude{\ifx \PsfigVersion\:UnDef \else
+      \no:dupl{#1}{\expand:after{\input psfig.4ht}}\fi}
+   {psfig}
+\Hinclude{\:CheckOption{#1}
+   \if:Option     \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pictex}
+\Hinclude{%
+   \expandafter\ifx \csname PSTricksLoaded\endcsname\relax\else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pstricks}
+\Hinclude{%
+   \ifx \:DraCatCodes\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {dratex}
+\Hinclude{%
+   \ifx \xyloaded\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {xy}
+
+\Hinclude{%
+   \ifx \epsfsetgraph\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {epsf}
+
+\Hinclude{%
+   \ifx \diagram@help@messages\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {diagrams}
+
+\Hinclude{%
+   \ifx \figvisu\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {fig4tex}
+
+\Hinclude{}
+   {pctable}
+\Hinclude{%
+   \:CheckOption{xhtml}\if:Option \fi}
+   {xhtml}
+\Hinclude{\:CheckOption{#1}
+      \if:Option\else   \:CheckOption{ShowFont}\fi
+      \if:Option\else   \:CheckOption{frames-}\fi
+      \if:Option\else   \:CheckOption{frames}\fi
+      \if:Option\else   \:CheckOption{image-maps}\fi
+      \if:Option\else   \:CheckOption{java}\fi
+      \if:Option\else   \:CheckOption{javascript}\fi
+      \if:Option \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {th4}
+\Hinclude{\ifx \sethebrew\:UnDef\else \ifx \ArabTeX\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input hebtex.4ht}}\fi \fi}
+   {hebtex}
+
+\Configure{InsertTitle}{\let\label=\lb:l
+   \let\ref=\o:ref \Configure{ref}{}{}{}}
+\Configure{AfterTitle}{\let\index=\:index
+       \let\ref=\:ref  \let\label=\lb:l }
+\Configure{NoSection}
+  {\let\sv:index=\index \let\sv:label=\label
+   \let\sv:newline=\newline \def\newline{ }%
+   \let\sv:setfontsize=\@setfontsize  \let\@setfontsize=\:gobbleIII
+   \let\index=\@gobble  \let\label=\@gobble
+   \let\sva:rEfLiNK=\a:rEfLiNK
+\let\svb:rEfLiNK=\b:rEfLiNK
+\let\svc:rEfLiNK=\c:rEfLiNK
+\expandafter\let\expandafter\svC:rEfLiNK\c:rEfLiNK
+\Configure{ref}{}{}{}%  \let\sv:ref=\ref  \let\ref=\@gobble
+%
+  }
+  {\let\index=\sv:index \let\label=\sv:label
+   \let\a:rEfLiNK=\sva:rEfLiNK
+\let\b:rEfLiNK=\svb:rEfLiNK
+\let\c:rEfLiNK=\svc:rEfLiNK
+\expandafter\let\c:rEfLiNK\svC:rEfLiNK  %  \let\ref\sv:ref
+%
+   \let\newline=\sv:newline    \let\@setfontsize=\sv:setfontsize
+  }
+
+\ConfigureEnv{quote}{\ifvmode\IgnorePar\fi\EndP\HCode{<blockquote>}}{\ifvmode\IgnorePar\fi\EndP\HCode{</blockquote>}\par\ShowPar}{}{}
+\ConfigureEnv{center}
+  {\EndP}{\par \ShowPar} {}{}
+\ConfigureList{center}
+   {\IgnorePar\EndP\HCode{<section role="center"><title/>}\par\ShowPar}
+   {\IgnorePar\EndP\HCode{</section>}\par\ShowPar}
+   {} {\par\ShowPar}
+\ConfigureEnv{flushleft}
+  {\EndP}{\par \ShowPar} {}{}
+\ConfigureEnv{flushright}
+  {\EndP}{\par \ShowPar} {}{}
+\ConfigureList{flushleft}
+  {\IgnorePar\EndP\HCode{<blockquote role="flushleft">}\par\ShowPar}
+  {\IgnorePar\EndP\HCode{</blockquote>}\par\ShowPar}
+  {} {\par\ShowPar}
+\ConfigureList{flushright}
+  {\IgnorePar\EndP\HCode{<blockquote role="flushright">}\par\ShowPar}
+  {\IgnorePar\EndP\HCode{</blockquote>}\par\ShowPar}
+  {} {\par\ShowPar}
+\ConfigureEnv{minipage}
+   {%\IgnorePar\EndP
+    %\HCode{<note><para role="minipage">}%
+    {\ifnum 0=`}\fi
+   }
+   {\ifnum 0=`{\fi}%
+%    \EndP\HCode{</para></note>}%
+   }
+   {}{}
+\ConfigureEnv{section}
+   {\IgnorePar\EndP\HCode{<section role="minipage">}}
+   {\IgnorePar\EndP\HCode{</section>}\ShowPar}
+   {}{}
+
+
+\ConfigureEnv{verbatim}
+  {\ifinner\else \vfill\break\fi
+    \IgnorePar\EndP\HCode{<literallayout role="verbatim">}\EndNoFonts}
+  {\NoFonts \ht:special{t4ht=</literallayout>}\ShowPar\par}
+  {} {}
+\ConfigureEnv{verbatim*}
+  {\ifinner\else \vfill\break\fi
+    \IgnorePar\EndP\HCode{<literallayout role="verbatim-star">}\EndNoFonts}
+  {\NoFonts \HCode{</literallayout>}\ShowPar\par}
+  {} {}
+\Configure{verbatim}{\:nbsp}{\a:sp}
+
+\ConfigureList{trivlist}%
+   {\EndP\HCode{<glosslist>}\let\end:itm=\empty}
+   {\EndP\HCode{</glossdef></glossentry></glosslist>}\ShowPar}
+   {\end:itm\def\end:itm{\EndP\HCode{</glossdef></glossentry>}}%
+      \HCode{<glossentry><glossterm><remark>}\bgroup \bf}
+   {\egroup\HCode{</remark></glossterm><glossdef\Hnewline>}\par\ShowPar}
+\ConfigureList{list}%
+   {\EndP\HCode{<glosslist>}\let\end:itm=\empty}
+   {\EndP\HCode{</glossdef></glossentry></glosslist>}\ShowPar}
+   {\end:itm\def\end:itm{\EndP\HCode{</glossdef></glossentry>}}%
+      \HCode{<glossentry><glossterm><remark>}\bgroup \bf}
+   {\egroup\HCode{</remark></glossterm><glossdef\Hnewline>}\par\ShowPar}
+\ConfigureList{itemize}%
+   {\EndP\HCode{<itemizedlist>}\let\end:itm=\empty}
+   {\EndP\HCode{</listitem></itemizedlist>}\ShowPar}
+   {\end:itm\def\end:itm{\EndP\Tg</listitem>}\DeleteMark}
+   {\HCode{<listitem>}\par\ShowPar}
+\ConfigureList{enumerate}%
+   {\EndP\HCode{<orderedlist\Hnewline>}\let\end:itm=\empty}
+   {\EndP\HCode{</listitem></orderedlist>}\ShowPar}
+   {\end:itm\def\end:itm{\EndP\Tg</listitem>}\DeleteMark}
+   {\HCode{<listitem>}\AnchorLabel\par\ShowPar}
+\ConfigureList{description}%
+   {\EndP\HCode{<variablelist\Hnewline>}%
+      \PushMacro\end:itm
+\global\let\end:itm=\empty}
+   {\PopMacro\end:itm \global\let\end:itm \end:itm
+\EndP
+    \HCode{</listitem></varlistentry></variablelist>}\ShowPar}
+   {\end:itm \global\def\end:itm{\EndP
+                          \HCode{</listitem></varlistentry>}}%
+    \HCode{<varlistentry><term\Hnewline>}\bgroup \bf}
+   {\egroup\EndP\HCode{</term><listitem>}\par\ShowPar}
+\Configure{cite}{\HCode{<citation>}}{\HCode{</citation>}}{\LinkCite}{}
+\Configure{bibitem}{\Link}{\EndLink}
+\LinkCommand\LinkCite{xref, linkend,,,/,\empty}
+
+\Configure{tabular}
+   {\IgnorePar\EndP \halignTB{tabular}%
+    \HCode{<informaltable><tgroup cols="\ar:cnt">}%
+    \tmp:cnt = 0
+\loop
+\ifnum \tmp:cnt < \ar:cnt
+   \advance\tmp:cnt by 1
+   {\HAssign\HCol=\tmp:cnt
+   \HCode{<colspec colname="c\HCol"
+             \expandafter\expandafter\expandafter\ifx
+                                       \HColWidth\relax\else
+                 colwidth="\HColWidth"
+             \fi
+          />}}%
+\repeat
+%
+    \HCode{<tbody>}}
+   {\HCode{</tbody></tgroup></informaltable>}\ShowPar}
+   {\HCode{<row>}}
+   {\HCode{</row>}}
+   {\HCode{<entry\Hnewline}\halignTD
+    \ifnum \HMultispan>1
+       \tmp:cnt=\HCol \advance\tmp:cnt by \HMultispan
+       \advance\tmp:cnt by -1
+       \HCode{ namest="c\HCol"  \IgnoreDebug{nameend="c\the\tmp:cnt"}}\fi
+    \HCode{>}\par\ShowPar}
+   {\ifvmode\IgnorePar\fi \EndP \HCode{</entry>}}
+\HAssign\tabularN=0
+\Configure{halignTB<>}{tabular}{<>\HAlign}
+\Configure{halignTB}
+   {\halignTBL}
+   {}
+\Configure{halignTD} {}{}
+   {<}{\HCode{ align="left"}}
+   {-}{\HCode{ align="center"}}
+   {>}{\HCode{ align="right"}}
+   {^}{\HCode{ valign="top"}}
+   {=}{\HCode{ valign="middle"}}
+   {|}{\HCode{ valign="middle"}}
+   {_}{\HCode{ valign="bottom"}}
+   {p}{\HCode{ align="char"}}
+   {m}{\HCode{ align="left" valign="middle"}}
+   {b}{\HCode{ align="left" valign="middle"}}
+   {}
+\Configure{hline}{}
+\Configure{//[]}{}
+\Configure{HBorder}
+   {<row\Hnewline role="hline">}
+      {<entry rowsep="1"></entry>}
+   {</row>}
+   {<row\Hnewline role="cline">}
+      {<entry rowsep="0"></entry>}
+      {<entry rowsep="1"></entry>}
+   {</row>}
+   {<row\Hnewline role="vspace">}
+       {<entry rowsep="1"\Hnewline></entry>}
+   {</row>}
+\Configure{putHBorder}{\HCode{\HBorder}}
+\HAssign\Next:TableNo=0 \global\let\TableNo=\Next:TableNo
+\Configure{hline}{\ifx \ar:cnt\:UnDef\else
+      \o:noalign:{\append:def\hline:s{\a:HBorder}%
+\def\:tempb{\ifnum \tmp:cnt<\ar:cnt
+    \advance\tmp:cnt by 1 \append:def\hline:s{\b:HBorder}%
+    \expandafter\:tempb
+  \fi }%
+\tmp:cnt=0 \:tempb
+\append:def\hline:s{\c:HBorder}\global\let\hline:s=\hline:s
+}%
+      \expandafter\ignoreEndTr
+   \fi}
+
+\Configure{ref}{\refLink}{\EndLink}{}
+\def\refLink#1#2#3\EndLink{
+   \ifvmode
+     \HCode{<note role="ref"><para>}
+     \Link{#1}{#2}\expandafter\ifx \csname RefArg\endcsname\relax\else \Tg<!--ref: \RefArg-->\fi\EndLink
+     #3\HCode{</para></note>}
+   \else
+     \Link{#1}{#2}\expandafter\ifx \csname RefArg\endcsname\relax\else \Tg<!--ref: \RefArg-->\fi\EndLink
+   \fi}
+\Configure{newline}{\HCode{<!--br\Hnewline/-->}}
+\Configure{newtheorem}
+   {\IgnorePar\EndP\HCode{<blockquote role="newtheorem"><title>}}
+   {\HCode{</title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+\ConfigureEnv{center}
+   {} {\ShowPar} {}{}
+\Configure{centerline}
+   {\ifvmode \IgnorePar\fi\HCode{<!--centerline-->}}
+   {\HCode{<!--/centerline-->}}
+\Configure{leftline}
+   {\ifvmode \IgnorePar\fi\HCode{<!--leftline-->}}
+   {\HCode{<!--/leftline-->}}
+\Configure{rightline}
+   {\ifvmode \IgnorePar\fi\HCode{<!--rightline-->}}
+   {\HCode{<!--/rightline-->}}
+
+\Configure{verb}{}{}
+
+\Configure{obeylines}
+   {\ifvmode \IgnorePar \EndP
+       \HCode{<blockquote role="obeylines-v">}%
+       \gdef\ob:ln{blockquote}%
+    \else \HCode{<remark role="obeylines-h">}%
+       \gdef\ob:ln{remark}%
+    \fi
+   }
+   {\ht:special{t4ht=</\ob:ln>}\ShowPar} {\hbox{\HCode{<!--br /-->}}}
+\def\:nbsp{\HCode{\string&}\HChar{-35}\HCode{x00A0;}}%
+
+\Configure{centerline}
+   {\IgnorePar\EndP\HCode{<blockquote
+        role="centerline"><title></title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+\Configure{leftline}
+   {\IgnorePar\EndP\HCode{<blockquote
+        role="leftline"><title></title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+\Configure{rightline}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{<blockquote
+        role="rightline"><title></title>}\ShowPar\par}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{</blockquote>}\ShowPar\par}
+
+\Configure{xcline}{\ht:special{t4ht=<!--dirt-->}}
+\Configure{textbf}{\leavevmode\SaveEndP\bgroup
+\Configure{HtmlPar}
+   {\HCode{<!--br role="newline" /-->}}
+   {\HCode{<!--br role="newline" /-->}}
+   {}{}%
+\HCode{<emphasis role="bf">}}
+                  {\HCode{</emphasis>}\egroup \RecallEndP
+}
+\Configure{textit}{\leavevmode\SaveEndP\bgroup
+\Configure{HtmlPar}
+   {\HCode{<!--br role="newline" /-->}}
+   {\HCode{<!--br role="newline" /-->}}
+   {}{}%
+\HCode{<emphasis role="it">}}
+                  {\HCode{</emphasis>}\egroup \RecallEndP
+}
+\Configure{textrm}{\leavevmode\SaveEndP\bgroup
+\Configure{HtmlPar}
+   {\HCode{<!--br role="newline" /-->}}
+   {\HCode{<!--br role="newline" /-->}}
+   {}{}%
+\HCode{<emphasis role="rm">}}
+                  {\HCode{</emphasis>}\egroup \RecallEndP
+}
+\Configure{textup}{\leavevmode\SaveEndP\bgroup
+\Configure{HtmlPar}
+   {\HCode{<!--br role="newline" /-->}}
+   {\HCode{<!--br role="newline" /-->}}
+   {}{}%
+\HCode{<emphasis role="up">}}
+                  {\HCode{</emphasis>}\egroup \RecallEndP
+}
+\Configure{textsc}{\leavevmode\SaveEndP\bgroup
+\Configure{HtmlPar}
+   {\HCode{<!--br role="newline" /-->}}
+   {\HCode{<!--br role="newline" /-->}}
+   {}{}%
+\HCode{<emphasis role="sc">}}
+                  {\HCode{</emphasis>}\egroup \RecallEndP
+}
+\Configure{textsf}{\leavevmode\SaveEndP\bgroup
+\Configure{HtmlPar}
+   {\HCode{<!--br role="newline" /-->}}
+   {\HCode{<!--br role="newline" /-->}}
+   {}{}%
+\HCode{<emphasis role="sf">}}
+                  {\HCode{</emphasis>}\egroup \RecallEndP
+}
+\Configure{textsl}{\leavevmode\SaveEndP\bgroup
+\Configure{HtmlPar}
+   {\HCode{<!--br role="newline" /-->}}
+   {\HCode{<!--br role="newline" /-->}}
+   {}{}%
+\HCode{<emphasis role="sl">}}
+                  {\HCode{</emphasis>}\egroup \RecallEndP
+}
+\Configure{texttt}{\leavevmode\SaveEndP\bgroup
+\Configure{HtmlPar}
+   {\HCode{<!--br role="newline" /-->}}
+   {\HCode{<!--br role="newline" /-->}}
+   {}{}%
+\HCode{<emphasis role="tt">}}
+                  {\HCode{</emphasis>}\egroup \RecallEndP
+}
+\Configure{emph}{\leavevmode\SaveEndP\bgroup
+\Configure{HtmlPar}
+   {\HCode{<!--br role="newline" /-->}}
+   {\HCode{<!--br role="newline" /-->}}
+   {}{}%
+\HCode{<emphasis>}}
+                {\HCode{</emphasis>}\egroup \RecallEndP
+}
+\Configure{idxmake}{\Beforeentry}
+\Configure{textcircled}
+   {\@use@text@encoding \@curr@enc c}
+   {\leavevmode \special{t4ht@+\string&\#x00A9;}c}
+   {\@use@text@encoding \@curr@enc \scshape r}
+   {\leavevmode \special{t4ht@+\string&\#x00AE;}r}
+   {}
+
+\def\:temp{LaTeX}
+\HLet\LaTeX\:temp
+\Configure{footnotetext}
+    {\HCode{<footnote><para>}\setbox\tmp:bx=\hbox\bgroup\let\@makefnmark\relax}
+    {\egroup}%
+    {\HCode{</para></footnote>}}
+\Configure{footnotemark}
+   {\setbox\tmp:bx=\hbox\bgroup}
+   {\egroup}
+\ifx \tmp:bx\:UnDef \csname newbox\endcsname \tmp:bx \fi
+\Configure{textsuperscript}
+  {\HCode{<superscript>}}
+  {\HCode{</superscript>}}
+
+\Configure{textsubscript}
+  {\HCode{<subscript>}}
+  {\HCode{</subscript>}}
+\Configure{underline}
+   {\HCode{<emphasis role="underline">}\:gobble}
+   {\HCode{</emphasis>}}
+\Configure{overline}
+   {\HCode{<emphasis role="overline">}}
+   {\HCode{</emphasis>}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureToc{lof}
+   {\HCode{\Hnewline<tocentry role="lofToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{lot}
+   {\HCode{\Hnewline<tocentry role="lotToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\def\DB:index#1\indNum#2{%
+   \ifnum  #2=\index:N
+      \let\DB:index=\relax  #1\long\def\item##1\end{\end}%
+   \else \expandafter\gob:item \fi
+}
+\long\def\gob:item#1\item{\DB:index}
+\let\indNum=\:gobble
+\HAssign\index:N = 0
+\def\comNum#1{\tmp:cnt=}
+\let\db:index=\index
+\def\index{%
+   \immediate\openin15=\jobname.ind
+   \ifeof15 \else
+      \immediate\closein15
+      \bgroup
+       \def\gobble##1{}%
+       \gHAdvance\index:N by 1
+       \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+       \leavevmode \let\par=\empty
+       \input{\jobname.ind}%
+      \egroup
+    \fi
+    \db:index}
+\Configure{theindex}
+    {\special{t4ht@[}}
+    {\special{t4ht@]}}
+    {}{}{}{}{}{}{}
+
+
+\def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article role="book" xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar
+   }
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\Configure{maketitle}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}\par\ShowPar}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+\Configure{likepart}
+   {\OpenDiv{likepart}}   {\CloseDiv{likepart}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likesection}
+   {\OpenDiv{likesection}}   {\CloseDiv{likesection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsection}
+   {\OpenDiv{likesubsection}}   {\CloseDiv{likesubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsubsection}
+   {\OpenDiv{likesubsubsection}}   {\CloseDiv{likesubsubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likeparagraph}
+   {\OpenDiv{likeparagraph}}   {\CloseDiv{likeparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubparagraph}
+   {\OpenDiv{likesubparagraph}}   {\CloseDiv{likesubparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endlikepart}{endpart}
+\fi
+
+\Configure{chapter}
+   {\OpenDiv{chapter}}   {\CloseDiv{chapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likechapter}
+   {\OpenDiv{likechapter}}   {\CloseDiv{likechapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+
+\Configure{tableofcontents}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{<toc><tocpart>}}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{</tocpart></toc><para></para>}}
+  {}{}{}
+\ConfigureToc{likeparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likeparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likepart}
+  {} {\HCode{\Hnewline<tocentry role="likepartToc">}}
+  {} {\HCode{</tocentry>}}
+\ConfigureToc{likesection}
+   {} {\HCode{\Hnewline<tocentry role="likesectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likesubparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{paragraph}
+   {\HCode{\Hnewline<tocentry role="paragraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{part}
+   {\HCode{\Hnewline<tocentry role="partToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{section}
+   {\HCode{\Hnewline<tocentry role="sectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subparagraph}
+   {\HCode{\Hnewline<tocentry role="subparagraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsection}
+   {\HCode{\Hnewline<tocentry role="subsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsubsection}
+   {\HCode{\Hnewline<tocentry role="subsubsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\ConfigureToc{appendix}
+   {\HCode{\Hnewline<tocentry role="appendixToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{chapter}
+   {\HCode{\Hnewline<tocentry role="chapterToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{likechapter}
+   {} {\HCode{\Hnewline<tocentry role="likechapterToc">}}
+   {} {\HCode{</tocentry>}}
+
+\ConfigureList{thebibliography}%
+   {\IgnorePar\EndP
+      \HCode{<simplelist role="bibliography">}\let\en:bib=\empty}
+   {\en:bib\HCode{</simplelist>}}
+   {\en:bib\def\en:bib{\HCode{</member>}}%
+    \HCode{<member><!--l.
+        \the\inputlineno--><abbrev role="biblioentry">}%
+    \Configure{HtmlPar}{}{}{}{}
+}
+   {\HCode{</abbrev>}}
+
+\ConfigureEnv{figure}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{<figure><title/><blockquote>}}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{</blockquote></figure>}}
+   {}{}
+\Configure{caption}
+   {\HCode{<blockquote role="caption"><title role="caption">}}
+   {\HCode{</title><para>}}
+   {}
+   {\HCode{</para></blockquote>}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureToc{lof}
+   {\HCode{\Hnewline<tocentry role="lofToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{lot}
+   {\HCode{\Hnewline<tocentry role="lotToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\def\DB:index#1\indNum#2{%
+   \ifnum  #2=\index:N
+      \let\DB:index=\relax  #1\long\def\item##1\end{\end}%
+   \else \expandafter\gob:item \fi
+}
+\long\def\gob:item#1\item{\DB:index}
+\let\indNum=\:gobble
+\HAssign\index:N = 0
+\def\comNum#1{\tmp:cnt=}
+\let\db:index=\index
+\def\index{%
+   \immediate\openin15=\jobname.ind
+   \ifeof15 \else
+      \immediate\closein15
+      \bgroup
+       \def\gobble##1{}%
+       \gHAdvance\index:N by 1
+       \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+       \leavevmode \let\par=\empty
+       \input{\jobname.ind}%
+      \egroup
+    \fi
+    \db:index}
+\Configure{theindex}
+    {\special{t4ht@[}}
+    {\special{t4ht@]}}
+    {}{}{}{}{}{}{}
+
+
+\def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article role="report" xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar}
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\Configure{maketitle}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}\par\ShowPar}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+\ConfigureEnv{abstract}
+   {\IgnorePar\EndP\HCode{<abstract>}}
+   {\IgnorePar\EndP\HCode{</abstract>}}
+   {\HCode{<note role="title"><para>}}
+   {\HCode{</para></note>}}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+\Configure{likepart}
+   {\OpenDiv{likepart}}   {\CloseDiv{likepart}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likesection}
+   {\OpenDiv{likesection}}   {\CloseDiv{likesection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsection}
+   {\OpenDiv{likesubsection}}   {\CloseDiv{likesubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsubsection}
+   {\OpenDiv{likesubsubsection}}   {\CloseDiv{likesubsubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likeparagraph}
+   {\OpenDiv{likeparagraph}}   {\CloseDiv{likeparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubparagraph}
+   {\OpenDiv{likesubparagraph}}   {\CloseDiv{likesubparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endlikepart}{endpart}
+\fi
+
+\Configure{chapter}
+   {\OpenDiv{chapter}}   {\CloseDiv{chapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likechapter}
+   {\OpenDiv{likechapter}}   {\CloseDiv{likechapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+
+
+\Configure{tableofcontents}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{<toc><tocpart>}}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{</tocpart></toc><para></para>}}
+  {}{}{}
+\ConfigureToc{likeparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likeparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likepart}
+  {} {\HCode{\Hnewline<tocentry role="likepartToc">}}
+  {} {\HCode{</tocentry>}}
+\ConfigureToc{likesection}
+   {} {\HCode{\Hnewline<tocentry role="likesectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likesubparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{paragraph}
+   {\HCode{\Hnewline<tocentry role="paragraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{part}
+   {\HCode{\Hnewline<tocentry role="partToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{section}
+   {\HCode{\Hnewline<tocentry role="sectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subparagraph}
+   {\HCode{\Hnewline<tocentry role="subparagraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsection}
+   {\HCode{\Hnewline<tocentry role="subsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsubsection}
+   {\HCode{\Hnewline<tocentry role="subsubsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\ConfigureToc{appendix}
+   {\HCode{\Hnewline<tocentry role="appendixToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{chapter}
+   {\HCode{\Hnewline<tocentry role="chapterToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{likechapter}
+   {} {\HCode{\Hnewline<tocentry role="likechapterToc">}}
+   {} {\HCode{</tocentry>}}
+
+\ConfigureList{thebibliography}%
+   {\IgnorePar\EndP
+      \HCode{<simplelist role="bibliography">}\let\en:bib=\empty}
+   {\en:bib\HCode{</simplelist>}}
+   {\en:bib\def\en:bib{\HCode{</member>}}%
+    \HCode{<member><!--l.
+        \the\inputlineno--><abbrev role="biblioentry">}%
+    \Configure{HtmlPar}{}{}{}{}
+}
+   {\HCode{</abbrev>}}
+
+\ConfigureEnv{figure}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{<figure><title/><blockquote>}}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{</blockquote></figure>}}
+   {}{}
+\Configure{caption}
+   {\HCode{<blockquote role="caption"><title role="caption">}}
+   {\HCode{</title><para>}}
+   {}
+   {\HCode{</para></blockquote>}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureToc{lof}
+   {\HCode{\Hnewline<tocentry role="lofToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{lot}
+   {\HCode{\Hnewline<tocentry role="lotToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\def\DB:index#1\indNum#2{%
+   \ifnum  #2=\index:N
+      \let\DB:index=\relax  #1\long\def\item##1\end{\end}%
+   \else \expandafter\gob:item \fi
+}
+\long\def\gob:item#1\item{\DB:index}
+\let\indNum=\:gobble
+\HAssign\index:N = 0
+\def\comNum#1{\tmp:cnt=}
+\let\db:index=\index
+\def\index{%
+   \immediate\openin15=\jobname.ind
+   \ifeof15 \else
+      \immediate\closein15
+      \bgroup
+       \def\gobble##1{}%
+       \gHAdvance\index:N by 1
+       \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+       \leavevmode \let\par=\empty
+       \input{\jobname.ind}%
+      \egroup
+    \fi
+    \db:index}
+\Configure{theindex}
+    {\special{t4ht@[}}
+    {\special{t4ht@]}}
+    {}{}{}{}{}{}{}
+
+\def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar
+   }
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+  {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\Configure{maketitle}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}\par\ShowPar}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+\ConfigureEnv{abstract}
+   {\IgnorePar\EndP\HCode{<abstract>}}
+   {\IgnorePar\EndP\HCode{</abstract>}}
+   {\HCode{<title>}}
+   {\HCode{</title>}}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+\Configure{likepart}
+   {\OpenDiv{likepart}}   {\CloseDiv{likepart}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likesection}
+   {\OpenDiv{likesection}}   {\CloseDiv{likesection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsection}
+   {\OpenDiv{likesubsection}}   {\CloseDiv{likesubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsubsection}
+   {\OpenDiv{likesubsubsection}}   {\CloseDiv{likesubsubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likeparagraph}
+   {\OpenDiv{likeparagraph}}   {\CloseDiv{likeparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubparagraph}
+   {\OpenDiv{likesubparagraph}}   {\CloseDiv{likesubparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endlikepart}{endpart}
+\fi
+
+\Configure{tableofcontents}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{<toc><tocpart>}}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{</tocpart></toc><para></para>}}
+  {}{}{}
+\ConfigureToc{likeparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likeparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likepart}
+  {} {\HCode{\Hnewline<tocentry role="likepartToc">}}
+  {} {\HCode{</tocentry>}}
+\ConfigureToc{likesection}
+   {} {\HCode{\Hnewline<tocentry role="likesectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likesubparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{paragraph}
+   {\HCode{\Hnewline<tocentry role="paragraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{part}
+   {\HCode{\Hnewline<tocentry role="partToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{section}
+   {\HCode{\Hnewline<tocentry role="sectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subparagraph}
+   {\HCode{\Hnewline<tocentry role="subparagraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsection}
+   {\HCode{\Hnewline<tocentry role="subsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsubsection}
+   {\HCode{\Hnewline<tocentry role="subsubsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\ConfigureList{thebibliography}%
+   {\IgnorePar\EndP
+      \HCode{<simplelist role="bibliography">}\let\en:bib=\empty}
+   {\en:bib\HCode{</simplelist>}}
+   {\en:bib\def\en:bib{\HCode{</member>}}%
+    \HCode{<member><!--l.
+        \the\inputlineno--><abbrev role="biblioentry">}%
+    \Configure{HtmlPar}{}{}{}{}
+}
+   {\HCode{</abbrev>}}
+
+\ConfigureEnv{figure}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{<figure><title/><blockquote>}}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{</blockquote></figure>}}
+   {}{}
+\Configure{caption}
+   {\HCode{<blockquote role="caption"><title role="caption">}}
+   {\HCode{</title><para>}}
+   {}
+   {\HCode{</para></blockquote>}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fontmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{mathit}{\HCode{<emphasis role="it">}}
+                  {\HCode{</emphasis>}}
+\Configure{mathbf}{\HCode{<emphasis role="bf">}}
+                  {\HCode{</emphasis>}}
+\Configure{mathtt}{\HCode{<emphasis role="tt">}}
+                  {\HCode{</emphasis>}}
+\Configure{mathsf}{\HCode{<emphasis role="sf">}}
+                  {\HCode{</emphasis>}}
+\Configure{mathrm}{\HCode{<emphasis role="rm">}}
+                  {\HCode{</emphasis>}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{graphics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{graphics}
+  {}
+  {\HCode{<inlinemediaobject><imageobject><imagedata
+                   width="\the\Gin@req@width"
+                   fileref="\Gin@base\Gin@ext"
+      ></imagedata></imageobject></inlinemediaobject>}%
+   }
+\Configure{graphics*}
+   {gif}
+   {{\Configure{Needs}{File: \Gin@base.gif}\Needs{}}%
+    \Picture[\a:GraphicsAlt]{\Gin@base.gif \csname a:Gin-dim\endcsname
+}}
+\Configure{graphics*}
+   {png}
+   {{\Configure{Needs}{File: \Gin@base.png}\Needs{}}%
+    \Picture[\a:GraphicsAlt]{\Gin@base.png \csname a:Gin-dim\endcsname
+}}
+\Configure{graphics*}
+   {jpg}
+   {{\Configure{Needs}{File: \Gin@base.jpg}\Needs{}}%
+    \Picture[\a:GraphicsAlt]{\Gin@base.jpg \csname a:Gin-dim\endcsname
+}}
+\Configure{graphics*}
+   {jpeg}
+   {{\Configure{Needs}{File: \Gin@base.jpeg}\Needs{}}%
+    \Picture[\a:GraphicsAlt]{\Gin@base.jpeg \csname a:Gin-dim\endcsname
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar
+   }
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+  {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\Configure{maketitle}
+   {\HCode{<articleinfo>}}
+   {\HCode{</articleinfo>}}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><othername>}}
+   {\HCode{</othername></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+
+\Configure{maketitle}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<section role="maketitle"><title />}%
+    \ConfigureEnv{center}
+       {\ifvmode \IgnorePar\fi} {\ifvmode \IgnorePar\fi}
+       {\ifvmode \IgnorePar\fi} {\ifvmode \IgnorePar\fi}%
+   }
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</section>}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{<para role="title">}}
+   {\ifvmode \IgnorePar\fi\HCode{</para>}}
+\Configure{thanks author date and}
+   {\par\IgnorePar\EndP \HCode{<note role="thanks">}\par\ShowPar}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</note>}}
+   {\ifvmode \IgnorePar\fi\EndP
+     \HCode{<para role="authorgroup"><author><personname><othername>}}
+   {\ifvmode \IgnorePar\fi
+    \HCode{</othername></personname></author><!--/author--></para><!--/authorgroup-->}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{<para role="date">}}
+   {\ifvmode \IgnorePar\fi \HCode{</para><!--/date-->}}
+   {\ifvmode \IgnorePar\fi\lowercase{\HCode{</othername></personname></author>
+         <!--/author--><!--author--><author><personname><othername>}}}
+   {}
+\Configure{addresses}
+   {\ifvmode \IgnorePar\fi \EndP
+     \HCode{<note role="addresses">}\ShowPar}
+   {\ifvmode \IgnorePar\fi \EndP
+     \HCode{</note><!--addresses-->}}
+\Configure{address}
+   {\HCode{<note role="address-title"><para>}}
+   {\ifvmode \IgnorePar\fi
+      \HCode{</para></note><!--address-title--><note role="address"><para>}}
+   {\HCode{</para></note><!--address-->}}
+\Configure{curraddr}
+   {\HCode{<para role="curraddr-title">}}
+   {\ifvmode \IgnorePar\fi
+     \HCode{</para><!--curraddr-title--><para role="curraddr">}}
+   {\HCode{</para><!--curraddr-->}}
+\Configure{email}
+   {\HCode{<note role="email-title"><para>}}
+   {\ifvmode \IgnorePar\fi
+    \HCode{</para></note><!--email-title--><note role="email"><para>}}
+   {\HCode{</para></note><!--email-->}}
+\Configure{urladdr}
+   {\HCode{<para role="urladdr-title">}}
+   {\ifvmode \IgnorePar\fi
+      \HCode{</para><!--urladdr-title--><para role="urladdr">}}
+   {\HCode{</para><!--urladdr-->}}
+
+\def\:temp{\HCode{<indexterm role="printindex" />}}
+\HLet\printindex\:temp
+\expandafter\ifx \csname db:index\endcsname\realx
+   \let\db:index=\index
+\fi
+\def\index{\bgroup
+    \HRestore\printindex
+    \def\gobble##1{}%
+    \gHAdvance\index:N by 1
+    \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+    \leavevmode \let\par=\empty
+    \printindex
+   \egroup \db:index}
+\def\comNum#1{\tmp:cnt=}
+\def\brange#1{\HCode{<remark role="start">}\Link{to-#1}{from-#1}\EndLink
+   \HCode{</remark>}}
+\def\erange#1{\HCode{<remark role="to">}\Link{from-#1}{to-#1}\EndLink
+   \HCode{</remark>}}
+
+\ifx \deferred@thm@head\:UnDef\else
+   \Configure{proof}
+   {\IgnorePar\EndP\HCode{<blockquote role="proof"><title>}\IgnorePar}
+   {\ifvmode \IgnorePar\fi\EndP\HCode{</title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+
+\fi
+\ConfigureEnv{abstract}
+   {\ifvmode \IgnorePar\fi \EndP}
+   {\ifvmode \IgnorePar\fi \EndP}
+   {}{}
+\ConfigureList{abstract}
+   {\ifvmode \IgnorePar\fi \EndP
+       \HCode{<note role="abstract">}\IgnorePar}
+   {\ifvmode \IgnorePar\fi \EndP
+       \HCode{</note><!--abstract-->}\ShowPar}
+   {\IgnorePar\par\HCode{<title>}}
+   {\HCode{</title>}\ShowPar\par}
+\Configure{setabstract}
+   {\ifvmode \IgnorePar \fi \EndP}
+   {\ifvmode \IgnorePar \fi \EndP}
+\Configure{subjclass}
+   {\par\IgnorePar\HCode{<note role="subjclass">}\par\ShowPar}
+   {\ifvmode \IgnorePar \fi\EndP\HCode{</note><!--subjclass-->}}
+\Configure{keywords}
+   {\par\IgnorePar\EndP \HCode{<note role="keywords">}\par\ShowPar}
+   {\ifvmode \IgnorePar \fi\EndP\HCode{</note>}}
+
+\Configure{translators}
+  {\par\IgnorePar\EndP  \HCode{<para role="translators">}\par\ShowPar}
+  {\ifvmode \IgnorePar \fi\EndP \HCode{</para>}}
+  {\HCode{<note role="translator"><para>}}
+  {\HCode{</para></note>}}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar
+   }
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+  {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\Configure{maketitle}
+   {\HCode{<articleinfo>}}
+   {\HCode{</articleinfo>}}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><othername>}}
+   {\HCode{</othername></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+
+\Configure{maketitle}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<section role="maketitle"><title />}%
+    \ConfigureEnv{center}
+       {\ifvmode \IgnorePar\fi} {\ifvmode \IgnorePar\fi}
+       {\ifvmode \IgnorePar\fi} {\ifvmode \IgnorePar\fi}%
+   }
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</section>}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{<para role="title">}}
+   {\ifvmode \IgnorePar\fi\HCode{</para>}}
+\Configure{thanks author date and}
+   {\par\IgnorePar\EndP \HCode{<note role="thanks">}\par\ShowPar}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</note>}}
+   {\ifvmode \IgnorePar\fi\EndP
+     \HCode{<para role="authorgroup"><author><personname><othername>}}
+   {\ifvmode \IgnorePar\fi
+    \HCode{</othername></personname></author><!--/author--></para><!--/authorgroup-->}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{<para role="date">}}
+   {\ifvmode \IgnorePar\fi \HCode{</para><!--/date-->}}
+   {\ifvmode \IgnorePar\fi\lowercase{\HCode{</othername></personname></author>
+         <!--/author--><!--author--><author><personname><othername>}}}
+   {}
+\Configure{addresses}
+   {\ifvmode \IgnorePar\fi \EndP
+     \HCode{<note role="addresses">}\ShowPar}
+   {\ifvmode \IgnorePar\fi \EndP
+     \HCode{</note><!--addresses-->}}
+\Configure{address}
+   {\HCode{<note role="address-title"><para>}}
+   {\ifvmode \IgnorePar\fi
+      \HCode{</para></note><!--address-title--><note role="address"><para>}}
+   {\HCode{</para></note><!--address-->}}
+\Configure{curraddr}
+   {\HCode{<para role="curraddr-title">}}
+   {\ifvmode \IgnorePar\fi
+     \HCode{</para><!--curraddr-title--><para role="curraddr">}}
+   {\HCode{</para><!--curraddr-->}}
+\Configure{email}
+   {\HCode{<note role="email-title"><para>}}
+   {\ifvmode \IgnorePar\fi
+    \HCode{</para></note><!--email-title--><note role="email"><para>}}
+   {\HCode{</para></note><!--email-->}}
+\Configure{urladdr}
+   {\HCode{<para role="urladdr-title">}}
+   {\ifvmode \IgnorePar\fi
+      \HCode{</para><!--urladdr-title--><para role="urladdr">}}
+   {\HCode{</para><!--urladdr-->}}
+
+\def\:temp{\HCode{<indexterm role="printindex" />}}
+\HLet\printindex\:temp
+\expandafter\ifx \csname db:index\endcsname\realx
+   \let\db:index=\index
+\fi
+\def\index{\bgroup
+    \HRestore\printindex
+    \def\gobble##1{}%
+    \gHAdvance\index:N by 1
+    \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+    \leavevmode \let\par=\empty
+    \printindex
+   \egroup \db:index}
+\def\comNum#1{\tmp:cnt=}
+\def\brange#1{\HCode{<remark role="start">}\Link{to-#1}{from-#1}\EndLink
+   \HCode{</remark>}}
+\def\erange#1{\HCode{<remark role="to">}\Link{from-#1}{to-#1}\EndLink
+   \HCode{</remark>}}
+
+\ifx \deferred@thm@head\:UnDef\else
+   \Configure{proof}
+   {\IgnorePar\EndP\HCode{<blockquote role="proof"><title>}\IgnorePar}
+   {\ifvmode \IgnorePar\fi\EndP\HCode{</title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+
+\fi
+\ConfigureEnv{abstract}
+   {\ifvmode \IgnorePar\fi \EndP}
+   {\ifvmode \IgnorePar\fi \EndP}
+   {}{}
+\ConfigureList{abstract}
+   {\ifvmode \IgnorePar\fi \EndP
+       \HCode{<note role="abstract">}\IgnorePar}
+   {\ifvmode \IgnorePar\fi \EndP
+       \HCode{</note><!--abstract-->}\ShowPar}
+   {\IgnorePar\par\HCode{<title>}}
+   {\HCode{</title>}\ShowPar\par}
+\Configure{setabstract}
+   {\ifvmode \IgnorePar \fi \EndP}
+   {\ifvmode \IgnorePar \fi \EndP}
+\Configure{subjclass}
+   {\par\IgnorePar\HCode{<note role="subjclass">}\par\ShowPar}
+   {\ifvmode \IgnorePar \fi\EndP\HCode{</note><!--subjclass-->}}
+\Configure{keywords}
+   {\par\IgnorePar\EndP \HCode{<note role="keywords">}\par\ShowPar}
+   {\ifvmode \IgnorePar \fi\EndP\HCode{</note>}}
+
+\Configure{translators}
+  {\par\IgnorePar\EndP  \HCode{<note role="translators">}\par\ShowPar}
+  {\ifvmode \IgnorePar \fi\EndP \HCode{</note>}}
+  {\HCode{<note role="translator"><para>}}
+  {\HCode{</para></note>}}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsproc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar
+   }
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+  {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\Configure{maketitle}
+   {\HCode{<articleinfo>}}
+   {\HCode{</articleinfo>}}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><othername>}}
+   {\HCode{</othername></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+
+\Configure{maketitle}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<section role="maketitle"><title />}%
+    \ConfigureEnv{center}
+       {\ifvmode \IgnorePar\fi} {\ifvmode \IgnorePar\fi}
+       {\ifvmode \IgnorePar\fi} {\ifvmode \IgnorePar\fi}%
+   }
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</section>}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{<para role="title">}}
+   {\ifvmode \IgnorePar\fi\HCode{</para>}}
+\Configure{thanks author date and}
+   {\par\IgnorePar\EndP \HCode{<note role="thanks">}\par\ShowPar}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</note>}}
+   {\ifvmode \IgnorePar\fi\EndP
+     \HCode{<para role="authorgroup"><author><personname><othername>}}
+   {\ifvmode \IgnorePar\fi
+    \HCode{</othername></personname></author><!--/author--></para><!--/authorgroup-->}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{<para role="date">}}
+   {\ifvmode \IgnorePar\fi \HCode{</para><!--/date-->}}
+   {\ifvmode \IgnorePar\fi\lowercase{\HCode{</othername></personname></author>
+         <!--/author--><!--author--><author><personname><othername>}}}
+   {}
+\Configure{addresses}
+   {\ifvmode \IgnorePar\fi \EndP
+     \HCode{<note role="addresses">}\ShowPar}
+   {\ifvmode \IgnorePar\fi \EndP
+     \HCode{</note><!--addresses-->}}
+\Configure{address}
+   {\HCode{<note role="address-title"><para>}}
+   {\ifvmode \IgnorePar\fi
+      \HCode{</para></note><!--address-title--><note role="address"><para>}}
+   {\HCode{</para></note><!--address-->}}
+\Configure{curraddr}
+   {\HCode{<para role="curraddr-title">}}
+   {\ifvmode \IgnorePar\fi
+     \HCode{</para><!--curraddr-title--><para role="curraddr">}}
+   {\HCode{</para><!--curraddr-->}}
+\Configure{email}
+   {\HCode{<note role="email-title"><para>}}
+   {\ifvmode \IgnorePar\fi
+    \HCode{</para></note><!--email-title--><note role="email"><para>}}
+   {\HCode{</para></note><!--email-->}}
+\Configure{urladdr}
+   {\HCode{<para role="urladdr-title">}}
+   {\ifvmode \IgnorePar\fi
+      \HCode{</para><!--urladdr-title--><para role="urladdr">}}
+   {\HCode{</para><!--urladdr-->}}
+
+\def\:temp{\HCode{<indexterm role="printindex" />}}
+\HLet\printindex\:temp
+\expandafter\ifx \csname db:index\endcsname\realx
+   \let\db:index=\index
+\fi
+\def\index{\bgroup
+    \HRestore\printindex
+    \def\gobble##1{}%
+    \gHAdvance\index:N by 1
+    \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+    \leavevmode \let\par=\empty
+    \printindex
+   \egroup \db:index}
+\def\comNum#1{\tmp:cnt=}
+\def\brange#1{\HCode{<remark role="start">}\Link{to-#1}{from-#1}\EndLink
+   \HCode{</remark>}}
+\def\erange#1{\HCode{<remark role="to">}\Link{from-#1}{to-#1}\EndLink
+   \HCode{</remark>}}
+
+\ifx \deferred@thm@head\:UnDef\else
+   \Configure{proof}
+   {\IgnorePar\EndP\HCode{<blockquote role="proof"><title>}\IgnorePar}
+   {\ifvmode \IgnorePar\fi\EndP\HCode{</title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+
+\fi
+\ConfigureEnv{abstract}
+   {\ifvmode \IgnorePar\fi \EndP}
+   {\ifvmode \IgnorePar\fi \EndP}
+   {}{}
+\ConfigureList{abstract}
+   {\ifvmode \IgnorePar\fi \EndP
+       \HCode{<note role="abstract">}\IgnorePar}
+   {\ifvmode \IgnorePar\fi \EndP
+       \HCode{</note><!--abstract-->}\ShowPar}
+   {\IgnorePar\par\HCode{<title>}}
+   {\HCode{</title>}\ShowPar\par}
+\Configure{setabstract}
+   {\ifvmode \IgnorePar \fi \EndP}
+   {\ifvmode \IgnorePar \fi \EndP}
+\Configure{subjclass}
+   {\par\IgnorePar\HCode{<note role="subjclass">}\par\ShowPar}
+   {\ifvmode \IgnorePar \fi\EndP\HCode{</note><!--subjclass-->}}
+\Configure{keywords}
+   {\par\IgnorePar\EndP \HCode{<note role="keywords">}\par\ShowPar}
+   {\ifvmode \IgnorePar \fi\EndP\HCode{</note>}}
+
+\Configure{translators}
+  {\par\IgnorePar\EndP  \HCode{<para role="translators">}\par\ShowPar}
+  {\ifvmode \IgnorePar \fi\EndP \HCode{</para>}}
+  {\HCode{<note role="translator"><para>}}
+  {\HCode{</para></note>}}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsthm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{proof}
+   {\IgnorePar\EndP\HCode{<blockquote role="proof"><title>}\IgnorePar}
+   {\ifvmode \IgnorePar\fi\EndP\HCode{</title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:temp{{\protect\AmSfont AMS}}
+\HLet\AmS\:temp
+\ConfigureEnv{subequations}
+  {\ifvmode \IgnorePar\fi   \EndP
+   \HCode{<blockquote role="subequations">}%
+  }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</blockquote>}\par
+   \ShowPar}
+  {}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\Hinclude{\def\:temp{\ht:everypar={\setbox0=\lastbox\ht:everypar={}}}%
+   \ifx \NoindentAfter\:temp
+      \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {osudeG}
+\Hinclude{\ifx\amstexloaded@\relax
+     \no:dupl{#1}{
+      \ifx  \Space@\:UnDef   \expand:after{\input #1.4ht} %
+      \else                  \input vanilla.4ht  \fi}%
+   \fi}
+   {amstex}
+\Hinclude{\expandafter\ifx \csname amsppt.sty\endcsname\relax \else
+       \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {amsppt}
+\Hinclude{\ifx \texinfoversion\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input texinfo.4ht}}\fi}
+   {texinfo}
+\Hinclude{\ifx \thistubstyle\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input tugboat.4ht}}\fi}
+   {tugboat}
+
+\expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\Hinclude{\ifx \PsfigVersion\:UnDef \else
+      \no:dupl{#1}{\expand:after{\input psfig.4ht}}\fi}
+   {psfig}
+\Hinclude{\:CheckOption{#1}
+   \if:Option     \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pictex}
+\Hinclude{%
+   \expandafter\ifx \csname PSTricksLoaded\endcsname\relax\else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pstricks}
+\Hinclude{%
+   \ifx \:DraCatCodes\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {dratex}
+\Hinclude{%
+   \ifx \xyloaded\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {xy}
+
+\Hinclude{%
+   \ifx \epsfsetgraph\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {epsf}
+
+\Hinclude{%
+   \ifx \diagram@help@messages\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {diagrams}
+
+\Hinclude{%
+   \ifx \figvisu\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {fig4tex}
+
+\Hinclude{}
+   {pctable}
+\Hinclude{%
+   \:CheckOption{xhtml}\if:Option \fi}
+   {xhtml}
+\Hinclude{\:CheckOption{#1}
+      \if:Option\else   \:CheckOption{ShowFont}\fi
+      \if:Option\else   \:CheckOption{frames-}\fi
+      \if:Option\else   \:CheckOption{frames}\fi
+      \if:Option\else   \:CheckOption{image-maps}\fi
+      \if:Option\else   \:CheckOption{java}\fi
+      \if:Option\else   \:CheckOption{javascript}\fi
+      \if:Option \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {th4}
+\Hinclude{\ifx \sethebrew\:UnDef\else \ifx \ArabTeX\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input hebtex.4ht}}\fi \fi}
+   {hebtex}
+
+\Configure{obeylines}
+   {\ifvmode \IgnorePar \EndP
+       \HCode{<blockquote role="obeylines-v">}%
+       \gdef\ob:ln{blockquote}%
+    \else \HCode{<remark role="obeylines-h">}%
+       \gdef\ob:ln{remark}%
+    \fi
+   }
+   {\ht:special{t4ht=</\ob:ln>}\ShowPar} {\hbox{\HCode{<!--br /-->}}}
+\def\:nbsp{\HCode{\string&}\HChar{-35}\HCode{x00A0;}}%
+
+\Configure{centerline}
+   {\IgnorePar\EndP\HCode{<blockquote
+        role="centerline"><title></title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+\Configure{leftline}
+   {\IgnorePar\EndP\HCode{<blockquote
+        role="leftline"><title></title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+\Configure{rightline}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{<blockquote
+        role="rightline"><title></title>}\ShowPar\par}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{</blockquote>}\ShowPar\par}
+
+\def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \par\ShowPar}
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\Configure{underline}
+   {\HCode{<emphasis role="underline">}\hbox\bgroup \:gobble}
+   {\egroup \HCode{</emphasis>}}
+\Configure{overline}
+   {\HCode{<emphasis role="overline">}}
+   {\HCode{</emphasis>}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{biblatex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \def\bibConfigure{%
+  \ConfigureList{thebibliography}
+  {\ifvmode \IgnorePar \fi \EndP \EndP
+    \HCode {<bibliolist>}%
+%
+% This is for linking citations with biblist items which
+% are in a different file when output is split into different
+% chunks. [CVR 2012-09-27]
+%
+%
+% <biblatex-2.2>
+%
+  \immediate\write\@auxout{%
+      \string\BibFileName[\therefsection]{\FileName}}%
+%
+% </biblatex-2.2>
+%
+    \PushMacro \end:itm \global \let \end:itm =\empty}%
+  {\ifvmode \IgnorePar \fi \EndP
+    \PopMacro \end:itm \global \let \end:itm \end:itm \EndP
+    \HCode {</bibliomisc></bibliomixed></bibliolist>}\ShowPar}%
+  {\ifvmode \IgnorePar \fi \EndP \gHAdvance \bibN by 1
+    \end:itm \global \def \end:itm {\EndP \HCode{</bibliomisc></bibliomixed>}}%
+    \HCode {<bibliomixed xml:id="X\therefsection-\abx@field@entrykey"><bibliomisc>}\bgroup \bf}%
+  {\ifvmode \IgnorePar \fi \EndP
+    \egroup
+    \HCode {</bibliomisc><bibliomisc\Hnewline xml:id="bib-\bibN">}%
+    \par \ShowPar}%
+ }
+
+\def\hyper:natanchorstart#1{\Link{}{#1}\EndLink}%
+\def\hyper:natlinkstart#1{\Link{#1}{}}%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\Configure{tabular}
+   {\IgnorePar\EndP \halignTB{tabular}%
+    \HCode{<informaltable><tgroup cols="\ar:cnt">}%
+    \tmp:cnt = 0
+\loop
+\ifnum \tmp:cnt < \ar:cnt
+   \advance\tmp:cnt by 1
+   {\HAssign\HCol=\tmp:cnt
+   \HCode{<colspec colname="c\HCol"
+             \expandafter\expandafter\expandafter\ifx
+                                       \HColWidth\relax\else
+                 colwidth="\HColWidth"
+             \fi
+          />}}%
+\repeat
+%
+    \HCode{<tbody>}}
+   {\HCode{</tbody></tgroup></informaltable>}\ShowPar}
+   {\HCode{<row>}}
+   {\HCode{</row>}}
+   {\HCode{<entry\Hnewline}\halignTD
+    \ifnum \HMultispan>1
+       \tmp:cnt=\HCol \advance\tmp:cnt by \HMultispan
+       \advance\tmp:cnt by -1
+       \HCode{ namest="c\HCol"  \IgnoreDebug{nameend="c\the\tmp:cnt"}}\fi
+    \HCode{>}\par\ShowPar}
+   {\ifvmode\IgnorePar\fi \EndP \HCode{</entry>}}
+\HAssign\tabularN=0
+\Configure{halignTB<>}{tabular}{<>\HAlign}
+\Configure{halignTB}
+   {\halignTBL}
+   {}
+\Configure{halignTD} {}{}
+   {<}{\HCode{ align="left"}}
+   {-}{\HCode{ align="center"}}
+   {>}{\HCode{ align="right"}}
+   {^}{\HCode{ valign="top"}}
+   {=}{\HCode{ valign="middle"}}
+   {|}{\HCode{ valign="middle"}}
+   {_}{\HCode{ valign="bottom"}}
+   {p}{\HCode{ align="char"}}
+   {m}{\HCode{ align="left" valign="middle"}}
+   {b}{\HCode{ align="left" valign="middle"}}
+   {}
+\Configure{hline}{}
+\Configure{//[]}{}
+\Configure{HBorder}
+   {<row\Hnewline role="hline">}
+      {<entry rowsep="1"></entry>}
+   {</row>}
+   {<row\Hnewline role="cline">}
+      {<entry rowsep="0"></entry>}
+      {<entry rowsep="1"></entry>}
+   {</row>}
+   {<row\Hnewline role="vspace">}
+       {<entry rowsep="1"\Hnewline></entry>}
+   {</row>}
+\Configure{putHBorder}{\HCode{\HBorder}}
+\HAssign\Next:TableNo=0 \global\let\TableNo=\Next:TableNo
+\Configure{hline}{\ifx \ar:cnt\:UnDef\else
+      \o:noalign:{\append:def\hline:s{\a:HBorder}%
+\def\:tempb{\ifnum \tmp:cnt<\ar:cnt
+    \advance\tmp:cnt by 1 \append:def\hline:s{\b:HBorder}%
+    \expandafter\:tempb
+  \fi }%
+\tmp:cnt=0 \:tempb
+\append:def\hline:s{\c:HBorder}\global\let\hline:s=\hline:s
+}%
+      \expandafter\ignoreEndTr
+   \fi}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{longtable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{longtable}
+   {\IgnorePar\EndP
+    \HCode{<informaltable}\halignTB{longtable}%
+    \HCode{><tgroup cols="\ar:cnt"><tbody>}}
+   {\HCode{</tbody></tgroup></informaltable>}\ShowPar}
+   {\HCode{<row \Hnewline}\halignTR\HCode{>}}
+   {\r:HA}
+   {\HCode{<entry}%
+    \halignTD
+    \ifnum \HMultispan>1
+       \tmp:cnt=\HCol \advance\tmp:cnt by \HMultispan
+       \advance\tmp:cnt by -1
+       \HCode{ namest="c\HCol"  \IgnoreDebug{nameend="c\the\tmp:cnt"}}\fi
+    \HCode{\Hnewline role="td}%
+    \HCode{">}\SaveEndP
+%
+    \par  \ShowPar
+\PushStack\Table:Stck\TableNo}
+   {\PopStack\Table:Stck\TableNo \IgnorePar \EndP
+\d:HA}
+\Configure{halignTB<>}{longtable}{\HCode{role="longtable"\Hnewline
+                                            }<>\HAlign}
+\Configure{longtableparbox}{\IgnorePar\leavevmode\ShowPar\par}
+\def\r:HA{\HCode{</row>}}
+\def\d:HA{\ifvmode \IgnorePar \fi \EndP\HCode{</entry>}\RecallEndP
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fancyvrb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{fancyvrb}
+   {\ifvmode \IgnorePar \fi \EndP
+    \HCode{<literallayout role="fancyvrb" >}}
+   {\EndP\HCode{</literallayout>}}
+   {\HCode{<literal>}} {\HCode{</literal>}}
+   {\HCode{<literal>}} {\HCode{</literal>}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{color}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{color}{\:gobble}
+\Configure{HColor:gray}{%
+   \int:of\:tempa{255}{#1}%
+   \Configure{HColor}{}{rgb(\:tempa,\:tempa,\:tempa)}%
+}
+\Configure{HColor:rgb}{%
+   \int:of\:tempa{255}{#1}%
+   \int:of\:tempb{255}{#2}%
+   \int:of\:tempc{255}{#3}%
+   \Configure{HColor}{}{rgb(\:tempa,\:tempb,\:tempc)}%
+}
+\Configure{HColor:cmyk}{%
+   \int:of\:Cyan{255}{#1}%
+   \int:of\:Magenta{255}{#2}%
+   \int:of\:Yellow{255}{#3}%
+   \int:of\:Black{255}{#4}%
+   \:cmyk\:tempa\:Cyan
+   \:cmyk\:tempb\:Magenta
+   \:cmyk\:tempc\:Yellow
+   \Configure{HColor}{}{rgb(\:tempa,\:tempb,\:tempc)}%
+}
+\def\int:of#1#2#3{%
+   \tmp:dim=#3pt \tmp:dim=#2\tmp:dim
+   \edef\:temp{\tmp:cnt\the\tmp:dim//}%
+   \def#1##1//{}\afterassignment#1\:temp
+   \edef#1{\the\tmp:cnt}%
+}
+\def\:cmyk#1#2{%
+   \tmp:cnt=255 \advance\tmp:cnt by -\:Black
+   \multiply\tmp:cnt by#2 \advance\tmp:cnt by \:Black
+   \advance\tmp:cnt by -255 \tmp:cnt=-\tmp:cnt
+   \ifnum \tmp:cnt<0 \tmp:cnt=0 \fi
+   \edef#1{\the\tmp:cnt}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{index}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:temp{\HCode{<indexterm role="printindex" />}}
+\HLet\printindex\:temp
+\expandafter\ifx \csname db:index\endcsname\realx
+   \let\db:index=\index
+\fi
+\def\index{\bgroup
+    \HRestore\printindex
+    \def\gobble##1{}%
+    \gHAdvance\index:N by 1
+    \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+    \leavevmode \let\par=\empty
+    \printindex
+   \egroup \db:index}
+\def\comNum#1{\tmp:cnt=}
+\def\brange#1{\HCode{<remark role="start">}\Link{to-#1}{from-#1}\EndLink
+   \HCode{</remark>}}
+\def\erange#1{\HCode{<remark role="to">}\Link{from-#1}{to-#1}\EndLink
+   \HCode{</remark>}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{multind}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:temp{\HCode{<indexterm role="printindex" />}}
+\HLet\printindex\:temp
+\expandafter\ifx \csname db:index\endcsname\realx
+   \let\db:index=\index
+\fi
+\def\index{\bgroup
+    \HRestore\printindex
+    \def\gobble##1{}%
+    \gHAdvance\index:N by 1
+    \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+    \leavevmode \let\par=\empty
+    \printindex
+   \egroup \db:index}
+\def\comNum#1{\tmp:cnt=}
+\def\brange#1{\HCode{<remark role="start">}\Link{to-#1}{from-#1}\EndLink
+   \HCode{</remark>}}
+\def\erange#1{\HCode{<remark role="to">}\Link{from-#1}{to-#1}\EndLink
+   \HCode{</remark>}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{memoir}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureToc{lof}
+   {\HCode{\Hnewline<tocentry role="lofToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{lot}
+   {\HCode{\Hnewline<tocentry role="lotToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\def\DB:index#1\indNum#2{%
+   \ifnum  #2=\index:N
+      \let\DB:index=\relax  #1\long\def\item##1\end{\end}%
+   \else \expandafter\gob:item \fi
+}
+\long\def\gob:item#1\item{\DB:index}
+\let\indNum=\:gobble
+\HAssign\index:N = 0
+\def\comNum#1{\tmp:cnt=}
+\let\db:index=\index
+\def\index{%
+   \immediate\openin15=\jobname.ind
+   \ifeof15 \else
+      \immediate\closein15
+      \bgroup
+       \def\gobble##1{}%
+       \gHAdvance\index:N by 1
+       \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+       \leavevmode \let\par=\empty
+       \input{\jobname.ind}%
+      \egroup
+    \fi
+    \db:index}
+\Configure{theindex}
+    {\special{t4ht@[}}
+    {\special{t4ht@]}}
+    {}{}{}{}{}{}{}
+
+
+\def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article role="book" xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar
+   }
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\Configure{maketitle}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}\par\ShowPar}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+\Configure{likepart}
+   {\OpenDiv{likepart}}   {\CloseDiv{likepart}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likesection}
+   {\OpenDiv{likesection}}   {\CloseDiv{likesection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsection}
+   {\OpenDiv{likesubsection}}   {\CloseDiv{likesubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsubsection}
+   {\OpenDiv{likesubsubsection}}   {\CloseDiv{likesubsubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likeparagraph}
+   {\OpenDiv{likeparagraph}}   {\CloseDiv{likeparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubparagraph}
+   {\OpenDiv{likesubparagraph}}   {\CloseDiv{likesubparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endlikepart}{endpart}
+\fi
+
+\Configure{chapter}
+   {\OpenDiv{chapter}}   {\CloseDiv{chapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likechapter}
+   {\OpenDiv{likechapter}}   {\CloseDiv{likechapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+
+\Configure{tableofcontents}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{<toc><tocpart>}}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{</tocpart></toc><para></para>}}
+  {}{}{}
+\ConfigureToc{likeparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likeparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likepart}
+  {} {\HCode{\Hnewline<tocentry role="likepartToc">}}
+  {} {\HCode{</tocentry>}}
+\ConfigureToc{likesection}
+   {} {\HCode{\Hnewline<tocentry role="likesectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likesubparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{paragraph}
+   {\HCode{\Hnewline<tocentry role="paragraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{part}
+   {\HCode{\Hnewline<tocentry role="partToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{section}
+   {\HCode{\Hnewline<tocentry role="sectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subparagraph}
+   {\HCode{\Hnewline<tocentry role="subparagraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsection}
+   {\HCode{\Hnewline<tocentry role="subsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsubsection}
+   {\HCode{\Hnewline<tocentry role="subsubsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\ConfigureToc{appendix}
+   {\HCode{\Hnewline<tocentry role="appendixToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{chapter}
+   {\HCode{\Hnewline<tocentry role="chapterToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{likechapter}
+   {} {\HCode{\Hnewline<tocentry role="likechapterToc">}}
+   {} {\HCode{</tocentry>}}
+
+\ConfigureList{thebibliography}%
+   {\IgnorePar\EndP
+      \HCode{<simplelist role="bibliography">}\let\en:bib=\empty}
+   {\en:bib\HCode{</simplelist>}}
+   {\en:bib\def\en:bib{\HCode{</member>}}%
+    \HCode{<member><!--l.
+        \the\inputlineno--><abbrev role="biblioentry">}%
+    \Configure{HtmlPar}{}{}{}{}
+}
+   {\HCode{</abbrev>}}
+
+\ConfigureEnv{figure}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{<figure><title/><blockquote>}}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{</blockquote></figure>}}
+   {}{}
+\Configure{caption}
+   {\HCode{<blockquote role="caption"><title role="caption">}}
+   {\HCode{</title><para>}}
+   {}
+   {\HCode{</para></blockquote>}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{dcolumn}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{dcolumn}
+  {\HCode{<blockquote role="align-char"><para role="\Dpoint">}}
+  {\HCode{</para></blockquote>}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{multirow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{multirow}
+    {\HCode{<blockquote
+        role="multirow"><para role="\the\@tempcnta">}}
+    {\HCode{</para></blockquote>}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{makeidx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:temp{\HCode{<indexterm role="printindex" />}}
+\HLet\printindex\:temp
+\expandafter\ifx \csname db:index\endcsname\realx
+   \let\db:index=\index
+\fi
+\def\index{\bgroup
+    \HRestore\printindex
+    \def\gobble##1{}%
+    \gHAdvance\index:N by 1
+    \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+    \leavevmode \let\par=\empty
+    \printindex
+   \egroup \db:index}
+\def\comNum#1{\tmp:cnt=}
+\def\brange#1{\HCode{<remark role="start">}\Link{to-#1}{from-#1}\EndLink
+   \HCode{</remark>}}
+\def\erange#1{\HCode{<remark role="to">}\Link{from-#1}{to-#1}\EndLink
+   \HCode{</remark>}}
+
+\Configure{see}
+  {\csname end:cur\endcsname \HCode{<seealso role="see">}}
+  {\HCode{</seealso>}%
+   \futurelet\:next\remove:comma}
+\def\remove:comma{\ifx ,\:next \expandafter\:gobble\fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{splitidx}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \let\db:sindex=\sindex
+\def\:sindex{\bgroup
+    \HRestore\printindex
+    \def\gobble##1{}%
+    \gHAdvance\index:N by 1
+    \leavevmode \let\par=\empty
+    \edef\:temp{\LikeRef{printindex}}\expandafter\printindex\:temp
+   \egroup \db:sindex}
+\def\:temp{%
+  \def\:tempa{%
+     \HCode{<indexterm role="printindex\ifx *\:temp -star\fi" />}%
+     \ifx *\:temp \Tag{printindex}{*}\expandafter\:gobble\fi
+  }%
+  \futurelet\:temp\:tempa
+}
+\HLet\printindex\:temp
+\def\sindex{%
+   \def\:tempa{%
+      \ifx [\:temp
+            \def\:temp[####1]{\def\ind:ext{####1}\:sindex[####1]}%
+            \expandafter\:temp
+      \else \expandafter\:sindex \fi
+   }%
+   \futurelet\:temp\:tempa
+}
+\let\o:@@printindex:=\@@printindex
+\def\@@printindex[#1][#2]{%
+   \def\:temp{#1}%
+   \ifx \:temp\ind:ext \o:@@printindex:[#1][#2]\fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{texinfo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureToc{chapter}
+   {\HCode{\Hnewline<tocentry role="chapter">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{appendix}
+   {\HCode{\Hnewline<tocentry role="appendix">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{unnumbered}
+   {\HCode{\Hnewline<tocentry role="unnumbered">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{numberedsec}
+   {\HCode{\Hnewline<tocentry role="numberedsec">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{appendixsec}
+   {\HCode{\Hnewline<tocentry role="appendixsec">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{unnumberedsec}
+   {\HCode{\Hnewline<tocentry role="unnumberedsec">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{numberedsubsec}
+   {\HCode{\Hnewline<tocentry role="numberedsubsec">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{appendixsubsec}
+   {\HCode{\Hnewline<tocentry role="appendixsubsec">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{appendixsubsec}
+   {\HCode{\Hnewline<tocentry role="appendixsubsec">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{unnumberedsubsec}
+   {\HCode{\Hnewline<tocentry role="unnumberedsubsec">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{numberedsubsubsec}
+   {\HCode{\Hnewline<tocentry role="numberedsubsubse">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{appendixsubsubsec}
+   {\HCode{\Hnewline<tocentry role="appendixsubsubse">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{appendixsubsubsec}
+   {\HCode{\Hnewline<tocentry role="appendixsubsubse">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{unnumberedsubsubsec}
+   {\HCode{\Hnewline<tocentry role="unnumberedsubsub">}}
+   {\ }{} {\HCode{</tocentry>}}
+\Configure{toTocLink}{\Title:Link}{}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\Configure{pdfurl}
+   {\let\sv:Link=\Link \let\sv:EndLink=\EndLink
+    \let\Link=\U:Link
+    \def\EndLink{\EndU:Link\let\Link=\sv:Link \let\EndLink=\sv:EndLink}}
+%\LinkCommand\U:Link{ulink, url,,,,}
+\LinkCommand\U:Link{link, xlink:href,,,,}
+\Configure{group}
+   {\IgnorePar\EndP\HCode{<blockquote
+        role="group"><title></title>}\ShowPar\par}
+   {\IgnorePar\EndP\HCode{</blockquote>}\ShowPar\par}
+\Configure{multitable}
+   {\IgnorePar \EndP\HCode{<informaltable\Hnewline
+        role="multitable">}\IgnorePar }
+   {\HCode{</tbody></tgroup></informaltable>}}
+   {\HCode{\ifnum \HRow=1 <tgroup cols="\HCols"><tbody>\fi
+           <row><!-- cols="\HRow"-->}}
+   {\HCode{</row>}}
+   {\HCode{<entry\Hnewline><!-- cols="\the\colcount"--><para>}}
+   {\IgnorePar \EndP\HCode{</para></entry>}}
+\Configure{example}
+   {\IgnorePar\EndP\HCode{<example
+        role="example"><title></title><para>}\bgroup
+     \Configure{obeylines}{}{}{\hbox{\HCode{</para><para>}}}}
+   {\egroup\IgnorePar\EndP\HCode{</para></example>}\ShowPar\par}
+\Configure{smallexample}
+   {\IgnorePar\EndP\HCode{<example
+        role="smallexample"><title></title><para>}\bgroup
+     \Configure{obeylines}{}{}{\hbox{\HCode{</para><para>}}}}
+   {\egroup\IgnorePar\EndP\HCode{</para></example>}\ShowPar\par}
+\ConfigureMark{chapter}{\the\chapno}
+\Configure{chapter}
+   {\OpenDiv{chapter}}   {\CloseDiv{chapter}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\ConfigureMark{appendix}{\appendixletter}
+\Configure{appendix}
+   {\AppOpenDiv{appendix}}   {\AppCloseDiv{appendix}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{unnumbered}
+   {\OpenDiv{unnumbered}}   {\CloseDiv{unnumbered}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\ConfigureMark{numberedsec}{\the\chapno.\the\secno}
+\Configure{numberedsec}
+   {\OpenDiv{numberedsec}}   {\CloseDiv{numberedsec}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\ConfigureMark{appendixsec}{\appendixletter.\the\secno}
+\Configure{appendixsec}
+   {\OpenDiv{appendixsec}}   {\CloseDiv{appendixsec}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{unnumberedsec}
+   {\OpenDiv{unnumberedsec}}   {\CloseDiv{unnumberedsec}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\ConfigureMark{numberedsubsec}{\the\chapno.\the\secno .\the\subsecno}
+\Configure{numberedsubsec}
+   {\OpenDiv{numberedsubsec}}   {\CloseDiv{numberedsubsec}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\ConfigureMark{appendixsubsec}{\appendixletter .\the\secno.\the\subsecno}
+\Configure{appendixsubsec}
+   {\OpenDiv{appendixsubsec}}   {\CloseDiv{appendixsubsec}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\ConfigureMark{appendixsubsec}{\appendixletter.\the\secno
+                                        .\the\subsecno}
+\Configure{appendixsubsec}
+   {\OpenDiv{appendixsubsec}}   {\CloseDiv{appendixsubsec}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{unnumberedsubsec}
+   {\OpenDiv{unnumberedsubsec}}   {\CloseDiv{unnumberedsubsec}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\ConfigureMark{numberedsubsubsec}{\the\chapno.\the\secno
+                      .\the\subsecno.\the\subsubsecno}
+\Configure{numberedsubsubsec}
+   {\OpenDiv{numberedsubsubsec}}   {\CloseDiv{numberedsubsubsec}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\ConfigureMark{appendixsubsubsec}{\appendixletter
+             .\the\secno.\the\subsecno.\the\subsubsecno}
+\Configure{appendixsubsubsec}
+   {\OpenDiv{appendixsubsubsec}}   {\CloseDiv{appendixsubsubsec}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\ConfigureMark{appendixsubsubsec}{\appendixletter.\the\secno
+                                  .\the\subsecno.\the\subsubsecno}
+\Configure{appendixsubsubsec}
+   {\OpenDiv{appendixsubsubsec}}   {\CloseDiv{appendixsubsubsec}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{unnumberedsubsubsec}
+   {\OpenDiv{unnumberedsubsubsec}}   {\CloseDiv{unnumberedsubsubsec}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{enumerate}%
+   {\ifvmode\IgnorePar\fi \EndP \HCode{<orderedlist\Hnewline>}}
+   {\EndP\HCode{</listitem></orderedlist>}\ShowPar}
+   {\ifnum \itemno>1
+       \ifvmode\IgnorePar\fi \EndP \Tg</listitem>\fi \DeleteMark}
+   {\ifvmode\IgnorePar\fi \EndP \HCode{<listitem>}\par\ShowPar}
+\Configure{itemize}%
+   {\ifvmode\IgnorePar\fi \EndP \HCode{<itemizedlist>}}
+   {\EndP\HCode{</listitem></itemizedlist>}\ShowPar}
+   {\ifnum \itemno>1 \ifvmode\IgnorePar\fi \EndP
+      \Tg</listitem>\fi \DeleteMark}
+   {\ifvmode\IgnorePar\fi \EndP \HCode{<listitem>}\par\ShowPar}
+\Configure{table}%
+   {\EndP\HCode{<glosslist>}\let\end:itm=\empty}
+   {\EndP\HCode{</glossdef></glossentry></glosslist>}\ShowPar}
+   {\end:itm\def\end:itm{\EndP\HCode{</glossdef></glossentry>}}%
+      \HCode{<glossentry><glossterm><remark>}\bgroup \bf}
+   {\egroup\HCode{</remark></glossterm><glossdef\Hnewline>}\par\ShowPar}
+\Configure{titlepage}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{<articleinfo>}\bgroup
+     \Configure{flushleft}
+        {\ifvmode \IgnorePar \fi \EndP \HCode{<abstract>}\bgroup
+          \Configure{obeylines}{}{}{\hbox{\HCode{<!--br /-->}}}\ShowPar\par
+         \leavevmode }
+        {\ifvmode \IgnorePar \fi \EndP \egroup\HCode{</abstract>}}
+   }
+   {\egroup\ifvmode \IgnorePar \fi \EndP \HCode{</articleinfo>}}
+\Configure{title}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{<title>}\bgroup
+    \Configure{leftline}{}{}}
+   {\egroup\ifvmode \IgnorePar \fi \EndP \HCode{</title>}}
+\Configure{subtitle}
+   {\IgnorePar\EndP\HCode{<subtitle \Hnewline>}\bgroup
+    \Configure{rightline}{}{}}
+   {\egroup \IgnorePar\EndP\HCode{</subtitle>}}
+\Configure{author}
+   {\ifvmode \IgnorePar \fi \EndP \HCode{<author><othername>}\bgroup
+    \Configure{leftline}{}{}}
+   {\egroup \ifvmode \IgnorePar \fi \EndP \HCode{</othername></author>}}
+\def\:nbsp{\HCode{\string&}\HChar{-35}\HCode{x00A0;}}%
+
+\Configure{contents}
+  {\b:titlepage   \let\b:titlepage=\empty
+   \ifvmode \IgnorePar \fi \EndP \HCode{<tocchap>}}
+  {\ifvmode \IgnorePar \fi \EndP \HCode{</tocchap>}}
+\Configure{endchapter}{appendix}
+\Configure{endappendix}{chapter}
+\Configure{endnumberedsec}
+   {chapter,appendix,appendixsec,unnumberedsec,unnumbered}
+\Configure{endappendixsec}
+   {chapter,appendix,umberedsec,unnumberedsec,unnumbered}
+\Configure{endunnumberedsec}
+   {chapter,appendix,umberedsec,appendixsec,unnumbered}
+\Configure{endunnumbered}
+   {chapter,appendix,umberedsec,appendixsec,unnumberedsec}
+\Configure{endnumberedsubsec}
+   {chapter,appendix,umberedsec,appendixsec,unnumberedsec,%
+    unnumbered,appendixsubsec,appendixsubsec,unnumberedsubsec}
+\Configure{endappendixsubsec}
+   {chapter,appendix,umberedsec,appendixsec,unnumberedsec,%
+    unnumbered,numberedsubsec,appendixsubsec,unnumberedsubsec}
+\Configure{endappendixsubsec}
+   {chapter,appendix,umberedsec,appendixsec,unnumberedsec,%
+    unnumbered,numberedsubsec,appendixsubsec,unnumberedsubsec}
+\Configure{endunnumberedsubsec}
+   {chapter,appendix,umberedsec,appendixsec,unnumberedsec,%
+    unnumbered,numberedsubsec,appendixsubsec,appendixsubsec}
+\Configure{endnumberedsubsubsec}{chapter,appendix,umberedsec,%
+    appendixsec,unnumberedsec,unnumbered,numberedsubsec,%
+    appendixsubsec,appendixsubsec,unnumberedsubsec,appendixsubsubsec,%
+    appendixsubsubsec,unnumberedsubsubsec}
+\Configure{endappendixsubsubsec}
+   {chapter,appendix,umberedsec,appendixsec,unnumberedsec,%
+    unnumbered,numberedsubsec,appendixsubsec,appendixsubsec,%
+    unnumberedsubsec,numberedsubsubsec,appendixsubsubsec,%
+    unnumberedsubsubsec}
+\Configure{endappendixsubsubsec}
+   {chapter,appendix,umberedsec,appendixsec,unnumberedsec,%
+    unnumbered,numberedsubsec,appendixsubsec,appendixsubsec,%
+    unnumberedsubsec,numberedsubsubsec,appendixsubsubsec,%
+    unnumberedsubsubsec}
+\Configure{endunnumberedsubsubsec}
+   {chapter,appendix,umberedsec,appendixsec,unnumberedsec,%
+    unnumbered,numberedsubsec,appendixsubsec,appendixsubsec,%
+    unnumberedsubsec,numberedsubsubsec,appendixsubsubsec,appendixsubsubsec}
+\Configure{index}
+  {\IgnorePar\leavevmode\EndP\Tg<div class="index">}
+  {\IgnorePar\EndP\Tg</div>}
+  {\leavevmode\Tg<span class="entry">}
+  {\Tg</span>\Tg<br />\IgnorePar}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureToc{lof}
+   {\HCode{\Hnewline<tocentry role="lofToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{lot}
+   {\HCode{\Hnewline<tocentry role="lotToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\def\DB:index#1\indNum#2{%
+   \ifnum  #2=\index:N
+      \let\DB:index=\relax  #1\long\def\item##1\end{\end}%
+   \else \expandafter\gob:item \fi
+}
+\long\def\gob:item#1\item{\DB:index}
+\let\indNum=\:gobble
+\HAssign\index:N = 0
+\def\comNum#1{\tmp:cnt=}
+\let\db:index=\index
+\def\index{%
+   \immediate\openin15=\jobname.ind
+   \ifeof15 \else
+      \immediate\closein15
+      \bgroup
+       \def\gobble##1{}%
+       \gHAdvance\index:N by 1
+       \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+       \leavevmode \let\par=\empty
+       \input{\jobname.ind}%
+      \egroup
+    \fi
+    \db:index}
+\Configure{theindex}
+    {\special{t4ht@[}}
+    {\special{t4ht@]}}
+    {}{}{}{}{}{}{}
+
+
+\def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article role="book" xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar
+   }
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\Configure{maketitle}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}\par\ShowPar}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+
+\ConfigureEnv{titlepage}
+   {\bgroup
+      \ifvmode \IgnorePar\fi \EndP
+%     \HCode{<para class="titlepage">}%
+      \Configure{tabular}{}{}{}{}{}{}%
+      \ConfigureEnv{tabular}{}{}{}{}{}{}%
+      \ConfigureEnv{center}{}{}{}{}}
+   {\ifvmode \IgnorePar\fi \EndP
+%     \HCode{</para>}%
+    \egroup}
+   {} {}
+\Configure{dedication}
+   {\ifvmode \IgnorePar\fi\EndP
+    \HCode{<para role="dedication" >}}
+   {\ifvmode \IgnorePar\fi\EndP \HCode{</para>}}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+\Configure{likepart}
+   {\OpenDiv{likepart}}   {\CloseDiv{likepart}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likesection}
+   {\OpenDiv{likesection}}   {\CloseDiv{likesection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsection}
+   {\OpenDiv{likesubsection}}   {\CloseDiv{likesubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsubsection}
+   {\OpenDiv{likesubsubsection}}   {\CloseDiv{likesubsubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likeparagraph}
+   {\OpenDiv{likeparagraph}}   {\CloseDiv{likeparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubparagraph}
+   {\OpenDiv{likesubparagraph}}   {\CloseDiv{likesubparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endlikepart}{endpart}
+\fi
+
+\Configure{chapter}
+   {\OpenDiv{chapter}}   {\CloseDiv{chapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likechapter}
+   {\OpenDiv{likechapter}}   {\CloseDiv{likechapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+
+\Configure{addchap}
+   {\OpenDiv{addchap}}   {\CloseDiv{addchap}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,addchap,appendix,part,likepart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,addchap,appendix,part,likepart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,addchap,appendix,part,likepart}
+\Configure{endsection}
+     {likesection,chapter,likechapter,addchap,appendix,part,likepart}
+\Configure{endlikesection}
+     {section,chapter,likechapter,addchap,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,addchap,appendix,part,likepart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,addchap,appendix,part,likepart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,addchap,appendix,part,likepart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,addchap,appendix,part,likepart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,addchap,appendix,part,likepart}
+\Configure{endchapter}{likechapter,addchap,appendix,part,likepart}
+\Configure{endlikechapter}{chapter,appendix,part,likeparaddchap,addchap}
+\Configure{endaddchap}{chapter,likechapter,appendix,part,likepart}
+\Configure{endappendix}{chapter,likechapter,addchap,part,likepart}
+
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+   \Configure{endlikepart}{endpart}
+\fi
+
+\Configure{tableofcontents}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{<toc><tocpart>}}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{</tocpart></toc><para></para>}}
+  {}{}{}
+\ConfigureToc{likeparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likeparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likepart}
+  {} {\HCode{\Hnewline<tocentry role="likepartToc">}}
+  {} {\HCode{</tocentry>}}
+\ConfigureToc{likesection}
+   {} {\HCode{\Hnewline<tocentry role="likesectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likesubparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{paragraph}
+   {\HCode{\Hnewline<tocentry role="paragraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{part}
+   {\HCode{\Hnewline<tocentry role="partToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{section}
+   {\HCode{\Hnewline<tocentry role="sectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subparagraph}
+   {\HCode{\Hnewline<tocentry role="subparagraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsection}
+   {\HCode{\Hnewline<tocentry role="subsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsubsection}
+   {\HCode{\Hnewline<tocentry role="subsubsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\ConfigureToc{appendix}
+   {\HCode{\Hnewline<tocentry role="appendixToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{chapter}
+   {\HCode{\Hnewline<tocentry role="chapterToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{likechapter}
+   {} {\HCode{\Hnewline<tocentry role="likechapterToc">}}
+   {} {\HCode{</tocentry>}}
+
+\ConfigureToc{addchap}
+   {}
+   {\HCode{\Hnewline<tocentry role="addchapToc">}}
+   {}
+   {\HCode{</tocentry>}}
+
+\ConfigureList{thebibliography}%
+   {\IgnorePar\EndP
+      \HCode{<simplelist role="bibliography">}\let\en:bib=\empty}
+   {\en:bib\HCode{</simplelist>}}
+   {\en:bib\def\en:bib{\HCode{</member>}}%
+    \HCode{<member><!--l.
+        \the\inputlineno--><abbrev role="biblioentry">}%
+    \Configure{HtmlPar}{}{}{}{}
+}
+   {\HCode{</abbrev>}}
+
+\ConfigureEnv{figure}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{<figure><title/><blockquote>}}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{</blockquote></figure>}}
+   {}{}
+\Configure{caption}
+   {\HCode{<blockquote role="caption"><title role="caption">}}
+   {\HCode{</title><para>}}
+   {}
+   {\HCode{</para></blockquote>}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureToc{lof}
+   {\HCode{\Hnewline<tocentry role="lofToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{lot}
+   {\HCode{\Hnewline<tocentry role="lotToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\def\DB:index#1\indNum#2{%
+   \ifnum  #2=\index:N
+      \let\DB:index=\relax  #1\long\def\item##1\end{\end}%
+   \else \expandafter\gob:item \fi
+}
+\long\def\gob:item#1\item{\DB:index}
+\let\indNum=\:gobble
+\HAssign\index:N = 0
+\def\comNum#1{\tmp:cnt=}
+\let\db:index=\index
+\def\index{%
+   \immediate\openin15=\jobname.ind
+   \ifeof15 \else
+      \immediate\closein15
+      \bgroup
+       \def\gobble##1{}%
+       \gHAdvance\index:N by 1
+       \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+       \leavevmode \let\par=\empty
+       \input{\jobname.ind}%
+      \egroup
+    \fi
+    \db:index}
+\Configure{theindex}
+    {\special{t4ht@[}}
+    {\special{t4ht@]}}
+    {}{}{}{}{}{}{}
+
+\def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar
+   }
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+  {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\Configure{maketitle}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}\par\ShowPar}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+\ConfigureEnv{abstract}
+   {\IgnorePar\EndP\HCode{<abstract>}}
+   {\IgnorePar\EndP\HCode{</abstract>}}
+   {\HCode{<title>}}
+   {\HCode{</title>}}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+\Configure{likepart}
+   {\OpenDiv{likepart}}   {\CloseDiv{likepart}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likesection}
+   {\OpenDiv{likesection}}   {\CloseDiv{likesection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsection}
+   {\OpenDiv{likesubsection}}   {\CloseDiv{likesubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsubsection}
+   {\OpenDiv{likesubsubsection}}   {\CloseDiv{likesubsubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likeparagraph}
+   {\OpenDiv{likeparagraph}}   {\CloseDiv{likeparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubparagraph}
+   {\OpenDiv{likesubparagraph}}   {\CloseDiv{likesubparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endlikepart}{endpart}
+\fi
+
+\Configure{tableofcontents}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{<toc><tocpart>}}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{</tocpart></toc><para></para>}}
+  {}{}{}
+\ConfigureToc{likeparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likeparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likepart}
+  {} {\HCode{\Hnewline<tocentry role="likepartToc">}}
+  {} {\HCode{</tocentry>}}
+\ConfigureToc{likesection}
+   {} {\HCode{\Hnewline<tocentry role="likesectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likesubparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{paragraph}
+   {\HCode{\Hnewline<tocentry role="paragraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{part}
+   {\HCode{\Hnewline<tocentry role="partToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{section}
+   {\HCode{\Hnewline<tocentry role="sectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subparagraph}
+   {\HCode{\Hnewline<tocentry role="subparagraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsection}
+   {\HCode{\Hnewline<tocentry role="subsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsubsection}
+   {\HCode{\Hnewline<tocentry role="subsubsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\ConfigureList{thebibliography}%
+   {\IgnorePar\EndP
+      \HCode{<simplelist role="bibliography">}\let\en:bib=\empty}
+   {\en:bib\HCode{</simplelist>}}
+   {\en:bib\def\en:bib{\HCode{</member>}}%
+    \HCode{<member><!--l.
+        \the\inputlineno--><abbrev role="biblioentry">}%
+    \Configure{HtmlPar}{}{}{}{}
+}
+   {\HCode{</abbrev>}}
+
+\ConfigureEnv{figure}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{<figure><title/><blockquote>}}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{</blockquote></figure>}}
+   {}{}
+\Configure{caption}
+   {\HCode{<blockquote role="caption"><title role="caption">}}
+   {\HCode{</title><para>}}
+   {}
+   {\HCode{</para></blockquote>}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrreprt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureToc{lof}
+   {\HCode{\Hnewline<tocentry role="lofToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{lot}
+   {\HCode{\Hnewline<tocentry role="lotToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\def\DB:index#1\indNum#2{%
+   \ifnum  #2=\index:N
+      \let\DB:index=\relax  #1\long\def\item##1\end{\end}%
+   \else \expandafter\gob:item \fi
+}
+\long\def\gob:item#1\item{\DB:index}
+\let\indNum=\:gobble
+\HAssign\index:N = 0
+\def\comNum#1{\tmp:cnt=}
+\let\db:index=\index
+\def\index{%
+   \immediate\openin15=\jobname.ind
+   \ifeof15 \else
+      \immediate\closein15
+      \bgroup
+       \def\gobble##1{}%
+       \gHAdvance\index:N by 1
+       \Configure{theindex}
+   {\let\end:theidx=\empty \HCode{<indexterm>}}
+   {\HCode{</indexterm>}}
+   {\HCode{<primary>}%
+%
+    \def\end:cur{\HCode{</primary>}\hfil\break
+\let\end:cur=\empty}%
+    \DB:index
+   }
+    {\end:cur \let\chain:subitem=\empty}
+   {\chain:subitem \HCode{<secondary>}%
+%
+    \def\end:cur{\HCode{</secondary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+    {\end:cur \def\chain:subitem{%
+     \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+}%
+     \let\chain:subsubitem=\empty
+   }
+   {\chain:subsubitem\HCode{<tertiary>}%
+%
+    \def\end:cur{\HCode{</tertiary>}\hfil\break
+\let\end:cur=\empty}%
+   }
+   {\end:cur \def\chain:subsubitem{%
+       \HCode{<primary>}%
+\HCode{</primary>}\hfil\break
+%
+       \HCode{<secondary>}%
+\HCode{</secondary>}\hfil\break
+}%
+   }
+   {}
+%
+       \leavevmode \let\par=\empty
+       \input{\jobname.ind}%
+      \egroup
+    \fi
+    \db:index}
+\Configure{theindex}
+    {\special{t4ht@[}}
+    {\special{t4ht@]}}
+    {}{}{}{}{}{}{}
+
+
+\def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article role="report" xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar}
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\Configure{maketitle}
+   {\HCode{<info role="maketitle">}}
+   {\HCode{</info>}\par\ShowPar}
+   {\HCode{<title>}}{\HCode{</title>}}
+\Configure{thanks author date and} {}{}
+   {\HCode{<author><personname><othername>}}
+   {\HCode{</othername></personname></author>}}
+   {\HCode{<date>}}
+   {\HCode{</date>}}
+   {}{}
+\ConfigureEnv{abstract}
+   {\IgnorePar\EndP\HCode{<abstract>}}
+   {\IgnorePar\EndP\HCode{</abstract>}}
+   {\HCode{<note role="title"><para>}}
+   {\HCode{</para></note>}}
+
+\Configure{part}
+   {\OpenDiv{part}}   {\CloseDiv{part}}
+   {\HCode{<title>}\TitleMark
+} {\HCode{</title>}\par\ShowPar}
+\Configure{section}
+   {\OpenDiv{section}}   {\CloseDiv{section}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\OpenDiv{subsection}}   {\CloseDiv{subsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subsubsection}
+   {\OpenDiv{subsubsection}}   {\CloseDiv{subsubsection}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{paragraph}
+   {\OpenDiv{paragraph}}   {\CloseDiv{paragraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\Configure{subparagraph}
+   {\OpenDiv{subparagraph}}   {\CloseDiv{subparagraph}}
+   {\HCode{<title>}\TitleMark
+}   {\HCode{</title>}\par\ShowPar}
+\def\OpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="#1">}%
+}
+\def\CloseDiv#1{%
+   \IgnorePar\EndP\HCode{</section><!--end #1-->}%
+}
+\def\AppOpenDiv#1{%
+   \IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><appendix\Hnewline role="#1">}%
+}
+\def\AppCloseDiv#1{%
+   \IgnorePar\EndP\HCode{</appendix><!--end #1-->}%
+}
+
+\ConfigureMark{section}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsection
+          \HCode{</abbrev>}\fi }
+\ConfigureMark{subsubsection}
+   {\ifnum \c:secnumdepth>\c@secnumdepth \expandafter\:gobble
+    \else \HCode{<abbrev role="title-mark">}\thesubsubsection
+          \HCode{</abbrev>}\fi }
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\fi
+
+\Configure{likepart}
+   {\OpenDiv{likepart}}   {\CloseDiv{likepart}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likesection}
+   {\OpenDiv{likesection}}   {\CloseDiv{likesection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsection}
+   {\OpenDiv{likesubsection}}   {\CloseDiv{likesubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubsubsection}
+   {\OpenDiv{likesubsubsection}}   {\CloseDiv{likesubsubsection}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likeparagraph}
+   {\OpenDiv{likeparagraph}}   {\CloseDiv{likeparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{likesubparagraph}
+   {\OpenDiv{likesubparagraph}}   {\CloseDiv{likesubparagraph}}
+   {\HCode{<title>}}   {\HCode{</title>}\par\ShowPar}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endlikepart}{endpart}
+\fi
+
+\Configure{chapter}
+   {\OpenDiv{chapter}}   {\CloseDiv{chapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+\Configure{likechapter}
+   {\OpenDiv{likechapter}}   {\CloseDiv{likechapter}}
+   {\HCode{<title>}} {\HCode{</title>}\par\ShowPar}
+
+
+\Configure{tableofcontents}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{<toc><tocpart>}}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{</tocpart></toc><para></para>}}
+  {}{}{}
+\ConfigureToc{likeparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likeparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likepart}
+  {} {\HCode{\Hnewline<tocentry role="likepartToc">}}
+  {} {\HCode{</tocentry>}}
+\ConfigureToc{likesection}
+   {} {\HCode{\Hnewline<tocentry role="likesectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubparagraph}
+   {} {\HCode{\Hnewline<tocentry role="likesubparagraphToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{likesubsubsection}
+   {} {\HCode{\Hnewline<tocentry role="likesubsubsectionToc">}}
+   {} {\HCode{</tocentry>}}
+\ConfigureToc{paragraph}
+   {\HCode{\Hnewline<tocentry role="paragraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{part}
+   {\HCode{\Hnewline<tocentry role="partToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{section}
+   {\HCode{\Hnewline<tocentry role="sectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subparagraph}
+   {\HCode{\Hnewline<tocentry role="subparagraphToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsection}
+   {\HCode{\Hnewline<tocentry role="subsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{subsubsection}
+   {\HCode{\Hnewline<tocentry role="subsubsectionToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+
+\ConfigureToc{appendix}
+   {\HCode{\Hnewline<tocentry role="appendixToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{chapter}
+   {\HCode{\Hnewline<tocentry role="chapterToc">}}
+   {\ }{} {\HCode{</tocentry>}}
+\ConfigureToc{likechapter}
+   {} {\HCode{\Hnewline<tocentry role="likechapterToc">}}
+   {} {\HCode{</tocentry>}}
+
+\ConfigureList{thebibliography}%
+   {\IgnorePar\EndP
+      \HCode{<simplelist role="bibliography">}\let\en:bib=\empty}
+   {\en:bib\HCode{</simplelist>}}
+   {\en:bib\def\en:bib{\HCode{</member>}}%
+    \HCode{<member><!--l.
+        \the\inputlineno--><abbrev role="biblioentry">}%
+    \Configure{HtmlPar}{}{}{}{}
+}
+   {\HCode{</abbrev>}}
+
+\ConfigureEnv{figure}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{<figure><title/><blockquote>}}
+   {\ifvmode \IgnorePar\fi \EndP  \HCode{</blockquote></figure>}}
+   {}{}
+\Configure{caption}
+   {\HCode{<blockquote role="caption"><title role="caption">}}
+   {\HCode{</title><para>}}
+   {}
+   {\HCode{</para></blockquote>}}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{llncs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{email}
+   {\HCode{<email>}}
+   {\HCode{</email>}}
+\Configure{institute}
+   {\HCode{<note><para role="institute">}}
+   {\HCode{</para></note>}}
+\ConfigureEnv{abstract}
+   {\ifvmode \IgnorePar\fi \EndP}
+   {\ifvmode \IgnorePar\fi \EndP}
+   {}{}
+\ConfigureList{abstract}
+   {\ifvmode \IgnorePar\fi \EndP
+       \HCode{<abstract>}\IgnorePar}
+   {\ifvmode \IgnorePar\fi \EndP
+       \HCode{</abstract>}\ShowPar}
+   {\IgnorePar\par\HCode{<title>}}
+   {\HCode{</title>}\ShowPar\par}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{jurabib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{jblink}{\Link}{\EndLink}
+\Configure{jbanchor}{\Link}{\EndLink}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{prosper}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureEnv{slide}
+  {\ifvmode \IgnorePar\fi \EndP
+   \HCode{<blockquote role="slide">}\par}
+  {\HCode{</blockquote>}}
+  {}{}
+\Configure{slidetitle}
+  {\HCode{<note role="title"><para>}}
+  {\HCode{</para></note>}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{beamer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:gobbleM#1->{}
+\Configure{BODY}
+   {\HCode{\Hnewline<!--translated from \jobname.tex
+     \Hnewline by TeX4ht  (https://tug.org/tex4ht/)
+     \expandafter\:gobbleM\meaning\Preamble\space-->\Hnewline}
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+   \HCode{<?xtpipes file="docbook.4xt" ?>\Hnewline}
+\fi
+%
+    \HCode{<article xmlns="http://docbook.org/ns/docbook"                        \Hnewline
+xmlns:xlink="http://www.w3.org/1999/xlink"                   \Hnewline
+version="5.0"                                                \Hnewline
+ >}%
+    \a:TITLE\bgroup \:TITLE: \c:TITLE \egroup \b:TITLE
+    \par\ShowPar
+   }
+   {\IgnorePar\EndP\HCode{</article>}}
+\immediate\write-1{TeX4ht package options:
+    \expandafter\:gobbleM\meaning\Preamble}
+
+\Configure{VERSION}
+  {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+\Configure{titlepage}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<para role="titlepage">}%
+    \bgroup \Configure{HtmlPar}
+   {\EndP\HCode{<!--l. \the\inputlineno--><note><para>}}
+   {\EndP\HCode{<!--l. \the\inputlineno--><note><para>}}
+   {\HCode{</para></note>}}     {\HCode{</para></note>}}
+}
+   {\egroup \ifvmode \IgnorePar\fi \EndP \HCode{</para>}}
+\Configure{title}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<note role="title"><para>}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</para></note>}}
+\Configure{author}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<note role="author"><para><personname><othername>}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</othername></personname></para></note>}}
+\Configure{institute}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<note role="institute"><para>}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</para></note>}}
+\Configure{date}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<note role="date"><para>}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</para></note>}}
+\Configure{inst}
+   {\HCode{<superscript role="inst">}\bgroup \everymath{}\let\sp=\empty}
+   {\egroup\HCode{</superscript>}}
+\Configure{andtitle}{\HCode{<remark role="and"/>}}
+
+\Configure{tableofcontents}
+  {\ifvmode \IgnorePar\fi \EndP \HCode{<toc><tocpart>}}
+  {\ifvmode \IgnorePar\fi \EndP\HCode{</tocpart></toc>}}
+  {}{}{}
+\ConfigureToc{toc}
+   {} {\HCode{\Hnewline<tocentry>}}
+   {} {\HCode{</tocentry>}}
+\Configure{sectionshadedintoc}
+   {\HCode{<phrase role="sectionshaded">}}
+   {\ifvmode \IgnorePar\fi \HCode{</phrase>}}
+\Configure{sectionintoc}
+   {\HCode{<phrase role="section">}}
+   {\ifvmode \IgnorePar\fi \HCode{</phrase>}}
+\Configure{subsectionshadedintoc}
+   {\HCode{<phrase role="subsectionshaded">}}
+   {\ifvmode \IgnorePar\fi \HCode{</phrase>}}
+\Configure{subsectionintoc}
+   {\HCode{<phrase role="subsection">}}
+   {\ifvmode \IgnorePar\fi \HCode{</phrase>}}
+
+\let\no:section\section
+\Def:Section\section{\thesection}{#1}
+\let\no::section\section
+\let\section\no:section
+\let\no:section\@section
+\def\@section[#1]#2{\no::section{#2}%
+   \ifvmode \IgnorePar\fi \EndP
+   \HCode{<subtitle>}#1%
+   \ifvmode \IgnorePar\fi \EndP \HCode{</subtitle>}%
+   \no:section[#1]{#2}}
+
+\let\no:subsection\subsection
+\Def:Section\subsection{\thesubsection}{#1}
+\let\no::subsection\subsection
+\def\subsection#1{\no::subsection{#1}\no:subsection{#1}}
+
+\Configure{section}
+   {\IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="section">}}
+   {\IgnorePar\EndP\HCode{</section><!--end section-->}}
+   {\HCode{<title>}\TitleMark}
+   {\HCode{</title>}\par\ShowPar}
+\Configure{subsection}
+   {\IgnorePar\EndP \HCode{<!--l.
+       \the\inputlineno--><section\Hnewline role="subsection">}}
+   {\IgnorePar\EndP\HCode{</section><!--end subsection-->}}
+   {\HCode{<title>}\TitleMark}
+   {\HCode{</title>}\par\ShowPar}
+\Configure{endsubsection}{section}
+
+\ConfigureEnv{slide}
+   {\ifvmode \IgnorePar\fi \EndP
+    \HCode{<section role="slide"><title></title>}\par
+   }
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</section>}}
+   {} {}
+
+\Configure{frametitle}
+   {\ifvmode \IgnorePar\fi \EndP
+    \HCode{<para role="frametitle">}\bgroup
+    \Configure{HtmlPar}{ }{ }{}{}%
+   }
+   {\egroup \ifvmode \IgnorePar\fi \EndP \HCode{</para>}}
+
+\let\block:Name=\empty
+\ConfigureEnv{block}
+   {\par\IgnorePar\EndP
+    \ifx \block:Name\empty \def\block:Name{block}\fi
+    \HCode{<blockquote
+            role="\block:Name">}\global\let\block:Name=\empty}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</blockquote>}}
+   {} {}
+\ConfigureEnv{alertblock}
+   {\par\IgnorePar\EndP
+    \ifx \block:Name\empty \def\block:Name{alertblock}\fi
+    \HCode{<blockquote
+            role="\block:Name">}\global\let\block:Name=\empty}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</blockquote>}}
+   {} {}
+\ConfigureEnv{exampleblock}
+   {\par\IgnorePar\EndP
+    \ifx \block:Name\empty \def\block:Name{exampleblock}\fi
+    \HCode{<blockquote
+            role="\block:Name">}\global\let\block:Name=\empty}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</blockquote>}}
+   {} {}
+\Configure{blocktitle}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<title>}\par\IgnorePar}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</title>}\par}
+\ConfigureEnv{Problem}
+   {\def\block:Name{Problem}} {} {} {}
+\ConfigureEnv{Loesung}
+   {\def\block:Name{Loesung}} {} {} {}
+\ConfigureEnv{Definition}
+   {\def\block:Name{Definition}} {} {} {}
+\ConfigureEnv{Satz}
+   {\def\block:Name{Satz}} {} {} {}
+\ConfigureEnv{Beweis}
+   {\def\block:Name{Beweis}} {} {} {}
+\ConfigureEnv{Folgerung}
+   {\def\block:Name{Folgerung}} {} {} {}
+\ConfigureEnv{Lemma}
+   {\def\block:Name{Lemma}} {} {} {}
+\ConfigureEnv{Fakt}
+   {\def\block:Name{Fakt}} {} {} {}
+\ConfigureEnv{Theorem}
+   {\def\block:Name{Theorem}} {} {} {}
+\ConfigureEnv{Proof}
+   {\def\block:Name{Proof}} {} {} {}
+\ConfigureEnv{Corollary}
+   {\def\block:Name{Corollary}} {} {} {}
+\ConfigureEnv{Fact}
+   {\def\block:Name{Fact}} {} {} {}
+\ConfigureEnv{definition}
+   {\def\block:Name{definition}} {} {} {}
+\ConfigureEnv{definitions}
+   {\def\block:Name{definitions}} {} {} {}
+\ConfigureEnv{theorem}
+   {\def\block:Name{theorem}} {} {} {}
+\ConfigureEnv{proof}
+   {\def\block:Name{proof}} {} {} {}
+\ConfigureEnv{corollary}
+   {\def\block:Name{corollary}} {} {} {}
+\ConfigureEnv{fact}
+   {\def\block:Name{fact}} {} {} {}
+\ConfigureEnv{Beispiel}
+   {\def\block:Name{Beispiel}} {} {} {}
+\ConfigureEnv{Beispiele}
+   {\def\block:Name{Beispiele}} {} {} {}
+\ConfigureEnv{Example}
+   {\def\block:Name{Example}} {} {} {}
+\ConfigureEnv{Examples}
+   {\def\block:Name{Examples}} {} {} {}
+\ConfigureEnv{example}
+   {\def\block:Name{example}} {} {} {}
+\ConfigureEnv{examples}
+   {\def\block:Name{examples}} {} {} {}
+\ConfigureEnv{columns}
+  {\ifvmode \IgnorePar\fi \EndP
+   \HCode{<blockquote role="columns">}}
+  {\ifvmode \IgnorePar\fi \EndP \HCode{</blockquote>}\par}
+  {}{}
+\ConfigureEnv{column}
+  {\ifvmode \IgnorePar\fi \EndP
+   \HCode{<blockquote role="column">}}
+  {\ifvmode \IgnorePar\fi \EndP \HCode{</blockquote>}}
+  {}{}
+
+\ConfigureList{thebibliography}%
+   {\IgnorePar\EndP
+      \HCode{<simplelist role="bibliography">}\let\en:bib=\empty}
+   {\en:bib\HCode{</simplelist>}}
+   {\en:bib\def\en:bib{\HCode{</member>}}%
+    \HCode{<member><!--l.
+        \the\inputlineno--><abbrev role="biblioentry">}%
+    \Configure{HtmlPar}{}{}{}{}
+}
+   {\HCode{</abbrev>}}
+
+\Configure{alert}
+   {\HCode{<note role="alert"><para>}\bgroup
+    \Configure{HtmlPar}{\HCode{<!--br/-->}}{\HCode{<!--br/-->}}{}{}%
+   }
+   {\egroup\HCode{</para></note>}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{pgf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureEnv{pgfpicture}
+   {\hbox\bgroup\Picture+[ ]{}}
+   {\EndPicture\egroup}
+   {}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{subeqnarray}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureEnv{subeqnarray}
+   {\ifvmode \IgnorePar\fi \EndP
+    \HCode{<blockquote role="subeqnarray">}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</blockquote>}}
+   {}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{algorithmic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureEnv{algorithmic}
+   {\ifvmode\IgnorePar\fi \EndP
+    \HCode{<blockquote role="algorithmic"><para>}%
+    \bgroup
+      \Configure{HtmlPar}{}{}{}{}}
+   {\egroup \ifvmode \IgnorePar\fi
+    \HCode{</para></blockquote>}\par\ShowPar}
+   {}{}
+\Configure{ALCitem}
+   {\HCode{\ifnum \c@ALC@line>1 </para><para>\fi
+           <remark role="line-number">}}
+   {\HCode{</remark>}}
+\Configure{algorithmiccomment}
+   {\HCode{<blockquote role="comment"><para>}}
+   {\HCode{</para></blockquote>}}
+   {}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{listings}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Log:Note{to ensure proper alignments use
+   fixed size fonts (see listings.dtx)}
+\Configure{listings}
+   {\ifvmode \IgnorePar\fi \EndP
+    {\everypar{}\leavevmode}\HCode{<!--l. \the\inputlineno-->}%
+     \HCode{<pre class="listings">}%
+   }
+   {{\everypar{}\leavevmode}\HCode{</pre>}}
+   {}{}
+\Configure{lstinline}
+   {\HCode{<remark role="lstinline">}}
+   {\HCode{</remark>}}
+\ConfigureEnv{lstlisting}
+   {\ifvmode \IgnorePar\fi \EndP
+    \HCode{<!--l. \the\inputlineno-->}%
+    \HCode{<div class="lstlisting">}%
+    \bgroup
+       \Configure{listings}
+         {{\everypar{}\leavevmode}}
+         {{\everypar{}\leavevmode}}
+         {\HCode{<br/>}}{}%
+   }
+   {\egroup \ifvmode \IgnorePar\fi \EndP   \HCode{</div>}}
+   {} {}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

@@ -1,0 +1,4 @@
+.cmmi
+htfcss: plmi font-style: italic;
+htfcss: plmib font-style: italic; font-weight: bold;
+

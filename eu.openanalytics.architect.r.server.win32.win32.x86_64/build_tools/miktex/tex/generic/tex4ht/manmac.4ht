@@ -1,0 +1,159 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% manmac.4ht                            2009-05-21-09:32 %
+% Copyright (C) 2004--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \proofmodefalse
+
+\let\setcornerrules\empty
+
+\let\o:exercise:=\exercise
+\let\exercise\:UnDef
+
+\def\exercise{\a:exercise \csname o:exercise:\endcsname\b:exercise}
+\NewConfigure{exercise}{2}
+\pend:def\copytoblankline{\begingroup\aftergroup\par\:gobble}
+
+\def\checkequals#1#2{}
+
+\append:def\beginlines{\everypar{\strut\HtmlPar}}
+
+\outer\def\begindisplay{\o:obeylines:\startdisplay}
+{\catcode`\#=13
+ \catcode`\@=6
+ \catcode`\^=7
+  \o:obeylines:\gdef\startdisplay@1
+  {\catcode`\^^M=5@1\bgroup %
+   \Configure{MkHalign}%
+      {\csname a:manmac-display\endcsname}%
+      {\csname b:manmac-display\endcsname}%
+      {\csname c:manmac-display\endcsname}%
+      {\csname d:manmac-display\endcsname}%
+      {\csname e:manmac-display\endcsname}%
+      {\csname f:manmac-display\endcsname}%
+   \let\par\endgraf %
+   \MkHalign#{\indent#\hfil&&\qquad#\hfil}}}
+\outer\def\enddisplay{\crcr\EndMkHalign\egroup}
+\NewConfigure{manmac-display}{6}
+
+\outer\def\begintt{\a:ttenv
+  \bgroup\let\par=\endgraf \ttverbatim \parskip=\z@
+  \catcode`\|=0 \rightskip-5pc \ttfinish}
+{\catcode`\^=7
+ \catcode`\|=0 |catcode`|\=\other %
+  |o:obeylines: % end of line is active
+  |gdef|ttfinish#1^^M#2\endtt{#1|vbox{#2}|endgroup|egroup |b:ttenv}}
+
+\NewConfigure{ttenv}{2}
+\pend:def\d@nger{\medbreak\a:danger\:gobble}
+\append:def\d@nger{\aftergroup\b:danger}
+\pend:def\dd@nger{\medbreak\a:ddanger\:gobble}
+\append:def\dd@nger{\aftergroup\b:ddanger}
+\NewConfigure{danger}{2}
+\NewConfigure{ddanger}{2}
+\catcode`\!6
+\catcode`\#13
+\def\:tempc!1!2{% !1=width, !2=text
+  \vtop{%
+    \Configure{MkHalign}\a:sampleglue\b:sampleglue\c:sampleglue %
+                       \d:sampleglue\e:sampleglue\f:sampleglue
+    \MkHalign#{\hfil#}!2\cr\EndMkHalign}}
+\HLet\sampleglue\:tempc
+\catcode`\!12
+\catcode`\#6
+\NewConfigure{sampleglue}{6}
+
+  \def\:tempc#1 #2#3. #4\par{\vfill\break
+   \ifodd\pageno \advancepageno\fi
+   \let\SV:halign\halign
+   \let\halign\TeXhalign
+   \let\title:page\def
+   \bb:chapter \global\let\bb:chapter=\b:chapter \a:chapter  \c:chapter
+       \o:beginchapter:{#1} {#2}{#3}. {#4}\par
+   \d:chapter
+   \let\halign\SV:halign
+}
+\HLet\beginchapter\:tempc
+\expandafter\let\expandafter\:endchapter\csname endchapter\endcsname
+\expandafter\def\csname endchapter\endcsname{%
+   \let\title:page\:UnDef
+   \bb:chapter \global\let\bb:chapter=\empty \csname :endchapter\endcsname
+   \everypar{\sl\HtmlPar}}
+\pend:def\at:docend{\bb:chapter}
+\let\bb:chapter=\empty
+\NewConfigure{chapter}{4}
+\pend:def\titlepage{%
+   \ifx \title:page\def \else
+      \let\title:page\:UnDef
+      \bb:chapter \a:titlepage
+      \global\let\bb:chapter=\b:titlepage
+   \fi
+}
+\NewConfigure{titlepage}{2}
+
+  \catcode`\#=13
+  \expandafter\def\csname beginmathdemo\endcsname{\par\bgroup
+  \Configure{MkHalign}\a:mathdemo\b:mathdemo\c:mathdemo
+                      \d:mathdemo\e:mathdemo\f:mathdemo
+  \MkHalign#{#\hfil&$#$\hfil}}
+\NewConfigure{mathdemo}{6}
+\outer\def\begindisplaymathdemo {\par\bgroup
+  \Configure{MkHalign}\a:displaymathdemo
+                      \b:displaymathdemo
+                      \c:displaymathdemo
+                      \d:displaymathdemo
+                      \e:displaymathdemo
+                      \f:displaymathdemo
+  \MkHalign#{\indent\hbox to 160pt{#\hfil}&$\displaystyle{#}$\hfil}}
+\NewConfigure{displaymathdemo}{6}
+\outer\def\beginlongmathdemo{\par\bgroup
+  \Configure{MkHalign}\a:longmathdemo
+                      \b:longmathdemo
+                      \c:longmathdemo
+                      \d:longmathdemo
+                      \e:longmathdemo
+                      \f:longmathdemo
+  \MkHalign#{\indent\hbox to 210pt{#\hfil}&$#$\hfil}}
+\NewConfigure{longmathdemo}{6}
+\outer\def\beginlongdisplaymathdemo {\par\bgroup
+  \Configure{MkHalign}\a:longdisplaymathdemo
+                      \b:longdisplaymathdemo
+                      \c:longdisplaymathdemo
+                      \d:longdisplaymathdemo
+                      \e:longdisplaymathdemo
+                      \f:longdisplaymathdemo
+  \MkHalign#{\indent\hbox to 210pt{#\hfil}&$\displaystyle{#}$\hfil}}
+\NewConfigure{longdisplaymathdemo}{6}
+
+\catcode`\#=6
+\expandafter\def\csname endmathdemo\endcsname{\EndMkHalign\egroup}
+
+  \def\specialhat{\ifmmode\def\next{\sp}\else\let\next=\beginxref\fi\next}
+{\catcode`\^=\active \global\let ^=\specialhat }
+
+\Hinput{manmac}
+\endinput
+

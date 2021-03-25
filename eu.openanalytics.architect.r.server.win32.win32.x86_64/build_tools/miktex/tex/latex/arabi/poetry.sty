@@ -1,0 +1,143 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: poetry.sty
+%%%%%%%%%%%%%%%%%%%%%%%% poetry %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \def \setversedim #1#2  % set length of half-verse, separation
+% \def \halfverses #1#2   % first half-verse, second half-verse (boyh are in arabic)
+% \def \connverses #1#2#3 % first half-verse, connection, second half-verse
+% 
+% 04.10.2005
+%
+% avoids loading twice
+\expandafter \ifx \csname ar@poetry\endcsname \relax \else
+  \expandafter \endinput \fi
+
+\def\ar@poetry{\relax}
+
+
+\ProvidesFile{poetry.sty}    
+        [2005/10/04 v0.1 Arabic poetry]
+
+
+
+%%%%%%%%%%%%%% A slight modification of the halfverses Macro %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% from the ArabTeX package by K. Lagally. %%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% verses.sty %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% verses.sty
+% utility for ArabTeX
+% macros for typesetting Arabic verses in two columns
+% usage: load as a package or after loading ArabTeX
+% provides:
+% \def \setversedim #1#2{% set length of half-verse, separation
+% \def \halfverses #1#2{% first half-verse, second half-verse
+% \def \connverses #1#2#3{% first half-verse, connection, second half-verse
+% use within an Arabic environment
+% 28.03.1998
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% (c) Klaus Lagally
+%     Institut fuer Informatik
+%     Universitaet Stuttgart
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Macro "borrowed" from the Midnight bundle. 
+%% From the Macro \border ...
+%%
+%%%%%%% exactly fitting border with overlaps
+% \border makes a border of the specified dimensions, by overlapping some
+% of the elements when necessary.
+% \hborder takes four arguments, the width, and the indices of the left
+% element, the middle element, and the right element. It makes an horizontal
+% border of the form  \hbox to wd{ l m+ r }, where there is at least one m.
+% If wd is large enough to set at least {l m r}, all overlap is between
+% elements of type m. In the unusual case where wd is too small, the overlap
+% is necessarily with the corner elements.
+%
+%\def\hborder#1#2#3#4% wd, l, m, r
+%   {\hbox to#1
+%	{\setbox0=\hbox{\borderelm#3}%
+%	 \borderelm#2%
+%	 \hskip0pt minus1fil %
+%	 \copy0\kern-.5\wd0 %
+%	 \cleaders\copy0\hskip0pt plus1fil %
+%	 \kern-.5\wd0\copy0 %
+%	 \hskip0pt minus1fil %
+%	 \borderelm#4%
+%	}%
+%   }
+%
+\DeclareRobustCommand{\Spreadbox}[2]{\bgroup%
+\setbox0=\hbox{{\if@farsi\fontencoding{LFE}\else\fontencoding{LAE}\fi\selectfont\keshchar}}
+\renewcommand{\tatweel}{%
+\noboundary\nobreak%
+\hskip0pt% minus1fil %
+\copy0\kern-.5\wd0 %
+\cleaders\copy0\hskip0pt plus1fil %
+\kern-.5\wd0\copy0 %
+\hskip0pt% minus1fil %
+\nobreak\noboundary}
+%
+\parbox{#1}{\hbox to #1{\if@farsi\FR{#2}\else\AR{#2}\fi}}\egroup}  
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newdimen \a@hvlen
+\newdimen \a@hvsep
+\newdimen \a@hvind
+
+% define some verse dimensions, verses will be centered
+\def \setversedim #1#2{% set length of half-verse, separation
+\a@hvlen #1\relax \a@hvsep #2\relax 
+\a@hvind \hsize \advance \a@hvind -\a@hvsep
+\divide \a@hvind 2 \advance \a@hvind -\a@hvlen }
+
+
+%strut for the Arabic font Traditional Arabic if vowels are used!
+%\def\astrut{\rule[-.3cm]{0cm}{8.5mm}} 
+\def\astrut{\hbox{\ArabiStrut}} 
+%%
+%% better to use instead of \hfil --> \hspace*{\stretch{1}}? 
+%%
+
+
+% macro for a verse with a connection
+\def \Connverses #1#2#3{% first half-verse + strut, connection, second half-verse
+\noindent \hspace \a@hvind \astrut
+\Spreadbox \a@hvlen {#1}% first block
+%\Spreadbox \a@hvsep {\hfill #2\hfill}% separator
+\Spreadbox \a@hvsep {\hspace*{\stretch{1}} #2\hspace*{\stretch{1}}}% separator
+\Spreadbox \a@hvlen {#3}% second block
+\par }
+
+
+% macro for two half verses
+\def \Halfverses #1#2{% normal case
+%\Connverses {#1}{\hfill}{#2}}
+\Connverses {#1}{\hspace*{\stretch{1}}}{#2}}
+
+
+
+
+\endinput

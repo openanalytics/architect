@@ -1,0 +1,174 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% amstex1.4ht                           2009-05-21-09:32 %
+% Copyright (C) 1997--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+% amstex.sty
+
+\if@compatibility \else
+    \input amsmath.4ht
+
+   \expandafter\endinput
+\fi
+
+\let\ltx@label\lb:l
+\def\:tempc#1#2#3{\a:underarrow@
+   \hbox{$\m@th#2#3$}\b:underarrow@
+   \hbox{#1#2}\c:underarrow@
+}
+\HLet\underarrow@\:tempc
+\def\:tempc#1#2#3{\a:overarrow@
+   \hbox{#1#2}\b:overarrow@
+   \hbox{$\m@th#2#3$}\c:overarrow@
+}
+\HLet\overarrow@\:tempc
+\NewConfigure{underarrow@}{3}
+\NewConfigure{overarrow@}{3}
+\def\:temp#1#2{\a:overset\binrel@{#2}%
+  \binrel@@{\mathop{\kern\z@#2}\limits^{#1}}\b:overset}
+\HLet\overset\:temp
+\NewConfigure{overset}{2}
+\def\:temp#1#2{\a:underset\binrel@{#2}%
+  \binrel@@{\mathop{\kern\z@#2}\limits_{#1}}\b:underset}
+\HLet\underset\:temp
+\NewConfigure{underset}{2}
+
+\MathSymbol\mathop{dotsc}
+\MathSymbol\mathop{dotso}
+\MathSymbol\mathrel{longleftarrow}
+\MathSymbol\mathrel{longrightarrow}
+
+
+\append:defI\subequations{\cur:lbl{}\let\cur:lbl\:gobble \ignorespaces}
+\let\:stepcounter\stepcounter
+\append:defI\stepcounter{%
+   \ifx \EndPicture\:UnDef\else \def\:temp{equation}\def\:tempa{#1}%
+   \ifx\:temp\:tempa
+      \edef\:currentlabel{E\the\c@equation}\let\cur:lbl\:gobble
+      \edef\cur:th{x\last:haddr}%
+      \edef\:temp{\noexpand\AfterPicture{\noexpand\a:eqno\noexpand
+         \Make:Label{\cur:th \:currentlabel}{}%
+         \noexpand\html:addr}}\:temp
+      \let\stepcounter\:stepcounter
+   \fi\fi }
+\let\:insplit\insplit@
+\def\insplit@{\let\halign\TeXhalign \:insplit}
+\NewConfigure{eqn}[1]{\def\a:eqno{#1}}
+\pend:def\gather{\a:gather}
+\append:def\endgather{\b:gather}
+\@xp\pend:def\csname gather*\endcsname{\Picture*{}}
+\@xp\append:def\csname endgather*\endcsname{\EndPicture}
+\NewConfigure{gather}{2}
+\pend:def\equation{\bgroup \let\tagform@\:gobble}
+\append:def\endequation{\egroup}
+\pend:def\align{\Picture*{}}
+\append:def\endalign{\EndPicture}
+\@xp\pend:def\csname align*\endcsname{\Picture*{}}
+\@xp\append:def\csname endalign*\endcsname{\EndPicture}
+\pend:defI\alignat{\Picture*{}}
+\append:def\endalignat{\EndPicture}
+\expandafter\pend:defI\csname alignat*\endcsname{\Picture*{}}
+\expandafter\append:def\csname endalignat*\endcsname{\EndPicture}
+\pend:defI\xalignat{\Picture*{}}
+\append:def\endxalignat{\EndPicture}
+\expandafter\pend:defI\csname xalignat*\endcsname{\Picture*{}}
+\expandafter\append:def\csname endxalignat*\endcsname{\EndPicture}
+\pend:defI\xxalignat{\Picture*{}}
+\append:def\endxxalignat{\EndPicture}
+\pend:def\alignedat{\Picture*{}$}
+\append:def\endalignedat{$\EndPicture}
+\pend:def\gathered{\Picture*{}$}
+\append:def\endgathered{$\EndPicture}
+\pend:def\multline{\Picture*{}}
+\append:def\endmultline{\EndPicture}
+\expandafter\pend:def\csname multline*\endcsname{\Picture*{}}
+\expandafter\append:def\csname endmultline*\endcsname{\EndPicture}
+\let\:smallmatrix=\smallmatrix
+\def\smallmatrix{\Picture*{}$\:smallmatrix}
+\append:def\endsmallmatrix{$\EndPicture}
+
+\edef\l:bel#1{\noexpand\@bsphack
+   \expandafter\noexpand\csname iffirstchoice@\endcsname
+   \expandafter\noexpand\csname if@filesw\endcsname
+   \noexpand \L:bll{#1}%
+   \expandafter\noexpand\csname if@nobreak\endcsname
+   \noexpand\ifvmode\noexpand\nobreak\noexpand\fi
+   \expandafter\noexpand\csname fi\endcsname
+   \expandafter\noexpand\csname fi\endcsname
+   \expandafter\noexpand\csname fi\endcsname
+   \noexpand\@esphack}
+\def\L:bll#1{{\let\thepage\relax
+   \def\protect{\noexpand\noexpand\noexpand}%
+   \cur:lbl{}\let\Link\:gobbleII \let\EndLink\empty \let\ref\o:ref
+   \a:@currentlabel
+   \xdef\@gtempa{\write\@auxout{\string
+      \newlabel{#1}{{\a:newlabel\@currentlabel
+}{\a:newlabel\thepage
+}\ifx \prf:label\:UnDef \else \prf:label\fi
+}}}%
+   }\@gtempa}
+\let\l:bel:\l:bel
+
+\def\:tempc#1#2#3{\a:underarrow@
+   \hbox{$\m@th#2#3$}\b:underarrow@
+   \hbox{#1#2}\c:underarrow@
+}
+\HLet\underarrow@\:tempc
+\def\:tempc#1#2#3{\a:overarrow@
+   \hbox{#1#2}\b:overarrow@
+   \hbox{$\m@th#2#3$}\c:overarrow@
+}
+\HLet\overarrow@\:tempc
+\NewConfigure{underarrow@}{3}
+\NewConfigure{overarrow@}{3}
+\def\:temp#1#2{\a:overset\binrel@{#2}%
+  \binrel@@{\mathop{\kern\z@#2}\limits^{#1}}\b:overset}
+\HLet\overset\:temp
+\NewConfigure{overset}{2}
+\def\:temp#1#2{\a:underset\binrel@{#2}%
+  \binrel@@{\mathop{\kern\z@#2}\limits_{#1}}\b:underset}
+\HLet\underset\:temp
+\NewConfigure{underset}{2}
+
+\MathSymbol\mathop{dotsc}
+\MathSymbol\mathop{dotso}
+\MathSymbol\mathrel{longleftarrow}
+\MathSymbol\mathrel{longrightarrow}
+
+
+
+\def\:temp#1{\a:overbrace \mathop{\hbox{\b:overbrace
+   $\o:overbrace:{#1}$\c:overbrace}}\limits}
+\HLet\overbrace\:temp
+\NewConfigure{overbrace}{3}
+\def\:temp#1{\a:underbrace \mathop{\hbox{$\b:underbrace
+   \o:underbrace:{#1}\c:underbrace$}}\limits}
+\HLet\underbrace\:temp
+\NewConfigure{underbrace}{3}
+
+\Hinput{amstex1}
+\endinput
+

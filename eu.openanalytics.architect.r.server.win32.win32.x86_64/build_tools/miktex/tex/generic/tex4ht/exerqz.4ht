@@ -1,0 +1,205 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% exerqz.4ht                            2009-05-18-23:01 %
+% Copyright (C) 1999--2009                          %
+%                      Donald P. Story & Eitan M. Gurari %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3 of this license or (at your option) any    %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3 or later is part of all distributions  %
+% of LaTeX version 2003/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-18-23:01}
+
+\def\eqXInitQuizMsg{\hbox{%
+   \let\noexpand\string
+   \csname eq@InitQuizMsg\endcsname}}
+\expandafter\ifx \csname eq@InitQuizMsg\endcsname\relax
+    \expandafter\def\csname eq@InitQuizMsg\endcsname{
+        "You must initialize the Quiz! Click on "+bqlabel}
+\fi
+\def\eqXQuizTotalMsg{\hbox{%
+   \let\noexpand\string
+   \def\thequestionno{"+thequestionno+"}%
+   \csname eq@QuizTotalMsg\endcsname}}
+\expandafter\ifx \csname eq@QuizTotalMsg\endcsname\relax
+    \expandafter\def\csname eq@QuizTotalMsg\endcsname{"Score: '
+         +Score +' out of '+thequestionno+'"}
+\fi
+\def\eqXMadeChoice{\hbox{%
+   \let\noexpand\string
+   \csname eq@MadeChoice\endcsname}}
+\expandafter\ifx \csname eq@MadeChoice\endcsname\relax
+    \expandafter\def\csname eq@MadeChoice\endcsname{
+            "You have already made a choice. Your choice was ("
+            +Responses[probno]+")."
+            +" Do you want to change it?"}
+\fi
+\expandafter\ifx \csname eqScore\endcsname\relax
+    \def\eqScore{Score:}
+\fi
+
+\JavaScript-$
+var QuizInitialized;
+var EndQuizPushed;
+var CurrentQuizNo;
+var Responses;
+var ResponsesAddr;
+var Cor;
+var CorAddr;
+var qthis;
+var prev_notify;
+function InitializeQuiz(qtfield,mark,quizN,ansN,lbrc,rbrc) {
+  Score=0;
+  QuizInitialized=1;
+  CurrentQuizNo=quizN;
+  eval( 'document.form'+qtfield+'.'+qtfield+'.value="$eqScore";' )
+  RightWrong=new Array();
+  for(var i in Responses){
+  if (prev_notify == 0 ) {
+    ResponsesAddr[i].value=Responses[i];
+  } else {
+    ResponsesAddr[i].value="("+Responses[i]+")";
+} }
+
+  Responses=new Array();
+  ResponsesAddr=new Array();
+  for(var i in Cor){
+  CorAddr[i].value=Cor[i];
+}
+
+  Cor=new Array();
+  CorAddr=new Array();
+  EndQuizPushed=0;
+  for(var i=1; i<=ansN; i++){
+     RightWrong[i]=0;
+  }
+}
+\EndJavaScript
+\JavaScript
+function href(addr) { top.location.href=addr; }
+\EndJavaScript
+\JavaScript
+function Corrections(lbl1,lbl2,quizN) {
+  if ( (EndQuizPushed == 1) && ( CurrentQuizNo == quizN ) ){
+    for(var i in RightWrong){
+      if( (RightWrong[i]==0) ){
+        var k=Cor.length;
+eval('Cor[k]=thisform'+quizN+'.ans'+quizN+'x'+i+'.value');
+eval('CorAddr[k]=thisform'+quizN+'.ans'+quizN+'x'+i);
+
+        eval('thisform'+quizN+'.ans'+quizN+'x'+i+'.value= "*"');
+  } }
+} }
+\EndJavaScript
+\JavaScript
+function LinkTo(addr) {
+}
+\EndJavaScript
+\JavaScript-$
+function QuizEnd(bqlabel,thequestionno,quiztotal,quizN){
+  if ((QuizInitialized !=1) || ( CurrentQuizNo!= quizN )){
+     alert($eqXInitQuizMsg,3);
+  } else {
+     eval( 'document.form'+quiztotal+'.'+quiztotal+
+       '.value=$eqXQuizTotalMsg');
+         QuizInitialized=-1;
+         EndQuizPushed=1;
+} }
+\EndJavaScript
+
+\JavaScript-$
+function  ProcessQuestion
+  (key,letterresp,probno,notify,bqlabel,quizN) {
+    if ((QuizInitialized !=1) || ( CurrentQuizNo!= quizN )){
+      alert($eqXInitQuizMsg,3);
+    } else {
+      if (Responses[probno] == null) {
+   if (key==1) {
+      Score++;
+      RightWrong[probno]=1;
+   }
+   else
+      RightWrong[probno]=0;
+   if( ResponsesAddr[probno] != null ){
+  if (notify == 0 ) {
+    ResponsesAddr[probno].value=Responses[probno];
+  } else {
+    ResponsesAddr[probno].value="("+Responses[probno]+")";
+} }
+qthis.value = "#";  ResponsesAddr[probno]=qthis;
+
+   Responses[probno]=letterresp;
+}
+else {
+   if (notify==0)
+      User=true;
+   else
+      User=confirm($eqXMadeChoice);
+   if (User) {
+      if (RightWrong[probno]==1) {
+          if (key==0) {
+            Score -= 1;
+            RightWrong[probno]=0;
+            if( ResponsesAddr[probno] != null ){
+  if (notify == 0 ) {
+    ResponsesAddr[probno].value=Responses[probno];
+  } else {
+    ResponsesAddr[probno].value="("+Responses[probno]+")";
+} }
+qthis.value = "#";  ResponsesAddr[probno]=qthis;
+
+            Responses[probno]=letterresp;
+         }
+      }
+      else {
+          if (key==1) {
+            Score++;
+            RightWrong[probno]=1;
+            if( ResponsesAddr[probno] != null ){
+  if (notify == 0 ) {
+    ResponsesAddr[probno].value=Responses[probno];
+  } else {
+    ResponsesAddr[probno].value="("+Responses[probno]+")";
+} }
+qthis.value = "#";  ResponsesAddr[probno]=qthis;
+
+            Responses[probno]=letterresp;
+         }
+         else {
+            RightWrong[probno]=0;
+            if( ResponsesAddr[probno] != null ){
+  if (notify == 0 ) {
+    ResponsesAddr[probno].value=Responses[probno];
+  } else {
+    ResponsesAddr[probno].value="("+Responses[probno]+")";
+} }
+qthis.value = "#";  ResponsesAddr[probno]=qthis;
+
+            Responses[probno]=letterresp;
+         }
+      }
+   }
+}
+
+      prev_notify = notify;
+}   }
+\EndJavaScript
+
+

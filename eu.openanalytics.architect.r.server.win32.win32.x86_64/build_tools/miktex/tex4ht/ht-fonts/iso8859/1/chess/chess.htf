@@ -1,0 +1,71 @@
+chess 48 115
+'' '' 48 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'' '' 49 % chess.htf (iso-8859-1)              2020-05-27-14:14 %
+'' '' 50 % Copyright 2002-2009 Eitan M. Gurari %
+'' '' 51 %
+'' '' 52 % This work may be distributed and/or modified under the conditions
+'' '' 53 % of the LaTeX Project Public License, either version 1.3 of this
+'' '' 54 % license or (at your option) any later version. The latest version
+'' '' 55 % of this license is in http://www.latex-project.org/lppl.txt and
+'' '' 56 % version 1.3 or later is part of all distributions of LaTeX version
+'' '' 57 % 2003/12/01 or later.
+'' '' 58 % This work has the LPPL maintenance status "maintained".
+'' '' 59 % Current Maintainer of this work is the TeX4ht Project.
+'' '' 60 %
+'' '' 61 % If you modify this file, changing the
+'' '' 62 % version identification would be appreciated.
+'' '' 63 %
+'' '' 64 % tex4ht@tug.org
+'' '' 65 % https://tug.org/tex4ht
+'' '' 66 %
+'' '' 67 
+'' '' 68
+'' '' 69
+'' '' 70
+'' '' 71
+'' '' 72
+'' '' 73
+'&#x2654;' '1' 74
+'&#x2654;' '1' 75
+'&#x2655;' '1' 76
+'&#x2658;' '1' 77
+'&#x2658;' '1' 78
+'&#x2659;' '1' 79
+'&#x2659;' '1' 80
+'&#x2655;' '1' 81
+'&#x2656;' '1' 82
+'&#x2656;' '1' 83
+'' '' 84
+'' '' 85
+'' '' 86
+'' '' 87
+'' '' 88
+'' '' 89
+' ' '1' 90
+'' '' 91
+'' '' 92
+'' '' 93
+'' '' 94
+'' '' 95
+'' '' 96
+'&#x265D;' '1' 97
+'&#x265D;' '1' 98
+'' '' 99
+'' '' 100
+'' '' 101
+'' '' 102
+'' '' 103
+'' '' 104
+'' '' 105
+'&#x265A;' '1' 106
+'&#x265A;' '1' 107
+'&#x265B;' '1' 108
+'&#x265E;' '1' 109
+'&#x265E;' '1' 110
+'&#x265F;' '1' 111
+'&#x265F;' '1' 112
+'&#x265B;' '1' 113
+'&#x265C;' '1' 114
+'&#x265C;' '1' 115
+chess 48 115
+

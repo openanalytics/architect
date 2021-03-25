@@ -1,0 +1,85 @@
+\ifnum\the\catcode`\%=14\else\expandafter\edef\csname
+  \string:RestoreCatcodes\endcsname{\catcode`\%\the
+  \catcode`\%}\catcode`\%14\fi
+% onmouseover.4ht (2018-06-12-16:02), generated from tex4ht-html4.tex
+% Copyright 2009-2015 TeX Users Group
+% Copyright 2001-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2018-06-12-16:02}
+
+
+\hbadness=10000 \vbadness=10000 \hfuzz=99in \vfuzz=\hfuzz
+\overfullrule=0pt   \let\makefootline\empty
+\special{t4ht.js}
+
+\newcount\CodeNumber
+\def\NoSpecials#1#2#3{\edef\temp{\the\CodeNumber}%
+     \global\CodeNumber=#3
+     \def\next{\catcode\CodeNumber=#1
+       \ifnum \CodeNumber=#2 \let\next=\relax \fi
+       \global\advance\CodeNumber by -1 \next}\next
+     \global\CodeNumber=\temp  }%
+
+\expandafter\def\csname js js\endcsname{\egroup  \special{t4ht@@}%
+   tex4ht=new Array() ; //\jstoday}
+\expandafter\def\csname js js trace="on"\endcsname{\global
+   \let\TagTrace=\empty \csname js js\endcsname}
+\expandafter\def\csname js /js\endcsname{\egroup \special{t4ht@@}%
+   \csname bye\endcsname\endinput}
+
+\def\jsHash#1{\jsHasha #1<>}
+\def\jsHasha#1#2<>{%
+   \ifnum `#1<`0 JjV\else
+   \ifnum `#1>`z jJv\else
+   \ifnum `#1>`9
+      \ifnum `#1<`A jJV\else
+      \ifnum `#1>`Z
+         \ifnum `#1<`a jVV\else #1\fi
+      \else #1\fi\fi
+   \else #1\fi\fi\fi
+   \if !#2!\expandafter\done
+                       \else\expandafter\jsHasha\fi#2<>}
+
+\catcode`/=0 \catcode`\\=13
+/def\{/string\/string\}
+/catcode`/\=0 \catcode`\/=12
+
+\catcode`\<=13
+\def\jselement#1{\expandafter\def\csname js #1\endcsname##1=##2</#1>{%
+   \hfill\break tex4ht.\jsHash{##1}=\hbox{"##2";}\egroup}}
+\def\scan#1"#2<>{#1\if !#2!\expandafter\done\else
+   \string\"\expandafter\scan
+\fi#2<>}
+\def\done#1>{}
+
+\expandafter\def\csname js \endcsname#1</>{%
+   \hfill\break \hbox{#1}\egroup}
+
+\def<#1>{\bgroup
+   \expandafter \ifx \csname js #1\endcsname \relax \jselement{#1}\fi
+   \def<##1>{\TagTrace{\def\x{##1}\def\y####1:->{}%
+      \writesixteen{...\string<\expandafter\y\meaning\x>}}%
+       \string<\scan ##1"<>>}%
+   \NoSpecials{12}{0}{255}\NoSpecials{11}{65}{90}\NoSpecials{11}{97}{122}%
+   \catcode`\ =10 \catcode`\^^M=10 \catcode`\^^I=10 \catcode`\<=13
+   \catcode`\\=13
+   \tt \csname js #1\endcsname}
+\def\TagTrace#1{}
+\catcode`\&=12 \catcode`\#=12
+\endinput
+

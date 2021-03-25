@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% multicol.4ht                          2020-03-14-13:28 %
+% Copyright (C) 1997-2009       Eitan M. Gurari         %
+% Copyright 2009-2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+
+\append:def\set@floatcmds{\let\end@dblfloat\end@float}
+\def\slocitlum#1{\let\endslocitlum\empty
+   \end{slocitlum}}
+\def\mcolnum{1}
+\def\multicols#1{%
+      \bgroup \par \col@number=#1
+      \def\mcolnum{#1}
+      \@ifnextchar[{\mult@cols}{\mult@cols[]}%]
+   }
+
+\def\mult@@cols#1[#2]{#1\ignorespaces\mult:cols}
+\def\endmulticols{\egroup\par }
+
+\def\columnbreak{\a:columnbreak}
+\NewConfigure{columnbreak}{1}
+\Configure{columnbreak}{auto}
+
+%  break-before, break-after, break-inside
+%-----------------------------------------
+% auto  always  avoid  left  right  page  column  avoid-page
+% avoid-column
+
+\def\columngap{\a:columngap}
+\NewConfigure{columngap}{1}
+\Configure{columngap}{\the\columnsep}
+
+% dimen  normal (1em)
+
+\def\columnrulewidth{\a:columnrulewidth}
+\NewConfigure{columnrulewidth}{1}
+\Configure{columnrulewidth}{\the\columnseprule}
+
+% thin  medium  thick  dimen
+
+\def\columnrulecolor{\a:columnrulecolor}
+\NewConfigure{columnrulecolor}{1}
+\Configure{columnrulecolor}{\#555;}
+
+% legal color
+
+\def\columnrulestyle{\a:columnrulestyle}
+\NewConfigure{columnrulestyle}{1}
+\Configure{columnrulestyle}{outset}
+
+% none
+%     No border.
+% *hidden
+%     Same as 'none', but in the collapsing border model, also inhibits
+%     any other border (see the section on border conflicts).
+% dotted
+%     The border is a series of dots.
+% dashed
+%     The border is a series of short line segments.
+% solid
+%     The border is a single line segment.
+% double
+%     The border is two solid lines. The sum of the two lines and the
+%     space between them equals the value of 'border-width'.
+% groove
+%     The border looks as though it were carved into the canvas.
+% ridge
+%     The opposite of 'groove': the border looks as though it were
+%     coming out of the canvas.
+% *inset
+%     In the separated borders model, the border makes the entire box
+%     look as though it were embedded in the canvas. In the collapsing
+%     border model, drawn the same as 'ridge'.
+% *outset
+%     In the separated borders model, the border makes the entire box
+%     look as though it were coming out of the canvas. In the collapsing
+%     border model, drawn the same as 'groove'.
+
+\def\columnspan{\a:columnspan}
+\NewConfigure{columnspan}{1}
+\Configure{columnspan}{none}
+
+% none  all
+
+\def\columnfill{\a:columnfill}
+\NewConfigure{columnfill}{1}
+\Configure{columnfill}{balance}
+
+% auto  balance
+
+\NewConfigure{multicols}{1}
+\Configure{multicols}{columns}
+
+\def\:wr:mcol:css{%
+        \Css{.\a:multicols-\mcolnum\space p:first-child { margin-top: 0em; }}%
+        \Css{.\a:multicols-\mcolnum {%
+           -moz-column-count:\mcolnum;
+           -webkit-column-count:\mcolnum;
+           column-count:\mcolnum;
+           -moz-column-gap: \a:columngap;
+           -webkit-column-gap: \a:columngap;
+           column-gap: \a:columngap;
+           -moz-column-rule-width: \a:columnrulewidth;
+           -webkit-column-rule-width: \a:columnrulewidth;
+           column-rule-rule-width: \a:columnrulewidth;
+           -moz-column-rule-color: \a:columnrulecolor;
+           -webkit-column-rule-color: \a:columnrulecolor;
+           column-rule-color: \a:columnrulecolor;
+           -moz-column-rule-style: \a:columnrulestyle;
+           -webkit-column-rule-style: \a:columnrulestyle;
+           column-rule-style: \a:columnrulestyle;
+           -moz-column-fill: \a:columnfill;
+           -webkit-column-fill: \a:columnfill;
+           column-fill: \a:columnfill;
+           }%
+        }%
+}
+\def\mult:cols{\IgnorePar\EndP%
+        \HCode{<div class="\a:multicols-\mcolnum">}%
+        \expandafter\ifx\csname .\a:multicols-\mcolnum\endcsname\relax%
+        \:wr:mcol:css
+        \expandafter\gdef\csname .\a:multicols-\mcolnum\endcsname{1}%
+        \fi\ShowPar\par}
+\append:def\endmulticols{\ifvmode\IgnorePar\fi\EndP\HCode{</div>}}
+
+\Hinput{multicol}
+\endinput
+

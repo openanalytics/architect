@@ -1,0 +1,58 @@
+% ruhyphen package -- collection of Russian hyphenation patterns
+% Copyright 1998-2003 Werner Lemberg, Vladimir Volovich
+% and any individual authors listed elsewhere in package files.
+% See the README file for more information.
+%
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.2 or later is part of all distributions of LaTeX
+% version 1999/12/01 or later.
+%
+% See the file `README' for additional information.
+%
+% In particular, permission is granted to customize this file to serve
+% the needs of your installation.
+%
+% However, NO PERMISSION is granted to distribute a modified version
+% of this file under its original name.
+
+\begingroup
+
+% Please uncomment the encoding and pattern value you need before
+% creating a new format file containing Russian hyphenation patterns:
+
+\ifx\Encoding\undefined
+\def\Encoding{t2a}
+%\def\Encoding{ucy}
+%\def\Encoding{lcy}
+%\def\Encoding{ot2}
+%\def\Encoding{koi}
+\fi
+
+\ifx\Pattern\undefined
+\def\Pattern{al}
+%\def\Pattern{as}
+%\def\Pattern{ct}
+%\def\Pattern{dv}
+%\def\Pattern{mg}
+%\def\Pattern{vl}
+%\def\Pattern{zn}
+\fi
+
+\input catkoi
+\input koi2\Encoding
+\input ruhyph\Pattern
+
+% the following four lines are optional
+\input cyryo\Pattern
+\def\t{t2a}\ifx\t\Encoding\input hypht2 \fi
+\patterns{.ÎÅ8 8ÎÅ.}
+\patterns{8Âß. 8×ß. 8Çß. 8Äß. 8Öß. 8Úß. 8Ëß. 8Ìß. 8Íß. 8Îß. 8Ðß. 8Òß. 8Óß. 8Ôß. 8Æß. 8Èß. 8Ãß. 8Þß. 8Ûß. 8Ýß.}
+
+\endgroup
+
+\lefthyphenmin2
+\righthyphenmin2

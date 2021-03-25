@@ -1,0 +1,175 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aa.4ht                                2019-12-19-14:27 %
+% Copyright (C) 1999-2009       Eitan M. Gurari         %
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+
+\onecolumn
+\Configure{UndefinedSec}{likepart}
+\Configure{UndefinedSec}{likechapter}
+\Configure{UndefinedSec}{likesection}
+\Configure{UndefinedSec}{likesubsection}
+
+
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >-2\relax
+      \SkipRefstepAnchor \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    \csname @endpart\endcsname}
+\let\:tempb\part
+\Def:Section\part{\thepart}{#1}
+\let\:part\part
+\let\part\:tempb
+\let\no@part\@part
+\def\@part[#1]#2{%
+   {\let\addcontentsline\:gobbleIII\no@part[#1]{}}%
+   \HtmlEnv   \Toc:Title{#1}\:part{#2}}
+\Def:Section\likepart{}{#1}
+\let\:likepart\likepart
+\let\likepart\:UnDef
+\let\no@spart\@spart
+\def\@spart#1{%
+   {\let\addcontentsline\:gobbleIII\no@spart{}}%
+   \HtmlEnv   \:likepart{#1}}
+
+\let\no@section\section
+\Def:Section\section{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesection \fi}{#1}
+\let\no:section\section
+\def\section{\rdef:sec{section}}
+\Def:Section\likesection{}{#1}
+\let\:likesection\likesection
+\let\likesection\:UnDef
+
+\let\no@subsection\subsection
+\Def:Section\subsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsection \fi}{#1}
+\let\no:subsection\subsection
+\def\subsection{\rdef:sec{subsection}}
+\Def:Section\likesubsection{}{#1}
+\let\:likesubsection\likesubsection
+\let\likesubsection\:UnDef
+
+\let\no@subsubsection\subsubsection
+\Def:Section\subsubsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsubsection \fi}{#1}
+\let\no:subsubsection\subsubsection
+\def\subsubsection{\rdef:sec{subsubsection}}
+\Def:Section\likesubsubsection{}{#1}
+\let\:likesubsubsection\likesubsubsection
+\let\likesubsubsection\:UnDef
+
+\let\no@paragraph\paragraph
+\Def:Section\paragraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \theparagraph \fi}{#1}
+\let\no:paragraph\paragraph
+\def\paragraph{\rdef:sec{paragraph}}
+\Def:Section\likeparagraph{}{#1}
+\let\:likeparagraph\likeparagraph
+\let\likeparagraph\:UnDef
+\let\no@subparagraph\subparagraph
+\Def:Section\subparagraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubparagraph \fi}{#1}
+\let\no:subparagraph\subparagraph
+\def\subparagraph{\rdef:sec{subparagraph}}
+\Def:Section\likesubparagraph{}{#1}
+\let\:likesubparagraph\likesubparagraph
+\let\likesubparagraph\:UnDef
+
+
+
+\NewConfigure{subtitle institute}[7]{%
+   \c:def\a:sbttl{#1}\c:def\b:sbttl{#2}%
+   \c:def\a:institute{#3}\c:def\b:institute{#4}%
+   \c:def\c:institute{#5}\c:def\d:institute{#6}%
+   \c:def\b:and{#7}%
+}
+\NewConfigure{headnote}{2}
+
+\NewConfigure{maketitle}[4]{\c:def\a:mktl{#1}\c:def\b:mktl{#2}%
+   \c:def\a:ttl{#3}\c:def\b:ttl{#4}}
+\NewConfigure{thanks author date and}[8]{%
+   \c:def\a:thanks{#1}\c:def\a:thanks{#2}%
+   \c:def\a:author{#3}\c:def\b:author{#4}\c:def\a:date{#5}%
+   \c:def\b:date{#6}\c:def\a:and{#7}\c:def\e:mktl{#8}}
+
+\def\inst#1{\unskip$\sp{#1}$}
+\def\fnmsep{\unskip$\sp,$}
+
+\let\o:maketitle:=\@maketitle
+\def\@maketitle{%
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+  \def\sec:typ{title}%
+  \Tag{)title)}{\@title}%
+  \makeheadbox \let\makeheadbox=\empty
+  \def\andname{\a:and}%
+  \def\lastandname{, \a:and}
+  \if!\@headnote!\else
+    \pend:def\@headnote{\a:headnote\ignorespaces}%
+    \append:def\@headnote{\b:headnote}%
+  \fi
+  \pend:def\@title{\a:ttl\ignorespaces}%
+  \if!\@subtitle!\append:def\@title{\b:ttl}\else
+     \pend:def\@subtitle{\a:sbttl\ignorespaces}%
+     \append:def\@subtitle{\b:sbttl\b:ttl}%
+  \fi
+  \pend:def\@author{\a:author\ignorespaces}%
+  \append:def\@author{\b:author}%
+  \let\o:institutename=\institutename
+  \def\institutename{\a:institute
+    \pend:def\@institute{\pend:def\and{\b:and}}%
+    \pend:def\theinst{\c:institute}\append:def\theinst{\d:institute}%
+    \o:institutename \b:institute
+ \if!\@dedic!\else
+    \pend:def\@dedic{\a:dedic}\append:def\@dedic{\b:dedic}%
+ \fi
+    \pend:def\@date{\a:date}\append:def\@date{\b:date}}%
+  \Configure{newline}{\e:mktl}\a:mktl\o:maketitle:\b:mktl
+  \relax\if!\@mail!\else
+      \pend:def\@mail{\a:mail\ignorespaces}%
+      \append:def\@mail{\b:mail}%
+      \global\let\@mail=\@mail
+  \fi
+}
+\let\strich\empty
+\NewConfigure{mail}{2}
+\NewConfigure{makeheadbox}{5}
+\def\makeheadbox{{%
+   \a:makeheadbox{\bf\@journalname\ manuscript no.}
+   \b:makeheadbox{\bf Your thesaurus codes are:}
+   \c:makeheadbox{\@thesaurus}
+   \d:makeheadbox{\AALogo}\e:makeheadbox}}
+
+\def\AALogo{ASTRONOMY AND ASTROPHYSICS}
+
+\NewConfigure{caption}[4]{\c:def\cptA:{#1}\c:def\cptB:{#2}%
+   \c:def\cptC:{#3}\c:def\cptD:{#4}}
+\long\def\@makecaption#1#2{%   
+{\cptA: \cap:ref{#1}%
+\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
+
+
+
+\Hinput{aa}
+\endinput
+

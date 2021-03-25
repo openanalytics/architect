@@ -1,0 +1,1233 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% context.4ht                           2009-05-21-09:32 %
+% Copyright (C) 2004--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\putVBorder{\expandafter\put:VBorder\VBorder</>!*?: }
+\def\put:VBorder#1</#2>#3!*?: {\def\:temp{#2}\ifx\:temp\empty
+     \HCode{\VBorder}%
+     \def\:temp{#1}\ifx\:temp\empty \else\HCode{</colgroup>}\fi
+     \HCode{<colgroup><col/></colgroup>}%
+  \else  \def\:temp{\put:VBorder#3!*?: }\expandafter\:temp\fi
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\catcode`\!=11
+\catcode`\?=11
+  \def\get:curName#1{%
+   \ifx \last:Attributes\empty
+      \let\cur:Name\empty
+   \else
+      \bgroup
+         \let#1=\empty
+         \edef\:temp{\def\noexpand\:temp{\last:Attributes}}%
+         \expandafter
+      \egroup\:temp
+      \edef\:tempa{\last:Attributes}%
+      \edef\cur:Name{\ifx\:temp\:tempa\else\:temp\fi}%
+   \fi }
+\let\last:Attributes=\empty
+\def\verify:config#1#2{%
+   \expandafter\ifx \csname c:#1:\endcsname\relax
+      \expandafter\ifx \csname c:#2:\endcsname\relax
+        \:warning{adding null \string\NewConfigure{#1}{2}}%
+        \expandafter\def\csname c:#1:\endcsname##1##2{}%
+      \else
+        \:warning{adding \string\NewConfigure{#1}{2}
+                to equal \string\Configure{#2}{...}{...}}%
+        \edef\:temp{\noexpand\NewConfigure{#1}[2]{%
+           \gdef\expandafter\noexpand\csname
+                    a:#1\endcsname{\expandafter
+                                \noexpand\csname a:#2\endcsname}%
+           \gdef\expandafter\noexpand\csname
+                    b:#1\endcsname{\expandafter
+                                \noexpand\csname b:#2\endcsname}%
+        }}\:temp
+        \Configure{#1}{}{}%
+        \global\expandafter\let \csname c:#1:\expandafter
+                       \endcsname \csname c:#1:\endcsname
+      \fi
+   \fi
+}
+\def\verify:configIII#1#2{%
+   \expandafter\ifx \csname c:#1:\endcsname\relax
+      \expandafter\ifx \csname c:#2:\endcsname\relax
+        \:warning{adding null \string\NewConfigure{#1}{3}}%
+        \expandafter\def\csname c:#1:\endcsname##1##2##3{}%
+      \else
+        \:warning{adding \string\NewConfigure{#1}{3}
+                to equal \string\Configure{#2}{...}{...}{...}}%
+        \edef\:temp{\noexpand\NewConfigure{#1}[3]{%
+           \gdef\expandafter\noexpand\csname
+                    a:#1\endcsname{\expandafter
+                                \noexpand\csname a:#2\endcsname}%
+           \gdef\expandafter\noexpand\csname
+                    b:#1\endcsname{\expandafter
+                                \noexpand\csname b:#2\endcsname}%
+           \gdef\expandafter\noexpand\csname
+                    c:#1\endcsname{\expandafter
+                                \noexpand\csname c:#2\endcsname}%
+        }}\:temp
+        \Configure{#1}{}{}{}%
+        \global\expandafter\let \csname c:#1:\expandafter
+                       \endcsname \csname c:#1:\endcsname
+      \fi
+   \fi
+}
+\def\verify:configIV#1#2{%
+   \expandafter\ifx \csname c:#1:\endcsname\relax
+      \expandafter\ifx \csname c:#2:\endcsname\relax
+        \:warning{adding null \string\NewConfigure{#1}{4}}%
+        \expandafter\def\csname c:#1:\endcsname##1##2##3##4{}%
+      \else
+        \:warning{adding \string\NewConfigure{#1}{4}
+                to equal \string\Configure{#2}{...}{...}{...}{...}}%
+        \edef\:temp{\noexpand\NewConfigure{#1}[4]{%
+           \gdef\expandafter\noexpand\csname
+                    a:#1\endcsname{\expandafter
+                                \noexpand\csname a:#2\endcsname}%
+           \gdef\expandafter\noexpand\csname
+                    b:#1\endcsname{\expandafter
+                                \noexpand\csname b:#2\endcsname}%
+           \gdef\expandafter\noexpand\csname
+                    c:#1\endcsname{\expandafter
+                                \noexpand\csname c:#2\endcsname}%
+           \gdef\expandafter\noexpand\csname
+                    d:#1\endcsname{\expandafter
+                                \noexpand\csname d:#2\endcsname}%
+        }}\:temp
+        \Configure{#1}{}{}{}{}%
+        \global\expandafter\let \csname c:#1:\expandafter
+                       \endcsname \csname c:#1:\endcsname
+      \fi
+   \fi
+}
+
+  \headertextcontent={}
+\footertextcontent={}
+
+  \def\dodocomplexplacefloat[#1][#2][#3]#4%
+  {\flushnotes
+   \flushsidefloats
+   \ifsomefloatwaiting
+     \doifinsetelse\v!always{#2}
+       {\showmessage\m!floatblocks5\empty}
+       {\expanded{\doifcommonelse{#2}{\flushfloatslist}}\doflushfloats
+                                                       \donothing}%
+   \fi
+   \ifmargeblokken
+     \doifinset\v!margin{#2}\endgraf
+   \fi
+   \global\insidefloattrue
+   \a:placefloat
+   \begingroup
+   \ifmargeblokken
+     \doifinset\v!margin{#2}{\hsize\@@mbwidth}%
+   \fi
+   \the\everyinsidefloat
+   \let\@@extrafloat\empty
+   \presetmorefloatvariables{#2}%
+   \aftergroup   \b:placefloat
+   \dowithnextboxcontent
+     {\setlocalfloathsize
+      \getvalue{\??fl#1\c!inner}%
+      \fuzzysnappingfalse
+      \postponenotes} % new
+     {\doifvaluesomething{\??fl#1\c!criterium}
+        {\ifdim\wd\nextbox>\getvalue{\??fl#1\c!criterium}\relax
+           \edef\forcedfloatmethod{\executeifdefined
+                                     {\??fl#1\c!fallback}\v!here}%
+         \fi}%
+       \xdocompletefloat{#1}{#3}{#1}{#2}{#1}{#4}%
+      \doifnotinset\v!text{#2}{\carryoverpar\endgroup}%
+      \global\sidefloatdownshift \zeropoint
+      \global\sidefloatextrashift\zeropoint
+      \ifparfloat
+        \doifinset\v!reset{#2}\forgetsidefloats
+        \doinhibitblank
+      \fi}%
+     \vbox}
+\NewConfigure{placefloat}{2}
+
+  \let\:doplaatskopnummertekst=\doplaatskopnummertekst
+\def\doplaatskopnummertekst#1#2#3#4#5{%
+   \expandafter\ifx \csname teskt:#1\endcsname\relax
+      \plaatskop:warning{#1}%
+   \else
+      \expandafter\let\expandafter\:tekstcommando
+                      \csname \??ko #1\c!tekstcommando\endcsname
+\expandafter\let\csname \??ko #1\c!tekstcommando
+              \expandafter\endcsname \csname teskt:#1\endcsname
+\expandafter\let\expandafter\:nummercommando
+                      \csname \??ko #1\c!nummercommando\endcsname
+\expandafter\let\csname \??ko #1\c!nummercommando\endcsname
+                                                 \:gobble
+\ifdisplaysectionhead
+    \def\if:displaysectionhead{\displaysectionheadtrue}%
+    \displaysectionheadfalse
+\else
+    \def\if:displaysectionhead{\displaysectionheadfalse}%
+\fi
+%
+   \fi
+   \:doplaatskopnummertekst{#1}{#2}{#3}{#4}{#5}%
+   \expandafter\ifx \csname teskt:#1\endcsname\relax \else
+      \expandafter\let\csname \??ko #1\c!tekstcommando\endcsname
+                                                 \:tekstcommando
+\expandafter\let\csname \??ko #1\c!nummercommando\endcsname
+                                                 \:nummercommando
+\if:displaysectionhead
+%
+   \fi
+}
+\def\plaatskop:warning#1{\expandafter
+   \ifx \csname warn:#1\endcsname\relax
+      \:warning{Unconfigured `#1'}%
+      \expandafter\let\csname warn:#1\endcsname=\def
+   \fi }
+\pend:defI\beginheadplacement{%
+   \expandafter\ifx \csname c:##1-head:\endcsname\relax
+      \:warning{adding \string\NewConfigure{##1-head}{3}
+           to equal \string\Configure{headplacement}{...}{...}{...}}%
+      \NewConfigure{##1-head}{3}%
+      \Configure{##1-head}%
+          {\a:headplacement}{\b:headplacement}{\c:headplacement}%
+   \fi
+   \csname c:##1-head\endcsname}
+\pend:defII\endheadplacement{\csname a:##1-head\endcsname}
+\append:defII\endheadplacement{\csname b:#1-head\endcsname}
+\NewConfigure{headplacement}{3}
+\Configure{headplacement}{}{}{\IgnorePar}
+\def\:tmp#1{%
+  \let\:tempb=#1%
+  \Def:Section#1{\finalsectionnumber}{##1}%
+  \expandafter\let
+     \csname teskt:\expandafter\:gobble\string #1\endcsname=#1%
+  \let#1=\:tempb }
+\def\:tempd#1{%
+     \NewConfigure{#1-ko}{2}
+\NewConfigure{#1-head}{3}
+\Configure{#1-head}
+   {}
+   {\csname teskt:#1\endcsname{\text:headplacement}}
+   {%
+     \Configure{#1-ko}{}{}%
+     \expandafter\def\csname \??ko #1\c!numbercommand
+                             \endcsname{\gdef\deepnummber:headplacement}%
+     \expandafter\def\csname \??ko #1\c!deeptextcommand
+                             \endcsname{\gdef\text:headplacement}%
+     \IgnorePar
+   }
+%
+     \edef\:temp{#1}%
+     \expandafter\:tmp\csname \:temp\endcsname
+}
+\:tempd{\v!chapter
+}
+\:tempd{\v!section
+}
+\:tempd{\v!subsection
+}
+\:tempd{\v!subsubsection
+}
+\:tempd{\v!subsubsubsection
+}
+\:tempd{\v!subsubsubsubsection
+}
+
+\expand:after{\let\o:normalend}\csname normalend\endcsname
+\expandafter\def\csname normalend\endcsname{\HtmlEnv
+   \at:docend
+   \csname export:hook\endcsname   \csname o:normalend\endcsname}
+
+  
+  \NewConfigure{sectie}{2}
+\NewConfigure{layout}{2}
+\NewConfigure{context-attr}{2}
+\NewConfigure{startstop}{2}
+
+  \append:def\crlf{\ifhmode \a:crlf\fi}
+\NewConfigure{crlf}{1}
+\def\:tempc[#1]{%
+   \o:complexstartsmaller:[#1]%
+   \a:narrower\bgroup\aftergroup\b:narrower\aftergroup\egroup}
+\HLet\complexstartsmaller\:tempc
+\NewConfigure{narrower}{2}
+\def\:tempc#1#2{%
+   \o:doalignline:{\ifx #1\hss
+  \ifx #2\hss\a:midaligned
+  \else      \a:rightaligned
+  \fi
+\else        \a:leftaligned
+\fi
+}{\ifx #1\hss
+  \ifx #2\hss\b:midaligned
+  \else      \b:rightaligned
+  \fi
+\else        \b:leftaligned
+\fi
+\hss
+}}
+\HLet\doalignline\:tempc
+\NewConfigure{midaligned}{2}
+\NewConfigure{leftaligned}{2}
+\NewConfigure{rightaligned}{2}
+\def\:tempc#1{%
+   \def\last:Attributes{#1}%
+   \ifx \last:Attributes\empty
+   \else
+      \get:curName\??be          \ifx \cur:Name\empty
+   \get:curName\??li       \ifx \cur:Name\empty
+      \get:curName\??ly    \ifx \cur:Name\empty
+         \get:curName\??ko \ifx \cur:Name\empty
+            \edef\cur:Name{\cur:Name -\last:Attributes}%
+\verify:config\cur:Name{context-attr}%
+\csname a:\cur:Name\endcsname
+\def\:tempc{\o:@@nostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@nostopattributes\:tempc
+\def\:tempc{\o:@@dostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@dostopattributes\:tempc
+%
+         \else
+            \edef\cur:Name{\cur:Name -ko}%
+\verify:config\cur:Name{sectie}%
+\csname a:\cur:Name\endcsname
+\def\:tempc{\o:@@nostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@nostopattributes\:tempc
+\def\:tempc{\o:@@dostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@dostopattributes\:tempc
+%
+         \fi
+      \else
+         \edef\cur:Name{\cur:Name -ly}%
+\verify:config\cur:Name{layout}%
+\csname a:\cur:Name\endcsname
+\def\:tempc{\o:@@nostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@nostopattributes\:tempc
+\def\:tempc{\o:@@dostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@dostopattributes\:tempc
+%
+      \fi
+   \else
+      \edef\cur:Name{\cur:Name -li}%
+\verify:config\cur:Name{listelement}%  
+\csname a:\cur:Name\endcsname
+\def\:tempc{\o:@@nostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@nostopattributes\:tempc
+\def\:tempc{\o:@@dostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@dostopattributes\:tempc
+%
+   \fi
+\else
+   \verify:config\cur:Name{startstop}%
+\csname a:\cur:Name\endcsname
+\def\:tempc{\o:@@nostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@nostopattributes\:tempc
+\def\:tempc{\o:@@dostopattributes: \csname b:\cur:Name\endcsname}%
+\HLet\@@dostopattributes\:tempc
+%
+\fi
+%
+      \let\last:Attributes=\empty
+   \fi
+   \o:dostartattributes:{#1}
+  }
+\HLet\dostartattributes\:tempc
+\def\:tempc[#1]{%
+   \o:dostartopelkaar:[#1]%
+   \verify:config{\currentregister-env}{null-default-env}%
+   \csname a:\currentregister-env\endcsname
+}
+\HLet\dostartopelkaar\:tempc
+%%%%%% pre 2005
+\ifx \stopopelkaar\:UnDef \else
+  \pend:def\stopopelkaar{%
+     \csname b:\currentregister-env\endcsname
+  }
+\fi
+
+  \let\:doplaatssamengesteldelijst\doplaatssamengesteldelijst
+\def\doplaatssamengesteldelijst[#1][#2]{%
+   \ifx #1\v!inhoud
+      \expand:after{\TableOfContents[part,chapter,section,subsection,subsubsection,%
+subsubsubsection,subsubsubsubsection%
+]}%
+   \else
+      \expand:after{\:doplaatssamengesteldelijst[#1][#2]}%
+   \fi
+}
+\NewConfigure{placecontent}[5]{%
+   \def\a:tableofcontents{#1}%
+   \def\b:tableofcontents{#2}%
+   \def\c:tableofcontents{#3}%
+   \def\d:tableofcontents{#4}%
+   \def\e:tableofcontents{#5}}
+\Configure{placecontent}{}{}{}{}{}
+\def\dovolledigesamengesteldelijst[#1][#2]{%
+   \expandafter\ifx
+       \csname a:\expandafter\:gobble\string#1:head\endcsname
+       \relax
+       \expandafter\let
+          \csname a:\expandafter\:gobble\string#1:head\endcsname
+          \empty
+       \:warning{No configuration for
+                       `#1' (\expandafter\:gobble\string#1) head}%
+   \fi
+   \csname a:\expandafter\:gobble\string#1:head\endcsname
+   \expanded{\systemsuppliedtitle[#1]{\noexpand\headtext{#1}}}%
+   \csname b:\expandafter\:gobble\string#1:head\endcsname
+   \doplaatssamengesteldelijst[#1][#2]}
+\NewConfigure{contenthead}[2]{%
+   \def\a:v!inhoud:head{#1}\def\b:v!inhoud:head{#2}}
+\Configure{contenthead}{}{}
+\NewConfigure{listelement}{2}
+\pend:def\dobeginoflist{\a:dolist}
+\append:def\doendoflist{\b:dolist}
+\NewConfigure{dolist}{2}
+
+  \def\:tempc[#1][#2]{\o:redostartitemgroup:[#1][#2]%
+   \verify:config{\currentitemgroup-group}{itemgroup}%
+   \csname a:\currentitemgroup-group\endcsname}
+\HLet\redostartitemgroup=\:tempc
+\pend:def\stopitemgroup{%
+   \csname b:\currentitemgroup-group\endcsname}
+\NewConfigure{itemgroup}{2}
+\pend:def\dolistitem{\HLet\noindent\item:noindent}
+\append:def\dolistitem{%
+   \csname b:\currentitemgroup -\ifconditional\headlistitem
+  \ifconditional\symbollistitem
+    symbol%
+  \else
+    head%
+  \fi
+\else
+  \ifconditional\symbollistitem
+    symbol%
+  \else
+    other%
+  \fi
+\fi
+%
+-item\endcsname}
+\def\item:noindent#1\strutdepth{#1\strutdepth
+   \let\noindent\o:noindent:
+   \verify:config{\currentitemgroup -\ifconditional\headlistitem
+  \ifconditional\symbollistitem
+    symbol%
+  \else
+    head%
+  \fi
+\else
+  \ifconditional\symbollistitem
+    symbol%
+  \else
+    other%
+  \fi
+\fi
+%
+-item}%
+                 {\ifconditional\headlistitem
+  \ifconditional\symbollistitem
+    symbol%
+  \else
+    head%
+  \fi
+\else
+  \ifconditional\symbollistitem
+    symbol%
+  \else
+    other%
+  \fi
+\fi
+-listitem}%
+   \csname a:\currentitemgroup -\ifconditional\headlistitem
+  \ifconditional\symbollistitem
+    symbol%
+  \else
+    head%
+  \fi
+\else
+  \ifconditional\symbollistitem
+    symbol%
+  \else
+    other%
+  \fi
+\fi
+%
+-item\endcsname}%
+\NewConfigure{head-listitem}{2}
+\NewConfigure{symbol-listitem}{2}
+\NewConfigure{other-listitem}{2}
+\NewConfigure{itemize-group}{2}
+\NewConfigure{itemize-other-item}{2}
+
+  \def\normal@@definitiewoord#1[#2]#3#4{%
+   \verify:config{#1-des}{description-word}%
+   \csname a:#1-des\endcsname \doattributes
+     {\??dd#1}\c!kopletter\c!kopkleur
+     {\getvalue{\??dd#1\c!commando}{#4}}%
+   \csname b:#1-des\endcsname \rawreference\s!def{#2}{#3}}
+\NewConfigure{description-word}{2}
+\def\@@somedefinitie#1[#2]#3{%
+  \dowithpar
+     {\bgroup
+         \verify:configIII{#1-item}{description-item}%
+         \csname a:#1-item\endcsname
+         \executedoordefinitie{#1}[#2]{#3}\csname
+                            b:#1-item\endcsname }%
+     {\csname c:#1-item\endcsname \@@stopdefinitie{#1}}}
+\def\@@startsomedefinitie#1[#2]#3{%
+   \bgroup
+      \verify:configIII{#1-item}{description-item}%
+      \csname a:#1-item\endcsname
+      \BeforePar{%
+         \executedoordefinitie{#1}[#2]{#3}\csname
+                               b:#1-item\endcsname}\bgroup
+                                       \expandafter\aftergroup
+             \csname c:#1-item\endcsname\aftergroup\egroup
+   \GotoPar}
+\NewConfigure{description-item}{3}
+
+  \pend:defI\dostarttyping{\a:typing}
+\append:defI\initializetyping{%
+   \aftergroup\b:typing
+   \def\obeyedspace {\d:typing}%
+   \def\obeyedline{}%
+   \Configure{HtmlPar}{\c:typing}{\c:typing}{}{}%
+}
+\NewConfigure{typing}{4}
+\let\o:dodotypefile:=\dodotypefile
+\def\dodotypefile{\a:typing \o:dodotypefile:}
+
+  \def\:tempc[#1]{%
+   \expandafter\ifx \csname c:#1:\endcsname\relax
+      \:warning{adding \string\NewConfigure{#1}{2} initialized to
+     \string\Configure{plaatsblok}}%
+\NewConfigure{#1}{2}
+\global\expandafter\let\csname c:#1:\expandafter\endcsname
+                                     \csname c:#1:\endcsname
+\expandafter\gdef\csname a:#1\endcsname{\a:plaatsblok}%
+\expandafter\gdef\csname b:#1\endcsname{\b:plaatsblok}%
+%
+   \fi
+   \csname a:#1\endcsname
+   \expandafter\tmp:toks\expandafter{\the\everyinsidefloat}%
+\def\restore:every{\expandafter\everyinsidefloat
+   \expandafter{\the\tmp:toks}}%
+%
+   \expandafter\everyinsidefloat\expandafter{%
+      \the\everyinsidefloat
+      \restore:every \aftergroup\restore:every
+      \expandafter \aftergroup\csname b:#1\endcsname
+      \everyvbox{\everyvbox{}\bgroup \aftergroup\EndP\aftergroup\egroup}%
+\def\:tempc##1##2{%
+   \let\dowithnextboxcontent\o:dowithnextboxcontent:
+   \dowithnextboxcontent{##1}{\everyvbox{}##2}%
+}%
+\HLet\dowithnextboxcontent\:tempc
+%
+   }%
+   \o:dodocomplexplaatsblok:[#1]}
+\HLet\dodocomplexplaatsblok=\:tempc
+\NewConfigure{plaatsblok}{2}
+\def\:tempc#1#2#3#4{%
+   \ifvmode    \IgnorePar\fi
+   \o:putcompletecaption:{#1}%
+       {\a:caption#2\b:caption}%
+       {\c:caption#3\d:caption}{#4}}
+\HLet\putcompletecaption\:tempc
+\NewConfigure{caption}{4}
+
+  \def\dodoplaceexternalfigure[#1][#2][#3][#4][#5][#6]{%
+  \doifsomething{#3}%
+     {\bgroup
+      \def\textunderscore{_}% brrr, temp hack
+      \calculateexternalfigure[#1][#2][#3][#4][#5][#6]%
+      \calculateexternalscreenfigure[#1][#2][#3][#4][#5][#6]%
+      \a:externalfigure{#3}%
+      \egroup}}
+\NewConfigure{externalfigure}{1}
+\NewConfigure{figure-li}[4]{%
+   \expandafter\def\csname a:figure-li\endcsname{%
+      #1%
+      \def\:tempc####1####2{#2\o:limitatedlistentry:{####1}{####2}#3}%
+      \HLet\limitatedlistentry\:tempc
+    }%
+    \expandafter\def\csname b:figure-li\endcsname{#4}%
+}
+\Configure{figure-li}{}{}{}{}
+\NewConfigure{title-ko}{2}
+\NewConfigure{-@@kjfigure}{2}
+
+  \def\:tempc#1#2#3{\relax\mathematics{{\a:frac{#1{#2}}\b:frac
+                                 \over\c:frac{#1{#3}}\d:frac}}}
+\HLet\dofrac\:tempc
+\NewConfigure{frac}{4}
+\let\normalreqno\eqno
+\let\normalleqno\leqno
+\def\:tempc#1#2#3#4{%
+   \a:formulenummer
+      \o:dododoformulenummer:{#1}{#2}{#3}{#4}%
+   \b:formulenummer}
+\HLet\dododoformulenummer\:tempc
+
+\NewConfigure{formulenummer}{2}
+\Configure{formulenummer}
+    {\HCode{<span class="formulenummer">}}
+    {\HCode{</span>}}
+\Css{.formulenummer {width:20\%; float:right;}}
+\pend:def\startdisplaymath{\a:displaymath}
+\append:def\stopdisplaymath{\b:displaymath}
+\NewConfigure{displaymath}{2}
+\Configure{displaymath}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{<div class="displaymath">}}
+   {\ifvmode \IgnorePar\fi \EndP \HCode{</div>}}
+\Css{div.displaymath {text-align:center;}}
+\NewConfigure{-@@fm}{2}
+\def\:tempc#1%
+  {\ifmmode
+    \displ@y
+    \global\chardef\mathnumberstatus\plusone
+     %
+     \vcenter\bgroup
+     \def\finishalignno{\f:mtable\d:mtable\b:mtable\crcr
+                        \egroup\egroup}%
+   \else
+     \def\finishalignno{\f:mtable\d:mtable\b:mtable\crcr
+                        \egroup}%
+   \fi
+   #1%
+   \TeXhalign \@EA \bgroup \the\scratchtoks\crcr}
+\HLet\dobothaligneqalignno\:tempc
+\let\:tempc\dointertext
+\pend:defI\:tempc{\a:intertext}
+\append:defI\:tempc{\b:intertext}
+\HLet\dointertext\:tempc
+\NewConfigure{intertext}{2}
+\def\:tempc[#1][#2]%
+  {%
+   \expandafter\ifx \csname a:#1\endcsname\relax
+      \Configure{mtable}
+         {\a:mathalignment}
+         {\b:mathalignment}
+         {\c:mathalignment}
+         {\d:mathalignment}
+         {\e:mathalignment}
+         {\f:mathalignment}%
+   \else
+      \Configure{mtable}
+         {\csname a:#1\endcsname}
+         {\csname b:#1\endcsname}
+         {\csname c:#1\endcsname}
+         {\csname d:#1\endcsname}
+         {\csname e:#1\endcsname}
+         {\csname f:#1\endcsname}%
+   \fi
+   \pushmacro\doalignNC
+   \edef\currentmathalignment{#1}%
+   \doifassignmentelse{#2}{\setupmathalignment[#1][#2]}\donothing
+   \def\NC{\doalignNC }%
+   \global\let\doalignNC\dodoalignNC
+   \def\EQ{\HCode{<!--??? 1-->}&=}%
+   \def\NR{\f:mtable&\e:mtable \global\let\doalignNC \dodoalignNC
+                     \doxxdoubleempty\doalignNR}%
+   %
+   \def\notag{\def\\{\HCode{<!--??? 2-->}&\crcr}}%
+   \doifelse{#2}{*}{\def\\{\HCode{<!--??? 3-->}&\crcr}}%
+                   {\def\\{\HCode{<!--??? 4-->}&\doalignNR[+][]\crcr}}%
+   %
+   \eqaligncolumn\zerocount
+   \a:mtable \c:mtable \e:mtable
+   \processcommacommand
+     [\mathalignmentparameter\c!align]
+     {\advance\eqaligncolumn\plusone\doseteqaligncolumn}% takes argument
+   %
+   \global\eqaligncolumn\plusone
+   \numberedeqalign}
+\HLet\dostartmathalignment\:tempc
+\def\:tempc{\gdef\doalignNC##1{\f:mtable&\e:mtable ##1}}
+\HLet\dodoalignNC\:tempc
+\def\:tempc[#1][#2]%
+  {\donestedformulanumber{#1}{#2}\f:mtable\d:mtable
+                                 \c:mtable\e:mtable\crcr}
+\HLet\doalignNR\:tempc
+\NewConfigure{mtable}{6}
+\NewConfigure{mathalignment}{6}
+
+  \gdef\cc:table{\c:table}
+
+\NewConfigure{tableCell}{5}
+\def\showbaselines
+  {\testrulewidth\defaulttestrulewidth
+   \EveryPar{\HtmlPar\ruledbaseline}}
+
+\NewConfigure{table}{6}
+\def\:tempc{%
+   \ifnum \!taColumnNumber>0
+       \expandafter\!taDataColumnTemplate\expandafter
+          {\expandafter\a:tableCell
+           \the\!taDataColumnTemplate\x:tableCell}%
+\expandafter\let\expandafter\:temp
+                     \csname preamble-\the\!taColumnNumber\endcsname
+       \expandafter\expandafter\expandafter\!taDataColumnTemplate
+       \expandafter\expandafter\expandafter
+          {\expandafter\:temp
+           \the\!taDataColumnTemplate\x:tableCell}%
+\expandafter\let\csname preamble-\the\!taColumnNumber\endcsname\:UnDef
+   \fi
+   \o:!tfAdjoinPriorColumn:
+}
+\HLet\!tfAdjoinPriorColumn=\:tempc
+
+\def\!ttDoHalign
+  {\baselineskip \zeropoint
+   \lineskiplimit\zeropoint
+   \lineskip     \zeropoint
+   \tabskip      \zeropoint
+   \HRestore\noalign
+   \a:table
+   \TeXhalign \the\!taTableSpread \bgroup
+   \span\the\!taPreamble }
+
+\def\finishTABLE
+  {\chuckTABLEautorow
+   \unskip\dd:table\crcr
+   \egroup \b:table \expandafter\:gobble
+   \EndTable
+   \global\intablefalse
+   \egroup}
+
+\def\finishTABLErow
+  {\dd:table\crcr
+   \TABLEnoalign
+     {\nobreak
+      \setTABLEaction\TABLEunknown
+      \setTABLEerror\TABLEunknown
+      \globalletempty\checkTABLEautorow
+      \globalletempty\chuckTABLEautorow
+      \global\currentTABLEcolumn\zerocount}}
+
+
+\def\endofTABLEline[#1][#2->#3]#4#5%
+  {\ifx#2#3\else
+     \writestatus\m!TABLE{\string#2\space changed into \string#3}%
+   \fi
+   \iftracetables
+     \bgroup
+     \tttf\space
+     \ifnum\TABLEerror=\TABLEunknown
+       \ifx#2#3\else\string#2->\fi
+     \else
+       ->%
+     \fi
+     \color[#1]{\string#3}%
+     \ifsplittables\space\the\TABLEmaxheight/\the\TABLEheight\fi
+     \ifx\TABLEgraylineerror\empty
+       \space\TABLEgraylinestatus
+     \else
+       \space\TABLEgraylineerror
+     \fi
+     \egroup
+   \else\ifx\TABLEgraylineerror\empty \else   \fi\fi
+   \globalletempty\TABLEgraylinestatus
+   \globalletempty\TABLEgraylineerror
+   \expandafter\normalTABLElineformat#4#5\dd:table\crcr
+   \TABLEnoalign{\nobreak\global\setTABLEactiontrue}}
+
+
+
+\def\!ttDoZero#1{\dd:table\cr}
+
+\def\!ttDoPlus#1#2#3{% #1 eats the +
+  \AugmentedTableStrut{#2}{#3}%
+  \dd:table\cr}
+
+% DO STANDARD: Insert standard table strut
+\def\!ttDoStandard{%
+  \StandardTableStrut
+  \dd:table\cr}
+
+
+\def\!tfFinishFormat{%
+  \ifnum \TracingFormats>0
+    \!thMessage{%
+      \space \space r: \the\!taOldRuleColumnTemplate
+        \tabskip \the\RightTabskip}%
+    \!thMessage{%
+      \space *c: ##\tabskip 0pt}
+  \fi
+  \ifnum \!taColumnNumber<2
+    \!thError{%
+      \ifnum \!taColumnNumber=0
+        No
+      \else
+        Only 1
+      \fi
+      "|"}%
+      {\!thReadErrorMsg\!tfTooFewBarsA
+       ^^J\!thReadErrorMsg\!tfTooFewBarsB
+       ^^J\!thReadErrorMsg\!tkFixIt}%
+  \fi
+  \!thToksEdef\!taPreamble={%
+    \noexpand\cc:table \noexpand
+    \b:tableCell ####\noexpand\x:tableCell\tabskip\LeftTabskip
+    &
+    \the\!taPreamble \tabskip\RightTabskip
+    &
+    \noexpand\c:tableCell ####\noexpand\x:tableCell
+                                       \tabskip 0pt \noexpand\cr}%
+  \ifnum \TracingFormats>1
+    \!thMessage{Preamble=\the\!taPreamble}
+  \fi
+  \ifnum \TracingFormats>2
+    \!thMessage{Row Of Widths="\!tfRowOfWidths"}
+  \fi
+  \!taBeginFormatfalse % Intercepts "|", tabskips, and "."
+  \catcode`\|=13
+  \catcode`\"=13
+  \!ttDoHalign}
+
+
+
+
+\def\!tfSetVrule
+  {\!thToksEdef\!taRuleColumnTemplate=
+      {\noexpand\d:tableCell
+       \noexpand\hfil
+       \noexpand\startglobalTABLEcolor % added
+       \noexpand\vrule
+       \noexpand\!thWidth
+       \ifnum\!tgCode=\plusone
+         \ifx\!tgValue\empty
+           \the\LineThicknessFactor
+         \else
+           \!tgValue
+         \fi
+         \!taLTU
+       \else
+         \!tgValue
+       \fi
+       ####%
+       \noexpand\hfil
+       \noexpand\stopglobalTABLEcolor % added
+       \the\!taRuleColumnTemplate
+       \relax \noexpand\x:tableCell
+   }%
+  \!tfAdjoinPriorColumn}
+
+
+\NewConfigure{VBorder}{4}
+
+\HAssign\NewGroup=0
+\HAssign\Next:TableNo=0
+\HAssign\ar:cnt=0
+
+
+\let\:mALIGN\empty \let\hT:D\empty
+
+\pend:defI\ReadFormatKeys{%
+   \expandafter\ifx\csname preamble-\the\!taColumnNumber\endcsname\relax
+   \expandafter\def\csname preamble-\the\!taColumnNumber\endcsname{%
+        \let\:mALIGN\empty \def\hT:D{\csname \string ##1:T:D\endcsname}}%
+   \fi
+   \:FormatKey
+}
+
+\let\:FormatKey=\empty
+\NewConfigure{FormatKey}[2]{%
+   \def\:temp{#1#2}\ifx \:temp\empty  \let\:FormatKey=\empty
+   \else
+      \append:def\:FormatKey{\def\:tempa{#1}\ifx \:temp\:tempa
+         #2%
+      \fi }%
+   \fi
+}
+
+\Configure{FormatKey}{l}{\add:ar<}
+\Configure{FormatKey}{r}{\add:ar>}
+\Configure{FormatKey}{c}{\add:ar-}
+\Configure{FormatKey}{p}{\d:VBorder}
+\Configure{FormatKey}{|}{\b:VBorder}
+\pend:def\BeginFormat{\add:ar-}
+
+\let\HAlign=\empty
+\def\add:ar#1{\HAdvance\ar:cnt by 1
+   \def\ch:class{#1}%
+   \c:VBorder
+   \edef\HAlign{\HAlign 0 \ar:cnt\space #1 }}
+
+\def\!ttDoZero#1{\dd:table\cr}
+\def\!ttDoPlus#1#2#3{%
+  \AugmentedTableStrut{#2}{#3}%
+  \dd:table \cr}
+\def\!ttDoStandard{%
+  \StandardTableStrut
+  \dd:table \cr}
+
+\def\normalTABLElongrule{\a:TABLElongrule}
+\NewConfigure{TABLElongrule}{1}
+
+\def\simpleTableHL{\a:TableHL}
+\NewConfigure{TableHL}{1}
+
+  \expandafter\def\csname \e!start\v!tabulate\endcsname{%
+    \csname a:\v!tabulate\endcsname \bgroup
+         \expandafter\aftergroup\csname b:\v!tabulate\endcsname
+           \HRestore\noalign \let\halign\TeXhalign
+            \dodoubleempty\donormalstarttabulate}
+\NewConfigure{\v!tabulate}{2}
+\catcode`\|=13
+\def\nexttabulate#1|%
+  {\chardef\tabulatealign\@@tabulatealign
+   \chardef\tabulatemodus\zerocount
+   \chardef\tabulatedimen\zerocount
+   \tabulatebefore  \emptytoks
+   \tabulateafter   \emptytoks
+   \tabulatebmath   \emptytoks
+   \tabulateemath   \emptytoks
+   \tabulatefont    \emptytoks
+   \tabulatesettings\emptytoks
+   \global\advance\tabulatecolumns\plusone
+   \letvalue{\@@tabsetups@@\the\tabulatecolumns}\donothing
+   \settabulatepreamble#1\relax\relax % permits i without n
+   \ifcase\tabulatemodus\relax
+     \ifcase\tabulatealign\relax
+       \dodosettabulatepreamble{{<}\empty}
+                               {\tabulate:endcol\tabulatehss}   \or
+       \dodosettabulatepreamble{{<}\empty}
+                               {\tabulate:endcol\tabulatehss}   \or
+       \dodosettabulatepreamble{{>}\tabulatehss}
+                               {\tabulate:endcol\empty}         \or
+       \dodosettabulatepreamble{{-}\tabulatehss}
+                               {\tabulate:endcol\tabulatehss}   \fi
+   \or % fixed width
+     \ifcase\tabulatealign\relax
+       \dodosettabulatepreamble{{-}\bskip}
+                               {\tabulate:endcol\eskip} \or
+       \dodosettabulatepreamble{{<}\bskip\tabulateraggedright }
+                               {\tabulate:endcol\eskip} \or
+       \dodosettabulatepreamble{{>}\bskip\tabulateraggedleft  }
+                               {\tabulate:endcol\eskip} \or
+       \dodosettabulatepreamble{{-}\bskip\tabulateraggedcenter}
+                               {\tabulate:endcol\eskip} \fi
+   \or % auto width
+     \global\advance\nofautotabulate\plusone
+     \ifcase\tabulatealign\relax
+       \dodosettabulatepreamble{{-}\bskip}
+                                {\tabulate:endcol\eskip} \or
+       \dodosettabulatepreamble{{<}\bskip\tabulateraggedright }
+                               {\tabulate:endcol\eskip} \or
+       \dodosettabulatepreamble{{>}\bskip\tabulateraggedleft  }
+                               {\tabulate:endcol\eskip} \or
+       \dodosettabulatepreamble{{-}\bskip\tabulateraggedcenter}
+                               {\tabulate:endcol\eskip} \fi
+   \or % simple
+     \dodosettabulatepreamble {{-}\xbskip} {\tabulate:endcol\xeskip}
+   \fi
+   \futurelet\next\donexttabulate}
+\catcode`\|=11
+\let\o:dodosettabulatepreamble=\dodosettabulatepreamble
+\def\dodosettabulatepreamble#1#2{%
+   \let\tabulate:col=\relax
+   \let\tabulate:endcol=\relax
+   \edef\:temp{\tabulate:col{\the\tabulatecolumns}}%
+   \expandafter\o:dodosettabulatepreamble
+                        \expandafter{\expandafter{\:temp #1}}{#2}%
+   \let\tabulate:col=\tabulate:Col
+   \let\tabulate:endcol=\tabulate:Endcol
+}
+\def\tabulate:Col#1#2{\def\HCol{#1}%
+                      \edef\HRow{\noftabulatelines}\def\HAlign{#2}%
+   \ifnum #1=1
+      \ifnum \noftabulatelines=0
+      \else \csname d:\v!tabulate\endcsname\fi
+      \csname c:\v!tabulate\endcsname
+   \fi
+   \csname e:\v!tabulate\endcsname}
+\def\tabulate:Endcol{\csname f:\v!tabulate\endcsname}
+\expandafter\def\csname \e!start\v!tabulate\endcsname{%
+    \csname a:\v!tabulate\endcsname \bgroup
+         \expandafter\aftergroup\csname d:\v!tabulate\endcsname
+         \expandafter\aftergroup\csname b:\v!tabulate\endcsname
+           \HRestore\noalign \let\halign\TeXhalign
+            \dodoubleempty\donormalstarttabulate}
+\NewConfigure{\v!tabulate}{6}
+
+  \def\:tempc[#1]#2#3{%
+   \o:doprocesspageregister:[#1]{#2}{#3}%
+   \def\:temp{\v!index}\ifx \:temp\currentregister
+      \a:index
+   \fi
+}
+\HLet\doprocesspageregister\:tempc
+\NewConfigure{index}{1}
+\NewConfigure{index-env}{2}
+\ifx \c!voor\:UnDef \else     %%%%%% pre 2005
+  \expandafter\pend:def\csname
+      \??id\v!index\c!voor\endcsname{\everypar{\HtmlPar}}
+\fi
+\ifx \c!na\:UnDef \else     %%%%%% pre 2005
+  \expandafter\append:def\csname
+      \??id\v!index\c!na\endcsname{\everypar{\HtmlPar}}
+\fi
+\ifx \c!commando\:UnDef \else     %%%%%% pre 2005
+  \expandafter\pend:defI\csname
+      \??id\v!index\c!commando\endcsname{\a:indexchar}
+  \expandafter\append:defI\csname \??id\v!index\c!commando\endcsname{\b:indexchar}
+\fi
+\NewConfigure{indexchar}{2}
+\def\:tempc#1#2#3#4{%
+   \def\:temp{#1}\def\:tempa{\s!ind}\ifx \:temp\:tempa
+      \a:indexpage\o:gotonextinternal:{#1}{#2}{#3}{#4}%
+   \else
+      \o:gotonextinternal:{#1}{#2}{#3}{#4}%
+   \fi
+}
+\HLet\gotonextinternal\:tempc
+\def\c:indexpage:{\def\a:indexpage##1##2##3##4##5}
+
+  \def\:tempc{ConTeXt}
+\HLet\ConTeXt\:tempc
+
+  \NewConfigure{-@@ur}{2}
+\NewConfigure{pubs-li}{2}
+\catcode`\:=12
+\expandafter\def\csname :temp\endcsname{\def\redospecialfrom[##1::##2]}
+\catcode`\:=11
+
+\:temp
+  {\ifundefined{\v!file :::#1}%
+     \tttf[#1]%
+   \else
+     \def\doexternaldocument##1##2##3{\a:externaldocument
+                       [##1]{}{}\goto{##3}[#1::#2]\b:externaldocument}%
+     \csname\v!file :::#1\endcsname
+   \fi }
+\NewConfigure{externaldocument}{2}
+\def\:tempc[#1][#2]{%
+   \o:docite:[#1][#2]%
+   \expandafter\ifx \csname o:bib\@@citedefault ref:\endcsname\relax
+      \expandafter\global\expandafter\let
+           \csname o:bib\@@citedefault ref:\endcsname = \empty
+      \:warning{No configuration is available for \expandafter
+                   \string \csname bib\@@citedefault ref\endcsname}%
+   \fi
+}
+\HLet\docite\:tempc
+\ifx \dotypesetapublication\:UnDef\else
+   \pend:defI\dotypesetapublication{\Link{}{##1}\EndLink}
+\fi
+\def\:tempc[#1]{%
+      \Link{#1}{}\o:bibauthoryearref:[#1]\EndLink
+}
+\HLet\bibauthoryearref\:tempc
+\def\:tempc[#1]{%
+   \bibalternative\v!left
+   \bgroup
+      \let\v!left=\empty
+      \let\v!right=\empty
+      \Link{#1}{}\o:bibauthoryearsref:[#1]\EndLink
+   \egroup
+   \bibalternative\v!right
+}
+\HLet\bibauthoryearsref\:tempc
+\def\:tempc[#1]{%
+   \bibalternative\v!left
+   \bgroup
+      \let\v!left=\empty
+      \let\v!right=\empty
+      \Link{#1}{}\o:bibauthorref:[#1]\EndLink
+   \egroup
+   \bibalternative\v!right
+}
+\HLet\bibauthorref\:tempc
+\def\:tempc[#1]{%
+   \bibalternative\v!left
+   \bgroup
+      \let\v!left=\empty
+      \let\v!right=\empty
+      \Link{#1}{}\o:bibyearref:[#1]\EndLink
+   \egroup
+   \bibalternative\v!right
+}
+\HLet\bibyearref\:tempc
+
+  
+  \def\:tempc{\dontshowcomposition
+     \a:framed \box\framebox \b:framed
+   \egroup
+   \egroup
+}
+\HLet\stoplocalframed\:tempc
+\NewConfigure{framed}{2}
+
+  \def\begintbl
+  {\doglobal\newcounter\colTBL
+   \doglobal\newcounter\rowTBL
+   \doglobal\decrement\rowTBL
+   \tabskip\zeropoint
+   \TeXhalign\bgroup
+   \registerparoptions
+   \ignorespaces\ifnum\rowTBL=0 \a:bTABLE\else\d:bTABLE\fi
+                \c:bTABLE\e:bTABLE##\f:bTABLE\unskip&&
+   \ignorespaces\e:bTABLE##\f:bTABLE\unskip\cr}
+\def\endtbl
+  {\o:noalign:{\d:bTABLE\b:bTABLE}\egroup}
+\NewConfigure{bTABLE}{6}
+\def\begintblrow
+  {\o:noalign:
+     {\doglobal\increment\rowTBL
+      \doglobal\newcounter\colTBL}%
+   \nexttblcol}
+\def\endtblrow{\crcr
+   \o:noalign:
+     {\nointerlineskip
+      \allowbreak
+      \bgroup % protect local vars
+        \@@tblsplitafter
+      \egroup
+}}
+\def\spanTBL#1#2%
+  {\scratchcounter\gettblcol{#1}{#2}\relax
+   \ifnum\scratchcounter>\zerocount
+     \advance\scratchcounter \minusone
+%     \dorecurse\scratchcounter{\appendtoks\spantblcol\to\tbltoks}%
+     \dorecurse\scratchcounter{\appendtoks\skiptblcol\to\tbltoks}%
+                               \appendtoks\nexttblcol\to\tbltoks
+   \fi}
+\let\o:settbltxt:\settbltxt
+\def\settbltxt{%
+   \edef\:tempc{\maximumrow}\HAdvance\:tempc by -1
+   \expandafter\edef\csname bTBL\:tempc,\currentcol
+        \endcsname{{\csname\@@tbl\c!ny\endcsname}{\csname\@@tbl\c!nx\endcsname}}%
+   \o:settbltxt:
+}
+
+  % \appendtoks
+  \let\o:forgetall:\forgetall
+  \append:def\forgetall{\expandafter\everypar\expandafter{\the\everypar
+%     \ifnum\textlevel>0
+      \ifx\EndPicture\:Undef \HtmlPar\fi
+%     \fi
+  }}
+% \to \everystarttext
+
+\def\:temp{\everybeforeshipout\bgroup\let\forgetall\o:forgetall: }
+\expandafter\:temp\the\everybeforeshipout}
+
+  \def\dostartnote% nog gobble als in pagebody
+  {\bgroup
+   \settrue\processingnote
+   \iftypesettinglines \ignorelines \fi
+   \begingroup
+  \a:footnotemark
+   \let\rawreference\:gobbleII
+   \ifnotesymbol       \dolastnotesymbol
+   \else \unskip\unskip \globallet\lastnotesymbol\dolastnotesymbol
+   \fi
+   \b:footnotemark
+\endgroup
+%
+   \ignorespaces
+   \a:footnote
+   \bgroup
+     \penalty\notepenalty
+     \forgetall
+     \setnotebodyfont
+     \redoconvertfont
+     \bgroup
+       {\ifx\lastnotenumber\empty \else
+          \c:footnote
+\preparefullnumber{\??vn\currentnote}\lastnotenumber\preparednumber
+\doifelse{\noteparameter\c!interaction}\v!no
+  {\noteparameter\c!numbercommand
+     {\preparednumber\domovednote\v!nextpage\v!previouspage}}%
+  {\gotobox{\noteparameter\c!command
+     {\preparednumber\domovednote\v!nextpage\v!previouspage}}%
+     [\s!fnt :f:\internalfootreference]}%
+\d:footnote
+%
+        \fi
+        \doifelse{\noteparameter\c!interaction}\v!no
+  {\ifconditional\pagewisenotes
+     \rawreference\s!fnt{\s!fnt :t:\internalfootreference}{}%
+   \fi}%
+  {\rawreference\s!fnt{\s!fnt :t:\internalfootreference}{}}%
+}%
+        \aftergroup\dostopnote
+        \let\next}
+\def\dostopnote{%
+   \egroup
+   \b:footnote
+   \egroup
+   \kern\notesignal\relax}
+
+\NewConfigure{footnote}{4}
+\NewConfigure{footnotemark}{2}
+
+  \def\dodoprocessTEXbuffer[#1][#2]{%
+   \expandafter\ifx \csname c:#1-buffer:\endcsname\relax
+   \:warning{adding \string\NewConfigure{#1-buffer}{2}
+        to equal \string\Configure{buffer}{...}{...}}%
+   \NewConfigure{#1-buffer}{2}%
+   \Configure{#1-buffer}{\a:buffer}{\b:buffer}%
+\fi
+%
+   \csname a:##1-buffer\endcsname
+   \getvalue{\??bu#1\c!before}%
+   \dobuffer{16}[#2]\readjobfile
+   \getvalue{\??bu#1\c!after}%
+   \csname b:#1-buffer\endcsname
+}
+\NewConfigure{-buffer}{2}
+\NewConfigure{buffer}{2}
+
+  \tmp:cnt\normaltime  \divide\tmp:cnt  60
+\edef\:temp{\the\tmp:cnt}
+\multiply\tmp:cnt  -60 \advance\tmp:cnt  \normaltime
+\edef\:today{\the\normalyear-\ifnum \normalmonth<10 0\fi
+  \the\normalmonth-\ifnum \normalday<10 0\fi\the\normalday
+   \space\ifnum \:temp<10 0\fi \:temp
+   :\ifnum \tmp:cnt<10 0\fi\the\tmp:cnt :00}
+
+  \long\def\:temp{\begingroup \obeyMPlines \dostartMPcode}
+\ifx \startMPcode\:temp
+   \pend:def \startMPcode{%
+      \let\:temp\begingroup
+      \def\begingroup{\let\begingroup\:temp
+          \a:MPcode
+          \begingroup
+          \aftergroup\b:MPcode }%
+   }
+\fi
+\NewConfigure{MPcode}{2}
+
+\catcode`\!=12
+\catcode`\?=12
+\Hinput{context}
+\endinput
+

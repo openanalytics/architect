@@ -1,0 +1,576 @@
+% svg-option.4ht (2018-12-30-09:33), generated from tex4ht-svg.tex
+% Copyright 2009-2018 TeX Users Group
+% Copyright 2001-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2018-12-30-09:33}
+
+\exit:ifnot{graphics,% 
+tex4ht,% 
+th4}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{svg-inline}\if:Option
+\Configure{VERSION}
+  {\IgnorePar\HCode{<?xml version="1.0"  encoding="\expandafter\ifx \csname a:charset\endcsname\relax
+         \expandafter\:encoding\A:charset
+   \else \expandafter\:encoding\a:charset\fi"
+ ?> \Hnewline}}
+\Configure{DOCTYPE}{\HCode
+  {<!DOCTYPE html PUBLIC
+     "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+     "http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">\Hnewline
+   <!--http://www.w3.org/TR/XHTMLplusMathMLplusSVG/-->\Hnewline
+}}
+\Configure{@DOCTYPE}
+  {<!ENTITY \% svg.dtd PUBLIC "-//W3C//DTD SVG 20010719//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+     "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">\Hnewline
+   \%svg.dtd; \Hnewline}
+\Configure{@HTML}
+  {\Hnewline xmlns:svg="http://www.w3.org/2000/svg"\Hnewline }
+\fi
+\Configure{Picture}{.svg}
+\:CheckOption{svg-obj} \if:Option
+   \Configure{IMG}
+  {\special{t4ht=<object type="image/svg+xml"  data="}}
+  {\special{t4ht=" name="}}
+  {" }
+  {\special{t4ht=" }}
+  {\special{t4ht=></object>}}
+
+\else   \:CheckOption{svg-} \if:Option
+      \Configure{IMG}
+  {\special{t4ht=<object type="image/svg+xml"><img src="}}
+  {\special{t4ht=" alt="}}
+  {" }
+  {\special{t4ht=" }}
+  {\special{t4ht=/></object>}}
+
+\else
+      \Log:Note{for external SVG files
+             try the command line options `svg-obj' and 'svg-'}
+\:CheckOption{svg-inline}\if:Option
+      \Configure{IMG}
+  {\special{t4ht=<!-- src="}}
+  {\special{t4ht=" alt="}}
+  {" }
+  {\special{t4ht=" }}
+  {\special{t4ht=-->}%
+   \openin15=\PictureFile \relax
+   \ifeof15  \:warning{\PictureFile\space is not available}%
+   \else     \closein15  \special{t4ht*<\PictureFile}\fi
+  }
+
+\fi
+\fi\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{graphics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{graphics*}
+   {svg}
+   {{\Configure{Needs}{File: \csname Gin@base\endcsname.svg}\Needs{}}%
+     \special{t4ht=<object type="image/svg+xml"
+                          data="\Gin@base.svg"
+                          name="picture \Gin@base"
+                         class="graphics"></object><!--tex4ht:graphics \csname a:Gin-dim\endcsname
+-->}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{th4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{draw} \if:Option \:CheckOption{th4} \if:Option
+   \Configure{Fig}
+      {\Svg}
+      {\EndSvg}
+   \:CheckOption{svg-} \if:Option
+      \let\:svg=\empty
+\NewConfigure{Canvas}[4]{\ht:special{t4ht"%
+   *%
+   *d\Hnewline<!--width="\%.1f#4" %
+   *D height="\%.1f#4" %
+   *y above-baseline="\%.1f#4" -->%
+   **\Hnewline<\:svg text x="\%.1f" y="\%.1f" >%
+   *</\:svg text>%
+   *\Hnewline<\:svg rect x="\%.1f#4" y="\%.1f#4"
+                   width="\%.1f#4"  height="\%.1f#4" />%
+   *#1*#2*#1*#2*#3}}
+\Configure{Canvas}{0.0000152587890625}{0.0}{0.5}{}
+
+   \else
+      \def\Svg{\HCode{<svg:svg>\Hnewline
+                <svg:g style="stroke:black;  stroke-width:1;
+                      stroke-opacity:1;">\Hnewline}%
+  \bgroup\Canvas \x:SUBOff  \x:SUPOff
+     \let\Picture=\empty \everymath{}\everydisplay{}%
+}
+\def\EndSvg{\EndCanvas\egroup
+   \HCode{</svg:g></svg:svg>}}
+
+   \fi
+\fi \fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

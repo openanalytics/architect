@@ -1,0 +1,175 @@
+% colortbl.4ht (2019-11-22-14:08), generated from tex4ht-4ht.tex
+% Copyright 1997-2009 Eitan M. Gurari
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-11-22-14:08}
+
+
+   \RequirePackage{xcolor}
+\CT@everycr{\o:noalign:{\global\let\CT@row@color\relax}\the\everycr}
+\def\columncolor#1{{\def\current@color{#1}%
+                    \csname a:cell-colortbl\endcsname}}
+\Odef\columncolor[#1]#2{{\if :#1:\def\current@color{#2}%
+                         \else
+                           \gHAdvance\tblcol:N by 1
+                           \convertcolorspec{#1}{#2}{HTML}\tmp:tblcolor
+                           \Configure{HColor}{tblcol-\tblcol:N}{\#\tmp:tblcolor}%
+                           \def\current@color{tblcol-\tblcol:N}%
+                         \fi
+                    \csname a:cell-colortbl\endcsname}%
+   \futurelet\:temp\left:colcol}
+\def\left:colcol{%
+   \ifx [\:temp \expandafter\left::colcol \fi
+}
+\def\left::colcol[#1]{
+   \futurelet\:temp\right:colcol
+}
+\def\right:colcol{%
+   \ifx [\:temp \expandafter\right::colcol \fi
+}
+\def\right::colcol[#1]{}
+\HAssign\tblcol:N = 0
+\def\CT@cellc#1[#2]#3{{\if :#2:\def\current@color{#3}%
+                         \else
+                           \gHAdvance\tblcol:N by 1
+                           \convertcolorspec{#2}{#3}{HTML}\tmp:tblcolor
+                           \Configure{HColor}{tblcol-\tblcol:N}{\#\tmp:tblcolor}%
+                           \def\current@color{tblcol-\tblcol:N}%
+                         \fi
+                    \csname a:cell-colortbl\endcsname}%
+   \futurelet\:temp\left:colcol}
+\NewConfigure{@classz}{4}
+\pend:def\@classz{\pic:gobble\a:@classz}
+\append:def\@classz{\pic:gobble\b:@classz}
+\pend:def\insert@column{\pic:gobble\c:@classz}
+\append:def\insert@column{\pic:gobble\d:@classz}
+\def\:temp{\global\let\CT@do@color\relax}
+\HLet\CT@@do@color\:temp
+\let\::maketitle\o:maketitle:
+\def\o:maketitle:{%
+   \ifx \EndPicture\:UnDef
+      \NewConfigure{@classz}{4}%
+      \Configure{@classz}{}{}{}{}%
+   \fi
+   \::maketitle }
+\def\rowcolor{%
+  \o:noalign:{\ifnum0=`}\fi
+  \global\let\CT@do@color\CT@@do@color
+  \relax
+\ifx\LT@head\Un:Def\else
+   \ifnum \HRow=0\relax
+      \expandafter\ifx\csname lt:sv\endcsname\relax
+        \HAssign\HRow = 1\relax
+        \ifvoid\LT@head
+           \ifvoid\LT@firsthead \else \HAdvance\HRow by 1\relax\fi
+        \else \HAdvance\HRow by 1\relax\fi
+      \else
+        \HAssign\HRow = \lt:sv \relax
+        \HAdvance\HRow by 1\relax
+      \fi
+\fi\fi
+%
+  \@ifnextchar[\CT@rowa\CT@rowb}
+\def\CT@rowa[#1]#2{%
+  \save:color#1 #2//%
+  \pic:gobbleII\a:rowcolor{#2}%
+  \gdef\CT@row@color{\CT@color{#2}}%
+  \CT@rowc}
+\def\CT@rowb#1{%
+  \pic:gobbleII\a:rowcolor{#1}%
+  \gdef\CT@row@color{\CT@color{#1}}%
+  \CT@rowc}
+\NewConfigure{rowcolor}{1}
+\def\convert:colorspec#1 #2 #3 #4{%
+  \edef\current:color{%
+    \ifx\relax#1\relax\else%
+    #1\ifx\relax#2\relax\else%
+    , #2\ifx\relax#3\relax\else%
+      , #3\ifx\relax#4\relax\else%
+        , #4%
+        \fi%
+      \fi%
+    \fi%
+  \fi%
+  }%
+}
+
+\def\save:color#1 #2//{%
+  \convert:colorspec#2 {} {} {} {}
+  \convertcolorspec{#1}{\current:color}{HTML}\tmp:col
+  \def\current@color{#2}
+  \Configure{HColor}{\current@color}{\#\tmp:col}
+}
+
+\def\begin:current@color{\let\sv:curcolor\current@color}
+\def\end:current@color{%
+   \ifx \current@color\sv:curcolor
+   \else%
+   \expandafter\save:color\current@color//%
+   \csname a:text-colortbl\endcsname
+   \fi
+}
+\NewConfigure{text-colortbl}{1}
+\def\GET@column@color{}
+\def\color:ii[#1]#2#3!*?: {\def\:temp{#1 #2}}
+\def\color:i#1#2!*?: {\def\:temp{#1}}
+\let\ctbl:mcol\multicolumn
+\def\multicolumn#1#2#3{%
+   \ctbl:mcol{#1}{#2}{#3}%
+   \expand:after{\expandafter\MUL:LMN\meaning\@preamble}\MUL:PA//%
+   \ignorespaces}
+{
+  \def\MUL:PA{\gdef\MUL:PA}
+  \def\MUL:LMN{%
+  \catcode`\C=12
+  \catcode`\T=12
+  \catcode`\@=12
+  \catcode`\c=12
+  \catcode`\o=12
+  \catcode`\l=12
+  \catcode`\r=12
+  \catcode`\t=12
+  \catcode`\e=12
+  \catcode`\m=12
+  \catcode`\p=12
+  \catcode`\d=12
+  \catcode`\i=12
+  \catcode`\b=12
+  \gdef\MUL:LMN}
+  \MUL:LMN#1CT@color #2@tempdimb#3//{\::KOLOR{#2}}
+  \MUL:PA{CT@color @tempdimb}
+}
+\def\::KOLOR#1{\if :#1:\else \:KOLOR#1//%
+\fi}
+\def\:KOLOR{\@ifnextchar[\mc:clr{\mc:clr[]}}
+{
+  \catcode`\{=12
+  \catcode`\}=12
+  \catcode`\(=1
+  \catcode`\)=2
+  \gdef\mc:clr[#1]{#2}((%
+       \def\current@color(\if :#1:\else #1 \fi #2)%
+       \csname a:cell-colortbl\endcsname
+     )\def\:temp##1//()\:temp)
+)
+\NewConfigure{cell-colortbl}{1}
+
+   
+\Hinput{colortbl}
+\endinput
+

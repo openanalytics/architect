@@ -1,0 +1,34 @@
+.lm-t5
+htfcss: t5-lmbo  font-style: oblique;
+htfcss: t5-lmbx  font-weight: bold;
+htfcss: t5-lmbxi  font-style:italic; font-weight: bold;
+htfcss: t5-lmbxo  font-style: oblique; font-weight: bold;
+htfcss: t5-lmcsco  font-style: oblique;
+htfcss: t5-lmri  font-style:italic;
+htfcss: t5-lmro  font-style: oblique;
+htfcss: t5-lmss  font-family: sans-serif;
+htfcss: t5-lmssbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: t5-lmssbx  font-family: sans-serif; font-weight: bold;
+htfcss: t5-lmssdc  font-family: sans-serif;
+htfcss: t5-lmssdo  font-family: sans-serif; font-style: oblique;
+htfcss: t5-lmsso  font-family: sans-serif; font-style: oblique;
+htfcss: t5-lmssq  font-family: sans-serif;
+htfcss: t5-lmssqbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: t5-lmssqbx  font-family: sans-serif; font-weight: bold;
+htfcss: t5-lmssqo  font-family: sans-serif; font-style: oblique;
+htfcss: t5-lmtk  font-family: monospace,monospace;
+htfcss: t5-lmtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: t5-lmtl  font-weight: light; font-family: monospace,monospace;
+htfcss: t5-lmtlc  font-weight: light; font-family: monospace,monospace;
+htfcss: t5-lmtlco  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: t5-lmtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: t5-lmtt  font-family: monospace,monospace;
+htfcss: t5-lmtti  font-family: monospace,monospace; font-style:italic;
+htfcss: t5-lmtto  font-style: oblique; font-family: monospace,monospace;
+htfcss: t5-lmvtk  font-family: monospace,monospace;
+htfcss: t5-lmvtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: t5-lmvtl  font-weight: light; font-family: monospace,monospace;
+htfcss: t5-lmvtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: t5-lmvtt  font-family: monospace,monospace;
+htfcss: t5-lmvtto  font-style: oblique; font-family: monospace,monospace;
+

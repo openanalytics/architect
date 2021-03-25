@@ -1,0 +1,8 @@
+.times
+htfcss: ARIALBD  font-weight: bold;
+htfcss: ARIALBI font-style: italic;    font-weight: bold;
+htfcss: ARIALI font-style: italic;
+htfcss: arialbd  font-weight: bold;
+htfcss: arialbi font-style: italic;    font-weight: bold;
+htfcss: ariali font-style: italic;
+

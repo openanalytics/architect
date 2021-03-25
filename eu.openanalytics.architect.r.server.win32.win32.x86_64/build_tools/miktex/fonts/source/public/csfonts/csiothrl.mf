@@ -1,0 +1,168 @@
+% This is csiothrl.mf in text format, as of 89/05/08
+% written by P. Novak, Prague
+% Czech and slovak italic letters with accents
+% Remaining lower case italic letters with different accents
+
+cmchar "Italic letter o with circumflex";
+beginchar(cs_uo,9u#,lc_acute_height#,0);
+italcorr .7x_height#*slant+.5curve#-u# if math_fitting:-.5u# fi;
+adjust_fit(0,0); pickup fine.nib;
+pos1(vair,90); pos2(curve,180); pos3(vair,270); pos4(curve,360);
+x1=x3=.5w; lft x2r=hround(1.5u-.5curve); x4=w-x2;
+top y1r=x_height+oo; y2=y4=.5[y1,y3]; bot y3r=-oo;
+filldraw stroke pulled_arc.e(1,2) & pulled_arc.e(2,3)
+ & pulled_arc.e(3,4) & pulled_arc.e(4,1); % bowl
+math_fit(-.3x_height#*slant+.5curve#-u#,ic#); penlabels(1,2,3,4);
+lc_circumflex(x1);
+endchar;
+
+cmchar "Italic letter u with circle";
+beginchar(cs_ou,9.5u#,lc_circle_height#,0);
+italcorr 1/3x_height#*slant+.5hair#+.5u#;
+adjust_fit(0,0); pickup fine.nib; interim superness:=more_super;
+x0=0; x2=x3+.25u; pos3(stem,-180); lft x3r=hround(2.5u-.5stem);
+hook_in(0,1,2)(skewed);  % opening hook
+pos2'(stem,-180); z2'=z2;
+pos4(vair,-90); pos5(hair,0); x4=.5[x3,x5];
+pos6(stem,0); rt x6r=hround(w-2.5u+.5stem);
+x5=x6=x7; x9=w; hook_out(7,8,9);  % closing hook
+y3=.7[y4,y5]; bot y4r=-oo; y5=.57x_height; y6+.5stem=x_height;
+filldraw stroke z2'e{-u,-x_height}
+ ...super_arc.e(3,4)...{up}z5e; % left stem and arc
+filldraw circ_stroke z6e--z7e;  % right stem
+math_fit(-2/3x_height#*slant+.5hair#+.5u#,ic#);
+penlabels(0,1,2,3,4,5,6,7,8,9);
+lc_circle_accent(0.5w);
+endchar;
+
+cmchar "Italic letter a with grave";
+beginchar(cs_ax,9u#,lc_acute_height#,0);
+italcorr 1/3x_height#*slant+.5hair#+.5u#;
+adjust_fit(0,0); pickup fine.nib;
+pos0(hair,0); pos1(vair,90); pos2(curve,180); pos3(vair,270);
+pos4(stem,0); x4=x0; y4+.5stem=vround .98x_height;
+x1=x3=.5[x0,x2]; lft x2r=hround(1.5u-.5curve);
+rt x4r=hround(w-2.5u+.5stem);
+top y1r=x_height+oo; bot y3r=-oo; y0=y2=.5[y1,y3];
+filldraw stroke super_arc.e(0,1) & pulled_arc.e(1,2)
+ & pulled_arc.e(2,3) & super_arc.e(3,0);  % bowl
+x5=x4; x7=w; hook_out(5,6,7);  % closing hook
+filldraw circ_stroke z4e--z5e;  % stem
+math_fit(-.3x_height#*slant+.5curve#-u#,ic#);
+penlabels(0,1,2,3,4,5,6,7); 
+lc_grave_accent(x1);
+endchar;
+
+cmchar "Italic letter l with acute";
+beginchar(cs_ll,4u#,lc_acute_height#,0);
+italcorr max(1/3x_height#*slant+.5hair#+.5u#,
+ asc_height#*slant+.5stem#-2u#) if math_fitting:+.5u# fi;
+adjust_fit(if monospace:u#,u# else: 0,0 fi); pickup fine.nib;
+x2-.5stem=hround(1.5u-.5stem); x4=w; hook_out(2,3,4);  % closing hook
+pickup tiny.nib; pos1(stem,0); pos2'(stem,0); z2'=z2;
+top y1=asc_height; x1=x2; filldraw stroke z1e--z2'e;  % stem
+sloped_serif.l(1,2,a,1/3,jut,serif_drop);  % serif
+math_fit(-.5u#,1/3x_height#*slant+.5hair#+u#); penlabels(1,2,3,4);
+uc_acute_accent(x1);
+endchar;
+
+cmchar "Italic letter t with hachek";
+beginchar(cs_tj,5.5u#,lc_acute_height#,0);
+italcorr max(1/3x_height#*slant+.5hair#+.5u#,x_height#*slant-.25u#);
+adjust_fit(if monospace:u#,u# else:0,0 fi); pickup fine.nib;
+pos1(stem,0); lft x1l=hround(2u-.5stem);
+y1+.5stem=min(asc_height,10/7x_height)+oo;
+x2=x1; x4=w; hook_out(2,3,4);  % closing hook
+filldraw circ_stroke z1e--z2e;  % stem
+pickup crisp.nib; pos5(bar,90); pos6(bar,90);
+lft x5=hround-.75u; rt x6=hround(w-.75u); top y5r=top y6r=x_height;
+filldraw stroke z5e--z6e;  % crossbar
+math_fit(1.25u#-x_height#*slant,ic#); penlabels(1,2,3,4,5,6); 
+dtl_hachek(x6)(y1+.5dot_size);
+endchar;
+
+cmchar "Italic letter d with hachek";
+beginchar(cs_dj,9u#,lc_acute_height#,0);
+italcorr max(1/3x_height#*slant+.5hair#+.5u#,
+  asc_height#*slant+.5stem#-2u#) if math_fitting:-.5u# fi;
+adjust_fit(0,0); pickup fine.nib;
+pos0(hair,0); pos1(vair,90); pos2(curve,180); pos3(vair,270);
+x0=x4; x1=x3=.5[x0,x2]; lft x2r=hround(1.5u-.5curve);
+x4+.5stem=hround(w-2.5u+.5stem);
+top y1r=x_height+oo; bot y3r=-oo; y0=y2=.5[y1,y3];
+filldraw stroke super_arc.e(0,1) & pulled_arc.e(1,2)
+ & pulled_arc.e(2,3) & super_arc.e(3,0);  % bowl
+x5=x0; x7=w; hook_out(5,6,7);  % closing hook
+pickup tiny.nib; pos5'(stem,0); pos4(stem,0);
+z5'=z5; top y4=asc_height; filldraw stroke z4e--z5'e;  % stem
+sloped_serif.l(4,5',a,1/3,jut,serif_drop);  % serif
+math_fit(-.3x_height#*slant+.5curve#-u#,ic#);
+penlabels(0,1,2,3,4,5,6,7); 
+dtl_hachek(x4r+u+.5dot_size)(y4);
+endchar;
+
+
+cmchar "Italic letter l with hachek";
+beginchar(cs_lj,4u#,lc_acute_height#,0);
+l_width#:=4u#;
+italcorr max(1/3x_height#*slant+.5hair#+.5u#,
+ asc_height#*slant+.5stem#-2u#) if math_fitting:+.5u# fi;
+adjust_fit(if monospace:u#,u# else: 0,0 fi); pickup fine.nib;
+x2-.5stem=hround(1.5u-.5stem); x4=w; hook_out(2,3,4);  % closing hook
+pickup tiny.nib; pos1(stem,0); pos2'(stem,0); z2'=z2;
+top y1=asc_height; x1=x2; filldraw stroke z1e--z2'e;  % stem
+sloped_serif.l(1,2,a,1/3,jut,serif_drop);  % serif
+math_fit(-.5u#,1/3x_height#*slant+.5hair#+u#); penlabels(1,2,3,4);
+dtl_hachek(x1r+u+.5dot_size)(y1);
+endchar;
+
+cmchar "Italic letter a with trema";
+beginchar(cs_ae,9u#,lc_trema_height#,0);
+italcorr 1/3x_height#*slant+.5hair#+.5u#;
+adjust_fit(0,0); pickup fine.nib;
+pos0(hair,0); pos1(vair,90); pos2(curve,180); pos3(vair,270);
+pos4(stem,0); x4=x0; y4+.5stem=vround .98x_height;
+x1=x3=.5[x0,x2]; lft x2r=hround(1.5u-.5curve);
+rt x4r=hround(w-2.5u+.5stem);
+top y1r=x_height+oo; bot y3r=-oo; y0=y2=.5[y1,y3];
+filldraw stroke super_arc.e(0,1) & pulled_arc.e(1,2)
+ & pulled_arc.e(2,3) & super_arc.e(3,0);  % bowl
+x5=x4; x7=w; hook_out(5,6,7);  % closing hook
+filldraw circ_stroke z4e--z5e;  % stem
+math_fit(-.3x_height#*slant+.5curve#-u#,ic#);
+penlabels(0,1,2,3,4,5,6,7);
+lc_trema_accent(x4-4u,x4);
+endchar;
+
+
+cmchar "Italic letter o with trema";
+beginchar(cs_oe,9u#,lc_trema_height#,0);
+italcorr .7x_height#*slant+.5curve#-u# if math_fitting:-.5u# fi;
+adjust_fit(0,0); pickup fine.nib;
+pos1(vair,90); pos2(curve,180); pos3(vair,270); pos4(curve,360);
+x1=x3=.5w; lft x2r=hround(1.5u-.5curve); x4=w-x2;
+top y1r=x_height+oo; y2=y4=.5[y1,y3]; bot y3r=-oo;
+filldraw stroke pulled_arc.e(1,2) & pulled_arc.e(2,3)
+ & pulled_arc.e(3,4) & pulled_arc.e(4,1); % bowl
+math_fit(-.3x_height#*slant+.5curve#-u#,ic#); penlabels(1,2,3,4);
+lc_trema_accent(x1-2u,x1+2u);
+endchar;
+ 
+cmchar "Italic letter u with trema";
+beginchar(cs_ue,9.5u#,lc_trema_height#,0);
+italcorr 1/3x_height#*slant+.5hair#+.5u#;
+adjust_fit(0,0); pickup fine.nib; interim superness:=more_super;
+x0=0; x2=x3+.25u; pos3(stem,-180); lft x3r=hround(2.5u-.5stem);
+hook_in(0,1,2)(skewed);  % opening hook
+pos2'(stem,-180); z2'=z2;
+pos4(vair,-90); pos5(hair,0); x4=.5[x3,x5];
+pos6(stem,0); rt x6r=hround(w-2.5u+.5stem);
+x5=x6=x7; x9=w; hook_out(7,8,9);  % closing hook
+y3=.7[y4,y5]; bot y4r=-oo; y5=.57x_height; y6+.5stem=x_height;
+filldraw stroke z2'e{-u,-x_height}
+ ...super_arc.e(3,4)...{up}z5e; % left stem and arc
+filldraw circ_stroke z6e--z7e;  % right stem
+math_fit(-2/3x_height#*slant+.5hair#+.5u#,ic#);
+penlabels(0,1,2,3,4,5,6,7,8,9);
+lc_trema_accent(x2+.5u,x6-.5u);
+endchar;

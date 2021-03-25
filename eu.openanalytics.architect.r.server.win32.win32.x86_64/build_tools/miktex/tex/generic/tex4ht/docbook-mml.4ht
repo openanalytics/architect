@@ -1,0 +1,905 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% docbook-mml.4ht (2013-03-21-18:20), generated from tex4ht-docbook.tex
+% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2000-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.\immediate\write-1{version 2013-03-21-18:20}
+
+\exit:ifnot{amsart,% 
+amsbook,% 
+amsmath,% 
+amsproc,% 
+array,% 
+article,% 
+book,% 
+latex,% 
+plain,% 
+report,% 
+scrbook,% 
+tex4ht}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \LinkCommand\mtxt:link{mtext,xreflabel,id, class="label" ,,\empty}
+\LinkCommand\msp:link{mstyle,xreflabel,id, class="label" ,,\empty}
+\Odef\M:Link[#1]#2#3{%
+   \global\let\M:EndLink=\empty
+   \if ]#3]\else \Anchor{}{#3}\EndAnchor
+                   \gdef\M:EndLink{\HCode{<!--end anchor-->}}\fi
+   \if ]#1#2]\else
+     \EndLink\DBLink[#1]{#2}{}\global\let\M:EndLink=\EndDBLink\fi
+}
+\let\do:M:Link=\M:Link
+\def\M:Link{\Protect\p:M:Link}
+\def\p:M:Link{\futurelet\:next\choose:M:Link}
+\def\choose:M:Link{\ifx -\:next \expandafter\minus:M:Link
+                 \else\expandafter\do:M:Link\fi}
+\def\minus:M:Link#1{\do:M:Link}
+
+\Configure{$$}
+   {\Configure{@math}{display="block"}\DviMath}
+   {\EndDviMath{\csname HCondtrue\endcsname\noindent}}
+   {}
+\Configure{@math}{display="block"} \let\math:mode=\a:@math
+\Configure{DviMath}
+    {\a:DviMathML \mathmltrue
+       \mml:htfsym %
+       \IgnoreRule
+       \HCode{<!--l. \the\inputlineno--><math\Hnewline
+                xmlns="http://www.w3.org/1998/Math/MathML">}\a:math
+       \edef\sv:ignore{\if:nopar
+    \noexpand\IgnorePar\else \noexpand\ShowPar\fi}%
+\IgnorePar}
+    {\HCode{</math>} \EndIgnoreRule
+     \ext:htfsym %
+     \mathmlfalse \b:DviMathML \sv:ignore
+}
+\Configure{DviMathML}
+   {\HCode{<\ifx \math:mode\a:@math \else inline\fi
+             equation \Hnewline \expandafter\:rend \a:@math==//>}}
+   {\HCode{</\ifx \math:mode\a:@math \else inline\fi equation>}}
+\def\:rend#1=#2=#3//{\if !#1!\else role=#2\fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\refLink#1#2#3\EndLink{%
+   \ifvmode
+      \ifmathml\else
+          \HCode{<note role="ref"><para role="ref">}
+      \fi
+      \Link{#1}{#2}\expandafter\ifx \csname RefArg\endcsname\relax\else \Tg<!--ref: \RefArg-->\fi\EndLink
+      \ifmathml\else #3\HCode{</para></note>}\par\fi
+   \else
+      \Link{#1}{#2}\expandafter\ifx \csname RefArg\endcsname\relax\else \Tg<!--ref: \RefArg-->\fi\EndLink
+   \fi
+}
+\Configure{newline}
+  {\ifmtext \HCode{</mtext><mtext\Hnewline class="newline">}%
+   \else \HCode{<!--br\Hnewline role="newline" /-->}\fi}
+\Configure{equation}
+   {\IgnorePar\EndP\HCode{<para role="equation">}}
+   {\HCode{</para><para role="equation-label">}}
+   {\IgnorePar\HCode{</para>}\ShowPar\par}
+\Configure{halignTB}
+   {\ifmathml \HCode{<\:MT table }\fi \halignTBL}
+   {\ifmathml \HCode{>}\fi}
+\Configure{halignTD} {}{}
+   {<}{\ifmathml \HCode{ \a:mathml columnalign="left"}\else
+        \HCode{ align="left" }\fi}
+   {-}{\ifmathml \HCode{ \a:mathml columnalign="center"}\else
+        \HCode{ align="center" }\fi}
+   {>}{\ifmathml \HCode{ \a:mathml columnalign="right"}\else
+        \HCode{ align="right" }\fi}
+   {^}{\ifmathml \HCode{ \a:mathml rowalign="top"}\else
+        \HCode{ valign="top" }\fi}
+   {=}{\ifmathml \HCode{ \a:mathml rowalign="baseline"}\else
+        \HCode{ valign="baseline" }\fi}
+   {|}{\ifmathml \HCode{ \a:mathml rowalign="center"}\else
+        \HCode{ valign="middle" }\fi}
+   {_}{\ifmathml \HCode{ \a:mathml rowalign="bottom"}\else
+        \HCode{ valign="bottom" }\fi}
+   {p}{\ifmathml \HCode{ \a:mathml columnalign="left"}\else
+        \HCode{ align="left"}\fi}
+   {}
+\def\:MM{\ifmathml \a:mathml m\fi}
+\Configure{HBorder}
+   {<\ifmathml \a:mathml mtr class\else row role\fi ="hline">}
+   {\ifmathml  <\a:mathml mtd><mo> \string&\#x0332; </mo></\a:mathml mtd>\else
+               <entry rowsep="1"></entry>\fi}
+   {</\ifmathml \a:mathml mtr\else row\fi>}
+   {<\ifmathml \a:mathml mtr class\else row role\fi ="cline">}
+   {\ifmathml <\a:mathml mtd></\a:mathml mtd>\else
+             <entry rowsep="0"></entry>\fi}
+   {\ifmathml<\a:mathml mtd><mo> \string&\#x0332; </mo></\a:mathml mtd>\else
+             <entry rowsep="1"></entry>\fi}
+   {</\ifmathml \a:mathml mtr\else row\fi>}
+   {<\ifmathml \a:mathml mtr class\else row role\fi ="vspace">}
+   {\ifmathml <\a:mathml mtd></\a:mathml mtd>\else
+           <entry rowsep="1"\Hnewline>\string&\#x00A0;</entry>\fi}
+   {</\ifmathml \a:mathml mtr\else row\fi>}
+\Configure{overline}
+   {\bgroup\ifmathml \HCode{<\a:mathml mover  accent="false"\Hnewline
+\mml:class="mml-overline"><\a:mathml mrow>}%
+\else
+         \HCode{<emphasis role="overline">}\fi}
+   {\ifmathml \HCode{</\a:mathml mrow><\a:mathml mo\Hnewline
+ accent="true">&\#x00AF;</\a:mathml mo>%
+</\a:mathml mover>}%
+\else \HCode{</emphasis>}\fi\egroup}
+\Configure{underline}
+   {\bgroup
+    \ifmathml \HCode{<\a:mathml munder \a:mathml accentunder="false"\Hnewline
+\mml:class="mml-underline"><\a:mathml mrow>}%
+%
+    \else \expandafter\everymath
+\expandafter{\expandafter\everymath
+             \expandafter{\the\everymath}}%
+\let\o::@underline:\o:@@underline:
+\def\o:@@underline:{\let\o:@@underline:\o::@underline:}%
+\HCode{<emphasis role="underline">}\fi}
+   {\ifmathml \HCode{</\a:mathml mrow><\a:mathml mo\Hnewline
+accent="true">&\#x0332;</\a:mathml mo></\a:mathml munder>}%
+\else \HCode{</emphasis>}\fi \egroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{css} \if:Option
+   \:CheckOption{dtd} \if:Option
+      \Configure{VERSION}
+         {\HCode{<?xml version="1.0"?>\Hnewline}}
+      \Configure{DOCTYPE}
+        {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >}}
+      \Configure{XML-STYLESHEET}
+        {\HCode{<?xml-stylesheet type="text/css" href="\jobname.css"?>
+            \Hnewline}}
+   \else
+      \Configure{VERSION}
+         {\HCode{<?xml version="1.0"?>\Hnewline}}
+      \Configure{DOCTYPE}
+      {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >}}
+      \Configure{XML-STYLESHEET}
+        {\HCode{<?xml-stylesheet type="text/css" href="\jobname.css"?>
+            \Hnewline}}
+   \fi
+\else
+   \Configure{VERSION}
+      {\HCode{<?xml version="1.0"?>\Hnewline}}
+   \Configure{DOCTYPE}
+     {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{css} \if:Option
+   \:CheckOption{dtd} \if:Option
+      \Configure{VERSION}
+         {\HCode{<?xml version="1.0"?>\Hnewline}}
+      \Configure{DOCTYPE}
+        {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >}}
+      \Configure{XML-STYLESHEET}
+        {\HCode{<?xml-stylesheet type="text/css" href="\jobname.css"?>
+            \Hnewline}}
+   \else
+      \Configure{VERSION}
+         {\HCode{<?xml version="1.0"?>\Hnewline}}
+      \Configure{DOCTYPE}
+      {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >}}
+      \Configure{XML-STYLESHEET}
+        {\HCode{<?xml-stylesheet type="text/css" href="\jobname.css"?>
+            \Hnewline}}
+   \fi
+\else
+   \Configure{VERSION}
+      {\HCode{<?xml version="1.0"?>\Hnewline}}
+   \Configure{DOCTYPE}
+     {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsproc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{css} \if:Option
+   \:CheckOption{dtd} \if:Option
+      \Configure{VERSION}
+         {\HCode{<?xml version="1.0"?>\Hnewline}}
+      \Configure{DOCTYPE}
+        {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >}}
+      \Configure{XML-STYLESHEET}
+        {\HCode{<?xml-stylesheet type="text/css" href="\jobname.css"?>
+            \Hnewline}}
+   \else
+      \Configure{VERSION}
+         {\HCode{<?xml version="1.0"?>\Hnewline}}
+      \Configure{DOCTYPE}
+      {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >}}
+      \Configure{XML-STYLESHEET}
+        {\HCode{<?xml-stylesheet type="text/css" href="\jobname.css"?>
+            \Hnewline}}
+   \fi
+\else
+   \Configure{VERSION}
+      {\HCode{<?xml version="1.0"?>\Hnewline}}
+   \Configure{DOCTYPE}
+     {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{equation}
+  {\ifvmode \IgnorePar\fi   \EndP
+   \HCode{<blockquote role="equation">}%
+   \Configure{gather}
+     {\HCode{<mtable\Hnewline
+         class="equation"><mtr><mtd>}\IgnorePar }
+     {\HCode{</mtd></mtr></mtable>}}
+     {}
+     {}
+     {\ifnum\HCol=2 \IgnorePar
+         \HCode{</mtd><mtd>}\fi }
+     {}
+  }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{<note role="equation"><para>}}
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</para></note></blockquote>}\par
+   \ShowPar}
+
+% Mar 18, 2013 at 9:28 PM, Matteo Gamboz <gamboz@medialab.sissa.it>
+% wrote that starred equation caused an forgotten endgroup error, hence
+% the following fix. CVR Mar 22, 2013.
+
+\Configure{equation*}
+  {\ifvmode \IgnorePar\fi   \EndP
+   \HCode{<blockquote role="equation">}%
+   \Configure{gather}
+     {\HCode{<mtable\Hnewline
+         class="equation"><mtr><mtd>}\IgnorePar }
+     {\HCode{</mtd></mtr></mtable>}}
+     {}
+     {}
+     {}
+     {}
+  }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</blockquote>}\par
+   \ShowPar}
+\ConfigureEnv{align*}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi} {}{}
+\ConfigureEnv{alignat*}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{alignat}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{align}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{eqxample}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{flalign*}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{flalign}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{gather}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{gather*}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{gathered}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{matrix}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{xalignat*}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{xalignat}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+\ConfigureEnv{xxalignat}
+   {\ifmmode\else \ifvmode\else \IgnorePar\fi \EndP\fi}
+   {\ifmmode\else \par\ShowPar\fi}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{halignTB}
+   {\ifmathml \HCode{<\:MT table }\fi \halignTBL}
+   {\ifmathml \HCode{>}\fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook V5.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+       "http://www.oasis-open.org/docbook/xml/5.0/docbook.dtd"
+ >\Hnewline }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

@@ -1,0 +1,8 @@
+.times-sw
+htfcss: TIMESBD font-weight: bold
+htfcss: TIMESBI font-style: italic; font-weight: bold;
+htfcss: TIMESI  font-style: italic;
+htfcss: timesbd font-weight: bold
+htfcss: timesbi font-style: italic; font-weight: bold;
+htfcss: timesi  font-style: italic;
+

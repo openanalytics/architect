@@ -1,0 +1,101 @@
+% listings.4ht (2020-02-13-13:43), generated from tex4ht-4ht.tex
+% Copyright 2001-2009 Eitan M. Gurari
+% Copyright 2009-2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2020-02-13-13:43}
+
+\def\lst@makecaption#1#2{\cptA: #1\if :#1:\else\cptB:\fi \cptC: #2\cptD:}
+
+\newif\iflstnest
+\append:defII\lst@EnterMode{%
+  \ifx \lsthk:EveryLine\:UnDef
+     \let\lsthk:EveryLine\lsthk@EveryLine
+  \fi
+  \ifx \lsthk:EveryLine\lsthk@EveryLine
+      \pend:def\lsthk@EveryLine{\c:listings
+             \def\dd:listings{\d:listings\let\dd:listings\empty}}%
+  \fi
+  \append:def\lsthk@EveryPar{\dd:listings}%
+  \iflstnest\else
+  \a:listings\fi\bgroup
+  %\Configure{$}{}{}{}%
+  \aftergroup\lst:EnterMode  }
+\def\lst:EnterMode{\iflstnest\else\b:listings\fi\egroup}
+\NewConfigure{listings}{4}
+\let\dd:listings=\empty
+\append:defI\lst@Init{\csname a:listings-init\endcsname\global\lstnesttrue}
+\pend:def\lst@DeInit{\csname b:listings-init\endcsname\global\lstnestfalse}
+\NewConfigure{listings-init}{2}
+\lst@AddToHook{TextStyle}{%
+   \Configure{listings}{}{}{}{}%
+   \a:lstinline \bgroup \aftergroup\b:lstinline\egroup
+  }
+\NewConfigure{lstinline}{2}
+\pend:defI\lst@MakeCaption{%
+  \let\lst:addcontentsline\addcontentsline
+  \def\addcontentsline{\gHAdvance\TitleCount by 1
+                       \lst:addcontentsline}%
+}
+\append:defI\lst@MakeCaption{%
+  \let\addcontentsline\lst:addcontentsline
+}
+\ConfigureToc{lol} {}{\empty}{}{\newline}
+\lst@UserCommand\lstlistoflistings{\bgroup%
+    \ifdefined\chapter\chapter*{\lstlistlistingname}\else\section*{\lstlistlistingname}\fi%
+    \TableOfContents[lol]%
+  \egroup}
+\def\lst@NewLine{%
+   \ifx\lst@OutputBox\@gobble\else \the\everypar \fi
+   \global\advance\lst@newlines\m@ne
+   \lst@newlinetrue
+}%
+\def\lst@InputListing#1{%
+    \begingroup
+      \lsthk@PreSet \gdef\lst@intname{#1}%
+      \expandafter\lstset\expandafter{\lst@set}%
+      \lsthk@DisplayStyle
+      \catcode\active=\active
+      \a:lstinputlisting \lst@Init\relax \let\lst@gobble\z@
+      \lst@SkipToFirst
+      \lst@ifprint \def\lst@next{\input{#1}}%
+             \else \let\lst@next\@empty \fi
+      \lst@next \lst@DeInit
+      \b:lstinputlisting
+    \endgroup}
+\NewConfigure{lstinputlisting}{2}
+\def\lst@Kern#1{%
+   \setbox\z@\hbox{{\lst@currstyle{\kern#1}}}%
+   \global\advance\lst@currlwidth \wd\z@
+   \tmp:dim=#1 \let\:tempc=\empty
+   \loop \ifdim \tmp:dim>\a:lst@Kern
+      \advance \tmp:dim by -\a:lst@Kern
+      \advance \tmp:dim by -\b:lst@Kern
+      \append:def\:tempc{\:nbsp}%
+   \repeat
+   \setbox\z@\hbox{{\lst@currstyle{\:tempc}}}%
+   \lst@OutputBox\z@}
+\NewConfigure{lst@Kern}{2}
+\Configure{lst@Kern}{0.499em}{0.1em}
+\def\lst@outputspace{\:nbsp}
+
+\HLet\lst@frameInit=\empty
+\HLet\lst@frameExit=\empty
+
+\Hinput{listings}
+\endinput
+

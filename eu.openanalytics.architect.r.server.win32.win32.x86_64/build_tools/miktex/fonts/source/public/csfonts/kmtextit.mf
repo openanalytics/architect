@@ -1,0 +1,135 @@
+% The Computer Modern Text Italic family (by D. E. Knuth, 1979--1985)
+% 8-bit characters with Czech accents (Petr Novak) 
+% revised and edited 1992-93 (Karel Horak)
+% european quotes and special hyphenchar added
+
+% deleted -u# kerning for "b": & "p":
+
+mode_setup; font_setup;
+
+input itall;  % lower case (minuscules)
+input italsp;  % lowercase specials (dotless \i, ligature \ae, etc.)
+
+if ligs>1: font_coding_scheme:="TeX cs text";
+ spanish_shriek=oct"074"; spanish_query=oct"076";
+ input italig;  % letter ligatures
+else: font_coding_scheme:=if ligs=0: "TeX cs typewriter text"
+  else: "TeX cs text without f-ligatures" fi;
+ spanish_shriek=oct"016"; spanish_query=oct"017"; fi
+
+font_slant slant; font_x_height x_height#;
+if monospace: font_normal_space 9u#; % no stretching or shrinking
+ font_quad 18u#;
+ font_extra_space 9u#;
+ letter_fit#:=letter_fit:=0;
+else: font_normal_space 6u#+2letter_fit#;
+ font_normal_stretch 3u#; font_normal_shrink 2u#;
+ font_quad 18u#+4letter_fit#;
+ font_extra_space 2u#; fi
+
+input romanu;  % upper case (majuscules)
+input greeku;  % upper case greek letters
+input itald;  % numerals
+input italp;  % ampersand, question marks, currency sign
+input romspu;  % uppercase specials (\AE, \OE, \O)
+input punct;  % punctuation symbols common to roman and italic text
+input accent;  % accents common to roman and italic text
+if ligs>0: input comlig; fi  % ligatures common with roman text
+if ligs<=1: input romsub; fi  % substitutes for ligatures
+
+% Czech accented letters
+input csaccent; % accent definitions
+input csiacutl; % italic acute accented lowercase
+input csihachl; % italic hachek accented lowercase
+input csiothrl; % italic other accented lowercase
+input csacutu; % upper case acute accented
+input cshacheu; % upper case hachek accented
+input csotheru; % upper case other accented
+input csadded; % european quotes, oneperthousand
+input cshyph; %% to allow special hyphenchar=156
+
+ligtable "!": "`" =: spanish_shriek;
+ligtable "?": "`" =: spanish_query;
+
+% the following kerns should have been added:
+%  - between opening quotes and some letters
+%  - between |"."| and |"."| (...)
+%  - between |"A"| and |"v"| (Average)
+%  - between |"A"| and |"w"| (Awkward or Lem's Awruk)
+%  - between |"F"|, |"P"|, |"T"|, |"V"|, |"W"|, |"Y"| and |"."|, |","|
+% but for the sake of compatibility with CM's they would have been
+% inserted only if |improve_kerns=true| (by default |improve_kerns=true|).
+
+ k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
+
+if not monospace:
+if improve_kerns: ligtable ".": "." kern -kkk#; fi
+ ligtable "d": cs_dj: "w": "l": cs_ll: cs_lj: "l" kern +u#,
+ cs_ll kern +u#, cs_lj kern +u#;
+ ligtable "F": "V":
+ if improve_kerns: "." kern -u#, "," kern -u#, fi
+   "o" kern kk#, cs_oo kern kk#, cs_oe kern kk#,
+   cs_uo kern kk#, "e" kern kk#, cs_ee kern kk#, cs_ie kern kk#,
+   "u" kern kk#, cs_uu kern kk#, cs_ue kern kk#, cs_ou kern kk#,
+   "r" kern kk#, cs_rr kern kk#, cs_rz kern kk#, "a" kern kk#, 
+   cs_aa kern kk#, cs_ae kern kk#, "A" kern kkk#,
+   cs_AA kern kkk#, cs_AE kern kkk#,
+  "K": "X": "O" kern k#, cs_OO kern k#, "C" kern k#,
+  cs_CZ kern k#, "G" kern k#, "Q" kern k#;
+ ligtable "T": cs_TJ: "y" kern kk#, cs_yy kern kk#,
+  "Y": cs_YY: "e" kern kk#, cs_ee kern kk#, cs_ie kern kk#,
+  "o" kern kk#, cs_oo kern kk#, cs_oe kern kk#, cs_uo kern kk#,
+  "r" kern kk#, cs_rr kern kk#, cs_rz kern kk#, "a" kern kk#, 
+  cs_aa kern kk#, cs_ae kern kk#, "u" kern kk#,
+  cs_uu kern kk#, cs_ue kern kk#, cs_ou kern kk#,
+  "P": "W": "A" kern kk#, cs_AA kern kk#, cs_AE kern kk#
+  if improve_kerns: , "." kern k#, "," kern k# fi;
+ ligtable "O": cs_OO: cs_OE: cs_UO: "D":
+    cs_DJ: "X" kern k#, "W" kern k#, "A" kern k#,
+    cs_AA kern k#, cs_AE kern k#,
+    "V" kern k#, "Y" kern k#, cs_YY kern k#;
+ ligtable "A": cs_AA: cs_AE:
+ if improve_kerns: "v" kern kk#, "w" kern kk#, fi
+  "R": cs_RR: cs_RZ: "n" kern k#, cs_nj kern k#,
+  "l" kern k#, cs_ll kern k#, cs_lj kern k#, "r" kern k#, cs_rr kern k#,
+   cs_rz kern k#, "u" kern k#, cs_uu kern k#, cs_ue kern k#,
+   cs_ou kern k#, "m" kern k#, "t" kern k#, cs_tj kern k#,
+   "i" kern k#, cs_ii kern k#, "C" kern k#, cs_CZ kern k#,
+   "O" kern k#, cs_OO kern k#, cs_OE kern k#,
+   cs_UO kern k#, "G" kern k#, "h" kern k#, "b" kern k#, "U" kern k#,
+   cs_UU kern k#, cs_UE kern k#, cs_OU kern k#,
+   "k" kern k#, "v" kern k#, "w" kern k#, "Q" kern k#, 
+   "L": cs_LL: cs_LJ: "T" kern kk#, cs_TJ kern kk#,
+   "Y" kern kk#, cs_YY kern kk#, "V" kern kkk#, "W" kern kkk#,
+%  "b": "c": cs_cz: 
+   "e": cs_ee: cs_ie: 
+%  "o": cs_oo: cs_oe: cs_uo:
+%  "p":
+   "r": cs_rr: cs_rz: "e" kern -u#, cs_ee kern -u#, cs_ie kern -u#,
+   "a" kern -u#, cs_aa kern -u#, cs_ae kern -u#, 
+   "o" kern -u#, cs_oo kern -u#, cs_oe kern -u#, cs_uo kern -u#,
+   "d" kern -u#, cs_dj kern -u#, "c" kern -u#, cs_cz kern -u#,
+   "g" kern -u#, "q" kern -u#;
+ ligtable "n": cs_nj: "'" kern kkk#;
+fi
+if improve_kerns:
+ligtable opening_quotes:
+  "f" kern u#, "g" kern -k#, "j" kern u#,
+  "p" kern -k#, "y" kern -k#, cs_yy kern -k#, "v" kern k#, "w" kern k#,
+  "A" kern -k#, cs_AA kern -k#, cs_AE kern -k#, "C" kern -k#, cs_CZ kern -k#,
+  "D" kern -k#, cs_DJ kern -k#, "E" kern -k#, cs_EE kern -k#, cs_IE kern -k#,
+  "F" kern -k#, "H" kern -k#,
+  "I" kern -k#, cs_II kern -k#, "J" kern -k#, "K" kern -k#,
+  "L" kern -k#, cs_LJ kern -k#,
+  "M" kern -k#, "N" kern -k#, cs_NJ kern -k#, "P" kern -k#,
+  "R" kern -k#, cs_RZ kern -k#, cs_RR kern -k#, "S" kern -k#, cs_SH kern -k#,
+  "T" kern kk#, cs_TJ kern kk#,
+  "X" kern -k#, "Y" kern kk#, cs_YY kern kk#,
+  "Z" kern -k#, cs_ZH kern -k#,
+  "V" kern kkk#, "W" kern kk#;
+fi
+% there are ligature/kern programs for |"f"| in the {\tt italig} file
+% and for |"-"|, |"`"|, and |"'"| in the {\tt comlig} file
+
+bye.
+

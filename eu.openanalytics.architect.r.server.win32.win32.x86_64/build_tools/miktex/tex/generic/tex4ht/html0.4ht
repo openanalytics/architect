@@ -1,0 +1,1988 @@
+% html0.4ht (2020-10-16-13:48), generated from tex4ht-html0.tex
+% Copyright (C) 2009-2016 TeX Users Group
+% Copyright (C) 1996-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2020-10-16-13:48}
+
+\exit:ifnot{Preamble,% 
+aa,% 
+amsart,% 
+amsbook,% 
+amsppt,% 
+amsproc,% 
+array,% 
+article,% 
+babel,% 
+book,% 
+emulateapj,% 
+epsfig,% 
+graphics,% 
+index,% 
+latex,% 
+moreverb,% 
+plain,% 
+psfig,% 
+report,% 
+slidesec,% 
+tcilatex,% 
+tex4ht,% 
+th4,% 
+url,% 
+vanilla}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{PROLOG}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \if:latex  \Hinclude{\input #1.4ht}{latex}
+
+\else      \ifx \contextversion\Un:def
+   \Hinclude{\input #1.4ht}{plain}
+   \def\:temp{t}%
+   \ifx \eplain\:temp
+      \Hinclude{\input #1.4ht}{eplain}
+   \fi
+   \def\:temp{M\kern-.111em\lower.6ex\hbox{E}\kern-.075emX}
+\ifx \nM@X\:temp
+   \expandafter\ifx\csname emulateplain\endcsname\relax \else
+     \Hinclude{\input #1.4ht}{mex}
+\fi\fi
+
+   \ifx \d@nger\:UnDef \else
+      \let\leftheadline\empty
+      \let\rightheadline\empty
+      \Hinclude{\input #1.4ht}{manmac}
+   \fi
+\else
+   \Hinclude{\input #1.4ht}{context}
+\fi
+  \fi
+\Configure{HVerbatim+}{\z@}{\:nbsp}
+\:CheckOption{jpg} \if:Option \Configure{Picture}{.jpg}  \fi
+\:CheckOption{gif} \if:Option \Configure{Picture}{.gif}  \fi
+\Configure{Link}{!--}{class=}{id=}{X}
+\tmp:cnt\time  \divide\tmp:cnt  60
+\edef\:temp{\the\tmp:cnt}
+\multiply\tmp:cnt  -60 \advance\tmp:cnt  \time
+\edef\:today{\the\year-\ifnum \month<10 0\fi
+  \the\month-\ifnum \day<10 0\fi\the\day
+   \space\ifnum \:temp<10 0\fi \:temp
+   :\ifnum \tmp:cnt<10 0\fi\the\tmp:cnt :00}
+\:CheckOption{hooks++} \if:Option
+    \else \:CheckOption{hooks+}
+          \if:Option \else \:CheckOption{hooks}\fi
+    \fi
+\if:Option
+   \Configure{hooks}
+      {\HCode{<strong class="hooks">&lt;}}{\HCode{&gt;</strong>}}{}{}
+\fi
+
+\ScriptCommand{\CssFile}{%
+  \writesixteen{--- file \aa:CssFile\space ---}%
+  \def\FontSize##1##2{\:Context{##1}\ht:special{t4ht;\%##2}\%}%
+  \def\FontName##1{\:Context{##1}\ht:special{t4ht;=}}%
+  \def\:Context##1{\ht:special{t4ht>\jobname.tmp}##1\ht:special
+     {t4ht>\aa:CssFile}}%
+  \ht:special{t4ht>\jobname.tmp}\ht:special{t4ht>\aa:CssFile}\bb:CssFile
+  \hfil\break\NoFonts}{\EndNoFonts
+  \ht:special{t4ht<\aa:CssFile}\ht:special{t4ht<\jobname.tmp}}
+\let\Css:File\CssFile
+\def\CssFile{\futurelet\:temp\Css:Fl}
+\def\Css:Fl{\ifx [\:temp  \expandafter\Css:fl
+   \else \expand:after{\Css:File \space}\fi}
+\def\Css:fl[#1]{\Css:File\space \css:files #1,,!*?: }
+\def\css:files#1,#2!*?: {\def\:temp{#1}\ifx \:temp\empty
+   \else \def\:temp{\in:css#1.!*?: \css:files#2,,!*?: }\fi
+   \:temp }
+\def\in:css#1.#2!*?: {\def\:temp{#2}\ifx \:temp\empty \input #1.css
+   \else \inc:ss#1.#2!*?: \fi}
+\def\inc:ss#1.!*?: {\input #1 }
+\NewConfigure{CssFile}[2]{\def\aa:CssFile{#1}\def\bb:CssFile{#2}}
+\def\Css#1{{\def\:temp{\Configure{Needs}}%
+   \expandafter\:temp\expandafter{\aa:Css}\Needs{#1}}}
+\let\send:css\Css
+\ScriptCommand{\Css}{\HCode{<style
+   type="text/css">\Hnewline\NoFonts}}{\EndNoFonts\HCode{</style>}}
+\let\loc:css\Css
+\def\Css{\futurelet\:temp\:Css}
+\def\:Css{\ifx \:temp\bgroup \expandafter\send:css
+   \else \expandafter\loc:css\fi}
+
+\Configure{Preamble}
+   {{\ifdim \lastskip>\z@ \unskip\fi  \IgnorePar\parindent\z@
+\leavevmode}%
+\writesixteen{--- file \aa:CssFile\space ---}%
+\ht:special{t4ht>\aa:CssFile}\ht:special{t4ht=\Hnewline /* css.sty */}%
+\ht:special{t4ht<\aa:CssFile}%
+} {}
+
+\ifx \a:FontCss:\:UnDef
+   \Configure{FontCss}{Font\string_Css##1}
+                   {Font\string_Css\string_Plus\space##1}
+\fi
+\expandafter\ifx \csname aa:Css\endcsname\relax
+   \Configure{Css}{Css: ##1}
+\fi
+\:CheckOption{edit} \if:Option
+   \Configure{edit}{\HCode{<strong>&lt;}}{\HCode{&gt;</strong>}}
+                {<strong>&lt;}{&gt;</strong>}
+\fi
+\:CheckOption{hooks++} \if:Option
+\else \:CheckOption{hooks+}  \if:Option
+\else \:CheckOption{hooks}  \if:Option
+\fi\fi\fi
+\if:Option
+   \Configure{hooks}
+      {\HCode{<strong class="hooks">&lt;}}{\HCode{&gt;</strong>}}{}{}
+\fi
+
+
+\Configure{ExitHPage}{exit}{exit }{}
+\Configure{TocLink}{\Link{#2}{#3}#4\EndLink}
+\Configure{MiniHalign}{\hlg:a}{\hlg:b}\hlg:c\hlg:d{\hlg:e}\hlg:f
+\:CheckOption{no-halign} \if:Option \else
+  \Configure{noalign-}{}{}
+\fi
+\Configure{PictureAlt*+}
+   {\let\sv:HtmlPar\HtmlPar   \let\HtmlPar\empty
+     \def\PsCode##1{{\ht:special{\PsCodeSpecial##1}}}%
+%
+     \iffalse{\fi
+\let\sv:halign\halign
+\let\sv:cr\cr
+\let\sv:crcr\crcr
+\iffalse}\fi
+\RecallTeXcr \let\halign \TeXhalign
+%
+     \NoFonts\csname PauseMathClass\endcsname \SUBOff \SUPOff
+     \let\HCode\:gobble     
+     \let\EndPicture\empty}
+   {\let\HCode\:HCode
+     \let\EndPicture\:UnDef \let\HtmlPar\sv:HtmlPar \SUBOn \SUPOn
+     \csname EndPauseMathClass\endcsname \EndNoFonts
+     \iffalse{\fi
+\let\halign\sv:halign
+\let\cr\sv:cr
+\let\crcr\sv:crcr
+\iffalse}\fi
+%
+     \let\PsCode\relax
+}%
+\Configure{CutAtTITLE+}{}
+\Configure{HPageTITLE+}{}
+\Configure{AtBeginDocument}
+  {\edef\recallcatcodes{%
+      \catcode`\noexpand\_\the\catcode`\_
+      \catcode`\noexpand\^\the\catcode`\^ }%
+   \catcode`\_=8\catcode`\^=7}
+  {\recallcatcodes}
+\Configure{crosslinks}{[}{]
+   }{next}{prev}{prev-tail}{front}{tail}{up}
+\:CheckOption{next}     \if:Option
+   \Configure{next+}{\ShowPar\par\noindent [}{]}
+\fi
+\Configure{TocAt*}{}{}
+\Configure{TocAt}{}{}
+
+\Configure{halignTB}{\HCode{<table }}{\HCode{>}}
+\def\t:HA{\HCode{</table>}}
+\def\R:HA{\HCode{<tr \Hnewline valign="baseline">}}
+\def\r:HA{\HCode{</tr>}}
+\def\D:HA{\HCode{<td \ifnum \HMultispan>1 colspan="\HMultispan"\fi}%
+   \halignTD \HCode{\Hnewline>}}
+\def\d:HA{\HCode{</td>}}
+\Configure{HVerbatim+}{\z@}{\:nbsp}
+\Configure{CssFile}{\jobname.css}
+  {/* \aa:CssFile\space from \jobname.tex (TeX4ht) */}
+\Configure{Picture+}{}{}
+\Configure{Picture*}{}{}
+\Configure{Needs}{l.
+   \the\inputlineno\space--- needs --- #1 ---}
+\Configure{Needs-}{l.
+   \the\inputlineno\space--- needs --- #1 ---}
+   \def\:SPAN#1#2{\HCode{<span class="#1">}#2\HCode{</span>}}
+   \def\SPAN:#1{\HCode{<span class="#1">}}
+   \def\EndSPAN:{\HCode{</span>}}
+   \def\DIV:#1{\HCode{<div class="#1">}}
+   \def\EndDIV:{\HCode{</div>}}
+
+\Configure{moveright}{\leavevmode\endgraf }
+\Configure{HChar}{x}
+
+\Configure{HtmlPar}{}{}{}{}
+\ifx \a:HTML\:UnDef  \Configure{HTML}{}{} \fi
+\ifx \a:HEAD\:UnDef  \Configure{HEAD}{}{} \fi
+\ifx \a:BODY\:UnDef  \Configure{BODY}{}{} \fi
+\ifx \a:TITLE\:UnDef \Configure{TITLE}{}{} \fi
+\Configure{TITLE+}{}
+   \def\:SPAN#1#2{#2}
+   \let\SPAN:\:gobble  \let\EndSPAN:\empty
+   \let\DIV:\:gobble  \let\EndDIV:\empty
+
+\Configure{crosslinks+}{\IgnorePar}{\par\ShowPar}{\IgnorePar}{}
+\Configure{IMG}{}{ }{}{}{}
+\Configure{Picture*}{}{}
+\Configure{SUB}{}{}
+\Configure{SUP}{}{}
+\Configure{MkHalign}{}{}{}{}{}{}
+\Configure{halignTD} {}{} {}{}{}{}{}{}{}{}
+\Configure{halign}{}{}{}{}{}{}{}
+\Configure{pic-halign}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\ifx\InputIfFileExists\UnDef%
+\def\input:if:fileexists#1#2#3{%
+   \openin15 #1.4ht%
+   \ifeof15%
+   #3%
+   \else%
+   \input #1%
+   \fi\closein15%
+}%
+\else
+\let\input:if:fileexists\InputIfFileExists%
+\fi%
+\Hinclude{\input #1.4ht}{fontmath}
+\Hinclude{\@ifpackageloaded{colortbl}{%
+      \no:dupl{array}{\input  array.4ht}%
+      \no:dupl{color}{\input  color.4ht}%
+      \no:dupl{colortbl}{\input  colortbl.4ht}%
+    }{}}{colortbl}
+
+\def\:strip:quotes"#1"#2"#3\relax{\if .#1.#2\else #1\fi}
+\def\h:input#1.#2.#3!*?: {%
+   \edef\:current:package{\:strip:quotes"#1""\relax}
+   \:CheckOption{no_\:current:package}\if:Option
+      \let\:temp\empty
+   \else
+      \let\:temp\empty
+      \no:dupl{\:current:package}{%
+        \def\:warn:msg{}
+        \:CheckOption{debug}\if:Option
+          \def\:warn:msg{%
+            \:warning{No configuration file for \:current:package.\if .#2.tex\else #2\fi}%
+          }
+        \fi%
+        \def\:temp{\input:if:fileexists{\:current:package.4ht}{}{\:warn:msg}}%
+       }%
+   \fi  \:temp}
+\edef\:temp{\noexpand\Hinclude
+   {\noexpand\h:input ##1..!*?: }{\@filelist}}
+\:temp
+
+\expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\Hinclude{\ifx \PsfigVersion\:UnDef \else
+      \no:dupl{#1}{\expand:after{\input psfig.4ht}}\fi}
+   {psfig}
+\Hinclude{\:CheckOption{#1}
+   \if:Option     \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pictex}
+\Hinclude{%
+   \expandafter\ifx \csname PSTricksLoaded\endcsname\relax\else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pstricks}
+\Hinclude{%
+   \ifx \:DraCatCodes\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {dratex}
+\Hinclude{%
+   \ifx \xyloaded\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {xy}
+
+\Hinclude{%
+   \ifx \epsfsetgraph\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {epsf}
+
+\Hinclude{%
+   \ifx \diagram@help@messages\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {diagrams}
+
+\Hinclude{%
+   \ifx \figvisu\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {fig4tex}
+
+\Hinclude{}
+   {pctable}
+\Hinclude{%
+   \:CheckOption{xhtml}\if:Option \fi}
+   {xhtml}
+\Hinclude{\:CheckOption{#1}
+      \if:Option\else   \:CheckOption{ShowFont}\fi
+      \if:Option\else   \:CheckOption{frames-}\fi
+      \if:Option\else   \:CheckOption{frames}\fi
+      \if:Option\else   \:CheckOption{image-maps}\fi
+      \if:Option\else   \:CheckOption{java}\fi
+      \if:Option\else   \:CheckOption{javascript}\fi
+      \if:Option \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {th4}
+\Hinclude{\ifx \sethebrew\:UnDef\else \ifx \ArabTeX\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input hebtex.4ht}}\fi \fi}
+   {hebtex}
+
+\:CheckOption{new-accents}     \if:Option
+   \:CheckOption{accent-}     \if:Option
+  \Configure{HAccent}\acute{AEIOUYaeiouy{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\bar{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\breve{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\check{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\ddot{AEIOUYaeiouy{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\dot{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\grave{AEIOUaeiou{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\hat{AEIOUaeiou{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\tilde{AOaoNn{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\vec{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\widehat{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\widetilde{}{\Picture+{}}{\EndPicture}
+\fi
+\:CheckOption{mathaccent-}     \if:Option
+  \Configure{HAccent}\"{AEIOUYaeiouy{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\'{AEIOUYaeiouy{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\.{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\={}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\H{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\^{AEIOUaeiou{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\`{AEIOUaeiou{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\b{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\c{Cc{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\d{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\t{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\u{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\v{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\~{AOaoNn{}}{\Picture+{}}{\EndPicture}
+\fi
+\Configure{accent}{*}
+   {<!--tex4ht:accent\Hnewline font="}{" char="}{" type="}{"-->}
+   {<!--tex4ht:end accent-->}
+\Configure{mathaccent}{*}
+   {<!--tex4ht:mathaccent\Hnewline font="}{" char="}{" type="}{"-->}
+   {<!--tex4ht:end mathaccent-->}
+\Configure{accented}{*}
+   {<!--tex4ht:accented\Hnewline font="}{" char="}{" type="}{"-->}
+   {<!--tex4ht:end accented-->}
+\Configure{accenting}{*}
+   {<!--tex4ht:accenting\Hnewline-->}
+   {<!--tex4ht:end accenting-->}
+
+\else
+   \Configure{accent}\`\grave{A{A}E{E}I{I}O{O}U{U}%
+                    a{a}e{e}i{i}\i{i}o{o}u{u}{}{}}
+   {\a:accents{grave}{#1}}   {\b:accents{grave}{#1}{#2}}
+\Configure{accent}\'\acute{A{A}E{E}I{I}O{O}U{U}Y%
+           {Y}a{a}e{e}i{i}\i{i}o{o}u{u}y{y}{}{}}
+   {\a:accents{acute}{#1}}   {\b:accents{acute}{#1}{#2}}
+\Configure{accent}\^\hat{A{A}E{E}I{I}O{O}U{U}a{a}%
+                      e{e}i{i}\i{i}o{o}u{u}{}{}}
+   {\a:accents{circ}{#1}}   {\b:accents{hat}{#1}{#2}}
+\Configure{accent}\~\tilde{A{A}O{O}a{a}o{o}N{N}n{n}{}{}}
+   {\a:accents{tilde}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\"\ddot{A{A}E{E}I{I}O{O}U{U}Y%
+           {Y}a{a}e{e}i{i}\i{i}o{o}u{u}y{y}{}{34}}
+   {\a:accents{uml}{#1}}     {\b:accents{uml}{#1}{#2}}
+\Configure{accent}\c\c{C{C}c{c}{}{}}
+   {\a:accents{cedil}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\Configure{accent}\t\t{{}{}}
+   {\a:accents{udot}{#1}}     {\b:accents{udot}{#1}{#2}}
+\Configure{accent}\H\H{{}{}} {}{\b:accents{Huml}{#1}{#2}}
+\Configure{accent}\.\dot{{}{}}  {}{\b:accents{dot}{#1}{#2}}
+\Configure{accent}\u\breve{{}{}}{}{\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}{}{\b:accents{vec}{#1}{#2}}
+\Configure{accent}\v\check{{}{}}{}{\b:accents{check}{#1}{#2}}
+\Configure{accent}\=\bar{{}{}}  {}{\b:accents{bar}{#1}{#2}}
+\Configure{accent}\widetilde\widetilde{{}{}}
+   {}{\b:accents{widetilde}{#1}{#2}}
+\Configure{accent}\widehat\widehat{{}{}}
+   {}{\b:accents{widehat}{#1}{#2}}
+
+\fi
+\let\^^_\v
+
+\let\@acci\' \let\@accii\` \let\@acciii\=
+\ifx \ttfamily\:UnDef \else \Configure{tt}{\ttfamily} \fi
+\Configure{hline}{\ifx \ar:cnt\:UnDef
+   \else\o:noalign:{\append:def\hline:s{\a:HBorder}%
+\def\:tempb{\ifnum \tmp:cnt<\ar:cnt
+    \advance\tmp:cnt by 1 \append:def\hline:s{\b:HBorder}%
+    \expandafter\:tempb
+  \fi }
+\tmp:cnt0 \:tempb
+\append:def\hline:s{\c:HBorder}\global\let\hline:s\hline:s
+}\fi}
+\Configure{//[]}{\ifx \ar:cnt\:UnDef
+   \else\o:noalign:{\append:def\vspc:s{\h:HBorder}%
+\def\:tempb{\ifnum \tmp:cnt<\ar:cnt
+    \advance\tmp:cnt by 1 \append:def\vspc:s{\i:HBorder}%
+    \expandafter\:tempb
+  \fi }
+\tmp:cnt0 \:tempb
+\append:def\vspc:s{\j:HBorder}\global\let\vspc:s\vspc:s
+}\fi}
+\Configure{framebox}
+   {\Picture+[]{ \a:@Picture{framebox}}} {\EndPicture}
+\Configure{InsertTitle}{\let\label\lb:l
+   \let\ref\o:ref \Configure{ref}{}{}{}}
+\Configure{AfterTitle}{\let\index\:index
+       \let\ref\:ref  \let\label\lb:l }
+\Configure{NoSection}
+  {\let\sv:index\index \let\sv:label\label \let\sv:ref\ref
+   \let\sv:newline\newline \def\newline{ }%
+   \let\sv:setfontsize\@setfontsize  \let\@setfontsize\:gobbleIII
+   \let\index\@gobble  \let\label\@gobble  \let\ref\@gobble
+  }
+  {\let\index\sv:index \let\label\sv:label \let\ref\sv:ref
+   \let\newline\sv:newline    \let\@setfontsize\sv:setfontsize
+  }
+\Configure{oalign}{\Picture+{ \a:@Picture{oalign}}}{\EndPicture}
+
+\Configure{TocLink}
+  {\Link{#2}{#3}{\Configure{ref}{}{}{}\Configure{cite}{}{}{}{}#4}\EndLink}
+\Configure{picture}
+    {\Picture+[PICT]{}}
+    {\EndPicture}
+\ifTag{TITLE+}
+   {\Configure{TITLE+}{\HCode{\LikeRef{TITLE+}}}}{}
+
+\Configure{mathellipsis}          {}
+
+\Configure{ }{\:nbsp}
+
+\Configure{verbatim}{}{ }
+\Configure{verb}{}{}
+\let\env:verb\:gobble
+\ConfigureEnv{verbatim}{}{\null}{}{}
+\ConfigureEnv{verbatim*}{}{\null}{}{}
+\ConfigureEnv{center}{}{}{}{}
+\Configure{centercr}{}{}
+\:CheckOption{pic-eqnarray}
+\if:Option
+   \ConfigureEnv{eqnarray} {\Picture*{}} {\EndPicture}{}{}
+   \ConfigureEnv{eqnarray*} {\Picture*{}} {\EndPicture}{}{}
+\else
+   \Configure{eqnarray}{}{}{}{}{}{}
+\fi
+\Configure{array} {}{}{}{}{}{}
+\Configure{tabular} {}{}{}{}{}{}
+\:CheckOption{no-array}\if:Option \else
+   \:ifpackageloaded{array}{\:Optiontrue}{}
+\fi
+\if:Option \else
+   \def\:array:{<>}
+\def\:tabular:{<>}
+\Configure{array}{}{}{}{}{}{}
+\Configure{tabular}{}{}{}{}{}{}
+\ConfigureEnv{array}{}{}{}{}
+\ConfigureEnv{tabular}{}{}{}{}
+\:ifpackageloaded{array}{\:Optiontrue}{\:Optionfalse}
+\if:Option
+   \Configure{VBorder}{}{}{}{}
+
+\else
+   \Configure{VBorder}{}{}{}{}
+\fi
+
+\fi
+\:CheckOption{pic-tabbing}  \if:Option
+    \ConfigureEnv{tabbing}{\Picture*{}}{\EndPicture}{}{}
+\else
+    \Configure{tabbing}[1.5]{}
+   {}
+   {}
+   {}
+
+    \:CheckOption{pic-tabbing'} \if:Option
+       \expandafter\def\csname
+    c:pic-tabbing:\endcsname#1{\def\p:tabbing{#1}}
+
+       \:CheckOption{pic-tabbing'} \if:Option
+  \edef\:temp{\LikeRef{.}}%
+  \def\:tempa{.}\ifx \:temp\:tempa
+      \ConfigureEnv{tabbing}{\Picture*{}}{\EndPicture}{}{}
+  \fi
+\fi
+
+    \fi
+\fi
+\ConfigureList{trivlist}{}{}{}{}
+\ConfigureList{list}{}{}{}{}
+\ConfigureList{itemize}{}{}{}{}{}{}
+\ConfigureList{enumerate}{}{}{}{}{}{}
+\Configure{tableofcontents}{}{}{}{}{}
+\Configure{TocAt}{}{}
+\Configure{TocAt*}{}{}
+\ConfigureEnv{minipage}{}{}{}{}
+\Configure{float}{}{}{}
+\Configure{newline}{}
+
+\Configure{obeylines}{}{}{}
+\Configure{ }{ }
+\def\:zbsp#1{cellpadding="0" border="0" cellspacing="0"\Hnewline
+   class="#1"}
+\:CheckOption{new-accents}     \if:Option \else
+  \Configure{accents}{(#1 #2)}{(#1 #3)}
+  \immediate\write-1{\string\Configure{accents}{found-case}{missing-case}}
+\fi
+\Configure{centerline}{}{}
+\Configure{leftline}{}{}
+\Configure{rightline}{}{}
+\Configure{l}                     {}
+\Configure{L}                     {}
+
+\Configure{()}{$}{$}
+\Configure{[]}{\:xhtml{\IgnorePar\EndP}$$}{$$}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       \Configure{section}{}{}{\thesection\space}{}
+\Configure{likesection}{}{}{}{}
+\Configure{subsection}{}{}{\thesubsection\space}{}
+\Configure{likesubsection}{}{}{}{}
+\def\:tempa{
+   \CutAt{part}
+   \CutAt{likepart}
+   \Configure{tableofcontents*}
+      {part,likepart,chapter,likechapter,appendix}
+}
+\def\:tempb{
+   \TocAt*{part,/likepart,chapter,likechapter,appendix,%
+             section,likesection}
+   \TocAt*{likepart,/part,chapter,likechapter,appendix,%
+             section,likesection}
+   \CutAt{chapter,likechapter,appendix,part}
+   \CutAt{likechapter,appendix,part}
+   \CutAt{appendix,chapter,likechapter,part}
+   \Configure{tableofcontents*}{part,likepart,chapter,likechapter,appendix,%
+      section,likesection\expandafter\ifx \csname @chapter\endcsname\relax
+      ,subsection,likesubsection\fi
+    }
+}
+\def\:tempc{
+   \TocAt*{chapter,/likechapter,/appendix,/part,%
+             section,likesection,subsection,likesubsection}
+   \TocAt*{likechapter,/appendix,/chapter,/part,%
+             section,likesection,subsection,likesubsection}
+   \TocAt*{appendix,/chapter,/likechapter,/part,%
+             section,likesection,subsection,likesubsection}
+   \CutAt{section,likesection,chapter,likechapter,appendix,part}
+   \CutAt{likesection,chapter,likechapter,appendix,part}
+   \Configure{tableofcontents*}{part,likepart,chapter,likechapter,%
+      appendix,section,%
+             likesection\expandafter\ifx \csname @chapter\endcsname\relax
+      ,subsection,likesubsection\fi}
+}
+\def\:tempd{
+   \TocAt*{section,/likesection,/chapter,/likechapter,/appendix,/part,%
+             subsection,likesubsection,subsubsection,likesubsubsection}
+   \TocAt*{likesection,/section,/chapter,/likechapter,/appendix,/part,%
+             subsection,likesubsection,subsubsection,likesubsubsection}
+   \CutAt{subsection,section,likesection,%
+                     chapter,likechapter,appendix,part}
+   \CutAt{likesubsection,section,likesection,%
+                     chapter,likechapter,appendix,part}
+   \Configure{tableofcontents*}{part,likepart,chapter,likechapter,%
+       appendix,section,likesection,likesubsection,subsection}
+}
+
+\:CheckOption{4}     \if:Option
+    \expandafter\ifx \csname @chapter\endcsname\relax
+                          \:tempa \:tempc \:tempd
+    \else                 \:tempa \:tempb \:tempc \:tempd  \fi
+\else\:CheckOption{3}     \if:Option
+    \expandafter\ifx \csname @chapter\endcsname\relax
+                          \:tempa \:tempc  \:tempd
+    \else                 \:tempa \:tempb  \:tempc  \fi
+\else\:CheckOption{2}     \if:Option
+    \expandafter\ifx \csname @chapter\endcsname\relax  \:tempa \:tempc
+    \else                 \:tempa \:tempb    \fi
+\else\:CheckOption{1}     \if:Option
+    \:tempa
+\fi \fi \fi \fi
+
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{subsubsection}{}{}{\thesubsubsection\space}{}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\ConfigureEnv{thebibliography}{\IgnorePar}{\IgnorePar\par}{}{}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\Configure{endlikepart}{endpart}
+\Configure{part}{}{}
+   {\IgnorePar \IgnorePar\HCode{<h1 class="partHead">}%
+    \partname \ \thepart\HCode{<br\xml:empty>}}
+   {\HCode{</h1>}\IgnoreIndent}
+\Configure{likepart}{}{}
+   {\IgnorePar\IgnorePar\HCode{<h1 class="likepartHead">}}
+   {\HCode{</h1>}\IgnoreIndent}
+\Configure{partTITLE+}{\thepart\space #1}
+
+\fi
+
+
+
+   \ConfigureToc{lof}{\empty}{ }{}{}
+   \ConfigureToc{lot}{\empty}{ }{}{}
+\ConfigureEnv{quote}{}{}{}{}
+\ConfigureList{description}{}{}{}{}{}{}
+\Configure{maketitle}{}{}{}{}
+\Configure{thanks author date and} {}{} {}{} {}{} {}{}
+\Configure{theindex}{}{}{}{}{}{}{}{}{}
+\Configure{paragraph}{}{}{}{}
+\Configure{likeparagraph}{}{}{}{}
+\Configure{subparagraph}{}{}{\thesubparagraph\space}{}
+\Configure{likesubparagraph}{}{}{}{}
+
+
+   \ifx \part\:UnDef  \else
+\Configure{part}{}{} {\partname \ \thepart\space} {}
+\Configure{likepart}{}{}{\empty}{}
+   \fi
+\Configure{caption}{}{}{}{}
+
+
+   
+\Configure{chapter}{}{} {\chaptername \ \thechapter} {}
+\Configure{chapterTITLE+}{}
+\Configure{likechapter}{}{}{\empty}{}
+\Configure{appendix}{}{}{\appendixname \ \thechapter}{}
+\Configure{appendixTITLE+}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+         
+\Configure{chapter}{}{} {\chaptername \ \thechapter} {}
+\Configure{chapterTITLE+}{}
+\Configure{likechapter}{}{}{\empty}{}
+\Configure{appendix}{}{}{\appendixname \ \thechapter}{}
+\Configure{appendixTITLE+}{}
+
+     \ConfigureEnv{abstract}{}{}{}{}
+
+     \Configure{section}{}{}{\thesection\space}{}
+\Configure{likesection}{}{}{}{}
+\Configure{subsection}{}{}{\thesubsection\space}{}
+\Configure{likesubsection}{}{}{}{}
+\def\:tempa{
+   \CutAt{part}
+   \CutAt{likepart}
+   \Configure{tableofcontents*}
+      {part,likepart,chapter,likechapter,appendix}
+}
+\def\:tempb{
+   \TocAt*{part,/likepart,chapter,likechapter,appendix,%
+             section,likesection}
+   \TocAt*{likepart,/part,chapter,likechapter,appendix,%
+             section,likesection}
+   \CutAt{chapter,likechapter,appendix,part}
+   \CutAt{likechapter,appendix,part}
+   \CutAt{appendix,chapter,likechapter,part}
+   \Configure{tableofcontents*}{part,likepart,chapter,likechapter,appendix,%
+      section,likesection\expandafter\ifx \csname @chapter\endcsname\relax
+      ,subsection,likesubsection\fi
+    }
+}
+\def\:tempc{
+   \TocAt*{chapter,/likechapter,/appendix,/part,%
+             section,likesection,subsection,likesubsection}
+   \TocAt*{likechapter,/appendix,/chapter,/part,%
+             section,likesection,subsection,likesubsection}
+   \TocAt*{appendix,/chapter,/likechapter,/part,%
+             section,likesection,subsection,likesubsection}
+   \CutAt{section,likesection,chapter,likechapter,appendix,part}
+   \CutAt{likesection,chapter,likechapter,appendix,part}
+   \Configure{tableofcontents*}{part,likepart,chapter,likechapter,%
+      appendix,section,%
+             likesection\expandafter\ifx \csname @chapter\endcsname\relax
+      ,subsection,likesubsection\fi}
+}
+\def\:tempd{
+   \TocAt*{section,/likesection,/chapter,/likechapter,/appendix,/part,%
+             subsection,likesubsection,subsubsection,likesubsubsection}
+   \TocAt*{likesection,/section,/chapter,/likechapter,/appendix,/part,%
+             subsection,likesubsection,subsubsection,likesubsubsection}
+   \CutAt{subsection,section,likesection,%
+                     chapter,likechapter,appendix,part}
+   \CutAt{likesubsection,section,likesection,%
+                     chapter,likechapter,appendix,part}
+   \Configure{tableofcontents*}{part,likepart,chapter,likechapter,%
+       appendix,section,likesection,likesubsection,subsection}
+}
+
+\:CheckOption{4}     \if:Option
+    \expandafter\ifx \csname @chapter\endcsname\relax
+                          \:tempa \:tempc \:tempd
+    \else                 \:tempa \:tempb \:tempc \:tempd  \fi
+\else\:CheckOption{3}     \if:Option
+    \expandafter\ifx \csname @chapter\endcsname\relax
+                          \:tempa \:tempc  \:tempd
+    \else                 \:tempa \:tempb  \:tempc  \fi
+\else\:CheckOption{2}     \if:Option
+    \expandafter\ifx \csname @chapter\endcsname\relax  \:tempa \:tempc
+    \else                 \:tempa \:tempb    \fi
+\else\:CheckOption{1}     \if:Option
+    \:tempa
+\fi \fi \fi \fi
+
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{subsubsection}{}{}{\thesubsubsection\space}{}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\ConfigureEnv{thebibliography}{\IgnorePar}{\IgnorePar\par}{}{}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\Configure{endlikepart}{endpart}
+\Configure{part}{}{}
+   {\IgnorePar \IgnorePar\HCode{<h1 class="partHead">}%
+    \partname \ \thepart\HCode{<br\xml:empty>}}
+   {\HCode{</h1>}\IgnoreIndent}
+\Configure{likepart}{}{}
+   {\IgnorePar\IgnorePar\HCode{<h1 class="likepartHead">}}
+   {\HCode{</h1>}\IgnoreIndent}
+\Configure{partTITLE+}{\thepart\space #1}
+
+\fi
+
+
+
+   \ConfigureToc{lof}{\empty}{ }{}{}
+   \ConfigureToc{lot}{\empty}{ }{}{}
+\ConfigureEnv{quote}{}{}{}{}
+\ConfigureList{description}{}{}{}{}{}{}
+\Configure{maketitle}{}{}{}{}
+\Configure{thanks author date and} {}{} {}{} {}{} {}{}
+\Configure{theindex}{}{}{}{}{}{}{}{}{}
+\Configure{paragraph}{}{}{}{}
+\Configure{likeparagraph}{}{}{}{}
+\Configure{subparagraph}{}{}{\thesubparagraph\space}{}
+\Configure{likesubparagraph}{}{}{}{}
+
+
+   \ifx \part\:UnDef  \else
+\Configure{part}{}{} {\partname \ \thepart\space} {}
+\Configure{likepart}{}{}{\empty}{}
+   \fi
+\Configure{caption}{}{}{}{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+         \ConfigureEnv{abstract}{}{}{}{}
+
+     \Configure{section}{}{}{\thesection\space}{}
+\Configure{likesection}{}{}{}{}
+\Configure{subsection}{}{}{\thesubsection\space}{}
+\Configure{likesubsection}{}{}{}{}
+\def\:tempa{
+   \CutAt{part}
+   \CutAt{likepart}
+   \Configure{tableofcontents*}
+      {part,likepart,chapter,likechapter,appendix}
+}
+\def\:tempb{
+   \TocAt*{part,/likepart,chapter,likechapter,appendix,%
+             section,likesection}
+   \TocAt*{likepart,/part,chapter,likechapter,appendix,%
+             section,likesection}
+   \CutAt{chapter,likechapter,appendix,part}
+   \CutAt{likechapter,appendix,part}
+   \CutAt{appendix,chapter,likechapter,part}
+   \Configure{tableofcontents*}{part,likepart,chapter,likechapter,appendix,%
+      section,likesection\expandafter\ifx \csname @chapter\endcsname\relax
+      ,subsection,likesubsection\fi
+    }
+}
+\def\:tempc{
+   \TocAt*{chapter,/likechapter,/appendix,/part,%
+             section,likesection,subsection,likesubsection}
+   \TocAt*{likechapter,/appendix,/chapter,/part,%
+             section,likesection,subsection,likesubsection}
+   \TocAt*{appendix,/chapter,/likechapter,/part,%
+             section,likesection,subsection,likesubsection}
+   \CutAt{section,likesection,chapter,likechapter,appendix,part}
+   \CutAt{likesection,chapter,likechapter,appendix,part}
+   \Configure{tableofcontents*}{part,likepart,chapter,likechapter,%
+      appendix,section,%
+             likesection\expandafter\ifx \csname @chapter\endcsname\relax
+      ,subsection,likesubsection\fi}
+}
+\def\:tempd{
+   \TocAt*{section,/likesection,/chapter,/likechapter,/appendix,/part,%
+             subsection,likesubsection,subsubsection,likesubsubsection}
+   \TocAt*{likesection,/section,/chapter,/likechapter,/appendix,/part,%
+             subsection,likesubsection,subsubsection,likesubsubsection}
+   \CutAt{subsection,section,likesection,%
+                     chapter,likechapter,appendix,part}
+   \CutAt{likesubsection,section,likesection,%
+                     chapter,likechapter,appendix,part}
+   \Configure{tableofcontents*}{part,likepart,chapter,likechapter,%
+       appendix,section,likesection,likesubsection,subsection}
+}
+
+\:CheckOption{4}     \if:Option
+    \expandafter\ifx \csname @chapter\endcsname\relax
+                          \:tempa \:tempc \:tempd
+    \else                 \:tempa \:tempb \:tempc \:tempd  \fi
+\else\:CheckOption{3}     \if:Option
+    \expandafter\ifx \csname @chapter\endcsname\relax
+                          \:tempa \:tempc  \:tempd
+    \else                 \:tempa \:tempb  \:tempc  \fi
+\else\:CheckOption{2}     \if:Option
+    \expandafter\ifx \csname @chapter\endcsname\relax  \:tempa \:tempc
+    \else                 \:tempa \:tempb    \fi
+\else\:CheckOption{1}     \if:Option
+    \:tempa
+\fi \fi \fi \fi
+
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{subsubsection}{}{}{\thesubsubsection\space}{}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\ConfigureEnv{thebibliography}{\IgnorePar}{\IgnorePar\par}{}{}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\Configure{endlikepart}{endpart}
+\Configure{part}{}{}
+   {\IgnorePar \IgnorePar\HCode{<h1 class="partHead">}%
+    \partname \ \thepart\HCode{<br\xml:empty>}}
+   {\HCode{</h1>}\IgnoreIndent}
+\Configure{likepart}{}{}
+   {\IgnorePar\IgnorePar\HCode{<h1 class="likepartHead">}}
+   {\HCode{</h1>}\IgnoreIndent}
+\Configure{partTITLE+}{\thepart\space #1}
+
+\fi
+
+
+
+   \ConfigureToc{lof}{\empty}{ }{}{}
+   \ConfigureToc{lot}{\empty}{ }{}{}
+\ConfigureEnv{quote}{}{}{}{}
+\ConfigureList{description}{}{}{}{}{}{}
+\Configure{maketitle}{}{}{}{}
+\Configure{thanks author date and} {}{} {}{} {}{} {}{}
+\Configure{theindex}{}{}{}{}{}{}{}{}{}
+\Configure{paragraph}{}{}{}{}
+\Configure{likeparagraph}{}{}{}{}
+\Configure{subparagraph}{}{}{\thesubparagraph\space}{}
+\Configure{likesubparagraph}{}{}{}{}
+
+
+   \ifx \part\:UnDef  \else
+\Configure{part}{}{} {\partname \ \thepart\space} {}
+\Configure{likepart}{}{}{\empty}{}
+   \fi
+\Configure{caption}{}{}{}{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tcilatex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{GRAPHICSPS}
+   {\Picture+[PICT]{}}  {\EndPicture}
+\Configure{GRAPHICSHP}
+   {\Picture+[PICT]{}}  {\EndPicture}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{graphics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{graphics}{\Picture+[PIC]{}}{\EndPicture}
+\Configure{graphics*}
+   {gif}
+   {\Picture[pict]{\csname Gin@base\endcsname.gif}}
+\Configure{graphics*}
+   {png}
+   {\Picture[pict]{\csname Gin@base\endcsname.png}}
+\Configure{graphics*}
+   {jpeg}
+   {\Picture[pict]{\csname Gin@base\endcsname.jpeg}}
+\Configure{graphics*}
+   {jpg}
+   {\Picture[pict]{\csname Gin@base\endcsname.jpg}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{caption}{}{}{}{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{caption}{}{}{}{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsproc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{caption}{}{}{}{}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsppt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       \Configure{title}{}{}
+\Configure{author}{}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{quotedblbase}{\HCode{&\#132;}}
+\Configure{quotesinglbase}{\HCode{&\#130;}}
+
+\ifx \@begindocumenthook\:UnDef\else
+   \:CheckOption{new-accents}     \if:Option \else
+      \def\:temp{russian}\ifx \languagename\:temp
+         \Configure{accent}\"\ddot{A{A}E{E}I{I}O{O}U{U}Y%
+           {Y}a{a}e{e}i{i}\i{i}o{o}u{u}y{y}å{e}{}{34}}
+   {\a:accents{uml}{#1}}
+   {\def\:temp{>}\def\:tempa{#2}\ifx \:temp\:tempa\HCode{»}%
+    \else \def\:temp{<}\ifx \:temp\:tempa\HCode{«}%
+    \else \b:accents{uml}{#1}{#2}\fi\fi}
+
+      \fi
+\fi\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\Hinclude{\def\:temp{\ht:everypar={\setbox0=\lastbox\ht:everypar={}}}%
+   \ifx \NoindentAfter\:temp
+      \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {osudeG}
+\Hinclude{\ifx\amstexloaded@\relax
+     \no:dupl{#1}{
+      \ifx  \Space@\:UnDef   \expand:after{\input #1.4ht} %
+      \else                  \input vanilla.4ht  \fi}%
+   \fi}
+   {amstex}
+\Hinclude{\expandafter\ifx \csname amsppt.sty\endcsname\relax \else
+       \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {amsppt}
+\Hinclude{\ifx \texinfoversion\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input texinfo.4ht}}\fi}
+   {texinfo}
+\Hinclude{\ifx \thistubstyle\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input tugboat.4ht}}\fi}
+   {tugboat}
+
+\expandafter\let\csname tex4ht:4ht\endcsname\empty
+\def\no:dupl#1#2{%
+   \expandafter\ifx \csname #1:4ht\endcsname\relax
+      \expandafter\let \csname #1:4ht\endcsname\empty
+      \expand:after{#2}%
+   \fi
+}
+
+\Hinclude{\ifx \PsfigVersion\:UnDef \else
+      \no:dupl{#1}{\expand:after{\input psfig.4ht}}\fi}
+   {psfig}
+\Hinclude{\:CheckOption{#1}
+   \if:Option     \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pictex}
+\Hinclude{%
+   \expandafter\ifx \csname PSTricksLoaded\endcsname\relax\else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {pstricks}
+\Hinclude{%
+   \ifx \:DraCatCodes\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {dratex}
+\Hinclude{%
+   \ifx \xyloaded\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {xy}
+
+\Hinclude{%
+   \ifx \epsfsetgraph\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {epsf}
+
+\Hinclude{%
+   \ifx \diagram@help@messages\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {diagrams}
+
+\Hinclude{%
+   \ifx \figvisu\:UnDef \else
+                  \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {fig4tex}
+
+\Hinclude{}
+   {pctable}
+\Hinclude{%
+   \:CheckOption{xhtml}\if:Option \fi}
+   {xhtml}
+\Hinclude{\:CheckOption{#1}
+      \if:Option\else   \:CheckOption{ShowFont}\fi
+      \if:Option\else   \:CheckOption{frames-}\fi
+      \if:Option\else   \:CheckOption{frames}\fi
+      \if:Option\else   \:CheckOption{image-maps}\fi
+      \if:Option\else   \:CheckOption{java}\fi
+      \if:Option\else   \:CheckOption{javascript}\fi
+      \if:Option \no:dupl{#1}{\expand:after{\input #1.4ht}}\fi}
+   {th4}
+\Hinclude{\ifx \sethebrew\:UnDef\else \ifx \ArabTeX\:UnDef\else
+      \no:dupl{#1}{\expand:after{\input hebtex.4ht}}\fi \fi}
+   {hebtex}
+
+\:CheckOption{new-accents}     \if:Option
+   \:CheckOption{accent-}     \if:Option
+  \Configure{HAccent}\acute{AEIOUYaeiouy{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\bar{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\breve{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\check{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\ddot{AEIOUYaeiouy{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\dot{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\grave{AEIOUaeiou{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\hat{AEIOUaeiou{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\tilde{AOaoNn{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\vec{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\widehat{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\widetilde{}{\Picture+{}}{\EndPicture}
+\fi
+\:CheckOption{mathaccent-}     \if:Option
+  \Configure{HAccent}\"{AEIOUYaeiouy{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\'{AEIOUYaeiouy{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\.{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\={}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\H{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\^{AEIOUaeiou{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\`{AEIOUaeiou{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\b{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\c{Cc{}}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\d{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\t{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\u{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\v{}{\Picture+{}}{\EndPicture}
+  \Configure{HAccent}\~{AOaoNn{}}{\Picture+{}}{\EndPicture}
+\fi
+\Configure{accent}{*}
+   {<!--tex4ht:accent\Hnewline font="}{" char="}{" type="}{"-->}
+   {<!--tex4ht:end accent-->}
+\Configure{mathaccent}{*}
+   {<!--tex4ht:mathaccent\Hnewline font="}{" char="}{" type="}{"-->}
+   {<!--tex4ht:end mathaccent-->}
+\Configure{accented}{*}
+   {<!--tex4ht:accented\Hnewline font="}{" char="}{" type="}{"-->}
+   {<!--tex4ht:end accented-->}
+\Configure{accenting}{*}
+   {<!--tex4ht:accenting\Hnewline-->}
+   {<!--tex4ht:end accenting-->}
+
+\else
+   \Configure{accent}\`\grave{A{A}E{E}I{I}O{O}U{U}%
+                    a{a}e{e}i{i}\i{i}o{o}u{u}{}{}}
+   {\a:accents{grave}{#1}}   {\b:accents{grave}{#1}{#2}}
+\Configure{accent}\'\acute{A{A}E{E}I{I}O{O}U{U}Y%
+           {Y}a{a}e{e}i{i}\i{i}o{o}u{u}y{y}{}{}}
+   {\a:accents{acute}{#1}}   {\b:accents{acute}{#1}{#2}}
+\Configure{accent}\^\hat{A{A}E{E}I{I}O{O}U{U}a{a}%
+                      e{e}i{i}\i{i}o{o}u{u}{}{}}
+   {\a:accents{circ}{#1}}   {\b:accents{hat}{#1}{#2}}
+\Configure{accent}\~\tilde{A{A}O{O}a{a}o{o}N{N}n{n}{}{}}
+   {\a:accents{tilde}{#1}}   {\b:accents{tilde}{#1}{#2}}
+\Configure{accent}\"\ddot{A{A}E{E}I{I}O{O}U{U}Y%
+           {Y}a{a}e{e}i{i}\i{i}o{o}u{u}y{y}{}{34}}
+   {\a:accents{uml}{#1}}     {\b:accents{uml}{#1}{#2}}
+\Configure{accent}\c\c{C{C}c{c}{}{}}
+   {\a:accents{cedil}{#1}}     {\b:accents{cedil}{#1}{#2}}
+\Configure{accent}\t\t{{}{}}
+   {\a:accents{udot}{#1}}     {\b:accents{udot}{#1}{#2}}
+\Configure{accent}\H\H{{}{}} {}{\b:accents{Huml}{#1}{#2}}
+\Configure{accent}\.\dot{{}{}}  {}{\b:accents{dot}{#1}{#2}}
+\Configure{accent}\u\breve{{}{}}{}{\b:accents{breve}{#1}{#2}}
+\Configure{accent}\vec\vec{{}{}}{}{\b:accents{vec}{#1}{#2}}
+\Configure{accent}\v\check{{}{}}{}{\b:accents{check}{#1}{#2}}
+\Configure{accent}\=\bar{{}{}}  {}{\b:accents{bar}{#1}{#2}}
+\Configure{accent}\widetilde\widetilde{{}{}}
+   {}{\b:accents{widetilde}{#1}{#2}}
+\Configure{accent}\widehat\widehat{{}{}}
+   {}{\b:accents{widehat}{#1}{#2}}
+
+\fi
+\let\^^_\v
+
+\Configure{settabs}[1.5]{}{}{}{}{}
+\Configure{line}{\HCode{<br\xml:empty>}}
+
+\Configure{ }{\:nbsp}
+
+\Configure{centerline}{}{}
+\Configure{leftline}{}{}
+\Configure{rightline}{}{}
+\Configure{insert}{}{}
+\:CheckOption{pic-eqalign}  \if:Option
+   \:CheckOption{no-halign} \if:Option \else
+   \fi
+\else  \Configure{eqalign}{}{}{}{}{}{}
+\Configure{eqalignno}{}{}{}{}{}{}
+\Configure{leqalignno}{}{}{}{}{}{}
+
+\fi
+\Configure{narrower}{}{}
+\Configure{proclaim}{}{}{}
+\Configure{line}{}
+\Configure{ldots}                 {}
+
+\Configure{obeylines}{}{}{}
+\Configure{ }{ }
+\def\:zbsp#1{cellpadding="0" border="0" cellspacing="0"\Hnewline
+   class="#1"}
+\:CheckOption{new-accents}     \if:Option \else
+  \Configure{accents}{(#1 #2)}{(#1 #3)}
+  \immediate\write-1{\string\Configure{accents}{found-case}{missing-case}}
+\fi
+\Configure{centerline}{}{}
+\Configure{leftline}{}{}
+\Configure{rightline}{}{}
+\Configure{l}                     {}
+\Configure{L}                     {}
+
+\Configure{item}{}{}{\par\leavevmode}{}
+
+\:CheckOption{plain-} \if:Option \else
+   \Configure{itemitem}{}{}{\par\leavevmode}{}
+
+\fi
+             
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{url}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{url}{#1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       \Configure{VBorder}{}{}{}{}
+   \Configure{array}{}{}{}{}{}{}
+   \Configure{tabular}{}{}{}{}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{moreverb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureEnv{verbatimtab}{}{}{}{\null}
+\ConfigureEnv{verbatimtab*}{}{}{}{\null}
+\ConfigureEnv{boxedverbatim}{}{}{}{\null}
+\ConfigureEnv{boxedverbatim*}{}{}{}{\null}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{psfig}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{psfig} {\Picture+[psfig]{}}{\EndPicture}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{epsfig}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{epsfig} {\Picture+[epsfig]{}}{\EndPicture}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{index}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{NoSection}
+  {\let\sv:index\p@index \let\sv:label\label \let\sv:ref\ref
+   \let\sv:newline\newline \def\newline{ }%
+   \def\p@index[##1]{\@gobble}\let\label\@gobble  \let\ref\@gobble
+  }
+  {\let\p@index\sv:index \let\label\sv:label \let\ref\sv:ref
+   \let\newline\sv:newline
+  }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{vanilla}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{heading}{}{}{}{}
+\ConfigureToc{heading}{}{}{}{}
+\Configure{subheading}{}{}{}{}
+\ConfigureToc{subheading}{}{}{}{}
+\Configure{demo}{}{}{}{}
+\Configure{aligned}{}{}{}{}{}{}
+\Configure{align}{}{}{}{}{}{}
+
+\Configure{title}{}{}
+\Configure{author}{}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{emulateapj}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{slugcomment}{}{}
+\Configure{subtitle}{}{}
+\Configure{submitted}{}{}
+\Configure{title}{}{}
+\Configure{author}{}{}
+\Configure{affil}{}{}
+\Configure{keywords}{}{}
+\Configure{subjectheadings}{}{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{aa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{subtitle institute}{}{}{}{}{}{}{}
+\Configure{maketitle}{}{}{}{}
+\Configure{thanks author date and}{}{}{}{}{}{}{}{}
+
+\Configure{caption}{}{}{}{}
+
+\Configure{endsection}
+     {likesection,chapter,likechapter,appendix,part,likepart}
+\Configure{endlikesection}
+     {section,chapter,likechapter,appendix,part,likepart}
+\Configure{endsubsection}
+   {likesubsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{endlikesubsection}
+   {subsection,section,likesection,chapter,%
+      likechapter,appendix,part,likpart}
+\Configure{subsubsection}{}{}{\thesubsubsection\space}{}
+\Configure{endsubsubsection}
+   {likesubsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubsubsection}
+   {subsubsection,subsection,likesubsection,section,%
+      likesection,chapter,likechapter,appendix,part,likpart}
+\ConfigureEnv{thebibliography}{\IgnorePar}{\IgnorePar\par}{}{}
+\Configure{endparagraph}
+   {likeparagraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikeparagraph}
+   {paragraph,subsubsection,likesubsubsection,subsection,%
+    likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endsubparagraph}
+   {likesubparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\Configure{endlikesubparagraph}
+   {subparagraph,likeparagraph,subsubsection,likesubsubsection,%
+    subsection,likesubsection,section,%
+    likesection,chapter,likechapter,appendix,part,likpart}
+\ifx \part\:UnDef \else
+   \Configure{endpart}{likepart}
+\Configure{endlikepart}{endpart}
+\Configure{part}{}{}
+   {\IgnorePar \IgnorePar\HCode{<h1 class="partHead">}%
+    \partname \ \thepart\HCode{<br\xml:empty>}}
+   {\HCode{</h1>}\IgnoreIndent}
+\Configure{likepart}{}{}
+   {\IgnorePar\IgnorePar\HCode{<h1 class="likepartHead">}}
+   {\HCode{</h1>}\IgnoreIndent}
+\Configure{partTITLE+}{\thepart\space #1}
+
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{slidesec}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       \ConfigureToc{slidesection}{\empty}{ }{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{th4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{Verbatim}{}{}{}{}
+\Configure{()}{$}{$}
+\Configure{[]}{\:xhtml{\IgnorePar\EndP}$$}{$$}
+
+\Configure{Chapter}
+   {}{}    {Chapter  \theChapterCounter} {}
+\Configure{Appendix}
+   {}{}    {Appendix  \theChapterCounter} {}
+\Configure{LikeChapter}
+   {}{}    {} {}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

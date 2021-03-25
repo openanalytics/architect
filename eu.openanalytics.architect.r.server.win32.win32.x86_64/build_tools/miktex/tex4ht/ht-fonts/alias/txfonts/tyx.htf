@@ -1,0 +1,14 @@
+.lm-texnansi
+htfcss: tyxb  font-weight:bold;
+htfcss: tyxbi font-weight:bold;
+htfcss: tyxbsl font-weight:bold; font-style:italic;
+htfcss: tyxbss font-weight:bold;
+htfcss: tyxbsssl font-weight:bold; font-style:italic;
+htfcss: tyxbtt font-weight:bold;  font-family:monospace,monospace;
+htfcss: tyxbttsl font-weight:bold; font-family:monospace,monospace; font-style:italic;
+htfcss: tyxi font-style:italic;
+htfcss: tyxsl font-style:italic;
+htfcss: tyxsssl font-style:italic;
+htfcss: tyxtt  font-family:monospace,monospace;
+htfcss: tyxttsl font-family:monospace,monospace; font-style:italic;
+

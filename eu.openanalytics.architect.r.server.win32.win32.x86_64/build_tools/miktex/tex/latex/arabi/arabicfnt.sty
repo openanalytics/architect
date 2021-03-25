@@ -1,0 +1,273 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: `arabifnt.sty' Arabic font switching commands used by
+% the Arabi package.
+%
+%% 
+\def\fileversion{1.0}
+\def\filedate{2006/01/01}
+%%%%%%%%%%%%%%%%%%%%%%%% Font Names %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Check if file is loaded and announce file on terminal:
+%
+\csname ArabicfontsLoaded\endcsname
+\let\ArabicfontsLoaded\endinput
+
+\message{\space\space Arabic font switching commands v\fileversion\space\space\filedate}
+\message{\space\space (may still change)\space\space}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+%% 
+%\ProvidesPackage{arabifnt}[2006/01/01 v1.0 Arabic font switching 
+% commands (may still change)]
+
+
+
+% \DeclareTextFontCommand {<cmd>} {<font-switches>}
+%
+% Declares command <cmd> to be a font command with one argument. The current font attributes
+% are locally modified by <font-switches> and then the argument of <cmd> is typeset in the 
+% resulting new font.
+%
+% Commands defined by \DeclareTextFontCommand automatically take care of any necessary
+% italic correction (on either side).
+
+
+
+
+
+% DecoType Naskh
+  \DeclareTextFontCommand{\textdtp}{\fontfamily{dtpn}\selectfont}
+  \DeclareRobustCommand{\dtp}{\fontfamily{dtpn}\selectfont}
+
+% DecoType Naskh Special
+  \DeclareTextFontCommand{\textdtpsp}{\fontfamily{dtpnsp}\selectfont}
+  \DeclareRobustCommand{\dtpsp}{\fontfamily{dtpnsp}\selectfont}
+
+% DecoType Thuluth
+  \DeclareTextFontCommand{\textdthuluth}{\fontfamily{dthuluth}\selectfont}
+  \DeclareRobustCommand{\dthuluth}{\fontfamily{dthuluth}\selectfont}
+
+
+% Maghribi experimental
+  \DeclareTextFontCommand{\textmaghribi}{\fontfamily{maghribi}\selectfont}
+  \DeclareRobustCommand{\maghribi}{\fontfamily{maghribi}\selectfont}
+
+% Naskh experimental  
+  \DeclareTextFontCommand{\textnaskh}{\fontfamily{naskhi}\selectfont}
+  \DeclareRobustCommand{\naskh}{\fontfamily{naskhi}\selectfont}
+ 
+% ASV Codar  
+  \DeclareTextFontCommand{\textasv}{\fontfamily{asv}\selectfont}
+  \DeclareRobustCommand{\asv}{\fontfamily{asv}\selectfont}
+ 
+% My reqaa  
+  \DeclareTextFontCommand{\textreqaa}{\fontfamily{reqaa}\selectfont}
+  \DeclareRobustCommand{\reqaa}{\fontfamily{reqaa}\selectfont}
+ 
+%
+%
+%======================= Microsoft =========================
+%  
+  
+
+% Simplified Arabic
+  \DeclareTextFontCommand{\textsimpl}{\fontfamily{arsimpo}\selectfont}
+  \DeclareRobustCommand{\simpl}{\fontfamily{arsimpo}\selectfont}
+
+  \DeclareTextFontCommand{\textsimplb}{\fontfamily{arsimpo}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\simplb}{\fontfamily{arsimpo}\fontseries{b}\selectfont}
+%  
+% Times New Roman
+  \DeclareTextFontCommand{\texttimes}{\fontfamily{artimes}\selectfont}
+  \DeclareRobustCommand{\times}{\fontfamily{artimes}\selectfont}
+%
+  \DeclareTextFontCommand{\texttimesb}{\fontfamily{artimes}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\timesb}{\fontfamily{artimes}\fontseries{b}\selectfont}
+%
+  
+% Courier
+  \DeclareTextFontCommand{\textcour}{\fontfamily{arcour}\selectfont}
+  \DeclareRobustCommand{\cour}{\fontfamily{arcour}\selectfont}
+%  
+  \DeclareRobustCommand{\courb}{\fontfamily{arcour}\fontseries{b}\selectfont}
+  \DeclareTextFontCommand{\textcourb}{\fontfamily{arcour}\fontseries{b}\selectfont}
+% Arial
+  \DeclareTextFontCommand{\textarial}{\fontfamily{ararial}\selectfont}
+  \DeclareRobustCommand{\arial}{\fontfamily{ararial}\selectfont}
+%
+  \DeclareRobustCommand{\arialb}{\fontfamily{ararial}\fontseries{b}\selectfont}
+  \DeclareTextFontCommand{\textarialb}{\fontfamily{ararial}\fontseries{b}\selectfont}
+%
+% Traditional Arabic
+  \DeclareTextFontCommand{\texttrad}{\fontfamily{traditionalarabic}\selectfont}
+  \DeclareRobustCommand{\trad}{\fontfamily{traditionalarabic}\selectfont}
+%  
+  \DeclareTextFontCommand{\texttradb}{\fontfamily{traditionalarabic}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\tradb}{\fontfamily{traditionalarabic}\fontseries{b}\selectfont}
+% Andalus
+  \DeclareTextFontCommand{\textandalus}{\fontfamily{andlso}\selectfont}
+  \DeclareRobustCommand{\andalus}{\fontfamily{andlso}\selectfont}
+  
+%
+%======================= Omega Project =====================
+%  
+  
+% Omega Arabic (1)
+  \DeclareTextFontCommand{\textomega}{\fontfamily{aromega}\selectfont}
+  \DeclareRobustCommand{\omega}{\fontfamily{aromega}\selectfont}
+%
+  \DeclareTextFontCommand{\textomegab}{\fontfamily{aromega}\fontseries{b}\selectfont}
+  \DeclareRobustCommand{\omegab}{\fontfamily{aromega}\fontseries{b}\selectfont}
+
+  
+%
+%======================= Arabeyes Project ==================
+%  
+  
+  \DeclareTextFontCommand{\textbook}{\fontfamily{kacstbook}\selectfont}
+  \DeclareRobustCommand{\book}{\fontfamily{kacstbook}\selectfont}
+  
+  \DeclareTextFontCommand{\textthol}{\fontfamily{aetholoth}\selectfont}
+  \DeclareRobustCommand{\thol}{\fontfamily{aetholoth}\selectfont}
+  
+  \DeclareTextFontCommand{\textyerm}{\fontfamily{aealyermook}\selectfont}
+  \DeclareRobustCommand{\yerm}{\fontfamily{aealyermook}\selectfont}
+  
+  \DeclareTextFontCommand{\textmash}{\fontfamily{aemashq}\selectfont}
+  \DeclareRobustCommand{\mashq}{\fontfamily{aemashq}\selectfont} %typo
+  
+  \DeclareTextFontCommand{\texthor}{\fontfamily{aehor}\selectfont}
+  \DeclareRobustCommand{\hor}{\fontfamily{aehor}\selectfont}
+  
+  \DeclareTextFontCommand{\textbattar}{\fontfamily{aealbattar}\selectfont}
+  \DeclareRobustCommand{\battar}{\fontfamily{aealbattar}\selectfont}
+  
+  \DeclareTextFontCommand{\textgranada}{\fontfamily{aegranada}\selectfont}
+  \DeclareRobustCommand{\granada}{\fontfamily{aegranada}\selectfont}
+
+  
+  
+  \DeclareTextFontCommand{\textkayrawan}{\fontfamily{aekayrawan}\selectfont}
+  \DeclareRobustCommand{\kayrawan}{\fontfamily{aekayrawan}\selectfont}
+  
+  \DeclareTextFontCommand{\textdimnah}{\fontfamily{aedimnah}\selectfont}
+  \DeclareRobustCommand{\dimnah}{\fontfamily{aedimnah}\selectfont}
+  
+  \DeclareTextFontCommand{\textsindibad}{\fontfamily{aesindibad}\selectfont}
+  \DeclareRobustCommand{\sindibad}{\fontfamily{aesindibad}\selectfont}
+  
+  \DeclareTextFontCommand{\textgraph}{\fontfamily{aegraph}\selectfont}
+  \DeclareRobustCommand{\graph}{\fontfamily{aegraph}\selectfont}
+  
+  \DeclareTextFontCommand{\textnice}{\fontfamily{aenice}\selectfont}
+  \DeclareRobustCommand{\nice}{\fontfamily{aenice}\selectfont}
+%  
+  \DeclareTextFontCommand{\textmohanad}{\fontfamily{aealmohanadb}\selectfont}
+  \DeclareRobustCommand{\mohanad}{\fontfamily{aealmohanadb}\selectfont}
+%  
+  \DeclareTextFontCommand{\textmothnna}{\fontfamily{aealmothnna}\selectfont}
+  \DeclareRobustCommand{\mothnna}{\fontfamily{aealmothnna}\selectfont}
+  
+  \DeclareTextFontCommand{\textmateen}{\fontfamily{aealmateen}\selectfont}
+  \DeclareRobustCommand{\mateen}{\fontfamily{aealmateen}\selectfont}
+  
+  \DeclareTextFontCommand{\textpetra}{\fontfamily{aepetra}\selectfont}
+  \DeclareRobustCommand{\petra}{\fontfamily{aepetra}\selectfont}
+  
+  \DeclareTextFontCommand{\textnada}{\fontfamily{aenada}\selectfont}
+  \DeclareRobustCommand{\nada}{\fontfamily{aenada}\selectfont}
+  
+  \DeclareTextFontCommand{\textcortoba}{\fontfamily{aecortoba}\selectfont}
+  \DeclareRobustCommand{\cortoba}{\fontfamily{aecortoba}\selectfont}
+  
+  \DeclareTextFontCommand{\textostora}{\fontfamily{aeostorah}\selectfont}
+  \DeclareRobustCommand{\ostora}{\fontfamily{aeostorah}\selectfont}
+  
+  
+  \DeclareTextFontCommand{\textfurat}{\fontfamily{aefurat}\selectfont}
+  \DeclareRobustCommand{\furat}{\fontfamily{aefurat}\selectfont}
+
+% Do not include, soooo bad!
+%  
+%  \DeclareTextFontCommand{\textnagham}{\fontfamily{aenagham}\selectfont}
+%  \DeclareTextFontCommand{\textarab}{\fontfamily{aearab}\selectfont}
+  
+  \DeclareTextFontCommand{\textsalem}{\fontfamily{aesalem}\selectfont}
+  \DeclareRobustCommand{\salem}{\fontfamily{aesalem}\selectfont}
+  
+  \DeclareTextFontCommand{\textshado}{\fontfamily{aeshado}\selectfont}
+  \DeclareRobustCommand{\shado}{\fontfamily{aeshado}\selectfont}
+  
+  \DeclareTextFontCommand{\textmetal}{\fontfamily{aemetal}\selectfont}
+  \DeclareRobustCommand{\metal}{\fontfamily{aemetal}\selectfont}
+  
+  \DeclareTextFontCommand{\texttarablus}{\fontfamily{aetarablus}\selectfont}
+  \DeclareRobustCommand{\tarablus}{\fontfamily{aetarablus}\selectfont}
+  
+  \DeclareTextFontCommand{\textkhalid}{\fontfamily{aekhalid}\selectfont}
+  \DeclareRobustCommand{\khalid}{\fontfamily{aekhalid}\selectfont}
+  
+  \DeclareTextFontCommand{\textsharjah}{\fontfamily{aesharjah}\selectfont}
+  \DeclareRobustCommand{\sharjah}{\fontfamily{aesharjah}\selectfont}
+  
+  \DeclareTextFontCommand{\texthani}{\fontfamily{aehani}\selectfont}
+  \DeclareRobustCommand{\hani}{\fontfamily{aehani}\selectfont}
+  
+  \DeclareTextFontCommand{\textouhod}{\fontfamily{aeouhod}\selectfont}
+  \DeclareRobustCommand{\ouhod}{\fontfamily{aeouhod}\selectfont}
+  
+  \DeclareTextFontCommand{\textrehan}{\fontfamily{aerehan}\selectfont}
+  \DeclareRobustCommand{\rehan}{\fontfamily{aerehan}\selectfont}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\endinput

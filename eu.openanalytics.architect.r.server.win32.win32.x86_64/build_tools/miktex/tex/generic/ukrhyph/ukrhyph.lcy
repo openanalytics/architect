@@ -1,0 +1,4 @@
+% UKRHYPH.LCY
+\def\Encoding{lcy}
+\input ukrhyph
+\endinput

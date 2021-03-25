@@ -1,0 +1,33 @@
+% cs-charter.tex: fonts loading file of Charter fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak,  2012, 2016
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Charter] {} {\rm \bf \it \bi} {} {TX} {8z 8t}
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = bchr8t
+   \font\tenbf = bchb8t
+   \font\tenit = bchri8t
+   \font\tenbi = bchbi8t
+
+\fi
+
+\ismacro\fotenc{8z}\ifttrue
+
+   \font\tenrm = bchr8z
+   \font\tenbf = bchb8z
+   \font\tenit = bchri8z
+   \font\tenbi = bchbi8z
+   \input chars-8z
+
+\fi
+
+\tenrm
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+% end of cs-charter.tex

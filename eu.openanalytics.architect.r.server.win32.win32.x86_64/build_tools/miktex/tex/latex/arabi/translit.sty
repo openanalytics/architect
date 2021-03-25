@@ -1,0 +1,186 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: translit.sty
+%% 
+%% When texts are in general not fully vowelized, the transliteration
+%% cannot be expected to be correct.
+%%
+%% Moreover, when writing using CP1256/ISO 8859-6 8-bit input encoding, 
+%% there is no way to distinguish between long vowels A I U and the letters
+%% alif yaa and waw. neither, it is possible to write correctly the hamza 
+%% when on alif waw or yaa.
+%%
+\ProvidesFile{tranlit.sty}
+        [2005/09/08 v0.1 Arabic transliteration (test version: may change)]
+        
+%\renewcommand{\rmdefault}{ptm}   
+%\renewcommand{\sfdefault}{phv}   
+%\renewcommand{\ttdefault}{pcr}
+
+
+\DeclareTextCommand{\hamza}{T1}{\ensuremath{\rhook }}
+\DeclareTextCommand{\alefmadda}{T1}{\ensuremath{\rhook\kern-.1em \bar a}}
+\DeclareTextCommand{\alefhamza}{T1}{\ensuremath{\rhook\kern-.3em a}}
+\DeclareTextCommand{\wawhamza}{T1}{\ensuremath{\rhook\kern-.1em w}}
+\DeclareTextCommand{\aleflowerhamza}{T1}{\ensuremath{\rhook\kern-.3em i}}
+\DeclareTextCommand{\yahamza}{T1}{183}
+
+\DeclareTextCommand{\alef}{T1}{\ensuremath{\bar a}}
+\DeclareTextCommand{\baa}{T1}{\ensuremath{b}}
+\DeclareTextCommand{\T}{T1}{\ensuremath{t}}   %taa marbuuta
+\DeclareTextCommand{\taa}{T1}{\ensuremath{t}}
+
+\DeclareTextCommand{\thaa}{T1}{\ensuremath{\bar t}}
+\DeclareTextCommand{\jeem}{T1}{\ensuremath{\check{g}}}  %geem ???
+\DeclareTextCommand{\Haa}{T1}{\textit{\d h}}
+\DeclareTextCommand{\kha}{T1}{\ensuremath{\underbar{\text{\textit{h}}}}} %<<<<<<<<<<<<<
+\DeclareTextCommand{\dal}{T1}{\ensuremath{d}}
+\DeclareTextCommand{\dhal}{T1}{\ensuremath{\bar d}}
+\DeclareTextCommand{\ra}{T1}{\ensuremath{r}}
+\DeclareTextCommand{\zay}{T1}{\ensuremath{z}}
+\DeclareTextCommand{\seen}{T1}{\ensuremath{s}}
+\DeclareTextCommand{\sheen}{T1}{\ensuremath{\check{s}}}
+\DeclareTextCommand{\sad}{T1}{\textit{\d s}}
+\DeclareTextCommand{\dad}{T1}{\textit{\d d}}
+\DeclareTextCommand{\Ta}{T1}{\textit{\d{t}}}
+\DeclareTextCommand{\za}{T1}{\ensuremath{\dot z}}
+\DeclareTextCommand{\ayn}{T1}{\ensuremath{\lhook }}
+\DeclareTextCommand{\ghayn}{T1}{\textit{\d g}}
+%
+\DeclareTextCommand{\keshchar}{T1}{254}
+\DeclareTextCommand{\fa}{T1}{\ensuremath{f}}
+\DeclareTextCommand{\qaf}{T1}{\ensuremath{q}}
+\DeclareTextCommand{\kaf}{T1}{\ensuremath{k}}
+\DeclareTextCommand{\lam}{T1}{\ensuremath{l}}
+\DeclareTextCommand{\meem}{T1}{\ensuremath{m}}
+\DeclareTextCommand{\nun}{T1}{\ensuremath{n}}
+\DeclareTextCommand{\ha}{T1}{\ensuremath{h}}
+\DeclareTextCommand{\waw}{T1}{\ensuremath{w}}
+\DeclareTextCommand{\ya}{T1}{\ensuremath{y}}
+\DeclareTextCommand{\alefmaqsura}{T1}{\ensuremath{\bar a}}%170
+%
+%%%%%%%%%%%% Vowels
+%
+% Firt, Vowels that come only at the end of a word
+%
+\DeclareTextCommand{\nasb}{T1}{\ensuremath{aN}}
+\DeclareTextCommand{\raff}{T1}{\ensuremath{uN}}
+\DeclareTextCommand{\jarr}{T1}{\ensuremath{iN}}
+%
+\DeclareTextCommand{\shaddanasb}{T1}{\ensuremath{aN}}
+\DeclareTextCommand{\shaddaraff}{T1}{\ensuremath{uN}}
+\DeclareTextCommand{\shaddajarr}{T1}{\ensuremath{iN}}
+%
+% Then, Vowels that come anywhere in a word
+%
+\DeclareTextCommand{\fatha}{T1}{\ensuremath{a}}%{161}
+\DeclareTextCommand{\damma}{T1}{\ensuremath{u}}%{162}
+\DeclareTextCommand{\kasra}{T1}{\ensuremath{i}}%{163}
+\DeclareTextCommand{\shadda}{T1}{\ensuremath{}}%{164}
+\DeclareTextCommand{\sukun}{T1}{\ensuremath{}}%{197}%{}
+%
+\DeclareTextCommand{\shaddafatha}{T1}{\ensuremath{a}}%169
+\DeclareTextCommand{\shaddadamma}{T1}{\ensuremath{u}}%170
+\DeclareTextCommand{\shaddakasra}{T1}{\ensuremath{i}}%171
+%
+
+
+%%%%%%%%%%%% Vowels after passing through \novocalize <--> \vocalize
+%
+% Firt, Vowels that come only at the end of a word
+%
+\DeclareTextCommand{\nasbSAV}{T1}{\ensuremath{aN}}
+\DeclareTextCommand{\raffSAV}{T1}{\ensuremath{uN}}
+\DeclareTextCommand{\jarrSAV}{T1}{\ensuremath{iN}}
+%
+\DeclareTextCommand{\shaddanasbSAV}{T1}{\ensuremath{aN}}
+\DeclareTextCommand{\shaddaraffSAV}{T1}{\ensuremath{uN}}
+\DeclareTextCommand{\shaddajarrSAV}{T1}{\ensuremath{iN}}
+%
+% Then, Vowels that come anywhere in a word
+%
+\DeclareTextCommand{\fathaSAV}{T1}{\ensuremath{a}}%{161}
+\DeclareTextCommand{\dammaSAV}{T1}{\ensuremath{u}}%{162}
+\DeclareTextCommand{\kasraSAV}{T1}{\ensuremath{i}}%{163}
+\DeclareTextCommand{\shaddaSAV}{T1}{\ensuremath{}}%{164}
+\DeclareTextCommand{\sukunSAV}{T1}{\ensuremath{}}%{197}%{}
+%
+\DeclareTextCommand{\shaddafathaSAV}{T1}{\ensuremath{a}}%169
+\DeclareTextCommand{\shaddadammaSAV}{T1}{\ensuremath{u}}%170
+\DeclareTextCommand{\shaddakasraSAV}{T1}{\ensuremath{i}}%171
+%
+
+%%%%%%%%%%%% Vowels after passing through \novocalize --> \vocalize
+%
+% Firt, Vowels that come only at the end of a word
+%
+\DeclareTextCommand{\nasbOFF}{T1}{\ensuremath{aN}}
+\DeclareTextCommand{\raffOFF}{T1}{\ensuremath{uN}}
+\DeclareTextCommand{\jarrOFF}{T1}{\ensuremath{iN}}
+%
+\DeclareTextCommand{\shaddanasbOFF}{T1}{\ensuremath{aN}}
+\DeclareTextCommand{\shaddaraffOFF}{T1}{\ensuremath{uN}}
+\DeclareTextCommand{\shaddajarrOFF}{T1}{\ensuremath{iN}}
+%
+% Then, Vowels that come anywhere in a word
+%
+\DeclareTextCommand{\fathaOFF}{T1}{\ensuremath{a}}%{161}
+\DeclareTextCommand{\dammaOFF}{T1}{\ensuremath{u}}%{162}
+\DeclareTextCommand{\kasraOFF}{T1}{\ensuremath{i}}%{163}
+\DeclareTextCommand{\shaddaOFF}{T1}{\ensuremath{}}%{164}
+\DeclareTextCommand{\sukunOFF}{T1}{\ensuremath{}}%{197}%{}
+%
+\DeclareTextCommand{\shaddafathaOFF}{T1}{\ensuremath{a}}%169
+\DeclareTextCommand{\shaddadammaOFF}{T1}{\ensuremath{u}}%170
+\DeclareTextCommand{\shaddakasraOFF}{T1}{\ensuremath{i}}%171
+%
+
+
+
+\DeclareTextCommand{\tatweel}{T1}{}
+
+
+
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\endinput
+%%
+%% End of file `jaeenc.def'.
+
+
+
+

@@ -1,0 +1,179 @@
+% ff-mac.tex -- support for font files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak  2016
+
+% This file is part of csplain package.
+% See the file cs-heros.tex for more details.
+
+\def\ffdecl [#1]#2#3#4#5#6{\ffdecltest#6 {}
+   \iftrue
+      \def\fffam{#1}%
+      {\toks2={#2}\toks3={#3}\toks4={#4}%
+      \immediate\write16{FONT: #1 - {\the\toks2} {\the\toks3}%
+         \ifx\relax#4\relax\else \space \the\toks4 \fi 
+         \ifx\loadmathfonts\relax \else \space +#5\fi}}%
+   \else 
+      \ffmessage {WARNING: #1 family is not available in 
+                  \fotenc\space encoding. Ignored.}%
+      \endinput
+   \fi
+}
+\def\ffdecltest#1 {\ifx\relax#1\relax \expandafter \ffdecltestfin
+   \else
+      \ismacro\fotenc{#1}\iftrue \ffdecltestfound \fi
+      \expandafter\ffdecltest
+   \fi
+}
+\def\ffdecltestfin\iftrue{\iffalse}
+\def\ffdecltestfound#1\iftrue{\fi\fi \iftrue}
+\ifx\ffmessage\undefined \def\ffmessage{\immediate\write16 }\fi
+
+\ifx\sizespec\undefined \def\sizespec{}\fi
+
+\ifx\fotenc\undefined
+   \ifx\chyph\undefined \def\fotenc{8t}\else \def\fotenc{8z}\fi
+   \ifx\font\corkencoded \def\fotenc{8t}\fi
+   \ifx\font\unicoded \def\fotenc{U}\fi
+   \def\tmp#1#2\relax{\def\tmp{#2}}\tmp ^^^^abcd\relax
+   \ifx\tmp\empty \def\fotenc{U}\fi  % Unicode engine
+\fi
+
+\ifx\protected\undefined
+   \let\tryprotected=\relax
+   \ifx\addprotect\undefined \else 
+      \def\tryprotected#1#2{\addprotect#2#1#2}
+   \fi
+\else \let\tryprotected=\protected \fi
+
+\ifx\rfontskipat\undefined \input csfontsm \fi
+
+\tryprotected\def\ffvars#1#2#3#4{%
+   \def\ffvarY##1{\ifcase##1 #1\or#2\or#3\or#4\fi}%
+}
+\tryprotected\def\ffsetV#1#2{\expandafter\def\csname #1V\endcsname{#2}}
+\def\ffvarZ#1{\ifcase#1 \string\rm\or\string\bf\or\string\it\or\string\bi\fi}
+
+\long\def\ffsetX#1{\ifx#1\fam \ffsetY=\else \ifx#1\one \ffsetY+\else
+   \ifx#1\rm \ffsetY0\else \ifx#1\bf \ffsetY1\else
+   \ifx#1\it \ffsetY2\else \ifx#1\bi \ffsetY3\else
+   \ffsetZ#1\fi\fi\fi\fi\fi\fi
+}
+\long\def\ffsetZ#1\fi\fi\fi\fi\fi\fi{\fi\fi\fi\fi\fi\fi#1}
+\ifx\one\undefined \def\one{{}}\fi % Something more specific than \undefined.
+                                   % User can re-define it without problems.
+
+\tryprotected\def\ffsetY#1{%
+   \ifx=#1\ffsetS % save current variant
+      \ifx\ffnamegen\undefined % \ffsetX\fam can be used for resizing only
+         \resizefont\tenrm \resizefont\tenbf \resizefont\tenit \resizefont\tenbi
+      \else \ffsetW0\tenrm \ffsetW1\tenbf \ffsetW2\tenit \ffsetW3\tenbi \fi
+      \ffsetT{\tenrm}{\tenbf}{\tenit}{\tenbi}% return to current variant
+   \else \ifx+#1\ffsetS \ffsetT{\ffsetX\rm}{\ffsetX\bf}{\ffsetX\it}{\ffsetX\bi}%
+      \else \edef\ffvarV{\ffvarY{#1}}\ffsetR{#1}%
+         \if!\ffvarV\relax\ffwarning{\ffvarZ{#1}}%
+         \else \def\ffvarN{#1}\ffsetF\ffmodfont\ffmodfont 
+   \fi\fi\fi
+}
+\def\ffsetF#1#2{%
+   \ffloadhookA\iftrue
+      \ifx\dgsize\undefined 
+         \expandafter\readsizespec\sizespec at\relax
+         \ffloadhookB \font#1=\whichtfm{\ffnamegen} \sizespec\relax
+         \let\dgsize=\undefined
+      \else \ffloadhookB \font#1=\whichtfm{\ffnamegen} \sizespec\relax
+   \fi #2\fi
+}
+\def\ffloadhookA{}
+\def\ffloadhookB{}
+\def\ffwarning#1{}
+\def\ffsetR#1{} % reserved for special usage
+
+\def\ffsetS{\expandafter\ifx\the\font\tenrm \def\ffvarN{0}%
+   \else \expandafter\ifx\the\font\tenbf \def\ffvarN{1}%
+   \else \expandafter\ifx\the\font\tenit \def\ffvarN{2}%
+   \else \expandafter\ifx\the\font\tenbi \def\ffvarN{3}\fi\fi\fi\fi
+}
+\def\ffsetT#1#2#3#4{\ifx\ffvarN\undefined \else
+   \ifcase\ffvarN\space #1\or#2\or#3\or#4\fi\fi
+}
+\def\readsizespec#1at#2\relax{\ifx!#2\def\dgsize{#1}\else
+   \ifx\relax#2\relax \def\dgsize{10pt}\else \readsizespec#2!\relax\fi\fi
+}
+\def\ffsetW#1#2{\edef\ffvarV{\ffvarY{#1}}\ffsetR{#1}%
+   \if!\ffvarV\relax\ffwarning{\ffvarZ{#1}}\else \ffsetF#2\relax\fi
+}
+\def\ismacro#1#2#3{\def\tmp{#2}\ifx#1\tmp}
+
+\def\ffletfont#1=#2#3{%
+   {\def\sizespec{#3}\let\ffsetFa=\ffsetF 
+    \def\ffsetF##1##2{\ffsetFa#1\relax}\def\ffsetW##1##2{}%
+    \ffsetX#2\global\let\tmp=#1}\let#1=\tmp
+}
+\ifx\regtfm\undefined %%%%% \regtfm, \whichtfm from ams-math.tex:
+
+\def\regtfm #1 0 #2 *{\expandafter
+  \def\csname#1:reg\endcsname{#2 16380 \relax}%
+  \def\tmpa{#1}\reversetfm #2 * %
+}
+\def\reversetfm #1 #2 {\expandafter
+   \let\csname#1:reg\expandafter\endcsname
+   \csname\tmpa:reg\endcsname
+   \if*#2\else \expandafter\reversetfm \fi
+}
+\def\whichtfm #1{\ifx\dgsize\undefined #1\else
+   \expandafter \ifx\csname#1:reg\endcsname\relax
+      #1%
+   \else
+      \expandafter\expandafter\expandafter \dowhichtfm
+      \csname #1:reg\expandafter\endcsname
+   \fi \fi
+}
+\def\dowhichtfm #1 #2 {%
+   \ifdim\dgsize<#2pt #1\expandafter\ignoretfm\else \expandafter\dowhichtfm
+\fi
+}
+\def\ignoretfm #1\relax{}
+
+\fi % of \ifx\regtfm %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\ffalias#1#2{\expandafter
+   \def\csname#1:reg\endcsname{\whichtfm{#2} 16380 \relax}%
+}
+\def\ffoptV{}
+\def\regsizes#1#2{\bgroup \aftergroup\regsizesC #1\relax 
+   \let\regtfm=\relax \gdef\tmp{}%
+   \ifx\ffnameotfB\undefined \def\ffnameotf##1{##1}\else \let\ffnameotf=\relax \fi
+   \edef\ffvarV{\ffvarY{0}}\ffsetR{0}\if!\ffvarV\else \regsizesA{#2}\fi
+   \edef\ffvarV{\ffvarY{1}}\ffsetR{1}\if!\ffvarV\else \regsizesA{#2}\fi
+   \edef\ffvarV{\ffvarY{2}}\ffsetR{2}\if!\ffvarV\else \regsizesA{#2}\fi
+   \edef\ffvarV{\ffvarY{3}}\ffsetR{3}\if!\ffvarV\else \regsizesA{#2}\fi
+   \egroup
+}
+\def\regsizesA#1{\def\ffoptV{}\xdef\tmp{\tmp\regtfm \ffnamegen}%
+   \regsizesB#1 * =
+}
+\def\regsizesB#1 =#2 {\if*#1\xdef\tmp{\tmp\space*}%
+   \else \def\ffoptV{#2}\xdef\tmp{\tmp\space #1 \ffnameotf{\ffnamegen}}%
+      \expandafter\regsizesB\fi
+}
+\def\regsizesC{\let\ffnameotf=\ffnameotfA \tmp\xdef\tmp{}\let\ffnameotf=\ffnameotfB}
+
+\def\useff#1{} % do nothing with non U encoding
+
+\ismacro\fotenc{U}\iftrue\else \ismacro\fotenc{sU}\iftrue\else \endinput \fi\fi %%%%%%
+
+\ifx\directlua\undefined \else \ifx\luafonts\undefined \input luafonts
+\fi\fi  % lua code to re-define \font primitive
+
+\ifx\fontfeatures\undefined 
+   \def\fontfeatures{mapping=tex-text;script=latn;+tlig} % default
+\fi
+
+\def\useff#1{\ffsetU{#1}\ffsetX}
+\tryprotected\def\ffsetU#1{\edef\fontfeatures{\fontfeatures;#1}}
+
+\def\ffnameotfA#1{ff:no}
+\def\ffnameotfB#1{"#1:\fontfeatures"}
+\def\resizeall{\ffsetX\fam \resizefont\tentt}
+
+\endinput

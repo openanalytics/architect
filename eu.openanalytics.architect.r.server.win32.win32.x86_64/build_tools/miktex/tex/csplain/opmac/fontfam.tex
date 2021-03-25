@@ -1,0 +1,139 @@
+%% fontfam.tex
+%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak, 2016
+
+% This is module for OPmac macros, see http://petr.olsak.net/opmac.html 
+% The file is read automatically when \fontfam macro is used.
+% The command:
+%    \fontfam [Font Family Name]
+% loads the approriate fontfile or lists the available 
+% Font Family Names if unknown. Example:
+%    \fontfam [Times]  or \fontfam [Times Roman] ... does \input ctimes
+
+% See end of this file this for more details.
+
+\ifx\OPmacversion\udefined \input opmac \fi
+
+\def\fontfamL{}
+\def\setfontfam [#1]{\def\fsname{}\setfsname #1 {} \setfontfamB{#1}}
+\def\setfsname #1 {\ifx\relax#1\relax 
+   \lowercase\expandafter{\expandafter\def\expandafter\fsname\expandafter{\fsname}}% 
+   \else \addto\fsname{#1}\expandafter\setfsname\fi
+}
+\def\setfontfamB#1#2#3#4#5#6(#7)#8{\sdef{fs:\fsname}{\fontfamexec{#1}{#2}{#3}{#4}{#5}{#7}{#8}}%
+   \expandafter\addto\expandafter\fontfamL\csname fs:\fsname\endcsname
+}
+\def\fontfam[#1]{\def\fontfamname{#1}%
+   \ifx\fotenc\undefined
+      \ifx\chyph\undefined \def\fotenc{8t}\else \def\fotenc{8z}\fi
+      \ifx\font\corkencoded \def\fotenc{8t}\fi
+      \ifx\font\unicoded   \def\fotenc{U}\fi
+      \def\tmp##1##2\relax{\def\tmp{##2}}\tmp ^^^^abcd\relax
+      \ifx\tmp\empty \def\fotenc{U}\fi
+   \fi
+   \let\fontfamexec=\fontfamexecA 
+   \def\fsname{}\setfsname #1 {} 
+   \expandafter \ifx \csname fs:\fsname\endcsname \relax
+      \immediate\write16{\string\fontfam: unknown font family [#1] (\fotenc). Choose:}
+      {\let\fontfamexec=\fontfamexecB \fontfamL}%
+   \else \csname fs:\fsname\expandafter\expandafter\expandafter\endcsname
+   \fi
+}
+\def\fontfamexecA#1#2#3#4#5#6#7{\testfotenc{#6}\iftrue#7 \else
+   \opwarning{[#1] (#6) family unavailable in \fotenc\space enc}\fi
+}
+\def\fontfamexecB#1#2#3#4#5#6#7{\testfotenc{#6}%
+   \iftrue
+      {\toks2={#2}\toks3={#3}\toks4={#4}%
+       \immediate\write16{ [#1] \space {\the\toks2} {\the\toks3}%
+           \ifx\relax#4\relax \else \space\the\toks4 \fi
+           \ifx\relax#5\relax \else \space +#5\fi \space(#6)}}%
+   \else
+       \immediate\write16{ -- [#1] (#6) -- unavailable in \fotenc\space enc.}%
+   \fi
+}
+\def\testfotenc#1{\def\tmpa{ #1 }\edef\tmpb{\space\fotenc\space}%
+   \ifx\relax#1\relax \def\tmpa{x}\def\tmpb{x}\fi
+   \expandafter\isinlist\expandafter\tmpa\expandafter{\tmpb}%
+}
+
+\def\famalias#1#2{\slet{fs:#1}{fs:#2}}
+\def\fontfamnote#1{\addto\fontfamL{\fontfamnoteA{#1}}}
+\def\fontfamnoteA#1{\immediate\write16{=== #1 ===}}
+
+\input fontfam-global
+
+\openin10=fontfam-local
+\ifeof10 \else \closein10 \input fontfam-local \fi
+
+\setfontfam [Catalog] {} {} {print catalogue} {} () {\input fontfam-catalog}
+\famalias{catalogue}{catalog}
+
+\endinput
+
+------------------------------------------------------------
+
+After
+
+  \input opmac
+
+you can use 
+
+  \fontfam [Font Family Name].
+
+The [Font Family Names] are declared in fontfam-global.tex file and a user
+can set his/her own data to fontfam-local.tex file with analogical syntax.
+
+The parameter [Font Family Name] is case insensitive and the spaces are
+irrelevat in it. So [Times Roman] is the same as [TimesRoman] or [timesroman].
+
+If a required [Font Family Name] is not known, then all available Font Family
+Names are printed on terminal and into log file. Typical usage: \fontfam [?].
+
+If a required [Font Family Name] is known then appropriate \input fontfile
+is done. Nothing more. This means that \fontfam gives you only possibility to
+keep a good overview about fontfiles.
+
+You can use special parameter \fontfam [Catalog]. Then all available font
+families are printed to the document with font samples. The pre-defined font
+sample can be rewritten by \def\fontfamsample{...}. 
+
+If you want to print only selected families in the catalog, give these
+families in comma separated list in the macro \catalogfams before
+\fontfam[Catalog] is executed. Example:
+
+\def\catalogfams{Times Roman, Helvetica, KP fonts} \fontfam[Catalog]
+
+Each fontfile supports a limited set of encodings of the fonts. This is
+listed in round brackets: 8t means T1 encoding, 8z means IL2 encoding and 
+U means Unicode. The default encoding is 8t in pdftex, 8z in pdfcsplain.
+XeTeX or LuaTeX uses U as default. The csplain provides one change of default 
+encoding at begining of the document using \input t1code or \input ucode.
+
+If a fontfile (required by [Font Family name]) does not provide chosen encoding 
+then warning occurs and nothig is done. The list of [Font Family Names]
+printed by \fontfam [?] or \fontfam [Catalog] includes only those Names
+which provides the encoding currently chosen.
+
+The fontfam-global.tex or fontfam-local.tex files uses \setfontfam with
+following format:
+
+\setfontfam [Name] {modifiers} {variants} {comment} {math} (encodings) {\input fontfile}
+
+Note, that \setfontfam changed its syntax in Jun. 2016. New version use
+first {modifiers} then {variants}.
+
+The \famalias macro can be used:
+
+\famalias{aliasname}{origname}
+
+The aliasname and origname must be lowecase and without spaces. See
+fontfam-global.tex for examples.
+
+\fontfamnote{text} prints text to the listing of font families.
+
+Note that the macro file fontfam.tex and the data fontfam-global.tex and
+fontfam-local.tex are read on demand only when \fontfam macro is used in
+OPmac. It is not loaded by OPmac directly because user may not need to use
+\fontfam, so the data are irrelevant in such case. And you can generate
+a TeX format with opmac macros.  

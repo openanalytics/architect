@@ -1,0 +1,413 @@
+% This is csaccent.mf in text format, as of 89/05/08
+% written by P. Novak, Prague
+% Czech and Slovak letters with accents
+% Changed paths for acute and hachek accent added 26/04/92, 11/08/92
+% Accent definitions   %% lc_circle_accent modified
+                       %% uc_Circle_accent added for Duerer font
+% Czech accented letters
+if unknown acute_sharp: boolean acute_sharp; acute_sharp:=false; fi
+if unknown hach_sharp: boolean hach_sharp; hach_sharp:=false; fi
+
+def init_accents =
+numeric uc_acc_height, uc_acc_height#,
+        lc_acute_height, lc_acute_height#,
+        lc_hachek_height, lc_hachek_height#,
+        lc_circle_height, lc_circle_height#,
+        lc_trema_height, lc_trema_height#,
+        accent_u, accent_u#,
+        accent_thin,
+        uc_acc_shift, asc_acc_shift;
+if unknown circ_weight: circ_weight:=1; fi
+
+uc_acc_height# = cap_height# + 0.35x_height#; % changed 12.xii.93
+                                             % changed 10.ix.96 by P.O.
+lc_acute_height# = asc_height#;
+lc_hachek_height# = lc_acute_height#;
+lc_circle_height# = lc_acute_height#;
+lc_trema_height# = min(cap_height#,9/7x_height#+
+      .5max(dot_size#,cap_curve#));
+accent_u# = u#;   % unexpanded dimension unit
+
+accent_thin = if thin_join > crisp: thin_join else: crisp+eps fi;
+
+define_whole_vertical_pixels(uc_acc_height,lc_acute_height,
+    lc_hachek_height,lc_circle_height,lc_trema_height);
+define_pixels(accent_u);
+
+uc_acc_shift = cap_height - x_height;
+asc_acc_shift = asc_height - x_height;
+enddef;
+
+init_accents;
+
+
+def lc_acute_accent(expr ref) =
+    if serifs : pickup crisp.nib;
+      1/2[x51,x52]=good.x ref;
+      x51 + .5 stem = x52+3accent_u;
+      y51 + .5 stem = lc_acute_height+eps;
+    if acute_sharp: top y52' = top y51; y52=.25[x_height,y52']; 
+    else:
+      y52 = max(2/3[lc_acute_height,x_height],x_height+o+hair); 
+    fi
+      numeric cstheta;
+      cstheta = angle(z52-z51) + 90;
+    if acute_sharp: pos51(1.5stem,0); pos52(accent_thin,0);     %% 1->.5
+      filldraw stroke z51e -- z52e; 
+    else:    
+      pos51(stem,cstheta);
+      pos52(accent_thin,cstheta);
+      filldraw circ_stroke z51e -- z52e; 
+    fi
+    else: pickup fine.nib;
+      pos51(stem,0);
+      pos52(vair,0);
+      0.7[x51,x52] = good.x ref;
+      rt x51r = x52 + 3accent_u;
+      top y51 = lc_acute_height;
+      bot y52 = vround (2/3 [lc_acute_height,x_height]);
+      filldraw stroke z51e -- z52e;
+    fi
+    corrital z51;
+    penlabels(51,52);
+enddef;
+
+def lc_grave_accent(expr ref) =
+    if serifs : pickup crisp.nib;
+      1/2[x51,x52]=good.x ref;
+      x51 - .5 stem = x52-3accent_u;
+      y51 + .5 stem = lc_acute_height+eps;
+    if acute_sharp: top y52' = top y51; y52=.25[x_height,y52']; 
+    else:
+      y52 = max(2/3[lc_acute_height,x_height],x_height+o+hair);
+    fi
+      numeric cstheta;
+      cstheta = angle(z52-z51) + 90;
+    if acute_sharp: pos51(1.5stem,0); pos52(accent_thin,0);     %% 1->.5
+      filldraw stroke z51e -- z52e; 
+    else:    
+      pos51(stem,cstheta);
+      pos52(accent_thin,cstheta);
+      filldraw circ_stroke z51e -- z52e;
+    fi
+    else: pickup fine.nib;
+      pos51(stem,0);
+      pos52(vair,0);
+      1/2[x51,x52] = good.x ref;
+      lft x51l = x52 - 3accent_u;
+      top y51 = lc_acute_height;
+      bot y52 = vround (2/3 [lc_acute_height,x_height]);
+      filldraw stroke z51e -- z52e;
+    fi
+    penlabels(51,52);
+enddef;
+
+def lc_hachek_accent(expr ref) =
+   if serifs:
+       pickup crisp.nib;
+       pos52'(0.75[vair,curve],90);
+       pos52(0.75[vair,curve],90);
+       x52=good.x ref; 
+       x52-x51=x53-x52=good.x if hach_sharp:2.5 else:3 fi 
+                              accent_u-accent_thin;
+       top y52' = top y51 = top y53 = 0.9[x_height,lc_hachek_height];
+     if hach_sharp: y52=.25[x_height,y52']; % lower point
+       pos51(1.5stem,0); pos53(accent_thin,180); else:
+       0.5[y52,y52r] = 0.5[x_height,y52']; 
+       pos51(accent_thin,angle(z52-z51)+90);
+       pos53(accent_thin,angle(z53-z52)+90); 
+     fi
+       filldraw stroke z51e -- z52e -- z53e;
+     else:
+       pickup fine.nib;
+       pos51(vair,0);
+       pos53(vair,0);
+       x52=good.x ref;
+       x52-lft x51=rt x53-x52= 1.75accent_u +.5vair; % lft, rt added
+       pos52(stem,0);
+       bot y52=vround(0.3[x_height,lc_hachek_height]);
+       top y51 = top y53 = lc_hachek_height;
+       z50 = whatever[z51r,z52r] = whatever[z52l,z53l];
+       y54l=y54r=y52;
+       x54l=good.x .2[x52l,x52];
+       x54r-x52 = x52-x54l;
+       filldraw z54l -- z51l-- z51r -- z50 -- z53l -- z53r -- z54r -- cycle;
+     fi
+     corrital z53;
+     penlabels(50,51,52,52',53,54);
+enddef;
+
+
+def lc_circumflex(expr ref) =
+if serifs: 
+% pickup crisp.nib; pos52(stem,90); top y52r=lc_hachek_height; 
+%% Corrected by P.O. 06.97
+ pickup crisp.nib; pos52(stem,90); top y52r=0.95lc_hachek_height;
+ x52=ref;
+ x52-x51=x53-x52=good.x 2.75accent_u;
+% y51=y53=.5[x_height,y52];  %% Corrected by P.O. 06.97
+ y51=y53=.4[x_height,y52];
+ pos51(accent_thin,angle(z52-z51)+90); pos53(accent_thin,angle(z53-z52)+90);
+ filldraw stroke z51e--z52e--z53e;  % diagonals
+else: 
+ pickup fine.nib; pos51(vair,0); pos53(vair,0); 
+ x52=ref;
+ x52-lft x51=rt x53-x52= 1.75accent_u + .5vair; % 2.75->1.75, lft, rt added
+ pos52(stem,0); top y52=lc_acute_height;
+ bot y51=bot y53=vround (2/3[lc_acute_height,x_height])-eps;
+ z50=whatever[z51r,z52r]=whatever[z52l,z53l];
+ y54l=y54r=y52; x54l=good.x .2[x52l,x52]; x54r-x52=x52-x54l;
+ filldraw z54l--z51l--z51r--z50--z53l--z53r--z54r--cycle; fi  % diagonals
+penlabels(50,51,52,53,54);
+enddef;
+
+def lc_trema_accent(expr ref_l,ref_r) = 
+      numeric dot_diam;
+      dot_diam=max(tiny.breadth,hround(max(dot_size,cap_curve)-2stem_corr));
+      pickup tiny.nib; pos51(dot_diam,0); pos52(dot_diam,90);
+      x51=x52=good.x ref_l; top y52r= lc_trema_height+1;
+      y51=.5[y52l,y52r];
+      dot(51,52);  % left dot
+      pos53(dot_diam,0); penpos54(y52r-y52l,90); y53=y54=y51;
+      x53=x54=good.x ref_r;
+      dot(53,54);  % right dot
+      corrital z53;
+      penlabels(51,52,53,54);
+enddef;
+
+def lc_circle_accent(expr ref) =
+ x60 = ref;
+ numeric cs_circle_thickness,font_quotion;
+ font_quotion=155/90(asc_height-x_height)/x_height;     %% added
+ cs_circle_thickness = circ_weight*min(slab,0.9u);
+ x54r-x52r = hround(max(5accent_u-1.2stem,accent_u+2cs_circle_thickness));
+ pickup crisp.nib;
+ penpos51(cs_circle_thickness,90); penpos55(cs_circle_thickness,90+45);
+ penpos52(cs_circle_thickness,180); penpos56(cs_circle_thickness,180+45);
+ penpos53(cs_circle_thickness,-90); penpos57(cs_circle_thickness,-90+45);
+ penpos54(cs_circle_thickness,0); penpos58(cs_circle_thickness,0+45);
+
+ 0.5[x52,x54] = x51 = x53 = x60; y51r=lc_circle_height;
+ y52-y53 = (x54-x60); 
+% y52-y53 = x54-x60; % precise circle (not ellipse)
+ y52=y54=.5[y51,y53];
+
+ x55 = x56 = superness[x51,x52]; x57 = x58 = superness[x53,x54];
+ y55 = y58 = superness[y52,y51]; y56 = y57 = superness[y52,y53];
+
+ fill z51r{right} ... z58r{z54r-z51r} ... z54r{down} ... z57r{z53r-z54r}
+  ... z53r{left} ... z56r{z52r-z53r} ... z52r{up} ... z55r{z51r-z52r}
+  ... cycle;
+ unfill z51l{right} ... z58l{z54l-z51l} ... z54l{down} ... z57l{z53l-z54l}
+  ... z53l{left} ... z56l{z52l-z53l} ... z52l{up} ... z55l{z51l-z52l}
+  ... cycle;
+                                                     % bowl
+ corrital z54;
+ penlabels(51,52,53,54,55,56,57,58);
+enddef;
+
+def dtl_hachek(text x_ref,y_ref) =
+pickup fine.nib;
+numeric dot_diam#; dot_diam#=max(dot_size#,cap_curve#);
+  define_whole_blacker_pixels(dot_diam);
+  pickup fine.nib;
+  x51=hround(x_ref); y51=vround(y_ref);
+  comma(51,q,dot_diam,.25accent_u,2/3comma_depth);
+  corrital z51;
+  penlabels(51);
+enddef;
+
+def uc_acute_accent(expr ref) =
+    if serifs : pickup crisp.nib;
+      1/2[x51,x52]=good.x ref;
+      x51 + .5 stem = x52+4accent_u;
+      y51 + .5 stem =0.67[x_height,lc_acute_height] %lc_acute_height
+                    +eps+uc_acc_shift; %% changed 1->.8->.65->.67
+     if acute_sharp: top y52' = top y51; y52=.1[x_height,y52']+uc_acc_shift; 
+%      else: y52+ =max(.8[lc_acute_height,x_height],x_height+o+hair)
+     else: y52+.5 stem =max(.8[lc_acute_height,x_height],x_height+o+hair)  
+                                        +uc_acc_shift; fi %2/3->3/4
+      numeric cstheta;
+      cstheta = angle(z52-z51) + 90;
+     if acute_sharp:  pos51(1.5stem,0); pos52(.5accent_thin,0);
+      filldraw stroke z51e -- z52e; else:
+      pos51(stem/max(1,3/4stem_corr),cstheta);
+      pos52(accent_thin,cstheta);
+      filldraw circ_stroke z51e -- z52e; fi
+    else: pickup fine.nib;
+      pos51(stem,0);
+      pos52(vair,0);
+      0.7[x51,x52] = good.x ref;
+      rt x51r = x52 + 3accent_u;
+      top y51 = lc_acute_height+uc_acc_shift;
+      bot y52 = vround 2/3[lc_acute_height,x_height]+uc_acc_shift;
+      filldraw stroke z51e -- z52e;
+    fi
+    corrital z51;
+    penlabels(51,52);
+enddef;
+
+def uc_grave_accent(expr ref) =
+    if serifs : pickup crisp.nib;
+      1/2[x51,x52]=good.x ref;
+      x51 - .5 stem = x52-3accent_u;
+      y51 + .5 stem = 0.67[x_height,lc_acute_height] %lc_acute_height
+                        +eps+uc_acc_shift; 
+     if acute_sharp: top y52' = top y51; y52=.1[x_height,y52']+uc_acc_shift; 
+     else: y52 = max(.8[lc_acute_height,x_height],x_height+o+hair)
+                                        +uc_acc_shift; fi % 2/3->3/4
+      numeric cstheta;
+      cstheta = angle(z52-z51) -150;
+     if acute_sharp:  pos51(1.5stem,0); pos52(.5accent_thin,0);
+      filldraw stroke z51e -- z52e;
+     else: pickup fine.nib;
+%      pos51(stem/max(1,stem_corr),cstheta); %% Corrected by P.O, 6.97
+      pos51(stem,cstheta);
+      pos52(accent_thin,cstheta);
+      filldraw circ_stroke z51e -- z52e; fi
+    else: pickup fine.nib;
+      pos51(stem,0);
+      pos52(vair,0);
+      .7[x51,x52] = good.x ref;
+      lft x51l = x52 - 3accent_u;
+      top y51 = lc_acute_height+uc_acc_shift;
+      bot y52 = vround (.7 [lc_acute_height,x_height])+uc_acc_shift;
+      filldraw stroke z51e -- z52e;
+    fi
+    penlabels(51,52);
+enddef;
+
+def uc_hachek_accent(expr ref) =
+   if serifs:
+       pickup crisp.nib;
+       pos52'(0.75[vair,curve],90);
+       pos52(0.75[vair,curve],90);
+       x52=good.x ref; 
+       x52-x51=x53-x52=good.x 3accent_u-accent_thin;
+       top y52' = top y51 = top y53 =
+            0.57[x_height,lc_hachek_height]+uc_acc_shift;
+            %% changed .55->.57;
+     if hach_sharp: y52=.1[x_height,y52']+uc_acc_shift;
+       pos51(1.5stem,0); pos53(2accent_thin,180); 
+     else:
+       0.5[y52,y52r] = 0.5[x_height,y52'-uc_acc_shift]+uc_acc_shift;
+       pos51(accent_thin,angle(z52-z51)+90);
+       pos53(accent_thin,angle(z53-z52)+90);
+     fi
+       filldraw stroke z51e -- z52e -- z53e;
+     else:
+       pickup fine.nib;
+       pos51(vair,0);
+       pos53(vair,0);
+       x52=good.x ref;
+       x52-x51=x53-x52= 1.75accent_u + .5vair;
+       pos52(stem,0);
+       bot y52=vround(0.2[x_height,lc_hachek_height])+uc_acc_shift;
+            %% .3 -> .25    24.10.92
+       top y51 = top y53 = 0.75[x_height,lc_hachek_height]+uc_acc_shift;
+       z50 = whatever[z51r,z52r] = whatever[z52l,z53l];
+       y54l=y54r=y52;
+       x54l=good.x .2[x52l,x52];
+       x54r-x52 = x52-x54l;
+       filldraw z54l -- z51l-- z51r -- z50 -- z53l -- z53r -- z54r -- cycle;
+     fi
+     corrital z53;
+     penlabels(50,51,52,52',53,54);
+enddef;
+
+def uc_circumflex(expr ref) =
+if serifs: 
+ pickup crisp.nib; pos52(stem,90); 
+ top y52=0.57[x_height,lc_acute_height]+uc_acc_shift;
+                    %lc_acute_height + uc_acc_shift;
+ x52=good.x ref;
+ x52-x51=x53-x52=good.x 3accent_u;
+ y51=y53=.5[x_height,y52-uc_acc_shift]+uc_acc_shift;
+ pos51(accent_thin,angle(z52-z51)+90); pos53(accent_thin,angle(z53-z52)+90);
+ filldraw stroke z51e--z52e--z53e;  % diagonals
+else: 
+ pickup fine.nib; pos51(vair,0); pos53(vair,0); 
+ x52=ref;
+ x52-x51=x53-x52= 1.75accent_u + .5vair;
+ pos52(stem,0); top y52=lc_acute_height+uc_acc_shift;
+ bot y51=bot y53=vround (2/3[lc_acute_height,x_height]) + uc_acc_shift-eps;
+ z50=whatever[z51r,z52r]=whatever[z52l,z53l];
+ y54l=y54r=y52; x54l=good.x .2[x52l,x52]; x54r-x52=x52-x54l;
+ filldraw z54l--z51l--z51r--z50--z53l--z53r--z54r--cycle; fi  % diagonals
+penlabels(50,51,52,53,54);
+enddef;
+
+def uc_trema_accent(expr ref_l,ref_r) = 
+      numeric dot_diam;
+      dot_diam=max(tiny.breadth,hround(max(dot_size,cap_curve)-2stem_corr));
+      pickup tiny.nib; pos51(dot_diam,0); pos52(dot_diam,90);
+      x51=x52=good.x ref_l; top y52r= lc_trema_height+1+uc_acc_shift;
+      y51=.5[y52l,y52r];
+      dot(51,52);  % left dot
+      pos53(dot_diam,0); penpos54(y52r-y52l,90); y53=y54=y51;
+      x53=x54=good.x ref_r;
+      dot(53,54);  % right dot
+      corrital z54;
+      penlabels(51,52,53,54);
+enddef;
+
+def uc_circle_accent(expr ref) =
+ x60 = ref;
+ numeric cs_circle_thickness,font_quotion;
+ font_quotion=155/90(asc_height-x_height)/x_height;
+ cs_circle_thickness = min(slab,0.9u);
+ x54r-x52r = hround(max(5accent_u-1.2stem,accent_u+2cs_circle_thickness));
+ pickup crisp.nib;
+ penpos51(cs_circle_thickness,90); penpos55(cs_circle_thickness,90+45);
+ penpos52(cs_circle_thickness,180); penpos56(cs_circle_thickness,180+45);
+ penpos53(cs_circle_thickness,-90); penpos57(cs_circle_thickness,-90+45);
+ penpos54(cs_circle_thickness,0); penpos58(cs_circle_thickness,0+45);
+
+ 0.5[x52,x54] = x51 = x53 = x60; 
+ y51=0.55[x_height,lc_circle_height]+uc_acc_shift;
+                %lc_circle_height+uc_acc_shift;
+ y52-y53 = (x54-x60); 
+ y52=y54=.5[y51,y53];
+
+ x55 = x56 = superness[x51,x52]; x57 = x58 = superness[x53,x54];
+ y55 = y58 = superness[y52,y51]; y56 = y57 = superness[y52,y53];
+
+ fill z51r{right} ... z58r{z54r-z51r} ... z54r{down} ... z57r{z53r-z54r}
+   ... z53r{left} ... z56r{z52r-z53r} ... z52r{up} ... z55r{z51r-z52r}
+   ... cycle;
+ unfill z51l{right} ... z58l{z54l-z51l} ... z54l{down} ... z57l{z53l-z54l}
+  ... z53l{left} ... z56l{z52l-z53l} ... z52l{up} ... z55l{z51l-z52l}
+  ... cycle;
+                                                     % bowl
+ penlabels(51,52,53,54,55,56,57,58);
+enddef;
+
+def uc_Circle_accent(expr ref) =
+ x60 = ref;
+ numeric cs_circle_thickness,font_quotion;
+ font_quotion=155/90(asc_height-x_height)/x_height;
+ cs_circle_thickness = thin;  %min(slab,0.9u);
+ x54r-x52r = hround(max(5accent_u-1.2stem,accent_u+2cs_circle_thickness));
+ pickup crisp.nib;
+ penpos51(cs_circle_thickness,90); penpos55(cs_circle_thickness,90+45);
+ penpos52(cs_circle_thickness,180); penpos56(cs_circle_thickness,180+45);
+ penpos53(cs_circle_thickness,-90); penpos57(cs_circle_thickness,-90+45);
+ penpos54(cs_circle_thickness,0); penpos58(cs_circle_thickness,0+45);
+
+ 0.5[x52,x54] = x51 = x53 = x60; y51r=lc_circle_height+uc_acc_shift;
+ y52-y53 = (x54-x60); 
+ y52=y54=.5[y51,y53];
+
+ x55 = x56 = superness[x51,x52]; x57 = x58 = superness[x53,x54];
+ y55 = y58 = superness[y52,y51]; y56 = y57 = superness[y52,y53];
+
+ fill z51r{right} ... z58r{z54r-z51r} ... z54r{down} ... z57r{z53r-z54r}
+   ... z53r{left} ... z56r{z52r-z53r} ... z52r{up} ... z55r{z51r-z52r}
+   ... cycle;
+ unfill z51l{right} ... z58l{z54l-z51l} ... z54l{down} ... z57l{z53l-z54l}
+  ... z53l{left} ... z56l{z52l-z53l} ... z52l{up} ... z55l{z51l-z52l}
+  ... cycle;
+                                                     % bowl
+ penlabels(51,52,53,54,55,56,57,58);
+enddef;
+

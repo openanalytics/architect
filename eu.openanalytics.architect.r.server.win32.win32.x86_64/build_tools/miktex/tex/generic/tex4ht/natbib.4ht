@@ -1,0 +1,178 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% natbib.4ht                            2019-07-26-13:49 %
+% Copyright (C) 1999-2009       Eitan M. Gurari         %
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+
+\HRestore\@lbibitem
+\HRestore\@bibitem
+\ifNAT@super
+   \def\citet{\@ifstar{\NAT@longnamestrue\ht@citet}%
+          {\NAT@longnamesfalse\ht@citet}}
+
+   \def\setb:anc#1{\let\sv:anc\AnchorLabel
+   \def\bib:anc{\Link{}{bibitem\the
+      \c@NAT@ctr}\EndLink \gdef\bib:anc{}}%
+   \def\AnchorLabel{\bib:anc}}
+\def\nb:link#1{\Protect\Link{bibitem#1}{}#1\Protect\EndLink}
+\def\nb@link#1{\Protect\Link{bibitem#1}{}#1\Protect\EndLink}
+\let\nat:lbibitem\@lbibitem
+\def\@lbibitem{%
+  \ifx\hyper@natanchorstart\@gobble
+     \def\hyper@natanchorstart##1{\Link{}{bibitem\the
+      \c@NAT@ctr}\EndLink}\fi
+  \nat:lbibitem
+}
+\catcode`\:12
+  \def\ht@citet#1{\def\NAT@num{-1}\let\NAT@last@yr\relax\let\NAT@nm\@empty
+     \let\@citea\@empty
+     \@for\@citeb:=#1\do{%
+      \@ifundefined{b@\@citeb\@extra@b@citeb}%
+       {{\reset@font\bfseries?}\NAT@citeundefined\PackageWarning{natbib}%
+         {Citation `\@citeb' on page \thepage \space undefined}%
+       }%
+       {\@citea\let\NAT@last@num\NAT@num\let\NAT@last@nm\NAT@nm
+        \NAT@parse{\@citeb}%
+        \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
+          \let\NAT@name=\NAT@all@names
+          \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
+        \fi
+        \ifNAT@full\let\NAT@nm\NAT@all@names\else
+         \let\NAT@nm\NAT@name
+        \fi
+        \NAT@nm}\Tg<sup>\nb@link{\NAT@num}\Tg</sup>
+        \def\@citea{\unskip\NAT@sep\penalty\@m\space}%
+       }%
+}
+\def\NAT@citexnum[#1][#2]#3{%
+ \NAT@sort@cites{#3}%
+ \let\@citea\@empty
+  \@cite{\def\NAT@num{-1}\let\NAT@last@yr\relax\let\NAT@nm\@empty
+    \@for\@citeb:=\NAT@cite@list\do
+    {\edef\@citeb{\expandafter\@firstofone\@citeb}%
+     \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
+     \@ifundefined{b@\@citeb\@extra@b@citeb}{%
+       {\reset@font\bfseries?}
+        \NAT@citeundefined\PackageWarning{natbib}%
+       {Citation `\@citeb' on page \thepage \space undefined}}%
+     {\let\NAT@last@num\NAT@num\let\NAT@last@nm\NAT@nm
+      \NAT@parse{\@citeb}%
+      \ifNAT@longnames\@ifundefined{bv@\@citeb\@extra@b@citeb}{%
+        \let\NAT@name=\NAT@all@names
+        \global\@namedef{bv@\@citeb\@extra@b@citeb}{}}{}%
+      \fi
+      \ifNAT@full\let\NAT@nm\NAT@all@names\else
+        \let\NAT@nm\NAT@name\fi
+      \ifNAT@swa
+       \ifnum\NAT@ctype=2\relax\@citea
+        \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+            \NAT@test{2}\hyper@natlinkend\else
+       \ifnum\NAT@sort>1
+         \begingroup\catcode`\_8
+            \ifcat _\ifnum\z@<0\NAT@num _\else A\fi
+              \global\let\NAT@nm=\NAT@num \else \gdef\NAT@nm{-2}\fi
+            \ifcat _\ifnum\z@<0\NAT@last@num _\else A\fi
+              \global\@tempcnta\NAT@last@num
+              \global\advance\@tempcnta \@ne
+            \else \global\@tempcnta\m@ne\fi
+         \endgroup
+         \ifnum\NAT@nm=\@tempcnta
+           \ifx\NAT@last@yr\relax
+             \edef\NAT@last@yr{\@citea
+                \csname o:mbox:\endcsname{\csname nb:link\endcsname
+\NAT@num}}%
+           \else
+             \edef\NAT@last@yr{--\penalty
+                \@m\csname o:mbox:\endcsname{\csname nb:link\endcsname
+\NAT@num}}%
+           \fi
+         \else
+           \NAT@last@yr \@citea \csname o:mbox:\endcsname{\csname nb:link\endcsname
+\NAT@num}%
+           \let\NAT@last@yr\relax
+         \fi
+       \else
+         \@citea \csname o:mbox:\endcsname
+               {\ifx\hyper@natanchorstart\@gobble
+                    \Link{bibitem\NAT@num}{}\NAT@num
+                    \EndLink
+                \else
+                    \hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@num
+                    \hyper@natlinkend
+                \fi
+               }%
+       \fi
+       \fi
+       \def\@citea{\NAT@sep\penalty\@m\NAT@space}%
+      \else
+        \ifcase\NAT@ctype\relax
+          \ifx\NAT@last@nm\NAT@nm \NAT@yrsep\penalty\@m\NAT@space\else
+          \@citea \NAT@test{1}\ \NAT@@open
+          \if\relax#1\relax\else#1\ \fi\fi \NAT@mbox{%
+          \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+          \NAT@num\hyper@natlinkend}%
+          \def\@citea{\NAT@@close\NAT@sep\penalty\@m\ }%
+        \or\@citea
+          \hyper@natlinkstart{\@citeb\@extra@b@citeb}%
+           \NAT@test{1}\hyper@natlinkend
+          \def\@citea{\NAT@sep\penalty\@m\ }%
+        \or\@citea
+          \hyper@natlinkstart{\@citeb\@extra@b@citeb}\NAT@test{2}%
+           \hyper@natlinkend
+          \def\@citea{\NAT@sep\penalty\@m\ }%
+        \fi
+      \fi
+      }}%
+      \ifnum\NAT@sort>1\NAT@last@yr\fi
+      \ifNAT@swa\else\ifnum\NAT@ctype=0\if\relax#2\relax\else
+      \NAT@cmt\ #2\fi \NAT@@close\fi\fi}{#1}{#2}}
+ \let\@citex\NAT@citexnum
+\catcode`\:11
+
+\else
+  \def\hyper@natlinkstart#1{%
+    \let\rel:hyper\def  \hyper@linkstart{cite}{X#1}%
+    \def\hyper@nat@current{#1}%
+  }
+  \def\hyper@natlinkbreak#1#2{%
+    \hyper@linkend#1\let\rel:hyper\def \hyper@linkstart{cite}{X#2}%
+  }
+  \def\hyper@natlinkend{\hyper@linkend}
+  \expandafter\ifx \csname hyper@linkstart\endcsname\relax
+   \def\hyper@linkstart#1#2{%
+     \a:cite%
+     \def\:temp{#1}%
+     \ifx\:temp\@urltype
+       \cIteLink[#2]{}{}%
+     \else
+       \ifx\rel:hyper\def\cIteLink{#2}{}\else\cIteLink[\##2]{}{}\fi
+     \fi  \global\let\rel:hyper=\:UnDef
+   }
+   \def\hyper@linkend{\EndcIteLink\b:cite}
+\fi
+\long\def\:temp#1{}\ifx \:temp\hyper@natanchorstart
+   \def\hyper@natanchorstart#1{\Link{}{X#1}\EndLink}
+\fi
+
+  \pend:defIII\NAT@cite{\let\mbox\o:mbox:}
+\pend:defIII\NAT@citenum{\let\mbox\o:mbox:}
+
+\fi
+\Hinput{natbib}
+\endinput
+

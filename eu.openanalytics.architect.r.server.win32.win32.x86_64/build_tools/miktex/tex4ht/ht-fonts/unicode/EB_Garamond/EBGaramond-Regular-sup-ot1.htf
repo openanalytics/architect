@@ -1,0 +1,176 @@
+EBGaramond-Regular-sup-ot1 0 170
+'&#x0393;' '' Gamma 0
+'&#x2206;' '' uni2206 1
+'&#x0398;' '' Theta 2
+'&#x039B;' '' Lambda 3
+'&#x039E;' '' Xi 4
+'&#x03A0;' '' Pi 5
+'&#x03A3;' '' Sigma 6
+'&#x03A5;' '' Upsilon 7
+'&#x03A6;' '' Phi 8
+'&#x03A8;' '' Psi 9
+'&#x2126;' '' uni2126 10
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x0131;' '' dotlessi 16
+'&#x0237;' '' uni0237 17
+'&#x60;' '' grave.sups 18
+'&#x00B4;' '' acute 19
+'&#x02C7;' '' caron 20
+'&#x02D8;' '' breve 21
+'&#x00AF;' '' macron 22
+'&#x02DA;' '' ring 23
+'&#x00B8;' '' cedilla 24
+'&#x00DF;' '' germandbls 25
+'&#x00E6;' '' ae 26
+'&#x0153;' '' oe 27
+'&#x00F8;' '' oslash 28
+'&#x00C6;' '' AE 29
+'&#x0152;' '' OE 30
+'&#x00D8;' '' Oslash 31
+' ' '' space 32
+'!' '' exclam.sups 33
+'&#x201D;' '' quotedblright 34
+'#' '' numbersign.sups 35
+'$' '' dollar.sups 36
+'%' '' percent.sups 37
+'&amp;' '' ampersand.sups 38
+'&#x2019;' '' quoteright 39
+'(' '' parenleft.sups 40
+')' '' parenright.sups 41
+'*' '' asterisk.sups 42
+'+' '' plus.sups 43
+',' '' comma.sups 44
+'-' '' hyphen.sups 45
+'.' '' period.sups 46
+'/' '' slash.sups 47
+'&#x2070;' '' uni2070 48
+'&#x00B9;' '' uni00B9 49
+'&#x00B2;' '' uni00B2 50
+'&#x00B3;' '' uni00B3 51
+'&#x2074;' '' uni2074 52
+'&#x2075;' '' uni2075 53
+'&#x2076;' '' uni2076 54
+'&#x2077;' '' uni2077 55
+'&#x2078;' '' uni2078 56
+'&#x2079;' '' uni2079 57
+':' '' colon.sups 58
+';' '' semicolon.sups 59
+'&#x00A1;' '' exclamdown 60
+'&#xa;' '' equal.sups 61
+'&#x00BF;' '' questiondown 62
+'&#xe;' '' question.sups 63
+'@' '' at.sups 64
+'A' '' A.sups 65
+'B' '' B.sups 66
+'C' '' C.sups 67
+'D' '' D.sups 68
+'E' '' E.sups 69
+'F' '' F.sups 70
+'G' '' G.sups 71
+'H' '' H.sups 72
+'I' '' I.sups 73
+'J' '' J.sups 74
+'K' '' K.sups 75
+'L' '' L.sups 76
+'M' '' M.sups 77
+'N' '' N.sups 78
+'O' '' O.sups 79
+'P' '' P.sups 80
+'Q' '' Q.sups 81
+'R' '' R.sups 82
+'S' '' S.sups 83
+'T' '' T.sups 84
+'U' '' U.sups 85
+'V' '' V.sups 86
+'W' '' W.sups 87
+'X' '' X.sups 88
+'Y' '' Y.sups 89
+'Z' '' Z.sups 90
+'[' '' bracketleft.sups 91
+'&#x201C;' '' quotedblleft 92
+']' '' bracketright.sups 93
+'&#x02C6;' '' circumflex 94
+'&#x02D9;' '' dotaccent 95
+'&#x2018;' '' quoteleft 96
+'a' '' a.sups 97
+'b' '' b.sups 98
+'c' '' c.sups 99
+'d' '' d.sups 100
+'e' '' e.sups 101
+'f' '' f.sups 102
+'g' '' g.sups 103
+'h' '' h.sups 104
+'i' '' i.sups 105
+'j' '' j.sups 106
+'k' '' k.sups 107
+'l' '' l.sups 108
+'m' '' m.sups 109
+'n' '' n.sups 110
+'o' '' o.sups 111
+'p' '' p.sups 112
+'q' '' q.sups 113
+'r' '' r.sups 114
+'s' '' s.sups 115
+'t' '' t.sups 116
+'u' '' u.sups 117
+'v' '' v.sups 118
+'w' '' w.sups 119
+'x' '' x.sups 120
+'y' '' y.sups 121
+'z' '' z.sups 122
+'&#x2013;' '' endash 123
+'&#x2014;' '' emdash 124
+'&#x02DD;' '' hungarumlaut 125
+'&#x02DC;' '' tilde 126
+'&#x00A8;' '' dieresis 127
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x0141;' '' Lslash 138
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x0142;' '' lslash 170
+EBGaramond-Regular-sup-ot1 0 170
+htfcss:  EBGaramond-Regular-sup-ot1  font-family: 'EB Garamond Regular', serif;
+
+

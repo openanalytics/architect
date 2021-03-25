@@ -1,0 +1,224 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% acm_proc_article-sp.4ht               2019-12-19-14:27 %
+% Copyright (C) 2001-2009       Eitan M. Gurari         %
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+   \catcode`\:=12
+\def\@citex#1[#2]#3{%
+    \let\@citea\@empty
+    \csname a:cite\endcsname
+    \@cite{%
+        \@for\@citeb:=#3\do{%
+            \@citea
+            \def\@citea{#1 }%
+            \edef\@citeb{\expandafter\@iden\@citeb}%
+            \if@filesw
+                \immediate\write\@auxout{\string\citation{\@citeb}}%
+            \fi
+            \@ifundefined{b@\@citeb}{%
+                {\bf ?}%
+                \@warning{%
+                    Citation `\@citeb' on page \thepage\space undefined%
+                }%
+            }%
+            {\cIteLink {X\@citeb}{}\csname b@\@citeb\endcsname\EndcIteLink}%
+        }%
+    }{#2}%
+    \csname b:cite\endcsname
+}
+\catcode`\:=11
+\def\qed:sym{\leavevmode\a:qed }
+\def\:temp{\qed:sym \global\@qededtrue }
+\HLet\qed\:temp
+\NewConfigure{qed}{1}
+\def\endfigure{\end@float}
+\def\endtable{\end@float}
+\def\:temp#1{\a:email{#1}}
+\HLet\email=\:temp
+\def\c:email:{\def\a:email##1}
+\Configure{email}{\o:email:{#1}}
+\NewConfigure{caption}[4]{\c:def\cptA:{#1}\c:def\cptB:{#2}%
+   \c:def\cptC:{#3}\c:def\cptD:{#4}}
+\long\def\@makecaption#1#2{%   
+{\cptA: \cap:ref{#1}%
+\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
+
+\def\:temp{\let\sv:item\item
+   \def\item[##1]{\nobreak
+\let\item\sv:item
+                  \item[##1]\b:newtheorem}%
+   \a:newtheorem  %\AutoRefstepAnchor
+   \o:@ydefthm:}
+\HLet\@ydefthm\:temp
+\def\:temp{\let\sv:item\item
+   \def\item[##1]{\nobreak
+%
+                  \let\item\sv:item\item[##1]\b:newtheorem}%
+   \a:newtheorem  %\AutoRefstepAnchor
+   \o:@begindef:}
+\HLet\@begindef\:temp
+\def\:temp{\let\sv:item\item
+   \def\item[##1]{\nobreak
+%
+                  \let\item\sv:item\item[##1]\b:proof}%
+   \a:proof  \o:@proof:}
+\HLet\@proof\:temp
+\def\:temp{\let\sv:item\item
+   \def\item[##1]{\nobreak
+%
+                  \let\item\sv:item\item[##1]\b:proof}%
+   \a:proof \o:@xproof:}
+\HLet\@xproof\:temp
+\append:def\endproof{\c:proof}
+\NewConfigure{proof}{3}
+\pend:def\@maketitle{%
+  \let\thefootnote=\no:thefootnote
+  \let\@makefnmark=\no:@makefnmark
+  \pend:def\@title{\a:title}\append:def\@title{\b:title}%
+  \edef\:temp{\the\subtitletext}%
+  \ifx \:temp\empty \else
+     \edef\:temp{\subtitletext={\noexpand\a:subtitle
+                   \the\subtitletext\noexpand\b:subtitle}}\:temp
+  \fi
+  \ConfigureEnv{center}{\empty}{}{\empty}{\empty}
+  \Configure{tabular}{}{}{}{}{\a:author}{\b:author}
+  \ConfigureEnv{tabular}{\empty}{}{}{}%
+  \ifx \@thanks\empty\else
+    \pend:def\@thanks{\a:thanks}\append:def\@thanks{\b:thanks}%
+  \fi
+}
+\NewConfigure{title}{2}
+\NewConfigure{subtitle}{2}
+\NewConfigure{thanks}{2}
+\NewConfigure{author}{2}
+\pend:def\maketitle{%
+   \let\no:thefootnote=\thefootnote
+   \let\no:@makefnmark=\@makefnmark
+   \a:maketitle \bgroup
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+}
+\append:def\maketitle{\egroup \b:maketitle }
+\NewConfigure{maketitle}{2}
+\def\titlenote{\@ifnextchar[\@xtitlenote{%
+   \global\advance\titlenotecount by 1
+   \let\acm:@footnotetext=\@footnotetext
+   \let\acm:thefootnote=\thefootnote
+   \long\def\@footnotetext####1{%
+         \let\@footnotetext=\acm:@footnotetext
+         {\reset@font\footnotesize
+          \@footnotetext{####1}}\let\thefootnote=\acm:thefootnote}%
+   \def\thefootnote{\@fnsymbol\titlenotecount}%
+   \footnote}}
+\pend:def\abstract{\titlenotecount=0 }
+\NewConfigure{toappear}{2}
+\def\@copyrightspace{\ifx \@toappear\empty \else
+    \a:toappear{%
+      \edef\:temp{\the\conf}\ifx \:temp\empty\else
+  \edef\:temp{\conf={\noexpand\a:conf\the\conf\noexpand\b:conf}}\:temp
+\fi
+\edef\:temp{\the\confinfo}\ifx \:temp\empty\else
+  \edef\:temp{\confinfo={\noexpand
+      \a:confinfo\the\confinfo\noexpand\b:confinfo}}\:temp
+\fi
+\edef\:temp{\the\copyrightetc}\ifx \:temp\empty\else
+  \edef\:temp{\copyrightetc={\noexpand
+     \a:copyrightetc\the\copyrightetc\noexpand\b:copyrightetc}}\:temp
+\fi
+%
+      \crnotice{\@toappear}}\b:toappear
+  \fi}
+\NewConfigure{boilerplate}{2}
+\NewConfigure{conf}{2}
+\NewConfigure{confinfo}{2}
+\NewConfigure{copyrightetc}{2}
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >-2\relax
+      \SkipRefstepAnchor \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    \csname @endpart\endcsname}
+\let\:tempb\part
+\Def:Section\part{\thepart}{#1}
+\let\:part\part
+\let\part\:tempb
+\let\no@part\@part
+\def\@part[#1]#2{%
+   {\let\addcontentsline\:gobbleIII\no@part[#1]{}}%
+   \HtmlEnv   \Toc:Title{#1}\:part{#2}}
+\Def:Section\likepart{}{#1}
+\let\:likepart\likepart
+\let\likepart\:UnDef
+\let\no@spart\@spart
+\def\@spart#1{%
+   {\let\addcontentsline\:gobbleIII\no@spart{}}%
+   \HtmlEnv   \:likepart{#1}}
+
+\let\no@section\section
+\Def:Section\section{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesection \fi}{#1}
+\let\no:section\section
+\def\section{\rdef:sec{section}}
+\Def:Section\likesection{}{#1}
+\let\:likesection\likesection
+\let\likesection\:UnDef
+
+\let\no@subsection\subsection
+\Def:Section\subsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsection \fi}{#1}
+\let\no:subsection\subsection
+\def\subsection{\rdef:sec{subsection}}
+\Def:Section\likesubsection{}{#1}
+\let\:likesubsection\likesubsection
+\let\likesubsection\:UnDef
+
+\let\no@subsubsection\subsubsection
+\Def:Section\subsubsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsubsection \fi}{#1}
+\let\no:subsubsection\subsubsection
+\def\subsubsection{\rdef:sec{subsubsection}}
+\Def:Section\likesubsubsection{}{#1}
+\let\:likesubsubsection\likesubsubsection
+\let\likesubsubsection\:UnDef
+
+\let\no@paragraph\paragraph
+\Def:Section\paragraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \theparagraph \fi}{#1}
+\let\no:paragraph\paragraph
+\def\paragraph{\rdef:sec{paragraph}}
+\Def:Section\likeparagraph{}{#1}
+\let\:likeparagraph\likeparagraph
+\let\likeparagraph\:UnDef
+\let\no@subparagraph\subparagraph
+\Def:Section\subparagraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubparagraph \fi}{#1}
+\let\no:subparagraph\subparagraph
+\def\subparagraph{\rdef:sec{subparagraph}}
+\Def:Section\likesubparagraph{}{#1}
+\let\:likesubparagraph\likesubparagraph
+\let\likesubparagraph\:UnDef
+
+\let\acm:sect\no@sect
+\def\no@sect#1#2#3{\acm:sect{#1}{#2}{#3\relax\let\@svsec\empty}}
+
+\Hinput{acm-proc-article-sp}
+\endinput
+

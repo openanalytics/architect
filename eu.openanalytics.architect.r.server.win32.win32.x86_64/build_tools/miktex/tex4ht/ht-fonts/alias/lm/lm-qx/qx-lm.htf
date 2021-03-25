@@ -1,0 +1,36 @@
+.lm-qx
+htfcss: qx-lmbo  font-style: oblique;
+htfcss: qx-lmbx  font-weight: bold;
+htfcss: qx-lmbxi  font-style:italic; font-weight: bold;
+htfcss: qx-lmbxo  font-style: oblique; font-weight: bold;
+htfcss: qx-lmcsco  font-style: oblique;
+htfcss: qx-lmri  font-style:italic;
+htfcss: qx-lmro  font-style: oblique;
+htfcss: qx-lmss  font-family: sans-serif;
+htfcss: qx-lmssbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: qx-lmssbx  font-family: sans-serif; font-weight: bold;
+htfcss: qx-lmssdc  font-family: sans-serif;
+htfcss: qx-lmssdo  font-family: sans-serif; font-style: oblique;
+htfcss: qx-lmsso  font-family: sans-serif; font-style: oblique;
+htfcss: qx-lmssq  font-family: sans-serif;
+htfcss: qx-lmssqbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: qx-lmssqbx  font-family: sans-serif; font-weight: bold;
+htfcss: qx-lmssqo  font-family: sans-serif; font-style: oblique;
+htfcss: qx-lmtcsc  font-family: monospace,monospace;
+htfcss: qx-lmtcso  font-style: oblique; font-family: monospace,monospace;
+htfcss: qx-lmtk  font-family: monospace,monospace;
+htfcss: qx-lmtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: qx-lmtl  font-weight: light; font-family: monospace,monospace;
+htfcss: qx-lmtlc  font-weight: light; font-family: monospace,monospace;
+htfcss: qx-lmtlco  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: qx-lmtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: qx-lmtt  font-family: monospace,monospace;
+htfcss: qx-lmtti  font-family: monospace,monospace; font-style:italic;
+htfcss: qx-lmtto  font-style: oblique; font-family: monospace,monospace;
+htfcss: qx-lmvtk  font-family: monospace,monospace;
+htfcss: qx-lmvtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: qx-lmvtl  font-weight: light; font-family: monospace,monospace;
+htfcss: qx-lmvtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: qx-lmvtt  font-family: monospace,monospace;
+htfcss: qx-lmvtto  font-style: oblique; font-family: monospace,monospace;
+

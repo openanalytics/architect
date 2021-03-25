@@ -1,0 +1,838 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% html32-math.4ht                         2009-03-03-11:36 %
+% Copyright (C) 1999--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3 of this license or (at your option) any    %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3 or later is part of all distributions  %
+% of LaTeX version 2003/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-03-03-11:36}
+
+\exit:ifnot{amsmath,% 
+amstex,% 
+amstex1,% 
+fontmath,% 
+latex,% 
+plain,% 
+tex4ht,% 
+th4}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{no_^}
+\if:Option \else \:CheckOption{no_}\fi
+\if:Option \else
+   \Configure{SUB}
+      {\HCode{<sub>}}{\HCode{</sub>}}
+\fi
+\:CheckOption{no_^}
+\if:Option \else \:CheckOption{no^}\fi
+\if:Option \else
+   \Configure{SUP}
+      {\HCode{<sup>}}{\HCode{</sup>}}
+\fi
+\:CheckOption{no_^}
+ \if:Option \else \:CheckOption{no_}\fi
+ \if:Option \else \:CheckOption{no^}\fi
+\if:Option \else
+   \Configure{SUBSUP}
+      {\HCode{<sub>}}{\HCode{</sub><sup>}}{\HCode{</sup>}}
+\fi
+\Configure{left}
+  {\Picture+{ \a:@Picture{left}}}
+  {\aftergroup\EndPicture   }
+\Configure{mathchoice}{\PictureOff}{\PictureOn}
+
+\Configure{PicMath}{}{}{}{}
+\NewConfigure{@neq}{1}
+\Configure{@neq}{align="middle"}
+\NewConfigure{@buildrelover}{1}
+\Configure{@buildrelover}{align="middle"}
+\NewConfigure{@doteq}{1}
+\Configure{@doteq}{align="middle"}
+\NewConfigure{@underbrace}{1}
+\NewConfigure{@frac}{1}
+\Configure{@frac}{align="middle"}
+\NewConfigure{@left}{1}
+\Configure{@left}{align="middle"}
+
+\Configure{PicDisplay}{\HCode{<center>}}{\HCode{</center>}}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{pic-eqnarray}  \if:Option
+   \ConfigureEnv{eqnarray}
+     {\IgnorePar\EndP\Tg<div class="pic-eqnarray">\Picture*{}}
+     {\EndPicture\Tg</div>}{}{}
+\Css{div.pic-eqnarray {text-align:center;}}
+\ConfigureEnv{eqnarray*}
+     {\IgnorePar\EndP\Tg<div class="pic-eqnarray-star">\Picture*{}}
+     {\EndPicture\Tg</div>}{}{}
+\Css{div.pic-eqnarray-star {text-align:center;}}
+
+\fi
+\Configure{stackrel}{\Picture+{ class="stackrel"}\mathrel}
+                    {\limits ^}{\EndPicture}
+\let\A:displaylines\a:displaylines
+\let\B:displaylines\b:displaylines
+\let\C:displaylines\c:displaylines
+\let\D:displaylines\d:displaylines
+\Configure{displaylines}
+   {\ifmmode
+       \def\A:displaylines{\Picture*{}}%
+       \def\B:displaylines{\EndPicture}%
+    \fi
+    \A:displaylines}
+   {\B:displaylines} {\C:displaylines}{\D:displaylines}
+\Configure{$$}{\:xhtml{\EndP}\PicDisplay}{\EndPicDisplay}
+   {\everymath{}\everydisplay{}}
+\Configure{pmatrix}
+  {\ifvmode
+      \def\end:pmatrix{\IgnorePar\HCode{</div>}\end:TTT}%
+      \:xhtml{\IgnorePar\EndP}\HCode
+        {<\tbl:XV{pmatrix}><tr><td><div align="center"\Hnewline>}%
+   \else \HCode{<span class="pmatrix">}%
+      \def \end:pmatrix{\HCode{</span>}}%
+   \fi}
+  {\end:pmatrix}
+\Configure{underline}
+  {\Tg<u>}{\Tg</u>}
+\newbox\tmp:bx
+\Configure{overline}{\Picture+{
+   \a:@Picture{overline}}\setbox\tmp:bx\hbox
+       \bgroup\everypar{}}{\egroup\o:overline:{\box\tmp:bx}\EndPicture}
+\NewConfigure{@root}{1}
+\Configure{@root}{align="middle" }
+
+\def\A:root#1\b:root#2\c:root{\o:root:#1\of{#2}\c:root}
+\Configure{root}
+   {\Picture+{ \a:@Picture{root}}\A:root}
+   {}
+   {\EndPicture}
+\Configure{mathpalette}
+    {\Picture+{ \a:@Picture{mathpalette}}} {\EndPicture}
+\Configure{L}                     {\pic:sym{L}}
+\Configure{l}                     {\pic:sym{l}}
+\def\pic:sym#1{\Protect\Picture+{ \a:@Picture{#1}}\csname
+   o:#1:\endcsname\Protect\EndPicture}
+
+\Configure{mathellipsis}          {...}
+
+\:CheckOption{pic-array}  \if:Option
+   \ConfigureEnv{array}
+     {\IgnorePar\EndP\Tg<div class="pic-array">\Picture*{}$$}
+     {$$\EndPicture\Tg</div>}{}{}
+   \Css{div.pic-array {text-align:center;}}
+\fi
+\Configure{pmatrix} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+\Configure{bordermatrix} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+\Configure{frac}
+   {\Picture+{ \a:@Picture{frac}}\bgroup}
+   {} {}
+   {\egroup\EndPicture}
+\Configure{sqrtsign}
+   {\Picture+{ \a:@Picture{sqrt}}}
+   {\EndPicture}
+\Configure{matrix}
+   {\Picture+{ \a:@Picture{matrix}}}  {\EndPicture}
+   {}{}{}{}
+
+\Configure{[]}
+  {\PicDisplay$$\everymath{}\everydisplay{}}
+  {$$\EndPicDisplay}
+\Configure{()}{\protect\PicMath$}{$\protect\EndPicMath}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fontmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\Configure{Longrightarrow}        {\pic:sym{Longrightarrow}}
+\Configure{bowtie}                {\pic:sym{bowtie}}
+\Configure{cong}                  {\pic:sym{cong}}
+\Configure{ddots}                 {\pic:sym{ddots}}
+\Configure{doteq}                 {\pic:sym{doteq}}
+\Configure{hookleftarrow}         {\pic:sym{hookleftarrow}}
+\Configure{hookrightarrow}        {\pic:sym{hookrightarrow}}
+\Configure{longmapsto}            {\pic:sym{longmapsto}}
+\Configure{mapsto}                {\pic:sym{mapsto}}
+\Configure{models}                {\pic:sym{models}}
+\Configure{neq}                   {\pic:sym{neq}}
+\Configure{notin}                 {\pic:sym{notin}}
+\Configure{vdots}                 {\pic:sym{vdots}}
+\Configure{angle}                 {\pic:sym{angle}}
+\Configure{rightleftharpoons}     {\pic:sym{rightleftharpoons}}
+\Configure{leftrightharpoons}     {\pic:sym{leftrightharpoons}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{overset} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+\Configure{underset} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+\Configure{xrightarrow} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+\Configure{xleftarrow} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+\Configure{genfrac}
+  {\Picture+{}\bgroup} {}{}{}{}{\egroup\EndPicture}
+\Configure{equation}
+  {\Configure{gather}
+     {\HCode{<\tbl:XV{equation}><tr><td><center>}\IgnorePar}
+     {\end:TTT\IgnorePar\par}
+     {}{}
+     {\ifnum\HCol=2 \IgnorePar\HCode{</center></td><td width="5\%">}\fi}
+     {}
+  }{}{}
+\Configure{equation}
+  {\NoHtmlEnv \Configure{gather}
+     {\HCode{<\tbl:XV{equation}><tr><td><center>}\IgnorePar}
+     {\end:TTT\IgnorePar\par}
+     {\Configure{$}{\PicMath}{\EndPicMath}{}}
+     {}
+     {\ifnum\HCol=2 \IgnorePar\HCode{</center></td><td width="5\%">}\fi}
+     {}
+  }{}{}
+\ConfigureEnv{align*}{\m:env{align*}}{\endm:env}{}{}
+\ConfigureEnv{align}{\m:env{align}}{\endm:env}{}{}
+\ConfigureEnv{alignat*}{\m:env{alignat*}}{\endm:env}{}{}
+\ConfigureEnv{alignat}{\m:env{alignat}}{\endm:env}{}{}
+\ConfigureEnv{flalign*}{\m:env{flalign*}}{\endm:env}{}{}
+\ConfigureEnv{flalign}{\m:env{flalign}}{\endm:env}{}{}
+\ConfigureEnv{xalignat*}{\m:env{xalignat*}}{\endm:env}{}{}
+\ConfigureEnv{xalignat}{\m:env{xalignat}}{\endm:env}{}{}
+\ConfigureEnv{xxalignat}{\m:env{xxalignat}}{\endm:env}{}{}
+\Configure{substack}{\Picture+{}}{\EndPicture}
+\def\m:env#1{\relax\ifmmode\else\par\fi\:xhtml{\IgnorePar\EndP}%
+  \HCode{<center class="#1"><table class="#1"\Hnewline
+   border="0" cellpadding="0" cellspacing="15"><tr><td>}}
+\def\endm:env{\:xhtml{\IgnorePar\EndP}%
+   \HCode{</td></tr></table></center>}\IgnorePar
+   \ifmmode\else\par\fi}
+
+\ConfigureEnv{eqxample}{\m:env{eqxample}}{\endm:env}{}{}
+\ConfigureEnv{gather*}{\m:env{gather*}}{\endm:env}{}{}
+\ConfigureEnv{gathered}{\m:env{gathered}}{\endm:env}{}{}
+\ConfigureEnv{matrix}{\m:env{matrix}}{\endm:env}{}{}
+\ConfigureEnv{quotation}{\m:env{quotation}}{\endm:env}{}{}
+\Configure{equations}{*}{}
+\ConfigureEnv{multline}
+  {\:xhtml{\IgnorePar\EndP}%
+    \HCode{<\tbl:XV{multline}><tr><td>}\Picture*{}\ExtractHLabel
+  }
+  {\EndPicture \HCode{</td><td width="5\%">}\PutHLabel\end:TTT}
+  {}{}  {}{}
+\ConfigureEnv{multline*}
+  {\:xhtml{\IgnorePar\EndP}%
+    \HCode{<\tbl:XV{multline-star}><tr><td>}\Picture*{}%
+  }
+  {\EndPicture \end:TTT}
+  {}{}
+\def\ExtractHLabel{%
+   \def\tagform@##1{{\xdef\:HLabel{\noexpand\tagform@{##1}}}}}
+\def\PutHLabel{\:HLabel}
+
+\ConfigureEnv{gather}
+  {\:xhtml{\IgnorePar\EndP}%
+    \HCode{<\tbl:XV{gather}><tr><td
+       class="gather1">}\Picture*{}\ExtractHLabel
+  }
+  {\EndPicture \HCode{</td><td width="5\%">}\PutHLabel\end:TTT}
+  {}{}
+\ConfigureEnv{gather*}
+  {\:xhtml{\IgnorePar\EndP}%
+    \HCode{<\tbl:XV{gather-star}><tr><td>}\Picture*{}%
+  }
+  {\EndPicture \end:TTT}
+  {}{}
+\Css{td.gather-star, td.gather1 {text-align:center; }}
+
+
+\Configure{dotsc}                 {\pic:sym{dotsc}}
+\Configure{dotso}                 {\pic:sym{dotso}}
+
+\Configure{overset} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+\Configure{underset} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+\Configure{xrightarrow} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+\Configure{xleftarrow} {\Picture+{ \a:@Picture{}}} {\EndPicture}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amstex1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\Configure{dotsc}                 {\pic:sym{dotsc}}
+\Configure{dotso}                 {\pic:sym{dotso}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amstex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{frac}{\Picture+{}}{\EndPicture}
+\Configure{dfrac}{\Picture+{}}{\EndPicture}
+\Configure{tfrac}{\Picture+{}}{\EndPicture}
+\Configure{binom}{\Picture+{}}{\EndPicture}
+\Configure{dbinom}{\Picture+{}}{\EndPicture}
+\Configure{tbinom}{\Picture+{}}{\EndPicture}
+\Configure{boxed}{\Picture+{}}{\EndPicture}
+
+  \:CheckOption{no-matrix} \if:Option \else
+  \:CheckOption{pic-matrix}   \if:Option
+         \Configure{matrix}{\m:env{matrix}}{\endm:env}
+
+  \else
+         \Configure{matrix}
+   {\HCode{<table\Hnewline class="matrix">}}  {\HCode{</table>}}
+   {\HCode{<tr\Hnewline>}}   {\HCode{</tr>}}
+   {\HCode{<td>}}   {\HCode{</td>}}
+
+  \fi\fi
+  \:CheckOption{no-align} \if:Option \else
+  \:CheckOption{pic-align}   \if:Option
+         \Configure{align}{\m:env{align}}{\endm:env}
+
+  \else
+         \Configure{align}
+   {\HCode{<table\Hnewline class="align">}}  {\HCode{</table>}}
+   {\HCode{<tr\Hnewline>}}   {\HCode{</tr>}}
+   {\HCode{<td>}}   {\HCode{</td>}}
+
+  \fi\fi
+  \:CheckOption{no-cases} \if:Option \else
+     \:CheckOption{pic-cases}   \if:Option
+           \Configure{cases}{\m:env{cases}}{\endm:env}
+
+  \else
+         \Configure{cases}{\m:env{cases}}{\endm:env}
+
+  \fi\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \let\A:displaylines\a:displaylines
+\let\B:displaylines\b:displaylines
+\let\C:displaylines\c:displaylines
+\let\D:displaylines\d:displaylines
+\Configure{displaylines}
+   {\ifmmode
+       \def\A:displaylines{\Picture*{}}%
+       \def\B:displaylines{\EndPicture}%
+    \fi
+    \A:displaylines}
+   {\B:displaylines} {\C:displaylines}{\D:displaylines}
+\Configure{$$}{\:xhtml{\EndP}\PicDisplay}{\EndPicDisplay}
+   {\everymath{}\everydisplay{}}
+\Configure{pmatrix}
+  {\ifvmode
+      \def\end:pmatrix{\IgnorePar\HCode{</div>}\end:TTT}%
+      \:xhtml{\IgnorePar\EndP}\HCode
+        {<\tbl:XV{pmatrix}><tr><td><div align="center"\Hnewline>}%
+   \else \HCode{<span class="pmatrix">}%
+      \def \end:pmatrix{\HCode{</span>}}%
+   \fi}
+  {\end:pmatrix}
+\Configure{underline}
+  {\Tg<u>}{\Tg</u>}
+\newbox\tmp:bx
+\Configure{overline}{\Picture+{
+   \a:@Picture{overline}}\setbox\tmp:bx\hbox
+       \bgroup\everypar{}}{\egroup\o:overline:{\box\tmp:bx}\EndPicture}
+\NewConfigure{@root}{1}
+\Configure{@root}{align="middle" }
+
+\def\A:root#1\b:root#2\c:root{\o:root:#1\of{#2}\c:root}
+\Configure{root}
+   {\Picture+{ \a:@Picture{root}}\A:root}
+   {}
+   {\EndPicture}
+\Configure{mathpalette}
+    {\Picture+{ \a:@Picture{mathpalette}}} {\EndPicture}
+\Configure{L}                     {\pic:sym{L}}
+\Configure{l}                     {\pic:sym{l}}
+\def\pic:sym#1{\Protect\Picture+{ \a:@Picture{#1}}\csname
+   o:#1:\endcsname\Protect\EndPicture}
+
+\Configure{Longrightarrow}        {\pic:sym{Longrightarrow}}
+\Configure{bowtie}                {\pic:sym{bowtie}}
+\Configure{cong}                  {\pic:sym{cong}}
+\Configure{ddots}                 {\pic:sym{ddots}}
+\Configure{doteq}                 {\pic:sym{doteq}}
+\Configure{hookleftarrow}         {\pic:sym{hookleftarrow}}
+\Configure{hookrightarrow}        {\pic:sym{hookrightarrow}}
+\Configure{longmapsto}            {\pic:sym{longmapsto}}
+\Configure{mapsto}                {\pic:sym{mapsto}}
+\Configure{models}                {\pic:sym{models}}
+\Configure{neq}                   {\pic:sym{neq}}
+\Configure{notin}                 {\pic:sym{notin}}
+\Configure{vdots}                 {\pic:sym{vdots}}
+\Configure{angle}                 {\pic:sym{angle}}
+\Configure{rightleftharpoons}     {\pic:sym{rightleftharpoons}}
+\Configure{leftrightharpoons}     {\pic:sym{leftrightharpoons}}
+
+\Configure{ldots}                 {...}
+\Configure{cdots}                 {\pic:sym{cdots}}
+
+\Configure{sqrt}
+   {\Picture+{ \a:@Picture{sqrt}}}
+   {\EndPicture}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{th4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{[]}
+  {\PicDisplay$$\everymath{}\everydisplay{}}
+  {$$\EndPicDisplay}
+\Configure{()}{\protect\PicMath$}{$\protect\EndPicMath}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

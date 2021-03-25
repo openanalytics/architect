@@ -1,0 +1,7 @@
+% $Id: ~=,v 1.2 2004/09/19 21:47:11 karl Exp $
+% Public domain.
+vardef C.~eq(expr n) =
+ save p;
+ picture p; p="~"infont n;
+ addto p also "-"infont n shifted(0,-.15*fontsize n);
+ p enddef;

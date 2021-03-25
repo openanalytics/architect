@@ -1,0 +1,447 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tei-mmltei.4ht                        2006-10-28-15:40 %
+% Copyright (C) 2000--2006      Eitan M. Gurari         %
+%                               Sebastian Rahtz         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3 of this license or (at your option) any    %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3 or later is part of all distributions  %
+% of LaTeX version 2003/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2006-10-28-15:40}
+
+\exit:ifnot{graphics,% 
+tex4ht}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{HTML}
+   {\HCode{<TEI.2>}\HCode{<!--@entities=}\bgroup
+   \def\toctei##1##2##3{\HCode{##2\Hnewline}}%
+   \no:catcodes{34}{36}{12}\no:catcodes{94}{95}{12}\catcode`\~=12
+   \Configure{tableofcontents}  {}   {}   {}{}{}%
+   \:TableOfContents[tei]%
+\egroup
+\HCode{-->}%
+}
+   {\HCode{</TEI.2>}}
+\Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{VERSION}
+   {\HCode{<?xml version="1.0"?>\Hnewline}}
+\Configure{DOCTYPE}
+   {\HCode{<!DOCTYPE TEI.2 SYSTEM "teimml.dtd" [\Hnewline}
+\bgroup
+   \def\toctei##1##2##3{\HCode{##2\Hnewline}}%
+   \no:catcodes{34}{36}{12}\no:catcodes{94}{95}{12}\catcode`\~=12
+   \Configure{tableofcontents}  {}   {}   {}{}{}%
+   \:TableOfContents[tei]%
+\egroup
+\HCode{%
+]
+ >\Hnewline}}
+\Configure{Preamble}
+   {}
+   {{\ifdim \lastskip>\z@ \unskip\fi
+     \IgnorePar\parindent\z@ \leavevmode}%
+   }
+\def\Decl#1{\edef\:temp{\the\:tokwrite{\string\doTocEntry
+   \string\toc tei{}{#1}{}}}\:temp
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{graphics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\:tempc#1{%
+   \Configure{graphics*}
+      {#1}
+      {\HCode{<figure entity="fg-ent\ent:cnt"
+                  width="\the\Gin@req@width"
+                 height="\the\Gin@req@height" />}%
+       \Decl{<!ENTITY fg-ent\ent:cnt\space  SYSTEM
+             "\csname Gin@base\endcsname" NDATA #1>}%
+       \gHAdvance\ent:cnt by 1
+      }}
+\:tempc{eps}
+\:tempc{jpg}
+\:tempc{pdf}
+\:tempc{png}
+\:tempc{tif}
+\:tempc{gif}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

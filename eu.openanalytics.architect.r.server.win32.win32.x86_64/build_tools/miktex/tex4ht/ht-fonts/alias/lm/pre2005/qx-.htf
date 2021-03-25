@@ -1,0 +1,19 @@
+.lm-qx
+htfcss: qx-lmb font-style: oblique;
+htfcss: qx-lmbo font-style:italic;
+htfcss: qx-lmbx font-weight: bold;
+htfcss: qx-lmbxi font-weight: bold;  font-style:italic;
+htfcss: qx-lmbxo font-weight: bold;  font-style:italic;
+htfcss: qx-lmri  font-style:italic;
+htfcss: qx-lmro  font-style:italic;
+htfcss: qx-lmss font-family: sans-serif;
+htfcss: qx-lmssbo font-family: sans-serif; font-weight: bold;  font-style:italic;
+htfcss: qx-lmssbx font-family: sans-serif; font-weight: bold;
+htfcss: qx-lmssdc font-family: sans-serif;  font-style: oblique;
+htfcss: qx-lmssdo font-family: sans-serif; font-style:italic;
+htfcss: qx-lmsso font-family: sans-serif; font-style:italic;
+htfcss: qx-lmssq font-family: sans-serif;
+htfcss: qx-lmssqbo font-family: sans-serif; font-weight: bold;  font-style:italic;
+htfcss: qx-lmssqbx font-family: sans-serif; font-weight: bold;
+htfcss: qx-lmssqo font-family: sans-serif; font-style:italic;
+

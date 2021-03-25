@@ -1,0 +1,145 @@
+%
+% Encoding file for some PostScript Arabic fonts to use with the 
+% Arabi package to write Arabic texts with LaTeX
+% 
+%   author = "Y. Jabri",
+%   email = "yjabri@ensa.univ-oujda.ac.ma",
+%   version = "0.1",
+%   date = "January 2006",
+%
+%
+%
+/DTPNaskArabicEncoding [          % now 256 chars follow
+% 0          
+  /alef /hamzah_on_alef /_hamzah_on_alef /hamzah_under_alef
+% 4 
+  /_hamzah_under_alef /maddah_on_alef /_maddah_on_alef /baa_
+% 8 
+  /.notdef /_baa /baa /taa_
+% 12
+  /.notdef /_taa /taa /thaa_
+% 16 
+ /_thaa_ /_thaa /thaa /jeem_ 
+% 20
+ /_jeem_ /_jeem /jeem /haa_
+% 24
+ /_haa_ /_haa /haa /khaa_ 
+% 28
+ /_khaa_ /_khaa /khaa /.notdef
+% 32 
+ /dal /arab_exclam /sukun /.notdef              %OK    
+% 36
+ /dollar /arab_percent /.notdef /.notdef  %ok
+% 40
+ /parent_right /parent_left /dharma /arab_inch % parentheses were refelcted 
+% 44
+  /arab_comma /endash /point /forward_slant   %  we should get the "arabicslash" in 4th position 
+% 48
+ /arab_zero /arab_one /arab_two /arab_three 
+% 52
+ /arab_four /arab_five /arab_six /arab_seven
+% 56
+ /arab_eight /arab_nine /colon /arab_semicolon %colon ok ?? 
+% 60 
+ /guillemets_right /.notdef /quillemets_left /arab_question %quill.. not guill..
+% 64
+ /_thal /_alef /.notdef /ra 
+% 68
+ /.nodef /zain /seen_ /.notdef 
+% 72
+ /_seen /_ya_  /sheen_ /_sheen_ 
+% 76
+ /_sheen /sheen /.notdef /_sad_ 
+% 80
+ /_sad /sad /dad_ /_dad_ 
+% 84 
+ /_taa_marbutah /_waw /tah_ /_tah_ 
+% 88
+ /_tah /_alef_maqsurah /dhah_  /right_Quranquote
+% 92
+ /_dhah_ /left_Quranquote /_dhah /dhah
+% 96
+ /_ain_ /fathah /_baa_ /.notdef
+% 100
+ /_dal /.notdef /_fa_ /.notdef
+% 104 
+ /_ha_ /kasrah /.notdef /_caf_
+% 108
+  /_lam_ /_meem_ /_noon_ /.notdef
+% 112
+ /_peh_ /_qaf_ /_ra /_seen_ 
+% 116
+ /_taa_ /dammah /.notdef /_waw
+% 120
+ /seen /_ya_ /_zain /_dad 
+% 124
+ /dad /sad_ /.notdef /.notdef % 
+% 128
+ /.notdef /.notdef /.notdef /.notdef 
+% 132
+ /.notdef /.notdef /.notdef /.notdef 
+% 136
+ /ain_ /_ain /ain  /ghain_
+% 140
+ /_ghain_ /_ghain /ghain /fa_
+% 144
+ /_fa /fa /qaf_ /_qaf
+% 148
+ /qaf /caf_ /_caf /caf
+% 152
+ /lam_ /_lam /lam /meem_
+% 156
+ /_meem /meem  /noon_ /_noon
+% 160
+ /noon /ha_  /_ha /ha
+% 164
+ /waw /_hamzah_on_waw /hamzah_on_waw /ya_
+% 168
+ /_ya /ya /tah /alef_maqsurah
+% 172
+ /.notdef /taa_marbutah  /_lam_alef /lam_alef
+% 176     
+ /_lam_hamzah_on_alef /lam_hamza_on_alef 
+ /_lam_hamzah_under_alef /lam_hamzah_under_alef
+% 180     
+ /_lam_maddah_on_alef /lam_maddah_on_alef 
+ /hamzah_on_ya_ /_hamzah_on_ya_
+% 184 
+ /_hamzah_on_ya /hamzah_on_ya 
+  /hamzah /.notdef
+% 188
+ /.notdef /.notdef /fatahatan /dammatan %fatahatan not fathatan :)
+% 192
+ /kasratan /fathah /dammah /kasrah 
+% 196
+ /shaddah /sukun /shaddah_fathatan /shaddah_dammatan
+% 200
+ /shaddah_kasratan /shaddah_fathah /shaddah_dammah /shaddah_kasrah 
+% 204
+ /shaddah /shaddah_fathah /shaddah_dammah /shaddah_kasrah 
+% 208
+ /thal  /.notdef /.notdef /.notdef 
+% 212
+ /.notdef /.notdef /.notdef /.notdef 
+% 216
+ /.notdef /.notdef /.notdef /.notdef 
+% 220
+ /.notdef /.notdef /.notdef /.notdef 
+% 224
+ /.notdef /.notdef /.notdef /.notdef 
+% 228
+ /.notdef /.notdef /.notdef /.notdef 
+% 232
+ /.notdef /.notdef /.notdef /.notdef 
+% 236
+ /.notdef /.notdef /.notdef /.notdef 
+% 240
+ /.notdef /.notdef /.notdef /.notdef 
+% 244
+ /.notdef /.notdef /.notdef /.notdef 
+% 248 
+ /.notdef /.notdef /.notdef /.notdef 
+% 252
+ /lam_lam_ha /.notdef /tatweel /.notdef 
+] def
+

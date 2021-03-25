@@ -1,0 +1,37 @@
+\documentclass[12pt,a4paper]{article}% run with dvips
+\usepackage{cmap}
+\usepackage[tiling]{pst-fill}
+\usepackage{pst-text}
+\usepackage{pst-char}
+\usepackage{pst-grad}
+\usepackage{pst-plot}
+\usepackage[cp1256]{inputenc}%arawin2,8859-6
+%\usepackage[maghribi]{arabic}%mashriqi
+\usepackage[arabic,english]{babel}
+\usepackage{poetry,arabnovowel}%,,ngermancalc,ftoday,scalefnt,katibfonts,katibchars,sectsty
+
+\usepackage[landscape,dvips]{geometry}
+\pagestyle{empty}
+\begin{document}
+
+\vspace*{6cm}
+\DeclareFixedFont{\sf}{T1}{pbk}{b}{n}{12cm}
+\DeclareFixedFont{\tr}{LAE}{TraditionalArabic}{m}{n}{8mm}
+\DeclareFixedFont{\mtn}{LAE}{aealmothnna}{m}{n}{10cm}
+\psboxfill{\blue\AR{\tr ‰Ÿ«„ «·⁄—»Ì}}
+\begin{pspicture}(0,0)(18,3)
+  \centerline{%
+    \pscharpath[linestyle=none,gradbegin=magenta,gradend=cyan,
+                fillstyle=gradient,gradangle=-30,
+                gradmidpoint=0.5,addfillstyle=boxfill,
+                fillangle=30,fillsep=0.6mm]%
+                {\rput[b](-.8,-2){\AR{\mtn «·⁄—»Ì}}}}
+\end{pspicture}
+
+
+%\vspace*{3cm}
+%\pstextpath(0,-1ex){\psplot[linestyle=none]{0}{21}{x 56 mul sin}}{%
+%  \Huge\blue Spielereien und ernsthafte Betrachtungen zu 
+%  \textcolor{red}{PSTricks} bei \textsc{Lehmanns}
+%}
+\end{document}

@@ -1,0 +1,361 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% amsppt.4ht                            2009-05-21-09:32 %
+% Copyright (C) 1997--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\HRestore\footnote
+\append:def\EndPreamble{\let\logo@\sv:logo \let\sv:logo=\empty}
+\append:def\block{\ifx \EndPicture\:UnDef \:block
+  \pend:def\endblock{\end:block} \fi}
+\NewConfigure{block}{2}
+\def\plainend{\end}   \let\end\sv:end
+
+\let\:endtopmatter\endtopmatter
+\def\endtopmatter{%
+   \ifmonograph@\else
+  \ifx \preabstract\relax \let\preabstract\empty\fi
+  \ifx\thesubjclass@\empty@\else
+     \let\:thesubjclass\thesubjclass@   \let\thesubjclass@\empty
+     \pend:def\preabstract{\a:subjclass\:thesubjclass\b:subjclass}%
+  \fi
+  \ifx\thekeywords@\empty@\else
+     \let\:thekeywords\thekeywords@   \let\thekeywords@\empty
+     \pend:def\preabstract{\a:keywords\:thekeywords\b:keywords}%
+  \fi
+  \ifx\thethanks@\empty@\else
+      \let\:thethanks\thethanks@    \let\thethanks@\empty
+     \pend:def\preabstract{\a:thanks\:thethanks\b:thanks}%
+  \fi
+\fi
+%
+  \let\inslogo@\logo@
+  \ifx\thedate@\empty@\else
+     \let\:predate\predate
+\def\predate{\:predate
+   \let\sv:line\line \def\line{\let\line\sv:line\hbox}}%
+%
+     \let\thedate:\thedate@
+     \def\thedate@{\a:date\thedate:\b:date}\fi
+  \ifvoid\tocbox@\else   \ifx \a:newtocdefs\:UnDef
+     \setbox\tocbox@=\vtop{\IgnorePar
+        \ifmonograph@\else
+   \centerline{\headfont@\ignorespaces\toc:title\unskip}\nobreak
+\fi
+%
+\ifx \toc:list\:UnDef
+  \def\toc:list{\TableOfContents[title,specialhead,head,%
+                       subhead,subsubhead]}%
+\else
+   \pend:def\toc:list{\TableOfContents[}%
+   \append:def\toc:list{]}%
+\fi
+\toc:list
+}%
+  \fi \fi
+  \csname :endtopmatter\endcsname \b:topmatter }
+\pend:def\topmatter{\a:topmatter}
+\NewConfigure{topmatter}{2}
+\NewConfigure{newtocdefs}[1]{\c:def\a:newtocdefs{#1}}
+\let\o:newtocdefs:=\newtocdefs
+\def\newtocdefs{\o:newtocdefs:
+   \ifx \a:newtocdefs\:UnDef
+   \let\toc:list\empty
+   \expandafter\def\csname title\endcsname  ##1\endtitle{%
+       \xdef\toc:list{\ifx \toc:list\empty\else ,\fi title}}%
+   \expandafter\def\csname specialhead\endcsname##1\endspecialhead{%
+       \xdef\toc:list{\ifx \toc:list\empty\else ,\fi specialhead}}%
+   \expandafter\def\csname head\endcsname##1 ##2\endhead{%
+       \xdef\toc:list{\ifx \toc:list\empty\else ,\fi head}}%
+   \expandafter\def\csname subhead\endcsname##1 ##2\endsubhead{%
+       \xdef\toc:list{\ifx \toc:list\empty\else ,\fi subhead}}%
+   \expandafter\def\csname subsubhead\endcsname##1 ##2\endsubsubhead{%
+       \xdef\toc:list{\ifx \toc:list\empty\else ,\fi subsubhead}}%
+\else \ifx \a:newtocdefs\empty
+   \HAssign\TocCount0
+   \expandafter\def\csname title\endcsname##1\endtitle{%
+         \toctitle{}{##1}{}}%
+   \expandafter\def\csname specialhead\endcsname##1\endspecialhead{%
+         \tocspecialhead{}{##1}{}}%
+   \expandafter\def\csname head\endcsname##1 ##2\endhead{%
+         \tochead{##1}{##2}{}}%
+   \expandafter\def\csname subhead\endcsname##1 ##2\endsubhead{%
+         \tocsubhead{##1}{##2}{}}%
+   \expandafter\def\csname subsubhead\endcsname##1 ##2\endsubsubhead{%
+         \tocsubsubhead{##1}{##2}{}}%
+\else
+   \a:newtocdefs
+\fi \fi
+%
+   \ifx \a:newtocdefs\:UnDef
+   \else \a:TableOfContents
+       \pend:def\endtoc{\c:TableOfContents}%
+   \fi}
+\pend:def\toc{\SaveEndP
+   \ifx \a:newtocdefs\:UnDef
+   \let\:tempc\FN@
+   \def\FN@{%
+      \let\FN@\:tempc
+      \let\:tempc\nextii@
+      \def\nextii@########1{\let\nextii@\:tempc
+         \gdef\toc:title{########1}\nextii@{########1}}%
+      \FN@}%
+\fi
+}
+\append:def\endtoc{\RecallEndP}
+\def\c:toc:{\Configure{TableOfContents}}
+\NewConfigure{subjclass}{2}
+\NewConfigure{thanks}{2}
+\NewConfigure{keywords}{2}
+\let\:author\author
+\def\author#1\endauthor{\:author{\a:author#1\b:author}\endauthor}
+\let\:affil\affil
+\def\affil#1\endaffil{\:affil{\a:affil#1\b:affil}\endaffil}
+\NewConfigure{affil}{2}
+\def\abstract{\let\savedef@\abstract
+  \def\abstract{\let\abstract\savedef@
+    \setbox\abstractbox@\vbox\bgroup\IgnorePar \noindent
+      \expandafter\everydisplay\expandafter{\expandafter
+      \everydisplay\expandafter{\the\everydisplay}}$$\vbox\bgroup
+      \def\envir@end{\endabstract}\advance\hsize-2\indenti
+      \def\usualspace{\enspace}\eightpoint
+          \IgnorePar \noindent \frills@{{\smc
+          \a:abstract Abstract.\b:abstract\enspace}}}%
+  \nofrillscheck\abstract}
+\append:def\abstract{\c:abstract}
+\pend:def\endabstract{\d:abstract}
+\NewConfigure{abstract}{4}
+\NewConfigure{date}{2}
+
+\def\par@{\ht:everypartoks@\expandafter{\the\ht:everypar}%
+   \HtmlPar \ht:everypar{\HtmlPar}}
+\def\nobreak{\penalty\@M
+  \ifvmode\gdef\penalty@{\global\let\penalty@\penalty\count@@@}%
+  \ht:everypar{\global\let\penalty@\penalty
+    \HtmlPar \ht:everypar{\HtmlPar}}\fi}
+
+
+\def\title{\let\savedef@\title
+  \def\title##1\endtitle{\let\title\savedef@
+    \global\setbox\titlebox@\vtop{\tenpoint\a:title
+      \raggedcenter@ \frills@\uppercasetext@{##1}\endgraf\b:title}%
+  }%
+  \nofrillscheck\title}
+\def\proclaim#1{\csname o:proclaim:\endcsname
+   {\a:proclaim#1\b:proclaim}}
+\def\endproclaim{\revert@envir\endproclaim\c:proclaim \par\rm}
+\let\:specialhead\specialhead
+\def\specialhead#1\endspecialhead{\let\specialheadfont:\specialheadfont@
+   \ifx \ams:refs\:UnDef \def\ams:refs{\rm\ams:specialhead}\fi
+   \let\specialheadfont@\empty
+   \csname :specialhead\endcsname
+   \ams:specialhead{#1}\let\frills@\eat@ \endspecialhead
+   \let\specialheadfont@\specialheadfont: }
+\let\ams:specialhead\specialhead
+\NewSection\specialhead{}
+\let\:temp=\specialhead  \let\specialhead\ams:specialhead
+\let\ams:specialhead\:temp
+\let\:head\head
+\def\head#1\endhead{\let\headfont:\headfont@
+   \ifx \ams:refs\:UnDef \def\ams:refs{\rm\ams:head}\fi
+   \let\headfont@\empty
+   \csname :head\endcsname
+   \ams:head{#1}\let\frills@\eat@ \endhead
+   \let\headfont@\headfont: }
+\let\ams:head\head
+\NewSection\head{}
+\let\:temp\head \let\head\ams:head
+\let\ams:head\:temp
+\let\:subhead\subhead
+\def\subhead#1\endsubhead{\let\subheadfont:\subheadfont@
+   \ifx \ams:refs\:UnDef \def\ams:refs{\rm\ams:subhead}\fi
+   \let\subheadfont@\empty  \csname :subhead\endcsname
+   \ams:subhead{#1}\let\frills@\eat@ \endsubhead
+   \let\subheadfont@\subheadfont: }
+\let\ams:subhead\subhead
+\NewSection\subhead{}
+\let\:temp\subhead \let\subhead\ams:subhead
+\let\ams:subhead\:temp
+\let\:subsubhead\subsubhead
+\def\subsubhead#1\endsubsubhead{\let\subsubheadfont:\subsubheadfont@
+   \ifx \ams:refs\:UnDef \def\ams:refs{\rm\ams:subsubhead}\fi
+   \let\subsubheadfont@\empty  \csname :subsubhead\endcsname
+   \ams:subsubhead{#1}\let\frills@\eat@ \endsubsubhead
+   \let\subsubheadfont@\subsubheadfont: }
+\let\ams:subsubhead\subsubhead
+\NewSection\subsubhead{}
+\let\:temp\subsubhead \let\subsubhead\ams:subsubhead
+\let\ams:subsubhead\:temp
+
+
+\let\:refstyle\refstyle
+\let\endref:\endref@
+\def\endref@{%
+  \pend:defI\keyformat{\a:keyformat}%
+  \append:defI\keyformat{\b:keyformat}%
+  \def\refstyle##1{\let\:tempa\keyformat \:refstyle{##1}%
+    \ifx \:tempa\keyformat  \else
+       \pend:defI\keyformat{\a:keyformat}%
+       \append:defI\keyformat{\b:keyformat}\fi  }
+  \def\:temp##1{%
+     \expandafter\ifvoid\csname ##1box@\endcsname\else
+       \expandafter\setbox\csname ##1box@\endcsname=\hbox
+          {\csname a:##1\endcsname \expandafter\unhbox\csname
+            ##1box@\endcsname\csname b:##1\endcsname}\fi}
+  \ifx \MRbox@\:UnDef\else  \:temp{MR}\fi
+  \:temp{book}
+  \:temp{bookinfo}
+  \:temp{by}
+  \:temp{ed}
+  \:temp{finalinfo}
+  \:temp{issue}
+  \:temp{jour}
+  \:temp{key}
+  \:temp{lang}
+  \:temp{miscnote}
+  \:temp{moreref}
+  \:temp{pages}
+  \:temp{paper}
+  \:temp{paperinfo}
+  \:temp{procinfo}
+  \:temp{publaddr}
+  \:temp{publ}
+  \:temp{vol}
+  \:temp{yr}
+  \endref: }
+\pend:def\ref{\Configure{HtmlPar}{}{}{}{}\a:ref}
+\append:def\endref{\b:ref}
+\pend:defIII\makerefbox{\IgnorePar}
+\let\:Refs\Refs
+\def\Refs{\bgroup
+   \let\sv:nofrillscheck\nofrillscheck
+   \def\nofrillscheck{%
+      \expand:after{\let\::Refs=}\csname Refs\endcsname
+      \expandafter\def\csname Refs\endcsname####1{%
+         \def\:temp{####1}\ifx\:temp\empty \::Refs{}\else
+   \::Refs{\csname ams:refs\endcsname{####1}}\fi
+%
+         \let\sv:ref\ref \def\ref{\let\ref\sv:ref \a:Refs\ref}%
+         \pend:def\endRefs{\b:Refs}\append:def\endRefs{\egroup}}%
+      \sv:nofrillscheck}%
+   \csname :Refs\endcsname}
+\def\:temp#1{\edef\:tempa{\long
+   \def\expandafter\noexpand\csname c:#1:\endcsname
+   ####1####2{\def\expandafter\noexpand\csname a:#1\endcsname{####1}
+          \def\expandafter\noexpand\csname b:#1\endcsname{####2}}}\:tempa}
+\ifx \MRbox@\:UnDef\else  \:temp{MR}\fi
+\:temp{book}
+\:temp{bookinfo}
+\:temp{by}
+\:temp{ed}
+\:temp{finalinfo}
+\:temp{issue}
+\:temp{jour}
+\:temp{key}
+\:temp{lang}
+\:temp{miscnote}
+\:temp{moreref}
+\:temp{pages}
+\:temp{paper}
+\:temp{paperinfo}
+\:temp{procinfo}
+\:temp{publaddr}
+\:temp{publ}
+\:temp{vol}
+\:temp{yr}
+\:temp{ref}
+\:temp{keyformat}
+\:temp{Refs}
+\def\makerefbox#1#2#3{\endgraf
+  \setbox\z@\lastbox
+  \global\setbox\@ne\hbox{\unhbox\holdoverbox
+    \ifvoid\z@\else\unhbox\z@\unskip\unskip\unpenalty\fi}%
+  \egroup
+  \setbox\curbox\box \@ne
+  \ifvoid#2\else\Err@{Redundant \string#1; duplicate use, or
+     mutually exclusive information already given}\fi
+  \def\curbox{#2}\setbox\curbox\vbox\bgroup \hsize\maxdimen \noindent
+  #3}
+
+\let\:roster\roster
+\def\roster{\IgnorePar
+   \let\roster:par\par
+   \def\par{\let\par\roster:par \par
+      \def\:tempa{\ifx \:temp\par@  \IgnorePar\leavevmode\IgnorePar\fi}%
+      \futurelet\:temp\:tempa}%
+   \:roster   \let\ams:tem\item
+   \def\item{\IgnorePar\EnditemitemList \ams:tem}%
+   \a:roster}
+\pend:def\endroster{\EnditemitemList\b:roster}
+\pend:def\itembox@{\ifx \EndPicture\:UnDef
+   \a:itembox@ \therosteritem@ \b:itembox@ \expandafter\:gobbleII\fi}
+\NewConfigure{roster}[4]{\def\:temp{#1#2#3#4}\ifx \:temp\empty
+   \else \def\a:roster{\ii:conf#1}\def\b:roster{#2}%
+         \def\a:itembox@{#3}\def\b:itembox@{#4}\fi
+   \long\def\:temp##1##2##3##4{\def\:temp{##1##2##3##4}\ifx \:temp\empty
+      \else
+      \def\ii:conf{\Configure{itemitem}{##1}{##2}{##3}{##4}}\fi}\:temp}
+\ifx \EnditemitemList\:UnDef
+   \def\:temp#1{\:iilist \let\:iilist\empty
+   \def\EnditemitemList{\end:iilist \let\EnditemitemList\empty}%
+   \a:iitem {#1}\b:iitem}
+\HLet\itemitem\:temp
+\long\def\c:itemitem:#1#2#3#4{
+   \let\EnditemitemList\empty
+   \c:def\:iilist{#1}%
+   \c:def\end:iilist{#2\c:def\:iilist{#1}}
+   \c:def\a:iitem{#3}
+   \c:def\b:iitem{#4}}
+
+\fi
+
+
+\append:def\@ins{\def\vspace##1{\vskip##1\relax}%
+  \def\captionwidth##1{\captionwidth@##1\relax}}
+\let\:topcaption\topcaption
+\let\:botcaption\botcaption
+
+\def\:caption#1#2\endcaption{\a:caption
+  {\captionfont@#1}\if\notempty{#2}.\fi\b:caption
+  \if\notempty{#2}{\rm#2}\fi \c:caption}
+
+\def\botcaption{\ifx \EndPicture\:UnDef \expandafter\:caption
+  \else \expandafter\:botcaption \fi}
+\def\topcaption{\ifx \EndPicture\:UnDef \expandafter\:caption
+  \else \expandafter\:topcaption \fi}
+
+\NewConfigure{caption}{3}
+
+\ifx \enddocument@text\:UnDef \else
+   \pend:def\enddocument@text{\bgroup}
+   \append:def\enddocument@text{\egroup}
+\fi
+
+\NewConfigure{title}{2}
+\NewConfigure{author}{2}
+
+\Hinput{amsppt}
+\endinput
+

@@ -1,0 +1,65 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% utf8x.4ht                             2009-05-21-09:32 %
+% Copyright (C) 2007--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\bgroup
+\def\temp#1{%
+   \ifnum \count255<224
+      \expandafter\gdef\csname :u8-\number\count255\endcsname ##1{%
+           \string#1\string##1}%
+   \else\ifnum \count255<240
+      \expandafter\gdef\csname :u8-\number\count255\endcsname ##1##2{%
+           \string#1\string##1\string##2}%
+   \else \ifnum \count255<245
+      \expandafter\gdef\csname :u8-\number\count255\endcsname ##1##2##3{%
+           \string#1\string##1\string##2\string##3}%
+   \fi\fi\fi
+   \edef\tempa{%
+      \noexpand\Configure{@newlabel}{\noexpand\let\noexpand #1\expandafter
+                      \noexpand\csname :u8-\number\count255\endcsname}}%
+   \tempa
+}
+
+
+ \count255=194\relax
+ \loop\ifnum\count255<245\relax
+    \catcode\count255\active
+    \begingroup
+      \uccode`\~\count255%
+      \uccode`\u`\u%
+      \uppercase{%
+    \endgroup
+         \temp{~}}%
+    \advance\count255by1\relax
+ \repeat
+  \expandafter\global\expandafter\let\csname a:@newlabel\expandafter
+                           \endcsname\csname a:@newlabel\endcsname
+\egroup
+%
+%  \Hinput{utf8x}
+\endinput
+

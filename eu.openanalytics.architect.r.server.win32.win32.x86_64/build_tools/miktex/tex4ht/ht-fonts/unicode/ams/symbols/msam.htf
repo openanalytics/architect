@@ -1,0 +1,131 @@
+msam 0 127
+'&#x22A1;' '' squaredot          0 %
+'&#x229E;' '' squareplus         1 % msam.htf (unicode)           2020-05-27-14:14 %
+'&#x22A0;' '' squaremultiply     2 % Copyright 2000-2009 Eitan M. Gurari %
+'&#x25A1;' '' square             3 %
+'&#x25A0;' '' squaresolid        4 % This work may be distributed and/or modified under the conditions
+'&#x25AA;' '' squaresmallsolid   5 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x2662;' '' diamond            6 % license or (at your option) any later version. The latest version
+'&#x2666;' '' diamondsolid       7 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x21BB;' '' clockwise          8 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x21BA;' '' anticlockwise      9 % 2003/12/01 or later.
+'&#x21CC;' '' harpoonleftright  10 % This work has the LPPL maintenance status "maintained".
+'&#x21CB;' '' harpoonrightleft  11 % Current Maintainer of this work is the TeX4ht Project.
+'&#x229F;' '' squareminus       12 %
+'&#x22A9;' '' forces            13 % If you modify this file, changing the
+'&#x22AA;' '' forcesbar         14 % version identification would be appreciated.
+'&#x22A8;' '' satisfies         15 %
+'&#x21A0;' '' dblarrowheadright 16 % tex4ht@tug.org
+'&#x219E;' '' dblarrowheadleft  17 % https://tug.org/tex4ht
+'&#x21C7;' '' dblarrowleft      18 %
+'&#x21C9;' '' dblarrowright     19 
+'&#x21C8;' '' dblarrowup         20
+'&#x21CA;' '' dblarrowdwn         21
+'&#x21BE;' '' harpoonupright         22 upwards harpoon with barb rightwards
+'&#x21C2;' '' harpoondownright         23
+'&#x21BF;' '' harpoonupleft         24
+'&#x21C3;' '' harpoondownleft         25
+'&#x21A3;' '' arrowtailright         26
+'&#x21A2;' '' arrowtailleft         27
+'&#x21C6;' '' arrowparrleftright         28
+'&#x21C4;' '' arrowparrrightleft         29
+'&#x21B0;' '' shiftleft         30
+'&#x21B1;' '' shiftright         31
+'&#x21DD;' '' squiggleright         32
+'&#x21AD;' '' squiggleleftright         33
+'&#x21AB;' '' curlyleft         34
+'&#x21AC;' '' curlyright         35
+'&#x2257;' '' circleequal         36
+'&#x227F;' '' followsorequal         37
+'&#x2273;' '' greaterorsimilar         38
+'&#x227F;' '' greaterorapproxeql         39
+'&#x22B8;' '' multimap         40
+'&#x2234;' '' therefore         41
+'&#x2235;' '' because         42
+'&#x2251;' '' equalsdots         43
+'&#x225C;' '' defines         44
+'&#x227E;' '' precedesorequal         45
+'&#x2272;' '' lessorsimilar         46
+'&#x227E;' '' lessorapproxeql         47
+'&#x22DC;' '' equalorless         48
+'&#x22DD;' '' equalorgreater         49
+'&#x22DE;' '' equalorprecedes         50
+'&#x22DF;' '' equalorfollows         51
+'&#x227C;' '' precedesorcurly         52
+'&#x2266;' '' lessdblequal         53
+'&#x2264;' '' lessorequalslant         54
+'&#x2276;' '' lessorgreater         55
+'&#x2035;' '' primereverse         56
+'&#x2212;' '' axisshort         57
+'&#x2253;' '' equaldotrightleft         58
+'&#x2252;' '' equaldotleftright         59
+'&#x227D;' '' followsorcurly         60
+'&#x2267;' '' greaterdblequal         61
+'&#x2265;' '' greaterorequalslant         62
+'&#x2277;' '' greaterorless         63
+'&#x228F;' '' squareimage         64
+'&#x2290;' '' squareoriginal         65
+'&#x25B9;' '' triangleright         66
+'&#x25C3;' '' triangleleft         67
+'&#x22B5;' '' trianglerightequal         68
+'&#x22B4;' '' triangleleftequal         69
+'&#x22C6;' '' star         70
+'&#x226C;' '' between         71
+'&#x25BE;' '' triangledownsld         72
+'&#x25B8;' '' trianglerightsld         73
+'&#x25C2;' '' triangleleftsld         74
+'&#x2192;' '' arrowaxisright         75
+'&#x2190;' '' arrowaxisleft         76
+'&#x25B5;' '' triangle         77
+'&#x25B4;' '' trianglesolid         78
+'&#x25BF;' '' triangleinv         79
+'&#x2256;' '' ringinequal         80
+'&#x22DB;' '' lessequalgreater         81
+'&#x22DA;' '' greaterlessequal         82
+'&#x22DB;' '' lessdbleqlgreater         83
+'&#x22Da;' '' greaterdbleqlless         84
+'&#x00A5;' '' Yen         85
+'&#x21DB;' '' arrowtripleright         86
+'&#x21DA;' '' arrowtripleleft         87
+'&#x2713;' '' check         88
+'&#x22BB;' '' orunderscore         89
+'&#x22BC;' '' nand         90
+'&#x2259;' '' perpcorrespond         91
+'&#x2220;' '' angle         92
+'&#x2221;' '' measuredangle         93
+'&#x2222;' '' sphericalangle         94
+'&#x221D;' '' proportional         95
+'&#x2323;' '' smile         96
+'&#x2322;' '' frown         97
+'&#x22D0;' '' subsetdbl         98
+'&#x22D1;' '' supersetdbl         99
+'&#x22D3;' '' uniondbl        100
+'&#x22D2;' '' intersectiondbl        101
+'&#x22CF;' '' uprise        102
+'&#x22CE;' '' downfall        103
+'&#x22CB;' '' multiopenleft        104
+'&#x22CC;' '' multiopenright        105
+'&#x2286;' '' subsetdblequal        106
+'&#x2287;' '' supersetdblequal        107
+'&#x224F;' '' difference        108
+'&#x224E;' '' geomequivalent        109
+'&#x22D8;' '' muchless        110
+'&#x22D9;' '' muchgreater        111
+'&#x231C;' '' rightanglenw        112
+'&#x231D;' '' rightanglene        113
+'&#x24C7;' '' circleR        114
+'&#x24C8;' '' circleS        115
+'&#x22D4;' '' fork        116
+'&#x2214;' '' dotplus        117
+'&#x223D;' '' revsimilar        118
+'&#x2243;' '' revasymptequal        119
+'&#x231E;' '' rightanglesw        120
+'&#x231F;' '' rightanglese        121
+'&#xFFFD;' '' maltesecross        122
+'&#x2201;' '' complement        123
+'&#x22BA;' '' intercal        124
+'&#x229A;' '' circlering        125
+'&#x229B;' '' circleasterisk        126
+'&#x229D;' '' circleminus        127
+msam 0 127
+

@@ -1,0 +1,110 @@
+shold 16 122
+'&#xFB2E;' '' ALEF WITH PATAH     16 %
+'&#xFB2F;' '' ALEF WITH QAMATS    17 % shold.htf          2020-05-27-14:14 %
+'&#x05F0;' '' YIDDISH DOUBLE VAV  18 % Copyright 2002-2009 Eitan M. Gurari %
+'&#x05F1;' '' YIDDISH VAV YOD     19 %
+'&#xFB1D;' ''    YOD WITH HIRIQ   20 % This work may be distributed and/or modified under the conditions
+'&#x05F2;' '' DOUBLE YOD          21 % of the LaTeX Project Public License, either version 1.3 of this
+'&#xFB1F;' ''    YOD YOD PATAH    22 % license or (at your option) any later version. The latest version
+'&#x05C1;' '' POINT SHIN DOT      23 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x05C2;' '' POINT SIN DOT       24 % version 1.3 or later is part of all distributions of LaTeX version
+'' ''                             25 % 2003/12/01 or later.
+'' ''                             26 % This work has the LPPL maintenance status "maintained".
+'' ''                             27 % Current Maintainer of this work is the TeX4ht Project.
+'' ''                             28 %
+'' ''                             29 % If you modify this file, changing the
+'' ''                             30 % version identification would be appreciated.
+'' ''                             31 %
+'' ''                             32 % tex4ht@tug.org
+'!' ''                            33 % https://tug.org/tex4ht
+'&#x201D;' ''  right doublequote  34 %
+''         ''                     35 
+''         ''                     36
+''         ''                     37
+'&#x0026;' ''  ampersand          38
+'&#x2019;' ''  right singlequote  39
+'&#x0028;'        ''                     40
+'&#x0029;'        ''                     41
+''         ''                     42
+''         ''                     43
+''         ''                     44
+'-'        ''                     45
+'.'        ''                     46
+'/'        ''                     47
+'&#x05B4;' '' hiriq                    48
+'&#x05B5;' '' tsere  49
+'&#x05B6;' '' segol  50
+'&#x05B0;' '' sheva  51
+'&#x05BB;' '' qubuts 52
+'&#x05B7;' '' patah  53
+'&#x05B8;' '' qamats 54
+'&#x05B1;' '' hataf segol  55
+'&#x05B2;' '' hataf patah  56
+'&#x05B3;' '' hataf qamats 57
+':'        ''                     58
+';'        ''                     59
+'&#xFB35;' ''   vav with dagesh   60
+'='        ''                     61
+'&#xFB4B;' ''   vav with holam    62
+'?'        ''                     63
+'&#x2206;' '' ldots               64
+'&#x05B4;' '' hiriq                    65
+'&#x05B5;' '' tsere  66
+'&#x05B6;' '' segol  67
+'&#x05B0;' '' sheva  68
+'&#x05BB;' '' qubuts 69
+'&#x05B7;' '' patah  70
+'&#x05B8;' '' qamats 71
+'&#x05B1;' '' hataf segol  72
+'&#x05B2;' '' hataf patah  73
+'&#x05B3;' '' hataf qamats 74
+'&#x05B4;' '' hiriq                    75
+'&#x05B5;' '' tsere  76
+'&#x05B6;' '' segol  77
+'&#x05B0;' '' sheva  78
+'&#x05BB;' '' qubuts 79
+'&#x05B7;' '' patah  80
+'&#x05B8;' '' qamats 81
+'&#x05B1;' '' hataf segol  82
+'&#x05B2;' '' hataf patah  83
+'&#x05B3;' '' hataf qamats 84
+''         ''                     85
+'&#x05B8;' '' qamats 86
+'&#x05B4;' '' hiriq                    87
+'&#x05B4;' '' hiriq                    88
+'&#x05B4;' '' hiriq                    89
+'&#x201D;' ''  right doublequote  90
+'&#x2019;' ''  right singlequote  91
+'&#x2216;' '' backslash           92
+''        ''                     93
+'' ''                     94
+'' ''                            95
+'&#x05D0;' '' aleph 96
+'&#x05D1;' '' beit 97
+'&#x05D2;' '' gimel 98
+'&#x05D3;' '' dalet 99
+'&#x05D4;' '' hei 100
+'&#x05D5;' '' vav 101
+'&#x05D6;' '' zain 102
+'&#x05D7;' '' chet 103
+'&#x05D8;' '' tet 104
+'&#x05D9;' '' yud 105
+'&#x05DA;' '' final caf  106
+'&#x05DB;' '' caf  107
+'&#x05DC;' '' lamed 108
+'&#x05DD;' '' final mem 109
+'&#x05DE;' '' mem 110
+'&#x05DF;' '' final nun 111
+'&#x05E0;' '' nun 112
+'&#x05E1;' '' samech 113
+'&#x05E2;' '' hain 114
+'&#x05E3;' '' final pei 115
+'&#x05E4;' '' pei 116
+'&#x05E5;' '' final tzadik 117
+'&#x05E6;' '' tzadik 118
+'&#x05E7;' '' cuf 119
+'&#x05E8;' '' reish 120
+'&#x05E9;' '' shin 121
+'&#x05EA;' '' taf 122
+shold 16 122
+

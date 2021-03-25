@@ -1,0 +1,131 @@
+mtmi-bs 0 127
+'&#x0393;' ''  Gamma     0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x0394;' ''  Delta     1 % mtmi-bs.htf (unicode)         2001-05-31 %
+'&#x0398;' ''  Theta     2 % Copyright (C) 2001            Phil Viton %
+'&#x039B;' ''  Lambda    3 %                                          %
+'&#x039E;' ''  Xi        4 % This file can redistributed and/or       %
+'&#x03A0;' ''  Pi        5 % modified under the terms of the LaTeX    %
+'&#x03A3;' ''  Sigma     6 % Project Public License Distributed from  %
+'&#x03A5;' ''  Upsilon   7 % CTAN archives in directory               %
+'&#x03A6;' ''  Phi       8 % macros/latex/base/lppl.txt; either       %
+'&#x03A8;' ''  Psi       9 % version 1 of the License, or (at your    %
+'&#x03A9;' ''  Omega    10 % option) any later version.               %
+'&#x03B1;' ''  alpha    11 %    However, you are allowed to modify    %
+'&#x03B2;' ''  beta     12 % this file without changing its name, if  %
+'&#x03B3;' ''  gamma    13 % you add a note of your own after this    %
+'&#x03B4;' ''  delta    14 % copyright note.                          %
+'&#x1D716;' ''    15 %                                          %
+'&#x03B6;' ''  zeta     16 % I would appreciate being told if you     %
+'&#x03B7;' ''  eta      17 % find errors                              %
+'&#x1D703;' ''  theta    18 %                          viton.1@osu.edu %
+'&#x03B9;' ''  iota     19 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x03BA;' ''  kappa    20
+'&#x03BB;' ''  lambda             21
+'&#x03BC;' ''  mu                 22
+'&#x03BD;' ''  nu                 23
+'&#x03BE;' ''  xi                 24
+'&#x03C0;' ''  pi                 25
+'&#x03C1;' ''  rho                26
+'&#x03C3;' ''  sigma              27
+'&#x03C4;' ''  tau                28
+'&#x03C5;' ''  upsilon            29
+'&#x03D5;' ''  phi                30
+'&#x03C7;' ''  chi                31
+'&#x03C8;' ''  psi                32
+'&#x03C9;' ''  omega              33
+'&#x1D700;' ''           34
+'&#x1D717;' ''             35
+'&#x03D6;' ''  varpi              36
+'&#x03F1;' ''  varrho             37
+'&#x03C2;' ''  varsigma           38
+'&#x03C6;' ''  varphi             39
+'&#x21BC;' ''  leftharpoonup      40
+'&#x21BD;' ''  leftharpoondown    41
+'&#x21C0;' ''  righttharpoonup    42
+'&#x21C1;' ''  rightharpoondown   43
+'`'        ''  left quote         44
+*'*        **  right quote        45
+'&#x0028;'        ''  parenleft          46
+'&#x0029;'        ''  parenright         47
+'&#x0393;' ''  UprightGamma       48
+'&#x0394;' ''  UprightDelta       49
+'&#x039B;' ''  UprightLambda      50
+'&#x0398;' ''  UprightTheta       51
+'&#x039E;' ''  UprightXi          52
+'&#x03A0;' ''  UprightPi          53
+'&#x03A3;' ''  UprightSigma       54
+'&#x03A5;' ''  UprightUpsilon     55
+'&#x03A6;' ''  UprightPhi         56
+'&#x03A8;' ''  UprightPsi         57
+'.'        ''  full stop          58
+','        ''  comma              59
+'&#x003C;' ''  less than          60
+'/'        ''  slash              61
+'&#x003E;' ''  greater than       62
+'&#x22C6;' ''  star               63
+'&#x2202;' ''  partial            64
+'A'        ''  letter A           65
+'B'        ''  letter B           66
+'C'        ''  letter C           67
+'D'        ''  letter D           68
+'E'        ''  letter E           69
+'F'        ''  letter F           70
+'G'        ''  letter G           71
+'H'        ''  letter H           72
+'I'        ''  letter I           73
+'J'        ''  letter J           74
+'K'        ''  letter K           75
+'L'        ''  letter L           76
+'M'        ''  letter M           77
+'N'        ''  letter N           78
+'O'        ''  letter O           79
+'P'        ''  letter P           80
+'Q'        ''  letter Q           81
+'R'        ''  letter R           82
+'S'        ''  letter S           83
+'T'        ''  letter T           84
+'U'        ''  letter U           85
+'V'        ''  letter V           86
+'W'        ''  letter W           87
+'X'        ''  letter X           88
+'Y'        ''  letter Y           89
+'Z'        ''  letter Z           90
+'&#x266D;' ''  flat               91
+'&#x266E;' ''  natural            92
+'&#x266F;' ''  sharp              93
+'&#x2323;' ''  smile              94
+'&#x2322;' ''  frown              95
+'&#x2113;' ''  script small l     96
+'a'        ''  letter a           97
+'b'        ''  letter b           98
+'c'        ''  letter c           99
+'d'        ''  letter d          100
+'e'        ''  letter e          101
+'f'        ''  letter f          102
+'g'        ''  letter g          103
+'h'        ''  letter h          104
+'i'        ''  letter i          105
+'j'        ''  letter j          106
+'k'        ''  letter k          107
+'l'        ''  letter l          108
+'m'        ''  letter m          109
+'n'        ''  letter n          110
+'o'        ''  letter o          111
+'p'        ''  letter p          112
+'q'        ''  letter q          113
+'r'        ''  letter r          114
+'s'        ''  letter s          115
+'t'        ''  letter t          116
+'u'        ''  letter u          117
+'v'        ''  letter v          118
+'w'        ''  letter w          119
+'x'        ''  letter x          120
+'y'        ''  letter y          121
+'z'        ''  letter z          122
+'&#x0131;' ''  dotless i         123
+'&#x0237;' ''  dotless j         124
+'&#x2118;' ''    weierstrass p     125
+'&#x03F0;' ''              126
+'&#x03A9;' ''    upright Omenga  127
+mtmi-bs 0 127
+

@@ -1,0 +1,240 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: `arabic.ldf' the language definition file of Arabic
+% for use with BABEL.
+%
+
+\ProvidesFile{arabic.ldf}
+
+\ProvidesLanguage{arabic}[2006/01/01 v0.1 Arabic support for the babel system]
+        
+
+\LdfInit{arabic}{captionsarabic}
+
+
+\ifx\l@arabic\@undefined
+  \@nopatterns{Arabic}%
+  \adddialect\l@arabic0
+\fi
+\InputIfFileExists{laeenc.def}{%
+  \message{Loading the definitions for the LaTeX{} Arabic encoding}}{%
+  \errhelp{I can't find the laeenc.def file for the Arabic fonts}%
+  \errmessage{Since I do not know what the LAE encoding means^^J
+    I can't typeset Arabic.^^J
+    I stop here, while you get a suitable laeenc.def file}\@@end
+ }
+  
+  
+\AtEndOfPackage{%
+  \@ifpackageloaded{inputenc}{}{\RequirePackage[cp1256]{inputenc}}}
+  
+%NO hyphenation is needed in Arabic!! Update language.dat!!!
+\providehyphenmins{\CurrentOption}{\thr@@\thr@@}
+
+\addto\captionsarabic{%
+\def\prefacename{\textAR{\meem\dal\kha\lam}}% 
+\def\refname{\textAR{\alef\lam\meem\ra\alef\jeem\ayn}}
+\def\abstractname{\textAR{\meem\lam\kha\sad}}%
+\def\bibname{\textAR{\alef\lam\meem\sad\alef\dal\ra}}%
+\def\chaptername{\textAR{\alef\lam\baa\alef\baa}}%
+\def\appendixname{\textAR{\alef\lam\meem\lam\Haa\qaf}}%
+%\def\contentsname{\textAR{\alef\lam\meem\Haa\taa\waw\ya\alef\taa}}
+\def\contentsname{\textAR{\alef\lam\fa\ha\ra\seen}}%
+\def\listfigurename{\textAR{\qaf\alef\yahamza\meem\T\space \alef\lam\alefhamza\sheen\kaf\alef\lam}}%
+\def\listtablename{\textAR{\qaf\alef\yahamza\meem\T\space \alef\lam\jeem\dal\alef\waw\lam}}%
+\def\indexname{\textAR{\alef\lam\fa\ha\ra\seen}}%
+\def\figurename{\textAR{\sheen\kaf\lam}}%
+\def\tablename{\textAR{\jeem\dal\waw\lam}}%
+\def\partname{\textAR{\alef\lam\qaf\seen\meem}}%
+\def\enclname{\textAR{\alef\lam\meem\ra\fa\qaf\alef\taa}}
+\def\ccname{\textAR{\nun\seen\kha\T\space\meem\waw\jeem\ha\T\space\aleflowerhamza\lam\alefmaqsura}}% <<
+\def\headtoname{\textAR{\aleflowerhamza\lam\alefmaqsura}}
+\def\pagename{\textAR{\sad\fa\Haa\T}}%
+\def\seename{\textAR{\ra\alef\jeem\ayn}}%\alefhamza\nun\za\ra
+\def\alsoname{\textAR{\ra\alef\jeem\ayn\space\alefhamza\ya\dad\alef}}%<<\alefhamza\nun\za\ra
+\def\proofname{\textAR{\baa\ra\ha\alef\nun}}% for AMS-\LaTeX
+\def\glossaryname{\textAR{\qaf\alef\meem\waw\seen}}%<<
+}
+
+%
+% The default Arabic date form for now :
+%
+\def\arabimonth#1{\ifcase#1\or
+      \kaf\alef\nun\waw\nun\space \alef\lam\thaa\alef\nun\ya\or
+      \sheen\baa\alef\Ta\or 
+      \alefmadda\dhal\alef\ra\or 
+      \nun\ya\seen\alef\nun\or 
+      \alefhamza\ya\alef\ra\or 
+      \Haa\zay\ya\ra\alef\nun\or      
+      \taa\meem\waw\zay\or 
+      \alefmadda\baa\or 
+      \alefhamza\ya\lam\waw\lam\or       
+      \taa\sheen\ra\ya\nun\space \alef\lam\alefhamza\waw\lam\or 
+      \taa\sheen\ra\ya\nun\space \alef\lam\thaa\alef\nun\ya\or
+      \kaf\alef\nun\waw\nun\space \alef\lam\alefhamza\waw\lam\fi}
+      
+\def\atoday{%
+       \I{\number\day}%
+\space \textRL{\arabimonth{\month}}%
+\space \I{\number\year}}
+
+\def\datearabic{\def\today{\atoday}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         MACROS FOR Arabic/Latin TYPESETTING			   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% First, the common part to Arabic and Farsi
+%
+\InputIfFileExists{arabicore.sty}{%
+  \message{Loading the Common definitions for Arabic and Farsi}}{%
+  \errhelp{I can't find the arabicore.sty file}%
+  \errmessage{Since I can't find the arabicore.sty file^^J
+    I can't typeset Arabic.^^J
+    I stop here, while you get a suitable arabicore.sty file}\@@end
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now the specific part to Arabic
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\ArabicEncoding}{\fontencoding{LAE}\selectfont}
+
+
+
+\DeclareRobustCommand{\@arabic@R}[1]{\bgroup\beginR\ArabicEncoding #1\endR\egroup}
+\DeclareRobustCommand{\@ensure@arabic}[1]{\if@rl{{\ArabicEncoding #1}}\else
+                                          \beginR\ArabicEncoding #1\endR\fi}
+
+
+% To avoid bad surprised we use \def to define the \R control sequence, 
+% many packages ``like'' to use , like ArabTeX and the Hebrew package 
+% supporting Babel 
+\newcommand{\textAR}[1]{\expandafter\@arabic@R{#1}}
+%Temporary shortcut
+\newcommand{\AR}[1]{\textAR{#1}}
+%
+\def\textRL#1{\expandafter\@arabic@R{#1}}
+
+
+
+
+
+\def\arabicencoding{LAE}
+\DeclareFontEncoding{LAE}{}{}
+\DeclareFontSubstitution{LAE}{cmr}{m}{n}
+\DeclareErrorFont{LAE}{cmr}{m}{n}{10}
+
+\DeclareRobustCommand{\bbl@arabic}{%
+\bbl@arabi
+\def\encodingdefault{\arabicencoding}%
+\fontencoding{\encodingdefault}\selectfont%
+\@rltrue
+\@arabictrue
+}
+
+
+\addto\extrasarabic{\bbl@arabic}
+
+\addto\noextrasarabic{%
+\@rlfalse
+\@arabicfalse
+\latintext\normalfont %enough ??
+% Restore the lplain.tex penalties??
+\hyphenpenalty=50%
+\binoppenalty=700%
+\relpenalty=500%
+}
+
+
+
+%
+% Now, the Arabic fonts Definitions
+%
+\InputIfFileExists{arabicfnt.sty}{%
+  \message{Loading the Arabi fonts definitions for Arabic}}{%
+  \errhelp{I can't find the arabicfnt.sty file}%
+  \errmessage{Since I can't find the arabicfnt.sty file^^J
+    I can't typeset Arabic.^^J
+    I stop here, while you get a suitable arabicfnt.sty file}\@@end
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==========================================================%
+%   The changes that should be executed after reading      %
+%   the main style file. (e.g., article.sty)               %
+%==========================================================%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\addto\extrasarabic{%
+  \let\SAV@alph\@alph%
+  \let\SAV@Alph\@Alph%
+  \renewcommand*{\@alph}[1]{\protect\abjadnumeral{\number#1}}%
+  \renewcommand*{\@Alph}[1]{\protect\abjadnumeral{\number#1}}}
+
+\addto\noextrasarabic{%
+  \let\@alph\SAV@alph%
+  \let\@Alph\SAV@Alph}
+  
+%
+% Now, the common file to Arabic and Farsi that allows
+% activating and deactivating Vowelization
+%
+\InputIfFileExists{arabnovowel.sty}{%
+  \message{Loading the Common definitions for Arabic and Farsi}}{%
+  \errhelp{I can't find the arabnovowel.sty file}%
+  \errmessage{Since I can't find the arabnovowel.sty file^^J
+    I can't activate or deactivate vowelization.^^J
+    The vowels you type will be printed!}\@@end
+}
+
+
+
+% To get the parentheses around equations numbers to appear correctly
+% works with standard classes article, report and book (with or without amsmath package) 
+% and with ams[*] classes. (reqno should be used!!)
+%
+\addto\extrasarabic{%
+\let\SAV@@eqnnum\@eqnnum
+\let\SAV@tagform@\tagform@
+\def\tagform@#1{\maketag@@@{)\ignorespaces#1\unskip\@@italiccorr(}}% if amsmath is loaded
+\renewcommand{\@eqnnum}{)\theequation(}%                             otherwise 
+}
+
+% Restore original values
+\addto\noextrasarabic{%
+\let\@eqnnum\SAV@@eqnnum
+\let\tagform@\SAV@tagform@
+}
+
+
+
+%%%%%% To let this file clean and usable by everybody %%%%%%
+%% use "arabic.cfg" instead and uncomment next line
+%\loadlocalcfg{arabic}  %last patches and additional hacks
+%%
+\ldf@finish{arabic}
+
+
+\endinput

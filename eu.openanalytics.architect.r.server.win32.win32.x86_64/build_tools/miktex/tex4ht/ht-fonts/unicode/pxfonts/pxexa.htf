@@ -1,0 +1,93 @@
+pxexa 0 83
+'?' ''   0  0 %
+'?' ''   1 % pxexa.htf 2020-05-27-14:14 %
+'?' ''    2 % Copyright (C) 2008-2009                    Eitan M. Gurari %%
+'?' ''    3 % Copyright (C) 2008-2009                    Eitan M. Gurari %
+'?' ''    4 % This work may be distributed and/or modified under the conditions
+'?' ''    5 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x2293;' ''    6 % license or (at your option) any later version. The latest version
+'&#x2293;' ''    7 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x222F;' ''    8 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x222F;' ''    9 % 2003/12/01 or later.
+'&#x2233;' ''   10 % This work has the LPPL maintenance status "maintained".
+'&#x2233;' ''   11 % Current Maintainer of this work is the TeX4ht Project.
+'&#x2232;' ''   12 %
+'&#x2232;' ''   13 % If you modify this file, changing the
+'&#x2A16;' ''   14 % version identification would be appreciated.
+'&#x2A16;' ''   15 %
+'&#x2A09;' ''   16 % tex4ht@tug.org
+'&#x2A09;' ''   17 % https://tug.org/tex4ht
+'&#x27E6;' ''   18 %
+'&#x27E7;' ''   19 
+'&#x27E6;' ''   20
+'&#x27E7;' ''   21
+'&#x27E6;' ''   22
+'&#x27E7;' ''   23
+'&#x27E6;' ''   24
+'&#x27E7;' ''   25
+'?' ''   26
+'?' ''   27
+'?' ''   28
+'?' ''   29
+'?' ''   30
+'?' ''   31
+'?' ''   32
+'&#x222C;' ''   33
+'&#x222C;' ''   34
+'&#x222D;' ''   35
+'&#x222D;' ''   36
+'&#x2ACC;' ''   37
+'&#x2ACC;' ''   38
+'?' ''   39
+'?' ''   40
+'&#x2230;' ''   41
+'&#x2230;' ''   42
+'&#x2233;' ''   43
+'&#x2233;' ''   44
+'&#x2232;' ''   45
+'&#x2232;' ''   46
+'?' '' 47
+'&#x27C5;' ''   48
+'&#x27C6;' ''   49
+'&#x27C5;' ''   50
+'&#x27C6;' ''   51
+'&#x27C5;' ''   52
+'&#x27C6;' ''   53
+'&#x27C5;' ''   54
+'&#x27C6;' ''   55
+'&#x27C5;' ''   56
+'&#x27C6;' ''   57
+'&#x27C5;' ''   58
+'&#x27C6;' ''   59
+'&#x27C5;' ''   60
+'&#x27C6;' ''   61
+'&#x2ADF;' ''   62
+'&#x2ADF;' ''   63
+'?' ''   64
+'?' ''   65
+'?' ''   66
+'?' ''   67
+'?' ''   68
+'?' ''   69
+'?' ''   70
+'?' ''   71
+'?' ''   72
+'?' ''   73
+'?' ''   74
+'?' ''   75
+'?' ''   76
+'?' ''   77
+'?' ''   78
+'?' ''   79
+'?' ''   80
+'?' ''   81
+'?' ''   82
+'?' ''   83
+pxexa 0 83
+htfcss: pxexab  font-weight: bold;
+htfcss: pxexacb  font-weight: bold;
+htfcss: pxexach  font-weight: bold;
+htfcss: pxexacl  font-weight: light;
+htfcss: pxexah  font-weight: bold;
+htfcss: pxexal  font-weight: light;
+

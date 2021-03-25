@@ -1,0 +1,7 @@
+% $Id: ff,v 1.2 2004/09/19 21:47:11 karl Exp $
+% Public domain.
+vardef C.ff(expr n) =
+ save p;
+ picture p; p="f"infont n;
+ addto p also "f"infont n shifted(xpart urcorner p-fontsize n/20,0);
+ p enddef;

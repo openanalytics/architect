@@ -1,0 +1,164 @@
+blex-bs 0 160
+'&#x0028;'        ''             0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x0029;'        ''             1 % Blex-bs (unicode)             2001-03-14 %
+'&#x005B;'        ''             2 % Copyright (C) 2001                       %
+'&#x005D;'        ''             3 %                                          %
+'&#x230A;' ''  lfloor     4 % This file can redistributed and/or       %
+'&#x230B;' ''  rfloor     5 % modified under the terms of the LaTeX    %
+'&#x2308;' ''  lceil      6 % Project Public License Distributed from  %
+'&#x2309;' ''  rceil      7 % CTAN archives in directory               %
+'&#x007B;'        ''             8 % macros/latex/base/lppl.txt; either       %
+'&#x007D;'        ''             9 % version 1 of the License, or (at your    %
+'&#x27E8;' ''  lab       10 % option) any later version.               %
+'&#x27E9;' ''  rab       11 %    However, you are allowed to modify    %
+'&#x007C;' ''  divides   12 % this file without changing its name, if  %
+'&#x2225;' ''  parallel  13 % you add a note of your own after this    %
+'/'        ''            14 % copyright note.                          %
+'&#x005C;' ''  backslash 15 %                                          %
+'&#x0028;'        ''            16 %  I would appreciate being told of        %
+'&#x0029;'        ''            17 %  any bugs                                %
+'&#x0028;'        ''            18 %                          viton.1@osu.edu %
+'&#x0029;'        ''            19 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x005B;'        ''            20
+'&#x005D;'        ''                    21
+'&#x230A;' ''  lfloor            22
+'&#x230B;' ''  rfloor            23
+'&#x2308;' ''  lceil             24
+'&#x2309;' ''  rceil             25
+'&#x007B;'        ''                    26
+'&#x007D;'        ''                    27
+'&#x27E8;' ''  lab               28
+'&#x27E9;' ''  rab               29
+'/'        ''                    30
+'&#x005C;' ''  backslash         31
+'&#x0028;'        ''                    32
+'&#x0029;'        ''                    33
+'&#x005B;'        ''                    34
+'&#x005D;'        ''                    35
+'&#x230A;' ''  lfloor            36
+'&#x230B;' ''  rfloor            37
+'&#x2308;' ''  lceil             38
+'&#x2309;' ''  rceil             39
+'&#x007B;'        ''                    40
+'&#x007D;'        ''                    41
+'&#x27E8;' ''  lab               42
+'&#x27E9;' ''  rab               43
+'/'        ''                    44
+'&#x005C;' ''  backslash         45
+'/'        ''                    46
+'&#x005C;' ''  backslash         47
+'&#x0028;'        ''                    48
+'&#x0029;'        ''                    49
+'&#x230A;' ''  lfloor            50
+'&#x230B;' ''  rfloor            51
+'&#x2308;' ''  lceil             52
+'&#x2309;' ''  rceil             53
+'|'        ''                    54
+'|'        ''                    55
+'&#x0028;'        ''                    56
+'&#x0029;'        ''                    57
+'&#x0028;'        ''                    58
+'&#x0029;'        ''                    59
+'&#x007B;'        ''                    60
+'&#x007D;'        ''                    61
+'|'        ''                    62
+'|'        ''                    63
+'&#x0028;'        ''                    64
+'&#x0029;'        ''                    65
+'|'        ''                    66
+'|'        ''                    67
+'&#x27E8;' ''  lab               68
+'&#x27E9;' ''  rab               69
+'&#x2293;' ''  sqcup             70
+'&#x2293;' ''  sqcup             71
+'&#x222E;' ''  conint            72
+'&#x222E;' ''  conint            73
+'&#x2299;' ''  odot              74
+'&#x2299;' ''  odot              75
+'&#x2295;' ''  oplus             76
+'&#x2295;' ''  oplus             77
+'&#x2297;' ''  otimes            78
+'&#x2297;' ''  otimes            79
+'&#x2211;' ''  sum               80
+'&#x220F;' ''  product           81
+'&#x222B;' ''  integral          82
+'&#x22C3;' ''  cup               83
+'&#x22C2;' ''  cap               84
+'&#x228E;' ''  uplus             85
+'&#x2227;' ''  land              86
+'&#x2228;' ''  lor               87
+'&#x2211;' ''  sum               88
+'&#x220F;' ''  product           89
+'&#x222B;' ''  integral          90
+'&#x22C3;' ''  cup               91
+'&#x22C2;' ''  cap               92
+'&#x228E;' ''  uplus             93
+'&#x2227;' ''  land              94
+'&#x2228;' ''  lor               95
+'&#x2210;' ''  coprod            96
+'&#x2210;' ''  coprod            97
+'&#x005E;' ''  check             98
+'&#x005E;' ''  check             99
+'&#x005E;' ''  check            100
+'&#x005E;' ''  tilde            101
+'&#x005E;' ''  tilde            102
+'&#x005E;' ''  tilde            103
+'&#x005B;'        ''                   104
+'&#x005D;'        ''                   105
+'&#x230A;' ''  lfloor           106
+'&#x230B;' ''  rfloor           107
+'&#x2308;' ''  lceil            108
+'&#x2309;' ''  rceil            109
+'&#x007B;'        ''                   110
+'&#x007D;'        ''                   111
+'&#x2218;' ''  radic            112
+'&#x2218;' ''  radic            113
+'&#x2218;' ''  radic            114
+'&#x2218;' ''  radic            115
+'&#x2218;' ''  radic            116
+'&#x2502;' ''  box vertical     117
+'&#x250C;' ''  box up left      118
+'&#x2551;' ''  box double vert  119
+'&#x2191;' ''  uparrow          120
+'&#x2193;' ''  downarrow        121
+'&#x25DC;' ''  up left arc      122
+'&#x25DD;' ''  up right arc     123
+'&#x25DF;' ''  low left arc     124
+'&#x25DE;' ''  low right arc    125
+'&#x21D1;' ''  Uparrow          126
+'&#x21D3;' ''  Downarrow        127
+'Blex-A'          ''            128 the rest of this is fillin, since Blex seems to have 160 chrs
+'Blex-B'          ''            129 Ths3e characters should never be used directory, but to help
+'Blex-C'          ''            130 diagnose problems we will just print some text for each of them
+'Blex-D'          ''            131
+'Blex-E'          ''            132
+'Blex-F'          ''            133
+'Blex-G'          ''            134
+'Blex-H'          ''            135
+'Blex-I'          ''            136
+'Blex-J'          ''            137
+'Blex-K'          ''            138
+'Blex-L'          ''            139
+'Blex-M'          ''            140
+'Blex-N'          ''            141
+'Blex-O'          ''            142
+'Blex-P'          ''            143
+'Blex-Q'          ''            144
+'Blex-R'          ''            145
+'Blex-S'          ''            146
+'Blex-T'          ''            147
+'Blex-U'          ''            148
+'Blex-V'          ''            149
+'Blex-W'          ''            150
+'Blex-X'          ''            151
+'Blex-Y'          ''            152
+'Blex-Z'          ''            153
+'Blex-AA'          ''           154
+'Blex-AB'          ''           155
+'Blex-AC'          ''           156
+'Blex-AD'          ''           157
+'Blex-AE'          ''           158
+'Blex-AF'          ''           159
+'Blex-AG'          ''           160
+blex-bs 0 160
+

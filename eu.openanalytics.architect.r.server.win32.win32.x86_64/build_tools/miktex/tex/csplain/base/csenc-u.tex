@@ -1,0 +1,123 @@
+%%% The re-encoding table for Czech/Slovak alphabet using encTeX,
+%%% v.Sep.2005 (C) Petr Ol\v s\'ak
+%%% input: UTF8, internal TeX: ISO-8859-2
+%%% This file may be used while csplain, cseplain or cslatex is generated
+%%% example:  tex -ini -enc \let\enc=u \input csplain.ini
+
+% This is very simple setting of Czech and Slovak alphabet only.
+% User can reset this value and add his own declaration.
+% For more information see cstexman.pdf. 
+
+\ifx\mubyte\undefined
+   \errhelp={You has specified \let\enc=u but this works only with encTeX
+   extension of TeX binary. See ftp://math.feld.cvut.cz/pub/olsak/enctex.}
+   \errmessage{The encTeX Feb2003 or later is not detected -- re-encoding is impossible}
+   \endinput \fi
+
+%%      TeX   input
+\mubyte ^^c1  ^^c3^^81\endmubyte % \'A
+\mubyte ^^e1  ^^c3^^a1\endmubyte % \'a
+\mubyte ^^c9  ^^c3^^89\endmubyte % \'E
+\mubyte ^^e9  ^^c3^^a9\endmubyte % \'e
+\mubyte ^^cd  ^^c3^^8d\endmubyte % \'I
+\mubyte ^^ed  ^^c3^^ad\endmubyte % \'i
+\mubyte ^^d3  ^^c3^^93\endmubyte % \'O
+\mubyte ^^f3  ^^c3^^b3\endmubyte % \'o
+\mubyte ^^da  ^^c3^^9a\endmubyte % \'U
+\mubyte ^^fa  ^^c3^^ba\endmubyte % \'u
+\mubyte ^^dd  ^^c3^^9d\endmubyte % \'Y
+\mubyte ^^fd  ^^c3^^bd\endmubyte % \'y
+\mubyte ^^d4  ^^c3^^94\endmubyte % \^O
+\mubyte ^^f4  ^^c3^^b4\endmubyte % \^o
+\mubyte ^^c4  ^^c3^^84\endmubyte % \"A
+\mubyte ^^e4  ^^c3^^a4\endmubyte % \"a
+\mubyte ^^d6  ^^c3^^96\endmubyte % \"O
+\mubyte ^^f6  ^^c3^^b6\endmubyte % \"o
+\mubyte ^^dc  ^^c3^^9c\endmubyte % \"U
+\mubyte ^^fc  ^^c3^^bc\endmubyte % \"u
+\mubyte ^^c8  ^^c4^^8c\endmubyte % \v C
+\mubyte ^^e8  ^^c4^^8d\endmubyte % \v c
+\mubyte ^^cf  ^^c4^^8e\endmubyte % \v D
+\mubyte ^^ef  ^^c4^^8f\endmubyte % \v d
+\mubyte ^^cc  ^^c4^^9a\endmubyte % \v E
+\mubyte ^^ec  ^^c4^^9b\endmubyte % \v e
+\mubyte ^^c5  ^^c4^^b9\endmubyte % \' L
+\mubyte ^^e5  ^^c4^^ba\endmubyte % \' l
+\mubyte ^^a5  ^^c4^^bd\endmubyte % \v L
+\mubyte ^^b5  ^^c4^^be\endmubyte % \v l
+\mubyte ^^d2  ^^c5^^87\endmubyte % \v N
+\mubyte ^^f2  ^^c5^^88\endmubyte % \v n
+\mubyte ^^d8  ^^c5^^98\endmubyte % \v R
+\mubyte ^^f8  ^^c5^^99\endmubyte % \v r
+\mubyte ^^a9  ^^c5^^a0\endmubyte % \v S
+\mubyte ^^b9  ^^c5^^a1\endmubyte % \v s
+\mubyte ^^ab  ^^c5^^a4\endmubyte % \v T
+\mubyte ^^bb  ^^c5^^a5\endmubyte % \v t
+\mubyte ^^d9  ^^c5^^ae\endmubyte % \r U
+\mubyte ^^f9  ^^c5^^af\endmubyte % \r u
+\mubyte ^^ae  ^^c5^^bd\endmubyte % \v Z
+\mubyte ^^be  ^^c5^^be\endmubyte % \v z
+\mubyte ^^c0  ^^c5^^94\endmubyte % \' R
+\mubyte ^^e0  ^^c5^^95\endmubyte % \' r
+
+\def\setcsucode #1 #2 #3 #4 #5{} % to skip the data form utf8lat1.tex
+                                 % and utf8lata.tex
+
+% There exist some character-like control sequences defined in plainTeX.
+% It seems to be usable to interpret their corresponding UTF-8 codes:
+
+\mubyte \S   ^^c2^^a7\endmubyte % section sign
+\mubyte \P   ^^c2^^b6\endmubyte % paragraph (pilcrow) sign
+\mubyte \ss  ^^c3^^9f\endmubyte % german sharp s
+\mubyte \l   ^^c5^^82\endmubyte % l slashed
+\mubyte \L   ^^c5^^81\endmubyte % L slashed
+\mubyte \ae  ^^c3^^a6\endmubyte % ae ligature
+\mubyte \oe  ^^c5^^93\endmubyte % oe ligature
+\mubyte \o   ^^c3^^b8\endmubyte % o slash
+\mubyte \AE  ^^c3^^86\endmubyte % AE ligature
+\mubyte \OE  ^^c5^^92\endmubyte % OE ligature
+\mubyte \O   ^^c3^^98\endmubyte % O slash
+\mubyte \i   ^^c4^^b1\endmubyte % dotless i
+\mubyte \j   ^^c8^^b7\endmubyte % dotless j
+\mubyte \aa  ^^c3^^a5\endmubyte % a with ring
+\mubyte \AA  ^^c3^^85\endmubyte % A with ring
+\mubyte \copyright ^^c2^^a9\endmubyte     % copyright
+\mubyte \dots      ^^e2^^80^^a6\endmubyte % ellipsis
+\mubyte \dag       ^^e2^^80^^a0\endmubyte % single dagger
+\mubyte \ddag      ^^e2^^80^^a1\endmubyte % double dagger
+
+% The character-like control sequences defined in csplain:
+
+\mubyte \clqq    ^^e2^^80^^9e\endmubyte  % czech left double quote
+\mubyte \crqq    ^^e2^^80^^9c\endmubyte  % czech right double quote
+\mubyte \flqq    ^^c2^^ab\endmubyte      % french left (czech right) double guillquote
+\mubyte \frqq    ^^c2^^bb\endmubyte      % french right (czech left) double quillquote
+\mubyte \promile ^^e2^^80^^b0\endmubyte  % per mille sign
+
+\mubyte \erqq    ^^e2^^80^^9d\endmubyte  % English right double quote
+\mubyte \elq     ^^e2^^80^^98\endmubyte  % English left single quote
+\mubyte \erq     ^^e2^^80^^99\endmubyte  % English right single quote
+
+% UTF-8 BOM
+
+\mubyte \utfBOM ^^ef^^bb^^bf\endmubyte  \def\utfBOM{}
+
+% everyjob message:
+
+\ifx\baseutfencoding\undefined \else \expandafter\endinput\fi
+
+\let\baseutfencoding\relax
+
+\global\everyjob=\expandafter{\the\everyjob
+   \message{The utf8->iso8859-2 re-encoding of Czech+Slovak alphabet activated by encTeX}}
+
+% Warnings about UTF-8 unknown codes are set by default: 
+
+\input utf8unkn
+
+% UTF-8 input / output is active by default:
+
+\mubytein=1 \mubyteout=3 \mubytelog=1 \xprncodes=0
+
+\endinput
+

@@ -1,0 +1,91 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% index.4ht                             2009-05-21-09:32 %
+% Copyright (C) 1999--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\ifx \a:makeindex\:UnDef
+   \NewConfigure{makeindex}{1} \Configure{makeindex}{}
+\fi
+
+\expandafter\ifx \csname @vwritefile\endcsname\relax
+  \pend:defII\@wrindex{\warn:idx{##1}\title:chs{\html:addr
+   \hbox{\Link-{}{x\last:haddr}\EndLink}}{}%
+   \edef\:temp{\write\@auxout{%
+      \string\@writefile{##1}{\expandafter\string\a:idxmake{\RefFileNumber
+         \FileNumber}{\title:chs{x\last:haddr}{\cur:th
+         \:currentlabel}}{\a:makeindex}}}}\:temp
+}
+\pend:def\printindex{\def\indexname{\the\@nameuse{idxtitle@\@indextype}}}
+\def\warn:idx#1{%
+  \expandafter\ifx \csname #1warn:idx\endcsname\relax
+     \expandafter\global
+         \expandafter\let \csname #1warn:idx\endcsname\def
+     \:warning{If not done so, the index is to be processed by
+      ^^J\space\space tex '\string\def\string\filename
+         {{\jobname}{\expandafter
+\expandafter\expandafter\idx:extI \csname idx@#1\endcsname//%
+}{4dx}%
+          {\expandafter
+\expandafter\expandafter\idx:extII \csname idx@#1\endcsname//%
+}} \noexpand
+             \input\space idxmake.4ht'
+      ^^J\space\space  makeindex -o
+         \jobname.\expandafter
+\expandafter\expandafter\idx:extII \csname idx@#1\endcsname//%
+\space \jobname.4dx
+      ^^Jinstead of
+      ^^J\space\space  makeindex -o
+         \jobname.\expandafter
+\expandafter\expandafter\idx:extII \csname idx@#1\endcsname//%
+\space
+         \jobname.\expandafter
+\expandafter\expandafter\idx:extI \csname idx@#1\endcsname//%
+%
+      ^^JOn some platforms, the quotation marks ' should be
+      ^^J      replaced by double quotation marks " or eliminated.
+     }%
+     {\Configure{Needs}{File: #1.4idx}\Needs{}}%
+  \fi}
+\bgroup
+   \catcode`\:=12
+   \expandafter\gdef\csname idx:extI\endcsname#1:#2//{#1}
+   \expandafter\gdef\csname idx:extII\endcsname#1:#2:#3//{#2}
+\egroup
+
+
+\else
+  \pend:defII\@wrindex{\warn:idx{##1}\title:chs{\html:addr
+   \hbox{\Link-{}{x\last:haddr}\EndLink}}{}%
+   \edef\:temp{\write\@auxout{%
+      \string\@vwritefile{##1}{\expandafter\string\a:idxmake{\RefFileNumber
+         \FileNumber}{\title:chs{x\last:haddr}{\cur:th
+         \:currentlabel}}{\a:makeindex}}}}\:temp
+}
+
+\fi
+\Hinput{index}
+\endinput
+

@@ -1,0 +1,28 @@
+% To produce proof sheets from MetaPost output (includes date and time):
+% tex mproof <MetaPost output file names>
+
+\input epsf
+\font\textt=cmtex10 \textt
+\def\okbreak{\vfil\penalty2000\vfilneg}
+
+\def\today{\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\day, \number\year}
+\newcount\m \newcount\n
+\n=\time \divide\n 60 \m=-\n \multiply\m 60 \advance\m \time
+\def\hours{\twodigits\n\twodigits\m}
+\def\twodigits#1{\ifnum #1<10 0\fi \number#1}
+
+\footline={\sevenrm\today\ at \hours\hss\tenrm\folio\hss}
+
+\def\endit{\\}
+\def\munch#1 {\def\next{#1}\ifx\next\endit\endit
+  \else#1$$\epsfverbosetrue\epsfbox{#1}$$\par\okbreak\fi\munch}
+
+\def\\{\let\munch=\relax\def\\{}}
+
+\everypar{\everypar{}\munchline}
+
+\obeylines\def\munchline#1
+{\catcode`\^^M=5 \munch#1\\ \vfill\end}%

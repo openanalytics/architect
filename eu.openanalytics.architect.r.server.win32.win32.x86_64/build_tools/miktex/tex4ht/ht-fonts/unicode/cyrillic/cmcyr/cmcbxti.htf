@@ -1,0 +1,107 @@
+cmcbxti 25 127
+'&#x2216;' '' 25 %
+'' ''         26 % cmcbxti.htf  (unicode)        2020-05-27-14:14 %
+'' ''         27 % Copyright 2000-2009 Eitan M. Gurari %
+'' ''         28 %
+'&#x00AB;' '' 29 % This work may be distributed and/or modified under the conditions
+'&#x00BB;' '' 30 % of the LaTeX Project Public License, either version 1.3 of this
+'' ''         31 % license or (at your option) any later version. The latest version
+'' ''         32 % of this license is in http://www.latex-project.org/lppl.txt and
+'' ''         33 % version 1.3 or later is part of all distributions of LaTeX version
+'' ''         34 % 2003/12/01 or later.
+'' ''         35 % This work has the LPPL maintenance status "maintained".
+'' ''         36 % Current Maintainer of this work is the TeX4ht Project.
+'' ''         37 %
+'' ''         38 % If you modify this file, changing the
+'' ''         39 % version identification would be appreciated.
+'' ''         40 %
+'' ''         41 % tex4ht@tug.org
+'' ''         42 % https://tug.org/tex4ht
+'' ''         43 %
+'' ''         44 
+'' ''         45
+'' ''         46
+'' ''         47
+'' ''         48
+'' ''         49
+'' ''         50
+'' ''         51
+'' ''         52
+'' ''         53
+'' ''         54
+'' ''         55
+'' ''         56
+'' ''         57
+'' ''         58
+'' ''         59
+'&#x0451;' '' 60
+'' ''         61
+'&#x0401;' '' 62
+'' ''         63
+'&#x044E;' '' 64
+'&#x0430;' '' 65
+'&#x0431;' '' 66
+'&#x0446;' '' 67
+'&#x2202;' '' 68
+'&#x0435;' '' 69
+'&#x0444;' '' 70
+'&#x01A8;' '' 71
+'&#x0445;' '' 72
+'u' '' 73
+'&#x016D;' '' 74
+'&#x043A;' '' 75
+'&#x043B;' '' 76
+'&#x043C;' '' 77
+'&#x043D;' '' 78
+'&#x043E;' '' 79
+'n' '' 80
+'&#x044F;' '' 81
+'&#x0440;' '' 82
+'&#x0441;' '' 83
+'m' '' 84
+'&#x0443;' '' 85
+'&#x0436;' '' 86
+'&#x0432;' '' 87
+'&#x044C;' '' 88
+'&#x044B;' '' 89
+'&#x0437;' '' 90
+'&#x0448;' '' 91
+'&#x044D;' '' 92
+'&#x0449;' '' 93
+'&#x0447;' '' 94
+'&#x044A;' '' 95
+'&#x042E;' '' 96
+'&#x0410;' '' 97
+'&#x0411;' '' 98
+'&#x0426;' '' 99
+'&#x0414;' '' 100
+'&#x0415;' '' 101
+'&#x0424;' '' 102
+'&#x0413;' '' 103
+'&#x0425;' '' 104
+'&#x0418;' '' 105
+'&#x0419;' '' 106
+'&#x041A;' '' 107
+'&#x041B;' '' 108
+'&#x041C;' '' 109
+'&#x041D;' '' 110
+'&#x041E;' '' 111
+'&#x041F;' '' 112
+'&#x042F;' '' 113
+'&#x0420;' '' 114
+'&#x0421;' '' 115
+'&#x0422;' '' 116
+'&#x0423;' '' 117
+'&#x0416;' '' 118
+'&#x0412;' '' 119
+'&#x042C;' '' 120
+'&#x042B;' '' 121
+'&#x0417;' '' 122
+'&#x0428;' '' 123
+'&#x042D;' '' 124
+'&#x0429;' '' 125
+'&#x0427;' '' 126
+'&#x042A;' '' 127
+cmcbxti 25 127
+htfcss: cmcbxti font-weight: bold; font-style: italic;
+

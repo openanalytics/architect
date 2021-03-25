@@ -1,0 +1,137 @@
+ex-iwona 0 127
+'&#x0028;' ''     0 % ex-iwona.htf 2020-05-27-14:14 %
+'&#x0029;' ''     1 % Copyright (C) 2005-2009                    Eitan M. Gurari %
+'&#x005B;' ''     2 %
+'&#x005D;' ''     3 % This work may be distributed and/or modified under the conditions
+'&#x230A;' ''     4 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x230B;' ''     5 % license or (at your option) any later version. The latest version
+'&#x2308;' ''     6 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x2309;' ''     7 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x007B;' ''     8 % 2003/12/01 or later.
+'' ''  9 % This work has the LPPL maintenance status "maintained".
+'&#x2329;' ''     10 % Current Maintainer of this work is the TeX4ht Project.
+'&#x232A;' ''     11 %
+'&#x007C;' ''     12 % If you modify this file, changing the
+'&#x2225;' ''     13 % version identification would be appreciated.
+'&#x2215;' ''     14 %
+'&#x005C;' ''     15 % tex4ht@tug.org
+'&#x0028;' ''     16 % https://tug.org/tex4ht
+'&#x0029;' ''     17 %
+'&#x0028;' ''     18 
+'&#x0029;' ''     19
+'&#x005B;' ''     20
+'&#x005D;' ''     21
+'&#x230A;' ''     22
+'&#x230B;' ''     23
+'&#x2308;' ''     24
+'&#x2309;' ''     25
+'{' ''     26
+'&#x007D;' ''     27
+'&#x2329;' ''     28
+'&#x232A;' ''     29
+'&#x2215;' ''     30
+'&#x005C;' ''     31
+'&#x0028;' ''     32
+'&#x0029;' ''     33
+'&#x005B;' ''     34
+'&#x005D;' ''     35
+'&#x230A;' ''     36
+'&#x230B;' ''     37
+'&#x2308;' ''     38
+'&#x2309;' ''     39
+'&#x007B;' ''     40
+'&#x007D;' ''     41
+'&#x2329;' ''     42
+'&#x232A;' ''     43
+'&#x2215;' ''     44
+'&#x005C;' ''     45
+'&#x2215;' ''     46
+'&#x005C;' ''     47
+'&#x0028;' ''     48
+'&#x0029;' ''     49
+'&#x230A;' ''     50
+'&#x230B;' ''     51
+'&#x2308;' ''     52
+'&#x2309;' ''     53
+'|' ''     54
+'|' ''     55
+'&#x0028;' ''     56
+'&#x0029;' ''     57
+'&#x0028;' ''     58
+'&#x0029;' ''     59
+'&#x007B;' ''     60
+'&#x007D;' ''     61
+'|' ''     62
+'|' ''     63
+'&#x0028;' ''     64
+'&#x0029;' ''     65
+'|' ''     66
+'|' ''     67
+'&#x2329;' ''     68
+'&#x232A;' ''     69
+'&#x2293;' ''     70
+'&#x2293;' ''     71
+'&#x222E;' ''     72
+'&#x222E;' ''     73
+'&#x2299;' ''     74
+'&#x2299;' ''     75
+'&#x2295;' ''     76
+'&#x2295;' ''     77
+'&#x2297;' ''     78
+'&#x2297;' ''     79
+'&#x2211;' ''     80
+'&#x220F;' ''     81
+'&#x222B;' ''     82
+'&#x22C3;' ''     83
+'&#x22C2;' ''     84
+'&#x228E;' ''     85
+'&#x2227;' ''     86
+'&#x2228;' ''     87
+'&#x2211;' ''     88
+'&#x220F;' ''     89
+'&#x222B;' ''     90
+'&#x22C3;' ''     91
+'&#x22C2;' ''     92
+'&#x228E;' ''     93
+'&#x2227;' ''     94
+'&#x2228;' ''     95
+'&#x2210;' ''     96
+'&#x2210;' ''     97
+'&#x005E;' ''     98
+'&#x005E;' ''     99
+'&#x005E;' ''     100
+'&#x005E;' ''     101
+'&#x005E;' ''     102
+'&#x005E;' ''     103
+'&#x005B;' ''     104
+'&#x005D;' ''     105
+'&#x230A;' ''     106
+'&#x230B;' ''     107
+'&#x2308;' ''     108
+'&#x2309;' ''     109
+'&#x007B;' ''     110
+'&#x007D;' ''     111
+'&#x2218;' ''     112
+'&#x2218;' ''     113
+'&#x2218;' ''     114
+'&#x2218;' ''     115
+'&#x2218;' ''     116
+'&#x2502;' ''     117
+'&#x250C;' ''     118
+'&#x2551;' ''     119
+'&#x2191;' ''     120
+'&#x2193;' ''     121
+'&#x25DC;' ''     122
+'&#x25DD;' ''     123
+'&#x25DF;' ''     124
+'&#x25DE;' ''     125
+'&#x21D1;' ''     126
+'&#x21D3;' ''     127
+ex-iwona 0 127
+htfcss: ex-iwonab  font-weight: bold;
+htfcss: ex-iwonacb  font-weight: bold;
+htfcss: ex-iwonach  font-weight: bold;
+htfcss: ex-iwonacl  font-weight: light;
+htfcss: ex-iwonah  font-weight: bold;
+htfcss: ex-iwonal  font-weight: light;
+

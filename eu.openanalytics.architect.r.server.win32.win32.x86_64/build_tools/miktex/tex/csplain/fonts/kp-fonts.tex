@@ -1,0 +1,161 @@
+% The file kp-font.tex (C) Petr Olsak, 2016
+% Use "\input kp-fonts" to set the KP Fonts font family.
+
+% See cs-heros.tex file for more information about font modifiers.
+
+% See http://petr.olsak.net/csplain.html#font for information about CSplain
+% (or OPmac) font concept and about font modifiers.
+% See kpfonts-plain.pdf article about "KP-fonts in plain TeX"
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [KP Fonts] 
+   {\caps \bcaps \slant \sans \ttset \wlight \bext \noflig \oldn \olds \oldsv}
+   {\rm \bf \it \bi} {22 mods + exchars} {KP} {8t 7t}
+
+% Modifiers: 
+%    \caps ..... Caps & small caps
+%    \bcaps .... Bigger small-caps
+%    \slant .... Slanted
+%    \sans ..... Sans serif
+%    \ttset .... TypeWriter set
+%    \wlight ... Weight Light
+%    \bext ..... Bold extended
+%    \noflig ... no f ligatures
+%    \oldn ..... Old style numbers
+%    \olds ..... Old style all
+%    \oldsv .... Very old style
+%    \kpreset .. Returns all modifications to default values
+% Usage: [modifiers]\rm or \bf or \it or \bi or \one or \fam
+% Of course, you cannot combine all with all.
+% \lr \rm \mr \bf ; \li \it \mi \bi ... extended variant selectors
+% See the file kp-math.tex for math modifiers documentation.
+
+\tryprotected\def\kpvars#1{%
+   \if n#1\ffvars {mn}  {b\bextV n}  {mit}   {b\bextV it}\fi   % Normal family
+   \if s#1\ffvars {mn}  {b\bextV n}  {msl}   {b\bextV sl}\fi   % Slanted family
+   \if c#1\ffvars {msc} {b\bextV sc} {mscsl} {b\bextV scsl}\fi % Caps family
+   \def\kpvarV{#1}%
+}
+\kpvars{n}
+
+\def\caps{\kpvars{c}\ffsetV{noflig}{}\ffsetX}
+\def\slant{\kpvarnoC{\kpvars{s}}\ffsetX}
+\tryprotected\def\kpvarnoC#1{\if c\kpvarV \else#1\fi} 
+
+\def\sans{\slant\ffsetV{subfam}{ss}\ffsetV{wlight}{}\ffsetX}
+\def\ttset{\kpvars{n}\slant\ffsetV{subfam}{tt}%
+   \ffsetV{bext}{}\ffsetV{noflig}{}\ffsetV{wlight}{}\ffsetV{bcaps}{}\ffsetX}
+
+\def\bext{\ffsetV{bext}{x}\ffsetX}
+\def\bcaps{\caps\ffsetV{bcaps}{k}\ffsetX}
+\def\wlight{\ffsetV{wlight}{l}\ffsetX}
+\def\noflig{\ffsetV{noflig}{f}\ffsetX}
+\def\oldn{\ffsetV{old}{osn}\ffsetX}
+\def\olds{\ffsetV{old}{os}\ffsetX}
+\def\oldsv{\ffsetV{old}{vos}\ffsetX}
+\def\kpreset{\kpvars{n}\ffsetV{subfam}{}\ffsetV{wlight}{}\ffsetV{bcaps}{}%
+   \ffsetV{noflig}{}\ffsetV{old}{}\ffsetV{bext}{}\ffsetX}
+
+\def\lr{\wlight\rm} \def\li{\wlight\it} \def\mr{\wlight\bf} \def\mi{\wlight\bi}
+
+\def\subfamV{} \def\wlightV{} \def\bcapsV{} \def\nofligV{} \def\oldV{} \def\bextV{} 
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = jkpmn8t  \sizespec
+   \font\tenbf = jkpbn8t  \sizespec
+   \font\tenit = jkpmit8t \sizespec
+   \font\tenbi = jkpbit8t \sizespec
+
+   \def\ffnamegen{jkp\subfamV\wlightV\bcapsV\nofligV\oldV\ffvarV 8t}
+
+\fi
+
+\ismacro\fotenc{7t}\ifttrue
+
+   \font\tenrm = jkpmn7t  \sizespec
+   \font\tenbf = jkpbn7t  \sizespec
+   \font\tenit = jkpmit7t \sizespec
+   \font\tenbi = jkpbit7t \sizespec
+
+   \def\ffnamegen{jkp\subfamV\wlightV\bcapsV\nofligV\oldV\ffvarV 7t}
+
+\fi
+\tenrm
+
+\def\Qtail{{\olds\one Q}}
+
+\input exchars % 7c encoding implemented by exchars.tex macro
+
+\let\euro=\exeuro
+\ifx\mubyte\undefined \else \mubyte\euro ^^e2^^82^^ac\endmubyte \fi
+
+\def\ffloadhookA#1{% if desired metric is not registered then print warning
+   \expandafter\ifx\csname ex:\ffnamegen/TS1\endcsname \relax
+      \ffmessage{FONT warning: KPfonts - subfam="\subfamV" wlight="\wlightV"
+         bcaps="\bcapsV", noflig="\nofligV", old="\oldV", bext="\bextV" of
+         variant="\ffvarV" in encoding="\fotenc" (\ffnamegen) unavailable}%
+      \csname iffalse\expandafter\endcsname 
+   \else % font is loaded
+}
+\def\ffaddtfm #1 {\ifx\relax#1\relax \else 
+   \setexfont {jkp#1\fotenc} TS1 \kpsevenc{#1} % register the metric for exchars
+   \expandafter\ffaddtfm\fi
+}
+\def\kpsevenc#1{\kpsevencA #1;f\relax}  % does mapping from *8t metric to *7c
+\def\kpsevencA#1f#2\relax{\kpsevencB #1#2k\relax}  % strip off irrelevant features
+\def\kpsevencB#1k#2\relax{\kpsevencC #1#2osn\relax}
+\def\kpsevencC#1osn#2\relax{\kpsevencD #1#2vos\relax}
+\def\kpsevencD#1vos#2\relax{\kpsevencE #1#2os\relax}
+\def\kpsevencE#1os#2\relax{\kpsevencF#1#2\relax}
+\def\kpsevencF#1;#2\relax{jkp#17c}
+
+\ffaddtfm  % register all metrics from "ls *8t.tfm" output:
+ bit        kosbsc     lkbsc       losnbsc    osmscsl    sskbxscsl    ssosnmsc
+ bn         kosbscsl   lkbscsl     losnbscsl  osmsl      sskmsc       ssosnmscsl
+ bsc        kosbxsc    lkbxsc      losnbsl    osnbit     sskmscsl     ssosnmsl
+ bscsl      kosbxscsl  lkbxscsl    losnbxit   osnbn      sskosbsc     ssvosbn
+ bsl        kosmsc     lkmsc       losnbxn    osnbsc     sskosbscsl   ssvosbsc
+ bxit       kosmscsl   lkmscsl     losnbxsc   osnbscsl   sskosbxsc    ssvosbsl
+ bxn        kosnbsc    lkosbsc     losnbxscsl osnbsl     sskosbxscsl  ssvosbxn
+ bxsc       kosnbscsl  lkosbscsl   losnbxsl   osnbxit    sskosmsc     ssvosbxsc
+ bxscsl     kosnbxsc   lkosbxsc    losnmit    osnbxn     sskosmscsl   ssvosbxsl
+ bxsl       kosnbxscsl lkosbxscsl  losnmn     osnbxsc    sskosnbsc    ssvosmn
+ fbit       kosnmsc    lkosmsc     losnmsc    osnbxscsl  sskosnbscsl  ssvosmsc
+ fbn        kosnmscsl  lkosmscsl   losnmscsl  osnbxsl    sskosnbxsc   ssvosmsl
+ fbsl       lbit       lkosnbsc    losnmsl    osnmit     sskosnbxscsl ttbn
+ fbxit      lbn        lkosnbscsl  lvosbit    osnmn      sskosnmsc    ttbsl
+ fbxn       lbsc       lkosnbxsc   lvosbn     osnmsc     sskosnmscsl  ttmn
+ fbxsl      lbscsl     lkosnbxscsl lvosbsl    osnmscsl   ssmn         ttmsl
+ fmit       lbsl       lkosnmsc    lvosbxit   osnmsl     ssmsc        ttosbn
+ fmn        lbxit      lkosnmscsl  lvosbxn    ssbn       ssmscsl      ttosbsl
+ fmsl       lbxn       lmit        lvosbxsl   ssbsc      ssmsl        ttosmn
+ fosnbit    lbxsc      lmn         lvosmit    ssbscsl    ssosbn       ttosmsl
+ fosnbn     lbxscsl    lmsc        lvosmn     ssbsl      ssosbsc      ttosnbn
+ fosnbsl    lbxsl      lmscsl      lvosmsl    ssbxn      ssosbscsl    ttosnbsl
+ fosnbxit   lfbit      lmsl        mit        ssbxsc     ssosbsl      ttosnmn
+ fosnbxn    lfbn       losbit      mn         ssbxscsl   ssosbxn      ttosnmsl
+ fosnbxsl   lfbsl      losbn       msc        ssbxsl     ssosbxsc     ttvosbn
+ fosnmit    lfbxit     losbsc      mscsl      ssfbn      ssosbxscsl   ttvosbsl
+ fosnmn     lfbxn      losbscsl    msl        ssfbsl     ssosbxsl     ttvosmn
+ fosnmsl    lfbxsl     losbsl      osbit      ssfbxn     ssosmn       ttvosmsl
+ fssosnbn   lfmit      losbxit     osbn       ssfbxsl    ssosmsc      vosbit
+ fssosnbsl  lfmn       losbxn      osbsc      ssfmn      ssosmscsl    vosbn
+ fssosnbxn  lfmsl      losbxsc     osbscsl    ssfmsl     ssosmsl      vosbsl
+ fssosnbxsl lfosnbit   losbxscsl   osbsl      ssfosnbn   ssosnbn      vosbxit
+ fssosnmn   lfosnbn    losbxsl     osbxit     ssfosnbsl  ssosnbsc     vosbxn
+ fssosnmsl  lfosnbsl   losmit      osbxn      ssfosnbxn  ssosnbscsl   vosbxsl
+ kbsc       lfosnbxit  losmn       osbxsc     ssfosnbxsl ssosnbsl     vosmit
+ kbscsl     lfosnbxn   losmsc      osbxscsl   ssfosnmn   ssosnbxn     vosmn
+ kbxsc      lfosnbxsl  losmscsl    osbxsl     ssfosnmsl  ssosnbxsc    vosmsl
+ kbxscsl    lfosnmit   losmsl      osmit      sskbsc     ssosnbxscsl
+ kmsc       lfosnmn    losnbit     osmn       sskbscsl   ssosnbxsl
+ kmscsl     lfosnmsl   losnbn      osmsc      sskbxsc    ssosnmn
+ {}
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded K\else \input kp-math \fi                     
+
+\endinput
+

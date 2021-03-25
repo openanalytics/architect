@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:TPM="http://texlive.dante.de/"><rdf:Description about="http://www.miktex.org/packages/miktex-ghostscript-bin-x64"><TPM:Name>GPL Ghostscript (Win64)</TPM:Name><TPM:Creator>mpc</TPM:Creator><TPM:Title>GPL Ghostscript for Windows (x64)</TPM:Title><TPM:Version>9.25</TPM:Version><TPM:TargetSystem>windows-x64</TPM:TargetSystem><TPM:Description>Ghostscript is a freely available PostScript interpreter which is
+available for many platforms.  It is a near-essential complement to a
+TeX installation.
+
+The Ghostscript executable of the MiKTeX for Windows distribution has
+been renamed to mgs.exe and therefore does not interfere with any
+official Ghostscript installation (gswin32c.exe).</TPM:Description><TPM:RunFiles size="18619780">texmf\miktex\bin\x64\mgs.exe texmf\miktex\bin\x64\mgsdll64.dll texmf\tpm\packages\miktex-ghostscript-bin-x64.tpm</TPM:RunFiles><TPM:DocFiles size="37783">texmf\doc\miktex\ghostscript-bin-x64\COPYING texmf\doc\miktex\ghostscript-bin-x64\LICENSE</TPM:DocFiles><TPM:SourceFiles size="1924">texmf\source\miktex-ghostscript-bin-x64\compile_for_miktex.cmd</TPM:SourceFiles><TPM:TimePackaged>1537906302</TPM:TimePackaged><TPM:MD5>7b5776964a4e76b8d07ff369a00377e2</TPM:MD5><TPM:Copyright owner="Artifex Software, Inc." year=""/><TPM:License type="agpl"/></rdf:Description></rdf:RDF>

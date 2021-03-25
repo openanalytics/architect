@@ -1,0 +1,520 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% revtex4.4ht                           2019-12-19-14:27 %
+% Copyright (C) 2002-2009       Eitan M. Gurari         %
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\def\:tempc[#1]#2{%
+%\hshow{@array@array@new--222}%
+  \def\Clr{#2}\a:VBorder
+\HAssign\ar:cnt0
+\let\HAlign\empty
+%
+  \@tempdima\ht\strutbox
+  \advance\@tempdima by\extrarowheight
+  \setbox\@arstrutbox\hbox{}%
+  \begingroup
+     \@mkpream{#2}%
+     \xdef\@preamble{%
+        \everycr{}\tabskip\z@skip\noexpand\MkHalign\noexpand\@sharp
+   {\@arstrut \@preamble \tabskip\z@skip}%
+}%
+     \xdef\:temp{%
+   \def\noexpand\HAlign{\HAlign}%
+   \def\noexpand\ar:cnt{\ar:cnt}}\aftergroup\:temp
+%
+  \endgroup
+  \@arrayleft
+  \@nameuse{@array@align@#1}%
+     \def\v:TBL{#1}%
+     \m@th
+     \let\\\@arraycr \let\tabularnewline\\\let\par\@empty
+     \ifx \EndPicture\:UnDef
+       \SaveMkHalignConfig
+       \ifx \recall:ar\:UnDef
+   \pend:def\@array{\recall:ar}%
+   \edef\recall:ar{%
+      \noexpand\ifx \noexpand\EndPicture\noexpand\:UnDef \noexpand\else
+         \arrayrulewidth\the\arrayrulewidth
+         \doublerulesep\the\doublerulesep
+         \arraycolsep\the\arraycolsep
+         \tabcolsep\the\tabcolsep
+      \noexpand\fi }%
+\fi
+\arrayrulewidth\z@  \doublerulesep\z@
+\arraycolsep\z@     \tabcolsep\z@
+\Configure{MkHalign}
+   {\@array:a}%
+   {\@array:b\ProperTrTrue}%
+   {\a:putHBorder\InitHBorder
+    \gHAdvance\cline:cnt by 1
+\expandafter\ifx \csname  cw:cline-\cline:cnt\endcsname \relax \else
+   \Tag{Cline-\cline:cnt}{}%
+\fi
+\expandafter\ifx \csname  cw:Cline-\cline:cnt\endcsname \relax \else
+   \ht:special{t4ht@[}%
+\fi
+%
+    \ifProperTr{\@array:c}}%
+   {\ifProperTr{\@array:d}%
+    \ifomit: \Tag{cline-\cline:cnt}{}\fi
+\expandafter\ifx \csname  cw:Cline-\cline:cnt\endcsname \relax \else
+   \ht:special{t4ht@]}%
+\fi
+\global \omit:false
+%
+    \a:putHBorder\InitHBorder}%
+   {\ifProperTr{\@array:e}\RecallMkHalignConfig\recall:ar}%
+   {\ifProperTr{\@array:f}}
+%
+       \Configure{MkHalign}%
+   {\@array:a}%
+   {\@array:b\ProperTrTrue}%
+   {\a:putHBorder\InitHBorder \ifProperTr{\@array:c}}%
+   {\ifProperTr{\@array:d}\a:putHBorder\InitHBorder}%
+   {\ifProperTr{\@array:e}%%%%%%%%%%\global \let\HAlign\sv:ALIGN
+          \RecallMkHalignConfig\recall:ar}%
+   {\ifProperTr{\@array:f}}
+%
+     \else \let\@sharp##\fi
+     \set@typeset@protect
+     \lineskip\z@\baselineskip\z@
+     \@preamble\array@row@pre
+}
+\HLet\@array@array@new\:tempc
+\def\:tempc{%
+%\hshow{array@array@new--22}%
+   \let\@array:a\a:array \let\@array:b\b:array
+\let\@array:c\c:array \let\@array:d\d:array
+\let\@array:e\e:array \let\@array:f\f:array
+%
+   \o:array@array@new:}
+\HLet\array@array@new=\:tempc
+\def\:tempc{\relax \ifnum\HCol=1 \a:endarray\fi
+   \enda:rray}
+\HLet\endarray@array@new\:tempc
+
+\def\:tempc[#1]#2{%
+%\hshow{@array@ltx-22}%
+  \def\Clr{#2}\a:VBorder
+\HAssign\ar:cnt0
+\let\HAlign\empty
+%
+  \setbox\@arstrutbox\hbox{}%
+  \@nameuse{@array@align@#1}%
+     \@mkpream{#2}%
+     \expandafter\tmp:toks\expandafter=\expandafter{\@preamble}%
+     \edef\@preamble{%
+       \everycr{}\tabskip\z@skip\noexpand\MkHalign\noexpand\@sharp
+       {\the\tmp:toks \tabskip\z@skip}%
+     }%
+     \def\v:TBL{#1}%
+     \let\tabularnewline\\\let\par\@empty
+     \ifx \EndPicture\:UnDef
+       \SaveMkHalignConfig
+       \ifx \recall:ar\:UnDef
+   \pend:def\@array{\recall:ar}%
+   \edef\recall:ar{%
+      \noexpand\ifx \noexpand\EndPicture\noexpand\:UnDef \noexpand\else
+         \arrayrulewidth\the\arrayrulewidth
+         \doublerulesep\the\doublerulesep
+         \arraycolsep\the\arraycolsep
+         \tabcolsep\the\tabcolsep
+      \noexpand\fi }%
+\fi
+\arrayrulewidth\z@  \doublerulesep\z@
+\arraycolsep\z@     \tabcolsep\z@
+\Configure{MkHalign}
+   {\@array:a}%
+   {\@array:b\ProperTrTrue}%
+   {\a:putHBorder\InitHBorder
+    \gHAdvance\cline:cnt by 1
+\expandafter\ifx \csname  cw:cline-\cline:cnt\endcsname \relax \else
+   \Tag{Cline-\cline:cnt}{}%
+\fi
+\expandafter\ifx \csname  cw:Cline-\cline:cnt\endcsname \relax \else
+   \ht:special{t4ht@[}%
+\fi
+%
+    \ifProperTr{\@array:c}}%
+   {\ifProperTr{\@array:d}%
+    \ifomit: \Tag{cline-\cline:cnt}{}\fi
+\expandafter\ifx \csname  cw:Cline-\cline:cnt\endcsname \relax \else
+   \ht:special{t4ht@]}%
+\fi
+\global \omit:false
+%
+    \a:putHBorder\InitHBorder}%
+   {\ifProperTr{\@array:e}\RecallMkHalignConfig\recall:ar}%
+   {\ifProperTr{\@array:f}}
+%
+       \Configure{MkHalign}%
+   {\@array:a}%
+   {\@array:b\ProperTrTrue}%
+   {\a:putHBorder\InitHBorder \ifProperTr{\@array:c}}%
+   {\ifProperTr{\@array:d}\a:putHBorder\InitHBorder}%
+   {\ifProperTr{\@array:e}%%%%%%%%%%\global \let\HAlign\sv:ALIGN
+          \RecallMkHalignConfig\recall:ar}%
+   {\ifProperTr{\@array:f}}
+%
+     \else \let\@sharp##\fi
+     \set@typeset@protect
+     \lineskip\z@skip\baselineskip\z@skip
+     \ifhmode \@preamerr\z@ \@@par\fi
+     \@preamble\array@row@pre
+}
+\HLet\@array@ltx\:tempc
+\def\:tempc{%
+%\hshow{array@ltx-2}%
+   \let\@array:a\a:array \let\@array:b\b:array
+\let\@array:c\c:array \let\@array:d\d:array
+\let\@array:e\e:array \let\@array:f\f:array
+%
+   \o:array@ltx:}
+\HLet\array@ltx=\:tempc
+\def\:tempc{\relax
+   \ifx \HCol\:UnDef \else \ifnum\HCol=1 \a:endarray\fi \fi
+   \crcr\ifx \EndPicture\:UnDef \EndMkHalign
+   \else \egroup\fi \egroup}
+\HLet\endarray@ltx\:tempc
+\long\def\:temp#1#2#3{\multispan{#1}\a:multicolumn \begingroup
+%\hshow{multicolumn@ltx--2}%
+  \def\Clr{#2}\a:VBorder
+\HAssign\ar:cnt0
+\let\HAlign\empty
+%
+\@mkpream{#2}%
+\ifx \EndPicture\:UnDef
+   \def\:temp##1 ##2 ##3 {##3}%
+   \xdef\new:span{\new:span\HRow.\HCol\expandafter\:temp\HAlign;}%
+\fi
+%
+  \def\@sharp{\c:multicolumn#3\d:multicolumn}\set@typeset@protect
+  \let\@startpbox\@@startpbox\let\@endpbox\@@endpbox
+  \@arstrut \@preamble\hbox{}\endgroup \b:multicolumn \ignorespaces}
+\HLet\multicolumn@ltx\:temp
+\def\:temp{\a:hline}
+\HLet\hline@ltx\:temp
+
+\let\twocolumngrid\onecolumngrid
+\let\@twocolumntrue\@twocolumnfalse
+\@booleanfalse\twocolumn@sw
+\def\titleblock@produce{%
+ \a:mktl \par
+ \begingroup
+     \pend:def\frontmatter@above@affilgroup{%
+        \pend:def\@AAC@list{\a:author}%
+        \append:def\@AAC@list{\b:author}%
+     }%
+     \ifx \@date\empty\else
+        \pend:def\@date{\a:date}%
+        \append:def\@date{\b:date}%
+     \fi
+     \ifx \@received\empty\else
+        \pend:def\@received{\a:received}%
+        \append:def\@received{\b:received}%
+     \fi
+     \ifx \@revised\empty\else
+        \pend:def\@revised{\a:revised}%
+        \append:def\@revised{\b:revised}%
+     \fi
+     \ifx \@accepted\empty\else
+        \pend:def\@accepted{\a:accepted}%
+        \append:def\@accepted{\b:accepted}%
+     \fi
+     \ifx \@accepted\empty\else
+        \pend:def\@published{\a:published}%
+        \append:def\@published{\b:published}%
+     \fi
+  \let\footnote\footnote@latex
+  \let\@makefnmark\@makefnmark@latex
+  \let\@footnotemark\@footnotemark@latex
+  \let\thefootnote\frontmatter@thefootnote
+  \global\c@footnote\z@
+  \let\@makefnmark\frontmatter@makefnmark
+  \frontmatter@setup
+  \thispagestyle{titlepage}%
+  \par \a:ttl \label{FirstPage}\par
+  \frontmatter@title@produce
+  \b:ttl \par
+  \groupauthors@sw{%
+   \frontmatter@author@produce@group
+  }{%
+   \frontmatter@author@produce@script
+  }%
+  \par \a:RRAPformat\par
+  \frontmatter@RRAPformat{%
+   \expandafter\produce@RRAP\expandafter{\@date}%
+   \expandafter\produce@RRAP\expandafter{\@received}%
+   \expandafter\produce@RRAP\expandafter{\@revised}%
+   \expandafter\produce@RRAP\expandafter{\@accepted}%
+   \expandafter\produce@RRAP\expandafter{\@published}%
+  }%
+  \par\b:RRAPformat
+  \frontmatter@abstract@produce
+  \showPACS@sw{%
+     \pend:defI\@pacs@produce{\par\a:pacs\par}%
+     \append:defI\@pacs@produce{\par\b:pacs\par}%
+  }{}%
+  \@pacs@produce\@pacs
+  \showKEYS@sw{%
+     \pend:defI\@keywords@produce{\par\a:keywords\par}%
+     \append:defI\@keywords@produce{\par\b:keywords\par}%
+  }{}%
+  \@keywords@produce\@keywords
+  \par
+  \a:frontpagefootnote
+  \minipagefootnote@here
+  \b:frontpagefootnote
+  \par
+  \frontmatter@finalspace
+  \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+ \endgroup
+ \b:mktl \par
+}%
+\append:def\minipagefootnote@pick{%
+  \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+}
+\append:def\ruledtabular{%
+  \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+}
+\NewConfigure{RRAPformat}{2}
+\NewConfigure{received}{2}
+\NewConfigure{revised}{2}
+\NewConfigure{accepted}{2}
+\NewConfigure{published}{2}
+\NewConfigure{pacs}{2}
+\NewConfigure{keywords}{2}
+\NewConfigure{frontpagefootnote}{4}
+\NewConfigure{maketitle}[4]{\def\a:mktl{#1}\def\b:mktl{#2}%
+   \def\a:ttl{#3}\def\b:ttl{#4}}
+\NewConfigure{thanks author date and}[8]{%
+   \c:def\a:thanks{#1}\c:def\b:thanks{#2}%
+   \c:def\a:author{#3}\c:def\b:author{#4}%
+   \c:def\a:date{#5}\c:def\b:date{#6}%
+   \c:def\a:and{#7}\c:def\e:mktl{#8}}
+\append:def\abstract{\a:abstract}
+\pend:def\endabstract{\b:abstract}
+\NewConfigure{abstract}{2}
+\def\:tempc#1#2#3{\o:doauthor:{\a:doauthor#1\b:doauthor}{#2}{#3}}
+\HLet\doauthor\:tempc
+\NewConfigure{doauthor}{2}
+\def\do@affil@fromgroup#1#2{%
+  \@ifx{\relax#2}{}{%
+    \count@#2\relax
+    \@ifnum{\count@=\z@}{}{\a:affil#1\b:affil}%
+    \do@affil@fromgroup#1%
+}}
+\NewConfigure{affil}{2}
+\def\:temp{%
+  \@ifhmode{\skip@\lastskip\unskip\unpenalty\break
+            \a:centercr\hskip\skip@}{}%
+}
+\HLet\frontmatter@addressnewline\:temp
+\def\@doendnote#1#2{\bibitem{#1}\a:endnote #2\b:endnote}
+\NewConfigure{endnote}{2}
+\def\NAT@bibsetnum#1{%
+   \setlength{\topsep}{\z@}%
+   \let\sv:rEfLiNK \rEfLiNK
+   \let\rEfLiNK \@secondoftwo
+   \NATx@bibsetnum{\ref{LastBibItem}}%
+   \let\rEfLiNK \sv:rEfLiNK
+}
+\long\def\frontmatter@makefntext#1{%
+ \parindent 1em
+ \c:frontpagefootnote \a:footnotetext
+ \noindent
+ \Hy@raisedlink{\hyper@anchorstart{frontmatter@\the
+                                   \c@footnote}\hyper@anchorend}%
+ \@makefnmark
+ \b:footnotetext \a:footnotebody
+ #1%
+ \b:footnotebody \c:footnotetext \d:frontpagefootnote
+}
+\let\no@ssect@ltx=\@ssect@ltx
+\def\@ssect@ltx#1#2#3#4#5{\:Sc3
+   \no@ssect@ltx{#1}{#2}{#3}{#4}{\:Sc4#5\:Sc2}\HtmlEnv}
+\let\no@sect@ltx=\@sect@ltx
+\def\@sect@ltx#1#2#3#4#5#6[#7]#8{%
+   \xdef\c:secnumdepth{#2}\:Sc3
+   \no@sect@ltx{#1}{#2}{#3}{#4}{#5}{#6}[#7]{\:Sc4#8\:Sc2}\HtmlEnv}
+
+\:CheckOption{sections-}     \if:Option
+   \Configure{@sec @ssect}{}
+\else
+   \Configure{@sec @ssect}{%
+      \let\sv:Sc=\:Sc \let\sv:sect=\@sect@ltx \let\sv:ssect@ltx=\@ssect@ltx
+\let\:Sc\:gobble
+      \def\@sect@ltx##1##2##3##4##5##6[##7]##8{%
+   \ifx \o:@seccntformat:\:UnDef
+  \let\o:@seccntformat:\@seccntformat
+\fi
+\let\@seccntformat\:gobble
+%
+   \let\@sect@ltx=\no@sect@ltx   \xdef\c:secnumdepth{##2}%
+   {\SkipRefstepAnchor \let\addcontentsline\:gobbleIII \let\mark\:gobble
+    \no@sect@ltx{##1}{##2}{##3}{##4}{##5}{##6}[{##7}]{}}%
+   \let\:Sc=\sv:Sc \let\@sect@ltx=\sv:sect \let\@ssect@ltx=\sv:ssect@ltx
+%
+   \let\@seccntformat=\o:@seccntformat:
+%
+   \HtmlEnv    \Toc:Title{##7}\csname no:#1\endcsname{##8}}%
+%
+      \def\@ssect@ltx##1##2##3##4##5##6[##7]##8{%
+   \gdef\ssect:ttl{##5}%
+%
+   \let\@ssect@ltx=\no@ssect@ltx
+   {\def\addcontentsline####1####2####3{}%
+    \no@ssect@ltx{##1}{##2}{##3}{##4}{##5}{##6}[{##7}]{}}%
+   \let\:Sc=\sv:Sc \let\@sect@ltx=\sv:sect \let\@ssect@ltx=\sv:ssect@ltx
+%
+   \HtmlEnv   \csname :like#1\endcsname{##8}}%
+\IgnorePar}
+\fi
+
+\def\@part[#1]#2{%
+    \ifnum \c@secnumdepth >-2\relax
+      \SkipRefstepAnchor \refstepcounter{part}%
+      \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}%
+    \else
+      \addcontentsline{toc}{part}{#1}%
+    \fi
+    \csname @endpart\endcsname}
+\let\:tempb\part
+\Def:Section\part{\thepart}{#1}
+\let\:part\part
+\let\part\:tempb
+\let\no@part\@part
+\def\@part[#1]#2{%
+   {\let\addcontentsline\:gobbleIII\no@part[#1]{}}%
+   \HtmlEnv   \Toc:Title{#1}\:part{#2}}
+\Def:Section\likepart{}{#1}
+\let\:likepart\likepart
+\let\likepart\:UnDef
+\let\no@spart\@spart
+\def\@spart#1{%
+   {\let\addcontentsline\:gobbleIII\no@spart{}}%
+   \HtmlEnv   \:likepart{#1}}
+
+\let\no@section\section
+\Def:Section\section{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesection \fi}{#1}
+\let\no:section\section
+\def\section{\rdef:sec{section}}
+\Def:Section\likesection{}{#1}
+\let\:likesection\likesection
+\let\likesection\:UnDef
+
+\let\no@subsection\subsection
+\Def:Section\subsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsection \fi}{#1}
+\let\no:subsection\subsection
+\def\subsection{\rdef:sec{subsection}}
+\Def:Section\likesubsection{}{#1}
+\let\:likesubsection\likesubsection
+\let\likesubsection\:UnDef
+
+\let\no@subsubsection\subsubsection
+\Def:Section\subsubsection{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubsubsection \fi}{#1}
+\let\no:subsubsection\subsubsection
+\def\subsubsection{\rdef:sec{subsubsection}}
+\Def:Section\likesubsubsection{}{#1}
+\let\:likesubsubsection\likesubsubsection
+\let\likesubsubsection\:UnDef
+
+\let\no@paragraph\paragraph
+\Def:Section\paragraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \theparagraph \fi}{#1}
+\let\no:paragraph\paragraph
+\def\paragraph{\rdef:sec{paragraph}}
+\Def:Section\likeparagraph{}{#1}
+\let\:likeparagraph\likeparagraph
+\let\likeparagraph\:UnDef
+\let\no@subparagraph\subparagraph
+\Def:Section\subparagraph{\ifnum \c:secnumdepth>\c@secnumdepth   \else
+   \thesubparagraph \fi}{#1}
+\let\no:subparagraph\subparagraph
+\def\subparagraph{\rdef:sec{subparagraph}}
+\Def:Section\likesubparagraph{}{#1}
+\let\:likesubparagraph\likesubparagraph
+\let\likesubparagraph\:UnDef
+
+\def\@array@align@c{%
+  \leavevmode\@ifmmode{\vcenter\bgroup}{\vbox\bgroup\aftergroup\relax}}%
+\def\@array@align@v{%
+ \@ifmmode{%
+  \@badmath
+  \vcenter\bgroup
+ }{%
+  \@ifinner{%
+   \vbox\bgroup
+  }{%
+   \@@par\bgroup
+  }%
+ }%
+}%
+\let\widetext\empty
+\let\endwidetext\empty
+\def\@xfloat #1[#2]{%
+    \def \@captype {#1}%
+   \:clearpage \bf:float \:clearpage
+   \begingroup
+      \expandafter\ifx\csname end#1\endcsname\o:end@float:
+         \expandafter\let\csname end#1\endcsname\float@end
+         \expandafter\let\csname end#1*\endcsname\float@dblend
+      \fi
+      \@parboxrestore
+      \reset@font
+      \normalsize
+      \everypar{\HtmlPar}%
+      \@xfloat@prep
+      \@nameuse{fp@proc@#2}%
+}
+\def\end@float{\endgroup  \:clearpage \af:float  \minipagefootnote@here}
+\let\end@dblfloat=\end@float
+\long\def\@makecaption#1#2{%
+  \par
+  \begingroup
+     \small\rmfamily
+     \flushing
+     \let\footnote\@footnotemark@gobble
+   {\cptA: \cap:ref{#1}\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}
+  \endgroup
+  \par
+}
+\pend:def\caption{\SkipRefstepAnchor}
+\NewConfigure{caption}[4]{\c:def\cptA:{#1}\c:def\cptB:{#2}%
+   \c:def\cptC:{#3}\c:def\cptD:{#4}}
+\pend:def\frontmatter@abstractheading{\a:abstractheading}
+\append:def\frontmatter@abstractheading{\b:abstractheading}
+\NewConfigure{abstractheading}{2}
+\def\preprint#1{\a:preprint #1\b:preprint}
+\NewConfigure{preprint}{2}
+\def\p@subsection     {\thesection}
+\def\p@subsubsection  {\thesection\thesubsection}
+\def\p@paragraph      {\thesection\thesubsection\thesubsubsection}
+
+\Hinput{revtex4}
+\endinput
+

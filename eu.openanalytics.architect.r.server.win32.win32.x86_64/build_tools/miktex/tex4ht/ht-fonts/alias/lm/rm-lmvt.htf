@@ -1,0 +1,8 @@
+.lm-ec
+htfcss: rm-lmvtk  font-family: monospace,monospace;
+htfcss: rm-lmvtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: rm-lmvtl  font-weight: light; font-family: monospace,monospace;
+htfcss: rm-lmvtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: rm-lmvtt  font-family: monospace,monospace;
+htfcss: rm-lmvtto  font-style: oblique; font-family: monospace,monospace;
+

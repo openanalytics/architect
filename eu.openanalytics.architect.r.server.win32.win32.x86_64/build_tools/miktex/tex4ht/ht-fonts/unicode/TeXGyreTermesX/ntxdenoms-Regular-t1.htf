@@ -1,0 +1,15 @@
+ntxdenoms-Regular-t1 48 57
+'&#x2080;' '' zero.inferior 48
+'&#x2081;' '' one.inferior 49
+'&#x2082;' '' two.inferior 50
+'&#x2083;' '' three.inferior 51
+'&#x2084;' '' four.inferior 52
+'&#x2085;' '' five.inferior 53
+'&#x2086;' '' six.inferior 54
+'&#x2087;' '' seven.inferior 55
+'&#x2088;' '' eight.inferior 56
+'&#x2089;' '' nine.inferior 57
+ntxdenoms-Regular-t1 48 57
+htfcss:  ntxdenoms-Regular-t1  font-family: 'TeXGyreTermesX', serif;
+
+

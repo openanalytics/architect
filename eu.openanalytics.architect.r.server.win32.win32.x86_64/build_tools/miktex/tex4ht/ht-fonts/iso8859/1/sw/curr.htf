@@ -1,0 +1,36 @@
+curr 160 180
+'' '' 160  unused               %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'' '' 161  unused               % curr.htf                      2001-05-04 %
+'&#8354;' '' 162 cruzeiro       % Copyright 2001       Philip A. Viton %
+'&#8355;' '' 163 franc          %                                          %
+'&#8356;' '' 164 lira           % This file can redistributed and/or       %
+'&#8357;' '' 165 mill           % modified under the terms of the LaTeX    %
+'&#8358;' '' 166 naira          % Project Public License Distributed from  %
+'&#8359;' '' 167 pesetas        % CTAN archives in directory               %
+'&#8360;' '' 168 won            % macros/latex/base/lppl.txt; either       %
+'&#8361;' '' 169 rupee          % version 1 of the License, or (at your    %
+'&#8362;' '' 170 new sheqel     % option) any later version.               %
+'' '' 171  unused               %    However, you are allowed to modify    %
+'&#8364;' '' 172 euro           % this file without changing its name, if  %
+'' '' 173  unused               % you add a note of your own after this    %
+'' '' 174  unused               % copyright note.                          %
+'' '' 175  unused               %                                          %
+'&#8466;' ''  176 L-script      % This font provides support for currency  %
+'&#8497;' ''  177 F-script      % symbols (and a few others) in            %
+'&#8242;' ''  178 text-prime    % Scientific Word/Workplace 3.0+           %
+'&#10003' ''  179 checkmark     %                          viton.1@osu.edu %
+'&#10016;' '' 180 Maltese Cross %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+curr 160 180
+htfcss: currr ;
+htfcss: curri font-style: italic;
+htfcss: currb font-wight: bold;
+htfcss: currbi font-style: italic; font-weight: bold;
+htfcss: currs font-family: sans-serif ;
+htfcss: currsi font-family: sans-serif;  font-style: italic;
+htfcss: currsb font-family: sans-serif; font-wight: bold;
+htfcss: currsbi font-family: sans-serif; font-style: italic; font-weight: bold;
+htfcss: currt font-family: monospace,monospace;
+htfcss: currti font-family: monospace,monospace;  font-style: italic;
+htfcss: currtb font-family: monospace,monospace; font-wight: bold;
+htfcss: currtbi font-family: monospace,monospace; font-style: italic; font-weight: bold;
+

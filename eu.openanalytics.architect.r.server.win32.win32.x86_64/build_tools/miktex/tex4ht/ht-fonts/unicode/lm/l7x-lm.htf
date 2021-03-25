@@ -1,0 +1,290 @@
+l7x-lm 0 254
+'&#x0060;'  ''  uni0060
+'&#x00B4;'  ''  uni00B4
+'&#x02C6;'  ''  uni02C6
+'&#x02DC;'  ''  uni02DC
+'&#x00A8;'  ''  uni00A8
+'&#x02DD;'  ''  uni02DD
+'&#x02DA;'  ''  uni02DA
+'&#x02C7;'  ''  uni02C7
+'&#x02D8;'  ''  uni02D8
+'&#x00AF;'  ''  uni00AF
+'&#x02D9;'  ''  uni02D9
+'&#x00B8;'  ''  uni00B8
+'&#x02DB;'  ''  uni02DB
+'&#x201A;'  ''  uni201A
+'&#x2039;'  ''  uni2039
+'&#x203A;'  ''  uni203A
+'&#x201C;'  ''  uni201C
+'&#x201D;'  ''  uni201D
+'&#x201E;'  ''  uni201E
+'&#x00AB;'  ''  uni00AB
+'&#x00BB;'  ''  uni00BB
+'&#x2013;'  ''  uni2013
+'&#x2014;'  ''  uni2014
+'&#xEB10;'  ''  uniEB10
+'&#xEB4D;'  ''  uniEB4D
+'&#x0131;'  ''  uni0131
+'&#xF6BE;'  ''  uniF6BE
+'&#xFB00;'  ''  uniFB00
+'&#xFB01;'  ''  uniFB01
+'&#xFB02;'  ''  uniFB02
+'&#xFB03;'  ''  uniFB03
+'&#xFB04;'  ''  uniFB04
+'&#x0020;'  ''  uni0020
+'&#x0021;'  ''  uni0021
+'&#x0022;'  ''  uni0022
+'&#x0023;'  ''  uni0023
+'&#x0024;'  ''  uni0024
+'&#x0025;'  ''  uni0025
+'&#x0026;'  ''  uni0026
+'&#x2019;'  ''  uni2019
+'&#x0028;'  ''  uni0028
+'&#x0029;'  ''  uni0029
+'&#x002A;'  ''  uni002A
+'&#x002B;'  ''  uni002B
+'&#x002C;'  ''  uni002C
+'&#x002D;'  ''  uni002D
+'&#x002E;'  ''  uni002E
+'&#x002F;'  ''  uni002F
+'&#x0030;'  ''  uni0030
+'&#x0031;'  ''  uni0031
+'&#x0032;'  ''  uni0032
+'&#x0033;'  ''  uni0033
+'&#x0034;'  ''  uni0034
+'&#x0035;'  ''  uni0035
+'&#x0036;'  ''  uni0036
+'&#x0037;'  ''  uni0037
+'&#x0038;'  ''  uni0038
+'&#x0039;'  ''  uni0039
+'&#x003A;'  ''  uni003A
+'&#x003B;'  ''  uni003B
+'&#x003C;'  ''  uni003C
+'&#x003D;'  ''  uni003D
+'&#x003E;'  ''  uni003E
+'&#x003F;'  ''  uni003F
+'&#x0040;'  ''  uni0040
+'&#x0041;'  ''  uni0041
+'&#x0042;'  ''  uni0042
+'&#x0043;'  ''  uni0043
+'&#x0044;'  ''  uni0044
+'&#x0045;'  ''  uni0045
+'&#x0046;'  ''  uni0046
+'&#x0047;'  ''  uni0047
+'&#x0048;'  ''  uni0048
+'&#x0049;'  ''  uni0049
+'&#x004A;'  ''  uni004A
+'&#x004B;'  ''  uni004B
+'&#x004C;'  ''  uni004C
+'&#x004D;'  ''  uni004D
+'&#x004E;'  ''  uni004E
+'&#x004F;'  ''  uni004F
+'&#x0050;'  ''  uni0050
+'&#x0051;'  ''  uni0051
+'&#x0052;'  ''  uni0052
+'&#x0053;'  ''  uni0053
+'&#x0054;'  ''  uni0054
+'&#x0055;'  ''  uni0055
+'&#x0056;'  ''  uni0056
+'&#x0057;'  ''  uni0057
+'&#x0058;'  ''  uni0058
+'&#x0059;'  ''  uni0059
+'&#x005A;'  ''  uni005A
+'&#x005B;'  ''  uni005B
+'&#x005C;'  ''  uni005C
+'&#x005D;'  ''  uni005D
+'&#x005E;'  ''  uni005E
+'&#x005F;'  ''  uni005F
+'&#x2018;'  ''  uni2018
+'&#x0061;'  ''  uni0061
+'&#x0062;'  ''  uni0062
+'&#x0063;'  ''  uni0063
+'&#x0064;'  ''  uni0064
+'&#x0065;'  ''  uni0065
+'&#x0066;'  ''  uni0066
+'&#x0067;'  ''  uni0067
+'&#x0068;'  ''  uni0068
+'&#x0069;'  ''  uni0069
+'&#x006A;'  ''  uni006A
+'&#x006B;'  ''  uni006B
+'&#x006C;'  ''  uni006C
+'&#x006D;'  ''  uni006D
+'&#x006E;'  ''  uni006E
+'&#x006F;'  ''  uni006F
+'&#x0070;'  ''  uni0070
+'&#x0071;'  ''  uni0071
+'&#x0072;'  ''  uni0072
+'&#x0073;'  ''  uni0073
+'&#x0074;'  ''  uni0074
+'&#x0075;'  ''  uni0075
+'&#x0076;'  ''  uni0076
+'&#x0077;'  ''  uni0077
+'&#x0078;'  ''  uni0078
+'&#x0079;'  ''  uni0079
+'&#x007A;'  ''  uni007A
+'&#x007B;'  ''  uni007B
+'&#x007C;'  ''  uni007C
+'&#x007D;'  ''  uni007D
+'&#x007E;'  ''  uni007E
+''  ''  none
+'&#x20AC;'  ''  uni20AC
+''  ''  none
+''  ''  none
+'&#x0192;'  ''  uni0192
+''  ''  none
+'&#x2026;'  ''  uni2026
+'&#x2020;'  ''  uni2020
+'&#x2021;'  ''  uni2021
+''  ''  none
+'&#x2030;'  ''  uni2030
+''  ''  none
+''  ''  none
+'&#x0152;'  ''  uni0152
+''  ''  none
+''  ''  none
+''  ''  none
+''  ''  none
+''  ''  none
+''  ''  none
+''  ''  none
+''  ''  none
+'&#x2022;'  ''  uni2022
+''  ''  none
+''  ''  none
+''  ''  none
+'&#x2122;'  ''  uni2122
+''  ''  none
+''  ''  none
+'&#x0153;'  ''  uni0153
+''  ''  none
+''  ''  none
+''  ''  none
+'&#x00A0;'  ''  uni00A0
+''  ''  none
+'&#x00A2;'  ''  uni00A2
+'&#x00A3;'  ''  uni00A3
+'&#x00A4;'  ''  uni00A4
+''  ''  none
+'&#x00A6;'  ''  uni00A6
+'&#x00A7;'  ''  uni00A7
+'&#x00D8;'  ''  uni00D8
+'&#x00A9;'  ''  uni00A9
+'&#x0156;'  ''  uni0156
+''  ''  none
+'&#x00AC;'  ''  uni00AC
+'&#xEB2F;'  ''  uniEB2F
+'&#x00AE;'  ''  uni00AE
+'&#x00C6;'  ''  uni00C6
+'&#x00B0;'  ''  uni00B0
+'&#x00B1;'  ''  uni00B1
+'&#x00B2;'  ''  uni00B2
+'&#x00B3;'  ''  uni00B3
+''  ''  none
+'&#x00B5;'  ''  uni00B5
+'&#x00B6;'  ''  uni00B6
+'&#x00B7;'  ''  uni00B7
+'&#x00F8;'  ''  uni00F8
+'&#x00B9;'  ''  uni00B9
+'&#x0157;'  ''  uni0157
+''  ''  none
+'&#x00BC;'  ''  uni00BC
+'&#x00BD;'  ''  uni00BD
+'&#x00BE;'  ''  uni00BE
+'&#x00E6;'  ''  uni00E6
+'&#x0104;'  ''  uni0104
+'&#x012E;'  ''  uni012E
+'&#x0100;'  ''  uni0100
+'&#x0106;'  ''  uni0106
+'&#x00C4;'  ''  uni00C4
+'&#x00C5;'  ''  uni00C5
+'&#x0118;'  ''  uni0118
+'&#x0112;'  ''  uni0112
+'&#x010C;'  ''  uni010C
+'&#x00C9;'  ''  uni00C9
+'&#x0179;'  ''  uni0179
+'&#x0116;'  ''  uni0116
+'&#x0122;'  ''  uni0122
+'&#x0136;'  ''  uni0136
+'&#x012A;'  ''  uni012A
+'&#x013B;'  ''  uni013B
+'&#x0160;'  ''  uni0160
+'&#x0143;'  ''  uni0143
+'&#x0145;'  ''  uni0145
+'&#x00D3;'  ''  uni00D3
+'&#x014C;'  ''  uni014C
+'&#x00D5;'  ''  uni00D5
+'&#x00D6;'  ''  uni00D6
+'&#x00D7;'  ''  uni00D7
+'&#x0172;'  ''  uni0172
+'&#x0141;'  ''  uni0141
+'&#x015A;'  ''  uni015A
+'&#x016A;'  ''  uni016A
+'&#x00DC;'  ''  uni00DC
+'&#x017B;'  ''  uni017B
+'&#x017D;'  ''  uni017D
+'&#x00DF;'  ''  uni00DF
+'&#x0105;'  ''  uni0105
+'&#x012F;'  ''  uni012F
+'&#x0101;'  ''  uni0101
+'&#x0107;'  ''  uni0107
+'&#x00E4;'  ''  uni00E4
+'&#x00E5;'  ''  uni00E5
+'&#x0119;'  ''  uni0119
+'&#x0113;'  ''  uni0113
+'&#x010D;'  ''  uni010D
+'&#x00E9;'  ''  uni00E9
+'&#x017A;'  ''  uni017A
+'&#x0117;'  ''  uni0117
+'&#x0123;'  ''  uni0123
+'&#x0137;'  ''  uni0137
+'&#x012B;'  ''  uni012B
+'&#x013C;'  ''  uni013C
+'&#x0161;'  ''  uni0161
+'&#x0144;'  ''  uni0144
+'&#x0146;'  ''  uni0146
+'&#x00F3;'  ''  uni00F3
+'&#x014D;'  ''  uni014D
+'&#x00F5;'  ''  uni00F5
+'&#x00F6;'  ''  uni00F6
+'&#x00F7;'  ''  uni00F7
+'&#x0173;'  ''  uni0173
+'&#x0142;'  ''  uni0142
+'&#x015B;'  ''  uni015B
+'&#x016B;'  ''  uni016B
+'&#x00FC;'  ''  uni00FC
+'&#x017C;'  ''  uni017C
+'&#x017E;'  ''  uni017E
+l7x-lm 0 254
+htfcss: l7x-lmbo  font-style: oblique;
+htfcss: l7x-lmbx  font-weight: bold;
+htfcss: l7x-lmbxi  font-style:italic; font-weight: bold;
+htfcss: l7x-lmbxo  font-style: oblique; font-weight: bold;
+htfcss: l7x-lmri  font-style:italic;
+htfcss: l7x-lmro  font-style: oblique;
+htfcss: l7x-lmss  font-family: sans-serif;
+htfcss: l7x-lmssbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: l7x-lmssbx  font-family: sans-serif; font-weight: bold;
+htfcss: l7x-lmssdc  font-family: sans-serif;
+htfcss: l7x-lmssdo  font-family: sans-serif; font-style: oblique;
+htfcss: l7x-lmsso  font-family: sans-serif; font-style: oblique;
+htfcss: l7x-lmssq  font-family: sans-serif;
+htfcss: l7x-lmssqbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: l7x-lmssqbx  font-family: sans-serif; font-weight: bold;
+htfcss: l7x-lmssqo  font-family: sans-serif; font-style: oblique;
+htfcss: l7x-lmtcso  font-style: oblique; font-family: monospace,monospace;
+htfcss: l7x-lmtk  font-family: monospace,monospace;
+htfcss: l7x-lmtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: l7x-lmtl  font-weight: light; font-family: monospace,monospace;
+htfcss: l7x-lmtlc  font-weight: light; font-family: monospace,monospace;
+htfcss: l7x-lmtlco  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: l7x-lmtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: l7x-lmtt  font-family: monospace,monospace;
+htfcss: l7x-lmtti  font-family: monospace,monospace; font-style:italic;
+htfcss: l7x-lmtto  font-style: oblique; font-family: monospace,monospace;
+htfcss: l7x-lmvtk  font-family: monospace,monospace;
+htfcss: l7x-lmvtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: l7x-lmvtl  font-weight: light; font-family: monospace,monospace;
+htfcss: l7x-lmvtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: l7x-lmvtt  font-family: monospace,monospace;
+htfcss: l7x-lmvtto  font-style: oblique; font-family: monospace,monospace;
+

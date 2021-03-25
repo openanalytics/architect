@@ -1,0 +1,15 @@
+.el-lm
+htfcss: el-anttb  font-weight: bold;
+htfcss: el-anttbi  font-style:italic; font-weight: bold;
+htfcss: el-anttcb  font-weight: bold;
+htfcss: el-anttcbi  font-style:italic; font-weight: bold;
+htfcss: el-anttcl  font-weight: light;
+htfcss: el-anttcli  font-weight: light; font-style:italic;
+htfcss: el-anttcmi  font-style:italic;
+htfcss: el-anttcri  font-style:italic;
+htfcss: el-anttl  font-weight: light;
+htfcss: el-anttli  font-weight: light; font-style:italic;
+htfcss: el-anttmi  font-style:italic;
+htfcss: el-anttri  font-style:italic;
+
+

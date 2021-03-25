@@ -1,0 +1,36 @@
+.lm-rep-t5psn
+htfcss: vnb     font-weight: bold;
+htfcss: vnbi    font-weight: bold;  font-style: italic;
+htfcss: vnbl    font-weight: bold;  font-style: italic;
+htfcss: vnbx    font-weight: bold;
+htfcss: vnbxsl  font-style: oblique; font-weight: bold;
+htfcss: vnbxti  font-weight: bold;  font-style: italic;
+htfcss: vnfi    font-style: italic;
+htfcss: vnfs    font-style: italic;
+htfcss: vnit    font-style: italic;  font-family: monospace,monospace;
+htfcss: vnitt   font-style: italic;  font-family: monospace,monospace;
+htfcss: vnqi    font-style: italic;  font-family: sans-serif;
+htfcss: vnrb    font-weight: bold;
+htfcss: vnsi    font-style: italic;  font-family: sans-serif;
+htfcss: vnsl    font-style: italic;
+htfcss: vnsl  font-style: oblique;
+htfcss: vnsltt  font-style: italic;  font-family: monospace,monospace;
+htfcss: vnso    font-weight: bold;  font-style:italic; font-family:sans-serif;
+htfcss: vnss    font-family: sans-serif;
+htfcss: vnssbx  font-family: sans-serif; font-weight: bold;
+htfcss: vnssdc  font-family: sans-serif;
+htfcss: vnssi  font-family: sans-serif; font-style: oblique;
+htfcss: vnssq  font-family: sans-serif;
+htfcss: vnssqi  font-family: sans-serif; font-style: oblique;
+htfcss: vnst    font-style: italic;  font-family: monospace,monospace;
+htfcss: vnsx    font-weight: bold;  font-family: sans-serif;
+htfcss: vntc    font-family: monospace,monospace;
+htfcss: vntcsc  font-family: monospace,monospace;
+htfcss: vnti    font-style: italic;
+htfcss: vntt    font-family: monospace,monospace;
+htfcss: vnu  font-style: oblique; font-style:italic;
+htfcss: vnvi    font-style: italic;  font-family: monospace,monospace;
+htfcss: vnvt    font-family: monospace,monospace;
+htfcss: vnvtt   font-family: monospace,monospace;
+htfcss: vnxc    font-weight: bold;
+

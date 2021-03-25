@@ -1,0 +1,51 @@
+% graphicx.4ht (2018-10-01-14:24), generated from tex4ht-4ht.tex
+% Copyright 2003-2009 Eitan M. Gurari
+% Copyright 2009-2018 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2018-10-01-14:24}
+
+   \let\Gin:esetsize\Gin@esetsize
+\def\Gin@esetsize{%
+   \ifx \Gin@ewidth\Gin@exclamation
+      \let\Gin:ewidth\Gin@ewidth
+   \else
+      \setlength\tmp:dim\Gin@ewidth
+      \edef\Gin:ewidth{\the\tmp:dim}%
+   \fi
+   \ifx \Gin@eheight\Gin@exclamation
+      \let\Gin:eheight\Gin@eheight
+   \else
+      \setlength\tmp:dim\Gin@eheight
+      \edef\Gin:eheight{\the\tmp:dim}%
+   \fi
+   \Gin:esetsize
+}
+\DeclareGraphicsRule{.png}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.jpg}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.gif}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.pdf}{bmp}{.xbb}{}
+\DeclareGraphicsRule{.svg}{bmp}{.xbb}{}
+
+\NewConfigure{rotatebox}{2}
+\pend:def\Grot@box{\a:rotatebox}
+\append:def\Grot@box{\b:rotatebox}
+
+
+\Hinput{graphicx}
+\endinput
+

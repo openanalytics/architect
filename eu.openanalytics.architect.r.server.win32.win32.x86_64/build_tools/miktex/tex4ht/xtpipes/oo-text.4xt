@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<!-- oo-text.4xt (2020-02-25-10:47), generated from tex4ht-oo-xtpipes.tex
+     Copyright (C) 2009-2013 TeX Users Group
+     Copyright (C) 2006-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated. -->
+<xtpipes preamble="yes" signature="oo-text.4xt (2020-02-25-10:47)">
+   <sax content-handler="xtpipes.util.ScriptsManager,tex4ht.OoFilter"
+        lexical-handler="xtpipes.util.ScriptsManagerLH" >
+      <script element="text:bibliography-mark" >
+         <set name="bib-mark" >
+   <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+
+      xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+      xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+      xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+      xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+      xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+      xmlns:fo="http://www.w3.org/1999/XSL/Format"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+      xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+      xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+      xmlns:math="http://www.w3.org/1998/Math/MathML"
+      xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+      xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+      xmlns:ooo="http://openoffice.org/2004/office"
+      xmlns:ooow="http://openoffice.org/2004/writer"
+      xmlns:oooc="http://openoffice.org/2004/calc"
+      xmlns:dom="http://www.w3.org/2001/xml-events"
+      xmlns:xforms="http://www.w3.org/2002/xforms"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+    <xsl:template match="text:bibliography-mark" >
+   <xsl:copy>
+     <xsl:attribute name="text:identifier">
+        <xsl:value-of select="normalize-space(.)" />
+     </xsl:attribute>
+     <xsl:apply-templates select="@*" />
+   </xsl:copy>
+   <text:span>
+      <xsl:attribute name="text:style-name">
+         <xsl:text>reference-ref</xsl:text>
+      </xsl:attribute>
+      <text:reference-ref>
+        <xsl:attribute name="text:ref-name">
+              <xsl:value-of
+                 select="text:span/text:reference-ref/@text:ref-name"/>
+        </xsl:attribute>
+        <xsl:attribute name="text:reference-format">
+              <xsl:text>text</xsl:text>
+        </xsl:attribute>
+        <xsl:text> </xsl:text>
+      </text:reference-ref>
+   </text:span>
+</xsl:template>
+
+         <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="bib-mark" />
+
+      </script>
+      <script element="table:table" >
+         <dom name="." xml="." method="table" class="tex4ht.OoUtilities" />
+
+      </script>
+      <script element="text:p" >
+         <set name="text-p" >
+   <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+
+      xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+      xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+      xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+      xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+      xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+      xmlns:fo="http://www.w3.org/1999/XSL/Format"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+      xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+      xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+      xmlns:math="http://www.w3.org/1998/Math/MathML"
+      xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+      xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+      xmlns:ooo="http://openoffice.org/2004/office"
+      xmlns:ooow="http://openoffice.org/2004/writer"
+      xmlns:oooc="http://openoffice.org/2004/calc"
+      xmlns:dom="http://www.w3.org/2001/xml-events"
+      xmlns:xforms="http://www.w3.org/2002/xforms"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+   <xsl:template match="text:p[ (count(child::*)=1)
+                             and child::draw:frame
+                             and parent::text:p
+                           ]" >
+    <xsl:apply-templates select="child::draw:frame" />
+</xsl:template>
+<xsl:template match="text:p[
+     child::text:p
+   and
+     (count(child::text:p) = count(child::*))
+ ]" >
+   <!--xsl:copy>
+      <xsl:attribute name="text:style-name">
+          <xsl:text>start_</xsl:text>
+         <xsl:value-of select="@text:style-name" />
+      </xsl:attribute-->
+      <xsl:comment>
+          <xsl:text>start </xsl:text>
+          <xsl:value-of select=" @text:style-name " />
+     </xsl:comment>
+   <!--/xsl:copy-->
+       <xsl:apply-templates select="*|text()|comment()" mode="nested-p" />
+   <!--xsl:copy>
+      <xsl:attribute name="text:style-name">
+          <xsl:text>end</xsl:text>
+         <xsl:value-of select="@text:style-name" />
+      </xsl:attribute-->
+      <xsl:comment>
+          <xsl:text>end_</xsl:text>
+          <xsl:value-of select=" @text:style-name " />
+     </xsl:comment>
+   <!--/xsl:copy-->
+</xsl:template>
+<xsl:template match="*[not(text:p)]|text()|comment()" mode="nested-p" >
+  <xsl:copy/>
+</xsl:template>
+<xsl:template match="text:p" mode="nested-p" >
+  <xsl:copy>
+      <xsl:attribute name="text:style-name">
+         <xsl:value-of select="parent::text:p/@text:style-name" />
+         <xsl:text>_</xsl:text>
+         <xsl:value-of select="@text:style-name" />
+         <xsl:text>_</xsl:text>
+         <xsl:value-of select="child::*[1]/@text:style-name" />
+      </xsl:attribute>
+      <xsl:apply-templates select="@*[ name() != 'text:style-name' ]" />
+      <xsl:apply-templates select="*|text()|comment()" />
+  </xsl:copy>
+</xsl:template>
+
+   <xsl:template
+    match="text:p[
+              parent::text:p/@text:style-name='printthebibliography-dd'
+          ]"
+    mode="nested-p" >
+  <xsl:copy>
+      <xsl:attribute name="text:style-name">
+         <xsl:value-of select="'printthebibliography-dd'" />
+      </xsl:attribute>
+      <xsl:apply-templates select="@*[ name() != 'text:style-name' ]" />
+      <xsl:apply-templates select="*|text()|comment()" />
+  </xsl:copy>
+</xsl:template>
+
+   <xsl:template match="text:p[  child::text:span[
+                       starts-with(@text:style-name, 'multicolumn-')
+                     ] ]" >
+   <xsl:copy>
+       <xsl:apply-templates
+            select="child::text:span[
+                       starts-with(@text:style-name, 'multicolumn-') ]
+                    /@*
+                   " />
+       <xsl:apply-templates select="*|text()|comment()" />
+   </xsl:copy>
+</xsl:template>
+<xsl:template match="text:span[
+                       starts-with(@text:style-name, 'multicolumn-') ]" />
+
+         <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="text-p" />
+
+      </script>
+      <script element="text:h" >
+         <set name="headers" >
+   <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+
+      xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+      xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+      xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+      xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+      xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+      xmlns:fo="http://www.w3.org/1999/XSL/Format"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
+      xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+      xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+      xmlns:math="http://www.w3.org/1998/Math/MathML"
+      xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+      xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+      xmlns:ooo="http://openoffice.org/2004/office"
+      xmlns:ooow="http://openoffice.org/2004/writer"
+      xmlns:oooc="http://openoffice.org/2004/calc"
+      xmlns:dom="http://www.w3.org/2001/xml-events"
+      xmlns:xforms="http://www.w3.org/2002/xforms"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+   <xsl:template match="text:h[@text:style-name='algorithmic-dt']" >
+  <xsl:copy>
+      <xsl:apply-templates select="@*" />
+      <xsl:apply-templates select="*|text()|comment()" mode="algorithmic"/>
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="*|@*|comment()" mode="algorithmic" >
+  <xsl:copy>
+      <xsl:apply-templates select="@*" />
+      <xsl:apply-templates select="*|text()|comment()" mode="algorithmic"/>
+  </xsl:copy>
+</xsl:template>
+<xsl:template match="text()" mode="algorithmic" >
+   <xsl:value-of select="translate(.,' ','&#xA0;')"/>
+</xsl:template>
+
+   <xsl:template match="text:h[
+     (@text:style-name='printthebibliography-dt')
+     and
+     (normalize-space()='')
+]" >
+</xsl:template>
+
+         <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="headers" />
+
+      </script>
+   </sax>
+</xtpipes>
+

@@ -1,0 +1,8 @@
+.vn
+htfcss: putb8v  font-weight: bold;
+htfcss: putbc8v  font-weight: bold;
+htfcss: putbi8v  font-weight: bold;  font-style: italic;
+htfcss: putbo8v  font-weight: bold;  font-style: italic;
+htfcss: putri8v  font-style: italic;
+htfcss: putro8v  font-style: italic;
+

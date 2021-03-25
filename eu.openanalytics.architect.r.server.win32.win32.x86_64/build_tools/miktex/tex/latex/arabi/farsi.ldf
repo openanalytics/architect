@@ -1,0 +1,356 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: `farsi.ldf' the language definition file of Farsi
+% for use with BABEL.
+%
+
+\ProvidesFile{farsi.ldf}
+
+\ProvidesLanguage{farsi}[2006/01/01 v0.1 Farsi support for the babel system]
+        
+
+\LdfInit{farsi}{captionsfarsi}
+
+
+\ifx\l@farsi\@undefined
+  \@nopatterns{farsi}%
+  \adddialect\l@farsi0
+\fi
+\InputIfFileExists{lfeenc.def}{%
+  \message{Loading the definitions for the LaTeX{} Farsi encoding}}{%
+  \errhelp{I can't find the laeenc.def file for the Farsi fonts}%
+  \errmessage{Since I do not know what the LFE encoding means^^J
+    I can't typeset Farsi.^^J
+    I stop here, while you get a suitable lfeenc.def file}\@@end
+ }
+  
+%% actually, due to the fact that there is no standard encoding 
+%% used widely by the Iranian community. We adopt the Unicode utf8
+%% encoding and the Windows CP1256. The user may use the editor he wants if it can export
+%% to one of these two formats. If none is specified we will assume it's utf-8!!
+%% If no encoding is loaded, utf-8 will be automatically!
+%%
+\AtEndOfPackage{%
+  \@ifpackageloaded{inputenc}{}{\RequirePackage[utf8]{inputenc}}}
+  
+
+
+%NO hyphenation is needed in Farsi!!
+\providehyphenmins{\CurrentOption}{\thr@@\thr@@}
+
+
+%% Some captions are missing. The others have been ``stolen'' from \FarsiTeX
+\addto\captionsfarsi{%
+\def\prefacename{\textFR{\meem\dal\kha\lam}}% <<
+\def\refname{\textFR{\meem\ra\jeem\ayn}}%
+\def\abstractname{\textFR{\tcheh\kaf\ya\dal\ha}}%
+\def\bibname{\textFR{\kaf\taa\alef\baa\ZWNJ\nun\alef\meem\ha}}%
+\def\chaptername{\textFR{\fa\sad\lam}}%
+\def\appendixname{\textFR{\peh\ya\waw\seen\taa}}%
+\def\contentsname{\textFR{\fa\ha\ra\seen\taa\space\meem\nun\dal\ra\jeem\alef\taa}}%
+\def\listfigurename{\textFR{\lam\ya\seen\taa\ \alef\sheen\kaf\alef\lam}}%
+\def\listtablename{\textFR{\lam\ya\seen\taa\  \jeem\dal\alef\waw\lam}}%
+\def\indexname{\textFR{\fa\ha\ra\seen\taa\  \alef\lam\fa\baa\alef\ya\ya}}%
+\def\figurename{\textFR{\sheen\kaf\lam}}%
+\def\tablename{\textFR{\jeem\dal\waw\lam}}%
+\def\partname{\textFR{\baa\kha\sheen}}%
+\def\enclname{}%<-- Needs translation
+\def\ccname{\textFR{\nun\seen\kha\T\space\lam\noboundary}}% <<
+\def\headtoname{}%<-- Needs translation
+\def\pagename{\textFR{\sad\fa\Haa\T}}%
+\def\seename{\textFR{\ra\alef\jeem\ayn}}%<<
+\def\alsoname{\textFR{\ra\alef\jeem\ayn\space\alefhamza\ya\dad\alef}}%<<
+\def\proofname{\textFR{\baa\ra\ha\alef\nun}}% for AMS-\LaTeX
+\def\glossaryname{\textFR{\qaf\alef\meem\waw\seen}}%<<
+}
+
+
+
+
+%
+% The default format for the date in IRAN
+% It's called the Jalali calendar. Adapted from FarsiTeX
+%
+\InputIfFileExists{arabiftoday.sty}{%
+  \message{Loading the definitions for the Jalali calendar}}{%
+  \errhelp{I can't find the arabiftoday.sty file for the Jalali calendar}%
+  \errmessage{Since I do not know what the Jalali calendar is^^J
+    I can't typeset the Farsi date.^^J
+    I stop here, while you get a suitable arabiftoday.sty file}\@@end
+}
+
+\def\datefarsi{\def\today{\ftoday}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%         MACROS FOR Arabic/Latin TYPESETTING			   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% First, the common part to Arabic and Farsi
+%
+\InputIfFileExists{arabicore.sty}{%
+  \message{Loading the Common definitions for Arabic and Farsi}}{%
+  \errhelp{I can't find the arabicore.sty file}%
+  \errmessage{Since I can't find the arabicore.sty file^^J
+    I can't typeset Arabic.^^J
+    I stop here, while you get a suitable arabicore.sty file}\@@end
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Now the specific part to Farsi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\newif\if@farsi %-----> Arabicore
+%
+\newcommand{\FarsiEncoding}{\fontencoding{LFE}\selectfont}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ArabTeX has already  \R as well as \RL command
+% While (La)TeX defines already \L
+% In addition to the fact that the Hebrew package for Babel
+% has \R and \L !!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareRobustCommand{\@farsi@R}[1]{\bgroup\beginR\@arabicfalse\@farsitrue\FarsiEncoding 
+																		#1\endR\egroup}
+% To avoid bad surprised we use \def to define the \R control sequence, 
+% many packages ``like'' to use , like ArabTeX and the Hebrew package 
+% supporting Babel 
+\newcommand{\textFR}[1]{\expandafter\@farsi@R{#1}}%
+\def\textRL#1{\expandafter\@farsi@R{#1}}%
+%Temporary shortcut
+\newcommand{\FR}[1]{\textFR{#1}}
+% For \cs{L} see the core !
+\DeclareRobustCommand{\@ensure@farsi}[1]{\if@farsi #1 \else\beginR\FarsiEncoding #1\endR\fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\def\farsiencoding{LFE}
+\DeclareFontEncoding{LFE}{}{}
+\DeclareFontSubstitution{LFE}{cmr}{m}{n}
+\DeclareErrorFont{LFE}{cmr}{m}{n}{10}
+
+\DeclareRobustCommand{\bbl@farsi}{%
+  \bbl@arabi%
+  \fontencoding\farsiencoding\selectfont%
+  \let\encodingdefault\farsiencoding%
+  \@rltrue%
+  \@farsitrue%
+}
+
+\addto\extrasfarsi{\bbl@farsi
+}
+
+\addto\noextrasfarsi{%
+\@rlfalse
+\@farsifalse
+\latintext\normalfont %enough ??
+% Restore the lplain.tex penalties??
+\hyphenpenalty=50 
+\binoppenalty=700
+\relpenalty=500
+}
+
+
+% The package \pkg{ifthen} is needed. We test if the font contains a character 
+% \cs{rial}. Else we define it just to be the \cs{rial} of the font \texttt{nazli]
+% which has one
+%
+\newlength{\rialheight}%
+
+\DeclareTextCommand{\rial}{LFE}{%
+    \settoheight{\rialheight}{\rialchar}%
+    \ifthenelse{\lengthtest{\rialheight=0pt}}%
+                {\mbox{\textnazli{\,\rialchar\,}}}%
+                {{}\,\rialchar\,{}}%
+                }
+
+
+%
+% Now, the Farsi fonts Definitions
+%
+\InputIfFileExists{farsifnt.sty}{%
+  \message{Loading the Arabi fonts definitions for Farsi}}{%
+  \errhelp{I can't find the farsifnt.sty file}%
+  \errmessage{Since I can't find the farsifnt.sty file^^J
+    I can't typeset Farsi.^^J
+    I stop here, while you get a suitable farsifnt.sty file}\@@end
+}
+
+
+
+%% Numbers in Arabic contexts, must be written as input, not reflected!
+%% They are already Right-to-Left! Sometimes written in Arabic digits and 
+%% other times with Arabo-Indic digits.
+%% They have to be input using the \I control sequence
+%%
+\newcommand{\ExtendedIndicDigit}[1]{\L{\FarsiEncoding #1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%==========================================================%
+%   The changes that should be executed after reading      %
+%   the main style file. (e.g., article.sty)               %
+%==========================================================%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addto\extrasfarsi{%
+  \let\SAV@alph\@alph%
+  \let\SAV@Alph\@Alph%
+  \renewcommand*{\@alph}[1]{\protect\abjadnumeral{\number#1}}%
+  \renewcommand*{\@Alph}[1]{\protect\abjadnumeral{\number#1}}}
+
+\addto\noextrasfarsi{%
+  \let\@alph\SAV@alph%
+  \let\@Alph\SAV@Alph}
+  
+  
+
+%    ****************************************
+%    *             PUNCTUATION              *
+%    ****************************************
+%
+%        TEMPORARILY
+
+\addto\extrasfarsi{%
+\frenchspacing}
+
+
+
+
+%% We change  \alph{counter} so that we get abjad numerals instead,
+%% we change  \Alph{counter} to get abjad numerals since no Uppercase
+%% exists in Arabic, just to avoid bad surprises.
+%%
+
+%% Good for Farsi? Change!?
+%%
+
+\let\latin@Alph\Alph
+\let\latin@alph\alph
+\def\arabic@alph#1{\expandafter\abjadnumeral\expandafter{\number#1}}
+\def\arabic@Alph#1{\expandafter\abjadnumeral\expandafter{\number#1}}
+\addto\extrasfarsi{%
+\def\alph#1{\expandafter\abjadnumeral\csname c@#1\endcsname}
+\def\Alph#1{\expandafter\abjadnumeral\csname c@#1\endcsname}
+}
+\addto\noextrasfarsi{%
+  \let\alph\latin@alph
+  \let\Alph\latin@Alph}
+
+
+
+%
+% Now, the common file to Arabic and Farsi that allows
+% activating and deactivating Vowelization
+%
+\InputIfFileExists{arabnovowel.sty}{%
+  \message{Loading the Common definitions for Arabic and Farsi}}{%
+  \errhelp{I can't find the arabnovowel.sty file}%
+  \errmessage{Since I can't find the arabnovowel.sty file^^J
+    I can't activate or deactivate vowelization.^^J
+    The vowels you type will be printed!}\@@end
+}
+
+% To get the parentheses around equations numbers to appear correctly
+% works with standard classes article, report and book (with or without amsmath package) 
+% and with ams[*] classes. (reqno should be used!!)
+%
+\addto\extrasfarsi{%
+\let\SAV@@eqnnum\@eqnnum
+\let\SAV@tagform@\tagform@
+\def\tagform@#1{\maketag@@@{)\ignorespaces#1\unskip\@@italiccorr(}}% if amsmath is loaded
+\renewcommand{\@eqnnum}{)\theequation(}%                             otherwise 
+}
+
+% Restore original values
+\addto\noextrasfarsi{%
+\let\@eqnnum\SAV@@eqnnum
+\let\tagform@\SAV@tagform@
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Experimental Farsi mathematics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% Farsi digits in MATHS %%%%%%%%%%%%%%%%%%
+
+% New MathVersion
+\DeclareMathVersion{farsimath}
+
+% DeclareSymbolFont to be used with persian and Arabic digits
+\DeclareSymbolFont{farsiletters}{LFE}{nazli}{m}{n}
+% SetSymbolFont for each version
+\SetSymbolFont{farsiletters}{farsimath}{LFE}{nazli}{m}{n}
+% We suppose the normal mathematics fonts when restoring back 
+% the normal behaviour
+\SetSymbolFont{farsiletters}{normal}{OT1}{cmr}{m}{n}
+
+%To work with persianmathdigits 
+\DeclareMathSymbol{0}{\mathalpha}{farsiletters}{48}%
+\DeclareMathSymbol{1}{\mathalpha}{farsiletters}{49}%
+\DeclareMathSymbol{2}{\mathalpha}{farsiletters}{50}%
+\DeclareMathSymbol{3}{\mathalpha}{farsiletters}{51}%
+\DeclareMathSymbol{4}{\mathalpha}{farsiletters}{52}%
+\DeclareMathSymbol{5}{\mathalpha}{farsiletters}{53}%
+\DeclareMathSymbol{6}{\mathalpha}{farsiletters}{54}%
+\DeclareMathSymbol{7}{\mathalpha}{farsiletters}{55}%
+\DeclareMathSymbol{8}{\mathalpha}{farsiletters}{56}%
+\DeclareMathSymbol{9}{\mathalpha}{farsiletters}{57}%
+
+
+\newcommand{\farsimathdigits}{%
+\mathversion{farsimath}}
+\newcommand{\arabicmathdigits}{%
+\mathversion{normal}}
+
+
+
+% We suppose the normal behaviour inside Farsi is to use
+% Farsi digits
+\addto\extrasfarsi{%
+\farsimathdigits
+}
+% While outside, the Arabic digits are used
+\addto\noextrasfarsi{%
+\arabicmathdigits
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%% To let this file clean and usable by everybody %%%%%%
+% use "farsi.cfg" instead and uncomment next line
+%\loadlocalcfg{farsi}  %last patches and additional hacks
+%%
+\ldf@finish{farsi}
+
+
+\endinput

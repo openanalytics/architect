@@ -1,0 +1,99 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% foils.4ht                             2009-05-21-09:32 %
+% Copyright (C) 1997--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\ifx \o:listoffigures:\:UnDef \else
+   \HRestore\listoffigures
+\fi
+\ifx \o:listoftables:\:UnDef \else
+   \HRestore\listoftables
+\fi
+\pend:def\maketitle{\par\a:mktl\begingroup
+   \ifx \@thanks\empty \else
+      \pend:def\@thanks{\a:thank}%
+      \append:def\@thanks{\b:thank}%
+   \fi
+   \aftergroup\b:mktl \:gobbleII
+}
+\def\@maketitle{%
+   {\a:ttl \@title \b:ttl}
+   {\lineskip \authorauthorskip
+    \begin{tabular}[t]{c}\a:author \@author \b:author\end{tabular}
+    \par
+   }
+   \ifx \@date\empty \else
+      \a:date \@date \b:date
+   \fi
+   \par
+}
+\NewConfigure{maketitle}[4]{\c:def\a:mktl{#1}\c:def\b:mktl{#2}%
+   \c:def\a:ttl{#3}\c:def\b:ttl{#4}}
+\NewConfigure{author date}[4]{%
+   \c:def\a:author{#1}\c:def\b:author{#2}%
+   \c:def\a:date{#3}\c:def\b:date{#4}}
+\NewSection\foilhead{}
+\let\:foilhead\@foilhead
+\def\@foilhead[#1]#2{%
+   \def\:temp{#2}\ifx\:temp\empty \:foilhead[#1]{\foilhead{\space}}%
+   \else \:foilhead[#1]{\foilhead{#2}}\fi  }
+\NewConfigure{tableofcontents*}[1]{\edef\auto:toc{#1}%
+   \ifx \::foilhead\:UnDef
+      \let\::foilhead\:foilhead
+      \def\:foilhead{\:TableOfContents[\auto:toc]%
+          \let\:foilhead\::foilhead \::foilhead}
+   \fi
+}
+\def\Str:pic{\ifx \EndPicture\:UnDef  \Picture*{}%
+   \else \let\EndPicture\empty  \fi }
+\let\:boldequation\boldequation
+\def\boldequation{\Str:pic \:boldequation}
+\append:def\endboldequation{\EndPicture}
+\expand:after{\let\boldequation:}\csname boldequation*\endcsname
+\expandafter\def\csname boldequation*\endcsname{\Str:pic \boldequation:}
+\expandafter\append:def\csname endboldequation*\endcsname{\EndPicture}
+% \let\:begintheorem\@begintheorem
+% \def\@begintheorem#1#2{\:begintheorem{#1}{#2.}}
+% \def\@opargbegintheorem#1#2#3{\:begintheorem{#1}{#2.\ [#3] }}
+% \def\@beginstartheorem#1{\:begintheorem{#1.}}
+% \def\@opargbeginstartheorem#1#2{\:begintheorem{#1.}{\ [#2] }}
+% \long\def\@caption#1[#2]#3{\par \begingroup \@parboxrestore \normalsize
+% \@makecaption{\csname fnum@#1\endcsname}{\ignorespaces #3}\par
+% \endgroup}
+\def\end@nonfloat{\end@float}
+\def\:temp#1{{\stepcounter{footnote}%
+%   \ifx \footnote\thanks
+      \a:thank\@fnsymbol\c@footnote\b:thank
+%   \fi
+   \let\a:thanks\empty    \let\b:thanks\empty
+   \protected@xdef\@thanks{\noexpand\a:thanks{\@thanks\c:thank
+     \@fnsymbol\c@footnote\d:thank #1\e:thank}\noexpand\b:thanks}%
+}}
+\HLet\thanks\:temp
+
+\Hinput{foils}
+\endinput
+

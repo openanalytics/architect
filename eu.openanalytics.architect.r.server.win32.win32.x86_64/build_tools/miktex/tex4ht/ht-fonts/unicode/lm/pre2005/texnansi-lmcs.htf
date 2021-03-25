@@ -1,0 +1,259 @@
+texnansi-lmcs 1 255
+'&#x20AC;' '' Euro     1 %
+'' ''                2 % texnansi-lmcs.htf (unicode)   2020-05-27-14:14 %
+'' ''                3 % Copyright (C) 2003-2009 Eitan M. Gurari %
+'&#x2044;' '' fraction            4 %
+'&#x00A8;' '' dotaccent        5 % This work may be distributed and/or modified under the conditions
+'&#x02DD;' '' hungarumlaut     6 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x02DB;' '' ogonek        7 % license or (at your option) any later version. The latest version
+'&#xFB02;' '' fl  8 % of this license is in http://www.latex-project.org/lppl.txt and
+'' ''          9 % version 1.3 or later is part of all distributions of LaTeX version
+'&#xFEFF;' ''   10 % 2003/12/01 or later.
+'&#xFB00;' '' ff        11 % This work has the LPPL maintenance status "maintained".
+'&#xFB01;' '' fi        12 % Current Maintainer of this work is the TeX4ht Project.
+'' ''               13 %
+'&#xFB03;' '' ffi      14 % If you modify this file, changing the
+'&#xFB04;' '' ffl      15 % version identification would be appreciated.
+'&#x0131;' '' dotlessi 16 %
+'&#x0237;' '' dotlessj         17 % tex4ht@tug.org
+'&#x02CB;' '' grave    18 % https://tug.org/tex4ht
+'&#x02CA;' '' acute    19 %
+'&#x02C7;' '' caron    20 
+'&#x02D8;' '' breve    21
+'&#x02C9;' '' macron   22
+'&#x02DA;' '' ring      23
+'&#x00B8;' '' cedilla  24
+'&#x00DF;' '' germandbls 25
+'&#x00C6;' '4'     26
+'&#x0152;' '4'     27
+'&#x00D8;' '4'     28
+'&#x00C6;' '' AE       29
+'&#x0152;' '' OE        30
+'&#x00D8;' '' Oslash   31
+' ' '' space          32
+'!' '' exclam          33
+'&#x0022;' '' quotedbl  34
+'#' '' numbersign      35
+'$' '' dollar           36
+'%' '' percent         37
+'&#x0026;' '' ampersand 38
+'&#x2019;' '' quoteright 39
+'&#x0028;' '' parenleft        40
+'&#x0029;' '' parenright      41
+'*' '' asterisk         42
+'+' '' plus             43
+',' '' comma           44
+'-' '' hyphen           45
+'.' '' period           46
+'/' '' slash            47
+'0' '' zero             48
+'1' '' one              49
+'2' '' two              50
+'3' '' three           51
+'4' '' four             52
+'5' '' five             53
+'6' '' six              54
+'7' '' seven           55
+'8' '' eight           56
+'9' '' nine             57
+':' '' colon           58
+';' '' semicolon        59
+'&#x003C;' '' less 60
+'=' '' equal            61
+'&#x003E;' '' greater  62
+'?' '' question  63
+'@' '' at 64
+'A' '' A 65
+'B' '' B  66
+'C' '' C 67
+'D' '' D  68
+'E' '' E 69
+'F' '' F  70
+'G' '' G   71
+'H' '' H 72
+'I' '' I  73
+'J' '' J 74
+'K' '' K  75
+'L' '' L 76
+'M' '' M  77
+'N' '' N 78
+'O' '' O  79
+'P' '' P 80
+'Q' '' Q  81
+'R' '' R 82
+'S' '' S  83
+'T' '' T 84
+'U' '' U  85
+'V' '' V 86
+'W' '' W  87
+'X' '' X 88
+'Y' '' Y  89
+'Z' '' Z 90
+'&#x005B;' '' bracketleft  91
+'&#x005C;' '' backslash  92
+'&#x005D;' '' bracketright  93
+'^' '' circumflex   94
+'_' '' underscore  95
+'&#x2018;' '' quoteleft  96
+'A' '4'  97
+'B' '4'  98
+'C' '4'  99
+'D' '4'  100
+'E' '4'  101
+'F' '4'  102
+'G' '4'  103
+'H' '4'  104
+'I' '4'  105
+'J' '4'  106
+'K' '4'  107
+'L' '4'  108
+'M' '4'  109
+'N' '4'  110
+'O' '4'  111
+'P' '4'  112
+'Q' '4'  113
+'R' '4'  114
+'S' '4'  115
+'T' '4'  116
+'U' '4'  117
+'V' '4'  118
+'W' '4'  119
+'X' '4'  120
+'Y' '4'  121
+'Z' '4'  122
+'&#x007B;' '' braceleft  123
+'|' '' bar  124
+'&#x007D;' '' braceright  125
+'~' '' asciitilde  126
+'&#x00A8;' '' dieresis  127
+'&#x0141;' '' Lslash  128
+'&#x0027;' '' quotesingle  129
+'&#x201A;' '' quotesinglbase  130
+'&#x0192;' '' florin  131
+'&#x201E;' '' quotedblbase  132
+'&#x2026;' '' ellipsis  133
+'&#x2020;' '' dagger  134
+'&#x2021;' '' daggerdbl  135
+'^' '' circumflex  136
+'&#x2030;' '' perthousand  137
+'&#x0160;' '' Scaron  138
+'&#x2039;' '' guilsinglleft  139
+'&#x0152;' '' OE  140
+'&#x017D;' '' Zcaron  141
+'^' '' asciicircum  142
+'&#x2212;' '' minus  143
+'&#x0141;' '4'     144
+'&#x2018;' '' quoteleft  145
+'&#x2019;' '' quoteright  146
+'&#x201C;' '' quotedblleft  147
+'&#x201D;' '' quotedblright  148
+'&#x2219;' '' bullet   149
+'&#x2013;' '' endash  150
+'&#x2014;' '' emdash  151
+'~' '' tilde  152
+'&#x2122;' '' trademark  153
+'&#x0160;' '4'     154
+'&#x203A;' '' guilsinglright  155
+'&#x0153;' '' oe  156
+'&#x017D;' '4'     157
+'~' '' asciitilde  158
+'&#x0178;' '' Ydieresis  159
+'&#x00A0;' '' nbspace  160
+'&#x00A1;' '' exclamdown  161
+'&#x00A2;' '' cent  162
+'&#x00A3;' '' sterling  163
+'&#x20A0;' '' currency  164
+'&#x00A5;' '' yen  165
+'&#x00A6;' '' brokenbar  166
+'&#x00A7;' '' section  167
+'&#x00A8;' '' dieresis  168
+'&#x00A9;' '' copyright   169
+'&#x00AA;' '' ordfeminine  170
+'&#x00AB;' '' guillemotleft  171
+'&#x00AC;' '' logicalnot  172
+'&#x00AD;' '' sfthyphen  173
+'&#x00AE;' '' registered  174
+'&#x02C9;' '' macron  175
+'&#x2103;' '' degree  176
+'&#x00B1;' '' plusminus  177
+'&#x00B2;' '' twosuperior          178
+'&#x00B3;' '' threesuperior  179
+'&#x02CA;' '' acute          180
+'&#x03BC;' '' mu  181
+'&#x00B6;' '' paragraph   182
+'&#x010B;' '' periodcentered  183
+'&#x00B8;' '' cedilla  184
+'&#x00B9;' '' onesuperior  185
+'&#x00BA;' '' ordmasculine  186
+'&#x00BB;' '' guillemotright  187
+'&#x00BC;' '' onequarter  188
+'&#x00BD;' '' onehalf  189
+'&#x00BE;' '' threequarters  190
+'&#x00BF;' '' questiondown  191
+'&#x00C0;' '' Agrave  192
+'&#x00C1;' '' Aacute  193
+'&#x00C2;' '' Acircumflex  194
+'&#x00C3;' '' Atilde   195
+'&#x00C4;' '' Adieresis  196
+'&#x00C5;' '' Aring   197
+'&#x00C6;' '' AE  198
+'&#x00C7;' '' Ccedilla   199
+'&#x00C8;' '' Egrave   200
+'&#x00C9;' '' Eacute   201
+'&#x00CA;' '' Ecircumflex  202
+'&#x00CB;' '' Edieresis   203
+'&#x00CC;' '' Igrave   204
+'&#x00CD;' '' Iacute   205
+'&#x00CE;' '' Icircumflex  206
+'&#x00AF;' '' Idieresis  207
+'&#x00D0;' '' Eth 208
+'&#x00D1;' '' Ntilde  209
+'&#x00D2;' '' Ograve  210
+'&#x00D3;' '' Oacute  211
+'&#x00D4;' '' Ocircumflex  212
+'&#x00D5;' '' Otilde   213
+'&#x00D6;' '' Odieresis  214
+'&#x00D7;' '' multiply   215
+'&#x00D8;' '' Oslash  216
+'&#x00D9;' '' Ugrave  217
+'&#x00DA;' '' Uacute  218
+'&#x00DB;' '' Ucircumflex  219
+'&#x00DC;' '' Udieresis   220
+'&#x00DD;' '' Yacute   221
+'&#x00DE;' '' Thorn   222
+'SS' '4'     223
+'&#x00C0;' '4'     224
+'&#x00C1;' '4'     225
+'&#x00C2;' '4'     226
+'&#x00C3;' '4'     227
+'&#x00C4;' '4'     228
+'&#x00C5;' '4'     229
+'&#x00C6;' '4'     230
+'&#x00C7;' '4'     231
+'&#x00C8;' '4'     232
+'&#x00C9;' '4'     233
+'&#x00CA;' '4'     234
+'&#x00CB;' '4'     235
+'&#x00CC;' '4'     236
+'&#x00CD;' '4'     237
+'&#x00CE;' '4'     238
+'&#x00CC;' '4'     239
+'&#x00D0;' '4'     240
+'&#x00D1;' '4'     241
+'&#x00D2;' '4'     242
+'&#x00D3;' '4'     243
+'&#x00D4;' '4'     244
+'&#x00D5;' '4'     245
+'&#x00D6;' '4'     246
+'&#x00F7;' '' divide   247
+'&#x00D8;' '4' oslash  248
+'&#x00D9;' '4'     249
+'&#x00DA;' '4'     250
+'&#x00DB;' '4'     251
+'&#x00DC;' '4'     252
+'&#x00DD;' '4'     253
+'&#x00DE;' '4'     254
+'&#x00FF;' '' ydieresis   255
+texnansi-lmcs 1 255
+htfcss: texnansi-lmcsco  font-style: oblique;
+

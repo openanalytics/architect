@@ -1,0 +1,23 @@
+%%
+%% This is file `lfesmplarabic.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lfesmplarabic.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+\DeclareFontFamily{LFE}{smplarabic}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LFE}{smplarabic}{m}{n}{<-> s*[1.25]  frsimpo }{}
+\DeclareFontShape{LFE}{smplarabic}{b}{n}{<-> s*[1.25] frsimpbdo }{}
+\DeclareFontShape{LFE}{smplarabic}{bx}{n}{<-> ssub * smplarabic/b/n}{}
+
+
+\endinput

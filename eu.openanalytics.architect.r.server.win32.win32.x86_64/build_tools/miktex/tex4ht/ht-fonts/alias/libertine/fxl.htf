@@ -1,0 +1,16 @@
+.lm-ec
+htfcss: fxlb-t1 font-weight:bold;
+htfcss: fxlb-t1c font-weight:bold;
+htfcss: fxlb-t1cos font-weight:bold;
+htfcss: fxlb-t1fitted font-weight:bold;
+htfcss: fxlbi-t1 font-weight:bold;
+htfcss: fxlbi-t1c font-weight:bold;
+htfcss: fxlbi-t1cos font-weight:bold;
+htfcss: fxlbi-t1fitted font-weight:bold;
+htfcss: fxlbi-t1o font-weight:bold; font-style:italic;
+htfcss: fxlri-t1 font-style:italic;
+htfcss: fxlri-t1c font-style:italic;
+htfcss: fxlri-t1cos font-style:italic;
+htfcss: fxlri-t1fitted font-style:italic;
+htfcss: fxlri-t1o font-style:italic;
+

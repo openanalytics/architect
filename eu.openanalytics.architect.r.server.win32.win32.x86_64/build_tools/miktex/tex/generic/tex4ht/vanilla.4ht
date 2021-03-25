@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% vanilla.4ht                           2009-05-21-09:32 %
+% Copyright (C) 1997--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+
+\expandafter\def\csname title\endcsname{\title@true
+    \bgroup  \let\halign\TeXhalign \HRestore\noalign  \let\\\cr\a:title
+    \halign\bgroup\tenbf\hfill\ignorespaces##\unskip\hfill\cr}
+\def\endtitle{\cr\egroup\b:title\egroup}
+\expandafter\def\csname author\endcsname{\bgroup
+     \let\halign\TeXhalign \HRestore\noalign  \let\\\cr\a:author
+   \halign to \hsize\bgroup\smc\hfill\ignorespaces##\unskip\hfill\cr}
+\def\endauthor{\cr\egroup\b:author\egroup}
+
+\expandafter\let\csname heading\endcsname\empty
+\expandafter\let\csname endheading\endcsname\empty
+\NewSection\heading{}
+\let\x:heading=\heading
+\def\heading#1\endheading{{\let\cr\space \let\\\space
+   \x:heading{#1}}}
+
+\expandafter\let\csname subheading\endcsname\empty
+\NewSection\subheading{}
+
+\expandafter\def\csname proclaim\endcsname#1{\medbreak\a:proclaim
+    \noindent\smc\ignorespaces  #1\unskip.\b:proclaim
+    \enspace\sl\ignorespaces}
+\expandafter\def\csname endproclaim\endcsname{\c:proclaim\medskip\rm}
+
+\expandafter\def\csname demo\endcsname#1{\par \a:demo
+    \noindent{\smc\ignorespaces#1\unskip\enspace}\b:demo
+    \rm  \ignorespaces}
+\expandafter\def\csname enddemo\endcsname{\c:demo\par}
+\NewConfigure{demo}{3}
+
+\def\footnote{\let\@sf=\empty\ifhmode\edef\@sf{\spacefactor
+    =\the\spacefactor}\/\fi \futurelet\next\footnote@}
+\def\footnote@{\ifx"\next\let\next\footnote@@\else
+     \let\next\footnote@@@\fi\next}
+\def\footnote@@"#1"#2{%
+   \gHAdvance\FNnum  1 \def\:temp{#1}\ifx \:temp\empty
+      \def\:temp##1[##2]##3{##1[##2]{*}}\expandafter\:temp \fi
+   \HPageButton[fn\FNnum]{#1}\BeginHPage[fn\FNnum]{ }{#2}\EndHPage{}}
+\HAssign\FNnum   0
+\def\footnote@@@#1{%
+    \HPageButton[nf\the\footmarkcount@]{$^{\number\footmarkcount@}$}%
+    \BeginHPage[nf\the\footmarkcount@]{ }
+    {{\HCode{<sup>}{\number\footmarkcount@}\HCode{</sup>}}{#1}\global
+     \advance\footmarkcount@ by 1}\EndHPage{}}
+\def\brute:halign{\let\:HAlign\halign   \let\:NOalign\noalign
+  \let\halign\TeXhalign \HRestore\noalign
+  \let\sv:Row=\HRow  \let\sv:Col=\HCol  \def\HRow{0}}
+\def\endbrute:halign#1{%
+     \csname d:#1\endcsname\csname b:#1\endcsname
+     \global\let\HRow\sv:Row  \global\let\HCol\sv:Col}
+\def\abt:hlgn#1{\csname\ifnum \HRow=0  a\else d\fi :#1\endcsname
+     \g:Advance\HRow by 1 \gdef\HCol{1}%
+     \csname c:#1\endcsname\csname e:#1\endcsname\let\halign\:HAlign
+     \let\noalign\:NOalign}
+\def\bbt:hlgn#1{\g:Advance \HCol by 1 \csname
+     e:#1\endcsname\let\halign\:HAlign
+     \let\noalign\:NOalign}
+
+\def\:temp{\vcenter\bgroup \brute:halign
+  \vspace@\Let@\openup\jot\m@th\ialign
+  \bgroup \strut\hfil\abt:hlgn{aligned}%
+     $\displaystyle{##}$\f:aligned
+     &\bbt:hlgn{aligned}$\displaystyle{{}##}$\f:aligned\hfil\crcr}
+\HLet\aligned\:temp
+\def\:temp{\crcr\egroup
+   \endbrute:halign{aligned}\egroup}
+\HLet\endaligned\:temp
+\NewConfigure{aligned}{6}
+\def\:temp{\vcenter\bgroup\Let@\vspace@ \brute:halign
+    \normalbaselines
+  \m@th\ialign\bgroup\hfil\abt:hlgn{matrix}$##$\f:matrix\hfil&&\quad\hfil
+     \bbt:hlgn{matrix}$##$\f:matrix\crcr
+    \mathstrut\crcr\noalign{\kern-\baselineskip}}
+\HLet\matrix\:temp
+\def\:temp{\crcr\mathstrut\crcr\egroup
+    \endbrute:halign{matrix}\egroup}
+\HLet\endmatrix\:temp
+\NewConfigure{matrix}{6}
+\def\:temp{\left\{\,\vcenter\bgroup\vspace@   \brute:halign
+     \normalbaselines\openup\jot\m@th
+       \Let@\ialign\bgroup\abt:hlgn{cases}$##$\f:cases
+            \hfil&\quad\bbt:hlgn{cases}$##$\f:cases\hfil\crcr}
+\HLet\cases\:temp
+\def\:temp{\crcr\mathstrut\crcr\egroup
+    \endbrute:halign{cases}\egroup\right.}
+\HLet\endcases\:temp
+\def\ralign@#1\endalign{\displ@y\Let@\tabskip\centering
+    \append:def\f:align{\ifx \dn:hlgn\:UnDef \else
+        \global\let\dn:hlgn=\:UnDef \endbrute:halign{align}\fi}%
+    \brute:halign \halign{\abt:hlgn{align}$\displaystyle
+       {##}$\f:align&\bbt:hlgn{align}$\displaystyle{{}##}$\f:align
+       &\bbt:hlgn{align}\hbox{(\rm##\unskip)}\f:align\crcr
+             #1\global\let\dn:hlgn\empty\crcr}}
+\def\lalign@
+ #1\endalign{\displ@y\Let@\tabskip\centering
+    \append:def\f:align{\ifx \dn:hlgn\:UnDef \else
+        \global\let\dn:hlgn=\:UnDef \endbrute:halign{align}\fi}%
+   \brute:halign \halign{\abt:hlgn{align}$\displaystyle
+       {##}$\f:align&\bbt:hlgn{align}$\displaystyle{{}##}$\f:align
+   &\bbt:hlgn{align}\hbox{(\rm##\unskip)}\f:align\crcr
+   #1\global\let\dn:hlgn=\empty\crcr}}
+\NewConfigure{align}{6}
+
+\NewConfigure{title}{2}
+\NewConfigure{author}{2}
+
+
+
+\Hinput{vanilla}
+\endinput
+

@@ -1,0 +1,29 @@
+%%
+%% This is file `laecmss.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laecmss.fd}
+         [2006/01/01 v0.1 LaTeX Arabic default font description
+         (test version: may change)]
+
+\DeclareFontFamily{LAE}{cmss}{\hyphenchar\font=-1}%
+\DeclareFontShape{LAE}{cmss}{m}{n}{<-> s*[1.25] aesindibad }{} 
+%%%%%%% Italicized shape
+\DeclareFontShape{LAE}{cmss}{m}{it}{<-> ssub * cmss/m/n }{}
+\DeclareFontShape{LAE}{cmss}{m}{sl}{<-> ssub * cmss/m/n  }{}
+\DeclareFontShape{LAE}{cmss}{m}{sc}{<-> ssub * cmss/m/n  }{}
+%%%%%%% Bold extended series
+\DeclareFontShape{LAE}{cmss}{b}{n}{<-> s*[1.25] aegraph }{}
+\DeclareFontShape{LAE}{cmss}{bx}{n}{<-> ssub * cmss/b/n }{}
+%%%%%%% Bold extended (Italic)  series
+\DeclareFontShape{LAE}{cmss}{bx}{sl}{<-> ssub * cmss/b/n }{}
+\DeclareFontShape{LAE}{cmss}{bx}{it}{<-> ssub * cmss/b/n }{}
+
+\endinput

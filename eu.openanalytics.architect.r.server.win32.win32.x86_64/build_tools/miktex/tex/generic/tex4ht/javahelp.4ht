@@ -1,0 +1,1214 @@
+% javahelp.4ht (2020-03-16-10:43), generated from tex4ht-javahelp.tex
+% Copyright 2009-2019 TeX Users Group
+% Copyright 2003-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2020-03-16-10:43}
+
+\exit:ifnot{Preamble,% 
+array,% 
+color,% 
+colortbl,% 
+fontmath,% 
+frenchb,% 
+inputenc,% 
+latex,% 
+longtable,% 
+tex4ht,% 
+ulem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \immediate\write-1{--------------- JavaHelp -----------------}
+\immediate\write-1{The entry (HelpSet) file for the java program
+                                         is at `\jobname.hs'}
+\immediate\write-1{Generate a search database
+                             with, for instance, the command}
+  \immediate\write-1{ java -jar
+    ...../jh1.1.3/javahelp/bin/jhindexer.jar
+    -db \jobname-jhs \jobname*.html}
+\immediate\write-1{Compile the java program with a command similar to}
+  \immediate\write-1{ javac -classpath
+    ...../jh1.1.3/javahelp/lib/jh.jar  program.java}
+\immediate\write-1{Run the java program with a command similar to}
+  \immediate\write-1{ java -classpath
+    ...../jh1.1.3/javahelp/lib/jh.jar;. program}
+\immediate\write-1{JavaHelp might require a compilation for HTML 3.2,
+     for instance,}
+\immediate\write-1{ htlatex \jobname\space "html,javahelp,3.2,3"}
+\immediate\write-1{------------------------------------------}
+
+% \newif\ifimmediate
+% \immediatefalse
+\NewConfigure{jhxml}[1]{\concat:config\a:jhxml{#1}}
+\let\a:jhxml\relax
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{-css} \if:Option \else
+   \Log:Note{to ignore CSS code, use the command line option `-css}
+   \:CheckOption{css-in} \if:Option
+      \Log:Note{the inline CSS code is extracted from the input of the
+          previous compilation, so an extra compilation might be needed}
+      \Configure{@HEAD}{\openin15=\jobname .css
+\ifeof15   \:warning{Missing file: \jobname .css }%
+\else
+\bgroup
+   \catcode`\{=12  \catcode`\}=12  \catcode`\%=12  \catcode`\#=12
+   \HCode{\Hnewline<style type="text/css">\Hnewline <!-- \Hnewline}%
+   \loop
+      \read15 to \:temp
+      \def\:tempa{\par}\ifx \:temp\:tempa \let\:temp\empty \fi
+   \ifeof15\else
+      \expandafter\tmp:toks\expandafter{\:temp}%
+      \HCode{\the\tmp:toks \Hnewline}%
+   \repeat
+   \HCode{\Hnewline-->\Hnewline</style>\Hnewline}%
+\egroup
+\fi
+\closein15
+}
+   \else
+      \Log:Note{for inline CSS code, use the command line option `css-in'}
+      \Configure{@HEAD}{\HCode{<link
+         rel="stylesheet" type="text/css"
+         href="\aa:CssFile"\xml:empty>\Hnewline}}
+   \fi
+\fi
+\:CheckOption{-css} \if:Option
+   \def\Css#1{}
+   \NewConfigure{CssFile}{2}
+\else
+   \def\Css#1{{\def\:temp{\Configure{Needs}}%
+   \expandafter\:temp\expandafter{\aa:Css}\Needs{#1}}}
+\ScriptCommand{\CssFile}{%
+    \immediate\write-1{--- file \aa:CssFile\space ---}%
+    \def\FontSize##1##2{\:Context{##1}\ht:special{t4ht;\%##2}\%}%
+    \def\FontName##1{\:Context{##1}\ht:special{t4ht;=}}%
+    \def\:Context##1{\ht:special{t4ht>\jobname.tmp}##1\ht:special
+       {t4ht>\aa:CssFile}}%
+    \ht:special{t4ht>\jobname.tmp}\ht:special{t4ht>\aa:CssFile}%
+    \bgroup \everypar{}\NoFonts  \bb:CssFile \hfil\break}
+  {\egroup \EndNoFonts
+    \ht:special{t4ht<\aa:CssFile}\ht:special{t4ht<\jobname.tmp}}
+\let\Css:File=\CssFile
+\def\CssFile{\futurelet\:temp\Css:Fl}
+\def\Css:Fl{\ifx [\:temp  \expandafter\Css:fl
+   \else \expand:after{\Css:File \space}\fi}
+\def\Css:fl[#1]{\Css:File\space \css:files #1,,!*?: }
+\def\css:files#1,#2!*?: {\def\:temp{#1}\ifx \:temp\empty
+   \else \def\:temp{\in:css#1.!*?: \css:files#2,,!*?: }\fi
+   \:temp }
+\def\in:css#1.#2!*?: {\def\:temp{#2}\ifx \:temp\empty
+      \inc:ss#1.css!*?: 
+   \else \inc:ss#1.#2!*?: \fi}
+\def\inc:ss#1.!*?: {     \immediate\openin15=#1
+     \ifeof15 \immediate\closein15
+        \:warning{Missing file: #1}%
+     \else \immediate\closein15     \input #1 \fi
+ }
+\NewConfigure{CssFile}[2]{\def\aa:CssFile{#1}\def\bb:CssFile{#2}}
+
+\fi
+
+\ifx \a:FontCss:\:UnDef
+   \Configure{FontCss}{Font\string_Css##1}
+                   {Font\string_Css\string_Plus\space##1}
+\fi
+\expandafter\ifx \csname aa:Css\endcsname\relax
+   \Configure{Css}{Css: ##1}
+\fi
+\Configure{halignTD} {}{}
+   {<}{\HCode{ style="white-space:nowrap; text-align:left;"}}
+   {-}{\HCode{ style="white-space:nowrap; text-align:center;"}}
+   {>}{\HCode{ style="white-space:nowrap; text-align:right;"}}
+   {^}{\HCode{ style="vertical-align:top; white-space:nowrap;"}}
+   {=}{\HCode{ style="vertical-align:baseline; white-space:nowrap;"}}
+   {|}{\HCode{ style="vertical-align:middle; white-space:nowrap;"}}
+   {_}{\HCode{ style="vertical-align:bottom; white-space:nowrap;"}}
+   {p}{\HCode{ style="white-space:normal; text-align:left;"}\Protect\a:HColWidth}
+   {m}{\HCode{ style="white-space:nowrap; text-align:left; vertical-align:middle;"}}
+   {b}{\HCode{ style="white-space:nowrap; text-align:left; vertical-align:baseline;"}}
+   {}
+\NewConfigure{HColWidth}{1}
+\Configure{HColWidth}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \def\Write:File#1#2{%
+  \special{t4ht>#1}%
+  \special{t4ht=#2}%
+  \special{t4ht*>#1}%
+  \special{t4ht*>}%
+}
+\def\jhNote{%
+     Created for JavaHelp
+     (http://java.sun.com/products/javahelp/)\Hnewline
+     by TeX4ht (https://tug.org/tex4ht/)\Hnewline
+     from \jobname.tex \space
+  }
+\Configure{crosslinks}{}{}{}{}{}{}{}{}{}
+\def\dTdLaNg{\expandafter
+  \ifx \csname a:dtd-lang\endcsname\relax EN\else
+    \csname a:dtd-lang\endcsname
+  \fi   }
+\HAssign\mapEntry=0
+\AtBeginDocument{%
+  \let\jh:toc=\auto:toc
+  \expandafter\append:defI\csname tableofcontents*\endcsname{%
+     \global\let\jh:toc=\auto:toc }%
+}
+\HAssign\indexEntry=0
+\append:defI\@wrindex{%
+   \gHAdvance\mapEntry by 1
+\Write:File
+   {\jobname.jhm}%
+   {<mapID target="indexentry-\mapEntry"
+             url="\RefFileNumber\FileNumber
+       \#\title:chs {dx\last:haddr}{\cur:th\:currentlabel}%
+           " />\Hnewline}%
+%
+}
+\def\target:info#1#2#3#4#5#6//{%
+    \let\sectionType=\sectioningKey
+    \let\sectionId\TocCount
+    \Advance:\sectionId 1
+    \def\sectionName{#5}%
+  }
+\NewConfigure{mapIdTarget}{2}
+\Configure{mapIdTarget}
+   {\sectionType-\sectionId}
+   {}
+\:CheckOption{jh1.0} \if:Option
+   \def\dotVersion{1.0}
+   \def\subVersion{1\string_0}
+\else
+   \def\dotVersion{2.0}
+   \def\subVersion{2\string_0}
+\fi
+
+\Configure{Preamble}
+  {\:CheckOption{-css} \if:Option
+   \else {\ifdim \lastskip>\z@ \unskip\fi  \IgnorePar\parindent\z@
+\leavevmode}%
+\immediate\write-1{--- file \aa:CssFile\space ---}%
+\ht:special{t4ht>\aa:CssFile}\ht:special{t4ht=\Hnewline /* css.sty */}%
+\ht:special{t4ht<\aa:CssFile}%
+\fi}
+  {\Write:File
+   {\jobname.jhm}
+   {<?xml version="1.0" encoding="ISO-8859-1" ?>\Hnewline
+<!DOCTYPE map PUBLIC\Hnewline
+     "-//Sun Microsystems Inc.//DTD
+                    JavaHelp Map Version \dotVersion//\dTdLaNg"\Hnewline
+     "http://java.sun.com/products/javahelp/map_\subVersion.dtd">  
+\Hnewline <!-- \jhNote
+ -->\Hnewline
+<map version="\dotVersion">\Hnewline
+<mapID target="\jobname" url="\jobname.html"/>\Hnewline
+}
+}
+\Configure{@/BODY}
+  {\relax
+   \ifnum \FileNumber=1
+       \SaveEndP
+       \input javahelp-a.4ht
+       \RecallEndP
+   \fi
+  }
+\:CheckOption{no-array}\if:Option \else
+   \:CheckOption{pic-tabular}  \if:Option \else
+   \ConfigureEnv{tabular}
+     {\Configure{noalign}%
+  {\f:tabular\d:tabular \HCode{<tr><td colspan="\ar:cnt">}}
+  {\HCode{</td></tr>}\pend:def\TableNo{0}\c:tabular\e:tabular}%
+%
+      \IgnorePar\ifvmode\else\HCode{<!--tex4ht:inline-->}\fi
+\EndP\HCode{<div class="tabular">}%
+      \PushStack\Col:Marg\AllColMargins
+     }
+     {\HCode{</div>}\PopStack\Col:Marg\AllColMargins\ShowPar
+      \Configure{noalign}{}{}%
+%
+      \ShowPar
+%
+     }{}{}
+   \Css{div.tabular, div.center div.tabular {text-align: center;
+           margin-top:0.5em; margin-bottom:0.5em;  }}
+   \Css{table.tabular td  p{margin-top:0em;}}
+   \Css{table.tabular {margin-left: auto;
+                       margin-right: auto;}}    
+\fi
+\def\ColMargins{%
+   \ifx \AllColMargins\empty
+      \:warning{Empty \string\AllColMargins}%
+   \else
+      \tmp:cnt=\HCol\relax
+      \expandafter\nosp:hbr\AllColMargins 1//%
+   \fi }
+\def\nosp:hbr#11#2//{\ifnum \tmp:cnt>1 \advance\tmp:cnt by -1
+   \nosp:hbr#2//\else\nosp:gt#11#2//\fi}
+\def\nosp:gt#11#21#3//{%
+   \def\:temp{#1}\ifx \:temp\empty 1\else 0\fi
+   \def\:temp{#2}\ifx \:temp\empty 1\else 0\fi}
+\Configure{VBorder}
+    {\global\let\oldVBorder=\empty}
+    {\gdef\oldVBorder{border="1"}}
+    {}{}
+\Configure{halignTB<>}{tabular}{\HCode{id="TBL-\TableNo"
+                                             class="tabular"\Hnewline
+   \oldVBorder \GROUPS\Hnewline
+   }<>\HAlign}
+\Css{table[rules] {border-left:solid black 0.4pt;
+                   border-right:solid black 0.4pt; }}
+\:CheckOption{pic-tabular}  \if:Option \else
+   \Configure{tabular}
+      {\ifvmode \IgnorePar\fi \EndP \halignTB{tabular}\putVBorder }
+      {\HCode{</table>}}
+      {\HCode{<tr \Hnewline}\halignTR
+                            \HCode{ id="TBL-\TableNo-\HRow-">}}
+      {\r:HA}
+      {\HCode{<td \ifnum \HMultispan>1 colspan="\HMultispan"\fi}%
+         \halignTD \HCode{ id="TBL-\TableNo-\HRow-\HCol"
+         \Hnewline class="td}\NoFonts
+           \bgroup
+              \ifx \ttfamily\:UnDef \else \ttfamily\fi
+              \ColMargins
+           \egroup
+\EndNoFonts
+%
+         \HCode{">}\SaveEndP
+%
+         \par  \ShowPar
+\PushStack\Table:Stck\TableNo}
+      {\IgnorePar \EndP
+\PopStack\Table:Stck\TableNo \d:HA}
+\fi
+\def\R:HA{\HCode{<tr \Hnewline}\halignTR\HCode{>}}
+\def\r:HA{\HCode{</tr>}}
+\def\D:HA{\SaveEndP
+ \HCode{<td
+   \ifnum \HMultispan>1 colspan="\HMultispan"\fi}%
+   \halignTD \HCode{\Hnewline>}\ShowPar\par}
+\def\d:HA{\ifvmode \IgnorePar \fi \EndP\HCode{</td>}\RecallEndP
+}
+\Configure{@{}}{}
+
+\Css{td.td00{ padding-left:0pt; padding-right:0pt; }}
+\Css{td.td01{ padding-left:0pt; padding-right:5pt; }}
+\Css{td.td10{ padding-left:5pt; padding-right:0pt; }}
+\Css{td.td11{ padding-left:5pt; padding-right:5pt; }}
+\Configure{halignTB<>}{array}{\HCode{id="TBL-\TableNo" class="array"\Hnewline
+    \GROUPS\Hnewline
+   }<>\HAlign}
+\Css{table[rules] {border-left:solid black 0.4pt;
+                   border-right:solid black 0.4pt; }}
+\:CheckOption{pic-array}  \if:Option \else
+   \Configure{array}
+      {\ifvmode \IgnorePar\fi \EndP\halignTB{array}\putVBorder}
+      {\HCode{</table>}}
+      {\R:HA}
+      {\r:HA}
+      {\D:HA\HCode{<div class="td}\NoFonts
+           \bgroup
+              \ifx \ttfamily\:UnDef \else \ttfamily\fi
+              \ColMargins
+           \egroup
+\EndNoFonts
+%
+            \HCode{">}\par  \ShowPar
+\pic:env}
+      {\IgnorePar \EndP
+\HCode{</div>}\d:HA}
+   \Configure{arrayparbox}{\ShowPar}
+\fi
+  \let\VBorder=\empty   \let\AllColMargins=\empty
+  \Configure{VBorder}
+     {\let\VBorder=\empty \let\AllColMargins=\empty
+      \global\let\GROUPS=\empty \HAssign\NewGroup = 0
+      \gHAdvance\Next:TableNo by 1 \global\let\TableNo=\Next:TableNo
+      \global\let\oldVBorder=\empty
+     }
+     {\xdef\VBorder{\VBorder\ifnum \NewGroup> 0 </colgroup>\fi}
+      \HAssign\NewGroup = 0  \gdef\GROUPS{rules="groups"}%
+      \gdef\oldVBorder{border="1" }%
+     }
+     {\Advance:\NewGroup by 1
+      \ifnum \NewGroup=1 \xdef\VBorder{\VBorder<colgroup
+          id="TBL-\TableNo-\ar:cnt g">}\fi
+      \xdef\VBorder{\VBorder<col\Hnewline id="TBL-\TableNo
+         -\ar:cnt"\xml:empty>}\xdef\AllColMargins{\AllColMargins1}}
+     {\xdef\AllColMargins{\AllColMargins 0}}
+%  \Configure{HBorder}
+%     {<tr\Hnewline class="hline">} {<td><hr\xml:empty></td>}   {</tr>}
+%     {<tr\Hnewline class="cline">}
+%     {<td></td>} {<td><hr\xml:empty></td>} {</tr>}
+%     {<tr\Hnewline class="vspace" style="font-size:\HBorderspace">}
+%         {<td\Hnewline>\string&nbsp;</td>} {</tr>}
+%  \Configure{putHBorder}{\HCode{\HBorder}}
+\HAssign\Next:TableNo=0 \global\let\TableNo=\Next:TableNo
+\Css{.hline hr, .cline hr{  height : 1px; margin:0px; }}
+\def\putVBorder{\expandafter\put:VBorder\VBorder</>!*?: }
+\def\put:VBorder#1</#2>#3!*?: {\def\:temp{#2}\ifx\:temp\empty
+     \HCode{\VBorder}%
+     \def\:temp{#1}\ifx\:temp\empty \else\HCode{</colgroup>}\fi
+  \else  \def\:temp{\put:VBorder#3!*?: }\expandafter\:temp\fi
+}
+\Configure{multicolumn}
+   {\let\col:Css\empty
+    \Configure{VBorder}
+       {}
+       {\edef\col:Css{\col:Css
+                     border-\ifnum \ar:cnt=0 left\else right\fi
+                     :solid black 0.4pt;}%
+       }{}{}%
+   }
+   {\ifx \col:Css\empty \else
+        \Css{td\#TBL-\TableNo-\HRow-\HCol{\col:Css}}%
+    \fi
+   }
+   {\ifvmode\IgnorePar\fi
+    \HCode{<div class="multicolumn" }\HColAlign\HCode{>}%
+    \ifx \col:Css\empty \else
+        \Css{td\#TBL-\TableNo-\HRow-\HCol{\col:Css}}%
+    \fi
+   }
+   {\ifvmode\IgnorePar\fi \EndP\HCode{</div>}}
+\def\pic:env{%
+   \def\begin##1{\bgroup
+      \def\end####1{\o:end:{####1}\EndPicture\egroup}%
+      \ifx \EndPicture\:UnDef
+           \Picture+{ class="##1" style="text-align:middle"}%
+      \else \let\EndPicture=\empty\fi
+      \o:begin:{##1}}%
+}
+
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{fontmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{jhxml}
+{%
+   \let\textbf\empty
+   \let\textit\empty
+   \let\textsl\empty
+   \let\texttt\empty
+   \let\textsc\empty
+   \let\emph\empty
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{inputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{jhxml}
+{%
+   \let\IeC\empty
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{pic-tabular}  \if:Option \else
+   \ConfigureEnv{tabular}
+     {\Configure{noalign}%
+  {\f:tabular\d:tabular \HCode{<tr><td colspan="\ar:cnt">}}
+  {\HCode{</td></tr>}\pend:def\TableNo{0}\c:tabular\e:tabular}%
+%
+      \IgnorePar\ifvmode\else\HCode{<!--tex4ht:inline-->}\fi
+\EndP\HCode{<div class="tabular">}%
+      \PushStack\Col:Marg\AllColMargins
+     }
+     {\HCode{</div>}\PopStack\Col:Marg\AllColMargins\ShowPar
+      \Configure{noalign}{}{}%
+%
+      \ShowPar
+%
+     }{}{}
+   \Css{div.tabular, div.center div.tabular {text-align: center;
+           margin-top:0.5em; margin-bottom:0.5em;  }}
+   \Css{table.tabular td  p{margin-top:0em;}}
+   \Css{table.tabular {margin-left: auto;
+                       margin-right: auto;}}    
+\fi
+\def\ColMargins{%
+   \ifx \AllColMargins\empty
+      \:warning{Empty \string\AllColMargins}%
+   \else
+      \tmp:cnt=\HCol\relax
+      \expandafter\nosp:hbr\AllColMargins 1//%
+   \fi }
+\def\nosp:hbr#11#2//{\ifnum \tmp:cnt>1 \advance\tmp:cnt by -1
+   \nosp:hbr#2//\else\nosp:gt#11#2//\fi}
+\def\nosp:gt#11#21#3//{%
+   \def\:temp{#1}\ifx \:temp\empty 1\else 0\fi
+   \def\:temp{#2}\ifx \:temp\empty 1\else 0\fi}
+\Configure{VBorder}
+    {\global\let\oldVBorder=\empty}
+    {\gdef\oldVBorder{border="1"}}
+    {}{}
+\Configure{halignTB<>}{tabular}{\HCode{id="TBL-\TableNo"
+                                             class="tabular"\Hnewline
+   \oldVBorder \GROUPS\Hnewline
+   }<>\HAlign}
+\Css{table[rules] {border-left:solid black 0.4pt;
+                   border-right:solid black 0.4pt; }}
+\:CheckOption{pic-tabular}  \if:Option \else
+   \Configure{tabular}
+      {\ifvmode \IgnorePar\fi \EndP \halignTB{tabular}\putVBorder }
+      {\HCode{</table>}}
+      {\HCode{<tr \Hnewline}\halignTR
+                            \HCode{ id="TBL-\TableNo-\HRow-">}}
+      {\r:HA}
+      {\HCode{<td \ifnum \HMultispan>1 colspan="\HMultispan"\fi}%
+         \halignTD \HCode{ id="TBL-\TableNo-\HRow-\HCol"
+         \Hnewline class="td}\NoFonts
+           \bgroup
+              \ifx \ttfamily\:UnDef \else \ttfamily\fi
+              \ColMargins
+           \egroup
+\EndNoFonts
+%
+         \HCode{">}\SaveEndP
+%
+         \par  \ShowPar
+\PushStack\Table:Stck\TableNo}
+      {\IgnorePar \EndP
+\PopStack\Table:Stck\TableNo \d:HA}
+\fi
+\def\R:HA{\HCode{<tr \Hnewline}\halignTR\HCode{>}}
+\def\r:HA{\HCode{</tr>}}
+\def\D:HA{\SaveEndP
+ \HCode{<td
+   \ifnum \HMultispan>1 colspan="\HMultispan"\fi}%
+   \halignTD \HCode{\Hnewline>}\ShowPar\par}
+\def\d:HA{\ifvmode \IgnorePar \fi \EndP\HCode{</td>}\RecallEndP
+}
+\Configure{@{}}{}
+
+\Css{td.td00{ padding-left:0pt; padding-right:0pt; }}
+\Css{td.td01{ padding-left:0pt; padding-right:5pt; }}
+\Css{td.td10{ padding-left:5pt; padding-right:0pt; }}
+\Css{td.td11{ padding-left:5pt; padding-right:5pt; }}
+\Configure{halignTB<>}{array}{\HCode{id="TBL-\TableNo" class="array"\Hnewline
+    \GROUPS\Hnewline
+   }<>\HAlign}
+\Css{table[rules] {border-left:solid black 0.4pt;
+                   border-right:solid black 0.4pt; }}
+\:CheckOption{pic-array}  \if:Option \else
+   \Configure{array}
+      {\ifvmode \IgnorePar\fi \EndP\halignTB{array}\putVBorder}
+      {\HCode{</table>}}
+      {\R:HA}
+      {\r:HA}
+      {\D:HA\HCode{<div class="td}\NoFonts
+           \bgroup
+              \ifx \ttfamily\:UnDef \else \ttfamily\fi
+              \ColMargins
+           \egroup
+\EndNoFonts
+%
+            \HCode{">}\par  \ShowPar
+\pic:env}
+      {\IgnorePar \EndP
+\HCode{</div>}\d:HA}
+   \Configure{arrayparbox}{\ShowPar}
+\fi
+  \let\VBorder=\empty   \let\AllColMargins=\empty
+  \Configure{VBorder}
+     {\let\VBorder=\empty \let\AllColMargins=\empty
+      \global\let\GROUPS=\empty \HAssign\NewGroup = 0
+      \gHAdvance\Next:TableNo by 1 \global\let\TableNo=\Next:TableNo
+      \global\let\oldVBorder=\empty
+     }
+     {\xdef\VBorder{\VBorder\ifnum \NewGroup> 0 </colgroup>\fi}
+      \HAssign\NewGroup = 0  \gdef\GROUPS{rules="groups"}%
+      \gdef\oldVBorder{border="1" }%
+     }
+     {\Advance:\NewGroup by 1
+      \ifnum \NewGroup=1 \xdef\VBorder{\VBorder<colgroup
+          id="TBL-\TableNo-\ar:cnt g">}\fi
+      \xdef\VBorder{\VBorder<col\Hnewline id="TBL-\TableNo
+         -\ar:cnt"\xml:empty>}\xdef\AllColMargins{\AllColMargins1}}
+     {\xdef\AllColMargins{\AllColMargins 0}}
+%  \Configure{HBorder}
+%     {<tr\Hnewline class="hline">} {<td><hr\xml:empty></td>}   {</tr>}
+%     {<tr\Hnewline class="cline">}
+%     {<td></td>} {<td><hr\xml:empty></td>} {</tr>}
+%     {<tr\Hnewline class="vspace" style="font-size:\HBorderspace">}
+%         {<td\Hnewline>\string&nbsp;</td>} {</tr>}
+%  \Configure{putHBorder}{\HCode{\HBorder}}
+\HAssign\Next:TableNo=0 \global\let\TableNo=\Next:TableNo
+\Css{.hline hr, .cline hr{  height : 1px; margin:0px; }}
+\def\putVBorder{\expandafter\put:VBorder\VBorder</>!*?: }
+\def\put:VBorder#1</#2>#3!*?: {\def\:temp{#2}\ifx\:temp\empty
+     \HCode{\VBorder}%
+     \def\:temp{#1}\ifx\:temp\empty \else\HCode{</colgroup>}\fi
+  \else  \def\:temp{\put:VBorder#3!*?: }\expandafter\:temp\fi
+}
+\Configure{multicolumn}
+   {\let\col:Css\empty
+    \Configure{VBorder}
+       {}
+       {\edef\col:Css{\col:Css
+                     border-\ifnum \ar:cnt=0 left\else right\fi
+                     :solid black 0.4pt;}%
+       }{}{}%
+   }
+   {\ifx \col:Css\empty \else
+        \Css{td\#TBL-\TableNo-\HRow-\HCol{\col:Css}}%
+    \fi
+   }
+   {\ifvmode\IgnorePar\fi
+    \HCode{<div class="multicolumn" }\HColAlign\HCode{>}%
+    \ifx \col:Css\empty \else
+        \Css{td\#TBL-\TableNo-\HRow-\HCol{\col:Css}}%
+    \fi
+   }
+   {\ifvmode\IgnorePar\fi \EndP\HCode{</div>}}
+\def\pic:env{%
+   \def\begin##1{\bgroup
+      \def\end####1{\o:end:{####1}\EndPicture\egroup}%
+      \ifx \EndPicture\:UnDef
+           \Picture+{ class="##1" style="text-align:middle"}%
+      \else \let\EndPicture=\empty\fi
+      \o:begin:{##1}}%
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{longtable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \Configure{halignTB<>}{longtable}{\HCode{id="TBL-\TableNo"
+                                      class="longtable"\Hnewline
+   \oldVBorder \GROUPS\Hnewline
+   }<>\HAlign}
+\Css{table[rules] {border-left:solid black 0.4pt;
+                   border-right:solid black 0.4pt; }}
+\Configure{longtable}
+   {\IgnorePar\EndP
+     \HCode{<!--l. \the\inputlineno-->%
+<div class="longtable">}%
+    \halignTB{longtable}\putVBorder }
+   {\HCode{</table></div>}}
+   {\HCode{<tr \Hnewline}\halignTR\HCode{ id="TBL-\TableNo-\HRow-">}}
+   {\r:HA}
+   {\HCode{<td \ifnum \HMultispan>1 colspan="\HMultispan"\fi}%
+    \halignTD \HCode{ id="TBL-\TableNo-\HRow-\HCol"
+    \Hnewline class="td}\NoFonts
+           \bgroup
+              \ifx \ttfamily\:UnDef \else \ttfamily\fi
+              \ColMargins
+           \egroup
+\EndNoFonts
+%
+    \HCode{">}\SaveEndP
+%
+    \par  \ShowPar
+\PushStack\Table:Stck\TableNo}
+   {\PopStack\Table:Stck\TableNo \IgnorePar \EndP
+\d:HA}
+\Css{div.longtable{text-align:center;}}
+\Configure{longtableparbox}{\IgnorePar\leavevmode\ShowPar\par}
+
+\:CheckOption{pic-longtable}  \if:Option
+   \ConfigureEnv{longtable}
+     {\IgnorePar\EndP\Tg<div class="pic-longtable">\Picture*{}}
+     {\EndPicture\Tg</div>}{}{}
+   \Css{div.pic-longtable {text-align:center;}}
+\else
+   \Log:Note{for pictorial longtable,
+                      use the command line option `pic-longtable'}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{color}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \HAssign\textcolorN=0
+\Configure{colorbox}
+    {\bgroup
+     \gHAdvance\textcolorN by 1
+     \ifvmode \let\v:colorbox\def \IgnorePar \EndP
+     \else \let\v:colorbox=\relax \fi
+     \let\A:color=\a:color
+\Configure{color}%
+  {\let\a:color=\A:color
+   \Configure{SetHColor}
+       {\Css{\ifx \v:colorbox\def div\else span\fi
+             \#colorbox\textcolorN{background-color:\HColor;}}}}%
+%
+     \HCode{<\ifx \v:colorbox\def div\else span\fi \Hnewline
+                  class="colorbox" id="colorbox\textcolorN">}}%
+    {\ifx \v:colorbox\def \EndP\HCode{</div>}\par
+     \else \HCode{</span>}\fi
+     \egroup
+    }
+\Configure{textcolor}
+   {\gHAdvance\textcolorN by 1
+    \Configure{color}%
+      {\Configure{SetHColor}
+           {\Css{span\#textcolor\textcolorN{color:\HColor}}}}%
+    \HCode{<span id="textcolor\textcolorN">}}%
+   {\HCode{</span>}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{colortbl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{@classz}
+   {\let\begin:current@color\relax
+    \let\end:current@color\relax }
+   {%
+     \ifx \CT@column@color\relax \else
+     \ifx \CT@column@color\empty \else{%
+         \def\CT@color{\@ifnextchar[\color:ii\color:i}%
+         \CT@column@color!*?: %
+         \edef\:temp{\noexpand\add:color
+            {background-color}{\:temp}{\ar:cnt}}\:temp
+     }\fi \fi
+   }
+   {\begin:current@color}
+   {\end:current@color}
+\Configure{rowcolor}{\row:clr}
+\def\row:clr#1{{%
+  \HAdvance\HRow by 1
+  \add:color{background-color}{#1}{\HRow-}}}
+\Configure{text-colortbl}
+  {\add:color{color}{\current@color}{\HRow-\HCol}}
+\Configure{cell-colortbl}
+   {\add:color{background-color}{\current@color}{\HRow-\HCol}}
+\def\add:color#1#2#3{%
+  \Configure{SetHColor}{\Css{ \#TBL-\TableNo-#3{ #1:\HColor }}}{#2}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{frenchb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{jhxml}
+{%
+  \expandafter\def\csname
+     a:frenchb-thinspace\endcsname##1frenchb-thinspace\endcsname{}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{ulem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{uline}
+   {\HCode{<span class="uline">}} {\HCode{</span>}}
+\Css{.uline{ text-decoration:underline; }}
+\Configure{uuline}
+   {\HCode{<span class="uuline">}} {\HCode{</span>}}
+\Css{.uuline{ text-decoration:underline; }}
+\Configure{sout}
+   {\HCode{<span class="sout">}} {\HCode{</span>}}
+\Css{span.sout {text-decoration: line-through }}
+\Configure{xout}
+   {\HCode{<span class="xout"><span class="underline">}}
+   {\HCode{</span></span>}}
+\Css{span.xout {text-decoration: line-through }}
+\Configure{uwave}
+   {\HCode{<span class="uwave">}}
+   {\HCode{</span>}}
+\Css{span.uwave {text-decoration:underline }}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

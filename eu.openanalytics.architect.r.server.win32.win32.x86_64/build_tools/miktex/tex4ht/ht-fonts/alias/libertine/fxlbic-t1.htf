@@ -1,0 +1,6 @@
+.fxlrc-t1
+htfcss: fxlbic-t1 font-style:italic; font-weight:bold;
+htfcss: fxlbic-t1c font-style:italic; font-weight:bold;
+htfcss: fxlbic-t1os font-style:italic; font-weight:bold;
+htfcss: fxlbic-t1fitted font-style:italic; font-weight:bold;
+

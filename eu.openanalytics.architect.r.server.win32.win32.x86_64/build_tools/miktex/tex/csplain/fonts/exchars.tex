@@ -1,0 +1,299 @@
+% exchars.tex
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak   Aug. 2013
+
+% This macros implement the handling of characters from expert 
+% or some other special fonts. 
+% See the end of this file for more information.
+
+% Macros:
+
+\def\exchardef #1#2 #3 {\def#1{\printexchar#1{#2}{#3}}}
+
+\def\printexchar#1#2#3{% if \addprotect\exfont then all \exchars are protected.
+   \ifx\exfont\relax \noexpand#1\else
+      \ifx\exxfont\undefined
+         {\exfont{#2}%
+          \ifx\exxfont\undefined
+             \excharblackbox{#1}{#2}{#3}%
+             \message{WARNING: extra font unavailable for \string#1/#2 in \tmpa.}%
+          \else
+             \char#3
+          \fi}%
+      \else \char#3 
+   \fi\fi
+}
+\def\exfont#1{\expandafter\expandafter\expandafter
+   \separethefont\expandafter\fontname\expandafter\font\space\relax
+   \expandafter \ifx\csname ex:\tmpa/#1\endcsname \relax \else
+      \font\exxfont=\csname ex:\tmpa/#1\endcsname\space\tmpb\relax \exxfont
+   \fi
+}
+\def\separethefont#1 #2\relax{\def\tmpa{#1}\def\tmpb{#2}}
+\def\excharblackbox #1#2#3%
+   {\leavevmode\kern.05em\vrule height.5em width.5em depth0pt\kern.05em }
+\def\setexfont #1 #2 #3 {\expandafter\edef\csname ex:#1/#2\endcsname{#3}}
+
+% Fonts declarations:
+
+\def\declexfamily #1 #2 #3{%  we spare TeX memory, so we set only one
+  \def\tmpb{#1}            %  preloaded family; others \declexfamily are ingnored
+  \edef\tmpb{\meaning\tmpb}
+  \ifx\tmpa\tmpb 
+     \message{EXCHARS: extra characters in TS1 encoding prepared for #2 family.}#3\fi
+}
+\expandafter\expandafter\expandafter
+   \separethefont\expandafter\fontname\expandafter\tenrm\space\relax
+\edef\tmpa{\meaning\tmpa}
+
+\def\setexfamilyA #1 #2 #3 #4 #5 #6 #7 #8 {%
+  \setexfont  #1#3#7 TS1 ts1-#2r
+  \setexfont  #1#4#7 TS1 ts1-#2b
+  \setexfont  #1#5#7 TS1 ts1-#2ri
+  \setexfont  #1#6#7 TS1 ts1-#2bi
+  \setexfont  pcrr#8 TS1 ts1-qcrr 
+}
+\declexfamily ptmr8z Times      {\setexfamilyA ptm qtm r b ri bi 8z 8u }
+\declexfamily pagk8z Avantgarde {\setexfamilyA pag qag k d ko do 8z 8u }
+\declexfamily pbkl8z Bookman    {\setexfamilyA pbk qbk l d li di 8z 8u }
+\declexfamily phvr8z Helvetica  {\setexfamilyA phv qhv r b ro bo 8z 8u }
+\declexfamily pncr8z NewCentury {\setexfamilyA pnc qcs r b ri bi 8z 8u }
+\declexfamily pplr8z Palatino   {\setexfamilyA ppl qpl r b ri bi 8z 8u }
+\declexfamily ptmr8t Times      {\setexfamilyA ptm qtm r b ri bi 8t 8t }
+\declexfamily pagk8t Avatgarde  {\setexfamilyA pag qag k d ko do 8t 8t }
+\declexfamily pbkl8t Bookman    {\setexfamilyA pbk qbk l d li di 8t 8t }
+\declexfamily phvr8t Helvetica  {\setexfamilyA phv qhv r b ro bo 8t 8t }
+\declexfamily pncr8t NewCentury {\setexfamilyA pnc qcs r b ri bi 8t 8t }
+\declexfamily pplr8t Palatino   {\setexfamilyA ppl qpl r b ri bi 8t 8t }
+
+\def\setexfamilyB #1 #2 #3 #4 #5 #6 {%
+  \def\ffloadhookB{\tgexchars}% modifiers from ff-mac.tex on demand 
+  \setexfont #6-#1#2 TS1 ts1-#1#2
+  \setexfont #6-#1#3 TS1 ts1-#1#3
+  \setexfont #6-#1#4 TS1 ts1-#1#4
+  \setexfont #6-#1#5 TS1 ts1-#1#5
+}
+\declexfamily cs-qtmr Termes   {\setexfamilyB qtm r b ri bi cs }
+\declexfamily cs-qagr Adventor {\setexfamilyB qag r b ri bi cs }
+\declexfamily cs-qbkr Bonum    {\setexfamilyB qbk r b ri bi cs }
+\declexfamily cs-qhvr Heros    {\setexfamilyB qhv r b ri bi cs }
+\declexfamily cs-qcsr Schola   {\setexfamilyB qcs r b ri bi cs }
+\declexfamily cs-qplr Pagella  {\setexfamilyB qpl r b ri bi cs }
+\declexfamily cs-qcrr Cursor   {\setexfamilyB qcr r b ri bi cs }
+\declexfamily ec-qtmr Termes   {\setexfamilyB qtm r b ri bi ec }
+\declexfamily ec-qagr Adventor {\setexfamilyB qag r b ri bi ec }
+\declexfamily ec-qbkr Bonum    {\setexfamilyB qbk r b ri bi ec }
+\declexfamily ec-qhvr Heros    {\setexfamilyB qhv r b ri bi ec }
+\declexfamily ec-qcsr Schola   {\setexfamilyB qcs r b ri bi ec }
+\declexfamily ec-qplr Pagella  {\setexfamilyB qpl r b ri bi ec }
+\declexfamily ec-qcrr Cursor   {\setexfamilyB qcr r b ri bi ec }
+
+\declexfamily cs-lmr10 LMfonts   {\setexfamilyB lm r10 bx10 ri10 bxi10 cs }
+\declexfamily ec-lmr10 LMfonts   {\setexfamilyB lm r10 bx10 ri10 bxi10 ec }
+\declexfamily qx-lmr10 LMfonts   {\setexfamilyB lm r10 bx10 ri10 bxi10 qx }
+\declexfamily texansi-lmr10 LMfonts {\setexfamilyB lm r10 bx10 ri10 bxi10 texansi }
+\declexfamily t5-lmr10 LMfonts   {\setexfamilyB lm r10 bx10 ri10 bxi10 t5 }
+
+\def\tgexchars{\edef\tmp{\whichtfm{\ffnamegen}}%   % declare exfont of optical
+   \expandafter\tgexcharsA\tmp\empty-\empty\relax} % sizes and modifiers on demand
+\def\tgexcharsA#1-#2\empty#3\relax{\setexfont{\tmp} TS1 ts1-#2 }
+
+\def\tmp{%
+  \setexfont csr8     TS1  ts1-lmr8
+  \setexfont csr9     TS1  ts1-lmr9
+  \setexfont csr10    TS1  ts1-lmr10
+  \setexfont csr12    TS1  ts1-lmr12
+  \setexfont csr17    TS1  ts1-lmr17
+  \setexfont csbx8    TS1  ts1-lmbx8
+  \setexfont csbx9    TS1  ts1-lmbx9
+  \setexfont csbx10   TS1  ts1-lmbx10
+  \setexfont csbx12   TS1  ts1-lmbx12
+  \setexfont csti8    TS1  ts1-lmri8
+  \setexfont csti9    TS1  ts1-lmri9
+  \setexfont csti10   TS1  ts1-lmri10
+  \setexfont csti12   TS1  ts1-lmri12
+  \setexfont csbxti10 TS1  ts1-lmbxi10
+  \setexfont cstt10   TS1  ts1-lmtt10
+  \setexfont cstt12   TS1  ts1-lmtt12
+  \setexfont cstt8    TS1  ts1-lmtt8
+  \setexfont cstt9    TS1  ts1-lmtt9
+}
+\declexfamily csr10 CSfont {\tmp}
+\declexfamily csr12 CSfont {\tmp}
+\declexfamily csr8  CSfont {\tmp}
+\declexfamily csr9  CSfont {\tmp}
+
+% user can declare more metrics by \setexfont.
+
+% Character declarations:
+
+\exchardef  \excapitalcompwordmark   TS1   23
+\exchardef  \exascendercompwordmark  TS1   31
+\exchardef  \exquotestraightbase     TS1   13
+\exchardef  \exquotestraightdblbase  TS1   18
+\exchardef  \extwelveudash           TS1   21
+\exchardef  \exthreequartersemdash   TS1   22
+\exchardef  \exleftarrow             TS1   24
+\exchardef  \exrightarrow            TS1   25
+\exchardef  \exblank                 TS1   32
+\exchardef  \exdollar                TS1   36
+\exchardef  \exquotesingle           TS1   39
+\exchardef  \exasteriskcentered      TS1   42
+\exchardef  \exdblhyphen             TS1   45
+\exchardef  \exfractionsolidus       TS1   47
+\exchardef  \exzerooldstyle          TS1   48
+\exchardef  \exoneoldstyle           TS1   49
+\exchardef  \extwooldstyle           TS1   50
+\exchardef  \exthreeoldstyle         TS1   51
+\exchardef  \exfouroldstyle          TS1   52
+\exchardef  \exfiveoldstyle          TS1   53
+\exchardef  \exsixoldstyle           TS1   54
+\exchardef  \exsevenoldstyle         TS1   55
+\exchardef  \exeightoldstyle         TS1   56
+\exchardef  \exnineoldstyle          TS1   57
+\exchardef  \exlangle                TS1   60
+\exchardef  \exminus                 TS1   61
+\exchardef  \exrangle                TS1   62
+\exchardef  \exmho                   TS1   77
+\exchardef  \exbigcircle             TS1   79
+\exchardef  \exohm                   TS1   87
+\exchardef  \exlbrackdbl             TS1   91
+\exchardef  \exrbrackdbl             TS1   93
+\exchardef  \exuparrow               TS1   94
+\exchardef  \exdownarrow             TS1   95
+\exchardef  \exasciigrave            TS1   96
+\exchardef  \exborn                  TS1   98
+\exchardef  \exdivorced              TS1   99
+\exchardef  \exdied                  TS1  100
+\exchardef  \exleaf                  TS1  108
+\exchardef  \exmarried               TS1  109
+\exchardef  \exmusicalnote           TS1  110
+\exchardef  \extildelow              TS1  126
+\exchardef  \exdblhyphenchar         TS1  127
+\exchardef  \exasciibreve            TS1  128
+\exchardef  \exasciicaron            TS1  129
+\exchardef  \exacutedbl              TS1  130
+\exchardef  \exgravedbl              TS1  131
+\exchardef  \exdagger                TS1  132
+\exchardef  \exdaggerdbl             TS1  133
+\exchardef  \exbardbl                TS1  134
+\exchardef  \experthousand           TS1  135
+\exchardef  \exbullet                TS1  136
+\exchardef  \excelsius               TS1  137
+\exchardef  \exdollaroldstyle        TS1  138
+\exchardef  \excentoldstyle          TS1  139
+\exchardef  \exflorin                TS1  140
+\exchardef  \excolonmonetary         TS1  141
+\exchardef  \exwon                   TS1  142
+\exchardef  \exnaira                 TS1  143
+\exchardef  \exguarani               TS1  144
+\exchardef  \expeso                  TS1  145
+\exchardef  \exlira                  TS1  146
+\exchardef  \exrecipe                TS1  147
+\exchardef  \exinterrobang           TS1  148
+\exchardef  \exinterrobangdown       TS1  149
+\exchardef  \exdong                  TS1  150
+\exchardef  \extrademark             TS1  151
+\exchardef  \expertenthousand        TS1  152
+\exchardef  \expilcrow               TS1  153
+\exchardef  \exbaht                  TS1  154
+\exchardef  \exnumero                TS1  155
+\exchardef  \exdiscount              TS1  156
+\exchardef  \exestimated             TS1  157
+\exchardef  \exopenbullet            TS1  158
+\exchardef  \exservicemark           TS1  159
+\exchardef  \exlquill                TS1  160
+\exchardef  \exrquill                TS1  161
+\exchardef  \excent                  TS1  162
+\exchardef  \exsterling              TS1  163
+\exchardef  \excurrency              TS1  164
+\exchardef  \exyen                   TS1  165
+\exchardef  \exbrokenbar             TS1  166
+\exchardef  \exsection               TS1  167
+\exchardef  \exasciidieresis         TS1  168
+\exchardef  \excopyright             TS1  169
+\exchardef  \exordfeminine           TS1  170
+\exchardef  \excopyleft              TS1  171
+\exchardef  \exlnot                  TS1  172
+\exchardef  \excircledP              TS1  173
+\exchardef  \exregistered            TS1  174
+\exchardef  \exasciimacron           TS1  175
+\exchardef  \exdegree                TS1  176
+\exchardef  \expm                    TS1  177
+\exchardef  \extwosuperior           TS1  178
+\exchardef  \exthreesuperior         TS1  179
+\exchardef  \exasciiacute            TS1  180
+\exchardef  \exmu                    TS1  181
+\exchardef  \exparagraph             TS1  182
+\exchardef  \experiodcentered        TS1  183
+\exchardef  \exreferencemark         TS1  184
+\exchardef  \exonesuperior           TS1  185
+\exchardef  \exordmasculine          TS1  186
+\exchardef  \exsurd                  TS1  187
+\exchardef  \exonequarter            TS1  188
+\exchardef  \exonehalf               TS1  189
+\exchardef  \exthreequarters         TS1  190
+\exchardef  \exeuro                  TS1  191
+\exchardef  \extimes                 TS1  214
+\exchardef  \exdiv                   TS1  246
+
+\endinput
+
+===================================================================================
+
+After:
+
+\input ctimes  \input exchars
+
+you can try to type: The leaf in roman: \exleaf, 
+{\it the leaf in italics: \exleaf}, 
+{\bf the leaf in bold: \exleaf}.
+\end
+
+You have to include exchars.tex immediatelly after \input ctimes
+or \input lmfonts or \input cs-pagella etc. or at the begin of the document
+if none of such files is loaded.
+
+-----------------------------------------------------------------------------------
+
+Usage of \exchardef:
+
+\exchardef  \exmacro     ENC  CODE
+
+The ``exchardefed'' macro tries to find the extra metrics derived from the
+metrics of the current font and from the specified encoding ENC.
+If it is found then the macro switches to the extra metric in the group and
+prints the character of CODE.
+
+Usage of \setexfont:
+
+\setexfont  base-metrics  ENC  extra-metrics
+
+This command declares the extra-metrics as the metrics used when the current
+font has the base-metrics and the ``exchardefed'' character is printed in ENC
+encoding. Without this declaration the extra metrics is unknown and the
+``exchardefed'' character is not printed (only warning is written on the
+terminal and \excharblackbox is printed to the document.
+
+You can switch to the extra-metrics for more than one character by \exfont:
+
+Test 1: {\exfont{TS1}\exonequarter \exonehalf \exthreequarters}
+Test 2: \exonequarter \exonehalf \exthreequarters
+
+The only difference between Test 1 and Test 2 is that the characters in Test 1 
+can be corrected by kerning if the kerning pairs are in the metrics. The
+characters in Test 2 are without kerning.
+
+User can declare his/her own encoding and metrics-pairs by \setexfont and
+extra characters by \exchardef. This file implements only one encoding
+as an example: TS1 -- TeX companion symbols.
+
+Users of encTeX can add the UTF-8 declarations of ``exchadefed'' symbols. Example:
+
+\mubyte \exonehalf ^^c2^^bd\endmubyte
+\mubyte \exflorin  ^^c6^^92\endmubyte
+etc...
+
+Now user can write raw characters in the document: ½.
+
+----------------------------------------------------------------------------------

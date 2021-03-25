@@ -1,0 +1,22 @@
+%%
+%% This is file `laeaemetal.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeaemetal.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LAE}{aemetal}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aemetal}{m}{n}{<-> s*[1.25]  aemetal }{}
+\DeclareFontShape{LAE}{aemetal}{bx}{n}{<-> ssub * aemetal/m/n }{}
+
+\endinput

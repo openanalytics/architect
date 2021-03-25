@@ -1,0 +1,31 @@
+% opmac-xetex.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Petr Olsak, 2016
+
+% LuaTeX renames pdfTeX primitives in 2016. 
+% We need only few such primitives in OPmac.
+
+% If you are using another remanemd primitives, you can modify your macros
+% or use \input luatex85.sty
+
+\ifx\protected\undefined \let \protected=\relax \fi
+
+\let\pdfximage               \saveimageresource
+\let\pdfrefximage            \useimageresource
+\let\pdfpagewidth            \pagewidth
+\let\pdfpageheight           \pageheight
+\protected\def\pdfliteral    {\pdfextension literal}
+\protected\def\pdfcolorstack {\pdfextension colorstack}
+\def\pdfcolorstackinit       {\pdffeedback colorstackinit}
+\protected\def\pdfsave       {\pdfextension save\relax}
+\protected\def\pdfrestore    {\pdfextension restore\relax}
+\protected\def\pdfdest       {\pdfextension dest }
+\protected\def\pdfstartlink  {\pdfextension startlink }
+\protected\def\pdfendlink    {\pdfextension endlink\relax}
+\protected\def\pdfcatalog    {\pdfextension catalog }
+\protected\def\pdfoutline    {\pdfextension outline }
+\protected\def\pdfsetmatrix  {\pdfextension setmatrix}
+\def\pdfhorigin              {\pdfvariable horigin}
+\def\pdfvorigin              {\pdfvariable vorigin}
+
+\endinput

@@ -1,0 +1,585 @@
+% html-jsmath.4ht (2019-03-18-15:26), generated from tex4ht-jsmath.tex
+% Copyright (C) 2009-2010 TeX Users Group
+% Copyright (C) 2006-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-03-18-15:26}
+
+\exit:ifnot{amsmath,% 
+tex4ht}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{VERSION}{}
+\Configure{DviMath}
+    {\a:DviJsmath \mathltxtrue
+       \ifOption{mml-fonts}{}{\NoFonts}%
+       \IgnoreRule
+       % \HCode{<!--l. \the\inputlineno-->}
+       \ifx \a:@math\empty\else
+               \Tg<\a:@math\space class="math"\Hnewline >\fi
+       \a:math
+       \edef\sv:ignore{\if:nopar
+    \noexpand\IgnorePar\else \noexpand\ShowPar\fi}%
+\IgnorePar}
+    {\ifx \a:@math\empty\else \Tg</\a:@math>\fi \EndIgnoreRule
+     \ifOption{mml-fonts}{}{\EndNoFonts}%
+     \mathltxfalse \After:Math \b:DviJsmath % 
+    }
+\NewConfigure{DviJsmath}{2}
+\Configure{@HEAD}{\HCode{<script
+ type="text/javascript"
+ src="\a:jsmath"></script>\Hnewline
+<script type="text/javascript">jsMath.Macro('firstOfOne','\#1',1)
+</script>\Hnewline}
+}
+\Configure{@BODY}
+   {\ifvmode \IgnorePar\fi \EndP\HCode{%
+    %
+    <noscript> \Hnewline
+<div style="color:\#CC0000; text-align:center"> \Hnewline
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a> \Hnewline
+requires JavaScript to process the mathematics on this page.<br /> \Hnewline
+If your browser supports JavaScript, be sure it is enabled.</b> \Hnewline
+</div> \Hnewline
+<hr /> \Hnewline
+</noscript>\Hnewline
+%
+   }\par\ShowPar}
+\ifOption{easy-load}{}{%
+   \Configure{@/BODY}{%
+      \par\IgnorePar\EndP
+      \HCode{
+        <script  type="text/javascript" >\Hnewline
+         jsMath.Process();\Hnewline
+        </script>
+      }\par}%
+}
+\Configure{!BODY}{ class="tex2math_ignore" }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifx \mathdisplay@@pop\:UnDef
+   \ifx \emdf@La\:UnDef
+      
+   \else
+      
+   \fi
+\else
+   \Configure{equation}
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{<table class="equation"><tr><td>}%
+   \Configure{gather}
+  {\HCode{\string\begin\l:brace array\r:brace
+           \l:brace lp{10mm}r\r:brace}\IgnorePar
+      }
+  {\HCode{\string\end\l:brace array\r:brace}}
+  {}
+  {}
+  {\ifnum\HCol=2 \IgnorePar
+      \HCode{\a:math:amp}\fi }
+  {}
+%
+   \csname a:equation\string$\string$\endcsname
+%
+  }
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{</td><td class="eq-no">}%
+   }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</td></tr></table>}%
+   \ShowPar\IgnoreIndent\par}
+\Configure{equation*}
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{<table class="equation-star"><tr><td>}%
+   \Configure{gather*}
+  {\HCode{\string\begin\l:brace array\r:brace
+           \l:brace lp{10mm}r\r:brace}\IgnorePar
+      }
+  {\HCode{\string\end\l:brace array\r:brace}}
+  {}
+  {}
+  {\ifnum\HCol=2 \IgnorePar
+      \HCode{\a:math:amp}\fi }
+  {}
+%
+   \csname a:equation\string$\string$\endcsname
+%
+  }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</td></tr></table>}%
+   \ShowPar\IgnoreIndent\par}
+
+\fi
+\Configure{equation$$}
+  {\Configure{$$}
+   {\IgnorePar \Configure{@math}{div}\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+  }
+\Configure{boxed}
+   {\ifmathltx \HCode{\string\class\l:brace boxed\r:brace\l:brace}%
+    \else     \HCode{<span class="boxed">}\IgnorePar\fi}
+   {\ifmathltx \HCode{\r:brace}%
+    \else \HCode{</span>}\fi}
+\Css{.boxed{border: 1px solid black; padding-left:2px;
+                                     padding-right:2px;}}
+\Configure{boxed}
+   {\ifmathltx \HCode{\string\class\l:brace boxed\r:brace\l:brace}%
+    \else     \HCode{<span class="boxed">}\IgnorePar\fi}
+   {\ifmathltx \HCode{\r:brace}%
+    \else \HCode{</span>}\fi}
+\Css{.boxed{border: 1px solid black; padding-left:2px;
+                                     padding-right:2px;}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

@@ -1,0 +1,18 @@
+.exp-iwona
+htfcss: exp-kurierl  font-weight: light;
+htfcss: exp-kurierb  font-weight: bold;
+htfcss: exp-kurierh  font-weight: bold;
+htfcss: exp-kurierli  font-weight: light; font-style:italic;
+htfcss: exp-kurierri  font-style:italic;
+htfcss: exp-kuriermi  font-style:italic;
+htfcss: exp-kurierbi  font-style:italic; font-weight: bold;
+htfcss: exp-kurierhi  font-style:italic; font-weight: bold;
+htfcss: exp-kuriercl  font-weight: light;
+htfcss: exp-kuriercb  font-weight: bold;
+htfcss: exp-kurierch  font-weight: bold;
+htfcss: exp-kuriercli  font-weight: light; font-style:italic;
+htfcss: exp-kuriercri  font-style:italic;
+htfcss: exp-kuriercmi  font-style:italic;
+htfcss: exp-kuriercbi  font-style:italic; font-weight: bold;
+htfcss: exp-kurierchi  font-style:italic; font-weight: bold;
+

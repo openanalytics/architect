@@ -1,0 +1,8 @@
+%FILES%
+etc/
+etc/pacman.d/
+etc/pacman.d/mirrorlist.mingw32
+etc/pacman.d/mirrorlist.mingw64
+etc/pacman.d/mirrorlist.msys
+etc/pacman.d/mirrorlist.rtools
+

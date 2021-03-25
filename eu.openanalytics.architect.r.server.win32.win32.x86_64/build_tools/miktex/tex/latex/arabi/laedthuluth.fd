@@ -1,0 +1,19 @@
+%%
+%% This is file `laedthuluth.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+\ProvidesFile{laedthuluth.fd}
+        [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+\DeclareFontFamily{LAE}{dthuluth}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{dthuluth}{m}{n}{<-> s*[1.25] dthuluth}{}
+\DeclareFontShape{LAE}{dthuluth}{bx}{n}{<-> s*[1.25] dthuluth}{}
+
+\endinput

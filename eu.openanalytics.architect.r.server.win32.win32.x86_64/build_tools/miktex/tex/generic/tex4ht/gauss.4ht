@@ -1,0 +1,141 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% gauss.4ht                             2009-05-21-09:32 %
+% Copyright (C) 2008--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \def\:tempc[#1]{\def\g@environment{#1matrix}%
+   \begin{\g@environment}%
+   \begin{g@matrix}}
+\expandafter\HLet\csname \string\gmatrix\endcsname=\:tempc
+\def\:tempc{%
+   \end{g@matrix}%
+   \end{\g@environment}%
+   \let\matrix\@empty
+   \let\endmatrix\@empty
+}
+\HLet\endgmatrix=\:tempc
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:g@matrix{%
+\hbox\bgroup
+  \global\g@maxrow@old\g@maxrow
+  \global\g@maxcol@old\g@maxcol
+  \global\g@maxrow0%
+  \global\g@maxcol0%
+  \let\rowops\g@east
+  \let\colops\g@north
+  \vbox\bgroup
+   \def\\{\mathstrut\cr\global\advance\g@maxrow1\relax}%
+   \global\let\g@endregion\g@endmatrix
+   \global\g@tab=2\arraycolsep
+  \SaveMkHalignConf:g{g@matrix}%
+\MkHalign#{\g@prae#\g@post&&%
+           \kern\g@tab\g@prae#\g@post}%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{%
+ \g@endregion
+ \global\g@maxrow\g@maxrow@old
+ \global\g@maxcol\g@maxcol@old
+ \global\let\g@endregion\g@endmatrix
+ \global\let\rowops\g@east
+ \global\let\colops\g@north
+}
+\HLet\endg@matrix\:tempc
+\def\:temp{\pic:MkHalign{g@matrix}}
+\HLet\g@matrix\:temp
+\NewConfigure{gmatrix}[6]{%
+   \def\a:g@matrix {#1}%
+   \def\b:g@matrix {#2}%
+   \def\c:g@matrix {#3}%
+   \def\d:g@matrix {#4}%
+   \def\e:g@matrix {#5}%
+   \def\f:g@matrix {#6}%
+}
+\Configure{gmatrix}{}{}{}{}{}{}
+\def\:tempc{%
+   \crcr\EndMkHalign
+   \RecallMkHalignConfig \egroup \egroup
+   \b:g@matrix
+   \global\let\colops\g@north
+}
+\HLet\g@endmatrix\:tempc
+\def\:tempc{%
+ \g@endregion
+ \def\swap{\g@east@arrow11\rowswapfromlabel\rowswaptolabel}
+ \def\add{\g@east@arrow01\rowaddfromlabel\rowaddtolabel}
+ \let\mult\g@east@mult
+ \gdef\rowops{\PackageError{gauss}%
+                 {Two sets of row operations were specified in %
+                  just one matrix. This is not allowed.}}
+ \gdef\g@endregion{\b:rowops \egroup}%
+ \hbox\bgroup \a:rowops
+}
+\HLet\g@east\:tempc
+\def\:tempc#1#2#3#4#5[#6]#7#8{%
+   \ifnum #1=#2\relax
+      \hbox{$\a:swap #7\b:swap #8\c:swap$}%
+   \else
+      \hbox{$\a:add #7\b:add #8\c:add$}%
+   \fi
+}
+\HLet\g@east@arrow@b\:tempc
+\def\:tempc#1#2{%
+   \hbox{$\a:mult #1\b:mult #2\c:mult$}%
+}
+\HLet\g@east@mult\:tempc
+\NewConfigure{rowops}{2}
+\def\:tempc{%
+ \g@endregion
+ \gdef\colops{\PackageError{gauss}
+   {Two sets of column operations are specified in %
+    just one matrix. This is not allowed.}}%
+ \gdef\g@endregion{\b:colops \egroup}%
+ \def\swap{\g@north@arrow11\colswapfromlabel\colswaptolabel}%
+ \def\add{\g@north@arrow01\coladdfromlabel\coladdtolabel}%
+ \let\mult\g@north@mult
+ \hbox\bgroup \a:colops
+}
+\HLet\g@north\:tempc
+\def\:tempc#1#2#3#4#5[#6]#7#8{%
+   \ifnum #1=#2\relax
+      \hbox{$\a:swap #7\b:swap #8\c:swap$}%
+   \else
+      \hbox{$\a:add #7\b:add #8\c:add$}%
+   \fi
+}
+\HLet\g@north@arrow@b\:tempc
+\def\:tempc#1#2{%
+   \hbox{$\a:mult #1\b:mult #2\c:mult$}%
+}
+\HLet\g@north@mult\:tempc
+\NewConfigure{colops}{2}
+\NewConfigure{mult}{3}
+\NewConfigure{swap}{3}
+\NewConfigure{add}{3}
+
+\Hinput{gauss}
+\endinput
+

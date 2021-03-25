@@ -1,0 +1,80 @@
+
+%\ifx \ar@batcode \undefined \else 
+%\message{ArabTeX is aleready loaded, No support is provided} 
+%\message{with ArabTeX 7 bit input encoding}\expandafter \endinput
+%\fi 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% to test with ArabTeX input %%%%%%%%%%%%%%
+
+\initiate@active@char{_}
+\initiate@active@char{^}
+\initiate@active@char{.}
+\initiate@active@char{'}
+
+
+\expandafter\addto\csname extrasarabic\endcsname{%
+  \bbl@activate{_}\bbl@activate{^}\bbl@activate{.}\bbl@activate{'} 
+%  
+  }
+
+
+\expandafter\addto\csname noextrasarabic\endcsname{%
+  \bbl@deactivate{_}\bbl@deactivate{^}\bbl@deactivate{.}\bbl@deactivate{'} 
+%  
+}
+  
+  
+
+\declare@shorthand{arabic}{_h}{%g
+\textormath{\kha}{\sb{h}}}%
+\declare@shorthand{arabic}{_t}{%g
+\textormath{\thaa}{\sb{t}}}%
+\declare@shorthand{arabic}{_d}{%g
+\textormath{\dhal}{\sb{d}}}%
+\declare@shorthand{arabic}{_A}{%g
+\textormath{\alefmaqsura}{\sb{A}}}%
+\declare@shorthand{arabic}{_a}{%g
+\textormath{\keshchar}{\sb{a}}}%
+
+\declare@shorthand{arabic}{^g}{%g
+\textormath{\jeem}{\sp{g}}}%
+\declare@shorthand{arabic}{^s}{%g
+\textormath{\sheen}{\sp{s}}}%
+
+\declare@shorthand{arabic}{.g}{%g
+\textormath{\ghayn}{.g}}%
+\declare@shorthand{arabic}{.h}{%g
+\textormath{\Haa}{.h}}%
+\declare@shorthand{arabic}{.s}{%g
+\textormath{\sad}{.s}}%
+\declare@shorthand{arabic}{.d}{%g
+\textormath{\dad}{.d}}%
+\declare@shorthand{arabic}{.t}{%g
+\textormath{\Ta}{.t}}%
+\declare@shorthand{arabic}{.z}{%g
+\textormath{\za}{.z}}%
+
+\declare@shorthand{arabic}{'a}{%g
+\textormath{\alefhamza\ifx\vocalizetrue\fatha\fi}{'a}}%
+\declare@shorthand{arabic}{'u}{%g
+\textormath{\alefhamza\ifx\vocalizetrue\damma\fi}{'u}}%
+\declare@shorthand{arabic}{'i}{%g
+\textormath{\aleflowerhamza\ifx\vocalizetrue\kasra\fi}{'i}}%
+
+
+\declare@shorthand{arabic}{^u}{%g latin chars
+\textormath{\relax\damma}{}}%
+
+
+\addto\extrasarabic{\languageshorthands{arabic}}%
+
+
+
+
+\endinput
+
+
+
+

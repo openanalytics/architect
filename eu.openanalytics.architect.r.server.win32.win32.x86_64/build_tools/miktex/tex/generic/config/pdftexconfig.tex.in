@@ -1,0 +1,21 @@
+% MiKTeX auto-generated pdftexconfig.tex
+
+% Load shared (PDF) settings in pdfTeX
+
+% Enable PDF output
+\pdfoutput           = @output_format@
+
+% Paper size: dimensions given in absolute terms
+\pdfpageheight       = @page_height@
+\pdfpagewidth        = @page_width@
+
+% Enable PDF 1.5 output and thus more compression
+\pdfminorversion     = @pdf_minorversion@
+\pdfobjcompresslevel = @obj_compress_level@
+
+% Low-level settings unlikely ever to need to change
+\pdfcompresslevel    = @compress_level@
+\pdfdecimaldigits    = @decimal_digits@
+\pdfpkresolution     = @pk_resolution@
+\pdfhorigin          = @horigin@
+\pdfvorigin          = @vorigin@

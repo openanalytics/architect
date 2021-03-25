@@ -1,0 +1,7 @@
+.cork-
+htfcss: p1xb font-weight: bold;
+htfcss: p1xbi font-weight: bold;  font-style:italic;
+htfcss: p1xbsl font-weight: bold;  font-style: oblique;
+htfcss: p1xi font-style:italic;
+htfcss: p1xsl font-style: oblique;
+

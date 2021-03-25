@@ -1,0 +1,1076 @@
+% ooffice-mml.4ht (2020-11-29-14:07), generated from tex4ht-ooffice.tex
+% Copyright 2009-2019 TeX Users Group
+% Copyright 2001-2009 Maarten Wisse, James Naughton, Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2020-11-29-14:07}
+
+  \exit:ifnot{Preamble,% 
+amsmath,% 
+array,% 
+latex,% 
+rlbabel,% 
+tex4ht}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{Preamble}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{mathml}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{math-xmlns}
+  {
+     xmlns="http://www.w3.org/1998/Math/MathML"\Hnewline
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+ }
+\HAssign\math:obj=0
+\Configure{DviMath}
+    {\a:DviMathML \mathmltrue
+       \ifOption{mml-fonts}{}{\NoFonts}%
+       \HCode{<!--l. \the\inputlineno-->%
+}\IgnoreRule
+       \gHAdvance\math:obj by 1
+\NextFile{\jobname-m\math:obj
+.4om}%
+\bgroup
+    \HCode{\ifCenteredFrame
+       <draw:frame
+         draw:style-name="mml-display"
+         draw:name="mobj-\math:obj"\Hnewline
+\ifTab\else         text:anchor-type="paragraph"       \fi
+         draw:z-index="0"
+     >%
+   <draw:object\Hnewline
+      xlink:href="./\jobname-m\math:obj
+"\Hnewline
+      xlink:type="simple"
+      xlink:show="embed"
+      xlink:actuate="onLoad"
+    />%
+</draw:frame>%
+\else
+       <draw:frame
+         draw:style-name="mml-inline"
+         draw:name="mobj-\math:obj"\Hnewline
+         text:anchor-type="as-char"
+         draw:z-index="0"
+     >%
+   <draw:object\Hnewline
+      xlink:href="./\jobname-m\math:obj
+"\Hnewline
+      xlink:type="simple"
+      xlink:show="embed"
+      xlink:actuate="onLoad"
+    />%
+</draw:frame>%
+\fi
+    }%
+    \OOmanifest{<manifest:file-entry
+   manifest:media-type="text/xml"
+   manifest:full-path="\jobname-m\math:obj
+/content.xml"/>\Hnewline
+<manifest:file-entry
+   manifest:media-type="text/xml"
+   manifest:full-path="\jobname-m\math:obj
+/settings.xml"/>\Hnewline
+<manifest:file-entry
+    manifest:media-type="application/vnd.oasis.opendocument.formula"
+    manifest:full-path="\jobname-m\math:obj
+/"/>
+}%
+    \Configure{DOCTYPE}{\HCode{<!DOCTYPE math PUBLIC "-//W3C//DTD MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd">}}%
+\:CheckOption{-xtpipes} \if:Option
+   \Log:Note{Use the `-xtpipes' command line option to
+             avoid xtpipes post processing}
+\else
+      \Configure{DOCTYPE}{%%
+          \HCode{<!DOCTYPE math PUBLIC "-//W3C//DTD MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd">\Hnewline
+<?xtpipes file="oo-math.4xt" ?>\Hnewline
+<!-- \jobname-m\math:obj
+\space
+     by TeX4ht from \jobname.tex line \the\inputlineno\space
+     2020-11-29-14:07\Hnewline
+     (http://www.cse.ohio-state.edu/\string ~gurari/TeX4ht/)
+      -->\Hnewline
+}%
+      }%
+\fi
+%
+\Configure{HTML}{}{\noindent}%
+\Configure{BODY}{}{}%
+%
+    \edef\sv:ignore{\if:nopar
+    \noexpand\IgnorePar\else \noexpand\ShowPar\fi}%
+\IgnorePar
+    \HPage{}%
+\Tg<\a:mathml math\Hnewline
+           \csname a:math-xmlns\endcsname \Hnewline
+       >\a:math
+    }
+    {\Tg</\a:mathml math>%
+     \EndHPage{}\sv:ignore
+\egroup
+\EndIgnoreRule
+     \ifOption{mml-fonts}{}{\EndNoFonts}%
+     \mathmlfalse \b:DviMathML }
+\Configure{$$}
+   {\Configure{@math}{% \a:mathml display="block"
+}\IgnorePar
+    \ifvmode\EndP
+    \else\EndP \HCode{<!--tex4ht:inline-->}\fi
+    \HCode{<text:p text:style-name="display-math">}%
+     \CenteredFrametrue \DviMath \CenteredFramefalse }
+   {\EndDviMath
+     \HCode{</text:p>}
+     \ShowPar\par
+    {\csname HCondtrue\endcsname\noindent}}
+   {\DisplayMathtrue}
+
+\Configure{halignTD} {}{}
+   {<}{\ifmathml \HCode{ columnalign="left"}\else
+        L\fi}
+   {-}{\ifmathml \HCode{ columnalign="center"}\else
+        C\fi}
+   {>}{\ifmathml \HCode{ columnalign="right"}\else
+        R\fi}
+   {^}{\ifmathml \HCode{ rowalign="top"}\else
+        T\fi}
+   {=}{\ifmathml \HCode{ rowalign="baseline"}\else
+        N\fi}
+   {|}{\ifmathml \HCode{ rowalign="center"}\else
+        M\fi}
+   {_}{\ifmathml \HCode{ rowalign="bottom"}\else
+        B\fi}
+   {p}{\ifmathml \HCode{ columnalign="left"}\else
+        \fi}
+   {m}{\ifmathml\else m\fi}     %{\HCode{valign-middle   align-left}}
+   {b}{\ifmathml\else n\fi}     %{\HCode{valign-baseline align-left}}
+   {}
+\NewConfigureOO{display-math}
+\ConfigureOO{display-math}
+   {<style:style style:name="display-math"
+         style:family="paragraph"
+         style:parent-style-name="Text-body">\Hnewline
+      <style:paragraph-properties
+         fo:text-align="center"
+         style:auto-text-indent="false"
+         style:justify-single-word="false"/>\Hnewline
+    </style:style>\Hnewline}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+       \OOstyles{\Hnewline
+  <style:style style:name="mml-inline"
+               style:family="graphic"
+               style:parent-style-name="Formula"
+  >\Hnewline
+     <style:graphic-properties
+               style:vertical-pos="middle"
+               style:vertical-rel="text"/>\Hnewline
+  </style:style>\Hnewline}
+\OOstyles{\Hnewline
+    <style:style style:name="mml-display"
+                style:family="graphic"
+                style:parent-style-name="Formula">
+    <style:graphic-properties
+                style:wrap="none"
+%                style:vertical-pos="center"
+%                style:vertical-rel="paragraph-content"
+                style:horizontal-pos="center"
+                style:horizontal-rel="paragraph-content"
+                fo:background-color="transparent"
+                style:background-transparency="100\%"
+                fo:margin-left="5\%"
+      >
+      </style:graphic-properties>
+    </style:style>\Hnewline
+}
+
+\OOstyles{\Hnewline
+   <style:style style:name="Formula"
+                style:family="graphic">
+      <style:graphic-properties
+                text:anchor-type="as-char"
+                svg:y="0in"
+                fo:margin-left="0.1mm"
+                fo:margin-right="0.1mm"
+                style:vertical-pos="middle"
+                style:vertical-rel="text"
+                 />
+    </style:style>\Hnewline
+}
+\let\:VBorder=\empty
+\let\:AllColBars=\empty
+\let\AllColMargins=\empty
+
+\Configure{VBorder}
+   {\HAssign\NewGroup = 0
+    \gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \let\:VBorder=\empty
+\let\:AllColBars=\empty
+\let\AllColMargins=\empty
+%
+   }
+   {\xdef\:VBorder{\:VBorder
+   \ifnum \NewGroup> 0
+       <!--/table:table-column-group-->\remove:eog <</ >>\fi}%
+\xdef\:AllColBars{\:AllColBars
+   \ifx\:AllColBars\empty \else ,\fi \ar:cnt}%
+\HAssign\NewGroup = 0 }
+   {\Advance:\NewGroup by 1
+    \ifnum \NewGroup=1  \xdef\:VBorder{\:VBorder
+   <!--table:table-column-group ???="TBL-\TableNo-\ar:cnt g"-->}%
+\fi
+\xdef\:VBorder{\:VBorder<table:table-column\Hnewline
+    \csname a:table-column-style\endcsname\Hnewline
+ />}%
+%
+\xdef\AllColMargins{\AllColMargins 1}%
+%
+   }
+   {\xdef\AllColMargins{\AllColMargins 0}%
+}
+\let\AllColMargins\empty
+\ConfigureEnv{array}
+   {\PushStack\Col:Marg\AllColMargins
+    \bgroup\Configure{$}{}{}{}}
+   {\egroup \PopStack\Col:Marg\AllColMargins}
+   {}{}
+\Configure{HBorder}
+   {\ifmathml <\a:mathml mtr\Hnewline class="hline">
+ \else     <table:table-row  \Hnewline table:style-name="hline-row">%
+\fi}
+{\ifmathml <\a:mathml mtd><\a:mathml mo> \string&\#x0332; </\a:mathml mo></\a:mathml mtd>
+
+   \else   <table:table-cell table:style-name="hline-cell" >%
+          <text:p text:style-name="hline-p-hr"  />%
+       </table:table-cell>\Hnewline
+\fi}
+{\ifmathml </\a:mathml mtr>
+ \else     </table:table-row>\Hnewline
+\fi}
+%
+   {\ifmathml <\a:mathml mtr\Hnewline class="cline">
+ \else <table:table-row  \Hnewline table:style-name="cline-row">\Hnewline
+\fi}
+{\ifmathml  <\a:mathml mtd></\a:mathml mtd>
+ \else <table:table-cell table:style-name="cline-cell">%
+          <text:p text:style-name="cline-p"  />%
+       </table:table-cell>\Hnewline
+\fi }
+{\ifmathml <\a:mathml mtd><\a:mathml mo> \string&\#x0332; </\a:mathml mo></\a:mathml mtd>
+
+ \else <table:table-cell table:style-name="cline-cell">%
+          <text:p text:style-name="cline-p-hr"  />%
+       </table:table-cell>\Hnewline
+\fi}
+{\ifmathml </\a:mathml mtr>
+ \else </table:table-row>\Hnewline
+\fi}
+%
+   {\ifmathml <\a:mathml mtr\Hnewline class="vspace"  style="font-size:\HBorderspace">
+ \else     <tr\Hnewline class="vspace" style="font-size:\HBorderspace">%
+\fi}
+{\ifmathml <\a:mathml mtd\Hnewline></\a:mathml mtd>
+ \else     <td\Hnewline>\string&\csname :sharp\endcsname xA0;</td>%
+\fi}
+{\ifmathml </\a:mathml mtr>
+ \else     </tr>%
+\fi}
+%
+\:CheckOption{tab-eq}\if:Option
+    \Configure{equation}
+  {\IgnorePar\ifvmode\else \HCode{<!--tex4ht:inline-->}\fi
+   \EndP \HCode{<text:p text:style-name="equ-p-tab"><text:tab/>}%
+   \Tabtrue
+   \Configure{$$}
+   {\Configure{@math}{}\IgnorePar\EndP
+    \CenteredFrametrue \DviMath \CenteredFramefalse }
+   {\EndDviMath\EndP}{}%
+%
+   \IgnorePar}
+  {\Tabfalse \ifvmode \IgnorePar\fi\EndP \HCode{<text:tab/>}}
+  {\HCode{</text:p>}\ShowPar\par{\HCondtrue\noindent}%
+%
+}
+\OOstyles{%
+<style:style
+     style:name="equ-p-tab"
+     style:family="paragraph"
+     style:parent-style-name="Standard">\Hnewline
+  <style:paragraph-properties
+     fo:text-align="center"
+     style:justify-single-word="false">\Hnewline
+     <style:tab-stops>
+        <style:tab-stop
+            style:position="7.5cm"
+            style:type="center"/>
+        <style:tab-stop
+            style:position="17cm"
+            style:type="right"/>
+     </style:tab-stops>\Hnewline
+  </style:paragraph-properties>
+</style:style>\Hnewline
+}
+
+\else
+    \Log:Note{for tab-based layoutof equation environment
+          use the command line option `tab-eq'}
+    \Configure{equation}
+  {\IgnorePar\ifvmode\else \HCode{<!--tex4ht:inline-->}\fi
+   \EndP \HCode{<table:table table:style-name="equation">%
+       <table:table-column table:style-name="equ-col" />\Hnewline
+       <table:table-column table:style-name="equ-num-col" />\Hnewline
+       <table:table-row>%
+       <table:table-cell table:style-name="equ-cell">%
+       <text:p text:style-name="equ-p">}%
+%
+   \Configure{$$}
+   {\Configure{@math}{}\IgnorePar\EndP
+    \CenteredFrametrue \DviMath \CenteredFramefalse }
+   {\EndDviMath\EndP}{}%
+%
+   \IgnorePar}
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{</text:p></table:table-cell>\Hnewline
+       <table:table-cell table:style-name="equ-num-cell">%
+       <text:p text:style-name="equ-num-p">}%
+}
+  {\HCode{</text:p></table:table-cell>\Hnewline
+          </table:table-row></table:table>}%
+\ShowPar\par{\HCondtrue\noindent}%
+%
+}
+
+\fi
+\OOstyles{%
+<style:style
+     style:name="equ-p"
+     style:family="paragraph"
+     style:parent-style-name="Standard">\Hnewline
+  <style:paragraph-properties
+     fo:text-align="center"
+     style:justify-single-word="false"/>\Hnewline
+</style:style>\Hnewline
+}
+\OOstyles{%
+<style:style
+     style:name="equ-num-p"
+     style:family="paragraph"
+     style:parent-style-name="Standard">\Hnewline
+  <style:paragraph-properties
+     fo:text-align="end"
+     style:justify-single-word="false"/>\Hnewline
+</style:style>\Hnewline
+}
+\OOstyles{%
+<style:style style:name="equation"
+             style:family="table">\Hnewline
+     <\style:tableproperties
+                 style:rel-width="88\%"
+                 fo:margin-left="1cm"
+                 fo:margin-right="0cm"
+                 fo:margin-top="0.3cm"
+                 fo:margin-bottom="0.3cm"
+                 table:align="margins"/>\Hnewline
+</style:style>\Hnewline
+}
+\Configure{[]}
+   {\Configure{@math}{% \a:mathml display="block"
+}\IgnorePar
+    \ifvmode\EndP
+    \else\EndP \HCode{<!--tex4ht:inline-->}\fi
+    \HCode{<text:p text:style-name="display-math">}%
+    \CenteredFrametrue \DviMath \CenteredFramefalse
+    $$\DisplayMathtrue}
+   {$$\EndDviMath\HCode{</text:p>}\ShowPar\par
+    {\csname HCondtrue\endcsname\noindent}}
+   {}
+\Configure{newline}
+  {\ifmtext \ht:special{t4ht@,}%
+\HCode{</\a:mathml mtext><\a:mathml
+                                        mtext class="newline">}%
+            \ht:special{t4ht@,&\#x00A0;}%
+%
+   \else \HCode{<text:line-break\Hnewline/>}\fi}
+\def\:nbsp{\ifmtext \leavevmode\special{t4ht@+\string&{35}x00A0{59}}x%
+\else\ifmathml
+    \Tg<\a:mathml mspace />\else \ht:special{t4ht@+\string&{35}x00A0{59}}x%
+\fi\fi}
+\Configure{overline}
+   {\bgroup\ifmathml \HCode{<\a:mathml mover  accent="false"\Hnewline
+\mml:class="mml-overline"><\a:mathml mrow>}%
+\else
+         \HCode{<text:span text:style-name="overline"  >}\fi}
+   {\ifmathml \HCode{</\a:mathml mrow><\a:mathml mo\Hnewline
+ accent="true">&\#x00AF;</\a:mathml mo>%
+</\a:mathml mover>}%
+\else \HCode{</text:span>}\fi\egroup}
+\Configure{underline}
+   {\bgroup
+    \ifmathml \HCode{<\a:mathml munder \a:mathml accentunder="false"\Hnewline
+\mml:class="mml-underline"><\a:mathml mrow>}%
+%
+    \else \expandafter\everymath
+\expandafter{\expandafter\everymath
+             \expandafter{\the\everymath}}%
+\let\o::@underline:\o:@@underline:
+\def\o:@@underline:{\let\o:@@underline:\o::@underline:}%
+\HCode{<text:span text:style-name="underline"  >}\fi}
+   {\ifmathml \HCode{</\a:mathml mrow><\a:mathml mo\Hnewline
+accent="true">&\#x0332;</\a:mathml mo></\a:mathml munder>}%
+\else \HCode{</text:span>}\fi \egroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{tab-eq}\if:Option
+    \Configure{equation}
+  {\IgnorePar\ifvmode\else \HCode{<!--tex4ht:inline-->}\fi
+   \EndP \HCode{<text:p text:style-name="equ-p-tab"><text:tab/>}%
+   \Tabtrue
+   \Configure{gather}
+     {\HCode{<\a:mathml mtable\Hnewline
+         class="equation"><\a:mathml mtr><\a:mathml mtd>}\IgnorePar
+         }
+     {\HCode{</\a:mathml mtd></\a:mathml mtr></\a:mathml mtable>}}
+     {}
+     {}
+     {\ifnum\HCol=2 \IgnorePar
+         \HCode{</\a:mathml mtd><\a:mathml mtd>}\fi }
+     {}%
+%
+   \IgnorePar}
+  {\Tabfalse \ifvmode \IgnorePar\fi\EndP \HCode{<text:tab/>}}
+  {\HCode{</text:p>}\ShowPar\par{\HCondtrue\noindent}%
+%
+}
+
+\else
+    \Log:Note{for tab-based layout of equation environment
+          use the command line option `tab-eq'}
+    \Configure{equation}
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{<table:table table:style-name="equation">%
+       <table:table-column table:style-name="equ-col" />\Hnewline
+       <table:table-column table:style-name="equ-num-col" />\Hnewline
+       <table:table-row>%
+       <table:table-cell table:style-name="equ-cell">%
+       <text:p text:style-name="equ-p">}%
+%
+   \Configure{gather}
+     {\HCode{<\a:mathml mtable\Hnewline
+         class="equation"><\a:mathml mtr><\a:mathml mtd>}\IgnorePar
+         }
+     {\HCode{</\a:mathml mtd></\a:mathml mtr></\a:mathml mtable>}}
+     {}
+     {}
+     {\ifnum\HCol=2 \IgnorePar
+         \HCode{</\a:mathml mtd><\a:mathml mtd>}\fi }
+     {}%
+%
+   \Configure{$$}
+   {\Configure{@math}{}\IgnorePar\EndP
+    \CenteredFrametrue \DviMath \CenteredFramefalse }
+   {\EndDviMath\EndP}{}%
+%
+  }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</text:p></table:table-cell>\Hnewline
+       <table:table-cell table:style-name="equ-num-cell">%
+       <text:p text:style-name="equ-num-p">}%
+}
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</text:p></table:table-cell>\Hnewline
+          </table:table-row></table:table>}%
+%
+   \ShowPar\par{\HCondtrue\noindent}%
+}
+
+\fi
+\Configure{equation*}
+  {\ifvmode \IgnorePar\fi \EndP
+   \HCode{<text:p text:style-name="display-math">}%
+%
+   \Configure{$$}
+   {\Configure{@math}{}\IgnorePar\EndP
+    \CenteredFrametrue \DviMath \CenteredFramefalse }
+   {\EndDviMath\EndP}{}%
+%
+   \IgnorePar
+  }
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{</text:p>}%
+%
+   \IgnoreIndent\par}
+\ConfigureEnv{align}
+  {\ifmathml\else
+     \ifvmode \IgnorePar\fi \EndP
+     \IgnorePar
+     \HCode{<text:p text:style-name="display-math">}%
+   \fi
+  }
+  {\ifmathml\else
+     \ifvmode \IgnorePar\fi\EndP
+     \HCode{</text:p>}%
+     \IgnoreIndent\par
+   \fi
+  }
+  {} {}
+\ConfigureEnv{align*}
+  {\ifmathml\else
+     \ifvmode \IgnorePar\fi \EndP
+     \IgnorePar
+     \HCode{<text:p text:style-name="display-math">}%
+   \fi
+  }
+  {\ifmathml\else
+     \ifvmode \IgnorePar\fi\EndP
+     \HCode{</text:p>}%
+     \IgnoreIndent\par
+   \fi
+  }
+  {} {}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \let\:VBorder=\empty
+\let\:AllColBars=\empty
+\let\AllColMargins=\empty
+
+\Configure{VBorder}
+   {\HAssign\NewGroup = 0
+    \gHAdvance\Next:TableNo by 1
+\global\let\TableNo=\Next:TableNo
+%
+    \let\:VBorder=\empty
+\let\:AllColBars=\empty
+\let\AllColMargins=\empty
+%
+   }
+   {\xdef\:VBorder{\:VBorder
+   \ifnum \NewGroup> 0
+       <!--/table:table-column-group-->\remove:eog <</ >>\fi}%
+\xdef\:AllColBars{\:AllColBars
+   \ifx\:AllColBars\empty \else ,\fi \ar:cnt}%
+\HAssign\NewGroup = 0 }
+   {\Advance:\NewGroup by 1
+    \ifnum \NewGroup=1  \xdef\:VBorder{\:VBorder
+   <!--table:table-column-group ???="TBL-\TableNo-\ar:cnt g"-->}%
+\fi
+\xdef\:VBorder{\:VBorder<table:table-column\Hnewline
+    \csname a:table-column-style\endcsname\Hnewline
+ />}%
+%
+\xdef\AllColMargins{\AllColMargins 1}%
+%
+   }
+   {\xdef\AllColMargins{\AllColMargins 0}%
+}
+\ConfigureEnv{array}
+   {\PushStack\Col:Marg\AllColMargins
+    \bgroup\Configure{$}{}{}{}}
+   {\egroup \PopStack\Col:Marg\AllColMargins}
+   {}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{rlbabel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{[]}
+   {\Configure{@math}{% \a:mathml display="block"
+}\IgnorePar
+    \ifvmode\EndP
+    \else\EndP \HCode{<!--tex4ht:inline-->}\fi
+    \HCode{<text:p text:style-name="display-math">}%
+     \CenteredFrametrue \DviMath \CenteredFramefalse
+    $$\DisplayMathtrue}
+   {$$\EndDviMath\HCode{</text:p>}\ShowPar\par
+    {\csname HCondtrue\endcsname\noindent}}
+   {}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

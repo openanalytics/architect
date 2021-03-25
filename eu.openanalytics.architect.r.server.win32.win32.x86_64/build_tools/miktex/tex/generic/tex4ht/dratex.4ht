@@ -1,0 +1,169 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% dratex.4ht                            2009-05-21-09:32 %
+% Copyright (C) 1997--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+     \Define\html:Draw{\ifvmode \noindent\hfil\fi
+\global\:TeXLoc\z@
+\setbox\:box=\vbox\bgroup
+        \begingroup
+\def\EndDraw{%
+        \endgroup   \:SetDrawWidth
+      \egroup    {\:X\wd\:box  \:Y\ht\:box  \advance\:Y by\dp\:box
+ \xdef\DrawWidth{\:InCons\:X}%
+ \xdef\DrawHeight{\:InCons\:Y}%
+ \xdef\MinDrawX{\:InCons\:LBorder}%
+ \:X\:UBorder \xdef\MaxDrawy{\:InCons\:X}%
+}%
+%
+\global\let\in:pic\empty
+\box\:box    \end:condpic
+\global\let\in:pic\:UnDef
+%
+      \after:dra
+}%
+\def\PsCode##1{{\Text(--\ht:special{\PsCodeSpecial##1}--)}}%
+%
+\:DraCatCodes      \parindent\z@    \ht:everypar{}%
+\linepenalty10
+\leftskip\z@     \rightskip\z@    \boxmaxdepth\maxdimen
+\let\FigSize\:FigSize
+\def\Draw{\:wrn1{}}%
+\:CommonIID   \:InDraw
+%
+      }
+
+   \let\old:Draw\:Draw
+   \def\:Draw{%
+      \ifx \EndPicture\:UnDef
+         \expand:after{\ifvmode \vfill\break \fi
+\pic:cond\:GifDraw\html:Draw
+}%
+      \else   \expandafter\old:Draw \fi }
+   \def\:GifDraw{\bgroup\:DraCatCodes   \futurelet\:tempa\gif:draw}
+\def\gif:draw{%
+  \ifx \:tempa[\g:fdr\g:ifdraw
+  \else        \g:fdr\gi:fdraw \fi}
+\def\g:ifdraw[#1]{\Picture*[#1]{ \a:@Picture{Draw}}\html:Draw}
+\def\gi:fdraw{\Picture*{ \a:@Picture{Draw}}\html:Draw}
+\def\g:fdr{\egroup\a:Draw\append:def\end:condpic{\b:Draw}\expandafter}
+\NewConfigure{Draw}{2}
+
+   \def\DrawIMG#1{\def\Pic:Img{ \ifx \in:pic\:UnDef \at:IMG
+                                \else \u:map#1\fi}}
+\DrawIMG{}
+\let\u:map\empty
+
+   \def\DrawMap{%
+  \NewHaddr\:temp
+  \xdef\:Map{{<map name="\:temp">}}%
+  \edef\u:map{ usemap="\:sharp\:temp" }%
+  \NewHaddr\alt:map
+  \def\after:dra{\EndLink
+      \HPage[\alt:map]{}{\expandafter\map:menu\:Map}\EndHPage{}%
+      {\expandafter\HCode\:Map}\HCode{</map>}%
+      \let\u:map\empty \let\after:dra\empty }%
+  \Link[\RefFile{\alt:map}]{}{}\Draw[textual map]}
+
+\let\after:dra=\empty
+\Odef\GetRectArea[#1]#2#3{{%
+  \ifnum \Point:N>0
+     \MarkPoint     \area:env \gHAssign\Point:N  0
+     \xdef\:Map{\:Map
+        \rect:area{#1}\gt:crd{point:1}\gt:crd{point:2}{#2}{#3}}%
+  \fi}}
+\def\rect:area#1#2#3#4#5#6#7{%
+   \trns:pt\:X{#2}\:Y{#3}%
+   \trns:pt\:Z{#4}\:W{#5}%
+   \Ar:a[#1 shape="rect"
+     coords="\M:n\:X\:Z,\M:n\:Y\:W,\M:x\:X\:Z,\M:x\:Y\:W"
+     \if "#7"\else alt="#7"\fi]{#6}}
+\Odef\GetCircleArea[#1]#2#3{{%
+  \ifnum \Point:N>0
+    \MarkPoint    \:distance(point:1,point:2)\tmp:dim\Map:x
+    \:d\:Cons\tmp:dim\:d \area:env
+    \gHAssign\Point:N  0
+    \xdef\:Map{\:Map
+       \circle:area{#1}\gt:crd{point:1}{\:InCons\:d}{#2}{#3}}%
+  \else\fi}}
+\def\circle:area#1#2#3#4#5#6{%
+   \trns:pt\:X{#2}\:Y{#3}%
+   \Ar:a[#1 shape="circle" coords="\:X,\:Y,#4"
+       \ifx "#6"\else alt="#6"\fi]{#5}}
+\Odef\GetPolyArea[#1]#2#3{{%
+  \ifnum \Point:N>0
+     \MarkPoint   \area:env  \let\:tempb\empty
+     \Do(1,\Point:N){\edef\:tempb{\gt:crd{point:\the\DoReg}\:tempb}}%
+     \gHAssign\Point:N  0
+     \xdef\:Map{\:Map\poly:area{#1}{\:tempb}{#2}{#3}}%
+  \fi}}
+
+\def\ply:pts#1#2{%
+   \def\:temp{#1}\ifx \:temp\empty\else
+     \trns:pt\:X{#1}\:Y{#2}%
+     \edef\:Z{\:Z\ifx \:Z\empty\else,\fi \:X,\:Y}%
+     \expandafter\ply:pts
+   \fi }
+\def\poly:area#1#2#3#4{%
+   \let\:Z\empty  \ply:pts#2{}{}%
+   \Ar:a[#1 shape="poly" coords="\:Z"
+      \ifx "#4"\else  alt="#4"\fi]{#3}}
+\def\map:menu#1{\let\rect:area\r:mnu \let\circle:area\c:mnu
+   \let\poly:area\p:mnu}
+
+\def\r:mnu#1#2#3#4#5#6#7{[\Link[#1]{#6}{}#7\EndLink] }
+\def\c:mnu#1#2#3#4#5#6{[\Link[#1]{#5}{}#6\EndLink] }
+\def\p:mnu#1#2#3#4{[\Link[#1]{#3}{}#4\EndLink] }
+\gHAssign\Point:N  0
+\def\MarkPoint{\gHAdvance\Point:N  1
+   \MarkGLoc(point:\Point:N)}
+
+\def\area:env{\def\:X##1.##2\:Y##3.##4,{{##1}{##3}}%
+    \let\rect:area\relax
+    \let\circle:area\relax
+    \let\poly:area\relax }
+
+\def\gt:crd#1{\csname Loc\space#1:\endcsname,}
+\def\trns:pt#1#2#3#4{%
+   \ifnum #2<\MinDrawX  \HAssign#10
+   \else   \HAssign#1  #2 \Advance:#1  -\MinDrawX
+      \tmp:dim\Map:x \multiply\tmp:dim  #1
+      \HAssign #1\:InCons\tmp:dim
+   \fi
+   \ifnum  #4>\MaxDrawy   \HAssign#3\MaxDrawy
+   \else   \HAssign#3-#4  \Advance:#3  \MaxDrawy
+   \fi
+   \tmp:dim\Map:y \multiply\tmp:dim  #3  \HAssign#3\:InCons\tmp:dim
+}
+\def\MapDensity(#1,#2){%
+   \tmp:dim=#1pt \divide\tmp:dim by 72 \edef\Map:x{\the\tmp:dim}%
+   \tmp:dim=#2pt \divide\tmp:dim by 72 \edef\Map:y{\the\tmp:dim}}
+\MapDensity(72,72)
+
+
+\Hinput{dratex}
+\endinput
+

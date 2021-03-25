@@ -1,0 +1,53 @@
+% The file cs-schola.tex (C) Petr Olsak, 2012, 2016
+% Use "\input cs-schola" to set the TG Schola font family in text mode
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [TG Schola] {\caps} {\rm \bf \it \bi} {} {TX} {8z 8t U}
+
+\ffvars {r}{b}{ri}{bi} 
+\def\caps{\ffsetV{caps}{-sc}\ffsetX}  \def\nocaps{\ffsetV{caps}{}\ffsetX}
+\def\capsV{} 
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = ec-qcsr  \sizespec
+   \font\tenbf = ec-qcsb  \sizespec
+   \font\tenit = ec-qcsri \sizespec
+   \font\tenbi = ec-qcsbi \sizespec
+
+   \def\ffnamegen{ec-qcs\ffvarV\capsV}
+
+\fi
+
+\ismacro\fotenc{8z}\iftrue
+
+   \font\tenrm = cs-qcsr  \sizespec
+   \font\tenbf = cs-qcsb  \sizespec
+   \font\tenit = cs-qcsri \sizespec
+   \font\tenbi = cs-qcsbi \sizespec
+
+   \def\ffnamegen{cs-qcs\ffvarV\capsV}
+   \input chars-8z
+
+\fi
+
+\ismacro\fotenc{U}\iftrue
+
+   \font\tenrm = "[texgyreschola-regular]:\fontfeatures"    \sizespec
+   \font\tenbf = "[texgyreschola-bold]:\fontfeatures"       \sizespec
+   \font\tenit = "[texgyreschola-italic]:\fontfeatures"     \sizespec
+   \font\tenbi = "[texgyreschola-bolditalic]:\fontfeatures" \sizespec
+
+   \def\ffnamegen{"[texgyreschola-\ffvarV]:\capsV\fontfeatures"} 
+
+   \ffvars {regular} {bold} {italic} {bolditalic}
+   \def\caps{\ffsetV{caps}{+smcp;}\ffsetX}
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+\endinput

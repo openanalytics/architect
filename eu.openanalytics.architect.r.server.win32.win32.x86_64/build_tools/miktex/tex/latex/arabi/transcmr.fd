@@ -1,0 +1,90 @@
+%%
+%% This is file `transcmr.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{transcmr.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{trans}{cmr}{\hyphenchar\font=-1}%
+\ProvidesFile{ot1cmr.fd}
+        [1999/05/25 v2.5h Standard LaTeX font definitions]
+\DeclareFontFamily{trans}{cmr}{\hyphenchar\font45 }
+
+
+% This is just a copy of ot1cmr.fd
+
+\DeclareFontShape{trans}{cmr}{m}{n}%
+     {<5><6><7><8><9><10><12>gen*cmr%
+      <10.95>cmr10%
+      <14.4>cmr12%
+      <17.28><20.74><24.88>cmr17}{}
+\DeclareFontShape{trans}{cmr}{m}{sl}%
+     {%
+      <5><6><7>cmsl8%
+      <8><9>gen*cmsl%
+      <10><10.95>cmsl10%
+      <12><14.4><17.28><20.74><24.88>cmsl12%
+      }{}
+\DeclareFontShape{trans}{cmr}{m}{it}%
+     {%
+      <5><6><7>cmti7%
+      <8>cmti8%
+      <9>cmti9%
+      <10><10.95>cmti10%
+      <12><14.4><17.28><20.74><24.88>cmti12%
+      }{}
+\DeclareFontShape{trans}{cmr}{m}{sc}%
+     {%
+      <5><6><7><8><9><10><10.95><12>%
+      <14.4><17.28><20.74><24.88>cmcsc10%
+      }{}
+% Warning: please note that the upright shape below is
+%          used for the \pounds symbol of LaTeX. So this
+%          font definition shouldn't be removed.
+%
+\DeclareFontShape{trans}{cmr}{m}{ui}
+   {
+      <5><6><7><8><9><10><10.95><12>%
+      <14.4><17.28><20.74><24.88>cmu10%
+      }{}
+%%%%%%% bold series
+\DeclareFontShape{trans}{cmr}{b}{n}
+     {%
+      <5><6><7><8><9><10><10.95><12>%
+      <14.4><17.28><20.74><24.88>cmb10%
+      }{}
+%%%%%%%% bold extended series
+\DeclareFontShape{trans}{cmr}{bx}{n}
+   {%
+      <5><6><7><8><9>gen*cmbx%
+      <10><10.95>cmbx10%
+      <12><14.4><17.28><20.74><24.88>cmbx12%
+      }{}
+\DeclareFontShape{trans}{cmr}{bx}{sl}
+      {%
+      <5><6><7><8><9>%
+      <10><10.95><12><14.4><17.28><20.74><24.88>cmbxsl10%
+      }{}
+\DeclareFontShape{trans}{cmr}{bx}{it}
+      {%
+      <5><6><7><8><9>%
+      <10><10.95><12><14.4><17.28><20.74><24.88>cmbxti10%
+      }{}
+% Again this is necessary for a correct \pounds symbol in
+% the cmr fonts Hopefully the dc/ec font layout will take
+% over soon.
+%
+\DeclareFontShape{trans}{cmr}{bx}{ui}
+      {<->sub*cmr/m/ui}{}
+
+
+\endinput

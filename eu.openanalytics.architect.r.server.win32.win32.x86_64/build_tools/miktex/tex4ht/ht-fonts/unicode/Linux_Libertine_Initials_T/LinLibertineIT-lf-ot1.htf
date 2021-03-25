@@ -1,0 +1,96 @@
+LinLibertineIT-lf-ot1 0 90
+'&#x0393;' '' Gamma 0
+'&#x2206;' '' Delta 1
+'&#x0398;' '' Theta 2
+'&#x039B;' '' Lambda 3
+'&#x039E;' '' Xi 4
+'&#x03A0;' '' Pi 5
+'&#x03A3;' '' Sigma 6
+'&#x03A5;' '' Upsilon 7
+'&#x03A6;' '' Phi 8
+'&#x03A8;' '' Psi 9
+'&#x2126;' '' Omega 10
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x00C6;' '' AE 29
+'&#x0152;' '' OE 30
+'&#x00D8;' '' Oslash 31
+' ' '' space 32
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'0' '' zero.fitted 48
+'1' '' one.fitted 49
+'2' '' two.fitted 50
+'3' '' three.fitted 51
+'4' '' four.fitted 52
+'5' '' five.fitted 53
+'6' '' six.fitted 54
+'7' '' seven.fitted 55
+'8' '' eight.fitted 56
+'9' '' nine.fitted 57
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'A' '' A 65
+'B' '' B 66
+'C' '' C 67
+'D' '' D 68
+'E' '' E 69
+'F' '' F 70
+'G' '' G 71
+'H' '' H 72
+'I' '' I 73
+'J' '' J 74
+'K' '' K 75
+'L' '' L 76
+'M' '' M 77
+'N' '' N 78
+'O' '' O 79
+'P' '' P 80
+'Q' '' Q 81
+'R' '' R 82
+'S' '' S 83
+'T' '' T 84
+'U' '' U 85
+'V' '' V 86
+'W' '' W 87
+'X' '' X 88
+'Y' '' Y 89
+'Z' '' Z 90
+LinLibertineIT-lf-ot1 0 90
+htfcss:  LinLibertineIT-lf-ot1  font-family: 'Linux Libertine Initials T', serif;
+
+

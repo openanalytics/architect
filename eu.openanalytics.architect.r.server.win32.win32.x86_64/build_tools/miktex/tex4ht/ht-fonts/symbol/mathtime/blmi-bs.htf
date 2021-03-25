@@ -1,0 +1,131 @@
+blmi-bs 0 127
+'<font face="SYMBOL">G</font>' '14'  Gamma  0 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'<font face="SYMBOL">D</font>' '14'  Delta  1 % blmi-bs.htf (symbol)          2001-03-14 %
+'<font face="SYMBOL">Q</font>' '14'  Theta  2 % Copyright (C) 2001            Phil Viton %
+'<font face="SYMBOL">L</font>' '14' Lambda  3 %                                          %
+'<font face="SYMBOL">X</font>' '14' Xi      4 % This file can redistributed and/or       %
+'<font face="SYMBOL">P</font>' '14' Pi      5 % modified under the terms of the LaTeX    %
+'<font face="SYMBOL">S</font>' '14' Sigma   6 % Project Public License Distributed from  %
+'<font face="SYMBOL">\161\</font>'  '14' Ups7 % CTAN archives in directory               %
+'<font face="SYMBOL">F</font>' '14' Phi     8 % macros/latex/base/lppl.txt; either       %
+'<font face="SYMBOL">Y</font>' '14' Psi     9 % version 1 of the License, or (at your    %
+'<font face="SYMBOL">W</font>' '14' Omega  10 % option) any later version.               %
+'<font face="SYMBOL">a</font>' '14'alpha   11 %    However, you are allowed to modify    %
+'<font face="SYMBOL">b</font>' '14'beta    12 % this file without changing its name, if  %
+'<font face="SYMBOL">g</font>' '14'gamma   13 % you add a note of your own after this    %
+'<font face="SYMBOL">d</font>' '14'delta   14 % copyright note.                          %
+'<font face="SYMBOL">e</font>' '14'epsilon 15 %                                          %
+'<font face="SYMBOL">z</font>' '14'-zeta   16 % I would appreciate being told if you     %
+'<font face="SYMBOL">h</font>' '14'-eta    17 % find bugs                                %
+'<font face="SYMBOL">q</font>' '14'theta   18 %                          viton.1@osu.edu %
+'<font face="SYMBOL">i</font>' '14'iota    19 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'<font face="SYMBOL">k</font>' '14'kappa     20
+'<font face="SYMBOL">l</font>' '14'lambda    21
+'<font face="SYMBOL">m</font>' '14'-mu       22
+'<font face="SYMBOL">n</font>' '14'nu        23
+'<font face="SYMBOL">q</font>' '14'xi        24
+'<font face="SYMBOL">p</font>' '14'pi        25
+'<font face="SYMBOL">r</font>' '14'rho       26
+'<font face="SYMBOL">s</font>' '14'sigma     27
+'<font face="SYMBOL">t</font>' '14'tau       28
+'<font face="SYMBOL">u</font>' '14'upsilon   29
+'<font face="SYMBOL">f</font>'    '14'phi       30
+'<font face="SYMBOL">c</font>'    '14'chi       31
+'<font face="SYMBOL">y</font>'    '14'psi       32
+'<font face="SYMBOL">w</font>'    '14'omega     33
+'<font face="SYMBOL">e</font>'    '14'varepsilon34
+'<font face="SYMBOL">J</font>'    '14'vartheta  35
+'<font face="SYMBOL">v</font>'    '14'varpi     36
+'r'                               '3'varrho     37
+'<font face="SYMBOL">V</font>'    '14'-varsigma  38
+'<font face="SYMBOL">j</font>'    '14'-varphi   39
+*'_*   *1* leftharpoonup    40
+',_'   '1' leftharpoondown  41
+*_'*   *1* righttharpoonup 42
+'-,'   '1' rightharpoondown43
+''     ''                 44
+''     ''                 45
+'|\\'  '1'triangleright   46
+'/|'   '1'triangleleft    47
+'<font face="SYMBOL">G</font>' ''  UprightGamma  48
+'<font face="SYMBOL">D</font>' ''  UprightDelta  49
+'<font face="SYMBOL">Q</font>' ''  UprightTheta  50
+'<font face="SYMBOL">L></font>' '' UprightLambda 51
+'<font face="SYMBOL">X</font>' ''  UprightXi     52
+'<font face="SYMBOL">P</font>' ''  UprightPi     53
+'<font face="SYMBOL">S</font>' ''  UprightSigma  54
+'<font face="SYMBOL">\161\</font>'  '' UprightUpsilon 55
+'<font face="SYMBOL">F</font>' ''  UprightPhi   56
+'<font face="SYMBOL">Y</font>' ''  UprightPsi   57
+'.'    ''          58
+','    ''          59
+'&#x003C;' ''          60
+'/'    ''          61
+'&#x003E;' ''          62
+'*'    ''          63
+'<font face="SYMBOL">\182\</font>'    '14'partial   64
+'A'    '14'          65
+'B'    '14'          66
+'C'    '14'          67
+'D'    '14'          68
+'E'    '14'          69
+'F'    '14'          70
+'G'    '14'          71
+'H'    '14'          72
+'I'    '14'          73
+'J'    '14'          74
+'K'    '14'          75
+'L'    '14'          76
+'M'    '14'          77
+'N'    '14'          78
+'O'    '14'          79
+'P'    '14'          80
+'Q'    '14'          81
+'R'    '14'          82
+'S'    '14'          83
+'T'    '14'          84
+'U'    '14'          85
+'V'    '14'          86
+'W'    '14'          87
+'X'    '14'          88
+'Y'    '14'          89
+'Z'    '14'          90
+'b'    '1'flat     91
+'H'    '3'natural  92
+'#'    ''sharp     93
+'~'    '1'smile    94
+'^'    '3'frown     95
+'l'    '1'el       96
+'a'    '14'          97
+'b'    '14'          98
+'c'    '14'          99
+'d'    '14'         100
+'e'    '14'         101
+'f'    '14'         102
+'g'    '14'         103
+'h'    '14'         104
+'i'    '14'         105
+'j'    '14'         106
+'k'    '14'         107
+'l'    '14'         108
+'m'    '14'         109
+'n'    '14'         110
+'o'    '14'         111
+'p'    '14'         112
+'q'    '14'         113
+'r'    '14'         114
+'s'    '14'         115
+'t'    '14'         116
+'u'    '14'         117
+'v'    '14'         118
+'w'    '14'         119
+'x'    '14'         120
+'y'    '14'         121
+'z'    '14'         122
+'i'    '14'         123
+'j'    '14'         124
+'<font face="SYMBOL">\195\</font>'    ''wp       125
+'<font face="SYMBOL">k</font>' ''varkappa       126
+'<font face="SYMBOL">W</font>' '' UprightOmega    127
+blmi-bs 0 127
+

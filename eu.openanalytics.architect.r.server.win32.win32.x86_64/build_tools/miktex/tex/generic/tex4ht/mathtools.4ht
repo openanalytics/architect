@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% mathtools.4ht                         2020-12-25-13:59 %
+% Copyright (C) 2007-2009       Eitan M. Gurari         %
+% Copyright 2009-2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\ifx \o:endgathered:\:UnDef\else
+   \HRestore\endgathered
+\fi
+\def\shortintertext{\intertext}
+\def\:tempc#1#2{{\csname a:prescript\endcsname}\sp{#1}\sb{#2}}
+\expandafter\HLet\csname prescript \endcsname=\:tempc
+\NewConfigure{prescript}{1}
+\Configure{prescript}{\HCode{<mrow class="prescript"></mrow>}}
+\renewenvironment{dcases}[1][c]{%
+  \RIfM@\else
+      \nonmatherr@{\begin{\@currenvir}}%
+  \fi
+  \left\lbrace
+  \vcenter \bgroup
+      \Let@ \chardef\dspbrk@context\@ne \restore@math@cr
+      \spread@equation
+      \ialign\bgroup
+        \strut@$\m@th\displaystyle{##}$\hfil&\quad$\m@th\displaystyle{##}$\hfil\strut@
+        \crcr
+}
+{\endaligned\right.}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:dcases[!1]{%
+  \RIfM@\else
+      \nonmatherr@{\begin{dcases}}%
+  \fi
+  \vcenter\bgroup
+    \Let@ \chardef\dspbrk@context\@ne \restore@math@cr
+    \SaveMkHalignConf:g{dcases}%
+    \MkHalign#{$\m@th\displaystyle{\HCode{}}#$&\quad$\m@th\displaystyle{\HCode{}}#$}%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\b:dcases \right.}
+\HLet\enddcases\:tempc
+\def\:temp{\left\lbrace   \pic:MkHalign{dcases}}
+\expandafter\HLet\csname \string\dcases\endcsname\:temp
+\NewConfigure{dcases}{6}
+\renewenvironment{dcases*}[1][c]{%
+  \RIfM@\else
+      \nonmatherr@{\begin{\@currenvir}}%
+  \fi
+  \left\lbrace
+  \vcenter \bgroup
+      \Let@ \chardef\dspbrk@context\@ne \restore@math@cr
+      \spread@equation
+      \ialign\bgroup
+        \strut@$\m@th\displaystyle{##}$\hfil&\quad{##}\hfil\strut@
+        \crcr
+}
+{\endaligned\right.}
+                                    \catcode`\#13 \catcode`\!6
+\expandafter\def\csname reg:dcases*\endcsname[!1]{%
+  \RIfM@\else
+      \nonmatherr@{\begin{dcases*}}%
+  \fi
+  \vcenter\bgroup
+    \Let@ \chardef\dspbrk@context\@ne \restore@math@cr
+    \SaveMkHalignConf:g{dcases*}%
+    \MkHalign#{$\m@th\displaystyle{\HCode{}}#$\quad&#}%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\csname b:dcases*\endcsname \right.}
+\expandafter\HLet\csname enddcases*\endcsname\:tempc
+\def\:temp{\left\lbrace   \pic:MkHalign{dcases*}}
+\expandafter\HLet\csname \string\dcases*\endcsname\:temp
+\NewConfigure{dcases*}{6}
+
+\edef\cat:underscore{%
+   \noexpand\catcode`\noexpand\_=\the\catcode`\_ }
+\catcode`\_=11
+\def\MT_gathered_pre:{}
+      \def\MT_gathered_post:{}
+      \def\MT_gathered_env_end:{}
+                                    \catcode`\#13 \catcode`\!6
+\def\reg:MT_gathered_env[!1]{%
+  \RIfM@\else
+      \nonmatherr@{\begin{MT_gathered_env}}%
+  \fi
+  \null  \vcenter\bgroup
+    \Let@ \chardef\dspbrk@context\@ne \restore@math@cr
+    \SaveMkHalignConf:g{MT_gathered_env}%
+\MkHalign#{$\m@th\displaystyle{\HCode{}}#$}%
+}
+                                    \catcode`\#=6 \catcode`\!=12
+\def\:tempc{\crcr\EndMkHalign
+    \RecallMkHalignConfig \egroup\b:MT_gathered_env}
+\HLet\endMT_gathered_env\:tempc
+\def\:temp{\pic:MkHalign{MT_gathered_env}}
+\expandafter\HLet\csname \string\MT_gathered_env\endcsname\:temp
+\NewConfigure{MT_gathered_env}{6}
+\def\:tempc#1#2{{\m@th#1{#2}}}
+\HLet\MT_cramped_internal:Nn\:tempc
+
+\cat:underscore
+\Hinput{mathtools}
+\endinput
+

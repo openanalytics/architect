@@ -1,0 +1,252 @@
+ts1-qtmb 0 246
+'&#x60;' '' grave 0
+'&#x00B4;' '' acute 1
+'&#x02C6;' '' circumflex 2
+'&#x02DC;' '' tilde 3
+'&#x00A8;' '' dieresis 4
+'&#x02DD;' '' hungarumlaut 5
+'&#x02DA;' '' ring 6
+'&#x02C7;' '' caron 7
+'&#x02D8;' '' breve 8
+'&#x00AF;' '' macron 9
+'&#x02D9;' '' dotaccent 10
+'&#x00B8;' '' cedilla 11
+'&#x02DB;' '' ogonek 12
+'&#x201A;' '' quotesinglbase.ts1 13
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x201E;' '' quotedblbase.ts1 18
+'' ''
+'' ''
+'&#xD80C;' '' twelveudash 21
+'3' '' threequartersemdash 22
+'2' '' cwmcapital 23
+'&#x2190;' '' arrowleft 24
+'&#x2192;' '' arrowright 25
+'&#x2040;' '' tieaccentlowercase 26
+'&#x0361;' '' tieaccentcapital 27
+'&#x2040;' '' tieaccentlowercase.new 28
+'&#x0361;' '' tieaccentcapital.new 29
+'' ''
+'2' '' cwmascender 31
+'&#x2422;' '' blanksymbol 32
+'' ''
+'' ''
+'' ''
+'$' '' dollar 36
+'' ''
+'' ''
+''' '' quotesingle.ts1 39
+'' ''
+'' ''
+'&#x2217;' '' asteriskmath 42
+'' ''
+',' '' comma 44
+'&#xFE66;' '' hyphendbl 45
+'.' '' period 46
+'&#x2044;' '' fraction 47
+'0' '' zero.taboldstyle 48
+'1' '' one.taboldstyle 49
+'2' '' two.taboldstyle 50
+'3' '' three.taboldstyle 51
+'4' '' four.taboldstyle 52
+'5' '' five.taboldstyle 53
+'6' '' six.taboldstyle 54
+'7' '' seven.taboldstyle 55
+'8' '' eight.taboldstyle 56
+'9' '' nine.taboldstyle 57
+'' ''
+'' ''
+'&#x2329;' '' angleleft 60
+'&#x2212;' '' minus 61
+'&#x27E9;' '' angleright 62
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x2127;' '' mho 77
+'' ''
+'&#x25EF;' '' bigcircle 79
+'' ''
+'&#x00D8;' '' Orogate 81
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x2126;' '' ohm 87
+'' ''
+'' ''
+'' ''
+'&#x27E6;' '' dblbracketleft 91
+'' ''
+'&#x27E7;' '' dblbracketright 93
+'&#x2191;' '' arrowup 94
+'&#x2193;' '' arrowdown 95
+'&#x60;' '' grave.ts1 96
+'' ''
+'&#x22C6;' '' born 98
+'&#x26AE;' '' divorced 99
+'&#x271D;' '' died 100
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x1F659;' '' leaf 108
+'&#x26AD;' '' married 109
+'&#x266A;' '' musicalnote 110
+'' ''
+'' ''
+'&#x00F8;' '' orogate 113
+'' ''
+'&#x017F;' '' longs 115
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x002DC;' '' tildelow 126
+'&#xFE66;' '' hyphendbl.alt 127
+'&#x02D8;' '' breve.ts1 128
+'&#x02C7;' '' caron.ts1 129
+'&#x02DD;' '' hungarumlaut.ts1 130
+'&#x60;' '' dblgrave.ts1 131
+'&#x2020;' '' dagger 132
+'&#x2021;' '' daggerdbl 133
+'&#x2016;' '' dblverticalbar 134
+'&#x2030;' '' perthousand 135
+'&#x2022;' '' bullet 136
+'&#x2103;' '' centigrade 137
+'$' '' dollar.oldstyle 138
+'&#x00A2;' '' cent.oldstyle 139
+'&#x0192;' '' florin 140
+'&#x20A1;' '' colonmonetary 141
+'&#x20A9;' '' won 142
+'&#x20A6;' '' naira 143
+'&#x20B2;' '' guarani 144
+'&#x20B1;' '' peso 145
+'&#x20A4;' '' lira 146
+'&#x211E;' '' recipe 147
+'&#x203D;' '' interrobang 148
+'&#x2E18;' '' gnaborretni 149
+'&#x20AB;' '' dong 150
+'&#x2122;' '' trademark 151
+'&#x2031;' '' permyriad 152
+'&#x00B6;' '' paragraph.alt 153
+'&#x0E3F;' '' baht 154
+'&#x2116;' '' numero 155
+'&#x2052;' '' discount 156
+'&#x212E;' '' estimated 157
+'&#x25E6;' '' openbullet 158
+'&#x2120;' '' servicemark 159
+'&#x2045;' '' quillbracketleft 160
+'&#x2046;' '' quillbracketright 161
+'&#x00A2;' '' cent 162
+'&#x00A3;' '' sterling 163
+'&#x00A4;' '' currency 164
+'&#x00A5;' '' yen 165
+'&#x00A6;' '' brokenbar 166
+'&#x00A7;' '' section 167
+'&#x00A8;' '' dieresis.ts1 168
+'&#x00A9;' '' copyright 169
+'&#x00AA;' '' ordfeminine 170
+'&#x0254;' '' copyleft 171
+'&#x00AC;' '' logicalnot 172
+'&#x2117;' '' published 173
+'&#x00AE;' '' registered 174
+'&#x00AF;' '' macron.ts1 175
+'&#x00B0;' '' degree 176
+'&#x00B1;' '' plusminus 177
+'&#x00B2;' '' two.superior 178
+'&#x00B3;' '' three.superior 179
+'&#x00B4;' '' acute.ts1 180
+'&#x00B5;' '' mu 181
+'&#x00B6;' '' paragraph 182
+'&#x00B7;' '' periodcentered 183
+'&#x203B;' '' referencemark 184
+'&#x00B9;' '' one.superior 185
+'&#x00BA;' '' ordmasculine 186
+'&#x221A;' '' radical 187
+'&#x00BC;' '' onequarter 188
+'&#x00BD;' '' onehalf 189
+'&#x00BE;' '' threequarters 190
+'&#x20AC;' '' Euro 191
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x00D7;' '' multiply 214
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x00F7;' '' divide 246
+ts1-qtmb 0 246
+htfcss:  ts1-qtmb  font-weight: bold; font-family: 'TeXGyreTermes', serif;
+
+

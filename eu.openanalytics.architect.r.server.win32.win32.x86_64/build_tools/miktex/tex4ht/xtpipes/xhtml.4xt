@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<xtpipes preamble="yes" signature="xhtml.4xt (2008-09-21-01:51)">
+   <sax content-handler="xtpipes.util.ScriptsManager"
+        lexical-handler="xtpipes.util.ScriptsManagerLH" >
+     <script element="table::tabular" >
+   <set name="tabular" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match=" table[ @class='tabular' ]
+                    / tr[ (normalize-space(.)='') ] " >
+
+<xsl:message terminate="no">
+OK 1
+</xsl:message>
+
+   <xsl:if test=" normalize-space(following-sibling::*) != '' ">
+      <xsl:copy>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+<xsl:message terminate="no">
+OK 2
+</xsl:message>
+      </xsl:copy>
+   </xsl:if>
+</xsl:template>
+<xsl:template match=" tr[ (normalize-space(.)='')
+                          and
+                          (parent::table[ @class='tabular' ])
+                        ] " >
+
+<xsl:message terminate="no">
+OK 1
+</xsl:message>
+
+   <xsl:if test=" normalize-space(following-sibling::*) != '' ">
+      <xsl:copy>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+<xsl:message terminate="no">
+OK 2
+</xsl:message>
+      </xsl:copy>
+   </xsl:if>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="tabular" />
+</script>
+
+     <script element="table::longtable" >
+   <set name="longtbl" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match=" table[ @class='longtable' ]
+                    / tr[ (normalize-space(.)='') ] " >
+   <xsl:if test=" normalize-space(following-sibling::*) != '' ">
+      <xsl:copy>
+         <xsl:apply-templates select="*|@*|text()|comment()" />
+      </xsl:copy>
+   </xsl:if>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="longtbl" />
+</script>
+
+     <script element="span::email" >
+   <sax name="." xml="." content-handler="tex4ht.XhtmlEmails" />
+
+</script>
+
+     <script element="meta" >
+   <set name="meta" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="meta" >
+         <xsl:text disable-output-escaping="yes">&lt;meta</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="meta" />
+</script>
+<script element="area" >
+   <set name="area" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="area" >
+         <xsl:text disable-output-escaping="yes">&lt;area</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="area" />
+</script>
+<script element="base" >
+   <set name="base" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="base" >
+         <xsl:text disable-output-escaping="yes">&lt;base</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="base" />
+</script>
+<script element="basefont" >
+   <set name="basefont" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="basefont" >
+         <xsl:text disable-output-escaping="yes">&lt;basefont</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="basefont" />
+</script>
+<script element="br" >
+   <set name="br" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="br" >
+         <xsl:text disable-output-escaping="yes">&lt;br</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="br" />
+</script>
+<script element="col" >
+   <set name="col" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="col" >
+         <xsl:text disable-output-escaping="yes">&lt;col</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="col" />
+</script>
+<script element="frame" >
+   <set name="frame" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="frame" >
+         <xsl:text disable-output-escaping="yes">&lt;frame</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="frame" />
+</script>
+<script element="hr" >
+   <set name="hr" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="hr" >
+         <xsl:text disable-output-escaping="yes">&lt;hr</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="hr" />
+</script>
+<script element="img" >
+   <set name="img" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="img" >
+         <xsl:text disable-output-escaping="yes">&lt;img</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="img" />
+</script>
+<script element="input" >
+   <set name="input" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="input" >
+         <xsl:text disable-output-escaping="yes">&lt;input</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="input" />
+</script>
+<script element="isindex" >
+   <set name="isindex" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="isindex" >
+         <xsl:text disable-output-escaping="yes">&lt;isindex</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="isindex" />
+</script>
+<script element="link" >
+   <set name="link" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="link" >
+         <xsl:text disable-output-escaping="yes">&lt;link</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="link" />
+</script>
+<script element="param" >
+   <set name="param" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   >
+      <xsl:output omit-xml-declaration = "yes" method="xml" />
+
+      <xsl:template match="param" >
+         <xsl:text disable-output-escaping="yes">&lt;param</xsl:text>
+             <xsl:apply-templates select="@*" mode="attrs" />
+         <xsl:text disable-output-escaping="yes">/&gt;</xsl:text>
+      </xsl:template>
+      <xsl:template match="@*" mode="attrs" >
+   <xsl:text> </xsl:text>
+   <xsl:value-of select="name()" />
+   <xsl:text>="</xsl:text>
+   <xsl:value-of select="." />
+   <xsl:text>"</xsl:text>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="param" />
+</script>
+
+   </sax>
+</xtpipes>
+

@@ -1,0 +1,4 @@
+% UKRHYPH.OT2
+\def\Encoding{ot2}
+\input ukrhyph
+\endinput

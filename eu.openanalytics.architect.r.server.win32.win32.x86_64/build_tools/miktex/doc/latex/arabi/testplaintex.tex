@@ -1,0 +1,144 @@
+% Arabi system example with plain TeX
+% (c) Youssef JABRI
+%
+%===================================================
+% Adapted for use with the Arabi system
+% The text used was found some where on the web
+% and reflects its author view, used here only to show
+% the system should be used
+%===================================================
+%
+\TeXXeTstate=1
+
+\nopagenumbers
+\chardef \atcode = \the \catcode `\@
+\catcode `\@ = 11
+
+
+
+
+\def\xspace{\futurelet\@let@token\@xspace}
+\def\@xspace{%
+%  \ifx\@let@token\bgroup\space\else
+%  \ifx\@let@token\egroup\space\else
+%  \ifx\@let@token\/\space\else
+%  \ifx\@let@token\ \space\else
+  \ifx\@let@token~\space\else
+  \ifx\@let@token.\space\else
+  \ifx\@let@token!\space\else
+  \ifx\@let@token,\space\else
+  \ifx\@let@token:\space\else
+  \ifx\@let@token;\space\else
+  \ifx\@let@token?\space\else
+  \ifx\@let@token/\space\else
+  \ifx\@let@token'\space\else
+  \ifx\@let@token)\space\else
+  \ifx\@let@token-\space\else
+  \ifx\@let@token\@xobeysp\space\else
+  \ifx\@let@token\space\space\else
+  \ifx\@let@token\@sptoken\space\else%
+\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi\fi}%\fi\fi\fi\fi
+
+\def\xspace{\bgroup\obeyspaces\obeylines\futurelet\next\Xspace}%
+    \def\xspaces{ \ignorespaces}%
+   {\obeylines\obeyspaces%
+    \gdef\Xspace{\let^^M\xspaces\let \xspaces\expandafter\egroup}} 
+
+\catcode `\@ = \the \atcode
+
+
+\catcode`\¡=13  \def¡{\unskip~, } %\char186      % 
+\catcode`\¿=13  \def¿{\unskip~? } %\char186      % 
+%\catcode`186=13  \def{;} %\char186      % 
+%\catcode`\’=13  \def{,} %\char186      % 
+%\catcode`\’=13  \def{,} %\char186      % 
+%\catcode`\’=13  \def{,} %\char186      % 
+
+
+
+
+
+\catcode`\Á=13  \chardefÁ = 186 %\char186      % 
+\catcode`\Â=13  \chardefÂ = 6       % 
+\catcode`\Ã=13  \chardefÃ = 2       % 
+\catcode`\Ä=13  \chardefÄ = 165       % 
+\catcode`\Å=13  \chardefÅ = 4       % 
+\catcode`\Æ=13  \chardefÆ = 183       % 
+\catcode`\Ç=13  \chardefÇ = 65   % 
+\catcode`\È=13  \chardefÈ = 98     % 
+\catcode`\É=13  \chardefÉ = 84   % 
+\catcode`\Ê=13  \chardefÊ = 116      % 
+\catcode`\Ë=13  \chardefË = 16       % 
+\catcode`\Ì=13  \chardefÌ = 20     % 
+\catcode`\Í=13  \chardefÍ = 24       % 
+\catcode`\Î=13  \chardefÎ = 28       % 
+\catcode`\Ï=13  \chardefÏ = 100      % 
+\catcode`\Ğ=13  \chardefĞ = 64       % 
+\catcode`\Ñ=13  \chardefÑ = 114    % 
+\catcode`\Ò=13  \chardefÒ = 122       % 
+\catcode`\Ó=13  \chardefÓ = 115      % 
+\catcode`\Ô=13  \chardefÔ = 75       % 
+\catcode`\Õ=13  \chardefÕ = 79       % 
+\catcode`\Ö=13  \chardefÖ = 83       % 
+\catcode`\Ø=13  \chardefØ = 87       % 
+\catcode`\Ù=13  \chardefÙ = 92       % 
+\catcode`\Ú=13  \chardefÚ = 96       % 
+\catcode`\Û=13  \chardefÛ = 140       % 
+\catcode`\Ü=13  \chardefÜ = 254       % 
+\catcode`\İ=13  \chardefİ = 102       % 
+\catcode`\Ş=13  \chardefŞ = 113     % 
+\catcode`\ß=13  \chardefß = 107       % 
+\catcode`\á=13  \chardefá = 108      % 
+\catcode`\ã=13  \chardefã = 109  % 
+\catcode`\ä=13  \chardefä = 110       % 
+\catcode`\å=13  \chardefå = 104       % 
+\catcode`\æ=13  \chardefæ = 119       % 
+\catcode`\í=13  \chardefí = 121       % 
+\catcode`\ì=13  \chardefì = 89       % 
+%
+\catcode`\ğ=13  \chardefğ = 190      % 
+\catcode`\ñ=13  \chardefñ = 191  % 
+\catcode`\ò=13  \chardefò = 192       % 
+%
+\catcode`\ó=13  \chardefó = 97       % 
+\catcode`\õ=13  \chardefõ = 117       % 
+\catcode`\ö=13  \chardefö = 105       % 
+\catcode`\ú=13  \chardefú = 34       % 
+\catcode`\ø=13  \chardefø = 204       % 
+
+% Then, Vowels 
+%
+%\DeclareTextSymbol{\shadda}{LAE}{204}%{164}
+%
+%\DeclareTextSymbol{\shaddafatha}{LAE}{201}%169
+%\DeclareTextSymbol{\shaddadamma}{LAE}{202}%170
+%\DeclareTextSymbol{\shaddakasra}{LAE}{203}%171
+%
+\input shapepar.sty
+\input mosq.def
+
+\font \tr = TraditionalArabic at 12 pt
+\font \andal = andlso at 10 pt
+%\shapepar {\heartshape}
+\shapepar {\circleshape}
+%\shapepar{\mosqdoor}%
+%{\bf The \TeX\ Showcase.}
+\beginR
+\tr%\obeyspaces
+%- * * * -
+ÇáãØáæÈ ÅĞÇğ åæ Ãä ÊÊæÇİŞ ÇáÔÑíÚÉ   (~ÃíÉ ÔÑíÚÉ~)  İí äİæÓ ßá ÇáÈÔÑ ãä ßá ÇáÃÏíÇä ¡æÃæá ÊæÇİŞ åæ ÊæÇİŞ ÇáÚÏÇáÉ æíŞÙÉ ÇáÖãíÑ ãÚ ÅíãÇä Ãí ãäÇ¡ æáíÓ İí ßá ÇáÃÏíÇä ãËáÇğ ÃÑæÚ ãä ÇáĞí äÌÏå İí ÇáÅÓáÇã æÈÇáÊÍÏíÏ ãÇ İÚáå ÑÓæá Çááå Õáì Çááå Úáíå æÓáã İí ãÑÖ ãæÊå Úáíå ÇáÕáÇÉ æÇáÓáÇã İŞÏ ÏÚÇ ÃÕÍÇÈå æÎÇØÈåã ŞÇÆáÇğ  (~ÃíåÇ ÇáäÇÓ ãä ßäÊ ÌáÏÊ áå ÙåÑÇğ¡ İåĞÇ ÙåÑí İáíÓÊŞÏ ãäí ¡æãä ßäÊ ÔÊãÊ áå ÚÑÖÇğ İåĞÇ ÚÑÖí İáíÓÊŞÏ ãäå ¡æãä ÃÎĞÊ áå ãÇáÇğ İåĞÇ ãÇáí İáíÃÎĞ ãäå ¡ æáÇ íÎÔ ÇáÔÍäÇÁ İåí áíÓÊ ãä ÔÃäí~)  ¡ æåĞå  (~ÇáÔÍäÇÁ~)  åí ãÇ ÚäíäÇ İí ÊŞÏíãäÇ åĞÇ ÇáÍÏíË ÇáÔÑíİ ¡İáæáÇ Úáã ÇáãÔÑÚ ÇáÃßÈÑ Õáì Çááå Úáíå æÓáã ÈÎØæÑÊåÇ áãÇ ÎÔí ãäåÇ ¡ æÍĞÑ ãäåÇ ÃÕÍÇÈå æíäØÈŞ ÇáÊÍĞíÑ Úáì ÃãÊå İí ãÇ ÈÚÏ ¡ÅĞ áã íßä İí ÍŞíŞÉ Ïíä ÇáÅÓáÇã ãËá åĞå ÇáÔÍäÇÁ ÍÊì ãÚ ÈÇŞí ÇáÃÏíÇä ÇáÓÇÆÏÉ æÇáÏáíá Úáì Ğáß åæ ÅÑÓÇá ÑÓæá Çááå Õáì Çááå Úáíå æÓáã ÕÍÇÈÊå ãåÇÌÑíä Åáì ÇáÍÈÔÉ¡ æãÚåã ÑÓÇáÉ  (~Åä İíåÇ ãáß áÇ íÙáã ÚäÏå ÃÍÏ~)  ¡æÕáÇÊå Úáíå ÇáÕáÇÉ æÇáÓáÇã Úáì ÇáäÌÇÔí Çáãáß Ííä Úáã ÈãæÊå ŞÇÆáÇğ áÃÕÍÇÈå  (~Åä ÃÎÇßã ÇáäÌÇÔí ŞÏ ãÇÊ İÕáæÇ Úáíå¡æÇÓÊÛİÑæÇ áå ~)  .
+%
+æãËáãÇ ÊÊÚÇÑÖ ÇáÔÍäÇÁ ãÚ ÇáÅíãÇä İåí ÊÊÚÇÑÖ ãÚ ÇáÚáã ¡ İíæÑÏ áäÇ ÇáÊÇÑíÎ Ãä ÇáÃãÉ ÇáÚÑÈíÉ ÇáÅÓáÇãíÉ İí ÚÕÑåÇ ÇáĞåÈí áã Êßä áåÇ ãËá åĞå ÇáÔÍäÇÁ İí ŞÈæá ÇáÚáæã ãä ÓÇÆÑ ÇáÃãã¡ æßÇäÊ ÊÊÏÇÑÓåÇ ÊÍÊ ÎíãÉ ÇáÏæáÉ İáã íßä ÛÑíÈÇğ Ãä ÊÑì İí ãßÇä æÇÍÏ æãÌáÓ æÇÍÏ ÍßíãÇğ ãÓáãÇğ æãÊÑÌãÇğ ãÓíÍíÇğ æãäÌãÇğ ÕÇÈÆíÇğ æİíáÓæİÇğ ÓÑíÇäíÇğ íÊÚÇæäæä İí ÓÈíá Íá ãÔßá Úáãí¡ İßÇäÊ ÑÓÇáÊåã ÊÊÚÏì ÇáÑŞÚÉ ÇáØÇÆİíÉ ÇáÖíŞÉ Åáì æÍÏÉ ÅäÓÇäíÉ İßÑíÉ æÃÎáÇŞíÉ ¡æÎíÑ ãËÇá Úáì Ğáß ãÇ ÃæÑÏå ãÍãÏ ßÑÏ Úáí Úä ÕæÑÉ ÇáÍÑíÉ ÇáİßÑíÉ æÇáÏíäíÉ İí ÚÕÑ ÇáÅÓáÇã ÇáĞåÈí ãÇ äŞáå Úä ÇáÎáİ Èä ÇáãËäì İŞÇá: ÔåÏäÇ ÚÔÑÉ İí ÇáÈÕÑÉ íÌÊãÚæä İí ãÌáÓ áÇ íÚÑİ ãËáåã~.~. ÇáÎáíá Èä ÇÍãÏ ÕÇÍÈ ÇáÚÑæÖ   (~Óäøí~)  ¡æÇáÓíÏ ãÍãÏ ÇáÍãíÑí ÇáÔÇÚÑ  (~ÔíÚí~)  ¡æÕÇáÍ Èä ÚÈÏ ÇáŞÏæÓ (~Ëäæí~)  ¡æÓİíÇä Èä ãÌÇÔÚ  (~ÕİÑí~)  ¡æÈÔÇÑ Èä ÈÑÏ  (~ÎáíÚ ãÇÌä~)  ¡æÍãÇÏ ÚÌÑÏ   (~ÒäÏíŞ~)  ¡æÇÈä ÑÇÓ ÇáÌÇáæÊ ÇáÔÇÚÑ  (~íåæÏí~)  æÇÈä äÙíÑ ÇáãÊßáã   (~äÕÑÇäí~)  æÚãÑ ÇÈä ÃÎÊ ÇáãÄíÏ   (~ãÌæÓí~)  æÇÈä ÓäÇä ÇáÍÑÇäí ÇáÔÇÚÑ   (~ÕÇÈÆí~)  İíÊäÇÔÏæä ÃÔÚÇÑÇ æÃÎÈÇÑÇ~)  æÇáĞí äÑíÏ Şæáå Ãä áæáÇ åĞÇ ÇáÊÓÇãÍ ÇáİßÑí áãÇ Ããßä áäÇ Ãä äÑì ÇãÉ ÊÒÏåÑ æÊäåÖ áÊÚã äåÖÊåÇ ÇáÚÇáã ÃÌãÚ.
+%
+áŞÏ ßÇä ãä ÇÈÑÒ ãÇ ÃŞÑå ÇáÔÑÚ ÇáÅÓáÇãí İí ÍÑíÉ ÇáãÚÊŞÏ åæ Ãä  (~áÇ ÅßÑÇå İí ÇáÏíä~)  ¡æäÍä Çáíæã İí ÇáŞÑä ÇáÍÇÏí æÇáÚÔÑíä¡íäÈÛí ÚáíäÇ ÊãËá åĞå ÇáÂíÉ ÊãËáÇğ ÍŞíŞíÇğ¡áÃääÇ äÚáã Åä ÇáÎíÑ ßáå İí ÊÑß ÇáÍßã Úáì Ğáß ááÖãíÑ ¡æÃä äÚí ÇáÏÑæÓ ÇáÊí ÊÒæÏäÇ ÈåÇ ÔæÇåÏ ÇáÊÇÑíÎ ¡Êáß ÇáÔæÇåÏ ÇáÊí ÇÓÊäÏ ÅáíåÇ ÍßãÇÁ ÇáÃãã ÇáÃÎÑì İí Íá ãÚÖáÇÊåã İåĞÇ ÇáÍßíã ÇáåäÏí  (~ØÇÛæÑ~)  íÑì Ãä Íá ãÔßáÉ ÇáåäæÏ åæ İí ÏÑÇÓÉ ÇáßÊÈ ÇáÚÑÈíÉ ÇáÊí ÊÍæí ÇáÑæÍ ÇáÅÓáÇãíÉ ÏÑÇÓÉ ãÓÊİíÖÉ İÅä İíåÇ ÍáÇğ áßá ÇáãÔÇßá ÇáØÇÆİíÉ æÇáÚÑŞíÉ ÈŞæáå: İáæ Ãä ÇáåäÏæÓ ÇÓÊØÇÚæÇ Ãä íäÙÑæÇ İí ÇáßÊÈ ÇáÚÑÈíÉ æíİåãæÇ ãäåÇ ÇáÑæÍ ÇáÚÑÈíÉ ÇáÅÓáÇãíÉ İåãÇ ÍÓäÇ ¡áÃÚÇäåã Ğáß ãä ÛíÑ Ôß Úáì İåã ÚŞáíÉ ÅÎæÇäåã ãä ãÓáãí ÇáåäÏ~. 
+%
+İãÇ ÃÍÑÇäÇ æäÍä ÃÎáÇİ ÃæáÆß ÇáÓáİ ÇáĞíä ÃÕÈÍæÇ ãËÇáÇ íŞÊÏì áÍßãÇÁ ÇáÅäÓÇäíÉ ÌãÚÇÁ¡ Ãä äŞİ ãä ãæÑæËäÇ æŞİÉ ÇáãÍÊÑã áå æÇáãÌá áÚÙãÇÆå¡æÃä äÍÊßã Åáì ÖãÇÆÑäÇ İí ÇáÇÈÊÚÇÏ Úä ÇáÔÍäÇÁ ÇáÊí íÓÚì ÃÚÏÇÄäÇ Åáì ÇáÅíŞÇÚ ÈíääÇ ãä ÎáÇáåÇ¡æÃä äŞİ ãä ÈÚÖäÇ ãæŞİ ÇáãÄíÏ æÇáäÇÕÍ æÇáãÚÇÖÏ ¡áÇ ãæŞİ ÇáãŞÕí æÇáãåãÔ áÕÇáÍ ÌåÉ ÃÌäÈíÉ áã ÊÑÏ áäÇ íæãÇ ÎíÑÇ.
+\andal ØÇÑŞ åÇÔã ÎãíÓ ÇáÏáíãí
+ÈÛÏÇÏ 
+%ÇáÚÑÇŞ
+%$\heartsuit$
+%***
+\endR
+%
+\end
+

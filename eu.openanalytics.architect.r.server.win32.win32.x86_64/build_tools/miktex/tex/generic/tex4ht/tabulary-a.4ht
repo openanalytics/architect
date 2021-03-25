@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tabulary-a.4ht                        2009-05-21-09:32 %
+% Copyright (C) 2005--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \NewConfigure{tabulary}{6}
+\def\:tempc#1{\leavevmode
+   \let\@array:a\a:tabulary \let\@array:b\b:tabulary
+   \let\@array:c\c:tabulary \let\@array:d\d:tabulary
+   \let\@array:e\e:tabulary \let\@array:f\f:tabulary
+   \hbox \bgroup   \:@tabular:
+      $\col@sep\tabcolsep \let\d@llarbegin\begingroup
+                                    \let\d@llarend\endgroup
+       \let\@classz\TY@classz
+   \@tabarray}
+\HLet\TY@tabular\:tempc
+\def\:tempc{\relax
+   \ifx \HCol\:UnDef \else \ifnum\HCol=1 \a:endarray\fi \fi
+   \crcr\ifx \EndPicture\:UnDef
+   \EndMkHalign\else \egroup\fi \egroup $\egroup}
+\HLet\endtabulary\:tempc
+\expandafter \let \csname endtabulary*\endcsname\endtabulary
+\def\:tempc{\@chclass
+ \ifnum \@lastchclass=6 \@ne \@chnum \@ne \else
+  \ifnum \@lastchclass=7 5 \else
+   \ifnum \@lastchclass=8 \tw@ \else
+    \ifnum \@lastchclass=9 \thr@@
+   \else \z@
+   \ifnum \@lastchclass = 10 \else
+   \edef\@nextchar{\expandafter\string\@nextchar}%
+   \@chnum
+   \if \@nextchar c\z@ \add:ar-\else
+    \if \@nextchar l\@ne \add:ar<\else
+     \if \@nextchar r\tw@ \add:ar>\else
+   \if \@nextchar C7 \add:ar C\else
+    \if \@nextchar L8 \add:ar L\else
+     \if \@nextchar R9 \add:ar R\else
+     \if \@nextchar J10 \add:ar J\else
+   \z@ \@chclass
+   \if\@nextchar |\@ne \b:VBorder\else
+    \if \@nextchar !6 \else
+     \if \@nextchar @7 \b:VBorder\else
+      \if \@nextchar <8 \else
+       \if \@nextchar >9 \else
+  10
+  \@chnum
+  \if \@nextchar m\thr@@ \add:ar m\else
+   \if \@nextchar p4 \add:ar p\else
+    \if \@nextchar b5 \add:ar b\else
+   \z@ \@chclass \z@ \@preamerr \z@ \fi \fi \fi \fi\fi \fi \fi\fi \fi
+     \fi  \fi  \fi  \fi  \fi  \fi \fi \fi \fi \fi \fi}
+\HLet\@testpach\:tempc
+
+\Hinput{tabulary}
+\endinput
+

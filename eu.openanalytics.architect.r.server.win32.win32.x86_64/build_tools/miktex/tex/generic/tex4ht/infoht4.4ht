@@ -1,0 +1,803 @@
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[1]32...//
+
+% infoht4.4ht (2019-03-18-15:25), generated from tex4ht-info-html4.tex
+% Copyright 2009-2017 TeX Users Group
+% Copyright 2000-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2019-03-18-15:25}
+{          \catcode`\@=0 \catcode`\\=11 @relax
+  @gdef@infoIVht[#1]#2//{%
+    @ifnum #1>1
+      @def@infoIVht[##1]##2//{%
+        @ifnum ##1>1 @ifnum ##1<#1
+           @bgroup
+             @no:catcodes0{255}{11}%
+             @no:catcodes{91}{91}{12}% [
+             @no:catcodes{47}{47}{12}% /
+             @newlinechar13 %
+             @long@def@infoIVht####1\ifx\infoIVht####2infoIVht[####3//{%
+               @def@infoIVht{******************************************}%
+               @immediate@write-1{@infoIVht}%
+               @immediate@write-1{****** @csname :Hin@endcsname.4ht}%
+               @immediate@write-1{@infoIVht}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup
+               @immediate@write-1{####1}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup
+               @immediate@write-1{@infoIVht}%
+             @egroup}%
+           @expandafter@expandafter@expandafter@infoIVht
+     @fi@fi }%
+  @fi }
+}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[1]32//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[50]608...//
+
+\exit:ifnot{amsart,% 
+article,% 
+book,% 
+latex,% 
+report,% 
+tex4ht}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[50]608//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[50]608...//
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[20]93...//
+
+Cascade Style Sheets and Character Sets
+---------------------------------------
+
+\Configure{CssFile}.....................2
+
+   #1  name for css file
+   #2  comment in css file
+
+\Configure{Css}
+
+\Configure{charset}..................1
+
+   #1  override information for the charset entry in the link element
+
+   To be noticed, the configuration should be encountered early in the
+   complation.
+
+      Example:
+
+        \Preamble{}
+          \Configure{charset}{iso-8859-15}
+        \begin{document}
+        \EndPreamble
+
+   In the case of TeX, the configuration instruction should precede
+   the \Preamble command, and a declaration of the hook should also
+   be provided.
+
+      Example:
+
+          \NewConfigure{charset}{1}
+          \Configure{charset}{iso-8859-15}
+        \Preamble{}
+        \begin{document}
+        \EndPreamble
+
+\Configure{dtd-lang}..................1
+
+    #1 language specification for the DTD identifier
+
+Paragraphs
+----------
+
+Three types of paragraphs are produced by \Configure{HtmlPar}:
+
+   <p class="indent">....</p>
+   <p class="noindent">....</p>
+   <p class="nopar">....</p>
+
+The third one handles degenerated cases which don't call for a
+separate paragraph in the source code. For instance, an inline
+display math code of the form
+
+     ..........
+     $$......$$
+     ..........
+
+translates into a markup similar to
+
+     <p class="...">..........</p>
+     <math>......</math>
+     <p class="nopar">..........</p>
+
+Frames
+------
+
+   May be requested with the command line option `frames'
+
+   \Configure{frames}.....................2
+
+      #1  The frames structure
+      #2  Content for the frame of the table of contents
+
+   Example:
+
+      \Configure{frames}
+         {\HorFrames[frameborder="no" border="0"
+               framespacing="0" rows="*"]{*,3*}
+           \Frame[ name="tex4ht-menu" ]{tex4ht-toc}
+           \Frame[ name="tex4ht-main" ]{tex4ht-body}}
+         {\let\contentsname=\empty \tableofcontents}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[20]93//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]182...//
+
+Hypertext Title
+---------------
+\Configure{@HTML}.........................1
+
+   Environment for setting \title material in <title>. The contributions
+   are accumulative; an empty argument reinitializes the contribution.
+
+Tables
+------
+
+Properties of tabular and array tables can be locally redefined with
+instructions of the following forms.
+
+   \Css{\#TBL-\TableNo-  {....}}           % within tables
+   \Css{\#TBL-\TableNo-\HRow- {....}}      % within rows
+   \Css{\#TBL-\TableNo-\HCol  {....}}      % within columns
+   \Css{\#TBL-\TableNo-\HRow-\HCol {....}} % within cells
+   \Css{\#TBL-\TableNo-<i>g  {....}}       % column group; <i>
+
+\Configure{enumerate}..............1
+   Contribution into <ol>
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]182//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[20]231...//
+
+Package options
+---------------
+
+   1   cut-off document into pages at the \part level
+   2   cut-off document into pages at the \chapter and higher levels
+   3   cut-off document into pages at the \section and higher levels
+   4   cut-off document into pages at the \subsection and higher levels
+
+       The chapter of \tableofcontents  is created only
+       if \contentsname is not empty
+
+  Macros sensitive to edef commands in sectioning titles
+  should be neutralize within \Configure{@TITLE}{....}
+
+
+Wrapper for the Document
+------------------------
+
+   \Tag{TITLE+}......................1
+
+   #1  Content submitted to the <TITLE> element of the leading
+       web page.
+
+   This instruction should be used at most once in a document.
+   In particular, it shouldn't be used when the \maketitle command
+   is present, since the latter command invokes this feature.
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[20]231//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[30]252...//
+
+Package options:
+
+   1   cut-off document into pages at the \part level
+   2   cut-off document into pages at the \section and higher levels
+   3   cut-off document into pages at the \subsection and higher levels
+   4   cut-off document into pages at the \subsubsection and higher levels
+
+       The section of \tableofcontents  is created only
+
+       if \contentsname is not empty
+
+  Macros sensitive to edef commands in sectioning titles
+  should be neutralize within \Configure{@TITLE}{....}
+
+
+Wrapper for the Document
+------------------------
+
+   \Tag{TITLE+}......................1
+
+   #1  Content submitted to the <TITLE> element of the leading
+       web page.
+
+   This instruction should be used at most once in a document.
+   In particular, it shouldn't be used when the \maketitle command
+   is present, since the latter command invokes this feature.
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[30]252//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[40]274...//
+
+Package options:
+
+   1   cut-off document into pages at the \part level
+   2   cut-off document into pages at the \section and higher levels
+   3   cut-off document into pages at the \subsection and higher levels
+   4   cut-off document into pages at the \subsubsection and higher levels
+
+       The section of \tableofcontents  is created only
+       if \contentsname is not empty
+
+  Macros sensitive to edef commands in sectioning titles
+  should be neutralize within \Configure{@TITLE}{....}
+
+
+Wrapper for the Document
+------------------------
+
+   \Tag{TITLE+}......................1
+
+   #1  Content submitted to the <TITLE> element of the leading
+       web page.
+
+   This instruction should be used at most once in a document.
+   In particular, it shouldn't be used when the \maketitle command
+   is present, since the latter command invokes this feature.
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[40]274//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[40]291...//
+
+
+
+Wrapper for the Document
+------------------------
+
+   \Tag{TITLE+}......................1
+
+   #1  Content submitted to the <TITLE> element of the leading
+       web page.
+
+   This instruction should be used at most once in a document.
+   In particular, it shouldn't be used when the \maketitle command
+   is present, since the latter command invokes this feature.
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[40]291//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[50]608//
+
+

@@ -1,0 +1,30 @@
+<!-- xtpipes-map.dtd (2009-01-27-22:19) -->
+<!ELEMENT xtpipes-map (when | processing-instruction
+                            | select
+                            | command-line)*  >
+<!ELEMENT when (when | select
+                     | processing-instruction
+                     | command-line )*  >
+<!ELEMENT select EMPTY >
+<!ELEMENT processing-instruction EMPTY >
+<!ELEMENT command-line EMPTY >
+<!ATTLIST xtpipes-map
+          signature      CDATA #IMPLIED
+>
+<!ATTLIST when
+          name   (
+                    system-id
+                  | public-id
+                  | dtd-root
+                  | root
+                  | ext
+                  | meta-type
+                  | content-type
+                  | prefix      )  "public-id"
+          value   CDATA #IMPLIED
+          case-sensitive (yes|no) "no"
+>
+<!ATTLIST select
+          name      CDATA #REQUIRED
+>
+

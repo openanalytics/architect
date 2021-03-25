@@ -1,0 +1,7 @@
+.vn
+htfcss: vncmbr10  font-family: sans-serif;
+htfcss: vncmbrbx10  font-weight: bold;  font-family: sans-serif;
+htfcss: vncmbrsl10  font-style: italic;  font-family: sans-serif;
+htfcss: vncmsltl10  font-style: italic;  font-family: monospace,monospace;
+htfcss: vncmtl10  font-family: monospace,monospace;
+

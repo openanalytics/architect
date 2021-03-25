@@ -1,0 +1,37 @@
+.lm-texnansi
+
+
+htfcss: texnansi-lmb font-style: oblique;
+htfcss: texnansi-lmbo  font-style: oblique;
+htfcss: texnansi-lmbx  font-weight: bold;
+htfcss: texnansi-lmbxi  font-style:italic; font-weight: bold;
+htfcss: texnansi-lmbxo  font-style: oblique; font-weight: bold;
+htfcss: texnansi-lmri  font-style:italic;
+htfcss: texnansi-lmro  font-style: oblique;
+htfcss: texnansi-lmss  font-family: sans-serif;
+htfcss: texnansi-lmssbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: texnansi-lmssbx  font-family: sans-serif; font-weight: bold;
+htfcss: texnansi-lmssdc  font-family: sans-serif;
+htfcss: texnansi-lmssdo  font-family: sans-serif; font-style: oblique;
+htfcss: texnansi-lmsso  font-family: sans-serif; font-style: oblique;
+htfcss: texnansi-lmssq  font-family: sans-serif;
+htfcss: texnansi-lmssqbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: texnansi-lmssqbx  font-family: sans-serif; font-weight: bold;
+htfcss: texnansi-lmssqo  font-family: sans-serif; font-style: oblique;
+htfcss: texnansi-lmtcso  font-style: oblique; font-family: monospace,monospace;
+htfcss: texnansi-lmtk  font-family: monospace,monospace;
+htfcss: texnansi-lmtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: texnansi-lmtl  font-weight: light; font-family: monospace,monospace;
+htfcss: texnansi-lmtlc  font-weight: light; font-family: monospace,monospace;
+htfcss: texnansi-lmtlco  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: texnansi-lmtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: texnansi-lmtt font-family: monospace,monospace;
+htfcss: texnansi-lmtti  font-family: monospace,monospace; font-style:italic;
+htfcss: texnansi-lmtto  font-style: oblique; font-family: monospace,monospace;
+htfcss: texnansi-lmvtk  font-family: monospace,monospace;
+htfcss: texnansi-lmvtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: texnansi-lmvtl  font-weight: light; font-family: monospace,monospace;
+htfcss: texnansi-lmvtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: texnansi-lmvtt  font-family: monospace,monospace;
+htfcss: texnansi-lmvtto  font-style: oblique; font-family: monospace,monospace;
+

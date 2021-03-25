@@ -1,0 +1,187 @@
+% This is cshachel.mf in text format, as of 89/02/19
+% written by P. Novak, Prague
+% Czech and slovak letters with accents
+% Lowercase roman letters with hachek accent
+
+cmchar "The letter c with hachek";
+beginchar(cs_cz,8u#,lc_hachek_height#,0);
+italcorr h#*slant-.2u#;
+adjust_fit(if monospace: .5u#,.5u# else: 0,0 fi);
+pickup fine.nib; pos2(vair',90); pos4(vair',270);
+x2=x4=.5(w+u); top y2r=vround(x_height+1.5oo); bot y4r=-oo;
+pos3(curve,180); lft x3r=hround max(.6u,1.35u-.5curve); y3=.5x_height;
+if serifs: pos1(hair,0); pos0(flare,0);
+ y1=min(bar_height+.5flare+2vair'+2,.9[bar_height,x_height]-.5flare);
+ rt x1r=hround(w-.7u); bulb(2,1,0);  % bulb
+ pos5(hair,0); rt x5r=hround(w-.5u);
+ y5=max(good.y(.5bar_height-.9),y4l+vair');
+ (x,y4l)=whatever[z4r,z5l]; x4l:=min(x,x4l+.5u);
+ filldraw stroke pulled_super_arc.e(2,3)(.7superpull)
+  & pulled_super_arc.e(3,4)(.5superpull)
+  ..tension .9 and 1..{x5-x4,5(y5-y4)}z5e;  % arc and lower terminal
+else: pos1(4/7[vair',flare],80);
+ rt x1r=hround(w-.6u); top y1r=vround .82[bar_height,top y2r];
+ filldraw stroke term.e(2,1,right,.8,4);  % upper terminal
+ pos5(.6[vair',flare],275); rt x5r=hround(w-.5u);
+ y5r=good.y(y5r+1/3bar_height-y5); y5l:=good.y y5l; x5l:=good.x x5l;
+ forsuffixes e=l,r: path p.e; p.e=z4e{right}..tension .9 and 1..z5e;
+  if angle direction 1 of p.e>75:
+   p.e:=z4e{right}..tension atleast.9 and 1..{dir 75}z5e; fi endfor
+ filldraw stroke pulled_super_arc.e(2,3)(.7superpull)
+  & pulled_super_arc.e(3,4)(.5superpull) & p.e; fi  % arc and lower terminal
+penlabels(0,1,2,3,4,5);
+lc_hachek_accent(if serifs: 0.5[0.5[x3l,x3],x0r] else: x2 fi);
+endchar;   %% changed from ..[x3r,x3]..
+
+cmchar "The letter e with hachek";
+beginchar(cs_ie,7.25u#+max(.75u#,.5curve#),lc_hachek_height#,0);
+italcorr h#*slant+.5min(curve#-1.5u#,0);
+adjust_fit(if monospace: .25u#,.5u# else: 0,0 fi);
+numeric left_curve,right_curve;
+left_curve=right_curve+6stem_corr=curve if not serifs: -3stem_corr fi;
+if right_curve<tiny.breadth: right_curve:=tiny.breadth; fi
+if left_curve<tiny.breadth: left_curve:=tiny.breadth; fi
+pickup tiny.nib; pos1(right_curve,0);
+pos2(vair,90); pos3(left_curve,180);
+y1=good.y bar_height; top y2r=x_height+vround 1.5oo; y0l=bot y1;
+rt x1r=hround min(w-.5u,w-u+.5right_curve);
+lft x3r=hround max(.5u,1.25u-.5left_curve); x2=.5w+.25u;
+{{interim superness:=more_super;
+ filldraw stroke super_arc.e(1,2)}};  % right bowl
+y3=.5[y2,y4]; bot y4r=-oo; x4=x2+.25u;
+if serifs: pos4(vair',270); pos5(hair,360);
+ y5=max(good.y(.5bar_height-.9),y4l+vair); x5r=x1r;
+ (x,y4l)=whatever[z4r,z5]; x4l:=min(x,x4l+.5u);
+ filldraw stroke pulled_arc.e(2,3) & pulled_arc.e(3,4)
+  ...{x5-x4,5(y5-y4)}z5e; % left bowl, arc, and terminal
+else: pos4(vair,270);
+ filldraw stroke super_arc.e(2,3) & super_arc.e(3,4);  % left bowl and arc
+ pickup fine.nib; pos4'(vair,270); z4=z4';
+ pos5(.5[vair,flare],275); rt x5r=hround(w-.6u);
+ y5r=good.y(y5r+1/3bar_height-y5); y5l:=good.y y5l; x5l:=good.x x5l;
+ filldraw stroke term.e(4',5,right,1,4); fi  % terminal
+path testpath; testpath=super_arc.r(2,3) & super_arc.r(3,4);
+y1'r=y0r=y0l+.6[thin_join,vair]; y1'l=y0l; x1'l=x1'r=x1;
+forsuffixes $=l,r:
+ x0$=xpart(((0,y0$)--(x1,y0$)) intersectionpoint testpath); endfor
+fill stroke z0e--z1'e;  % crossbar
+penlabels(0,1,2,3,4,5);
+lc_hachek_accent(x2);
+endchar;
+
+cmchar "The letter n with hachek";
+beginchar(cs_nj,10u#,lc_hachek_height#,0);
+italcorr h#*slant-serif_fit#+.5stem#-2u#;
+adjust_fit(serif_fit#+stem_shift#,serif_fit#-stem_shift#);
+pickup tiny.nib; pos1(stem,0); pos2(stem,0);
+numeric shaved_stem; shaved_stem=hround(stem-2stem_corr);
+pos1'(shaved_stem,0); pos2'(shaved_stem,0); pos3(stem,0);
+lft x1l=hround(2.5u-.5stem); x1l=x1'l=x2l=x2'l; x3=w-x1;
+top y1=x_height+min(oo,serif_drop); bot y2=0; y1=y1'; y2=y2';
+filldraw stroke z1'e--z2'e;  % left stem
+h_stroke(2,a,3,4);  % arch and right stem
+if serifs: sloped_serif.l(1',2',b,1/3,jut,serif_drop); % upper left serif
+ numeric inner_jut; pickup tiny.nib;
+ if rt x2r+jut+.5u+1<=lft x4l-jut: inner_jut=jut;
+ else: rt x2r+jut+.5u+1=lft x4l-inner_jut; fi
+ dish_serif(2,1,c,1/3,jut,d,1/3,jut); % lower left serif
+ dish_serif(4,3,e,1/3,inner_jut,f,1/3,jut); fi % lower right serif
+penlabels(1,2,3,4); 
+lc_hachek_accent(1/2[x1r,x.a1]);
+endchar;
+
+cmchar "The letter r with hachek";
+numeric r_flare#; r_flare#=.75[if serifs: stem# else: vair# fi,flare#];
+define_whole_blacker_pixels(r_flare);
+beginchar(cs_rz,if serifs:max(7u#,5.5u#+r_flare#) else:6.5u# fi,
+          lc_hachek_height#,0);
+italcorr h#*slant if not serifs: +.25u# fi;
+adjust_fit(serif_fit#,0);
+pickup fine.nib; top y4r=x_height+oo;
+if serifs: pos4(vair,90); pos5(hair,0);
+ x4=w-max(1.75u,.25u+r_flare);
+ rt x5r=hround(w-.5u+.5); y5+.5r_flare=.9[bar_height,x_height]+oo;
+ pos6(r_flare,0); bulb(4,5,6);  % bulb
+else: pos4(r_flare,90); rt x4=hround(w-.25u); fi
+pos3(thin_join,180); rt x3l=hround(2.5u-.5stem')+stem'; top y3=bar_height;
+filldraw stroke z3e{up}...{right}z4e;  % arc
+pickup tiny.nib; pos0(stem',0); pos2(stem',0);
+pos1(hround(stem-3stem_corr),0); top y1=x_height+min(oo,serif_drop);
+pos0'(hround(stem-3stem_corr),0); y0=y0'=y3; x1l=x0l=x0'l=x2l;
+lft x1l=hround(2.5u-.5stem'); bot y2=0;
+filldraw stroke z1e--z0'e--z0e--z2e;  % stem
+if serifs: sloped_serif.l(1,0',a,1/3,jut,serif_drop);  % upper serif
+ dish_serif(2,0,b,1/3,jut,c,1/3,1.25jut); fi  % lower serif
+penlabels(1,2,3,4,5,6);
+lc_hachek_accent(0.5[x1,x4]);
+endchar;
+
+cmchar "The letter s with hachek";
+beginchar(cs_sh,7.1u#,lc_hachek_height#,0);
+italcorr h#*slant-if serifs:.55u# else:.3u# fi;
+adjust_fit(if monospace: .5u#,.4u# else: 0,if serifs:0 else:-.2u# fi fi);
+numeric theta; theta=90-angle(40u,x_height); slope:=-x_height/40u;  % angle at middle
+numeric s_slab; s_slab=if serifs:vair else:Vround .1[vair,stem] fi;
+numeric ess'; ess'=max(fine.breadth,ess);
+pickup fine.nib; pos2(max(fine.breadth,s_slab-vround vair_corr),-100);
+pos0(ess',theta); pos7(s_slab,-90); x2l=x0=x7=.5w;
+top y2l=x_height+vround 1.5oo; bot y7r=-oo;
+y0-.5ess'=y7l+if serifs:.54 else: .52 fi\\(y2r-y7l-ess');
+lft x3l=hround .6u; rt x6r=hround(w-.6u);
+x3r-x3l=x6r-x6l=hround .5[s_slab,ess']-fine;
+ellipse_set(2l,3l,4l,0l); ellipse_set(2r,3r,4r,0r); y3=y3r;
+ellipse_set(7l,6l,5l,0l); ellipse_set(7r,6r,5r,0r); y6=y6r;
+interim superness:=more_super;
+filldraw stroke super_arc.e(2,3) & z3e{down}
+ ..z4e---z5e..z6e{down} & super_arc.e(6,7);  % main stroke
+if serifs: pos1(hair,180); pos8(hair,180);
+ rt x1l=hround(w-1.05u); lft x8r=hround .6u;
+ bot y1=min(bot y2r,vround 1/5[top y5r,x_height]);
+ top y8=max(top y7l,vround 5/6 bot y4l);
+ filldraw stroke z1e{up}....{left}z2e;  % upper arc
+ filldraw stroke z7e{left}....{x8-x7,5(y8-y7)}z8e;  % lower arc
+ path upper_arc, lower_arc;
+ upper_arc=z1{up}....{left}z2; lower_arc=z7{left}....{x8-x7,5(y8-y7)}z8;
+ pos10(.3[fine.breadth,cap_hair],0); pos9(.3[fine.breadth,cap_hair],0);
+ x10r=x1l; top y10=top y2l; x9l=x8r; bot y9=bot y7r;
+ x1l-x1'=x8'-x8r=1.6cap_curve-fine; y1'=y1; y8'=y8;
+ numeric t; t=xpart(upper_arc intersectiontimes(z10l--z1'));
+ filldraw z1l--z10r--z10l--subpath(t,0) of upper_arc--cycle;  % upper barb
+ t:=xpart(lower_arc intersectiontimes(z9r--z8'));
+ filldraw z8r--z9l--z9r--subpath(t,1) of lower_arc--cycle;  % lower barb
+else: pos1(4/7[s_slab,flare],-100); pos8(flare,-100);
+ x1l=good.x(x1l+w-u-rt x1); lft x8r=hround .5u;
+ top y1l=vround(.93x_height+1.5oo); bot y8r=vround .1x_height-oo;
+ filldraw stroke term.e(2,1,right,.9,4);  % upper arc and terminal
+ filldraw stroke term.e(7,8,left,1,4); fi  % lower arc and terminal
+penlabels(0,1,1',2,3,4,5,6,7,8,8',9,10);
+lc_hachek_accent(0.5[x3l,x1l]);
+endchar;
+
+cmchar "The letter z with hachek";
+beginchar(cs_zh,8u#,lc_hachek_height#,0);
+italcorr h#*slant-.5serif_fit#-.3u#;
+adjust_fit(0,.5serif_fit#);
+numeric arm_thickness[],z_stem;
+if hefty: arm_thickness1=Vround(vair-vair_corr); arm_thickness2=vair;
+ z_stem=.6[vair,stem];
+else: arm_thickness1=vair; arm_thickness2=vair'; z_stem=.9[vair,stem]; fi
+pickup tiny.nib; rt x1r=rt x2r=hround(w-.8u); lft x3l=lft x4l=hround .5u;
+top y1=x_height; y2=min(y1,x_height-2/3arm_thickness1);
+bot y4=0; y3=max(y4,2/3arm_thickness2);
+numeric alpha; alpha=diag_ratio(1,z_stem-tiny,y2-y3,x2r-x3l-slant*(y2-y3));
+penpos1(alpha*(z_stem-tiny),0); penpos2(alpha*(z_stem-tiny),0);
+penpos3(alpha*(z_stem-tiny),0); penpos4(alpha*(z_stem-tiny),0);
+pair delta; delta=penoffset z3-z2 of currentpen;
+fill top lft z1l--z2l+delta---z3l+delta..lft z3l---lft z4l..bot z4l
+ ---bot rt z4r--z3r-delta---z2r-delta..rt z2r---rt z1r..top z1r
+ ---cycle;  % diagonal
+pickup crisp.nib; pos5(arm_thickness1,90); pos6(hair,180);
+top y5r=x_height; x5=x1; lft x6r=hround .75u; y6=good.y(y5l-beak/1.4)-eps;
+arm(5,6,a,beak_darkness,-.4beak_jut);  % upper arm and beak
+pos7(arm_thickness2,-90); pos8(hair,0);
+bot y7r=0; x7=x4; rt x8r=hround(w-.75u); y8=good.y(y7l+beak/1.2)+eps;
+arm(7,8,b,beak_darkness,.6beak_jut);  % lower arm and beak
+penlabels(1,2,3,4,5,6,7,8);
+lc_hachek_accent(1/2[x6r,x1r]);
+endchar;

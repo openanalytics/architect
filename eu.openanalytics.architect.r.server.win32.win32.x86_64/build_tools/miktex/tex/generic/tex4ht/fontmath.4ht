@@ -1,0 +1,141 @@
+% fontmath.4ht (2018-11-06-15:55), generated from tex4ht-4ht.tex
+% Copyright 1997-2009 Eitan M. Gurari
+% Copyright 2009-2018 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2018-11-06-15:55}
+
+\def\:same#1{#1}
+\def\no:fonts{\more:no  \let\protect\@unexpandable@protect }
+\def\more:no{%
+   \let\footnote\:gobble \let\ \space
+ }
+\def\relbar{\mathrel-}
+
+\def\choose:mfont#1{\ifx \math@bgroup \relax
+     \expandafter\old:mfont
+   \else
+     \expandafter\new:mfont
+   \fi
+   {#1}}
+\def\old:mfont#1{\csname o:@#1:\endcsname}
+\def\new:mfont#1#2{%
+      \csname a:#1\endcsname
+      \csname o:#1@@:\endcsname
+  {#2}\csname b:#1\endcsname
+}
+\def\:temp{\protect \@mathtt}
+\ifx \mathtt\:temp
+   \def\:tempd#1{%
+   \expandafter\edef\csname #1\endcsname{%
+       \noexpand\protect \expandafter\noexpand
+            \csname #1@@\endcsname}
+   \expandafter\edef\csname #1@@\endcsname{%
+       \noexpand\protect \expandafter\noexpand
+       \csname @#1\endcsname}
+   \def\:tempc{\choose:mfont {#1}}
+   \expandafter\HLet\csname #1@@\endcsname\:tempc
+   \NewConfigure{#1}{2}%
+}
+
+\else
+   \def\:tempd#1{%
+   \expandafter\edef\csname #1\endcsname{%
+       \noexpand\protect \expandafter\noexpand
+            \csname #1@@\endcsname}
+   \expandafter\edef\csname #1@@\endcsname{%
+       \noexpand\protect \expandafter\noexpand
+       \csname #1\space\endcsname}
+   \def\:tempc{\choose:mfont {#1}}
+   \expandafter\HLet\csname #1@@\endcsname\:tempc
+   \NewConfigure{#1}{2}%
+}
+
+\fi
+
+\:tempd{mathbf}
+\:tempd{mathrm}
+\:tempd{mathsf}
+\:tempd{mathit}
+\:tempd{mathtt}
+\ProtectedMathSymbol\mathop{longleftarrow}
+\ProtectedMathSymbol\mathop{longrightarrow}
+
+\MathSymbol\mathop{int}
+   \def\n:int:{\expandafter\:same \math:sym\mathop{int}\nolimits}
+
+\def\:tempc#1{{\hbox{\pic:gobble\a:big$\pic:gobble\c:big\left#1\vbox
+    to8.5\p@{}\right.\n@space\pic:gobble\d:big$\pic:gobble\b:big}}}
+\HLet\big=\:tempc
+\def\:tempc#1{{\hbox{\pic:gobble\a:Big$\pic:gobble\c:Big\left#1\vbox
+    to11.5\p@{}\right.\n@space\pic:gobble\d:Big$\pic:gobble\b:Big}}}
+\HLet\Big\:tempc
+\def\:tempc#1{{\hbox{\pic:gobble\a:bigg$\pic:gobble\c:bigg\left#1\vbox
+    to14.5\p@{}\right.\n@space\pic:gobble\d:bigg$\pic:gobble\b:bigg}}}
+\HLet\bigg\:tempc
+\def\:tempc#1{{\hbox{\pic:gobble\a:Bigg$\pic:gobble\c:Bigg\left#1\vbox
+    to17.5\p@{}\right.\n@space\pic:gobble\d:Bigg$\pic:gobble\b:Bigg}}}
+\HLet\Bigg\:tempc
+\HLet\Bigg=\:tempc
+\NewConfigure{big}{4}
+\NewConfigure{Big}{4}
+\NewConfigure{bigg}{4}
+\NewConfigure{Bigg}{4}
+
+\def\:temp#1{\a:overbrace \mathop{\hbox{\b:overbrace
+   $\o:overbrace:{#1}$\c:overbrace}}\limits}
+\HLet\overbrace\:temp
+\NewConfigure{overbrace}{3}
+\def\:temp#1{\a:underbrace \mathop{\hbox{$\b:underbrace
+   \o:underbrace:{#1}\c:underbrace$}}\limits}
+\HLet\underbrace\:temp
+\NewConfigure{underbrace}{3}
+
+\MathSymbol\mathop{angle}
+\MathSymbol\mathop{cong}
+\MathSymbol\mathop{vdots}
+\MathSymbol\mathop{ldots}
+\MathSymbol\mathrel{Longleftrightarrow}
+\MathSymbol\mathrel{Longrightarrow}
+\MathSymbol\mathrel{bowtie}
+\MathSymbol\mathrel{cdots}
+\MathSymbol\mathrel{ddots}
+\MathSymbol\mathrel{doteq}
+\MathSymbol\mathrel{hookleftarrow}
+\MathSymbol\mathrel{hookrightarrow}
+\MathSymbol\mathrel{leftrightharpoons}
+\MathSymbol\mathrel{longleftrightarrow}
+\MathSymbol\mathrel{longmapsto}
+\MathSymbol\mathrel{mapsto}
+\MathSymbol+\mathrel{mid}
+\MathSymbol\mathrel{models}
+\MathSymbol\mathrel{neq} \let\ne\neq   \def\c:ne:{\Configure{neq}}
+\MathSymbol\mathrel{notin}
+\MathSymbol\mathrel{rightleftharpoons}
+
+\def\:tempc#1{\a:overrightarrow
+   \o:overrightarrow:{#1}\b:overrightarrow}
+\HLet\overrightarrow\:tempc
+\NewConfigure{overrightarrow}{2}
+\def\:tempc#1{\a:overleftarrow
+   \o:overleftarrow:{#1}\b:overleftarrow}
+\HLet\overleftarrow\:tempc
+\NewConfigure{overleftarrow}{2}
+
+\Hinput{fontmath}
+\endinput
+

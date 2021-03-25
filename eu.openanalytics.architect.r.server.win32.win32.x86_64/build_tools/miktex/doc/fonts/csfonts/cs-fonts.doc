@@ -1,0 +1,166 @@
+
+             ********** Informace o CS-fontech **********
+             ********************************************
+             21.9.96                           Petr Ol¹ák
+
+CS-fonty jsou konzervativním roz¹íøením CM fontù Donalda Knutha. Tím je 
+mínìno, ¾e ka¾dý CS-font má svùj protìj¹ek v nìjakém CM fontu, pøièem¾ tyto 
+dva fonty se naprosto shodují v kódování, tvarech a ¹íøkách  znakù prvních 
+128 pozic ve fontu. Kódování tìchto fontù je pøesnì popsáno v knize
+"D. Knuth: Computer Modern Typefaces, vol. E of Computer & Typesetting".
+Znaky s kódy nad 128 v CS-fontech odpovídají kódování písmen èeské abecedy
+podle ISO 8859-2. Pøesný popis kódování CS-fontù je uveden v dodatku F
+knihy "P. Ol¹ák: Typografický systém TeX".
+
+Následuje seznam v¹ech CM fontù. Pokud není vpravo uveden alternativní název
+CS-fontu, jedná se o matematický font, který nemá v CS-fontech alternativu.
+Také ji nepotøebuje.
+
+CM font                           CS-font
+--------------------------------------------------------------------
+cmr17, 12, 10, 9, 8, 7, 6, 5      csr17, 12, 10, 9, 8, 7, 6, 5
+cmbx12, 10, 9, 8, 7, 6, 5         csbx12, 10, 9, 8, 7, 6, 5
+cmsl12, 10, 9, 8                  cssl12, 10, 9, 8
+cmtt12, 10, 9, 8                  cstt12, 10, 9, 8
+cmsltt10, cmvtt10                 cssltt10, csvtt10
+cmss17, 12, 10, 9, 8              csss17, 12, 10, 9, 8
+cmssi17, 12, 10, 9, 8             csssi17, 12, 10, 9, 8
+cmssdc10, cmssbx10                csssdc10, csssbx10
+cmssqi8, cmssq8                   csssqi8, csssq8
+cmdunh10, cmbxsl10, cmb10         csdunh10, csbxsl10, csb10
+cmff10, cmfib10                   csff10, csfib10
+--------------------------------------------------------------------
+cmti12, 10, 9, 8, 7               csti12, 10, 9, 8, 7
+cmbxti10, cmitt10                 csbxti10, csitt10
+cmu10, cmfi10                     csu10, csfi10
+--------------------------------------------------------------------
+cmcsc10, cmtcsc10                 cscsc10, cstcsc10
+--------------------------------------------------------------------
+cminch10                          csinch10
+--------------------------------------------------------------------
+cmmi12, 10, 9, 8, 7, 6, 5
+cmmib10
+--------------------------------------------------------------------
+cmtex10, 9, 8
+--------------------------------------------------------------------
+cmsy10, 9, 8, 7, 6, 5
+cmbsy10
+--------------------------------------------------------------------
+cmex10
+--------------------------------------------------------------------
+
+Mezi soubory metrik CS-fontù navíc najdeme metriky vytvoøené Sauterovou
+extrapolací, které nemají pøímou obdobu mezi CM fonty:
+
+                                  CS-font
+--------------------------------------------------------------------
+                                  csb17, 12, 9, 8, 7, 6, 5
+                                  csbxsl12, 5, 6, 7, 8, 9
+				  csbxti17, 12
+				  cscsc17, 12
+				  csdunh17, 12, 5, 6, 7, 8, 9
+				  csfib12, 10, 9
+				  csitt12, 17, 8, 9
+				  cssl17, 5, 6, 7
+				  cssltt12, 8, 9
+				  csssbx12, 17, 9
+				  cstcs12, 17
+				  csti17
+				  csu12, 17, 7, 8, 9
+				  csvtt12, 8, 9
+--------------------------------------------------------------------
+
+Odli¹nosti od CM fontù
+**********************
+
+Nelze tvrdit, ¾e text pou¾ívající jen znaky z pozic 0--127 bude
+100% shodnì zpracován pøi pou¾ití CM fontù i CS fontù. Odli¹nosti existují,
+ale jsou tak nepatrné, ¾e je velmi malá prvadìpodobnost, ¾e by pøi bì¾ném
+u¾ívání byla pozorovatelná rozdílnost. Nicménì pøesto zde v¹echny
+odli¹nosti uvádím vèetnì komentáøù. Uvedené hodnoty jsou pøíkladem
+pøi srovnání fontu csr10 s cmr10.
+
+1. Kerningové páry
+------------------
+".." -- mezi teèkami v csr10 je implicitní kern, aby bylo mo¾no sázet
+        elipsu. Kern 0,011111pt. V cmr10 není.
+"ka" -- csr10: -0,0027777pt, cmr10: -0,0055555pt.
+"P." "P," -- csr10: -0,0027777pt, cmr10 není.
+"F." "F," "V." "V," "W." "W," -- csr10 -0,0055555pt, cmr10 není.
+"Av" "Aw" -- csr10: -0,011111pt, cmr10 není.
+
+2. Ligatury
+-----------
+"<<" vede v csr10 na francouzské uvozovky, kód 158, v cmr10 není.
+">>" vede v csr10 na francouzské uvozovky, kód 159, v cmr10 není.
+
+3. Vý¹ky znakù
+--------------
+Formát .tfm je omezen na maximálnì 16 rùzných vý¹ek znakù v jednom fontu.
+V cmr10 je obsazeno v¹ech 16 rùzných vý¹ek. Pøitom v csr10 pøicházejí dal¹í
+vý¹ky znakù dané akcentovanými znaky. Proto METAFONT provedl v csr10 jistá
+zaokrouhlení, která zpùsobí odli¹nost vý¹ek od vý¹ek v cmr10 maximálnì o
+0,007779pt. Jedná se o tyto znaky:
+
+\Gamma a¾ \Omega, \AE, \OE a v¹echny kapitálky:
+                                        v csr10 jsou men¹í o 0,00773pt
+Nadr¾ítko (kód 22), nadpuntík (kód 95) a pøehláska (kód 127):
+                                        v csr10 vìt¹í o 0,007779pt
+i, j                                    v csr10 vìt¹í o 0,007779pt
++ (znak plus)                           v csr10 men¹í o 0,007778pt
+
+Rozdílnost vý¹ek není kritická, proto¾e pøi sazbì se vìt¹inou berou v úvahu
+jen ¹íøky znakù. Pouze výjimeènì promluví do sazby i vý¹ka (vìt¹inou kdy¾
+objekt v øádku je vìt¹í ne¾ \baselineskip).
+
+
+Opravy v CS fontech
+*******************
+
+20.9.1996: È a dal¹í akcentované kapitálky mìly vìt¹í vý¹ku ne¾ kresba o
+           1,2pt. Opraveno.
+
+20.9.1996: Odstranìny nevhodné záporné kerny: 
+           Tì, Tø, T\"o, T\"u, T\"a, T\`a, analog. pro «, Y, Ý.
+           Vì, Vø, V\"o, V\"u, analog. pro F, W. 
+           Redukovány pøíli¹né záporné kerny: 
+           Té, Tó, Tù, Tà, Tá, Tú, analog. pro «, Y, Ý. 
+
+           Uvedené zmìny nemìní kontrolní souèet fontu, proto¾e ten je
+           poèítán jen ze ¹íøek znakù (viz sekce 1132 v mf.web).
+           Dùsledek: Není potøeba znovu generovat bitové mapy fontù.
+           Pokud chcete fonty zavést do sazby, nezapomeòte pouze znovu
+           vygenerovat formáty za pøítomnosti nových metrik.
+
+1.7.1997   csaccent.mf -- støí¹ka nad o ní¾e,
+                       -- odstranìna chyba v generování \`A ve vysokém
+                          rozli¹ení.
+           csacutl.mf, csiacutl.mf  -- èárka nad ó více vpravo.
+	   csotheru.mf -- upraveno umístìní krou¾ku nad Ù.
+           kmroman.mf  -- úprava nìkterých kernù. 1. Pøisazeno blí¾e:
+                          Vè, Vì, V\"u, Vc (toté¾ pro W a F)
+                          Té, Tì, Tó, Tá, Tú, Tc, Tè (té¾ pro «, Y, Ý)
+                          tato úprava ov¹em neznamená návrat ke stavu
+			  pøed 20.9.96, ale pokud mo¾no optimální kompromis.
+			  2. odsazeno od sebe:
+			  ï`` a »`` (viz \uv{nebuï} \uv{labu»})
+                          Pozor: aby kern zaèal pracovat, nelze pou¾ít
+                          øe¹ení makra \uv pomocí \aftergroup (to je
+			  implicitnì v csplainu). Místo toho pi¹te:
+                          \def\uv #1{\clqq #1\crqq}.
+
+Copyright
+*********
+
+Zdrojové soubory k CSfontùm patøí mezi volnì ¹íøený software; mù¾ete
+jej dále distribuovat anebo modifikovat za podmínek GNU General Public
+License, jak ji publikovala Free Software Foundation; buï ve verzi 2
+této licence nebo (podle Va¹í volby) v libovolné pozdìj¹í verzi.
+
+Tento software je distribuován s pøáním, aby byl u¾iteèný, ale BEZ
+®ÁDNÉ ZÁRUKY. Viz GNU General Public License.
+
+Anglický originál GNU General Publics License najdete v distribuci
+CSTeXu a mnoha dal¹ích volnì ¹íøených programù. Mù¾ete si té¾ o nìj
+napsat na adresu Free Software Foundation, Inc., 59 Temple Place,
+Suite 330, Boston, MA 02111-1307 USA

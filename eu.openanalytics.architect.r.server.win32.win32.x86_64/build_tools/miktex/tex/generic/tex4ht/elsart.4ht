@@ -1,0 +1,169 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% elsart.4ht                            2019-12-19-14:27 %
+% Copyright (C) 1999-2009       Eitan M. Gurari         %
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\edef\@ptsize{\ifdim \normalbaselineskip>14pt 2\else
+   \ifdim \normalbaselineskip>13pt 2\else 0\fi\fi}
+\input article.4ht
+\@twocolumnfalse \@TwoColumnfalse
+\let\endtable\end@float
+\let\endalgorithm\end@float
+\let\endfigure\end@float
+\def\@mpmakefnmark{\,\hbox{$\sp{\mathrm{\@thefnmark}}$}}
+\long\def\@mpmakefntext#1{\noindent
+                     \hbox{$\sp{\mathrm{\@thefnmark}}$} #1}
+\def\itnuc#1#2{\setbox\@tempboxa=\hbox{\scriptsize\it #1}
+  \def\@tempa{{}\sp{\box\@tempboxa}\!\protect\text{\it #2}}\relax
+  \ifmmode \@tempa \else $\@tempa$\fi}
+\def\address@fmt#1#2#3#4{\@newelemtrue
+  \if@Elproofing\def\@eltag{#4}\else\def\@eltag{\theaddress}\fi
+  \ifnum\prev@elem=\e@address \@newelemfalse \fi
+  \if@newelem \address@fmt@init \fi
+  \noindent \bgroup \@addressstyle
+  \a:address
+  \ifnum#1=\z@
+    #3\,$\sp{\mathrm{#2}}$\space%
+  \else
+    \ifnum#1=\m@ne
+      $\sp{\phantom{\mathrm{\@eltag}}}$\space #3\,$\sp{\mathrm{#2}}$%
+    \else
+      $\sp{\mathrm{\@eltag}}\space$#3\,$\sp{\mathrm{#2}}$%
+    \fi
+  \fi
+  \b:address
+  \par \egroup}
+\NewConfigure{address}{2}
+\def\collab@fmt#1#2#3{\@newelemtrue
+  \ifnum\prev@elem=\e@collab \global\@newelemfalse \fi
+  \if@newelem \collab@fmt@init \fi
+  \par                                 % Start new paragraph
+  {\large #3\,$\sp{\mathrm{#2}}$}}
+\def\@makefnmark{\,\hbox{$\sp{\fn@presym\mathrm{\@thefnmark}}$}\,}
+\def\nuc#1#2{\relax\ifmmode{\HCode{}}\sp{#1}{\protect\text{#2}}\else
+    ${\HCode{}}\sup{#1}$#2\fi}
+\def\title@fmt#1#2{%
+\@ifundefined{@runtitle}{\global\def\@runtitle{#1}}{}%
+ \vspace*{12pt}
+  {\@titlesize\a:ttl #1\,\hbox{$\sp{#2}$}\b:ttl\par}%
+  \vskip\@undertitleskip
+\vskip24\p@  % Vertical space below title
+  }
+\def\subtitle@fmt#1#2{%               % No vertical space above sub-title
+  {\@titlesize \a:subtitle#1\b:subtitle\,\hbox{$\sp{#2}$}}\par}
+\NewConfigure{subtitle}{2}
+
+
+\def\@makecaption{\@makefigurecaption}
+\long\def\@makefigurecaption#1#2{%
+{\cptA: \cap:ref{#1}%
+\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}
+\long\def\@maketablecaption#1#2{\@tablecaptionsize
+    \global \@minipagefalse
+\hbox{{\cptA: \cap:ref{#1}%
+\if :#1:\else\cptB:\fi}{\cptC:{#2}\cptD:}}}
+\pend:def\open@fm{\:gobbleIV}
+\pend:def\close@fm{\gdef\:temp{\global\setbox\fm@box=\vbox{}}}
+\def\endfrontmatter{%
+  \ifx\@runauthor\relax
+   \global\let\@runauthor\@runningauthor
+  \fi
+  \global\n@author=\c@author
+  \global\n@collab=\c@collab \@writecount
+  \global\@topnum\z@
+  \thispagestyle{copyright}%            % Format rest of front matter:
+  \if@preface \else                     % IF not preface THEN
+  \vskip \@overhistoryskip
+  \history@fmt                          % print history (received, ...)
+  \newcount\c@sv@footnote
+  \global\c@sv@footnote=\c@footnote     % save current footnote number
+  \if@hasabstract                       % IF abstract/ keywords THEN
+   \vskip \@preabstractskip     % Space above rule
+%  \hrule height 0.4\p@                 % Rule above abstract/keywords
+    \vskip 8\p@
+    \unvbox\t@abstract                  % print abstract, if any
+  \fi
+  \if@haskeywords                       % IF keywords THEN
+    \vskip \@overkeywordskip
+    \unvbox\t@keyword                   % Keyword abstract, if any
+  \fi                                   % FI
+  \vskip 10\p@
+%  \hrule height 0.4\p@                 % rule below abstract/keywords
+  \dedicated@fmt                        % print dedication
+  \vskip \@belowfmskip                  % Vertical space below frontmatter
+\fi                                   % FI
+  \close@fm                             % Close front matter material.
+   \output@glob@notes  % Put notes at bottom of 1st page
+  \global\c@footnote=\c@sv@footnote     % restore footnote number
+  \global\@prefacefalse
+  \global\leftskip\z@                   % Restore the normal values of
+  \global\@rightskip\z@                 % \leftskip,
+  \global\rightskip\@rightskip          % \rightskip and
+  \global\mathsurround\sv@mathsurround  % \mathsurround.
+  \let\title\relax       \let\author\relax
+  \let\collab\relax      \let\address\relax
+  \let\frontmatter\relax \let\endfrontmatter\relax
+  \let\@maketitle\relax  \let\@@maketitle\relax
+  \normal@text
+}
+\def\thanks{\@ifnextchar[{\@tempswatrue
+  \thanks@optarg}{\@tempswafalse\thanks@optarg[]}}
+\def\thanks@optarg[#1]#2{\SkipRefstepAnchor
+  \refstepcounter{footnote}
+  \if@tempswa\label{#1}\else\relax\fi
+  \add@tok\t@glob@notes{\els:footnotetext}%
+  \add@xtok\t@glob@notes{{#1}[\the\c@footnote]}%
+  \add@tok\t@glob@notes{{#2}}}
+\def\els:footnotetext#1[#2]#3{%
+   \footnotetext[#2]{{\def\rEfLiNK##1##2{\Link{}{##1}\EndLink}%
+   \ref{#1}}#3}}
+\def\author@fmt#1#2#3{\@newelemtrue
+  \a:author
+  \if@firstauthor
+  \first@author \global\@firstauthorfalse \fi
+  \ifnum\prev@elem=\e@author \global\@newelemfalse \fi
+  \if@newelem \author@fmt@init \fi
+  \edef\@tempb{#2}\ifx\@tempb\@empty
+    \hbox{{\author@font #3}}\else
+    \hbox{{\author@font #3}\,$\sp{\mathrm{#2}}$}%
+  \fi
+  \b:author}
+
+\def\:temp{%
+    \let\no:indent\noindent
+    \def\noindent{%
+       \global\let\noindent\no:indent
+       \append:def\abstractname{\aftergroup\b:abstract}%
+       \a:abstract \noindent}%
+    \pend:def\endabstract{\c:abstract}\o:@abstract:}
+\HLet\@abstract\:temp
+\NewConfigure{abstract}{3}
+
+\def\:temp{%
+    \let\no:indent\noindent
+    \def\noindent{%
+       \global\let\noindent\no:indent
+       \a:keyword \noindent}%
+    \pend:def\endkeyword{\b:keyword}\o:keyword:}
+\HLet\keyword\:temp
+\NewConfigure{keyword}{2}
+
+
+\Hinput{elsart}
+\endinput
+

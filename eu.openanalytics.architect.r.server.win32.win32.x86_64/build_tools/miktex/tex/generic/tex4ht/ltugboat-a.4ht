@@ -1,0 +1,64 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ltugboat-a.4ht                        2009-05-21-09:32 %
+% Copyright (C) 1999--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\def\TB@nolimelabel{}
+\long\def\:temp#1{{\a:textSMC \o:textSMC:{#1}\b:textSMC}}
+\HLet\textSMC\:temp
+\NewConfigure{textSMC}{2}
+\pend:defI\theauthor{\a:author}
+\append:defI\theauthor{{}\b:author}
+\NewConfigure{author}{2}
+\pend:defI\theaddress{\a:address}
+\append:defI\theaddress{{}\b:address}
+\NewConfigure{address}{2}
+\pend:defI\thenetaddress{\a:netaddress}
+\append:defI\thenetaddress{{}\b:netaddress}
+\NewConfigure{netaddress}{2}
+\pend:defI\thePersonalURL{\a:PersonalURL}
+\append:defI\thePersonalURL{{}\b:PersonalURL}
+\NewConfigure{PersonalURL}{2}
+\pend:def\signaturemark{\a:signaturemark}
+\append:def\signaturemark{{}\b:signaturemark}
+\NewConfigure{signaturemark}{2}
+\pend:def\@makesectitle{\ifSecTitle \a:sectitle}
+\append:def\@makesectitle{\b:sectitle \else\par\fi}
+\NewConfigure{sectitle}{2}
+\long\def\:tempc[#1]{\a:makesignature\bgroup
+   \pend:def\@signature{\everypar{\HtmlPar}\a:signature}\csname
+                     o:\string\makesignature:\endcsname[#1]\egroup
+   \b:makesignature}
+\expandafter\HLet\csname \string\makesignature\endcsname\:tempc
+\NewConfigure{makesignature}{2}
+\NewConfigure{signature}{1}
+\def\:tempc{\a:titlex\o:rtitlex:\b:titlex}
+\HLet\rtitlex\:tempc
+\NewConfigure{titlex}{2}
+
+\Hinput{ltugboat}
+\endinput
+

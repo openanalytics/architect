@@ -1,0 +1,147 @@
+wncy-iwona 0 127
+'&#x040a;' ''     0 % wncy-iwona.htf 2020-05-27-14:14 %
+'&#x0409;' ''     1 % Copyright (C) 2005-2009                    Eitan M. Gurari %
+'&#x040F;' ''     2 %
+'&#x042d;' ''     3 % This work may be distributed and/or modified under the conditions
+'&#x0406;' ''     4 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x0404;' ''     5 % license or (at your option) any later version. The latest version
+'&#x0402;' ''     6 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x040b;' ''     7 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x045a;' ''     8 % 2003/12/01 or later.
+'&#x0459;' ''     9 % This work has the LPPL maintenance status "maintained".
+'&#x045F;' ''     10 % Current Maintainer of this work is the TeX4ht Project.
+'&#x044d;' ''     11 %
+'&#x0456;' ''     12 % If you modify this file, changing the
+'&#x0454;' ''     13 % version identification would be appreciated.
+'&#x0452;' ''     14 %
+'&#x045b;' ''     15 % tex4ht@tug.org
+'&#x042e;' ''     16 % https://tug.org/tex4ht
+'&#x0416;' ''     17 %
+'&#x0419;' ''     18 
+'&#x0401;' ''     19
+'&#x0474;' ''     20
+'&#x0472;' ''     21
+'&#x0405;' ''     22
+'&#x042f;' ''     23
+'&#x044e;' ''     24
+'&#x0436;' ''     25
+'&#x0439;' ''     26
+'&#x0451;' ''     27
+'&#x0475;' ''     28
+'&#x0473;' ''     29
+'&#x0455;' ''     30
+'&#x044f;' ''     31
+'&#x00A8;' ''     32
+'!' ''     33
+'&#x201D;' ''     34
+'&#x0462;' ''     35
+'&#x02D8;' ''     36
+'%' ''  37
+'&#x00B4;' ''     38
+'&#x2019;' ''     39
+'&#x0028;' ''  40
+'&#x0029;' ''  41
+'*' ''  42
+'&#x0463;' ''     43
+',' ''  44
+'-' ''  45
+'.' ''  46
+'/' ''     47
+'0' ''  48
+'1' ''  49
+'2' ''  50
+'3' ''  51
+'4' ''  52
+'5' ''  53
+'6' ''  54
+'7' ''  55
+'8' ''  56
+'9' ''  57
+':' ''  58
+';' ''  59
+'&#x00AB;' ''     60
+'&#x0131;' ''     61
+'&#x00BB;' ''     62
+'?' ''  63
+'&#x02D8;' ''     64
+'&#x0410;' ''     65
+'&#x0411;' ''     66
+'&#x0426;' ''     67
+'&#x0414;' ''     68
+'&#x0415;' ''     69
+'&#x0424;' ''     70
+'&#x0413;' ''     71
+'&#x0425;' ''     72
+'&#x0418;' ''     73
+'&#x0408;' ''     74
+'&#x041a;' ''     75
+'&#x041b;' ''     76
+'&#x041c;' ''     77
+'&#x041d;' ''     78
+'&#x041e;' ''     79
+'&#x041f;' ''     80
+'&#x0427;' ''     81
+'&#x0420;' ''     82
+'&#x0421;' ''     83
+'&#x0422;' ''     84
+'&#x0423;' ''     85
+'&#x0412;' ''     86
+'&#x0429;' ''     87
+'&#x0428;' ''     88
+'&#x042b;' ''     89
+'&#x0417;' ''     90
+'&#x005B;' ''  91
+'&#x201C;' ''     92
+'&#x005D;' ''  93
+'&#x042c;' ''     94
+'&#x042a;' ''     95
+'&#x2018;' ''     96
+'&#x0430;' ''     97
+'&#x0431;' ''     98
+'&#x0446;' ''     99
+'&#x0434;' ''     100
+'&#x0435;' ''     101
+'&#x0444;' ''     102
+'&#x0433;' ''     103
+'&#x0445;' ''     104
+'&#x0438;' ''     105
+'&#x0458;' ''     106
+'&#x043a;' ''     107
+'&#x043b;' ''     108
+'&#x043c;' ''     109
+'&#x043d;' ''     110
+'&#x043e;' ''     111
+'&#x043f;' ''     112
+'&#x0447;' ''     113
+'&#x0440;' ''     114
+'&#x0441;' ''     115
+'&#x0442;' ''     116
+'&#x0443;' ''     117
+'&#x0432;' ''     118
+'&#x0449;' ''     119
+'&#x0448;' ''     120
+'&#x044b;' ''     121
+'&#x0437;' ''     122
+'&#x2013;' ''     123
+'&#x2014;' ''     124
+'&#x2116;' ''     125
+'&#x044c;' ''     126
+'&#x044a;' ''     127
+wncy-iwona 0 127
+htfcss: wncy-iwonab  font-weight: bold;
+htfcss: wncy-iwonabi  font-style:italic; font-weight: bold;
+htfcss: wncy-iwonacb  font-weight: bold;
+htfcss: wncy-iwonacbi  font-style:italic; font-weight: bold;
+htfcss: wncy-iwonach  font-weight: bold;
+htfcss: wncy-iwonachi  font-style:italic; font-weight: bold;
+htfcss: wncy-iwonacl  font-weight: light;
+htfcss: wncy-iwonacli  font-weight: light; font-style:italic;
+htfcss: wncy-iwonacmi  font-style:italic;
+htfcss: wncy-iwonacri  font-style:italic;
+htfcss: wncy-iwonah  font-weight: bold;
+htfcss: wncy-iwonahi  font-style:italic; font-weight: bold;
+htfcss: wncy-iwonal  font-weight: light;
+htfcss: wncy-iwonali  font-weight: light; font-style:italic;
+htfcss: wncy-iwonami  font-style:italic;
+htfcss: wncy-iwonari  font-style:italic;
+

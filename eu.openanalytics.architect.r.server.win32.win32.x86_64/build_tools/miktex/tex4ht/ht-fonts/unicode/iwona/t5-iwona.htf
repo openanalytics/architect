@@ -1,0 +1,18 @@
+.lm-t5
+htfcss: t5-iwonab  font-weight: bold;
+htfcss: t5-iwonabi  font-style:italic; font-weight: bold;
+htfcss: t5-iwonacb  font-weight: bold;
+htfcss: t5-iwonacbi  font-style:italic; font-weight: bold;
+htfcss: t5-iwonach  font-weight: bold;
+htfcss: t5-iwonachi  font-style:italic; font-weight: bold;
+htfcss: t5-iwonacl  font-weight: light;
+htfcss: t5-iwonacli  font-weight: light; font-style:italic;
+htfcss: t5-iwonacmi  font-style:italic;
+htfcss: t5-iwonacri  font-style:italic;
+htfcss: t5-iwonah  font-weight: bold;
+htfcss: t5-iwonahi  font-style:italic; font-weight: bold;
+htfcss: t5-iwonal  font-weight: light;
+htfcss: t5-iwonali  font-weight: light; font-style:italic;
+htfcss: t5-iwonami  font-style:italic;
+htfcss: t5-iwonari  font-style:italic;
+

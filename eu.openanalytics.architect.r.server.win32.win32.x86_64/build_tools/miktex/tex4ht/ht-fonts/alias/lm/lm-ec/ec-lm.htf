@@ -1,0 +1,37 @@
+.lm-ec
+htfcss: ec-lmbo  font-style: oblique;
+htfcss: ec-lmbx  font-weight: bold;
+htfcss: ec-lmbxi  font-style:italic; font-weight: bold;
+htfcss: ec-lmbxo  font-style: oblique; font-weight: bold;
+htfcss: ec-lmcsco  font-style: oblique;
+htfcss: ec-lmcs  font-variant: small-caps;
+htfcss: ec-lmri  font-style:italic;
+htfcss: ec-lmro  font-style: oblique;
+htfcss: ec-lmss  font-family: sans-serif;
+htfcss: ec-lmssbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: ec-lmssbx  font-family: sans-serif; font-weight: bold;
+htfcss: ec-lmssdc  font-family: sans-serif;
+htfcss: ec-lmssdo  font-family: sans-serif; font-style: oblique;
+htfcss: ec-lmsso  font-family: sans-serif; font-style: oblique;
+htfcss: ec-lmssq  font-family: sans-serif;
+htfcss: ec-lmssqbo  font-family: sans-serif; font-style: oblique; font-weight: bold;
+htfcss: ec-lmssqbx  font-family: sans-serif; font-weight: bold;
+htfcss: ec-lmssqo  font-family: sans-serif; font-style: oblique;
+htfcss: ec-lmtcsc  font-family: monospace,monospace;
+htfcss: ec-lmtcso  font-style: oblique; font-family: monospace,monospace;
+htfcss: ec-lmtk  font-family: monospace,monospace;
+htfcss: ec-lmtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: ec-lmtl  font-weight: light; font-family: monospace,monospace;
+htfcss: ec-lmtlc  font-weight: light; font-family: monospace,monospace;
+htfcss: ec-lmtlco  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: ec-lmtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: ec-lmtt  font-family: monospace,monospace;
+htfcss: ec-lmtti  font-family: monospace,monospace; font-style:italic;
+htfcss: ec-lmtto  font-style: oblique; font-family: monospace,monospace;
+htfcss: ec-lmvtk  font-family: monospace,monospace;
+htfcss: ec-lmvtko  font-style: oblique; font-family: monospace,monospace;
+htfcss: ec-lmvtl  font-weight: light; font-family: monospace,monospace;
+htfcss: ec-lmvtlo  font-weight: light; font-style: oblique; font-family: monospace,monospace;
+htfcss: ec-lmvtt  font-family: monospace,monospace;
+htfcss: ec-lmvtto  font-style: oblique; font-family: monospace,monospace;
+

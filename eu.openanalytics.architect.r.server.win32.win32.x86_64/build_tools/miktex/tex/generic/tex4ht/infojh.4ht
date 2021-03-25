@@ -1,0 +1,542 @@
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[1]29...//
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% infojh.4ht                            2019-03-18-15:25 %
+% Copyright (C) 2000-2009       Eitan M. Gurari         %
+%                                                        %
+% This program can redistributed and/or modified under   %
+% the terms of the LaTeX Project Public License          %
+% Distributed from CTAN archives in directory            %
+% macros/latex/base/lppl.txt; either version 1 of the    %
+% License, or (at your option) any later version.        %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                              gurari@cse.ohio-state.edu %
+%                  http://www.cse.ohio-state.edu/~gurari %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2019-03-18-15:25}
+{          \catcode`\@=0 \catcode`\\=11 @relax
+  @gdef@infoIVht[#1]#2//{%
+    @ifnum #1>1
+      @def@infoIVht[##1]##2//{%
+        @ifnum ##1>1 @ifnum ##1<#1
+           @bgroup
+             @no:catcodes0{255}{11}%
+             @no:catcodes{91}{91}{12}% [
+             @no:catcodes{47}{47}{12}% /
+             @newlinechar13 %
+             @long@def@infoIVht####1\ifx\infoIVht####2infoIVht[####3//{%
+               @def@infoIVht{******************************************}%
+               @immediate@write-1{@infoIVht}%
+               @immediate@write-1{****** @csname :Hin@endcsname.4ht}%
+               @immediate@write-1{@infoIVht}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup
+               @immediate@write-1{####1}%
+               @bgroup
+                @def@infoIVht{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*}%
+                @let~=@space   @immediate@write-1{@infoIVht}%
+               @egroup
+               @immediate@write-1{@infoIVht}%
+             @egroup}%
+           @expandafter@expandafter@expandafter@infoIVht
+     @fi@fi }%
+  @fi }
+}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[1]29//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]608...//
+
+\exit:ifnot{tex4ht}
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]608//
+
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]608...//
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]91...//
+
+\Configure{mapIdTarget}....................2
+
+    #1  target
+    #2  definitions
+
+    Given: \sectionType, \sectionId, \sectionName
+
+Examples:
+
+   \Configure{mapIdTarget}
+      {\sectionName}
+      {}
+
+    \Configure{mapIdTarget}
+      {\spacelessName}
+      {\immediate\openout15=\jobname .tmp
+       \immediate\write15{\def\string\spacelessName{\sectionName}}%
+       \immediate\closeout15
+       \catcode`\ =9
+       \input \jobname .tmp
+       \catcode`\ =10
+      }
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]91//
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+
+
+\ifx\infoIVht\UnDeF\def\infoIVht#1//{}\fi\infoIVht[10]608//
+
+

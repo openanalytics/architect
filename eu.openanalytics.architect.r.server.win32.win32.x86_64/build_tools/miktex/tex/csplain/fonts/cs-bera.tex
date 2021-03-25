@@ -1,0 +1,30 @@
+% cs-bera.tex: fonts loading file of Bera fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak,  2012
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [Bera] {\sans} {\rm \bf \it \bi} {} {TX} {8t}
+
+\ffvars {r}{b}{ro}{bo} 
+\def\sans{\ffsetV{sans}{s}\ffsetX}    \def\nosans{\ffsetV{sans}{e}\ffsetX}
+\def\sansV{e} 
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = fver8t  \sizespec
+   \font\tenbf = fveb8t  \sizespec
+   \font\tenit = fvero8t \sizespec
+   \font\tenbi = fvebo8t \sizespec
+
+   \def\ffnamegen{fv\sansV \ffvarV 8t}
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\def\sserif{\sans\fam}
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+\endinput

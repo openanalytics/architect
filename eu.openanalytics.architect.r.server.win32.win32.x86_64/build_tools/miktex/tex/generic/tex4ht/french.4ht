@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% french.4ht                            2009-05-21-09:32 %
+% Copyright (C) 1999--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\expandafter\ifx \csname @s@ORI\endcsname \relax
+\else
+   \let\:GOfrench\GOfrench
+\def\GOfrench{\:GOfrench \let\:GOfrench\:UnDef%
+  \def\@makefnmark{%
+     \def\:temp{\expandafter\noexpand\csname ifFTY\endcsname
+                \hbox{\noexpand\normalfont
+                   \ifx\thefootnote\relax\else
+                              \noexpand\,\fi}\expandafter
+                             \noexpand\csname fi\endcsname}\:temp
+     \let\FNmark\@thefnmark
+     \leavevmode\hbox{%
+        \gHAdvance\FNnum  1 \a:footnote}}%
+}
+\def\:temp#1#2{\seename \/ {#1}}
+\ifx\see\:temp
+   \pend:def\printindex{%
+      \Configure{toToc}{likechapter}{chapter}%
+      \Configure{toToc}{likesection}{section}%
+      \let\sv:addcontentsline=\addcontentsline
+      \def\addcontentsline{\let\addcontentsline=\sv:addcontentsline
+         \:gobbleIII}}
+   \append:def\printindex{%
+      \Configure{toToc}{likechapter}{}%
+      \Configure{toToc}{likesection}{}}
+\fi
+
+   \Configure{special}{\csname @s@ORI\endcsname}
+\fi
+\Hinput{french}
+\endinput
+

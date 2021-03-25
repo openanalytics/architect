@@ -1,0 +1,11 @@
+.xipx
+htfcss: tipxts  font-style: italic; font-family: monospace,monospace;
+htfcss: tipxtt  font-family: monospace,monospace;
+htfcss: tipxb   font-weight: bold;
+htfcss: tipxbs  font-weight: bold; font-family: sans-serif;
+htfcss: tipxbx  font-weight: bold;
+htfcss: tipxsb  font-weight: bold;
+htfcss: tipxsi  font-style: italic;
+htfcss: tipxsl  font-family: sans-serif;
+htfcss: tipxss  font-family: sans-serif;
+

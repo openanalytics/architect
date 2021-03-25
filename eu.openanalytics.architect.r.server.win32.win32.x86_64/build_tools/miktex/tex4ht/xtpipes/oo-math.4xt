@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<xtpipes preamble="yes" signature="oo-math.4xt (2009-03-11-03:09)">
+   <sax content-handler="xtpipes.util.ScriptsManager,tex4ht.OomFilter"
+        lexical-handler="xtpipes.util.ScriptsManagerLH" >
+      <script element="math:mtable" >
+         <dom name="." xml="." method="mtable" class="tex4ht.OoUtilities" />
+
+      </script>
+      <script element="math:math" >
+         <set name="math:mo" >
+   <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      xmlns:math="http://www.w3.org/1998/Math/MathML"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+   <xsl:template match=" math:mo" >
+   <xsl:choose>
+     <xsl:when test="
+   (preceding-sibling::math:mn or preceding-sibling::math:mi)
+   and not(following-sibling::*)
+" >
+   <math:mtext>
+      <xsl:apply-templates select="*|@*|text()" />
+   </math:mtext>
+</xsl:when>
+<xsl:when test="
+   not((preceding-sibling::*) or following-sibling::*)
+" >
+   <math:mtext>
+      <xsl:apply-templates select="*|@*|text()" />
+   </math:mtext>
+</xsl:when>
+<xsl:when test="
+   (.='{') or (.='}')
+" >
+   <math:mtext>
+      <xsl:apply-templates select="*|@*|text()" />
+   </math:mtext>
+</xsl:when>
+<xsl:when test="  . = '='" >
+  <xsl:choose>
+     <xsl:when test="   not(preceding-sibling::*)
+                     or not(following-sibling::*)
+                     or preceding-sibling::*[1] / self::math:mo
+     ">
+        <math:mtext>
+           <xsl:apply-templates select="*|@*|text()" />
+        </math:mtext>
+     </xsl:when>
+     <xsl:otherwise>
+        <math:mo>
+           <xsl:apply-templates select="*|@*|text()" />
+        </math:mo>
+     </xsl:otherwise>
+  </xsl:choose>
+
+</xsl:when>
+
+     <xsl:when test=" string-length() &gt; 1 " >
+   <math:mtext>
+      <xsl:value-of select="normalize-space(.)" />
+   </math:mtext>
+</xsl:when>
+
+     <xsl:otherwise>
+        <math:mo>
+           <xsl:apply-templates select="@*" />
+           <xsl:value-of select="normalize-space(.)" />
+        </math:mo>
+     </xsl:otherwise>
+   </xsl:choose>
+   </xsl:template>
+         <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="math:mo" />
+
+         
+         <set name="math:mspace" >
+   <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      xmlns:math="http://www.w3.org/1998/Math/MathML"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+   <xsl:template match="math:mspace" >
+  <math:mtext>
+     <xsl:text> </xsl:text>
+  </math:mtext>
+</xsl:template>
+
+         <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+</set>
+<xslt name="." xml="." xsl="math:mspace" />
+
+      </script>
+   </sax>
+</xtpipes>
+

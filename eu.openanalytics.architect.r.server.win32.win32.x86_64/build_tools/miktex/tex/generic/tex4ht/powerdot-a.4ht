@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% powerdot-a.4ht                        2009-05-21-09:32 %
+% Copyright (C) 2006--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+  \pend:defI\pd@getargsandbody{%
+   \expandafter\ifx \csname set:env:##1\endcsname\relax
+      \expandafter\gdef\csname set:env:##1\endcsname{}%
+      \expandafter\pend:def\csname end##1\endcsname{\relax}%
+      \expandafter\global\expandafter\let
+               \csname end##1\expandafter\endcsname\csname end##1\endcsname
+      \expandafter\ifx\csname before:begin##1\endcsname\relax
+          \:warning{\string\ConfigureEnv{##1} not provided}%
+    \fi \fi
+}
+\def\:tempc{%
+  \let\sv:rput\rput
+\def\rput[##1](##2)##3{\def\:temp{\pd@@titlepos}\def\:tempa{##2}%
+   \ifx \:temp\:tempa
+       \let\rput\sv:rput
+       \def\:temp{\a:slidetitle\sv:rput[##1](##2){##3}\b:slidetitle}%
+   \else
+       \def\:temp{\sv:rput[##1](##2){##3}}%
+   \fi \:temp
+}%
+%
+  \append:def\pd@template@slide@options{%
+       \setkeys [pd]{template}{lfpos={}, rfpos={},
+              tocpos={}, stocpos={}, ntocpos={}}}%
+  \append:def\pd@template@titleslide@options{%
+                  \setkeys [pd]{template}{lfpos={},rfpos={}}}%
+  \o:pd@sl@de:}
+\HLet\pd@sl@de\:tempc
+\NewConfigure{slidetitle}{2}
+\let\:item\pd@orig@item
+\let\pd@orig@item\@item
+\def\@item[#1]{\@ifnextchar<{\pd@item[#1]}{\pd@item[#1]<>}}
+\def\pd@item[#1]<#2>{%
+  \pd@closeitem
+  \ifx\pd@@type\pd@currenttype\else
+    \ifnum\pd@@type=\z@
+      \pst@Verb{(1) BOL}%
+    \else
+      \pst@Verb{(0) BOL}%
+      \normalcolor
+    \fi
+    \global\let\pd@currenttype\pd@@type
+  \fi
+  \ifnum\pd@currentstate=\z@
+    \normalcolor\pst@Verb{(0) BOL}%
+    \pd@hide{#2}%
+  \else
+    \color\pd@@iacolor
+  \fi
+  \ifx\@empty#2\@empty\else
+    \def\pd@closeitem{\gdef\pd@currentstate{0}}%
+  \fi
+  \pd@orig@item[#1]\@@par\leavevmode \ignorespaces
+}
+
+\Hinput{powerdot}
+\endinput
+

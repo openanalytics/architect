@@ -1,0 +1,274 @@
+rm-iwona 0 254
+'&#x0393;' ''     0 % rm-iwona.htf 2020-05-27-14:14 %
+'&#x0394;' ''     1 % Copyright (C) 2005-2009                    Eitan M. Gurari %
+'&#x0398;' ''     2 %
+'&#x039B;' ''     3 % This work may be distributed and/or modified under the conditions
+'&#x039E;' ''     4 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x03A0;' ''     5 % license or (at your option) any later version. The latest version
+'&#x03A3;' ''     6 % of this license is in http://www.latex-project.org/lppl.txt and
+'&#x03A5;' ''     7 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x03A6;' ''     8 % 2003/12/01 or later.
+'&#x03A8;' ''     9 % This work has the LPPL maintenance status "maintained".
+'&#x03A9;' ''     10 % Current Maintainer of this work is the TeX4ht Project.
+'&#xFB00;' ''     11 %
+'&#xFB01;' ''     12 % If you modify this file, changing the
+'&#xFB02;' ''     13 % version identification would be appreciated.
+'&#xFB03;' ''     14 %
+'&#xFB04;' ''     15 % tex4ht@tug.org
+'&#x0131;' ''     16 % https://tug.org/tex4ht
+'&#x0237;' ''     17 %
+'&#x0060;' ''     18 
+'&#x00B4;' ''     19
+'&#x02C7;' ''     20
+'&#x02D8;' ''     21
+'&#x00AF;' ''     22
+'&#x02DA;' ''     23
+'&#x00B8;' ''     24
+'&#x00DF;' ''     25
+'&#x00E6;' ''     26
+'&#x0153;' ''     27
+'&#x00F8;' ''     28
+'&#x00C6;' ''     29
+'&#x0152;' ''     30
+'&#x00D8;' ''     31
+'' ''  32
+'!' ''     33
+'&#x201D;' ''     34
+'#' ''  35
+'$' ''  36
+'%' ''  37
+'&#x0026;' ''  38
+'&#x2019;' ''     39
+'&#x0028;' ''  40
+'&#x0029;' ''  41
+'*' ''  42
+'+' ''  43
+',' ''  44
+'-' ''  45
+'.' ''  46
+'/' ''     47
+'0' ''  48
+'1' ''  49
+'2' ''  50
+'3' ''  51
+'4' ''  52
+'5' ''  53
+'6' ''  54
+'7' ''  55
+'8' ''  56
+'9' ''  57
+':' ''  58
+';' ''  59
+'' ''  60
+'=' ''  61
+'' ''  62
+'?' ''  63
+'@' ''  64
+'A' ''  65
+'B' ''  66
+'C' ''  67
+'D' ''  68
+'E' ''  69
+'F' ''  70
+'G' ''  71
+'H' ''  72
+'I' ''  73
+'J' ''  74
+'K' ''  75
+'L' ''  76
+'M' ''  77
+'N' ''  78
+'O' ''  79
+'P' ''  80
+'Q' ''  81
+'R' ''  82
+'S' ''  83
+'T' ''  84
+'U' ''  85
+'V' ''  86
+'W' ''  87
+'X' ''  88
+'Y' ''  89
+'Z' ''  90
+'&#x005B;' ''  91
+'&#x201C;' ''     92
+'&#x005D;' ''  93
+'&#x02C6;' ''     94
+'&#x02D9;' ''     95
+'&#x2018;' ''     96
+'a' ''  97
+'b' ''  98
+'c' ''  99
+'d' ''  100
+'e' ''  101
+'f' ''  102
+'g' ''  103
+'h' ''  104
+'i' ''  105
+'j' ''  106
+'k' ''  107
+'l' ''  108
+'m' ''  109
+'n' ''  110
+'o' ''  111
+'p' ''  112
+'q' ''  113
+'r' ''  114
+'s' ''  115
+'t' ''  116
+'u' ''  117
+'v' ''  118
+'w' ''  119
+'x' ''  120
+'y' ''  121
+'z' ''  122
+'&#x2013;' ''     123
+'&#x2014;' ''     124
+'&#x02DD;' ''     125
+'&#x02DC;' ''     126
+'&#x00A8;' ''     127
+'&#x0102;' ''     128
+'&#x0104;' ''     129
+'&#x0106;' ''     130
+'&#x010C;' ''     131
+'&#x010E;' ''     132
+'&#x011A;' ''     133
+'&#x0118;' ''     134
+'&#x011E;' ''     135
+'&#x0139;' ''     136
+'&#x013D;' ''     137
+'&#x0141;' ''     138
+'&#x0143;' ''     139
+'&#x0147;' ''     140
+'&#x014A;' ''     141
+'&#x0150;' ''     142
+'&#x0154;' ''     143
+'&#x0158;' ''     144
+'&#x015A;' ''     145
+'&#x0160;' ''     146
+'&#x0218;' ''     147
+'&#x0164;' ''     148
+'&#x021A;' ''     149
+'&#x0170;' ''     150
+'&#x016E;' ''     151
+'&#x0178;' ''     152
+'&#x0179;' ''     153
+'&#x017D;' ''     154
+'&#x017B;' ''     155
+'&#x0132;' ''     156
+'&#x0130;' ''     157
+'&#x00D0;' ''     158
+'&#x00A7;' ''     159
+'&#x0103;' ''     160
+'&#x0105;' ''     161
+'&#x0107;' ''     162
+'&#x010D;' ''     163
+'&#x010F;' ''     164
+'&#x011B;' ''     165
+'&#x0119;' ''     166
+'&#x011F;' ''     167
+'&#x013A;' ''     168
+'&#x013E;' ''     169
+'&#x0142;' ''     170
+'&#x0144;' ''     171
+'&#x0148;' ''     172
+'&#x014B;' ''     173
+'&#x0151;' ''     174
+'&#x0155;' ''     175
+'&#x0159;' ''     176
+'&#x015B;' ''     177
+'&#x0161;' ''     178
+'&#x0219;' ''     179
+'&#x0165;' ''     180
+'&#x021B;' ''     181
+'&#x0171;' ''     182
+'&#x016F;' ''     183
+'&#x00FF;' ''     184
+'&#x017A;' ''     185
+'&#x017E;' ''     186
+'&#x017C;' ''     187
+'&#x0133;' ''     188
+'&#x00A1;' ''     189
+'&#x00BF;' ''     190
+'&#x00A3;' ''     191
+'&#x00C0;' ''     192
+'&#x00C1;' ''     193
+'&#x00C2;' ''     194
+'&#x00C3;' ''     195
+'&#x00C4;' ''     196
+'&#x00C5;' ''     197
+'' ''  198
+'&#x00C7;' ''     199
+'&#x00C8;' ''     200
+'&#x00C9;' ''     201
+'&#x00CA;' ''     202
+'&#x00CB;' ''     203
+'&#x00CC;' ''     204
+'&#x00CD;' ''     205
+'&#x00CE;' ''     206
+'&#x00CF;' ''     207
+'&#x00D0;' ''     208
+'&#x00D1;' ''     209
+'&#x00D2;' ''     210
+'&#x00D3;' ''     211
+'&#x00D4;' ''     212
+'&#x00D5;' ''     213
+'&#x00D6;' ''     214
+'' ''  215
+'' ''  216
+'&#x00D9;' ''     217
+'&#x00DA;' ''     218
+'&#x00DB;' ''     219
+'&#x00DC;' ''     220
+'&#x00DD;' ''     221
+'&#x00DE;' ''     222
+'' ''  223
+'&#x00E0;' ''     224
+'&#x00E1;' ''     225
+'&#x00E2;' ''     226
+'&#x00E3;' ''     227
+'&#x00E4;' ''     228
+'&#x00E5;' ''     229
+'' ''  230
+'&#x00E7;' ''     231
+'&#x00E8;' ''     232
+'&#x00E9;' ''     233
+'&#x00EA;' ''     234
+'&#x00EB;' ''     235
+'&#x00EC;' ''     236
+'&#x00ED;' ''     237
+'&#x00EE;' ''     238
+'&#x00EF;' ''     239
+'&#x00F0;' ''     240
+'&#x00F1;' ''     241
+'&#x00F2;' ''     242
+'&#x00F3;' ''     243
+'&#x00F4;' ''     244
+'&#x00F5;' ''     245
+'&#x00F6;' ''     246
+'' ''  247
+'' ''  248
+'&#x00F9;' ''     249
+'&#x00FA;' ''     250
+'&#x00FB;' ''     251
+'&#x00FC;' ''     252
+'&#x00FD;' ''     253
+'&#x00FE;' ''     254
+rm-iwona 0 254
+htfcss: rm-iwonab  font-weight: bold;
+htfcss: rm-iwonabi  font-style:italic; font-weight: bold;
+htfcss: rm-iwonacb  font-weight: bold;
+htfcss: rm-iwonacbi  font-style:italic; font-weight: bold;
+htfcss: rm-iwonach  font-weight: bold;
+htfcss: rm-iwonachi  font-style:italic; font-weight: bold;
+htfcss: rm-iwonacl  font-weight: light;
+htfcss: rm-iwonacli  font-weight: light; font-style:italic;
+htfcss: rm-iwonacmi  font-style:italic;
+htfcss: rm-iwonacri  font-style:italic;
+htfcss: rm-iwonah  font-weight: bold;
+htfcss: rm-iwonahi  font-style:italic; font-weight: bold;
+htfcss: rm-iwonal  font-weight: light;
+htfcss: rm-iwonali  font-weight: light; font-style:italic;
+htfcss: rm-iwonami  font-style:italic;
+htfcss: rm-iwonari  font-style:italic;
+

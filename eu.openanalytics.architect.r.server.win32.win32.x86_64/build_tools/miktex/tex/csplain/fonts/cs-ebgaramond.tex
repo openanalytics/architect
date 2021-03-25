@@ -1,0 +1,173 @@
+% The file cs-ebgaramond.tex (C) Petr Krajník, 2019
+% Use "\input cs-ebgaramond" to set the EB Garamond font family in text mode
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [EB Garamond]
+   {\bmed \bsemi \bext \linn \oldn \tabn \propn \caps \swash}
+   {\rm \bf \it \bi} {+exchars} {TX} {8t 7t U}
+\ffvars {Regular}{\boldV}{Italic}{\boldV Italic}
+
+% Default font settings
+\def\resetbold{\ffsetV{bold}{Bold}\ffsetX}
+\def\resetnum {\tabn\linn} % Tabular lining numbers
+\def\resetfeat{\ffsetV{feat}{}\ffsetX}
+
+% Bold variants
+\def\bmed {\ffsetV{bold}{Medium}\ffsetX}
+\def\bsemi{\ffsetV{bold}{SemiBold}\ffsetX}
+\def\bext {\ffsetV{bold}{ExtraBold}\ffsetX}
+\resetbold %% Default bold is Bold
+
+\ismacro\fotenc{U}\iftrue
+
+   % Figures
+   \def\tabn{\ffsetV{tabn}{;+tnum}\ffsetX} \def\propn{\ffsetV{tabn}{;+pnum}\ffsetX}
+   \def\linn{\ffsetV{numb}{;+lnum}\ffsetX} \def\oldn {\ffsetV{numb}{;+onum}\ffsetX}
+   \resetnum
+
+   % Features
+   \def\caps {\ffsetV{feat}{;+smcp}\ffsetX}
+   \def\swash{\ffsetV{feat}{;+swsh}\ffsetX}
+   \resetfeat
+
+   \def\ffnamegen{"[EBGaramond-\ffvarV]:\fontfeatures\tabnV\numbV\featV"}
+   \useff{+kern;+liga}\fam % Load default \tenrm, \tenbf, \tenit and \tenbi
+
+\else %% Classic TeX Fonts
+
+   \ismacro\fotenc{8t}\iftrue \def\ffenc{t1}\fi
+   \ismacro\fotenc{7t}\iftrue \def\ffenc{ot1}\fi
+
+   % Figures
+   \def\tabn{\ffsetV{tabn}{t}\ffsetX}  \def\propn{\ffsetV{tabn}{}\ffsetX}
+   \def\linn{\ffsetV{numb}{lf}\ffsetX} \def\oldn {\ffsetV{numb}{osf}\ffsetX}
+   \resetnum
+
+   % Features
+   \def\caps {\ffsetV{feat}{-sc}\ffsetX}
+   \def\swash{\ffsetV{feat}{-swash}\ffsetX}
+   \resetfeat
+
+   \def\ffnamegen{EBGaramond-\ffvarV-\tabnV\numbV\featV-\ffenc}
+   \ffsetX\fam % Load default \tenrm, \tenbf, \tenit and \tenbi
+
+   \input exchars % 7c encoding implemented by exchars macro
+   \def\setexfamilyG #1 #2 {% Set EBGaramond Family: #1 = figures; #2 = features
+      \setexfont {EBGaramond-Regular-#1#2-\ffenc}         TS1 EBGaramond-Regular-#1-ts1
+      \setexfont {EBGaramond-Medium-#1#2-\ffenc}          TS1 EBGaramond-Medium-#1-ts1
+      \setexfont {EBGaramond-SemiBold-#1#2-\ffenc}        TS1 EBGaramond-SemiBold-#1-ts1
+      \setexfont {EBGaramond-Bold-#1#2-\ffenc}            TS1 EBGaramond-Bold-#1-ts1
+      \setexfont {EBGaramond-ExtraBold-#1#2-\ffenc}       TS1 EBGaramond-ExtraBold-#1-ts1
+      \setexfont {EBGaramond-Italic-#1#2-\ffenc}          TS1 EBGaramond-Italic-#1-ts1
+      \setexfont {EBGaramond-MediumItalic-#1#2-\ffenc}    TS1 EBGaramond-MediumItalic-#1-ts1
+      \setexfont {EBGaramond-SemiBoldItalic-#1#2-\ffenc}  TS1 EBGaramond-SemiBoldItalic-#1-ts1
+      \setexfont {EBGaramond-BoldItalic-#1#2-\ffenc}      TS1 EBGaramond-BoldItalic-#1-ts1
+      \setexfont {EBGaramond-ExtraBoldItalic-#1#2-\ffenc} TS1 EBGaramond-ExtraBoldItalic-#1-ts1
+   }
+   \setexfamilyG   lf {}   \setexfamilyG   lf -sc   \setexfamilyG   lf -swash
+   \setexfamilyG  tlf {}   \setexfamilyG  tlf -sc   \setexfamilyG  tlf -swash
+   \setexfamilyG  osf {}   \setexfamilyG  osf -sc   \setexfamilyG  osf -swash
+   \setexfamilyG tosf {}   \setexfamilyG tosf -sc   \setexfamilyG tosf -swash
+
+   \ifx\mubyte\undefined \else \mubyte\euro ^^e2^^82^^ac\endmubyte \fi
+   \let\euro=\exeuro
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi
+
+\endinput
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This file implements EBGaramond font support for plainTeX.
+
+ Requirements
+--------------
+This file needs three packages from CTAN.
+The "ebgaramond" package for the base font files.
+And also ffmac and tx-math macro from the "csplain" package.
+
+ Supported switches
+--------------------
+\bmed......Set default bold to Medium.
+\bsemi.....Set default bold to SemiBold.
+\bext......Set default bold to BoldExtended.
+\linn......Lining numbers. All numbers are on the baseline.
+\oldn......Old style numbers.
+\tabn......Tabular numbers. All number have the same width.
+\propn.....Proportional numbers.
+\caps......Small Caps.
+\swash.....Swash on some glyphs.
+
+We can reset feature groups to font default by:
+\resetbold...Reset default bold.
+\resetnum....Reset number options.
+\resetfeat...Reset features.
+
+ Omitted features
+-----------------
+I decided to omit upper and lower indexes as we can do this
+via TeXs math mode. Additionally that features doesn't worked
+with the whole T1 encoding and so their usage was very limited.
+
+Also omitted is the "titling" style (OpenType "case" font feature),
+because I haven't noticed any change over the original font.
+Maybe this is bug in the font OTF sources...
+
+In T1 code there is no space for additional "st" and other
+discretionary ligatures that are set with the \swash switch.
+To match T1 visual style the "dlig" font feature was omitted
+in Unicode fonts. Users of Unicode TeX can turn it on with
+\useff{+dlig} if they want. Then it matches the 7t encoding.
+
+ Math support
+--------------
+Default math uses the TX-Math macro which uses italic
+instead of math italic to match the text font. The results
+are good and usable, but far from perfect...
+
+There is also math package for this font "ebgaramond-maths".
+Unfortunately it replaces only math italic font, and only a part,
+so we get only a better Greek alphabet. Symbols as vector arrow
+are missing, so this will not work anymore and other problems.
+If you want a better matching Greek glyphs you can still use it.
+
+   \input cs-ebgaramond
+   \ffalias {txr}{EBGaramond-Regular-lf-ot1}
+   \ffalias{txmi}{EBGaramond12-Italic--oml-ebgaramond} % ebgaramond-maths
+
+But be warned about problems and missing glyphs.
+In the future I will try to make a math font macro for this font.
+
+If we use Unicode TeX we can use Uni-Math and Garamond-Math.otf font
+from "Garamond-Math" package that perfectly matches. But the math font
+is under development and can have bugs or other problems.
+   But tests showed that it works very nice!
+
+   \let\loadmathfonts=\relax
+   \input cs-ebgaramond
+   \def\unimathfont{[Garamond-Math]}
+   \input uni-math
+
+"ebgaramond-math" is also a CTAN package.
+
+ Limitations
+-------------
+One limitation is, that if we use \tabn\linn\caps
+we get old style tabular lining numbers and not lining tabular normal numbers.
+This problem/inconsistency came from the base *.otf files.
+
+The TS1 fonts has many holes.
+
+Some imperfections in math mode due the used TX-Math font.
+
+
+%%%%%%%%%%%%%% History of versions:
+
+Apr.2019  First version of this font file.
+
+%%%%%%%%%%%%%% EOF cs-ebgaramond.tex

@@ -1,0 +1,136 @@
+%%% The re-encoding table for Czech/Slovak alphabet using encTeX,
+%%% v.Sep.2005 (C) Petr Ol\v s\'ak
+%%% input: UTF8, internal TeX: T1Encoding
+%%% Oct.2012 added plainTeX csnames mapping and \setucode definition.
+
+% This is very simple setting of Czech and Slovak alphabet only.
+% User can reset this value and add his own declaration.
+% For more information see cstexman.pdf.
+
+\ifx\mubyte\undefined
+   \errhelp={You has specified \let\enc=u but this works only with encTeX
+   extension of TeX binary. See ftp://math.feld.cvut.cz/pub/olsak/enctex.}
+   \errmessage{The encTeX Feb2003 or later is not detected -- re-encoding is impossible}
+   \endinput \fi
+
+%%      TeX   input
+\mubyte ^^c1  ^^c3^^81\endmubyte % \'A
+\mubyte ^^e1  ^^c3^^a1\endmubyte % \'a
+\mubyte ^^c9  ^^c3^^89\endmubyte % \'E
+\mubyte ^^e9  ^^c3^^a9\endmubyte % \'e
+\mubyte ^^cd  ^^c3^^8d\endmubyte % \'I
+\mubyte ^^ed  ^^c3^^ad\endmubyte % \'i
+\mubyte ^^d3  ^^c3^^93\endmubyte % \'O
+\mubyte ^^f3  ^^c3^^b3\endmubyte % \'o
+\mubyte ^^da  ^^c3^^9a\endmubyte % \'U
+\mubyte ^^fa  ^^c3^^ba\endmubyte % \'u
+\mubyte ^^dd  ^^c3^^9d\endmubyte % \'Y
+\mubyte ^^fd  ^^c3^^bd\endmubyte % \'y
+\mubyte ^^d4  ^^c3^^94\endmubyte % \^O
+\mubyte ^^f4  ^^c3^^b4\endmubyte % \^o
+\mubyte ^^c4  ^^c3^^84\endmubyte % \"A
+\mubyte ^^e4  ^^c3^^a4\endmubyte % \"a
+\mubyte ^^d6  ^^c3^^96\endmubyte % \"O
+\mubyte ^^f6  ^^c3^^b6\endmubyte % \"o
+\mubyte ^^dc  ^^c3^^9c\endmubyte % \"U
+\mubyte ^^fc  ^^c3^^bc\endmubyte % \"u
+\mubyte ^^83  ^^c4^^8c\endmubyte % \v C
+\mubyte ^^a3  ^^c4^^8d\endmubyte % \v c
+\mubyte ^^84  ^^c4^^8e\endmubyte % \v D
+\mubyte ^^a4  ^^c4^^8f\endmubyte % \v d
+\mubyte ^^85  ^^c4^^9a\endmubyte % \v E
+\mubyte ^^a5  ^^c4^^9b\endmubyte % \v e
+\mubyte ^^88  ^^c4^^b9\endmubyte % \' L
+\mubyte ^^a8  ^^c4^^ba\endmubyte % \' l
+\mubyte ^^89  ^^c4^^bd\endmubyte % \v L
+\mubyte ^^a9  ^^c4^^be\endmubyte % \v l
+\mubyte ^^8c  ^^c5^^87\endmubyte % \v N
+\mubyte ^^ac  ^^c5^^88\endmubyte % \v n
+\mubyte ^^90  ^^c5^^98\endmubyte % \v R
+\mubyte ^^b0  ^^c5^^99\endmubyte % \v r
+\mubyte ^^92  ^^c5^^a0\endmubyte % \v S
+\mubyte ^^b2  ^^c5^^a1\endmubyte % \v s
+\mubyte ^^94  ^^c5^^a4\endmubyte % \v T
+\mubyte ^^b4  ^^c5^^a5\endmubyte % \v t
+\mubyte ^^97  ^^c5^^ae\endmubyte % \r U
+\mubyte ^^b7  ^^c5^^af\endmubyte % \r u
+\mubyte ^^9a  ^^c5^^bd\endmubyte % \v Z
+\mubyte ^^ba  ^^c5^^be\endmubyte % \v z
+\mubyte ^^8f  ^^c5^^94\endmubyte % \' R
+\mubyte ^^af  ^^c5^^95\endmubyte % \' r
+
+\def\setcsucode #1 #2 #3 #4 #5{} % to skip the data from utf8lat1.tex
+                                 % and utf8lata.tex
+
+% \setucode re-definition in order to map all T1 slots rawly during \input
+% utf8lat1.tex or utf8lata.tex. This is usable if the text occurres in 
+% \upercase and \lowercase arguments.
+
+\def\setucode #1 #2 #3 #4 #5{% 
+   \ifx*#4% The character is not provided by T1 encoding, we need to use csname:
+      \expandafter \mubyte \csname#1\endcsname #3\endmubyte
+      \expandafter \ifx \csname#1\endcsname \relax
+         \expandafter \def\csname#1\endcsname{#5}%
+      \fi
+   \else % raw UTF-8 to T1 mapping is possible:
+      \mubyte #4 #3\endmubyte
+   \fi
+}
+
+% There exist some character-like control sequences defined in plainTeX.
+% It seems to be usable to interpret their corresponding UTF-8 codes:
+
+\mubyte \S   ^^c2^^a7\endmubyte % section sign
+\mubyte \P   ^^c2^^b6\endmubyte % paragraph (pilcrow) sign
+\mubyte ^^ff ^^c3^^9f\endmubyte % german sharp s
+\mubyte ^^aa ^^c5^^82\endmubyte % l slashed
+\mubyte ^^8a ^^c5^^81\endmubyte % L slashed
+\mubyte ^^e6 ^^c3^^a6\endmubyte % ae ligature
+\mubyte ^^f7 ^^c5^^93\endmubyte % oe ligature
+\mubyte ^^f8 ^^c3^^b8\endmubyte % o slash
+\mubyte ^^c6 ^^c3^^86\endmubyte % AE ligature
+\mubyte ^^d7 ^^c5^^92\endmubyte % OE ligature
+\mubyte ^^d8 ^^c3^^98\endmubyte % O slash
+\mubyte \i   ^^c4^^b1\endmubyte % dotless i
+\mubyte \j   ^^c8^^b7\endmubyte % dotless j
+\mubyte ^^e5 ^^c3^^a5\endmubyte % a with ring
+\mubyte ^^c5 ^^c3^^85\endmubyte % A with ring
+\mubyte \copyright ^^c2^^a9\endmubyte     % copyright
+\mubyte \dots      ^^e2^^80^^a6\endmubyte % ellipsis
+\mubyte \dag       ^^e2^^80^^a0\endmubyte % single dagger
+\mubyte \ddag      ^^e2^^80^^a1\endmubyte % double dagger
+
+% The character-like control sequences defined in csplain:
+
+\mubyte \clqq    ^^e2^^80^^9e\endmubyte  % czech left double quote
+\mubyte \crqq    ^^e2^^80^^9c\endmubyte  % czech right double quote
+\mubyte \flqq    ^^c2^^ab\endmubyte      % french left (czech right) double guillquote
+\mubyte \frqq    ^^c2^^bb\endmubyte      % french right (czech left) double quillquote
+\mubyte \promile ^^e2^^80^^b0\endmubyte  % per mille sign
+
+\mubyte \erqq    ^^e2^^80^^9d\endmubyte  % English right double quote
+\mubyte \elq     ^^e2^^80^^98\endmubyte  % English left single quote
+\mubyte \erq     ^^e2^^80^^99\endmubyte  % English right single quote
+
+% user can write \input utf8lat1 to access all T1 codes
+
+\ifx\baseutfencoding\undefined \else \expandafter\endinput\fi
+
+% if the csplain is used, we cannot process this part of the file. May be
+% somebody used it from iniTeX... 
+
+\let\baseutfencoding\relax
+
+\global\everyjob=\expandafter{\the\everyjob
+   \message{The utf8->T1 re-encoding of Czech+Slovak alphabet activated by encTeX}}
+
+% Warnings about UTF-8 unknown codes are set by default: 
+
+\input utf8unkn
+
+% UTF-8 input / output is active by default:
+
+\mubytein=1 \mubyteout=3 \mubytelog=1
+
+\endinput
+

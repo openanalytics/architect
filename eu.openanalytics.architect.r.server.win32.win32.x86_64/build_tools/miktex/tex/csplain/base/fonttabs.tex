@@ -1,0 +1,28 @@
+% This macro prints font tables using of Knuth's TESTFONT macro
+% March 25 1993                                         Petr Olsak
+
+% In plain write following commands:
+%
+%       \input fonttabs
+%       cmr10
+%       cmbx10
+%       ... etc.
+%       \end
+%
+% The names of fonts are separed by space or endline.
+% All fonts must been loadable.
+% Each font takes place on one table on one page.
+
+\let\noinit!
+\input testfont
+\vsize=24cm
+
+\long\def\start#1{\expandafter\if\noexpand#1\relax
+     \let\next\relax \let\nextnext\start
+     \else \let\next\newtab \let\nextnext\relax
+   \fi \next#1\nextnext}
+\def\newtab#1\nextnext#2 {\message{font: #1#2}%
+  \def\fontname{#1#2 }\startfont\table \vfill\eject \start}
+
+\everypar={\egroup\everypar={} \start} \setbox0=\vbox\bgroup
+

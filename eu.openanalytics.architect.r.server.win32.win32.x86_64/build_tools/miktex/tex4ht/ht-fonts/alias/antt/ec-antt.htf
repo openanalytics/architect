@@ -1,0 +1,15 @@
+.lm-ec
+htfcss: ec-anttb  font-weight: bold;
+htfcss: ec-anttbi  font-style:italic; font-weight: bold;
+htfcss: ec-anttcb  font-weight: bold;
+htfcss: ec-anttcbi  font-style:italic; font-weight: bold;
+htfcss: ec-anttcl  font-weight: light;
+htfcss: ec-anttcli  font-weight: light; font-style:italic;
+htfcss: ec-anttcmi  font-style:italic;
+htfcss: ec-anttcri  font-style:italic;
+htfcss: ec-anttl  font-weight: light;
+htfcss: ec-anttli  font-weight: light; font-style:italic;
+htfcss: ec-anttmi  font-style:italic;
+htfcss: ec-anttri  font-style:italic;
+
+

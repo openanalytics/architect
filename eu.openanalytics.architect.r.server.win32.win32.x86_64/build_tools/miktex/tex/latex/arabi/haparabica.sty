@@ -1,0 +1,153 @@
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{HAPArabica}[2004/05/16]
+\typeout{`Arabica' style for HA-prosper}
+\typeout{(c) 2005 Youssef Jabri, Oujda, Morocco}
+\typeout{Package version: 0.1}
+\typeout{Adapted from HAPTycja}
+
+% Color definitions
+\newrgbcolor{tjlblue}{.90 .95 .98}%{.78 .82 .85}
+\newrgbcolor{tjblue}{.19 .39 .61}
+\newrgbcolor{tjdblue}{.19 .44 .61}%{.09 .27 .47}
+\newrgbcolor{HAP@textc}{.09 .27 .47}
+\newrgbcolor{tjyellow}{1 .81 .42}
+\newrgbcolor{tjlyellow}{1 .97 .84}
+\newrgbcolor{HAP@framecolor}{.17 .31 .44}%{.09 .27 .47}
+
+% Highlighting definitions
+\newrgbcolor{HAP@hcolor}{.09 .27 .47} % Highlight frame color
+\newrgbcolor{HAP@htcolor}{1 .97 .84}  % Highlight text color
+
+% Font definitions
+\FontTitle{\usefont{T1}{phv}{b}{n}\fontsize{14.4pt}{14pt}\selectfont\tjdblue}%
+  {\usefont{T1}{phv}{b}{n}\fontsize{14.4pt}{14pt}\selectfont\tjdblue}
+\FontText{\usefont{T1}{phv}{m}{n}\fontsize{10pt}{10pt}\selectfont\HAP@textc}%
+  {\usefont{T1}{phv}{m}{n}\fontsize{10pt}{10pt}\selectfont\HAP@textc}
+\FontLeftFoot{\@fontTextColor\fontsize{8pt}{8pt}\selectfont\tjdblue}%
+  {\@fontTextColor\fontsize{8pt}{4pt}\selectfont\tjdblue}
+\FontRightFoot{\@fontTextColor\fontsize{8pt}{8pt}\selectfont\tjdblue}%
+  {\@fontTextColor\fontsize{8pt}{4pt}\selectfont\tjdblue}
+
+% Slide style definitions
+\RequirePackage{pst-grad}
+\newcommand{\TitleSlide}[1]{%
+  \ifHAP@portrait
+    \psframe[linestyle=none,fillcolor=tjlyellow,fillstyle=solid](-2,11.5)(12.5,-.9)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-2,9.1)(-1,9.1)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,9.1)(-1,9.4)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,9.4)(12.5,9.4)%
+    \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjlyellow,gradend=tjyellow,%
+    gradmidpoint=1](-2,-.15)(12.5,-2.26)%
+    \HAP@PutLF{tl}{-0.95,-.35}%
+    \HAP@PutRF{tr}{8.6,-.35}%
+  \else%
+    \psframe[linestyle=none,fillcolor=tjlyellow,fillstyle=solid](-2,9)(12.5,-.6)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-2,7.6)(-1,7.6)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,7.6)(-1,7.9)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,7.9)(11.5,7.9)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(11.5,7.9)(11.5,8.2)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(11.5,8.2)(12.5,8.2)%
+    \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjlyellow,gradend=tjyellow,% title slide bottom
+    gradmidpoint=1](-2,-.5)(12.5,-1.32)%
+    \HAP@PutLF{tl}{-1.65,-.9}%
+    \HAP@PutRF{tr}{11.35,-.9}%
+  \fi%
+  {#1}}%
+
+\newcommand{\NormalSlide}[1]{%
+  \ifHAP@portrait%
+    \psframe[linestyle=none,fillcolor=tjlyellow,fillstyle=solid](-2,11.5)(12.5,-.9)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-2,9.1)(-1,9.1)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,9.1)(-1,9.4)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,9.4)(12.5,9.4)%
+    \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjyellow,gradend=tjlyellow,%
+    gradmidpoint=1](8.4,11.5)(10,-2)%
+    \rput[lb](-2.3,9.95){%
+        \@ifundefined{HAP@NSNav}%
+        {\includegraphics[scale=.14]{flower.ps}}%
+        {\Acrobatmenu{\HAP@NSNav}{\includegraphics[scale=.14]{flower.ps}}}%
+      }%
+   \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjlyellow,gradend=tjyellow,%
+   gradmidpoint=1](-2,-.15)(12.5,-5)%
+    \ifHAP@toc%
+      \rput[tr](3.7,-.8){\begin{minipage}[t]{2cm}\HAP@tsections\end{minipage}}%
+      \rput[tl](4.1,-.8){\begin{minipage}[t]{2cm}\HAP@tcontent\end{minipage}}%
+    \fi%
+    \HAP@PutLF{tl}{-0.95,-.35}%
+    \HAP@PutRF{tr}{8.6,-.35}%
+  \else%
+    \psframe[linestyle=none,fillcolor=tjlyellow,fillstyle=solid](-2,9)(9.4,-.6)% slide body
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-2,7.6)(-1,7.6)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,7.6)(-1,7.8)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,7.8)(9.3,7.8)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(9.3,7.8)(9.3,9)%11.5
+    \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjyellow,gradend=tjlyellow,% vertical panel
+    gradmidpoint=1](9.3,9)(12.5,-2)%                                                  all slide height
+%    \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjlblue,gradend=tjblue,%    bottom
+%    gradmidpoint=1](-2,-.5)(12.5,-1.32)%
+    \psframe[linestyle=none,fillstyle=solid,fillcolor=tjlyellow,gradmidpoint=1](-2,-.5)(12.5,-1.32)%%    bottom
+    
+    \ifHAP@toc%
+      \rput[lt](9.475,7.25){\begin{minipage}[t]{2cm}\HAP@toc\end{minipage}}%
+    \fi%
+    \HAP@PutLF{tl}{-1.65,-.9}%
+    \HAP@PutRF{tr}{11.35,-.9}%
+  \fi%
+  {#1}}%
+
+\newcommand{\SpecialSlide}[1]{%
+  \ifHAP@portrait%
+    \psframe[linestyle=none,fillcolor=tjlyellow,fillstyle=solid](-2,11.5)(12.5,-.9)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-2,9.1)(-1,9.1)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,9.1)(-1,9.4)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,9.4)(12.5,9.4)%
+    \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjyellow,gradend=tjlyellow,gradmidpoint=1](8.4,11.5)(10,-.2)%
+    \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjlyellow,gradend=tjyellow,gradmidpoint=1](-2,-.15)(12.5,-5)%
+    \ifHAP@toc%
+      \rput[tr](3.7,-.8){\begin{minipage}[t]{2cm}\HAP@tsections\end{minipage}}%
+      \rput[tl](4.1,-.8){\begin{minipage}[t]{2cm}\HAP@tcontent\end{minipage}}%
+    \fi%
+    \HAP@PutLF{tl}{-0.95,-.35}%
+    \HAP@PutRF{tr}{8.6,-.35}%
+  \else%
+    \psframe[linestyle=none,fillcolor=tjlyellow,fillstyle=solid](-2,9)(9.4,-.6)%
+    \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjyellow,gradend=tjlyellow,gradmidpoint=1](9.3,9)(12.5,-2)%
+    \psframe[linestyle=none,fillcolor=tjlyellow,fillstyle=solid](9.2,7.91)(12.5,-2)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-2,7.6)(-1,7.6)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,7.6)(-1,7.9)%
+    \psline[linewidth=.3pt,linecolor=tjdblue]{C-C}(-1,7.9)(12.5,7.9)%
+    \psframe[linestyle=none,fillstyle=gradient,gradbegin=tjlyellow,gradend=tjyellow,gradmidpoint=1](-2,-.5)(12.5,-1.32)%
+    \HAP@PutLF{tl}{-1.65,-.9}%
+    \HAP@PutRF{tr}{11.35,-.9}%
+  \fi%
+  {#1}}%
+
+\ifHAP@portrait
+  \newcommand{\HAPR@titleSlide}{\NewSlideStyle[9cm]{tl}{-.65,2.9}{TitleSlide}}
+  \newcommand{\HAPR@normalSlide}{\NewSlideStyle[8.7cm]{tl}{-.65,3.3}{NormalSlide}}
+  \newcommand{\HAPR@wideSlide}{\NewSlideStyle[8.7cm]{tl}{-.65,3.3}{NormalSlide}}
+  \newcommand{\HAPR@dualSlide}{\NewSlideStyle[4.2cm]{tl}{-.65,3.3}{NormalSlide}}
+  \newcommand{\slidetitle}[1]{\rput[Br](8.3,4.55){\fontTitle{#1}}}
+\else
+  \newcommand{\HAPR@titleSlide}{\NewSlideStyle[11.7cm]{tl}{-.6,3.4}{TitleSlide}}
+  \newcommand{\HAPR@normalSlide}{\NewSlideStyle[9.5cm]{tl}{-.6,3.7}{NormalSlide}}
+  \newcommand{\HAPR@wideSlide}{\NewSlideStyle[11.7cm]{tl}{-.6,3.7}{SpecialSlide}}
+  \newcommand{\HAPR@dualSlide}{\NewSlideStyle[5.5cm]{tl}{-.6,3.7}{SpecialSlide}}
+  \newcommand{\slidetitle}[1]{\rput[Br](9.2,4.55){\fontTitle{#1}}}
+\fi
+
+% List item definitions
+\RequirePackage{pifont}
+\myitem{1}{\raisebox{1pt}{\fontsize{7pt}{7pt}\selectfont\ding{110}}}
+\myitem{2}{\raisebox{1pt}{\fontsize{7pt}{7pt}\selectfont\ding{117}}}
+\myitem{3}{\raisebox{1pt}{\fontsize{5pt}{5pt}\selectfont\ding{110}}}
+
+% Style of table of contents entries
+\newcommand{\HAP@tsectionm}{%
+  \ifHAP@portrait\else
+    \psline[linecolor=tjdblue,linewidth=.25pt](-.04,-.05)(2,-.05)%
+  \fi
+}
+\newcommand{\HAP@tsectiononly}[1]{\parbox{2cm}{\raggedleft#1\,}}%
+
+\endinput

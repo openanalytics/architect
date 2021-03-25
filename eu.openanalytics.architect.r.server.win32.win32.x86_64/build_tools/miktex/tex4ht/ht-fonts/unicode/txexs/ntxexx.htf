@@ -1,0 +1,230 @@
+ntxexx 0 224
+'(' '' parenleftbig 0
+')' '' parenrightbig 1
+'[' '' bracketleftbig 2
+']' '' bracketrightbig 3
+'&#x230A;' '' floorleftbig 4
+'&#x230B;' '' floorrightbig 5
+'&#x2308;' '' ceilingleftbig 6
+'&#x2309;' '' ceilingrightbig 7
+'{' '' braceleftbig 8
+'}' '' bracerightbig 9
+'&#x2329;' '' angbracketleftbig 10
+'&#x232A;' '' angbracketrightbig 11
+'|' '' barex 12
+'&#x2016;' '' bardblex 13
+'&#x2215;' '' slashbig 14
+'\' '' backslashbig 15
+'(' '' parenleftBig 16
+')' '' parenrightBig 17
+'(' '' parenleftbigg 18
+')' '' parenrightbigg 19
+'[' '' bracketleftbigg 20
+']' '' bracketrightbigg 21
+'&#x230A;' '' floorleftbigg 22
+'&#x230B;' '' floorrightbigg 23
+'&#x2308;' '' ceilingleftbigg 24
+'&#x2309;' '' ceilingrightbigg 25
+'{' '' braceleftbigg 26
+'}' '' bracerightbigg 27
+'&#x2329;' '' angbracketleftbigg 28
+'&#x232A;' '' angbracketrightbigg 29
+'&#x2215;' '' slashbigg 30
+'\' '' backslashbigg 31
+'(' '' parenleftBigg 32
+')' '' parenrightBigg 33
+'[' '' bracketleftBigg 34
+']' '' bracketrightBigg 35
+'&#x230A;' '' floorleftBigg 36
+'&#x230B;' '' floorrightBigg 37
+'&#x2308;' '' ceilingleftBigg 38
+'&#x2309;' '' ceilingrightBigg 39
+'{' '' braceleftBigg 40
+'}' '' bracerightBigg 41
+'&#x2329;' '' angbracketleftBigg 42
+'&#x232A;' '' angbracketrightBigg 43
+'&#x2215;' '' slashBigg 44
+'\' '' backslashBigg 45
+'&#x2215;' '' slashBig 46
+'\' '' backslashBig 47
+'&#x239B;' '' parenlefttp 48
+'&#x239E;' '' parenrighttp 49
+'&#x2308;' '' bracketlefttp 50
+'&#x23A4;' '' bracketrighttp 51
+'&#x230A;' '' bracketleftbt 52
+'&#x23A6;' '' bracketrightbt 53
+'&#x23A2;' '' bracketleftex 54
+'&#x23A5;' '' bracketrightex 55
+'&#xa3A7;' '' bracelefttp 56
+'&#x23AB;' '' bracerighttp 57
+'&#x23A9;' '' braceleftbt 58
+'&#x23AD;' '' bracerightbt 59
+'|' '' braceleftmid 60
+'&#x23AC;' '' bracerightmid 61
+'|' '' braceex 62
+'&#x2195;' '' arrowvertex 63
+'&#x239D;' '' parenleftbt 64
+'&#x23A0;' '' parenrightbt 65
+'&#x239C;' '' parenleftex 66
+'&#x239F;' '' parenrightex 67
+'&#x2329;' '' angbracketleftBig 68
+'&#x232A;' '' angbracketrightBig 69
+'&#x2294;' '' unionsqtext 70
+'&#x2294;' '' unionsqdisplay 71
+'&#x222E;' '' contintegraltext 72
+'&#x222E;' '' contintegraldisplay 73
+'&#x2299;' '' circledottext 74
+'&#x2299;' '' circledotdisplay 75
+'&#x2295;' '' circleplustext 76
+'&#x2295;' '' circleplusdisplay 77
+'&#x2297;' '' circlemultiplytext 78
+'&#x2297;' '' circlemultiplydisplay 79
+'&#x2211;' '' summationtext 80
+'&#x220F;' '' producttext 81
+'&#x222B;' '' integraltext 82
+'&#x22C3;' '' uniontext 83
+'&#x22C2;' '' intersectiontext 84
+'&#x228E;' '' unionmultitext 85
+'&#x22C0;' '' logicalandtext 86
+'&#x22C1;' '' logicalortext 87
+'&#x2211;&#xFE01;' '' summationdisplay 88
+'&#x220F;' '' productdisplay 89
+'&#x222B;' '' integraldisplay 90
+'&#x22C3;' '' uniondisplay 91
+'&#x22C2;' '' intersectiondisplay 92
+'&#x228E;' '' unionmultidisplay 93
+'&#x22C0;' '' logicalanddisplay 94
+'&#x22C1;' '' logicalordisplay 95
+'&#x2210;' '' coproducttext 96
+'&#x2210;' '' coproductdisplay 97
+'&#x0302;' '' hatwide 98
+'&#x0302;' '' hatwider 99
+'&#x0302;' '' hatwidest 100
+'&#x0303;' '' tildewide 101
+'&#x0303;' '' tildewider 102
+'&#x02DC;' '' tildewidest 103
+'[' '' bracketleftBig 104
+']' '' bracketrightBig 105
+'&#x230A;' '' floorleftBig 106
+'&#x230B;' '' floorrightBig 107
+'&#x2308;' '' ceilingleftBig 108
+'&#x2309;' '' ceilingrightBig 109
+'{' '' braceleftBig 110
+'}' '' bracerightBig 111
+'&#x221A;&#xFE01;' '' radicalbig 112
+'&#x221A;&#xFE03;' '' radicalBig 113
+'&#x221A;&#xFE02;' '' radicalbigg 114
+'&#x221A;&#xFE04;' '' radicalBigg 115
+'&#x221A;' '' radicalbt 116
+'&#x221A;' '' radicalvertex 117
+'&#x221A;' '' radicaltp 118
+'&#x2551;' '' arrowvertexdbl 119
+'&#x2191;' '' arrowtp 120
+'&#x2193;' '' arrowbt 121
+'&#xFE37;' '' bracehtipdownleft 122
+'&#xFE37;' '' bracehtipdownright 123
+'&#xFE38;' '' bracehtipupleft 124
+'&#xFE38;' '' bracehtipupright 125
+'&#x21D1;' '' arrowdbltp 126
+'&#x21D3;' '' arrowdblbt 127
+'(' '' parenleft 128
+')' '' parenright 129
+'[' '' bracketleft 130
+']' '' bracketright 131
+'[&#xFE01;' '' bracketleftbigx 132
+']&#xFE01;' '' bracketrightbigx 133
+'&#x230A;&#xFE01;' '' floorleftbigx 134
+'&#x230B;&#xFE01;' '' floorrightbigx 135
+'&#x2308;&#xFE01;' '' ceilingleftbigx 136
+'&#x2309;&#xFE01;' '' ceilingrightbigx 137
+'{&#xFE01;' '' braceleftbigx 138
+'}&#xFE01;' '' bracerightbigx 139
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x0302;&#xFE04;' '' hat4 154
+'&#x0302;&#xFE05;' '' hat5 155
+'&#x0302;&#xFE06;' '' hat6 156
+'&#x0303;&#xFE04;' '' tilde4 157
+'&#x0303;&#xFE05;' '' tilde5 158
+'&#x0303;&#xFE06;' '' tilde6 159
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'' ''
+'&#x239B;' '' parenlefttpA 169
+'&#x239E;' '' parenrighttpA 170
+'&#x239D;' '' parenleftbtA 171
+'&#x23A0;' '' parenrightbtA 172
+'&#x239C;' '' parenleftexA 173
+'&#x239F;' '' parenrightexA 174
+'&#x222B;' '' uni222B 175
+'&#x222C;' '' uni222C 176
+'&#x222D;' '' uni222D 177
+'&#x222E;' '' uni222E 178
+'&#x222F;' '' uni222F 179
+'&#x222B;' '' uni222B.up 180
+'&#x222C;' '' uni222C.up 181
+'&#x222D;' '' uni222D.up 182
+'&#x222E;' '' uni222E.up 183
+'&#x222F;' '' uni222F.up 184
+'&#x222B;&#xFE01;' '' uni222B.dsp 185
+'&#x222C;' '' uni222C.dsp 186
+'&#x222D;' '' uni222D.dsp 187
+'&#x222E;' '' uni222E.dsp 188
+'&#x222F;' '' uni222F.dsp 189
+'&#x222B;' '' uni222B.updsp 190
+'&#x222C;' '' uni222C.updsp 191
+'&#x222D;' '' uni222D.updsp 192
+'&#x222E;' '' uni222E.updsp 193
+'&#x222F;' '' uni222F.updsp 194
+'&#x2294;' '' unionsqtext.1 195
+'&#x2294;' '' unionsqdisplay.1 196
+'' ''
+'' ''
+'&#x2299;' '' circledottext.1 199
+'&#x2299;' '' circledotdisplay.1 200
+'&#x2295;' '' circleplustext.1 201
+'&#x2295;' '' circleplusdisplay.1 202
+'&#x2297;' '' circlemultiplytext.1 203
+'&#x2297;' '' circlemultiplydisplay.1 204
+'&#x2211;' '' summationtext.1 205
+'&#xc;' '' producttext.1 206
+'&#x2A03;' '' cupdottext.1 207
+'&#x22C3;' '' uniontext.1 208
+'&#x22C2;' '' intersectiontext.1 209
+'&#x228E;' '' unionmultitext.1 210
+'&#x22C0;' '' logicalandtext.1 211
+'&#x22C1;' '' logicalortext.1 212
+'&#x2211;&#xFE01;' '' summationdisplay.1 213
+'&#xc;' '' productdisplay.1 214
+'&#x2A03;' '' cupdotdisplay.1 215
+'&#x22C3;' '' uniondisplay.1 216
+'&#x22C2;' '' intersectiondisplay.1 217
+'&#x228E;' '' unionmultidisplay.1 218
+'&#x22C0;' '' logicalanddisplay.1 219
+'&#x22C1;' '' logicalordisplay.1 220
+'&#xc;' '' coproducttext.1 221
+'&#xc;' '' coproductdisplay.1 222
+'&#x2A03;' '' cupdottext 223
+'&#x2A03;' '' cupdotdisplay 224
+ntxexx 0 224
+htfcss:  ntxexx  font-family: 'txexs', serif;
+
+

@@ -1,0 +1,18 @@
+.lm-ec
+htfcss: ec-iwonab  font-weight: bold;
+htfcss: ec-iwonabi  font-style:italic; font-weight: bold;
+htfcss: ec-iwonacb  font-weight: bold;
+htfcss: ec-iwonacbi  font-style:italic; font-weight: bold;
+htfcss: ec-iwonach  font-weight: bold;
+htfcss: ec-iwonachi  font-style:italic; font-weight: bold;
+htfcss: ec-iwonacl  font-weight: light;
+htfcss: ec-iwonacli  font-weight: light; font-style:italic;
+htfcss: ec-iwonacmi  font-style:italic;
+htfcss: ec-iwonacri  font-style:italic;
+htfcss: ec-iwonah  font-weight: bold;
+htfcss: ec-iwonahi  font-style:italic; font-weight: bold;
+htfcss: ec-iwonal  font-weight: light;
+htfcss: ec-iwonali  font-weight: light; font-style:italic;
+htfcss: ec-iwonami  font-style:italic;
+htfcss: ec-iwonari  font-style:italic;
+

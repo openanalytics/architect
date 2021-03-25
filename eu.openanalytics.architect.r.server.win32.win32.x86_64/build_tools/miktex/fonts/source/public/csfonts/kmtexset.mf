@@ -1,0 +1,122 @@
+% Special version of Computer Modern for \TeX's extended ASCII character set
+% 8-bit characters with Czech accents (Petr Novak)
+% revised and edited 1992-94 (Karel Horak)
+% european quotes added
+
+font_coding_scheme:="TeX cs extended ASCII";
+
+mode_setup; font_setup; mono_charic#:=0;
+
+input tsetsl;  % special symbols to be slanted
+slant:=0;  % the remaining characters will not be slanted
+currenttransform:=identity yscaled aspect_ratio scaled granularity;
+
+
+input romanu;  % upper case (majuscules)
+input romanl;  % lower case (minuscules)
+input romand;  % numerals
+input romanp;  % ampersand, question marks, currency sign
+input punct;  % punctuation symbols common to roman and italic text
+input tset;  % remaining special symbols of extended ASCII
+
+input csaccent;  % czech and slovak accents definitions
+input csacutl; % lowercase letters with acute accent
+input csacutu; % uppercase latters with acute accent
+input cshachel; % lowercase letters with hachek accent
+input cshacheu; % uppercase letters with hachek accent
+input csotherl; % lowercase letters with other accents
+input csotheru; % uppercase letters with other accents
+
+font_x_height x_height#;
+if monospace: font_normal_space 9u#; % no stretching or shrinking
+ font_quad 18u#;
+ font_extra_space 9u#;
+else: font_normal_space 6u#+2letter_fit#;
+ font_normal_stretch 3u#; font_normal_shrink 2u#;
+ font_quad 18u#+4letter_fit#;
+ font_extra_space 2u#;
+ k#:=-.5u#; kk#:=-1.5u#; kkk#:=-2u#; % three degrees of kerning
+ ligtable "k": if serifs: "v": "a" kern -u#, cs_aa kern -u#,
+           cs_ae kern -u#, cs_ax kern -u#, fi\\"w":
+           "e" kern k#, cs_ee kern k#, cs_ie kern k#,
+           "a" kern k#, cs_aa kern k#, cs_ae kern k#, cs_ax kern k#,
+           "o" kern k#, cs_oo kern k#, cs_uo kern k#, cs_oe kern k#,
+           "c" kern k#, cs_cz kern k#;
+ ligtable "P": "A" kern kk#, cs_AA kern kk#, cs_AX+cs_uc kern kk#,
+               cs_ae+cs_uc kern kk#,
+          "y": cs_yy:
+               "o" kern k#, cs_oo kern k#, cs_uo kern k#, cs_oe kern k#,
+               "e" kern k#, cs_ee kern k#, cs_ie kern k#,
+               "a" kern k#, cs_aa kern k#, cs_ae kern k#, cs_ax kern k#,
+               "." kern kk#, "," kern kk#;
+ ligtable "F": "V": "W": if serifs: 
+               "o" kern kk#, cs_oo kern kk#, cs_ou kern kk#, cs_oe kern kk#,
+               "e" kern kk#, cs_ee kern kk#, cs_ie kern kk#,
+               "u" kern kk#, cs_uu kern kk#, cs_ue kern kk#, cs_ou kern kk#,
+               "r" kern kk#, cs_rz kern kk#, cs_rr kern kk#,
+               "a" kern kk#, cs_aa kern kk#, cs_ae kern kk#, cs_ax kern kk#,
+               "A" kern kkk#, cs_AA+cs_uc kern kkk#,
+                 cs_AE+cs_uc kern kkk#, cs_AX+cs_uc kern kkk#,
+           else: "o" kern k#, cs_oo kern k#, cs_ou kern k#, cs_oe kern k#,
+               "e" kern k#, cs_ee kern k#, cs_ie kern k#,
+               "u" kern k#, cs_uu kern k#, cs_ue kern k#, cs_ou kern k#,
+               "r" kern k#, cs_rz kern k#, cs_rr kern k#,
+               "a" kern k#, cs_aa kern k#, cs_ae kern k#, cs_ax kern k#,
+               "A" kern kk#, cs_AA+cs_uc kern kk#,
+                 cs_AE+cs_uc kern kk#, cs_AX+cs_uc kern kk#,
+           fi
+           "K": "X": "O" kern k#, cs_OO kern k#,
+                 cs_UO kern k#, cs_OE kern k#,
+               "C" kern k#, cs_CZ kern k#,
+               "G" kern k#, "Q" kern k#;
+ ligtable "T": cs_TJ+cs_uc : if serifs: "y" kern k#, cs_yy kern k#
+                               else: "y" kern kk#, cs_yy kern kk# fi,
+          "Y": cs_yy+cs_uc:
+               "e" kern kk#, cs_ee kern kk#, cs_ie kern kk#,
+               "o" kern kk#, cs_oo kern kk#, cs_ou kern kk#, cs_oe kern kk#,
+               "r" kern kk#, cs_rz kern kk#, cs_rr kern kk#,
+               "a" kern kk#, cs_aa kern kk#, cs_ae kern kk#, cs_ax kern kk#,
+               "A" kern kk#, cs_AA+cs_uc kern kk#,
+                 cs_AE+cs_uc kern kk#, cs_AX+cs_uc kern kk#,
+               "u" kern kk#, cs_uu kern kk#, cs_ue kern kk#,
+                  cs_ou kern kk#;
+ ligtable "O": cs_OO+cs_uc: "D": cs_DJ+cs_uc:
+               "X" kern k#, "W" kern k#,
+               "A" kern k#, cs_AA+cs_uc kern k#, cs_AE+cs_uc kern k#,
+                   cs_AX+cs_uc kern k#,
+               "V" kern k#, "Y" kern k#, cs_YY+cs_uc kern k#;
+ if serifs: ligtable "h": "m": "n": cs_nz:
+               "t" kern k#, cs_tj kern k#,
+               "u" kern k#, cs_uu kern k#, cs_ue kern k#, cs_ou kern k#,
+               "b" kern k#, "y" kern k#, cs_yy kern k#,
+               "v" kern k#, "w" kern k#;
+  ligtable "c": cs_cz: "h" kern k#, "k" kern k#; fi
+ ligtable "o": cs_oo: cs_uo: cs_oe: "b": "p":
+               "e" kern -k#, cs_ee kern -k#, cs_ie kern -k#,
+               "o" kern -k#, cs_oo kern -k#, cs_ou kern -k#, cs_oe kern -k#,
+               "x" kern k#, "d" kern -k#, cs_dj kern -k#,
+               "c" kern -k#, cs_cz kern -k#, "q" kern -k#,
+          "a": cs_aa: cs_ae: cs_ax:
+          if serifs: "v" kern k#, "j" kern u#,
+          else: "r" kern k#, cs_rr kern k#, cs_rz kern k#, fi
+          "t": cs_tj: "y" kern k#, cs_yy kern k#,
+          "u": cs_uu: cs_ou: cs_ue: "w" kern k#;
+ ligtable "A": cs_AA+cs_uc: cs_AE+cs_uc: cs_AX+cs_uc:
+          if serifs: "R": cs_RZ+cs_uc: cs_RR+cs_uc: fi\\
+               "t" kern k#, cs_tj kern k#,
+               "C" kern k#, cs_CZ+cs_uc kern k#,
+               "O" kern k#, cs_OO+cs_uc kern k#, cs_UO+cs_uc kern k#,
+                   cs_OE+cs_uc kern k#,
+               "G" kern k#,
+               "U" kern k#, cs_UU+cs_uc kern k#, cs_OU+cs_uc kern k#,
+                   cs_UE+cs_uc kern k#,
+               "Q" kern k#,
+          "L": cs_LJ+cs_uc: cs_LL+cs_uc:
+               "T" kern kk#, cs_TJ+cs_uc kern kk#,
+               "Y" kern kk#, cs_YY+cs_uc kern kk#,
+               "V" kern kkk#, "W" kern kkk#;
+ ligtable "g": "j" kern -k#; % logjam
+ ligtable "I": "I" kern -k#; % Richard III
+fi
+
+bye.

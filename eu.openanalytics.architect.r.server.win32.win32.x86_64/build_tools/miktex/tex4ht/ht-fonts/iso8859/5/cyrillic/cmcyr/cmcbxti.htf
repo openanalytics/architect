@@ -1,0 +1,107 @@
+cmcbxti 25 127
+'&#x2216;' '1'25 %
+'' ''         26 % cmcbxti.htf  (iso-8859-2)     2020-05-27-14:14 %
+'' ''         27 % Copyright 2000-2009 Eitan M. Gurari %
+'' ''         28 %
+'&#171;' '' 29 % This work may be distributed and/or modified under the conditions
+'&#187;' '' 30 % of the LaTeX Project Public License, either version 1.3 of this
+'' ''         31 % license or (at your option) any later version. The latest version
+'' ''         32 % of this license is in http://www.latex-project.org/lppl.txt and
+'' ''         33 % version 1.3 or later is part of all distributions of LaTeX version
+'' ''         34 % 2003/12/01 or later.
+'' ''         35 % This work has the LPPL maintenance status "maintained".
+'' ''         36 % Current Maintainer of this work is the TeX4ht Project.
+'' ''         37 %
+'' ''         38 % If you modify this file, changing the
+'' ''         39 % version identification would be appreciated.
+'' ''         40 %
+'' ''         41 % tex4ht@tug.org
+'' ''         42 % https://tug.org/tex4ht
+'' ''         43 %
+'' ''         44 
+'' ''         45
+'' ''         46
+'' ''         47
+'' ''         48
+'' ''         49
+'' ''         50
+'' ''         51
+'' ''         52
+'' ''         53
+'' ''         54
+'' ''         55
+'' ''         56
+'' ''         57
+'' ''         58
+'' ''         59
+'\241\' '' 60
+'' ''         61
+'\161\' '' 62
+'' ''         63
+'\238\' '' 64
+'\208\' '' 65
+'\209\' '' 66
+'\230\' '' 67
+'&#x2202;' '1'68
+'\213\' '' 69
+'\228\' '' 70
+'&#x01A8;' '1'71
+'\229\' '' 72
+'u' '' 73
+'&#x016D;' '1'74
+'\218\' '' 75
+'\219\' '' 76
+'\220\' '' 77
+'\221\' '' 78
+'\222\' '' 79
+'n' '' 80
+'\239\' '' 81
+'\224\' '' 82
+'\225\' '' 83
+'m' '' 84
+'\227\' '' 85
+'\214\' '' 86
+'\210\' '' 87
+'\236\' '' 88
+'\235\' '' 89
+'\215\' '' 90
+'\232\' '' 91
+'\237\' '' 92
+'\233\' '' 93
+'\231\' '' 94
+'\234\' '' 95
+'\206\' '' 96
+'\176\' '' 97
+'\177\' '' 98
+'\198\' '' 99
+'\180\' '' 100
+'\181\' '' 101
+'\196\' '' 102
+'\179\' '' 103
+'\197\' '' 104
+'\184\' '' 105
+'\185\' '' 106
+'\186\' '' 107
+'\187\' '' 108
+'\188\' '' 109
+'\189\' '' 110
+'\190\' '' 111
+'\191\' '' 112
+'\207\' '' 113
+'\192\' '' 114
+'\193\' '' 115
+'\194\' '' 116
+'\195\' '' 117
+'\182\' '' 118
+'\178\' '' 119
+'\204\' '' 120
+'\203\' '' 121
+'\183\' '' 122
+'\200\' '' 123
+'\205\' '' 124
+'\201\' '' 125
+'\199\' '' 126
+'\202\' '' 127
+cmcbxti 25 127
+htfcss: cmcbxti font-weight: bold; font-style: italic;
+

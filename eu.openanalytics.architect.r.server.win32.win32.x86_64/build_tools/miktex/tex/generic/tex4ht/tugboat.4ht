@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% tugboat.4ht                           2009-05-21-09:32 %
+% Copyright (C) 2004--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\let\:tempb\head
+\Def:Section\head{}{#1}
+\let\:head\head
+\let\head\:tempb
+\def\@domainhead{\:head{\the\@argument}}
+\let\:tempb\subhead
+\Def:Section\subhead{}{#1}
+\let\:subhead\subhead
+\let\subhead\:tempb
+\def\@dosubhead{\:subhead{\the\@argument}}
+\let\:tempb\subsubhead
+\Def:Section\subsubhead{}{#1}
+\let\:subsubhead\subsubhead
+\let\subsubhead\:tempb
+\def\@dosubsubhead{\:subsubhead{\the\@argument}}
+\let\o:figure:\figure
+\def\figure{\bgroup \a:figure \o:figure:}
+\append:def\endfigure{\b:figure\egroup}
+\NewConfigure{figure}{2}
+\pend:def\endverbatim{%
+   \append:def\@beforeverbinline{\a:verb}%
+   \pend:def\@afterverbinline{\b:verb}%
+   \append:def\@beforeverbdisplay{\a:verbatim}%
+   \pend:def\@afterverbdisplay{\b:verbatim}%
+   \expandafter\def\expandafter\pre:everypar\expandafter{\the\everypar}%
+   \append:def\@altdisplaystyle{%
+      \expandafter\def\expandafter\:temp\expandafter{\the\everypar}%
+      \ifx \:temp\pre:everypar \else
+         \expandafter\everypar\expandafter{\expandafter\HtmlPar\the\everypar}%
+      \fi }%
+}
+\pend:def\verbatim{\bgroup \Configure{obeylines}{}{}{}}
+\append:def\endverbatim{\egroup}
+\let\:setupverbatim\setupverbatim
+\def\setupverbatim{\:setupverbatim
+    \let\:ruled\empty\def\ruled{\def\:ruled{-ruled}}}
+\let\:ruled\empty
+\NewConfigure{verbatim}{2}
+\NewConfigure{verb}{2}
+\let\:beginlist\@beginlist
+\def\@beginlist{%
+    \ifx\@liststyle\@displaystyle
+       \Configure{list}
+          {\csname a:display-list\endcsname}
+          {\csname b:display-list\endcsname}
+          {\csname c:display-list\endcsname}
+          {\csname d:display-list\endcsname}%
+    \else
+       \Configure{list}
+          {\csname a:inline-list\endcsname}
+          {\csname b:inline-list\endcsname}
+          {\csname c:inline-list\endcsname}
+          {\csname d:inline-list\endcsname}%
+    \fi
+    \a:list \begingroup
+    \:beginlist
+    \let\:tagform=\tagform
+    \def\tagform##1{\c:list\:tagform{##1}\d:list}%
+      \expandafter\def\expandafter\:temp\expandafter{\the\everypar}%
+      \ifx \:temp\pre:everypar \else
+         \expandafter\everypar\expandafter{\expandafter\HtmlPar\the\everypar}%
+      \fi
+      \def\colsep{\ignoreendline}%
+     }
+\append:def\endlist{\b:list\endgroup}
+\NewConfigure{list}{4}
+\NewConfigure{display-list}{4}
+\NewConfigure{inline-list}{4}
+\NewConfigure{rtitle}{2}
+\let\rtitle\empty
+\let\rfoot\empty
+\global\SecTitletrue
+\pend:def\article{\a:rtitle \rtitlex\qquad \midrtitle \b:rtitle
+\ifx\thetitle\relax
+  \else
+    \pend:defI\thetitle{\a:title}%
+    \append:defI\thetitle{\b:title}%
+  \fi
+}
+\NewConfigure{title}{2}
+\pend:defI\theauthor{\a:author}
+\append:defI\theauthor{{}\b:author}
+\NewConfigure{author}{2}
+\pend:defI\theaddress{\a:address}
+\append:defI\theaddress{{}\b:address}
+\NewConfigure{address}{2}
+\pend:defI\thenetaddress{\a:netaddress}
+\append:defI\thenetaddress{{}\b:netaddress}
+\NewConfigure{netaddress}{2}
+\pend:def\@defaultauthorlist{\a:authorlist\:defaultauthorlist}
+\append:def\@defaultauthorlist{\b:authorlist}
+\def\:defaultauthorlist{%
+   \let\@defaultauthorlist\empty
+   \count@=\authornumber
+   \loop
+   \ifnum\count@>0
+      \expandafter\pend:def\csname theauthor\number\count@\endcsname{\a:author}%
+      \expandafter\append:def\csname theauthor\number\count@\endcsname{\b:author}%
+      \advance\count@ by -1
+   \repeat
+  }
+\NewConfigure{authorlist}{2}
+
+\append:def\makesignature{\egroup}
+\pend:def\makesignature{\bgroup
+  \pend:def\@signature{%
+     \expandafter\everypar\expandafter{\expandafter\HtmlPar\the\everypar}%
+     \a:signature}%
+  \append:def\@signature{\b:signature}%
+  \let\sv:rightline\rightline
+  \def\rightline{\let\rightline=\sv:rightline}%
+}
+\NewConfigure{signature}{2}
+\pend:def\signaturemark{\a:signaturemark}
+\append:def\signaturemark{\b:signaturemark}
+\NewConfigure{signaturemark}{2}
+\def\v@lx{\gdef\volx{Volume~\a:volno\volno\b:volno
+                           ~(\a:volyr\volyr\b:volyr),
+                        No.~\a:issno\issno\b:issno}}
+\NewConfigure{issno}{2}
+\NewConfigure{volyr}{2}
+\NewConfigure{volno}{2}
+
+\Hinput{tugboat}
+\endinput
+

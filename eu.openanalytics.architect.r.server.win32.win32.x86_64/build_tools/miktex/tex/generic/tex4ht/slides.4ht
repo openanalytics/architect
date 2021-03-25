@@ -1,0 +1,73 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% slides.4ht                            2009-05-21-09:32 %
+% Copyright (C) 1999--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\def\btn:s{%
+   \advance\c@slide by -1
+   \edef\prevCutAt{\RefFile{\jobname-sl\the\c@slide.\:html}}%
+   \ifx\prevCutAt\space \let\prevCutAt=\empty \fi
+   \advance\c@slide by 2
+   \edef\nextCutAt{\RefFile{\jobname-sl\the\c@slide.\:html}}%
+   \ifx\nextCutAt\space \let\nextCutAt=\empty \fi
+}
+\append:def\slide{\expandafter\ifx  \csname slide:\endcsname\relax \else
+    \NextFile{\jobname-sl\the\c@slide .\:html}%
+    \HPage{\a:slidename}%
+     \bgroup\btn:s \default:bts{}{tail}%
+      \egroup
+   \fi}
+\pend:def\endslide{\expandafter\ifx  \csname slide:\endcsname\relax \else
+  \bgroup \btn:s
+     \pend:def\b:crsbt{\Link-{}{tail\FileName}\EndLink}%
+     \default:bts{tail}{}%
+   \egroup\EndHPage{}\fi}
+\NewConfigure{slidename}{1}
+\Configure{slidename}{\the\c@slide}
+\pend:def\maketitle{\bgroup
+   \gHAdvance\:mpNum by 1
+\HAssign\minipageNum=\:mpNum \relax
+%
+   \pend:def\@title{\a:ttl}\append:def\@title{\b:ttl}%
+   \pend:def\@date{\a:date}\append:def\@date{\b:date}%
+   \pend:def\@author{\a:author}\append:def\@author{\b:author}%
+   \a:mktl }
+\append:def\maketitle{\b:mktl \egroup }
+\NewConfigure{maketitle}[4]{\c:def\a:mktl{#1}\c:def\b:mktl{#2}%
+   \c:def\a:ttl{#3}\c:def\b:ttl{#4}}
+\NewConfigure{author date}[4]{%
+   \c:def\a:author{#1}\c:def\b:author{#2}%
+   \c:def\a:date{#3}\c:def\b:date{#4}}
+\long\def\:tempc{\@roman \c@enumiii}
+\ifx \theenumiii\:tempc
+   \def\:tempc{\a:enumiii\@roman\c@enumiii\b:enumiii}
+   \HLet\theenumiii\:tempc
+\fi
+\NewConfigure{enumiii}{2}
+
+\Hinput{slides}
+\endinput
+

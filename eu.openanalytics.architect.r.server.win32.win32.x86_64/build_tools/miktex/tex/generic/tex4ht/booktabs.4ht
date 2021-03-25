@@ -1,0 +1,139 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% booktabs.4ht                          2009-05-21-09:32 %
+% Copyright (C) 1999--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\ifx \@BTfnslthree\:UnDef
+   \def\:temp{\o:noalign:{\ifnum0=`}\fi
+   \let\A:midrule=\a:midrule
+   \@ifnextchar[{\@midrule}{\@midrule[\lightrulewidth]}}
+\HLet\midrule=\:temp
+\def\:temp[#1]{\o:@midrule:[\z@\A:midrule]}
+\HLet\@midrule=\:temp
+\NewConfigure{midrule}{1}
+
+\def\:temp{\o:noalign:{\ifnum0=`}\fi
+    \@ifnextchar[{\@toprule}{\@toprule[\heavyrulewidth]}}
+\HLet\toprule=\:temp
+\def\:temp[#1]{\o:@toprule:[\z@\a:toprule]}
+\HLet\@toprule=\:temp
+\NewConfigure{toprule}{1}
+
+\def\:temp{\o:noalign:{\ifnum0=`}\fi
+   \let\A:midrule=\a:bottomrule
+    \@ifnextchar[{\@midrule}{\@midrule[\heavyrulewidth]}}
+\HLet\bottomrule=\:temp
+\NewConfigure{bottomrule}{1}
+
+\else
+   \def\:temp{\hrule
+      \@height \@thisrulewidth\futurenonspacelet\@tempa\@BTendrule}
+   \ifx \@BTnormal\:temp
+      \def\@BTnormal{\hbox{\cur:rule}\futurenonspacelet\@tempa\@BTendrule}
+\def\@cmidrulea{\multispan\@cmidla&\multispan\@cmidlb \a:cmidrule \hfill \cr}
+\def\@cmidruleb{\multispan\@cmidlb \a:cmidrule \hfill \cr}
+
+   \else
+      \def\:tempc{%
+    %{\CT@arc@\hrule\@height\@thisrulewidth}%
+    \hbox{\cur:rule}\futurenonspacelet\@tempa\@BTendrule}
+\HLet\@BTnormal\:tempc
+\def\:tempc{%
+   \multispan\@cmidla&\multispan\@cmidlb
+   \a:cmidrule
+   \unskip\hskip\cmrkern@l%
+   %{\CT@arc@\leaders\hrule \@height\@thisrulewidth\hfill}%
+   \hskip\cmrkern@r\cr}%
+\HLet\@cmidrulea\:tempc
+\def\:tempc{%
+    \multispan\@cmidlb
+    \a:cmidrule
+    \unskip\hskip \cmrkern@l%
+    %{\CT@arc@\leaders\hrule \@height\@thisrulewidth\hfill}%
+    \hskip\cmrkern@r\cr}%
+\HLet\@cmidruleb\:tempc
+
+   \fi
+   \def\gobble:if#1\fi{}
+
+\let\:tempc\toprule
+\pend:def\:tempc{\o:noalign:{\ifnum0=`}\fi
+   \let\cur:rule\a:toprule
+   \gobble:if}
+\HLet\toprule=\:tempc
+\NewConfigure{toprule}{1}
+
+\let\:tempc\midrule
+\pend:def\:tempc{\o:noalign:{\ifnum0=`}\fi
+   \let\cur:rule\a:midrule
+   \gobble:if}
+\HLet\midrule=\:tempc
+\NewConfigure{midrule}{1}
+
+\let\:tempc\bottomrule
+\pend:def\:tempc{\o:noalign:{\ifnum0=`}\fi
+  \let\cur:rule\a:bottomrule
+  \gobble:if}
+\HLet\bottomrule=\:tempc
+\NewConfigure{bottomrule}{1}
+\def\@@BLTrule(#1){\@setrulekerning{#1}%
+\global\@cmidlb\LT@cols
+\ifnum0=`{\fi}%
+\@cmidruleb
+\o:noalign:{\ifnum0=`}\fi
+\futurenonspacelet\@tempa\@BTendrule}
+\def\@@@cmidrule[#1-#2]#3#4{\global\@cmidla#1\relax
+    \global\advance\@cmidla\m@ne
+    \ifnum\@cmidla>0\global\let\@gtempa\@cmidrulea\else
+    \global\let\@gtempa\@cmidruleb\fi
+    \global\@cmidlb#2\relax
+    \global\advance\@cmidlb-\@cmidla
+    \global\@thisrulewidth=#3
+    \@setrulekerning{#4}
+    \ifnum\@lastruleclass=\z@\vskip \aboverulesep\fi
+    \ifnum0=`{\fi}\@gtempa
+    \o:noalign:{\ifnum0=`}\fi\futurenonspacelet\@tempa\@xcmidrule}
+
+\fi
+\def\:temp{\o:noalign:{\ifnum0=`}\fi
+    \@ifnextchar[{\@addspace}{\@addspace[\defaultaddspace]}}
+\HLet\addlinespace=\:temp
+\def\:temp#1#2#3{\o:noalign:{\a:specialrule}}
+\HLet\specialrule=\:temp
+\NewConfigure{specialrule}{1}
+
+\def\:temp{\o:noalign:{\ifnum0=`}\fi
+    \@ifnextchar[{\@cmidrule}{\@cmidrule[\cmidrulewidth]}}
+\HLet\cmidrule=\:temp
+\NewConfigure{cmidrule}{1}
+
+\def\:temp{\o:noalign:{\relax}}
+\HLet\morecmidrules=\:temp
+\NewConfigure{morecmidrules}{1}
+
+\Hinput{booktabs}
+\endinput
+

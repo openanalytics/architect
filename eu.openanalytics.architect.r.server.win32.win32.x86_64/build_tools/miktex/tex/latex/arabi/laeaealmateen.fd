@@ -1,0 +1,19 @@
+%%
+%% This is file `laeaealmateen.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+\ProvidesFile{laeaealmateen.fd}
+        [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+\DeclareFontFamily{LAE}{aealmateen}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aealmateen}{m}{n}{<-> s*[1.25] aealmateen}{}
+\DeclareFontShape{LAE}{aealmateen}{bx}{n}{<-> s*[1.25] aealmateen}{}
+
+\endinput

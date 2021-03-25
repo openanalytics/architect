@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pctable.4ht                          2009-05-21-09:32 %
+% Copyright (C) 1999--2009      Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\:CheckOption{pic-table}\if:Option
+   \pend:def\BeginTable{\Picture*{}}
+   \append:def\EndTable{\EndPicture}
+\else
+   \catcode`\!=11
+   \HAssign\pc:tbl=0
+\let\pctex:vrule=\relax
+ \pend:def\BeginTable{\bgroup \Configure{HtmlPar}{}{}{}{}
+\let\pc:endtd=\relax
+\let\pc:endtr=\relax
+\let\pc:cols=\relax\gHAdvance\pc:tbl by 1
+    \Tg<table class="pctable\pc:tbl">
+    \let\halign\TeXhalign \HRestore\noalign  }
+ \append:def\EndTable{\pc:endtd\Tg</table>\egroup}
+
+\def\pctex:vrule#1{}
+
+ \let\:tfSetVrule=\!tfSetVrule
+\def\!tfSetVrule{%
+  \!thToksEdef\!taRuleColumnTemplate={%
+   \pctex:vrule{\the\!taColumnNumber}\the
+      \!taRuleColumnTemplate}\:tfSetVrule}
+
+\expandafter\def\csname !tk:l\endcsname{%
+ \Css{.pctable\pc:tbl\space
+    td.pc-\the\!taColumnNumber{text-align:left;white-space: nowrap;
+   padding-left:3pt;padding-right:3pt;}}}
+\expandafter\def\csname !tk:c\endcsname{%
+ \Css{.pctable\pc:tbl\space
+    td.pc-\the\!taColumnNumber{text-align:center;white-space: nowrap;
+    padding-left:3pt;padding-right:3pt;}}}
+\expandafter\def\csname !tk:r\endcsname{%
+ \Css{.pctable\pc:tbl\space
+    td.pc-\the\!taColumnNumber{text-align:right;white-space: nowrap;
+    padding-left:3pt;padding-right:3pt;}}}
+\expandafter\def\csname !tk:p\endcsname{%
+ \Css{.pctable\pc:tbl\space
+    td.pc-\the\!taColumnNumber{padding-left:3pt;padding-right:3pt;}}}
+
+\pend:defI\ReadFormatKeys{\csname !tk:\string##1\endcsname}
+
+\Css{.justleft{text-align:left;white-space: nowrap;
+      padding-left:3pt;padding-right:3pt;}}
+\Css{.justright{text-align:right; white-space: nowrap;
+      padding-left:3pt;padding-right:3pt;}}
+\Css{.justcenter{text-align:center; white-space: nowrap;
+      padding-left:3pt;padding-right:3pt;}}
+
+\let\:ReadFormatKeys=\ReadFormatKeys
+\let\:tfAdjoinPriorColumn=\!tfAdjoinPriorColumn
+\def\!tfAdjoinPriorColumn{%
+   \def\ReadFormatKeys{%
+   \!thToksEdef\!taDataColumnTemplate={%
+      \pc:endtd\Tg<td\Hnewline
+         class="pc-\the\!taColumnNumber">\the
+                \!taDataColumnTemplate\Tg</td>}%
+   \let\ReadFormatKeys=\:ReadFormatKeys\ReadFormatKeys}%
+   \:tfAdjoinPriorColumn}
+
+\let\:tfFinishFormat=\!tfFinishFormat
+\def\!tfFinishFormat{%
+  \edef\:temp{\!taPreamble{\noexpand\pc:endtd
+    \Tg<tr>\the\!taPreamble \Tg</tr>}}\:temp
+  \edef\pc:cols{\the\!taColumnNumber}\HAdvance \pc:cols by -1
+    \:tfFinishFormat}
+
+\def\ReFormat[{%
+  \omit
+  \!taDataColumnTemplate{\pc:endtd
+       \Tg<td\Hnewline class="refformat">##\Tg</td>}%
+  \!taLeftGlue{}%
+  \!taRightGlue{}%
+  \catcode`\|=12
+  \catcode`\"=12
+  \ReadFormatKeys}
+
+\pend:defI\!ttuse{%
+  \ifnum ##1>\@ne
+     \omit \def\:multspn{colspan="##1"}%
+     \expandafter\expandafter\expandafter\:gobble
+  \fi}
+
+\def\!ttShortHruleA{\pc:endtd\HCode{<tr><td
+   colspan="\pc:cols" class="short"><hr\Hnewline class="short"
+   /></td></tr>}\null\ignorespaces}
+\def\!ttFullHruleA{%
+  \pc:endtd   \HCode{<tr><td
+   class="full" colspan="\pc:cols"><hr\Hnewline
+   class="full" /></td></tr>}\penalty0 \egroup}
+
+\append:def\JustLeft{\pc:endtd
+   \pc:td{justleft}\def\!ttRightGlue{\Tg</td>}}
+\append:def\JustCenter{\pc:endtd
+   \pc:td{justcenter}\def\!ttRightGlue{\Tg</td>}}
+\append:def\JustRight{\pc:td{justright}\def\!ttRightGlue{\Tg</td>}}
+\def\pc:td#1{\Tg<td class="#1"\:multspn>}
+\let\:multspn\empty
+
+   \catcode`\!=12
+\fi
+
+   
+\Hinput{pctable}
+\endinput
+

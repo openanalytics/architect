@@ -1,0 +1,109 @@
+Ukrhyph package.
+
+This package contains hyphenation patterns for Ukrainian.
+
+To install, copy all files to your texmf tree. For example,
+create a directory $TEXMF/tex/generic/ukrhyph/ and put all
+files there.
+
+You can select your favourite pattern by editing `ukrhyph.tex'. 
+Required encoding could be selected either by by editing `ukrhyph.tex' 
+or by using file ukrhyph.<ENC> where <ENC> is output encoding.
+
+Ukrainian hyphenation could be added to LaTeX by creation `hyphen.cfg'
+file containing e.g. the following lines:
+
+----------------------------------------------------------------------
+\language=0 % English
+\lefthyphenmin=2 \righthyphenmin=3 % disallow x- or -xx breaks
+\input hyphen
+\language=1 % Ukrainian
+\lefthyphenmin=2 \righthyphenmin=2 % disallow x- or -x breaks; -xx OK
+\input ukrhyph.t2a
+% Or \input ukrhyph.lcy
+% Or \input ukrhyph.ot2
+\def\English{\language0 }
+\def\Ukrainian{\language1 }
+\language=0 % English
+----------------------------------------------------------------------
+
+If you use Babel, you can modify `language.dat':
+
+----------------------------------------------------------------------
+% File    : language.dat
+% Purpose : tell iniTeX what files with patterns to load.
+english    hyphen.tex
+% you can uncomment what encoding do you need
+ukrainian     ukrhyph.t2a
+%ukrainian     ukrhyph.lcy
+%ukrainian     ukrhyph.ot2
+----------------------------------------------------------------------
+
+Files:
+~~~~~~
+
+README          This file
+
+catlcy.tex      Set the \catcode values of the lowercase Ukrainian
+                letters in the LCY encoding to 12.
+lcy2koi.tex     LCY to Koi8-u encoding (just in case).
+lcy2lcy.tex     LCY to LCY encoding (to setup \lccode values).
+lcy2ot2.tex     LCY to OT2 (LWN) encoding.
+lcy2t2a.tex     LCY to T2A encoding.
+lcy2ucy.tex     LCY to UCY (Omega Unicode Cyrillic) encoding.
+
+ukrhyph.tex     `Head' file which inputs the specified patterns and
+                re-encodes them to the specified font encoding.
+                Users can edit this file, selecting the patterns and
+                font encodings.
+ukrenhyp.tex    `Head' file for combined English-Ukrainian hyphenation
+                (don't use it with OT2 (LWN) encoding).
+
+ukrhyph.koi     `Head' file which inputs the specified patterns
+                and re-encodes them to KOI8-u encoding.
+ukrhyph.lcy     `Head' file which inputs the specified patterns
+                and re-encodes them to LCY encoding.
+ukrhyph.ot2     `Head' file which inputs the specified patterns
+                and re-encodes them to OT2 (LWN) encoding.
+ukrhyph.t2a     `Head' file which inputs the specified patterns
+                and re-encodes them to T2A (X2) encoding.
+ukrhyph.ucy     `Head' file which inputs the specified patterns
+                and re-encodes them to UCY (Omega Unicode Cyrillic) encoding.
+
+ukrhypsm.tex    Ukrainian TeX hyphenation patterns by Andrij Shvaika
+                (modern rules,  see file `rules90{.tex,.ps,.pdf}'). These
+                patterns are based on a file of more than 84000 Ukrainian
+                words hyphenated according to the modern
+                (liberal, may be too liberal :) rules.
+
+ukrhypst.tex    Ukrainian TeX hyphenation patterns by Andrij Shvaika
+                (modern rules with some corrections). These patterns are
+                based on a file of more than 84000 Ukrainian words
+                hyphenated according to the modern rules with removed
+                ``suspicious breaks''.
+
+
+ukrhypmt.tex    Ukrainian TeX hyphenation patterns by Maksym Polyakov
+                (old rules, see file `rules60{.tex,.ps,.pdf}').
+
+ukrhypmp.tex    Ukrainian TeX hyphenation patterns by Maksym Polyakov
+                (old rules, see file `rules60{.tex,.ps,.pdf}',
+                breaking into syllables according to phonetical principles,
+                see file `rules_ph{.tex,.ps,.pdf}').
+
+ukrhypfa.tex    Ukrainian TeX hyphenation patterns derived from Russian
+                patterns by Dimitri Vulis by substitution Russian vowels
+                with corresponding Ukrainian ones.
+
+
+Required:
+~~~~~~~~~~~~~~
+
+hypht2.tex      file from ruhyphen package
+                CTAN/language/hyphenation/ruhyphen/hypht2.tex
+                "It enables the hyphenation of words containing explicit
+                hyphens when using ... e.g. T2 encoded fonts". See
+                CTAN/language/hyphenation/ruhyphen/README.
+
+
+

@@ -1,0 +1,572 @@
+% File hyphen.lan
+%
+%  Created by Oldrich Ulrych,            January 5, 1993
+%  General changes by Petr Olsak         November 2012
+%  More default preloaded patterns       March 2019 
+%  Skip loading patterns when missing file  Feb. 2020
+
+% See the end of this file for more inforamtion 
+
+\ifx\directlua\undefined \else \input lua-hyphen.lan \endinput \fi
+
+\input il2code  % extra codes for czech / slovak letters in ISO-8859-2 encoding
+
+\def\loadpatterns #1#2 #3 #4#5#6 #7#8#9{\ifx#1\undefined \else 
+      \ishyphen{#7}{#3}\iftrue \global\chardef#1=#2
+      \begingroup \language=#2 \def\doaccents{\def\csaccentsmessage{}\csaccents}
+                  \let\global=\relax
+                  \message{Loading #4 encoding, \string#1=#2 (#3).} #5
+      \endgroup
+      \expandafter \gdef \csname lan:#2\endcsname {#3}
+      \expandafter \gdef \csname #3lang\endcsname {\langpatterntest#9%
+         \language=#9\relax \initlanguage{#3}\frenchspacing 
+         \sethyphenmins#6%
+         \message{#3 hyphenation used (\string\language=\the\language).
+                    \string\frenchspacing\space is set on.}}
+      \ifx#8\relax \else
+         \expandafter\gdef\expandafter#8\expandafter{#8\let#9#1}\fi
+      \xdef\pattlist{\pattlist #1=#2 }
+      \global\advance\numpatterns by1
+   \fi\fi
+}
+\def\sethyphenmins#1#2{\lefthyphenmin=#1\righthyphenmin=#2\relax}
+\def\ishyphen#1#2#3{\openin7=#1 \ifeof7 
+   \message{Warning: Hyphenation (#2) cannot be loaded, missing "#1" file.}
+   \else \closein7 }
+
+\def\langpatterntest#1{\ifx\undefined#1\langpatterntestA#1\fi}
+\def\langpatterntestA#1{%
+   \errmessage{Pattern \noexpand#1 ins't supported in ISO-8859-2.
+               Use \noexpand\input \ifx\unicodelangs\empty t1code\else ucode\fi\space first}%
+   \chardef#1=0
+}
+\def\pattlist{} \def\initlanguage#1{}
+\newcount\numpatterns
+
+\def\robustpatterns{\let\oripatterns=\patterns \def\patterns##1{\scanpatterns##1{}{##1}}}
+\def\scanpatterns#1{\if$#1$\expandafter\oripatterns\else 
+    \ifnum`#1<128 \else \lccode`#1=`#1 \fi \expandafter\scanpatterns\fi}
+
+\def\ucodeset{\ifx\font\unicoded \else \input ucode \fi}
+
+\def\tmp#1#2\relax{\def\tmp{#2}}\tmp ^^^^abcd\relax               % Unicoded TeX engine?
+\ifx\allpatterns\undefined \catcode`\:=14 \else \catcode`\:=9 \fi % comment or ignored
+
+\def\iltwolangs{} \def\corklangs{} \def\unicodelangs{}
+
+\ifx\savinghyphcodes\undefined \else
+   \message{eTeX's \savinghyphcodes detected - \lccode settings per pattern are saved.}
+   \savinghyphcodes=1
+\fi 
+
+%% \corklangs (etc.) cummulates the commands 
+%%       \let\csPatt=\csCork \let\skPatt=\skCork (etc.)
+%% You can run \corklangs before \language=\csPatt or \language=\skPatt 
+%% if you want to work in T1 encoding. 
+
+%% You can remove the colon character if you want to use 
+%% the language mentioned below.  Or you can say:  
+%%    pdftex -ini "\let\deCork=\patterns \input csplain.ini"
+%% or
+%%    pdftex -ini "\let\allpaterns=y \input csplain.ini"
+
+%% If you are using Unicoded TeX engine then you can say \let\onlyUnicode=y
+%% and the ISO- and Cork- encoded patterns will be skipped
+
+%% ASCII (these patterns work independently on choosen encoding):
+
+\let\enPatt=\patterns     % Default plainTeX US English
+:\let\enusPatt=\patterns  % US English extended
+\let\engbPatt=\patterns   % UK English
+\let\itPatt=\patterns     % Italian
+:\let\iaPatt=\patterns    % Interlingua
+:\let\idPatt=\patterns    % Indonesian
+
+%% ISO-8859-2 (default patterns in csplain):
+
+\ifx\onlyUnicode\undefined % 
+
+\let\csILtwo=\patterns
+\let\skILtwo=\patterns
+
+%% You can say
+%%   pdftex -ini "\let\Cork=\relax \input csplain.ini"
+%% if you want to suppress the Cork (alias T1) encoded hyphenation patterns.
+
+\ifx\tmp\empty \let\Cork=\relax \fi   % Unicoded TeX need not Cork-encoded patterns
+
+\ifx\Cork\undefined
+
+\let\csCork=\patterns    % Czech
+\let\skCork=\patterns    % Slovak
+
+\let\deCork=\patterns    % German
+\let\frCork=\patterns    % French
+\let\plCork=\patterns    % Polish
+:\let\cyCork=\patterns   % Welsh
+:\let\daCork=\patterns   % Danish
+\let\esCork=\patterns    % Spanish
+\let\slCork=\patterns    % Slovenian
+\let\svCork=\patterns    % Swedish
+\let\fiCork=\patterns    % Finnish
+\let\huCork=\patterns    % Hungarian
+:\let\trCork=\patterns   % Turkish
+:\let\etCork=\patterns   % Estonian
+:\let\euCork=\patterns   % Basque
+:\let\gaCork=\patterns   % Irish
+:\let\nbCork=\patterns   % Norwegian Bokmal
+:\let\nnCork=\patterns   % Norwegian Nynorsk
+:\let\nlCork=\patterns   % Dutch
+:\let\huCork=\patterns   % Hungarian
+:\let\ptCork=\patterns   % Portuguese
+:\let\roCork=\patterns   % Romanian
+:\let\hrCork=\patterns   % Croatian
+:\let\zhCork=\patterns   % Unaccented Pinyin Syllables
+:\let\isCork=\patterns   % Icelandic
+:\let\hsbCork=\patterns  % EC Upper Sorbian
+:\let\afCork=\patterns   % Afrikaans
+:\let\glCork=\patterns   % Galician
+:\let\kmrCork=\patterns  % Kurmanji
+:\let\tkCork=\patterns   % Turkmen
+:\let\laCork=\patterns   % Latin
+
+\fi\fi
+
+
+\ifx\tmp\empty      %% test of Unicoded TeX engine
+
+\let\UnicodeLcUc=y          % setting \lccodes, \uccodes for all Unicode characters
+\let\csUnicode=\patterns    % Czech
+\let\skUnicode=\patterns    % Slovak
+:\let\deUnicode=\patterns   % German
+:\let\frUnicode=\patterns   % French
+:\let\plUnicode=\patterns   % Polish
+:\let\cyUnicode=\patterns   % Welsh
+:\let\daUnicode=\patterns   % Danish
+:\let\esUnicode=\patterns   % Spanish
+:\let\eoUnicode=\patterns   % Esperanto
+:\let\slUnicode=\patterns   % Slovenian
+:\let\svUnicode=\patterns   % Swedish
+:\let\fiUnicode=\patterns   % Finnish
+:\let\huUnicode=\patterns   % Hungarian
+:\let\trUnicode=\patterns   % Turkish
+:\let\etUnicode=\patterns   % Estonian
+:\let\euUnicode=\patterns   % Basque
+:\let\gaUnicode=\patterns   % Irish
+:\let\nbUnicode=\patterns   % Norwegian Bokmal
+:\let\nnUnicode=\patterns   % Norwegian Nynorsk
+:\let\nlUnicode=\patterns   % Dutch
+:\let\ptUnicode=\patterns   % Portuguese
+:\let\roUnicode=\patterns   % Romanian
+:\let\hrUnicode=\patterns   % Croatian
+:\let\zhUnicode=\patterns   % Unaccented Pinyin Syllables
+:\let\isUnicode=\patterns   % Icelandic
+:\let\hsbUnicode=\patterns  % EC Upper Sorbian
+:\let\afUnicode=\patterns   % Afrikaans
+:\let\glUnicode=\patterns   % Galician
+:\let\kmrUnicode=\patterns  % Kurmanji
+:\let\tkUnicode=\patterns   % Turkmen
+:\let\laUnicode=\patterns   % Latin
+:\let\elmUnicode=\patterns  % Modern Monotonic Greek
+:\let\elpUnicode=\patterns  % Modern Polytonic Greek
+:\let\grcUnicode=\patterns  % Ancient Greek
+:\let\caUnicode=\patterns   % Catalan
+:\let\copUnicode=\patterns  % Coptic
+:\let\mnUnicode=\patterns   % Mongolian
+:\let\saUnicode=\patterns   % Sanskrit
+:\let\ruUnicode=\patterns   % Russian
+:\let\ukUnicode=\patterns   % Ukrainian
+:\let\hyUnicode=\patterns   % Armenian
+:\let\asUnicode=\patterns   % Assamese
+:\let\hiUnicode=\patterns   % Hindi
+:\let\knUnicode=\patterns   % Kannada
+:\let\loUnicode=\patterns   % Lao
+:\let\lvUnicode=\patterns   % Latvian
+:\let\ltUnicode=\patterns   % Lithuanian
+:\let\mlUnicode=\patterns   % Malayalam
+:\let\mrUnicode=\patterns   % Marathi
+:\let\orUnicode=\patterns   % Oriya
+:\let\paUnicode=\patterns   % Panjabi
+:\let\taUnicode=\patterns   % Tamil
+:\let\teUnicode=\patterns   % Telugu
+
+\fi
+\let\czILtwo=\csILtwo  \let\czCork=\csCork  \let\czUnicode=\csUnicode 
+
+\catcode58=12 % colon has normal meaning now
+\def\patt{hyphenation patterns } 
+
+\loadpatterns \enPatt 0 en {US English \patt in ASCII}
+              {\input hyphen.ex }23 {hyphen.tex} \relax \enPatt
+
+\loadpatterns \enusPatt 100 enus {US English extended \patt in ASCII}
+              {\input hyph-en-us }23 {hyph-en-us} \relax \enusPatt
+
+\loadpatterns \engbPatt 101 engb {UK English \patt in ASCII}
+              {\input hyph-en-gb }23 {hyph-en-gb} \relax \engbPatt
+
+\loadpatterns \itPatt 102 it {Italian \patt in ASCII}
+              {\lccode`\'=`\' \input hyph-it }22 {hyph-it} \relax \itPatt
+
+\loadpatterns \iaPatt 103 ia {Interlingua \patt in ASCII}
+              {\input hyph-ia }22 {hyph-ia} \relax \iaPatt
+
+\loadpatterns \idPatt 104 id {Indonesian \patt in ASCII}
+              {\input hyph-id }23 {hyph-id} \relax \idPatt
+
+\loadpatterns \csILtwo 5 cs {Czech \patt in ISO-8859-2}
+              {\doaccents \input czhyphen.tex \input czhyphen.ex }23 {czhyphen} \iltwolangs \csPatt
+
+\loadpatterns \skILtwo 6 sk {Slovak \patt in ISO-8859-2}
+              {\doaccents \input skhyphen.tex \input skhyphen.ex }23 {skhyphen} \iltwolangs \skPatt
+
+\begingroup \ifx\Cork\undefined \input t1code \input conv-utf8-ec \fi
+
+\loadpatterns \csCork 15 cs {Czech \patt in Cork}
+              {\input hyph-cs.tex }23 {hyph-cs} \corklangs \csPatt
+
+\loadpatterns \skCork 16 sk {Slovak \patt in Cork}
+              {\input hyph-sk.tex }23 {hyph-sk} \corklangs \skPatt
+
+\loadpatterns \deCork 21 de {German \patt in Cork}
+              {\input hyph-de-1996 }22 {hyph-de-1996} \corklangs \dePatt
+
+\loadpatterns \frCork 22 fr {French \patt in Cork}
+              {\lccode`\'=`\' \input hyph-fr }23 {hyph-fr} \corklangs \frPatt
+
+\loadpatterns \plCork 23 pl {Polish \patt in Cork}
+              {\input hyph-pl }22 {hyph-pl} \corklangs \plPatt
+
+\loadpatterns \cyCork 24 cy {Welsh \patt in Cork}
+              {\input hyph-cy }23 {hyph-cy} \corklangs \cyPatt
+
+\loadpatterns \daCork 25 da {Danish \patt in Cork}
+              {\input hyph-da }22 {hyph-da} \corklangs \daPatt
+
+\loadpatterns \esCork 26 es {Spanish \patt in Cork}
+              {\input hyph-es }22 {hyph-es} \corklangs \esPatt
+
+\loadpatterns \slCork 28 sl {Slovenian \patt in Cork}
+              {\input hyph-sl }22 {hyph-sl} \corklangs \slPatt
+
+\loadpatterns \fiCork 29 fi {Finnish \patt in Cork}
+              {\input hyph-fi }22 {hyph-fi} \corklangs \fiPatt
+
+\loadpatterns \huCork 30 hu {Hungarian \patt in Cork}
+              {\input hyph-hu }22 {hyph-hu} \corklangs \huPatt
+
+\loadpatterns \trCork 31 tr {Turkish \patt in Cork}
+              {\input hyph-tr }22 {hyph-tr} \corklangs \trPatt
+
+\loadpatterns \etCork 32 et {Estonian \patt in Cork}
+              {\input hyph-et }23 {hyph-et} \corklangs \etPatt
+
+\loadpatterns \euCork 33 eu {Basque \patt in Cork}
+              {\input hyph-eu }22 {hyph-eu} \corklangs \euPatt
+
+\loadpatterns \gaCork 34 ga {Irish \patt in Cork}
+              {\input hyph-ga }23 {hyph-ga} \corklangs \gaPatt
+
+\loadpatterns \nbCork 35 nb {Norwegian Bokmal \patt in Cork}
+              {\input hyph-nb }22 {hyph-nb} \corklangs \nbPatt
+
+\loadpatterns \nnCork 36 nn {Norwegian Nynorsk \patt in Cork}
+              {\input hyph-nn }22 {hyph-nn} \corklangs \nnPatt
+
+\loadpatterns \nlCork 37 nl {Dutch \patt in Cork}
+              {\input hyph-nl }22 {hyph-nl} \corklangs \nlPatt
+
+\loadpatterns \ptCork 38 pt {Portuguese \patt in Cork}
+              {\lccode`\-=`\- \input hyph-pt }23 {hyph-pt} \corklangs \ptPatt
+
+\loadpatterns \roCork 39 ro {Romanian \patt in Cork}
+              {\input hyph-ro }22 {hyph-ro} \corklangs \roPatt
+
+\loadpatterns \hrCork 40 hr {Croatian \patt in Cork}
+              {\input hyph-hr }22 {hyph-hr} \corklangs \hrPatt
+
+\loadpatterns \zhCork 41 zh {Unaccented Pinyin Syllables \patt in Cork}
+              {\lccode`\'=`\' \input hyph-zh-latn-pinyin.ec }11 {hyph-zh-latn-pinyin.ec} \corklangs \zhPatt
+
+\loadpatterns \isCork 42 is {Icelandic \patt in Cork}
+              {\input hyph-is }22 {hyph-is} \corklangs \isPatt
+
+\loadpatterns \hsbCork 43 hsb {EC Upper Sorbian \patt in Cork}
+              {\input hyph-hsb }22 {hyph-hsb} \corklangs \hsbPatt
+
+\loadpatterns \afCork 44 af {Afrikaans \patt in Cork}
+              {\lccode`\-=`\- \lccode`\'=`\' \input hyph-af }22 {hyph-af} \corklangs \afPatt
+
+\loadpatterns \glCork 45 gl {Galician \patt in Cork}
+              {\input hyph-gl }22 {hyph-gl} \corklangs \glPatt
+
+\loadpatterns \kmrCork 46 kmr {Kurmanji \patt in Cork}
+              {\input hyph-kmr }22 {hyph-kmr} \corklangs \kmrPatt
+
+\loadpatterns \tkCork 47 tk {Turkmen \patt in Cork}
+              {\lccode`\-=`\- \input hyph-tk }22 {hyph-tk} \corklangs \tkPatt
+
+\loadpatterns \laCork 48 la {Latin \patt in Cork}
+              {\lccode`\'=`\' \input hyph-la }22 {hyph-la} \corklangs \laPatt
+
+\endgroup
+
+
+\ifx\UnicodeLcUc y \input uni-lcuc \let\robustpatterns=\relax \fi
+
+\loadpatterns \csUnicode 115 cs {Czech \patt in Unicode}
+              {\robustpatterns \input hyph-cs.tex }23 {hyph-cs} \unicodelangs \csPatt
+
+\loadpatterns \skUnicode 116 sk {Slovak \patt in Unicode}
+              {\robustpatterns \input hyph-sk.tex }23 {hyph-sk} \unicodelangs \skPatt
+
+\loadpatterns \deUnicode 121 de {German \patt in Unicode}
+              {\robustpatterns \input hyph-de-1996 }22 {hyph-de-1996} \unicodelangs \dePatt
+
+\loadpatterns \frUnicode 122 fr {French \patt in Unicode}
+              {\robustpatterns \lccode`\'=`\' \input hyph-fr }23 {hyph-fr} \unicodelangs \frPatt
+
+\loadpatterns \plUnicode 123 pl {Polish \patt in Unicode}
+              {\robustpatterns \input hyph-pl }22 {hyph-pl} \unicodelangs \plPatt
+
+\loadpatterns \cyUnicode 124 cy {Welsh \patt in Unicode}
+              {\robustpatterns \input hyph-cy }23 {hyph-cy} \unicodelangs \cyPatt
+
+\loadpatterns \daUnicode 125 da {Danish \patt in Unicode}
+              {\robustpatterns \input hyph-da }22 {hyph-da} \unicodelangs \daPatt
+
+\loadpatterns \esUnicode 126 es {Spanish \patt in Unicode}
+              {\robustpatterns \input hyph-es }22 {hyph-es} \unicodelangs \esPatt
+
+\loadpatterns \slUnicode 128 sl {Slovenian \patt in Unicode}
+              {\robustpatterns \input hyph-sl }22 {hyph-sl} \unicodelangs \slPatt
+
+\loadpatterns \fiUnicode 129 fi {Finnish \patt in Unicode}
+              {\robustpatterns \input hyph-fi }22 {hyph-fi} \unicodelangs \fiPatt
+
+\loadpatterns \huUnicode 130 hu {Hungarian \patt in Unicode}
+              {\robustpatterns input hyph-hu }22 {hyph-hu} \unicodelangs \huPatt
+
+\loadpatterns \trUnicode 131 tr {Turkish \patt in Unicode}
+              {\robustpatterns \input hyph-tr }22 {hyph-tr} \unicodelangs \trPatt
+
+\loadpatterns \etUnicode 132 et {Estonian \patt in Unicode}
+              {\robustpatterns \input hyph-et }23 {hyph-et} \unicodelangs \etPatt
+
+\loadpatterns \euUnicode 133 eu {Basque \patt in Unicode}
+              {\robustpatterns \input hyph-eu }22 {hyph-eu} \unicodelangs \euPatt
+
+\loadpatterns \gaUnicode 134 ga {Irish \patt in Unicode}
+              {\robustpatterns \input hyph-ga }23 {hyph-ga} \unicodelangs \gaPatt
+
+\loadpatterns \nbUnicode 135 nb {Norwegian Bokmal \patt in Unicode}
+              {\robustpatterns \input hyph-nb }22 {hyph-nb} \unicodelangs \nbPatt
+
+\loadpatterns \nnUnicode 136 nn {Norwegian Nynorsk \patt in Unicode}
+              {\robustpatterns \input hyph-nn }22 {hyph-nn} \unicodelangs \nnPatt
+
+\loadpatterns \nlUnicode 137 nl {Dutch \patt in Unicode}
+              {\robustpatterns \input hyph-nl }22 {hyph-nl} \unicodelangs \nlPatt
+
+\loadpatterns \ptUnicode 138 pt {Portuguese \patt in Unicode}
+              {\robustpatterns \lccode`\-=`\- \input hyph-pt }23 {hyph-pt} \unicodelangs \ptPatt
+
+\loadpatterns \roUnicode 139 ro {Romanian \patt in Unicode}
+              {\robustpatterns \input hyph-ro }22 {hyph-ro} \unicodelangs \roPatt
+
+\loadpatterns \hrUnicode 140 hr {Croatian \patt in Unicode}
+              {\robustpatterns \input hyph-hr }22 {hyph-hr} \unicodelangs \hrPatt
+
+\loadpatterns \zhUnicode 141 zh {Unaccented Pinyin Syllables \patt in Unicode}
+              {\robustpatterns \lccode`\'=`\' \input hyph-zh-latn-pinyin }11 {hyph-zh-latn-pinyin} \unicodelangs \zhPatt
+
+\loadpatterns \isUnicode 142 is {Icelandic \patt in Unicode}
+              {\robustpatterns \input hyph-is }22 {hyph-is} \unicodelangs \isPatt
+
+\loadpatterns \hsbUnicode 143 hsb {EC Upper Sorbian \patt in Unicode}
+              {\robustpatterns \input hyph-hsb }22 {hyph-hsb} \unicodelangs \hsbPatt
+
+\loadpatterns \afUnicode 144 af {Afrikaans \patt in Unicode}
+              {\robustpatterns \lccode`\-=`\- \lccode`\'=`\'
+               \input hyph-af }22 {hyph-af} \corklangs \afPatt
+
+\loadpatterns \glUnicode 145 gl {Galician \patt in Unicode}
+              {\robustpatterns \input hyph-gl }22 {hyph-gl} \corklangs \glPatt
+
+\loadpatterns \kmrUnicode 146 kmr {Kurmanji \patt in Unicode}
+              {\robustpatterns \input hyph-kmr }22 {hyph-kmr} \corklangs \kmrPatt
+
+\loadpatterns \tkUnicode 147 tk {Turkmen \patt in Unicode}
+              {\robustpatterns \lccode`\-=`\- \input hyph-tk }22 {hyph-tk} \corklangs \tkPatt
+
+\loadpatterns \laUnicode 148 la {Latin \patt in Unicode}
+              {\robustpatterns \lccode`\'=`\' \input hyph-la }22 {hyph-la} \unicodelangs \laPatt
+
+\loadpatterns \elmUnicode 201 elm {Modern Monotonic Greek \patt in Unicode}
+              {\lccode`\'=`\' \lccode"2019="2019 \lccode"02BC="02BC \lccode"1FBD="1FBD \lccode"1FBF="1FBF
+               \robustpatterns \input hyph-el-monoton }11 {hyph-el-monoton} \unicodelangs \elmPatt
+
+\loadpatterns \elpUnicode 202 elp {Modern Polytonic Greek \patt in Unicode}
+              {\lccode`\'=`\' \lccode"2019="2019 \lccode"02BC="02BC \lccode"1FBD="1FBD \lccode"1FBF="1FBF
+               \robustpatterns \input hyph-el-polyton }11 {hyph-el-polyton} \unicodelangs \elpPatt
+
+\loadpatterns \grcUnicode 203 grc {Ancient Greek \patt in Unicode}
+              {\lccode`\'=`\' \lccode"2019="2019 \lccode"02BC="02BC \lccode"1FBD="1FBD \lccode"1FBF="1FBF
+               \robustpatterns \input hyph-grc }11 {hyph-grc} \unicodelangs \grcPatt
+
+\loadpatterns \caUnicode 204 ca {Catalan \patt in Unicode}
+              {\robustpatterns \lccode`\'=`\' \input hyph-ca }22 {hyph-ca} \unicodelangs \caPatt
+
+\loadpatterns \copUnicode 205 cop {Coptic \patt in Unicode}
+              {\robustpatterns \lccode`\'=`\' \input hyph-cop }11 {hyph-cop} \unicodelangs \copPatt
+
+\loadpatterns \mnUnicode 206 mn {Mongolian \patt in Unicode}
+              {\robustpatterns \lccode`\'=`\' \input hyph-mn-cyrl }22 {hyph-mn-cyrl} \unicodelangs \mnPatt
+
+\loadpatterns \saUnicode 207 sa {Sanskrit \patt in Unicode}
+              {\robustpatterns \lccode"200C="200C \lccode"200D="200D 
+               \input hyph-sa }15 {hyph-sa} \unicodelangs \saPatt
+
+\loadpatterns \ruUnicode 208 ru {Russian \patt in Unicode}
+              {\robustpatterns \lccode`\-=`\- \input hyph-ru }22 {hyph-ru} \unicodelangs \ruPatt
+
+\loadpatterns \ukUnicode 209 uk {Ukrainian \patt in Unicode}
+              {\robustpatterns \lccode`\'=`\' \lccode`\-=`\-
+               \input hyph-uk }22 {hyph-uk} \unicodelangs \ukPatt
+
+\loadpatterns \hyUnicode 210 hy {Armenian \patt in Unicode}
+              {\robustpatterns \input hyph-hy }12 {hyph-hy} \unicodelangs \hyPatt
+
+\loadpatterns \asUnicode 211 as {Assamesse \patt in Unicode}
+              {\lccode"200C="200C \lccode"200D="200D 
+               \robustpatterns \input hyph-as }11 {hyph-as} \unicodelangs \asPatt
+
+\loadpatterns \hiUnicode 212 hi {Hindi \patt in Unicode}
+              {\lccode"200C="200C \lccode"200D="200D 
+               \robustpatterns \input hyph-hi }11 {hyph-hi} \unicodelangs \hiPatt
+
+\loadpatterns \knUnicode 213 kn {Kannada \patt in Unicode}
+              {\lccode"200C="200C \lccode"200D="200D 
+               \robustpatterns \input hyph-kn }11 {hyph-kn} \unicodelangs \knPatt
+
+%\loadpatterns \loUnicode 214 lo {Lao \patt in Unicode}
+%              {\robustpatterns \input hyph-lo }11 {hyph-lo} \unicodelangs \loPatt
+
+\loadpatterns \lvUnicode 215 lv {Latvian \patt in Unicode}
+              {\robustpatterns \input hyph-lv }22 {hyph-lv} \unicodelangs \lvPatt
+
+\loadpatterns \ltUnicode 216 lt {Lithuanian \patt in Unicode}
+              {\robustpatterns \input hyph-lt }22 {hyph-lt} \unicodelangs \ltPatt
+
+\loadpatterns \mlUnicode 217 ml {Malayalam \patt in Unicode}
+              {\lccode"200C="200C \lccode"200D="200D 
+               \robustpatterns \input hyph-ml }11 {hyph-ml} \unicodelangs \mlPatt
+
+\loadpatterns \mrUnicode 218 mr {Marathi \patt in Unicode}
+              {\lccode"200C="200C \lccode"200D="200D 
+               \robustpatterns \input hyph-mr }11 {hyph-mr} \unicodelangs \mrPatt
+
+\loadpatterns \orUnicode 219 or {Oriya \patt in Unicode}
+              {\lccode"200C="200C \lccode"200D="200D 
+               \robustpatterns \input hyph-or }11 {hyph-or} \unicodelangs \orPatt
+
+\loadpatterns \paUnicode 220 pa {Panjabi \patt in Unicode}
+              {\lccode"200C="200C \lccode"200D="200D 
+               \robustpatterns \input hyph-pa }11 {hyph-pa} \unicodelangs \paPatt
+
+\loadpatterns \taUnicode 221 ta {Tamil \patt in Unicode}
+              {\lccode"200C="200C \lccode"200D="200D 
+               \robustpatterns \input hyph-ta }11 {hyph-ta} \unicodelangs \taPatt
+
+\loadpatterns \teUnicode 222 te {Telugu \patt in Unicode}
+              {\lccode"200C="200C \lccode"200D="200D 
+               \robustpatterns \input hyph-te }11 {hyph-te} \unicodelangs \tePatt
+
+\message{\the\numpatterns\space patterns preloaded: \pattlist}
+\message{Defaults: \string\language=\the\language,
+        \string\cmaccents, \string\nonfrenchspacing,}
+
+% ========= for backward compatibility ========
+
+\let\iltwoczech=\csILtwo \let\iltwoslovak=\skILtwo
+\let\toneczech=\csCork   \let\toneslovak=\skCork
+
+\let\czILtwo=\csILtwo  \let\czCork=\csCork  \let\czUnicode=\csUnicode
+\chardef\USenglish=0
+
+\expandafter \def\expandafter\iltwolangs \expandafter {\iltwolangs
+    \let\czech\csILtwo  \let\slovak\skILtwo}
+
+\ifx\csCork\undefined \else
+\expandafter \def\expandafter\corklangs \expandafter {\corklangs
+    \let\czech\csCork  \let\slovak\skCork}
+\fi
+
+\ifx\csUnicode\undefined \else
+\expandafter \def\expandafter\unicodelangs \expandafter {\unicodelangs
+    \let\czech\csUnicode  \let\slovak\skUnicode}
+\fi
+
+\def\enlang{\language=\enPatt \initlanguage{en}\nonfrenchspacing
+        \lefthyphenmin=2      \righthyphenmin=3
+        \message{English hyphenation used (\string\language=\the\language).
+                 \string\nonfrenchspacing\space is set on.}}
+
+\let\uslang=\enlang  \let\ehyph=\enlang  \let\chyph=\cslang  \let\shyph=\sklang
+
+\ifx\onlyUnicode\undefined
+  \iltwolangs \message{ISO-8859-2 font encoding}
+\else
+  \unicodelangs \message{Unicode font encoding}
+\fi
+
+\endinput
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+If \<lang>Code (for example \csUnicode, \deCork) is undefined, the patterns
+are not loaded. If user sets \<lang>Code=\patterns before this file is
+loaded, then the patterns are loaded.
+
+You can remove colons in this file at lines 48-160 or you can say, for
+example:
+
+    pdftex -ini "\let\plCork=\patterns \input csplain.ini"
+or
+    pdftex -ini "\let\allpatterns=y \input csplain.ini"
+
+in order to load the additional patterns.
+
+By default, only \enPatt=0 \csILtwo=5, \skILtwo=6, \csCork=15, \skCork=16
+are loaded in 8bit TeX. The additional \csUnicode=115, \skUnicode=116 are
+loaded in Unicoded TeX.
+
+The macro \loadpatterns \langCode <num> <lang> {note}
+                        {action}<lhm><rhm> \codelist \switch
+does following:
+- If \langCode is undefined, does nothing.
+- Declares \chadref\langCode=<num>.
+- Loads new pattern with the number <num> by {action} in the group,
+- Defines \"<lang>lang" macro (for example \cslang), which sets 
+  \language=\switch \lefthyphenmin=<lhm> \righthypgenmin=<rhm>
+  and runs \initlanguage{<lang>}. The \initlanguage is dumy by default 
+  but macro programmer can define it.
+- Adds \let\switch=\langCode" to \codelist. The codelist includes 
+  such commands dependent on the encoding. If user switches to 
+  another encoding, the \codelist have to be run and then 
+  the command \language=\switch works properly.
+- Defines \csname lan:<num>\endcsname as <lang>. This may be usable 
+  for macro programes.
+- Adds info \langCode=<num> to \pattlist. User can expand this 
+  macro in order to see which languages are preloaded.
+
+The \robustpatterns macro performs two steps of \patterns reading:
+Fisrt step: \lccodes of all characters in the patterns are set to code. 
+Second step: the \patterns are read.
+If \UnicodeLcUc=y then \robustpatterns macro does nothing and lccodes+uccodes 
+of all Unicode characters are set and stored to the format.
+This setting is recommended if more languages than default (English, 
+Czech, Slovak) are used.
+
+% ======= end of hyphen.lan
+

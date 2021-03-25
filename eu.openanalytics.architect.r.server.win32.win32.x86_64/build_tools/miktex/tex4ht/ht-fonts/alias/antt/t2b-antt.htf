@@ -1,0 +1,15 @@
+.t2b-iwona
+htfcss: t2b-anttb  font-weight: bold;
+htfcss: t2b-anttbi  font-style:italic; font-weight: bold;
+htfcss: t2b-anttcb  font-weight: bold;
+htfcss: t2b-anttcbi  font-style:italic; font-weight: bold;
+htfcss: t2b-anttcl  font-weight: light;
+htfcss: t2b-anttcli  font-weight: light; font-style:italic;
+htfcss: t2b-anttcmi  font-style:italic;
+htfcss: t2b-anttcri  font-style:italic;
+htfcss: t2b-anttl  font-weight: light;
+htfcss: t2b-anttli  font-weight: light; font-style:italic;
+htfcss: t2b-anttmi  font-style:italic;
+htfcss: t2b-anttri  font-style:italic;
+
+

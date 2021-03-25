@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% hewrite.4ht                           2009-05-21-09:32 %
+% Copyright (C) 2001             Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\def\:temp #1#2+#3*#4<{%
+   \def \next {\heb@mid #4}%
+   \ifnum \act@cd = \m@qqeph
+      \def \next {\heb@end #4}\put@b@x {\the\act@cd }%
+      \ifhcl@s \else \put@box {\raise .6ex \hbox
+         {\kern.05em\unhbox \ab@x \kern.05em}}%
+      \fi
+   \else \ifnum \act@cd = \illch@r
+      \put@b@x {\the\act@cd }%
+   \else
+      \ifnum \act@cd = \hc@@
+         \heb@cd \hc@y \advance \heb@cd \heb@dsp
+         \put@box {\hphantom{\char \the\heb@cd }}%
+      \else   \heb@cd \act@cd \advance \heb@cd \heb@dsp
+         \put@b@x {\the\heb@cd }%
+      \fi
+      \ifhv@wel \heb@accent #2+#3*%
+         \ifcase \act@mod \or \h@sindot \or \h@shindot \fi
+         \if@dagesh \put@dagesh \fi
+      \fi
+   \fi\fi
+   \:heblet \unhbox \ab@x \end:heblet
+   \h@test@chr #4}
+\HLet\h@put@mid=\:temp
+\def\:temp #1>{%
+ \iftest@write \iftest@parse \else \a@verb (#1 )>\fi
+   \tracingmacros = 1 \fi
+   \a@write@hook
+   \ifa@@write {\heb@beg #1>0+0*>\end:hebword}\fi
+   \iftest@write \tracingmacros = 0
+ \fi }
+\HLet\heb@write=\:temp
+\def\:heblet{\a:hewrite}
+\def\end:heblet{\b:hewrite}
+\let\end:hebword=\empty
+\:CheckOption{rl2lr}\if:Option
+   \csname newbox\endcsname\heb:box
+   \setbox\heb:box=\hbox{}
+   \pend:def\:heblet{\setbox\heb:box=\hbox\bgroup}
+   \append:def\end:heblet{\unhbox\heb:box\egroup}
+   \def\end:hebword{\unhbox\heb:box}
+\else
+   \Log:Note{to reverse the direction of
+       Hebrew words, use the command line option `rl2lr'}
+\fi
+\NewConfigure{hewrite}{2}
+
+\Hinput{aparse}
+\endinput
+

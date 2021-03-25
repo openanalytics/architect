@@ -1,0 +1,29 @@
+%%% The re-encoding table for Czech/Slovak alphabet using encTeX,
+%%% v.Oct.1998 (C) Petr Ol\v s\'ak
+%%% input: CP1250, internal TeX: ISO-8859-2
+%%% This file may be used while csplain, cseplain or cslatex is generated
+%%% example:  tex -ini \let\enc=w \input csplain.ini
+
+\ifx\xordcode\undefined
+   \errhelp={You has specified \let\enc=w but this works only with encTeX
+   extension of TeX binary. See ftp://math.feld.cvut.cz/pub/olsak/enctex.}
+   \errmessage{The encTeX is not detected -- the re-encoding is not possible}
+   \endinput \fi
+
+\def\setinputchr #1 #2 {\xordcode#1=#2 \xchrcode#2=#1 }
+
+%%           input  TeX
+\setinputchr  "BC   "A5  % \v L
+\setinputchr  "BE   "B5  % \v l
+\setinputchr  "8A   "A9  % \v S
+\setinputchr  "9A   "B9  % \v s
+\setinputchr  "8D   "AB  % \v T
+\setinputchr  "9D   "BB  % \v t
+\setinputchr  "8E   "AE  % \v Z
+\setinputchr  "9E   "BE  % \v z
+
+\global\everyjob=\expandafter{\the\everyjob
+   \message{The CP1250->ISO-8859-2 re-encoding is activated by encTeX}}
+
+\endinput
+

@@ -1,0 +1,6 @@
+##
+## RTOOLS repository mirrorlist
+##
+
+Server = https://dl.bintray.com/rtools/$arch
+SigLevel = Never

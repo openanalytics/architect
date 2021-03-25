@@ -1,0 +1,407 @@
+\usetypescript[antykwa-poltawskiego]
+\setupbodyfont[antykwa-poltawskiego,10pt]
+
+\setuphead
+	[section]
+	[style=\bfc,numberstyle=\bfc]
+\setuphead
+	[subsection]
+	[style=\bfb,numberstyle=\bfb]
+\setuphead
+	[subsubsection]
+	[style=\bfa,numberstyle=\bfa]
+\setuphead
+	[title]
+	[style=\bfd]
+\setuppagenumbering
+	[location={footer,right},style=\os]
+\setuplayout
+	[backspace=1in,width=middle,
+	 header=0pt,headerdistance=0pt,height=24.5cm]
+
+\def\sc{\addff{smallcaps}}
+\def\os{\addff{oldstyle}}
+
+\def\eTeX{ε-\TeX}
+% TODO
+\def\XeLaTeX{Xe\LaTeX}
+\def\LuaLaTeX{Lua\LaTeX}
+\def\pTeX{p\TeX}
+
+\definecolor
+	[verylightgray]
+	[s=.95]
+\defineframedtext
+	[framedCODE]
+	[frame=off,
+	 strut=yes,
+	 offset=2mm,
+	 width=.9\textwidth,
+	 location=middle,
+	 background=color,
+	 backgroundcolor=verylightgray]
+\definetyping
+	[TEX]
+	[option=TEX,
+	 before={\startframedCODE},
+	 after={\stopframedCODE}]
+
+\starttext
+
+\title{The {\tt hyph-utf8} package and hyphenation with \TeX}
+
+\blank[big]
+
+\startnarrower
+{\bf Maintainers} of the {\tt hyph-utf8} package and collectors of patterns:
+\startnarrower
+\startitemize[packed,joinedup]
+\item {\it Mojca Miklavec, Arthur Reutenauer}
+\item With contributions by {\it Khaled Hosny, Manuel Pégourié-Gonnard, Élie Roux}
+\stopitemize
+\stopnarrower
+\stopnarrower
+
+\blank
+
+\startnarrower
+{\bf Main description}:
+\startnarrower
+June 2011
+\stopnarrower
+\stopnarrower
+
+\startnarrower
+{\bf Latest editorial change}:
+\startnarrower
+16 Mars 2018
+\stopnarrower
+\stopnarrower
+
+\blank
+
+\startnarrower
+{\bf Abstract}:
+\startnarrower\sl
+In 2008 all the existing hyphenation patterns from \TeX\ distributions have
+been collected in a single package {\tt hyph-utf8}, converted into UTF-8
+encoding and adapted for use in different \TeX\ engines. The patterns can be
+used directly by Unicode-aware engines such as \LuaTeX\ and \XeTeX, and there
+is a mechanism to convert the patterns to the appropriate 8-bit encoding when
+used with \pTeX, \pdfTeX\ or Knuth's \TeX.
+\stopnarrower
+\stopnarrower
+
+\blank
+
+\startnarrower
+{\bf Table of Contents}:
+\blank
+\startnarrower
+\setuplist[section]      [width=10mm,textstyle=\bf\sc,numberstyle=\bf\os,pagestyle=\os]
+\setuplist[subsection]   [width=15mm,textstyle=normal,numberstyle=\os,pagestyle=\os]
+\setuplist[subsubsection][distance=20mm,headnumber=no,textstyle=italic,pagestyle=\os]
+
+\placecontent[criterium=all,alternative=c]
+\stopnarrower
+\stopnarrower
+
+\page
+\section{Using hyphenation patterns}
+
+\subsection{Plain \TeX}
+
+In engines that support \eTeX\ you can select the desired hyphenation patterns with:
+\startTEX
+\uselanguage{langname}
+\stopTEX
+where \type{langname} is the string identifying a particular hyphenation file in \type{language.def} (see Section \in[sec:languages]).
+
+\subsection{\LaTeX}
+
+\subsubsection{\LaTeX\ with Babel}
+
+You can switch the language in \LaTeX\ with:
+
+\startTEX
+\usepackage[languagename]{babel}
+\stopTEX
+
+In 8-bit engines you also need to make sure that you load the proper font encoding which supports all the characters used in the language of your choice, for example:
+\startTEX
+\usepackage[T1]{fontenc}
+\stopTEX
+% TODO: reference to encoding list
+
+{\it N.B.:}\/ You can use Babel with any \TeX\ engine, however it has never been properly adapted to work well with Unicode engines. If you are using \XeTeX\ it is advisable to use Polyglossia instead.
+
+
+\subsubsection{\LaTeX\ with Polyglossia}
+
+Polyglossia should be the preferred choice when using \XeLaTeX. It doesn't support \LuaLaTeX\ yet, but it is planned to extend it in future.
+
+\startTEX
+\usepackage{polyglossia}
+\setmainlanguage[optional settings]{langname}
+\setotherlanguages{otherlangname}
+
+\begin[optional settings]{otherlangname} ... \end{otherlangname}
+\stopTEX
+
+See Polyglossia manual for extensive list of options.
+
+\subsubsection{Low-level commands}
+
+Since Babel's \type{hyphen.cfg} is built into the \LaTeX\ format, hyphenation patterns can be used without even loading Babel or Polyglossia. At the low-level this simply corresponds to defining
+\startTEX
+\language=\l@<langname>
+\stopTEX
+The user command is supposed to be
+\startTEX
+\hyphenrules{langname}
+\stopTEX
+or
+\startTEX
+\begin{hyphenrules}{langname} ... \end{hyphenrules}.
+\stopTEX
+and {\it should}\/ work with any flavour of \LaTeX, however we couldn't make it work.
+
+\subsection{\ConTeXt}
+
+\ConTeXt\ doesn't load patterns for all the language that {\tt hyph-utf8} provides. If you miss any language, please contact the mailing list. The general syntax for supported languages is the following:
+
+\startTEX
+% language of the main document
+\mainlanguage[language]
+
+% to switch to another language locally
+{\language[otherlanguage] language of some short fragment}
+\stopTEX
+
+You can use full language name or the two-letter language code.
+
+\subsubsection{\ConTeXt\ MkII}
+When using \ConTeXt\ MkII the EC/T1 font encoding is used by default already, but you might need to change the encoding when using Polish, languages written in Cyrillic scripts, etc. For example:
+
+\startTEX
+\usetypescript[iwona][qx]
+\setupbodyfont[iwona]
+\mainlanguage[polish]
+\stopTEX
+
+\ConTeXt\ loads hyphenation patterns in several encodings. The Czech or Slovak patterns can be used with both EC and IL2 font encoding for example. The right hyphenation patterns will be chosen based on current font encoding.
+
+\subsection{Some advanced examples}
+
+\subsubsection{Example for Polyglossia}
+
+\startTEX
+\usepackage{polyglossia}
+% the language used for main document
+\setmainlanguage{asturian}
+% American English with extended hyphenation patterns
+\setotherlanguage[variant=usmax]{english}
+% German with experimental patterns "ngerman-x-latest"
+\setotherlanguage[spelling=new,latesthyphen=true]{german}
+\setotherlanguages{spanish,catalan,french}
+
+\begin{document}
+
+Long Asturian text ... (Hyphenation for Asturian is not available,
+but polyglossia automatically falls back on Catalan for now,
+which seems to be a reasonable choice.)
+
+\begin{german}
+Deutscher Text ... (with the hyphenation patterns selected above:
+"ngerman-x-latest")
+\end{german}
+
+\begin[script=fraktur,spelling=old]{german}
+Deutſcher Text ... (set in Fraktur, with traditional hyphenation).
+\end{german}
+
+\end{document}
+\stopTEX
+
+\page
+\section[sec:languages]{List of supported languages}
+
+For several languages, there is additional documentation in a separate file: see
+
+\startitemize[packed]
+\item For German, \type{dehyph-exptl.pdf}
+\item For Spanish, \type{division.pdf}
+\stopitemize
+
+\def\lanname#1{\hbox to \textwidth{\bf#1\hss}}
+\def\landata#1#2#3{\hbox to \textwidth{\hbox to 3mm{}\hbox to 6.5em{#1\hss}\hbox to 7em{#2}\hbox{#3}\hss} }
+
+\lanname{English}
+\landata{-}{\bf english}{usenglish, USenglish, american}
+\landata{en-us}{usenglishmax}{}
+\landata{en-gb}{ukenglish}{british, UKenglish}
+
+\startcolumns[n=2]
+\lanname{Afrikaans}
+\landata{af}{afrikaans}{}
+\lanname{Ancientgreek}
+\landata{grc}{ancientgreek}{}
+\landata{grc-x-ibycus}{ibycus}{}
+\lanname{Arabic}
+\landata{ar}{arabic}{}
+\lanname{Armenian}
+\landata{hy}{armenian}{}
+\lanname{Assamese}
+\landata{as}{assamese}{}
+\lanname{Basque}
+\landata{eu}{basque}{}
+\lanname{Belarusian}
+\landata{be}{belarusian}{}
+\lanname{Bengali}
+\landata{bn}{bengali}{}
+\lanname{Bulgarian}
+\landata{bg}{bulgarian}{}
+\lanname{Catalan}
+\landata{ca}{catalan}{}
+\lanname{Chinese}
+\landata{zh-latn-pinyin}{pinyin}{}
+\lanname{Church Slavonic}
+\landata{cu}{churchslavonic}{}
+\lanname{Coptic}
+\landata{cop}{coptic}{}
+\lanname{Croatian}
+\landata{hr}{croatian}{}
+\lanname{Czech}
+\landata{cs}{czech}{}
+\lanname{Danish}
+\landata{da}{danish}{}
+\lanname{Dutch}
+\landata{nl}{dutch}{}
+\lanname{Esperanto}
+\landata{eo}{esperanto}{}
+\lanname{Estonian}
+\landata{et}{estonian}{}
+\lanname{Ethiopic}
+\landata{mul-ethi}{ethiopic}{amharic, geez}
+\lanname{Farsi}
+\landata{fa}{farsi}{persian}
+\lanname{Finnish}
+\landata{fi}{finnish}{}
+\column
+\lanname{French}
+\landata{fr}{french}{patois, francais}
+\lanname{Friulan}
+\landata{fur}{friulan}{}
+\lanname{Galician}
+\landata{gl}{galician}{}
+\lanname{Georgian}
+\landata{ka}{georgian}{}
+\lanname{German}
+\landata{de-1901}{german}{}
+\landata{de-1996}{ngerman}{}
+\landata{de-ch-1901}{swissgerman}{}
+\lanname{Greek}
+\landata{el-monoton}{monogreek}{}
+\landata{el-polyton}{greek}{polygreek}
+\lanname{Gujarati}
+\landata{gu}{gujarati}{}
+\lanname{Hindi}
+\landata{hi}{hindi}{}
+\lanname{Hungarian}
+\landata{hu}{hungarian}{}
+\lanname{Icelandic}
+\landata{is}{icelandic}{}
+\lanname{Indonesian}
+\landata{id}{indonesian}{}
+\lanname{Interlingua}
+\landata{ia}{interlingua}{}
+\lanname{Irish}
+\landata{ga}{irish}{}
+\lanname{Italian}
+\landata{it}{italian}{}
+\lanname{Kannada}
+\landata{kn}{kannada}{}
+\lanname{Kurmanji}
+\landata{kmr}{kurmanji}{}
+\lanname{Latin}
+\landata{la}{latin}{}
+\landata{la-x-classic}{classiclatin}{}
+\landata{la-x-liturgic}{liturgicallatin}{}
+\lanname{Latvian}
+\landata{lv}{latvian}{}
+\lanname{Lithuanian}
+\landata{lt}{lithuanian}{}
+\lanname{Malayalam}
+\landata{ml}{malayalam}{}
+\column
+\lanname{Marathi}
+\landata{mr}{marathi}{}
+\lanname{Mongolian}
+\landata{mn-cyrl}{mongolian}{}
+\landata{mn-cyrl-x-lmc}{mongolianlmc}{}
+\lanname{Norwegian}
+\landata{nb}{bokmal}{norwegian, norsk}
+\landata{nn}{nynorsk}{}
+\lanname{Occitan}
+\landata{oc}{occitan}{}
+\lanname{Oriya}
+\landata{or}{oriya}{}
+\lanname{Panjabi}
+\landata{pa}{panjabi}{}
+\lanname{Polish}
+\landata{pl}{polish}{}
+\lanname{Piedmontese}
+\landata{pms}{piedmontese}{}
+\lanname{Portuguese}
+\landata{pt}{portuguese}{portuges}
+\lanname{Romanian}
+\landata{ro}{romanian}{}
+\lanname{Romansh}
+\landata{rm}{romansh}{}
+\lanname{Russian}
+\landata{ru}{russian}{}
+\lanname{Sanskrit}
+\landata{sa}{sanskrit}{}
+\lanname{Serbian}
+\landata{sr-latn}{serbian}{}
+\landata{sr-cyrl}{serbianc}{}
+\lanname{Slovak}
+\landata{sk}{slovak}{}
+\lanname{Slovenian}
+\landata{sl}{slovenian}{slovene}
+\lanname{Spanish}
+\landata{es}{spanish}{espanol}
+\lanname{Swedish}
+\landata{sv}{swedish}{}
+\lanname{Tamil}
+\landata{ta}{tamil}{}
+\lanname{Telugu}
+\landata{te}{telugu}{}
+\lanname{Thai}
+\landata{th}{thai}{}
+\lanname{Turkish}
+\landata{tr}{turkish}{}
+\lanname{Turkmen}
+\landata{tk}{turkmen}{}
+\lanname{Ukrainian}
+\landata{uk}{ukrainian}{}
+\lanname{Uppersorbian}
+\landata{hsb}{uppersorbian}{}
+\lanname{Welsh}
+\landata{cy}{welsh}{}
+\stopcolumns
+
+\blank[2*big]
+
+Babel defines a few more synonyms (which consequently only work in \LaTeX):
+
+\def\lansyn#1#2{\hbox to \textwidth{\hbox to 3mm{}\hbox to 6.5em{\bf#1\hss}\hbox{#2}\hss}}
+\lansyn{english}{canadian}
+\lansyn{british}{australian, newzealand}
+\lansyn{german}{austrian}
+\lansyn{ngerman}{naustrian, nswissgerman}
+\lansyn{portuguese}{brazilian, brazil}
+
+% TODO: bibliography
+
+\stoptext

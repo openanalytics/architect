@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% emulateapj.4ht                       2009-05-21-09:32 %
+% Copyright (C) 1999--2009      Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+
+\def\make@slugcomment{\ifx\@submitted\@empty\relax\else
+   \a:slugcomment\hbox{\@submitted}\b:slugcomment
+\fi}
+\NewConfigure{slugcomment}[2]{\c:def\a:slugcomment{#1}%
+   \c:def\b:slugcomment{#2}}
+\def\subtitle{{\a:subtitle \noindent
+   \a:submitted\scriptsize {\sc \@submitted}\b:submitted
+   Preprint typeset using \LaTeX\ style emulateapj\b:subtitle}}
+
+\NewConfigure{subtitle}[2]{\c:def\a:subtitle{#1}\c:def\b:subtitle{#2}}%
+\NewConfigure{submitted}[2]{\c:def\a:submitted{#1}\c:def\b:submitted{#2}}%
+\def\title#1{{%
+  \subtitle  \a:title\uppercase{#1}\b:title}}
+\NewConfigure{title}[2]{\c:def\a:title{#1}\c:def\b:title{#2}}%
+\def\author#1{{\a:author\small\scshape#1\b:author}\make@slugcomment}
+\NewConfigure{author}[2]{\c:def\a:author{#1}\c:def\b:author{#2}}%
+\def\affil#1{{\a:affil#1\b:affil}}
+\NewConfigure{affil}{2}
+\def\keywords#1{{\a:keywords{\it\@keywordtext :} #1\b:keywords}}
+\NewConfigure{keywords}[2]{\c:def\a:keywords{#1}\c:def\b:keywords{#2}}%
+\def\subjectheadings#1{{\a:subjectheadings{\it
+   \@keywordtext :} #1\b:subjectheadings}}
+\NewConfigure{subjectheadings}[2]{\c:def\a:subjectheadings{#1}%
+   \c:def\b:subjectheadings{#2}}%
+\let\subsecnum@size=\:gobble
+\let\secnum@size=\:gobble
+\def\altaffilmark#1{$\sp{#1}$}
+\def\tablenotemark#1{$\sp{\rm #1}$}
+\def\tablenotetext#1#2{
+    \@temptokena={\vspace{.5ex}{\noindent\llap{$\sp{#1}$}#2}\par}
+    \@temptokenb=\expandafter{\tblnote@list}
+    \xdef\tblnote@list{\the\@temptokenb\the\@temptokena}}
+\def\set@tblnotetext{\def\tablenotetext##1##2{{%
+    \@temptokena={{\parbox{\pt@width}{\hskip1em$\sp{\rm ##1}$##2}}\par}%
+    \@temptokenb=\expandafter{\tblnote@list}
+    \xdef\tblnote@list{\the\@temptokenb\the\@temptokena}}}}
+\def\arcdeg{\hbox{$\sp\circ$}}
+\def\arcmin{\hbox{$\sp\prime$}}
+\def\arcsec{\hbox{$\sp{\prime\prime}$}}
+\def\fd{\hbox{$.\!\!\sp{\rm d}$}}
+\def\fh{\hbox{$.\!\!\sp{\rm h}$}}
+\def\fm{\hbox{$.\!\!\sp{\rm m}$}}
+\def\fs{\hbox{$.\!\!\sp{\rm s}$}}
+\def\fdg{\hbox{$.\!\!\sp\circ$}}
+\def\farcm{\hbox{$.\mkern-4mu\sp\prime$}}
+\def\farcs{\hbox{$.\!\!\sp{\prime\prime}$}}
+\def\fp{\hbox{$.\!\!\sp{\scriptscriptstyle\rm p}$}}
+\def\slantfrac#1#2{\hbox{$\,\sp#1\!/\sb#2$}}
+
+\Hinput{emulateapj}
+\endinput
+

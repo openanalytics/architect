@@ -1,0 +1,100 @@
+% etex-mac.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Petr Olsak                                 January 2016
+
+% This file is a part of csplain package. It is inputted during
+% csplain format generation when eTeX is detected (from <Jan 2016>).
+
+% The \newcount, \newdimen, etc. allocators are redefined here in order
+% to access the extension register fields from eTeX (up to index 32768).
+
+% See the end of the file for more details
+
+\ifx\loccount\undefined \else
+   \errmessage{etex.src macro package detected, don't use etex-mac}
+   \endinput \fi
+
+\chardef\tmp=\catcode`@ \catcode`@=11
+
+\let\inscOunt=\insc@unt
+\chardef\insc@unt=200
+\def\et@xmaxregs{32768}  % maximal index of registers in eTeX
+
+\outer\def\newinsert#1{% \newinsert re-defined:
+   \global\advance\inscOunt by\m@ne
+   \ifnum\inscOunt<\insc@unt
+      \errmessage{No room for a new \string\insert, try to \chardef\insc@unt < 200}%
+   \else \allocationnumber=\inscOunt
+      \global\chardef#1=\allocationnumber
+      \wlog{\string#1=\string\insert\the\allocationnumber}%
+   \fi
+}
+\outer\def\et@newcount{\alloc@0\count\countdef\et@xmaxregs}
+\outer\def\et@newdimen{\alloc@1\dimen\dimendef\et@xmaxregs}
+\outer\def\et@newskip{\alloc@2\skip\skipdef\et@xmaxregs}
+\outer\def\et@newbox{\alloc@4\box\mathchardef\et@xmaxregs}
+
+\outer\def\newmuskip{\alloc@3\muskip\muskipdef\et@xmaxregs}
+\outer\def\newtoks{\alloc@5\toks\toksdef\et@xmaxregs}
+
+\def\ch@ck#1#2#3{%  \ch@ck re-defined
+   \ifnum\count1#1<#2\relax\else
+      \ifnum#1<6 
+         \ifnum#2<\et@xmaxregs 
+             \wlog{eTeX allocation of \string#3: skipping range \string\insc@unt...255}% 
+             \begingroup \escapechar=-1
+                \global \expandafter\let \csname new\string#3\expandafter\endcsname
+                                         \csname et@new\string#3\endcsname
+             \endgroup
+             \count1#1=256
+             \ifx#3\box \ch@ckboxch \fi
+         \else \errmessage{No room for a new #3}%
+   \fi\fi\fi
+}
+\def\ch@ckboxch #1\global\chardef{#1\global\mathchardef}
+
+\newcount\marks@count \marks@count=0  % allocation starts from 1, 2, 3, ...
+
+\outer\def\newmarks{\et@alloc \marks@count \marks \mathchardef \et@xmaxregs} 
+\def\et@alloc #1#2#3#4#5{%
+   \global\advance#1by\@ne
+   \ifnum#1<#4\relax 
+      \allocationnumber=#1%
+      \global#3#5=\allocationnumber
+      \wlog{\string#5=\string#2\the\allocationnumber}%
+   \else \errmessage{No room for a new #3}\fi
+}
+
+\expandafter\def\expandafter\loggingall\expandafter{\loggingall
+   \tracingcommands=3 \tracinglostchars=2
+   \errorstopmode
+   \tracinggroups=1 \tracingifs=1 \tracingscantokens=1
+   \tracingnesting=1 \tracingassigns=2
+}
+
+\catcode`@=\tmp
+
+\endinput
+
+The \newcount, \newdimen, \newskip and \newbox allocators are kept from
+plainTeX, but if the maximal number from plainTeX \insc@unt is reached then
+the range \insc@unt...255 is skipped and next indexes are set to 256, 257, ...
+The appropriate allocator macro is redefined to the macro \et@newcount, 
+\et@newdimen etc. in such case.
+
+The \insc@unt is set as a constant 200. The \newinsert macro is redefined:
+it operates with \inscOunt register instead of \insc@unt. The allocated
+indexes are 254, 253, ..., \insc@unt. If the limit is reached then the error
+"No room for a new \insert" is printed. User can try to set \insc@unt
+constant to the value less than 200 in such case. 
+
+The macros \newmuskip, \newtoks are redefined to allocate linear array of
+indexes 10, 11, ..., \et@xmaxregs.
+
+Another allocators (\newread, \newwrite, \newfam, \newlanguage) are unchanged.
+
+The new allocator \newmarks is defined as an example how to do this without
+the Knuth's dirty trick \count1#1.
+
+The \tracingall, \loggingall macros are re-defined in order to print more
+information provided by eTeX.

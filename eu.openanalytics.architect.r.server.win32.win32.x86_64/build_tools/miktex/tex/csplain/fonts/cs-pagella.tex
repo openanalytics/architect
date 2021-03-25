@@ -1,0 +1,53 @@
+% The file cs-pagella.tex (C) Petr Olsak, 2012, 2016
+% Use "\input cs-pagella" to set the TG Pagella font family in text mode
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [TG Pagella] {\caps} {\rm \bf \it \bi} {} {TX} {8z 8t U}
+
+\ffvars {r}{b}{ri}{bi} 
+\def\caps{\ffsetV{caps}{-sc}\ffsetX}  \def\nocaps{\ffsetV{caps}{}\ffsetX}
+\def\capsV{} 
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = ec-qplr  \sizespec
+   \font\tenbf = ec-qplb  \sizespec
+   \font\tenit = ec-qplri \sizespec
+   \font\tenbi = ec-qplbi \sizespec
+
+   \def\ffnamegen{ec-qpl\ffvarV\capsV}
+
+\fi
+
+\ismacro\fotenc{8z}\iftrue
+
+   \font\tenrm = cs-qplr  \sizespec
+   \font\tenbf = cs-qplb  \sizespec
+   \font\tenit = cs-qplri \sizespec
+   \font\tenbi = cs-qplbi \sizespec
+
+   \def\ffnamegen{cs-qpl\ffvarV\capsV}
+   \input chars-8z
+
+\fi
+
+\ismacro\fotenc{U}\iftrue
+
+   \font\tenrm = "[texgyrepagella-regular]:\fontfeatures"    \sizespec
+   \font\tenbf = "[texgyrepagella-bold]:\fontfeatures"       \sizespec
+   \font\tenit = "[texgyrepagella-italic]:\fontfeatures"     \sizespec
+   \font\tenbi = "[texgyrepagella-bolditalic]:\fontfeatures" \sizespec
+
+   \def\ffnamegen{"[texgyrepagella-\ffvarV]:\capsV\fontfeatures"} 
+
+   \ffvars {regular} {bold} {italic} {bolditalic}
+   \def\caps{\ffsetV{caps}{+smcp;}\ffsetX}
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+\endinput

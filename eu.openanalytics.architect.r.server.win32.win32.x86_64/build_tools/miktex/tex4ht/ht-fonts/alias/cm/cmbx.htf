@@ -1,0 +1,4 @@
+.lm-rep-cmrm
+htfcss: cmbx  font-weight: bold;
+htfcss: cmbxsl  font-weight: bold; font-style: oblique;
+

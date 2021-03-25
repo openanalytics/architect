@@ -1,0 +1,20 @@
+\def\abjad#1{\@abjad{\@nameuse{c@#1}}}
+\def\adadi#1{\@adadi{\@nameuse{c@#1}}}
+\def\harfi#1{\@harfi{\@nameuse{c@#1}}}
+
+\def\@abjad#1{\beginR\ifcase#1\or óÓ\or ’\or š\or ¢\else\@iabjad{#1}\fi\endR}
+\def\@iabjad#1{\ifcase#1\or \or \or \or \or û\or ø\or ¥\or \or
+   ¯\or ı\or í\or ñ\or ô\or ö\or §\or á\or é\or «\or
+   ë\or ¤\or ©\or –\or ˜\or  \or £\or ­\or à\or å\else\@ctrerr\fi}
+
+\def\@adadi#1{\beginR\ifcase#1\or ş×\or ¢ø\or ¨‚\or ú‘¤\else
+   \@iadadi{#1}\fi\endR}
+\def\@iadadi#1{\ifcase#1\or \or \or \or \or •€¸\or ªÇ\or ûÔ´\or ûÈ´\or
+   ÷‚\or ¢ù\or ş‘¥¢ù\or ¢ø¥¢ù\or ¨ƒÃ¢ù\or ú‘¤¢ù\or •‘÷Ã¢ù\or ª‘÷Ã¢ù\or
+   ûÔÀù\or û¹Àù\or ÷¥¢ù\or “ƒÆ´\else\@ctrerr\fi}
+
+\def\@harfi#1{\beginR\ifcase#1\or óÓ\or ’\or ”\or –\else\@iharfi{#1}\fi\endR}
+\def\@iharfi#1{\ifcase#1\or \or \or \or \or ˜\or š\or œ\or \or
+    \or £\or ¤\or ¥\or ¦\or §\or ©\or «\or
+   ­\or ¯\or à\or á\or å\or é\or ë\or í\or ï\or ñ\or ô\or ö\or
+   ø\or û\or ı\else\@ctrerr\fi}

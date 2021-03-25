@@ -1,0 +1,532 @@
+[2020-05-05T20:34:45+0000] [PACMAN] Running 'pacman -Syu --root /c/msys64/home/installer/build/rtools40'
+[2020-05-05T20:34:45+0000] [PACMAN] synchronizing package lists
+[2020-05-05T20:34:46+0000] [PACMAN] starting core system upgrade
+[2020-05-05T20:34:46+0000] [PACMAN] starting full system upgrade
+[2020-05-05T20:34:47+0000] [PACMAN] Running 'pacman -S --noconfirm --root /c/msys64/home/installer/build/rtools40 rsync winpty file bsdtar findutils libxml2 libexpat mintty msys2-launcher-git pacman curl make tar texinfo texinfo-tex patch diffutils gawk grep rebase zip unzip gzip mingw-w64-i686-gcc-fortran mingw-w64-i686-pkg-config mingw-w64-i686-tools mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-pkg-config mingw-w64-x86_64-tools'
+[2020-05-05T20:35:30+0000] [ALPM] transaction started
+[2020-05-05T20:35:30+0000] [ALPM] installed msys2-runtime (3.0.7-9500)
+[2020-05-05T20:35:30+0000] [ALPM] installed gcc-libs (9.3.0-1)
+[2020-05-05T20:35:30+0000] [ALPM] installed libdb (5.3.28-2)
+[2020-05-05T20:35:30+0000] [ALPM] installed db (5.3.28-2)
+[2020-05-05T20:35:38+0000] [ALPM] installed ncurses (6.2-1)
+[2020-05-05T20:35:38+0000] [ALPM] installed libreadline (8.0.004-1)
+[2020-05-05T20:35:39+0000] [ALPM] installed libgdbm (1.18.1-2)
+[2020-05-05T20:35:39+0000] [ALPM] installed gdbm (1.18.1-2)
+[2020-05-05T20:35:39+0000] [ALPM-SCRIPTLET] call to execv (/usr/bin/bash /usr/bin/bash -c . /tmp/alpm_Rl0cgd/.INSTALL; post_install 1.18.1-2 ) failed (No such file or directory)
+[2020-05-05T20:35:39+0000] [ALPM] installed libcrypt (2.1-2)
+[2020-05-05T20:35:39+0000] [ALPM] installed gmp (6.2.0-1)
+[2020-05-05T20:35:39+0000] [ALPM-SCRIPTLET] call to execv (/usr/bin/bash /usr/bin/bash -c . /tmp/alpm_pyak8N/.INSTALL; post_install 6.2.0-1 ) failed (No such file or directory)
+[2020-05-05T20:35:39+0000] [ALPM] installed libiconv (1.16-1)
+[2020-05-05T20:35:39+0000] [ALPM] installed libintl (0.19.8.1-1)
+[2020-05-05T20:35:40+0000] [ALPM] installed coreutils (8.32-1)
+[2020-05-05T20:35:40+0000] [ALPM-SCRIPTLET] call to execv (/usr/bin/bash /usr/bin/bash -c . /tmp/alpm_rXPPFJ/.INSTALL; post_install 8.32-1 ) failed (No such file or directory)
+[2020-05-05T20:35:40+0000] [ALPM] installed bash (4.4.023-2)
+[2020-05-05T20:35:45+0000] [ALPM] installed perl (5.30.2-1)
+[2020-05-05T20:35:45+0000] [ALPM] installed rsync (3.1.3-1)
+[2020-05-05T20:35:45+0000] [ALPM] installed winpty (0.4.3-1)
+[2020-05-05T20:35:45+0000] [ALPM] installed zlib (1.2.11-1)
+[2020-05-05T20:35:45+0000] [ALPM] installed file (5.38-3)
+[2020-05-05T20:35:45+0000] [ALPM] installed libbz2 (1.0.8-2)
+[2020-05-05T20:35:45+0000] [ALPM] installed libexpat (2.2.9-1)
+[2020-05-05T20:35:45+0000] [ALPM] installed libgettextpo (0.19.8.1-1)
+[2020-05-05T20:35:45+0000] [ALPM] installed libasprintf (0.19.8.1-1)
+[2020-05-05T20:35:46+0000] [ALPM] installed gettext (0.19.8.1-1)
+[2020-05-05T20:35:46+0000] [ALPM] installed liblzma (5.2.5-1)
+[2020-05-05T20:35:46+0000] [ALPM] installed liblz4 (1.9.2-1)
+[2020-05-05T20:35:46+0000] [ALPM] installed libhogweed (3.5.1-1)
+[2020-05-05T20:35:46+0000] [ALPM] installed libnettle (3.5.1-1)
+[2020-05-05T20:35:46+0000] [ALPM] installed libxml2 (2.9.9-9400)
+[2020-05-05T20:35:46+0000] [ALPM] installed libzstd (1.4.4-2)
+[2020-05-05T20:35:47+0000] [ALPM] installed bsdtar (3.4.2-2)
+[2020-05-05T20:35:47+0000] [ALPM] installed findutils (4.7.0-1)
+[2020-05-05T20:35:47+0000] [ALPM] installed mintty (1~3.1.4-1)
+[2020-05-05T20:35:47+0000] [ALPM] installed msys2-launcher-git (0.3.32.56c2ba7-2)
+[2020-05-05T20:35:47+0000] [ALPM] installed expat (2.2.9-1)
+[2020-05-05T20:35:47+0000] [ALPM] installed bzip2 (1.0.8-2)
+[2020-05-05T20:35:47+0000] [ALPM] installed libopenssl (1.1.1.g-1)
+[2020-05-05T20:35:57+0000] [ALPM] installed openssl (1.1.1.g-1)
+[2020-05-05T20:35:57+0000] [ALPM] installed curl-ca-bundle (7.64.1-9500)
+[2020-05-05T20:35:57+0000] [ALPM] installed libcurl (7.64.1-9500)
+[2020-05-05T20:35:57+0000] [ALPM] installed gnupg (1.4.23-9400)
+[2020-05-05T20:35:57+0000] [ALPM] installed pacman-mirrors (90000000-6)
+[2020-05-05T20:35:57+0000] [ALPM] installed msys2-keyring (r9.397a52e-1)
+[2020-05-05T20:35:57+0000] [ALPM] installed which (2.21-2)
+[2020-05-05T20:35:58+0000] [ALPM] installed xz (5.2.5-1)
+[2020-05-05T20:35:58+0000] [ALPM] installed zstd (1.4.4-2)
+[2020-05-05T20:35:59+0000] [ALPM] installed pacman (5.2.1-9600)
+[2020-05-05T20:35:59+0000] [ALPM] installed curl (7.64.1-9500)
+[2020-05-05T20:35:59+0000] [ALPM] installed make (4.2.1-9400)
+[2020-05-05T20:36:00+0000] [ALPM] installed tar (1.32-9400)
+[2020-05-05T20:36:00+0000] [ALPM] installed libpcre (8.44-1)
+[2020-05-05T20:36:00+0000] [ALPM] installed less (551-1)
+[2020-05-05T20:36:00+0000] [ALPM] installed gzip (1.10-1)
+[2020-05-05T20:36:00+0000] [ALPM] installed info (5.2-9600)
+[2020-05-05T20:36:01+0000] [ALPM] installed texinfo (5.2-9600)
+[2020-05-05T20:36:01+0000] [ALPM] installed texinfo-tex (5.2-9600)
+[2020-05-05T20:36:01+0000] [ALPM] installed patch (2.7.6-1)
+[2020-05-05T20:36:02+0000] [ALPM] installed diffutils (3.7-1)
+[2020-05-05T20:36:02+0000] [ALPM] installed mpfr (4.0.2-1)
+[2020-05-05T20:36:02+0000] [ALPM] installed gawk (5.1.0-1)
+[2020-05-05T20:36:02+0000] [ALPM] installed grep (3.0-2)
+[2020-05-05T20:36:03+0000] [ALPM] installed filesystem (2020.02-2)
+[2020-05-05T20:36:03+0000] [ALPM] installed sed (4.8-1)
+[2020-05-05T20:36:03+0000] [ALPM] installed dash (0.5.10.2-1)
+[2020-05-05T20:36:03+0000] [ALPM] installed rebase (4.4.4-1)
+[2020-05-05T20:36:03+0000] [ALPM] installed zip (3.0-3)
+[2020-05-05T20:36:03+0000] [ALPM] installed unzip (6.0-2)
+[2020-05-05T20:36:03+0000] [ALPM] installed mingw-w64-i686-libiconv (1.16-1)
+[2020-05-05T20:36:03+0000] [ALPM] installed mingw-w64-i686-bzip2 (1.0.8-1)
+[2020-05-05T20:36:03+0000] [ALPM] installed mingw-w64-i686-zlib (1.2.11-9100)
+[2020-05-05T20:36:05+0000] [ALPM] installed mingw-w64-i686-binutils (2.33.1-1)
+[2020-05-05T20:36:08+0000] [ALPM] installed mingw-w64-i686-headers-git (5.0.4-9501)
+[2020-05-05T20:36:09+0000] [ALPM] installed mingw-w64-i686-crt-git (5.0.4-9500)
+[2020-05-05T20:36:10+0000] [ALPM] installed mingw-w64-i686-isl (0.21-1)
+[2020-05-05T20:36:10+0000] [ALPM] installed mingw-w64-i686-gmp (6.1.2-9002)
+[2020-05-05T20:36:10+0000] [ALPM] installed mingw-w64-i686-mpfr (4.0.2-9002)
+[2020-05-05T20:36:10+0000] [ALPM] installed mingw-w64-i686-mpc (1.1.0-9002)
+[2020-05-05T20:36:10+0000] [ALPM] installed mingw-w64-i686-windows-default-manifest (6.4-9500)
+[2020-05-05T20:36:10+0000] [ALPM] installed mingw-w64-i686-winpthreads-git (5.0.4-9500)
+[2020-05-05T20:36:16+0000] [ALPM] installed mingw-w64-i686-gcc (8.3.0-9500)
+[2020-05-05T20:36:17+0000] [ALPM] installed mingw-w64-i686-gcc-fortran (8.3.0-9500)
+[2020-05-05T20:36:17+0000] [ALPM] installed mingw-w64-i686-pkg-config (0.29.2-9002)
+[2020-05-05T20:36:17+0000] [ALPM] installed mingw-w64-i686-tools-git (5.0.4-9500)
+[2020-05-05T20:36:17+0000] [ALPM] installed mingw-w64-x86_64-libiconv (1.16-1)
+[2020-05-05T20:36:17+0000] [ALPM] installed mingw-w64-x86_64-bzip2 (1.0.8-1)
+[2020-05-05T20:36:17+0000] [ALPM] installed mingw-w64-x86_64-zlib (1.2.11-9100)
+[2020-05-05T20:36:20+0000] [ALPM] installed mingw-w64-x86_64-binutils (2.33.1-1)
+[2020-05-05T20:36:23+0000] [ALPM] installed mingw-w64-x86_64-headers-git (5.0.4-9501)
+[2020-05-05T20:36:26+0000] [ALPM] installed mingw-w64-x86_64-crt-git (5.0.4-9500)
+[2020-05-05T20:36:26+0000] [ALPM] installed mingw-w64-x86_64-isl (0.21-1)
+[2020-05-05T20:36:26+0000] [ALPM] installed mingw-w64-x86_64-gmp (6.1.2-9002)
+[2020-05-05T20:36:26+0000] [ALPM] installed mingw-w64-x86_64-mpfr (4.0.2-9002)
+[2020-05-05T20:36:26+0000] [ALPM] installed mingw-w64-x86_64-mpc (1.1.0-9002)
+[2020-05-05T20:36:26+0000] [ALPM] installed mingw-w64-x86_64-windows-default-manifest (6.4-9500)
+[2020-05-05T20:36:26+0000] [ALPM] installed mingw-w64-x86_64-winpthreads-git (5.0.4-9500)
+[2020-05-05T20:36:33+0000] [ALPM] installed mingw-w64-x86_64-gcc (8.3.0-9500)
+[2020-05-05T20:36:34+0000] [ALPM] installed mingw-w64-x86_64-gcc-fortran (8.3.0-9500)
+[2020-05-05T20:36:34+0000] [ALPM] installed mingw-w64-x86_64-pkg-config (0.29.2-9002)
+[2020-05-05T20:36:34+0000] [ALPM] installed mingw-w64-x86_64-tools-git (5.0.4-9500)
+[2020-05-05T20:36:34+0000] [ALPM] transaction completed
+[2021-03-17T14:17:10+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T14:17:10+0000] [PACMAN] synchronizing package lists
+[2021-03-17T14:17:11+0000] [PACMAN] starting core system upgrade
+[2021-03-17T14:17:11+0000] [PACMAN] starting full system upgrade
+[2021-03-17T14:17:11+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T14:17:11+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T14:17:49+0000] [ALPM] transaction started
+[2021-03-17T14:17:52+0000] [ALPM] installed mingw-w64-i686-icu (58.2-9002)
+[2021-03-17T14:17:52+0000] [ALPM] installed mingw-w64-i686-libjpeg-turbo (2.0.5-9000)
+[2021-03-17T14:17:54+0000] [ALPM] installed mingw-w64-i686-libtiff (4.2.0-9600)
+[2021-03-17T14:17:54+0000] [ALPM] installed mingw-w64-i686-libpng (1.6.37-9100)
+[2021-03-17T14:17:55+0000] [ALPM] installed mingw-w64-i686-pcre2 (10.33-1)
+[2021-03-17T14:17:55+0000] [ALPM] installed mingw-w64-i686-expat (2.2.9-9002)
+[2021-03-17T14:18:12+0000] [ALPM] installed mingw-w64-i686-gettext (0.19.8.1-9002)
+[2021-03-17T14:18:13+0000] [ALPM] installed mingw-w64-i686-xz (5.2.4-9002)
+[2021-03-17T14:18:15+0000] [ALPM] installed mingw-w64-x86_64-icu (58.2-9002)
+[2021-03-17T14:18:16+0000] [ALPM] installed mingw-w64-x86_64-libjpeg-turbo (2.0.5-9000)
+[2021-03-17T14:18:17+0000] [ALPM] installed mingw-w64-x86_64-libtiff (4.2.0-9600)
+[2021-03-17T14:18:18+0000] [ALPM] installed mingw-w64-x86_64-libpng (1.6.37-9100)
+[2021-03-17T14:18:19+0000] [ALPM] installed mingw-w64-x86_64-pcre2 (10.33-1)
+[2021-03-17T14:18:19+0000] [ALPM] installed mingw-w64-x86_64-expat (2.2.9-9002)
+[2021-03-17T14:18:33+0000] [ALPM] installed mingw-w64-x86_64-gettext (0.19.8.1-9002)
+[2021-03-17T14:18:34+0000] [ALPM] installed mingw-w64-x86_64-xz (5.2.4-9002)
+[2021-03-17T14:18:34+0000] [ALPM] transaction completed
+[2021-03-17T14:18:34+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T14:18:54+0000] [ALPM] transaction started
+[2021-03-17T14:18:55+0000] [ALPM] installed mingw-w64-i686-freetype (2.10.4-9500)
+[2021-03-17T14:18:55+0000] [ALPM] installed mingw-w64-i686-lzo2 (2.10-9002)
+[2021-03-17T14:18:55+0000] [ALPM] installed mingw-w64-i686-pixman (0.36.0-9100)
+[2021-03-17T14:18:56+0000] [ALPM] installed mingw-w64-i686-cairo (1.16.0-9600)
+[2021-03-17T14:19:06+0000] [ALPM] installed mingw-w64-i686-tcl (8.6.8-3)
+[2021-03-17T14:19:10+0000] [ALPM] installed mingw-w64-i686-tk (8.6.8-3)
+[2021-03-17T14:19:30+0000] [ALPM] installed mingw-w64-i686-openssl (1.1.1.g-1)
+[2021-03-17T14:19:31+0000] [ALPM] installed mingw-w64-i686-libssh2 (1.9.0-9200)
+[2021-03-17T14:19:35+0000] [ALPM] installed mingw-w64-i686-curl (7.64.1-9202)
+[2021-03-17T14:19:36+0000] [ALPM] installed mingw-w64-x86_64-freetype (2.10.4-9500)
+[2021-03-17T14:19:36+0000] [ALPM] installed mingw-w64-x86_64-lzo2 (2.10-9002)
+[2021-03-17T14:19:36+0000] [ALPM] installed mingw-w64-x86_64-pixman (0.36.0-9100)
+[2021-03-17T14:19:37+0000] [ALPM] installed mingw-w64-x86_64-cairo (1.16.0-9600)
+[2021-03-17T14:19:47+0000] [ALPM] installed mingw-w64-x86_64-tcl (8.6.8-3)
+[2021-03-17T14:19:51+0000] [ALPM] installed mingw-w64-x86_64-tk (8.6.8-3)
+[2021-03-17T14:20:10+0000] [ALPM] installed mingw-w64-x86_64-openssl (1.1.1.g-1)
+[2021-03-17T14:20:11+0000] [ALPM] installed mingw-w64-x86_64-libssh2 (1.9.0-9200)
+[2021-03-17T14:20:14+0000] [ALPM] installed mingw-w64-x86_64-curl (7.64.1-9202)
+[2021-03-17T14:20:14+0000] [ALPM] transaction completed
+[2021-03-17T15:47:01+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T15:47:01+0000] [PACMAN] synchronizing package lists
+[2021-03-17T15:47:01+0000] [PACMAN] starting core system upgrade
+[2021-03-17T15:47:01+0000] [PACMAN] starting full system upgrade
+[2021-03-17T15:47:01+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T15:47:01+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T15:47:01+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T15:47:34+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T15:47:34+0000] [PACMAN] synchronizing package lists
+[2021-03-17T15:47:34+0000] [PACMAN] starting core system upgrade
+[2021-03-17T15:47:34+0000] [PACMAN] starting full system upgrade
+[2021-03-17T15:47:34+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T15:47:34+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T15:47:34+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T15:48:23+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T15:48:23+0000] [PACMAN] synchronizing package lists
+[2021-03-17T15:48:23+0000] [PACMAN] starting core system upgrade
+[2021-03-17T15:48:23+0000] [PACMAN] starting full system upgrade
+[2021-03-17T15:48:23+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T15:48:23+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T15:48:24+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T15:49:01+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T15:49:01+0000] [PACMAN] synchronizing package lists
+[2021-03-17T15:49:02+0000] [PACMAN] starting core system upgrade
+[2021-03-17T15:49:02+0000] [PACMAN] starting full system upgrade
+[2021-03-17T15:49:02+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T15:49:02+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T15:49:02+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T15:49:31+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T15:49:31+0000] [PACMAN] synchronizing package lists
+[2021-03-17T15:49:31+0000] [PACMAN] starting core system upgrade
+[2021-03-17T15:49:31+0000] [PACMAN] starting full system upgrade
+[2021-03-17T15:49:31+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T15:49:31+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T15:49:31+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T15:50:47+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T15:50:47+0000] [PACMAN] synchronizing package lists
+[2021-03-17T15:50:47+0000] [PACMAN] starting core system upgrade
+[2021-03-17T15:50:47+0000] [PACMAN] starting full system upgrade
+[2021-03-17T15:50:47+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T15:50:47+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T15:50:48+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T15:53:16+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T15:53:16+0000] [PACMAN] synchronizing package lists
+[2021-03-17T15:53:17+0000] [PACMAN] starting core system upgrade
+[2021-03-17T15:53:17+0000] [PACMAN] starting full system upgrade
+[2021-03-17T15:53:17+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T15:53:17+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T15:53:17+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T15:55:10+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T15:55:10+0000] [PACMAN] synchronizing package lists
+[2021-03-17T15:55:10+0000] [PACMAN] starting core system upgrade
+[2021-03-17T15:55:10+0000] [PACMAN] starting full system upgrade
+[2021-03-17T15:55:11+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T15:55:11+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T15:55:11+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T16:04:28+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T16:04:28+0000] [PACMAN] synchronizing package lists
+[2021-03-17T16:04:28+0000] [PACMAN] starting core system upgrade
+[2021-03-17T16:04:28+0000] [PACMAN] starting full system upgrade
+[2021-03-17T16:04:28+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T16:04:28+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T16:04:28+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T16:08:04+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T16:08:04+0000] [PACMAN] synchronizing package lists
+[2021-03-17T16:08:05+0000] [PACMAN] starting core system upgrade
+[2021-03-17T16:08:05+0000] [PACMAN] starting full system upgrade
+[2021-03-17T16:08:05+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T16:08:05+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T16:08:05+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T16:09:00+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T16:09:00+0000] [PACMAN] synchronizing package lists
+[2021-03-17T16:09:00+0000] [PACMAN] starting core system upgrade
+[2021-03-17T16:09:00+0000] [PACMAN] starting full system upgrade
+[2021-03-17T16:09:00+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T16:09:00+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T16:09:00+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T16:10:29+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T16:10:29+0000] [PACMAN] synchronizing package lists
+[2021-03-17T16:10:29+0000] [PACMAN] starting core system upgrade
+[2021-03-17T16:10:29+0000] [PACMAN] starting full system upgrade
+[2021-03-17T16:10:29+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T16:10:29+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T16:10:29+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T16:11:15+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T16:11:15+0000] [PACMAN] synchronizing package lists
+[2021-03-17T16:11:16+0000] [PACMAN] starting core system upgrade
+[2021-03-17T16:11:16+0000] [PACMAN] starting full system upgrade
+[2021-03-17T16:11:16+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T16:11:16+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T16:11:16+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T16:14:30+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T16:14:30+0000] [PACMAN] synchronizing package lists
+[2021-03-17T16:14:30+0000] [PACMAN] starting core system upgrade
+[2021-03-17T16:14:31+0000] [PACMAN] starting full system upgrade
+[2021-03-17T16:14:31+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T16:14:31+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T16:14:31+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T16:18:14+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T16:18:14+0000] [PACMAN] synchronizing package lists
+[2021-03-17T16:18:14+0000] [PACMAN] starting core system upgrade
+[2021-03-17T16:18:14+0000] [PACMAN] starting full system upgrade
+[2021-03-17T16:18:14+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T16:18:14+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T16:18:14+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T16:22:35+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T16:22:35+0000] [PACMAN] synchronizing package lists
+[2021-03-17T16:22:35+0000] [PACMAN] starting core system upgrade
+[2021-03-17T16:22:35+0000] [PACMAN] starting full system upgrade
+[2021-03-17T16:22:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T16:22:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T16:22:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-17T16:24:14+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-17T16:24:14+0000] [PACMAN] synchronizing package lists
+[2021-03-17T16:24:14+0000] [PACMAN] starting core system upgrade
+[2021-03-17T16:24:14+0000] [PACMAN] starting full system upgrade
+[2021-03-17T16:24:14+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-17T16:24:15+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-17T16:24:15+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-23T14:08:45+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-23T14:08:45+0000] [PACMAN] synchronizing package lists
+[2021-03-23T14:08:46+0000] [PACMAN] starting core system upgrade
+[2021-03-23T14:08:46+0000] [PACMAN] starting full system upgrade
+[2021-03-23T14:08:46+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-23T14:08:46+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-23T14:08:46+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-23T14:18:13+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-23T14:18:13+0000] [PACMAN] synchronizing package lists
+[2021-03-23T14:18:13+0000] [PACMAN] starting core system upgrade
+[2021-03-23T14:18:13+0000] [PACMAN] starting full system upgrade
+[2021-03-23T14:18:13+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-23T14:18:13+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-23T14:18:13+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-23T14:26:09+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-23T14:26:09+0000] [PACMAN] synchronizing package lists
+[2021-03-23T14:26:09+0000] [PACMAN] starting core system upgrade
+[2021-03-23T14:26:09+0000] [PACMAN] starting full system upgrade
+[2021-03-23T14:26:09+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-23T14:26:09+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-23T14:26:09+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-23T14:50:51+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-23T14:50:51+0000] [PACMAN] synchronizing package lists
+[2021-03-23T14:50:51+0000] [PACMAN] starting core system upgrade
+[2021-03-23T14:50:51+0000] [PACMAN] starting full system upgrade
+[2021-03-23T14:50:51+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-23T14:50:51+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-23T14:50:51+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-23T14:59:14+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-23T14:59:14+0000] [PACMAN] synchronizing package lists
+[2021-03-23T14:59:14+0000] [PACMAN] starting core system upgrade
+[2021-03-23T14:59:14+0000] [PACMAN] starting full system upgrade
+[2021-03-23T14:59:14+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-23T14:59:14+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-23T14:59:15+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T07:30:01+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T07:30:01+0000] [PACMAN] synchronizing package lists
+[2021-03-24T07:30:02+0000] [PACMAN] starting core system upgrade
+[2021-03-24T07:30:02+0000] [PACMAN] starting full system upgrade
+[2021-03-24T07:30:02+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T07:30:02+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T07:30:02+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T07:39:39+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T07:39:39+0000] [PACMAN] synchronizing package lists
+[2021-03-24T07:39:39+0000] [PACMAN] starting core system upgrade
+[2021-03-24T07:39:39+0000] [PACMAN] starting full system upgrade
+[2021-03-24T07:39:39+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T07:39:39+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T07:39:39+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T07:51:34+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T07:51:34+0000] [PACMAN] synchronizing package lists
+[2021-03-24T07:51:34+0000] [PACMAN] starting core system upgrade
+[2021-03-24T07:51:34+0000] [PACMAN] starting full system upgrade
+[2021-03-24T07:51:34+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T07:51:34+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T07:51:34+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T08:03:19+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T08:03:19+0000] [PACMAN] synchronizing package lists
+[2021-03-24T08:03:19+0000] [PACMAN] starting core system upgrade
+[2021-03-24T08:03:19+0000] [PACMAN] starting full system upgrade
+[2021-03-24T08:03:19+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T08:03:19+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T08:03:19+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T08:05:43+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T08:05:43+0000] [PACMAN] synchronizing package lists
+[2021-03-24T08:05:43+0000] [PACMAN] starting core system upgrade
+[2021-03-24T08:05:43+0000] [PACMAN] starting full system upgrade
+[2021-03-24T08:05:43+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T08:05:43+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T08:05:43+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T08:19:07+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T08:19:07+0000] [PACMAN] synchronizing package lists
+[2021-03-24T08:19:07+0000] [PACMAN] starting core system upgrade
+[2021-03-24T08:19:07+0000] [PACMAN] starting full system upgrade
+[2021-03-24T08:19:07+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T08:19:07+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T08:19:07+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T08:54:25+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T08:54:25+0000] [PACMAN] synchronizing package lists
+[2021-03-24T08:54:25+0000] [PACMAN] starting core system upgrade
+[2021-03-24T08:54:25+0000] [PACMAN] starting full system upgrade
+[2021-03-24T08:54:25+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T08:54:25+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T08:54:26+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T09:17:19+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T09:17:19+0000] [PACMAN] synchronizing package lists
+[2021-03-24T09:17:19+0000] [PACMAN] starting core system upgrade
+[2021-03-24T09:17:19+0000] [PACMAN] starting full system upgrade
+[2021-03-24T09:17:20+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T09:17:20+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T09:17:20+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T09:59:01+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T09:59:01+0000] [PACMAN] synchronizing package lists
+[2021-03-24T09:59:02+0000] [PACMAN] starting core system upgrade
+[2021-03-24T09:59:02+0000] [PACMAN] starting full system upgrade
+[2021-03-24T09:59:02+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T09:59:02+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T09:59:02+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T10:38:12+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T10:38:12+0000] [PACMAN] synchronizing package lists
+[2021-03-24T10:38:12+0000] [PACMAN] starting core system upgrade
+[2021-03-24T10:38:12+0000] [PACMAN] starting full system upgrade
+[2021-03-24T10:38:12+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T10:38:12+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T10:38:12+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T10:46:37+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T10:46:37+0000] [PACMAN] synchronizing package lists
+[2021-03-24T10:46:37+0000] [PACMAN] starting core system upgrade
+[2021-03-24T10:46:37+0000] [PACMAN] starting full system upgrade
+[2021-03-24T10:46:37+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T10:46:37+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T10:46:37+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T11:05:35+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T11:05:35+0000] [PACMAN] synchronizing package lists
+[2021-03-24T11:05:35+0000] [PACMAN] starting core system upgrade
+[2021-03-24T11:05:35+0000] [PACMAN] starting full system upgrade
+[2021-03-24T11:05:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T11:05:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T11:05:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T11:08:35+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T11:08:35+0000] [PACMAN] synchronizing package lists
+[2021-03-24T11:08:35+0000] [PACMAN] starting core system upgrade
+[2021-03-24T11:08:35+0000] [PACMAN] starting full system upgrade
+[2021-03-24T11:08:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T11:08:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T11:08:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T11:35:35+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T11:35:35+0000] [PACMAN] synchronizing package lists
+[2021-03-24T11:35:35+0000] [PACMAN] starting core system upgrade
+[2021-03-24T11:35:35+0000] [PACMAN] starting full system upgrade
+[2021-03-24T11:35:35+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T11:35:36+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T11:35:36+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T12:08:13+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T12:08:13+0000] [PACMAN] synchronizing package lists
+[2021-03-24T12:08:14+0000] [PACMAN] starting core system upgrade
+[2021-03-24T12:08:14+0000] [PACMAN] starting full system upgrade
+[2021-03-24T12:08:14+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T12:08:14+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T12:08:14+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T13:11:16+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T13:11:16+0000] [PACMAN] synchronizing package lists
+[2021-03-24T13:11:17+0000] [PACMAN] starting core system upgrade
+[2021-03-24T13:11:17+0000] [PACMAN] starting full system upgrade
+[2021-03-24T13:11:17+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T13:11:17+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T13:11:17+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T14:48:31+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T14:48:31+0000] [PACMAN] synchronizing package lists
+[2021-03-24T14:48:31+0000] [PACMAN] starting core system upgrade
+[2021-03-24T14:48:31+0000] [PACMAN] starting full system upgrade
+[2021-03-24T14:48:31+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T14:48:31+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T14:48:32+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T15:19:29+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T15:19:29+0000] [PACMAN] synchronizing package lists
+[2021-03-24T15:19:29+0000] [PACMAN] starting core system upgrade
+[2021-03-24T15:19:29+0000] [PACMAN] starting full system upgrade
+[2021-03-24T15:19:29+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T15:19:29+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T15:19:29+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T15:21:11+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T15:21:11+0000] [PACMAN] synchronizing package lists
+[2021-03-24T15:21:12+0000] [PACMAN] starting core system upgrade
+[2021-03-24T15:21:12+0000] [PACMAN] starting full system upgrade
+[2021-03-24T15:21:12+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T15:21:12+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T15:21:12+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T15:24:11+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T15:24:11+0000] [PACMAN] synchronizing package lists
+[2021-03-24T15:24:11+0000] [PACMAN] starting core system upgrade
+[2021-03-24T15:24:11+0000] [PACMAN] starting full system upgrade
+[2021-03-24T15:24:11+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T15:24:12+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T15:24:12+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T15:28:43+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T15:28:43+0000] [PACMAN] synchronizing package lists
+[2021-03-24T15:28:43+0000] [PACMAN] starting core system upgrade
+[2021-03-24T15:28:43+0000] [PACMAN] starting full system upgrade
+[2021-03-24T15:28:43+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T15:28:43+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T15:28:43+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T15:31:17+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T15:31:17+0000] [PACMAN] synchronizing package lists
+[2021-03-24T15:31:18+0000] [PACMAN] starting core system upgrade
+[2021-03-24T15:31:18+0000] [PACMAN] starting full system upgrade
+[2021-03-24T15:31:18+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T15:31:18+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T15:31:18+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T15:31:24+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T15:31:24+0000] [PACMAN] synchronizing package lists
+[2021-03-24T15:31:24+0000] [PACMAN] starting core system upgrade
+[2021-03-24T15:31:24+0000] [PACMAN] starting full system upgrade
+[2021-03-24T15:31:24+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T15:31:24+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T15:31:24+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T15:58:53+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T15:58:53+0000] [PACMAN] synchronizing package lists
+[2021-03-24T15:58:54+0000] [PACMAN] starting core system upgrade
+[2021-03-24T15:58:54+0000] [PACMAN] starting full system upgrade
+[2021-03-24T15:58:54+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T15:58:55+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T15:58:55+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T15:59:35+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T15:59:35+0000] [PACMAN] synchronizing package lists
+[2021-03-24T15:59:35+0000] [PACMAN] starting core system upgrade
+[2021-03-24T15:59:35+0000] [PACMAN] starting full system upgrade
+[2021-03-24T15:59:36+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T15:59:36+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T15:59:36+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T16:00:16+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T16:00:16+0000] [PACMAN] synchronizing package lists
+[2021-03-24T16:00:17+0000] [PACMAN] starting core system upgrade
+[2021-03-24T16:00:17+0000] [PACMAN] starting full system upgrade
+[2021-03-24T16:00:17+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T16:00:17+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T16:00:17+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T16:04:59+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T16:04:59+0000] [PACMAN] synchronizing package lists
+[2021-03-24T16:04:59+0000] [PACMAN] starting core system upgrade
+[2021-03-24T16:04:59+0000] [PACMAN] starting full system upgrade
+[2021-03-24T16:04:59+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T16:04:59+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T16:05:00+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T16:21:50+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T16:21:50+0000] [PACMAN] synchronizing package lists
+[2021-03-24T16:21:50+0000] [PACMAN] starting core system upgrade
+[2021-03-24T16:21:50+0000] [PACMAN] starting full system upgrade
+[2021-03-24T16:21:50+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T16:21:50+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T16:21:50+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T16:22:10+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T16:22:10+0000] [PACMAN] synchronizing package lists
+[2021-03-24T16:22:10+0000] [PACMAN] starting core system upgrade
+[2021-03-24T16:22:10+0000] [PACMAN] starting full system upgrade
+[2021-03-24T16:22:10+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T16:22:10+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T16:22:10+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T16:23:45+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T16:23:45+0000] [PACMAN] synchronizing package lists
+[2021-03-24T16:23:45+0000] [PACMAN] starting core system upgrade
+[2021-03-24T16:23:45+0000] [PACMAN] starting full system upgrade
+[2021-03-24T16:23:45+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T16:23:45+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T16:23:45+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-24T16:32:21+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-24T16:32:21+0000] [PACMAN] synchronizing package lists
+[2021-03-24T16:32:21+0000] [PACMAN] starting core system upgrade
+[2021-03-24T16:32:21+0000] [PACMAN] starting full system upgrade
+[2021-03-24T16:32:21+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-24T16:32:21+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-24T16:32:21+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'
+[2021-03-25T15:40:57+0000] [PACMAN] Running 'pacman -Syu --noconfirm'
+[2021-03-25T15:40:57+0000] [PACMAN] synchronizing package lists
+[2021-03-25T15:40:57+0000] [PACMAN] starting core system upgrade
+[2021-03-25T15:40:57+0000] [PACMAN] starting full system upgrade
+[2021-03-25T15:40:57+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-gcc mingw-w64-i686-gcc-fortran mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran'
+[2021-03-25T15:40:58+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-icu mingw-w64-i686-libtiff mingw-w64-i686-libjpeg mingw-w64-i686-libpng mingw-w64-i686-pcre2 mingw-w64-i686-xz mingw-w64-i686-bzip2 mingw-w64-i686-zlib mingw-w64-x86_64-icu mingw-w64-x86_64-libtiff mingw-w64-x86_64-libjpeg mingw-w64-x86_64-libpng mingw-w64-x86_64-pcre2 mingw-w64-x86_64-xz mingw-w64-x86_64-bzip2 mingw-w64-x86_64-zlib'
+[2021-03-25T15:40:58+0000] [PACMAN] Running 'pacman -S --needed --noconfirm mingw-w64-i686-cairo mingw-w64-i686-tk mingw-w64-i686-curl mingw-w64-x86_64-cairo mingw-w64-x86_64-tk mingw-w64-x86_64-curl'

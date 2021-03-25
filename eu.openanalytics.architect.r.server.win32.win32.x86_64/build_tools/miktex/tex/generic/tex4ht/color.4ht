@@ -1,0 +1,119 @@
+% color.4ht (2019-08-31-14:16), generated from tex4ht-4ht.tex
+% Copyright 1997-2009 Eitan M. Gurari
+% Copyright 2009-2019 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\expandafter\ifx \csname color:def\endcsname\relax
+    \let\color:def\def
+\else  \expandafter\endinput\fi
+\let\:temp\begingroup
+\HLet\color@setgroup\:temp
+\def\HColor{\:warning{\string\Hcode{...}{...} is deprecated; Use
+   \string\Configure{HColor}{...}{...}}\Configure{HColor}}
+\NewConfigure{HColor}[2]{\if !#1!\if!#2!\let\HColor\relax \else \edef\HColor{#2}\fi
+\else
+   \expandafter\edef\csname CLR:#1\endcsname{#2}\fi}
+\def\:temp#1#2#3{%
+  \@ifundefined{color@#2}%
+    {\c@lor@error{model `#2'}}%
+    {\@ifundefined{\string\color @#1}{}%
+      {\PackageInfo{color}{Redefining color #1}}%
+     \csname color@#2\expandafter\endcsname
+         \csname\string\color @#1\endcsname{#3}}}
+\ifx \definecolor\:temp
+   \pend:defIII\definecolor{%
+     \expandafter\ifx\csname HColor:##2\endcsname\relax\else
+        \csname HColor:##2\endcsname ##3 //%
+        \edef\:temp{{HColor}{##1}{\HColor}}%
+        \expandafter\Configure\:temp
+     \fi}
+\fi
+
+\NewConfigure{color}{1}
+\def\:tempc#1#2#3{\protect\leavevmode{\protect\a:textcolor
+      \color#1{#2}#3\protect\b:textcolor}}
+\HLet\@textcolor=\:tempc
+\NewConfigure{textcolor}{2}
+   \def\pagecolor{%
+  \begingroup \a:pagecolor
+      \let\ignorespaces\endgroup
+      \let\set@color\set@page@color
+      \color}
+\NewConfigure{pagecolor}{1}
+\def\@undeclaredcolor[#1]#2{\a:color{#1 #2}%
+  \@ifundefined{color@#1}%
+    {\@latex@error{Undefined color model `#1'}\@ehd}%
+    {\csname color@#1\endcsname\current@color{#2}%
+     \set@color}%
+  \ignorespaces}
+\pend:defI\@declaredcolor{\a:color{##1}}
+\NewConfigure{SetHColor}[2]{{%
+   \expandafter\let\expandafter\:temp \csname CLR:#2\endcsname
+   \ifx \:temp\relax
+      \edef\:temp{#2 //}\expandafter\get:HColor\:temp
+      \ifx \HColor\relax
+          \expandafter\ifx \csname get!HColor\endcsname\relax \else
+  \edef\:temp{#2!//}\expandafter\csname get!HColor\expandafter\endcsname\:temp
+\fi
+%
+      \fi
+   \else             \let\HColor=\:temp \fi
+   \ifx \HColor\relax
+      \:warning{missing \string\Configure{HColor}{#2}{...}
+           (in LaTeX: \csname\string\color @#2\endcsname)}%
+      \expandafter\global\expandafter\let\csname CLR:#2\endcsname\empty
+    \else #1\fi }}
+\def\get:HColor#1 #2//{%
+  \if\relax#2\relax
+  % \expandafter\ifx \csname HColor:#1\endcsname\relax
+     \let\HColor=\relax
+     \expandafter\ifx \csname\string\color @#1\endcsname \relax\else
+   \expandafter\ifx \csname colortyp:\endcsname\relax \else
+      \csname colortyp:\expandafter\expandafter\expandafter\endcsname
+         \csname\string\color @#1\expandafter\endcsname
+         \space . //%
+\fi \fi
+%
+  \else
+     \csname HColor:#1\endcsname #2 //%
+  \fi
+}
+\def\c:HColor:gray:{\def\HColor:gray##1 ##2//}
+\Configure{HColor:gray}{\Configure{HColor}{}{}}
+\def\c:HColor:rgb:{\def\HColor:rgb##1,##2,##3 ##4//}
+\Configure{HColor:rgb}{\Configure{HColor}{}{}}
+\def\c:HColor:cmyk:{\def\HColor:cmyk##1,##2,##3,##4 ##5//}
+\Configure{HColor:cmyk}{\Configure{HColor}{}{}}
+
+\long\def\:temp#1#2#3{%
+   \ifcolors@
+      \def\:temp{#1}\def\:tempa{\relax}\ifx\:temp\:tempa
+      \a:colorbox \else \a:fcolorbox \fi
+   \fi
+   {#1{\leavevmode #2{\set@color#3}}}%
+   \ifcolors@
+      \def\:temp{#1}\def\:tempa{\relax}\ifx\:temp\:tempa
+      \b:colorbox \else \b:fcolorbox \fi
+   \fi
+}
+\HLet\color@b@x\:temp
+\NewConfigure{colorbox}{2}
+\NewConfigure{fcolorbox}{2}
+
+\Hinput{color}
+\endinput
+

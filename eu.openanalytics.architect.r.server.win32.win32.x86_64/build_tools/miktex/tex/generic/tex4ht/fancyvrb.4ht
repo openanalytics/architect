@@ -1,0 +1,168 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% fancyvrb.4ht                          2020-10-02-15:28 %
+% Copyright (C) 1997-2009       Eitan M. Gurari         %
+% Copyright 2009-2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+
+   \pend:def\FV@FormattingPrep{\let\fv:color\empty
+  \ifx \color\:UnDef\else\Configure{color}{\xdef\fv:color}\fi
+}
+\append:def\FV@FormattingPrep{\a:fancyvrb%
+   \ifx \FV@BeginListFrame\relax\else
+   \tmp:dim=\FV@FrameRule \edef\HSize{\the\tmp:dim}%
+   \a:fancyvrbframe
+\fi
+\ifx \FV@LeftListFrame\relax\else
+   \tmp:dim=\FV@FrameRule \edef\HSize{\the\tmp:dim}%
+   \b:fancyvrbframe
+\fi
+\ifx \FV@EndListFrame\relax\else
+   \tmp:dim=\FV@FrameRule \edef\HSize{\the\tmp:dim}%
+   \c:fancyvrbframe
+\fi
+\ifx \FV@RightListFrame\relax\else
+   \tmp:dim=\FV@FrameRule \edef\HSize{\the\tmp:dim}%
+   \d:fancyvrbframe
+\fi
+%
+   \bgroup
+  \ifx \fv:color\empty \else{%
+     \let\HColor\fv:color \a:fancyvrbcolor%
+  }\fi
+  \ifx \FancyVerbFillColor\relax \else%
+     \:fvcolor \b:fancyvrbcolor \FancyVerbFillColor!*?: %
+  \fi
+  \ifx \FancyVerbRuleColor\relax \else%
+     \:fvcolor \c:fancyvrbcolor \FancyVerbRuleColor!*?: %
+  \fi
+\egroup
+\let\FV@BeginListFrame\relax
+\let\FV@LeftListFrame\relax
+\let\FV@RightListFrame\relax
+\let\FV@EndListFrame\relax
+%
+}
+\def\FV@ListProcessLine#1{%
+    \hbox{\c:fancyvrb \anc:lbl r{FancyVerbLine}\FV@LeftListNumber%
+      \FV@LeftListFrame \e:fancyvrb \FancyVerbFormatLine{#1}\f:fancyvrb%
+      \FV@RightListFrame \csname FV@RightListNumber\endcsname %
+          \d:fancyvrb}}
+\def\FV@ListProcessLine@iii#1{%
+  \box\@tempboxa
+  \setbox\@tempboxa=\FV@ListProcessLine{#1}%
+  \let\FV@ProcessLine\FV@ListProcessLine@iv}
+\def\FV@ListProcessLine@iv#1{%
+  \box\@tempboxa
+  \setbox\@tempboxa=\FV@ListProcessLine{#1}}%
+\def\FV@ListProcessLastLine{%
+  \ifx\FV@ProcessLine\FV@ListProcessLine@iv
+    \box\@tempboxa
+  \else
+    \ifx\FV@ProcessLine\FV@ListProcessLine@iii
+      \box\@tempboxa
+    \else
+      \ifx\FV@ProcessLine\FV@ListProcessLine@i
+        \FV@Error{Empty verbatim environment}{}%
+        \FV@ProcessLine{}%
+      \fi
+    \fi
+  \fi}
+
+
+\def\FV@EndList{\FV@ListProcessLastLine  \FV@EndListFrame%
+  \IgnorePar\b:fancyvrb\par\@endparenv%
+  \endgroup   \@endpetrue}
+\def\FV@StepLineNo{%
+  \FV@SetLineNo%
+  \def\FV@StepLineNo{\SkipRefstepAnchor\refstepcounter{FancyVerbLine}}%
+  \FV@StepLineNo}
+\begingroup
+\catcode`\^^M=\active%
+\gdef\FVC@Verb#1{%
+  \begingroup%
+    \FV@UseKeyValues%
+    \let\a:fancyvrb\empty\FV@FormattingPrep%
+    \FV@CatCodes%
+    \outer\def^^M{}%
+    \catcode`#1=12%
+    \def\@tempa{\def\FancyVerbGetVerb####1####2}%
+    \expandafter\@tempa\string#1{\mbox{\a:verb##2\b:verb}\endgroup}%
+    \FancyVerbGetVerb\FV@EOL}%
+\endgroup
+\def\FV@UseVerb#1{\mbox{\FV@UseKeyValues%
+   \let\a:fancyvrb\empty \FV@FormattingPrep%
+   \a:verb #1\b:verb}}
+\def\:fvcolor#1{\def\a:color##1##2!*?: {%
+   \Configure{SetHColor}#1{##1}}}%
+\define@key{FV}{framerule}{%
+  \@tempdima=#1\relax%
+  \edef\FV@FrameRule{\number\@tempdima sp\relax}%
+  {\Advance:\fancyvrbNo by 1   \tmp:dim=\FV@FrameRule%
+   \edef\HSize{\the\tmp:dim}%
+   \e:fancyvrbframe}}
+\define@key{FV}{framesep}{%
+  \@tempdima=#1\relax%
+  \edef\FV@FrameSep{\number\@tempdima sp\relax}%
+  {\Advance:\fancyvrbNo by 1    \tmp:dim=\FV@FrameSep%
+   \edef\HSize{\the\tmp:dim}%
+   \f:fancyvrbframe}}
+\def\FV@BVerbatimBegin{%
+  \ht:special{t4ht@(}\begingroup%
+    \let\a:fancyvrb\empty\IgnorePar%
+    \FV@UseKeyValues%
+    \FV@BeginVBox%
+    \let\FV@ProcessLine\FV@BProcessLine%
+    \FV@FormattingPrep%
+    \FV@ObeyTabsInit\a:BVerbatimInput\ht:special{t4ht@)}
+}%
+\def\FV@BVerbatimEnd{\b:BVerbatimInput\ht:special{t4ht@(}\FV@EndVBox\ht:special{t4ht@)}\endgroup}
+\def\FV@BProcessLine#1{\hbox{\FancyVerbFormatLine%
+   {\c:BVerbatimInput#1\d:BVerbatimInput}}}
+\NewConfigure{BVerbatimInput}{4}
+\def\V@@footnotetext{%
+\leavevmode%
+   \vbox\bgroup%
+      \leftskip0pt {\ht:everypar{}\parindent0pt\leavevmode}%
+      \protected@edef
+  \@currentlabel{\csname p@footnote\endcsname\@thefnmark}%
+\anc:lbl f{footnote}%
+%
+      \a:footnotetext%
+      \b:footnotetext%
+      \csname a:footnotebody\endcsname%
+      \bgroup%
+          \reset@font\footnotesize%
+          \bgroup %
+             \aftergroup\V@@@footnotetext %
+             \ignorespaces%
+}
+\def\V@@@footnotetext{%
+      \egroup%
+      \csname b:footnotebody\endcsname%
+      \c:footnotetext%
+   \ht:special{t4ht@[}\egroup\ht:special{t4ht@]}%
+}
+
+   \NewConfigure{fancyvrb}{6}
+\NewConfigure{fancyvrbcolor}{3}
+\NewConfigure{fancyvrbframe}{6}
+
+
+\Hinput{fancyvrb}
+\endinput
+

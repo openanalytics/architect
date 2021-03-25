@@ -1,0 +1,1033 @@
+% html5.4ht (2021-02-14-13:56), generated from tex4ht-html5.tex
+% Copyright 2016-2020 TeX Users Group
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2021-02-14-13:56}
+
+\exit:ifnot{amsart,% 
+amsbook,% 
+amsproc,% 
+article,% 
+book,% 
+latex,% 
+memoir,% 
+report,% 
+scrartcl,% 
+scrbook,% 
+scrreprt,% 
+tex4ht}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+\def\:charset:quotes#1=#2.{
+  #1="#2"%
+}
+\def\use:charset{%
+  \expandafter\ifx\csname a:charset\endcsname\relax%
+    \expandafter\expandafter\expandafter\:charset:quotes\csname A:charset\endcsname.
+  \else%
+    \expandafter\expandafter\expandafter\:charset:quotes\csname a:charset\endcsname.
+  \fi
+}
+
+\Configure{VERSION}{}
+\Configure{DOCTYPE}{\HCode{<!DOCTYPE html>\Hnewline}}
+\Configure{HTML}{\HCode{<html lang="\Get:Language" xml:lang="\Get:Language" \html:xmlns>\Hnewline}}{\HCode{\Hnewline</html>}}
+\Configure{@HEAD}{}
+\Configure{@HEAD}{\HCode{<meta \use:charset />\Hnewline}}
+\Configure{@HEAD}{\HCode{<meta name="generator" content="TeX4ht
+(https://tug.org/tex4ht/)" />\Hnewline}}
+\Configure{@HEAD}{\HCode{<meta name="viewport" content="width=device-width,initial-scale=1" />\Hnewline}}
+\Configure{@HEAD}{\HCode{<link
+             rel="stylesheet" type="text/css"
+                      href="\expandafter\csname aa:CssFile\endcsname" />\Hnewline}}
+\Configure{@HEAD}
+   {\HCode{<meta name="src"
+                 content="\jobname.tex"\xml:empty>\Hnewline}}
+\:CheckOption{timestamp}\if:Option
+\Configure{@HEAD}
+   {\HCode{<meta name="date"
+                 content="\:today"\xml:empty>\Hnewline}}
+\else
+  \Log:Note{To print a timestamp, use the command line option timestamp}
+\fi
+\def\Declare:Language#1#2{%
+\expandafter\gdef\csname rfclang#1\endcsname{#2}%
+}
+\def\Get:Language{%
+\ifx\bbl@main@language\@undefined en-US%
+\else%
+\expandafter\ifdefined\csname rfclang\bbl@main@language\endcsname \csname rfclang\bbl@main@language\endcsname\fi%
+\fi%
+}
+
+\Declare:Language{UKenglish}{en}
+\Declare:Language{USenglish}{en}
+\Declare:Language{latex}{en}
+\Declare:Language{acadian}{fr}
+\Declare:Language{albanian}{sq}
+\Declare:Language{american}{en}
+\Declare:Language{amharic}{am}
+\Declare:Language{arabic}{ar}
+\Declare:Language{armenian}{hy}
+\Declare:Language{australian}{en}
+\Declare:Language{austrian}{de}
+\Declare:Language{basque}{eu}
+\Declare:Language{bengali}{bn}
+\Declare:Language{brazilian}{pt}
+\Declare:Language{brazil}{pt}
+\Declare:Language{breton}{br}
+\Declare:Language{british}{en}
+\Declare:Language{bulgarian}{bg}
+\Declare:Language{canadian}{en}
+\Declare:Language{canadien}{fr}
+\Declare:Language{catalan}{ca}
+\Declare:Language{croatian}{hr}
+\Declare:Language{czech}{cs}
+\Declare:Language{danish}{da}
+\Declare:Language{divehi}{dv}
+\Declare:Language{dutch}{nl}
+\Declare:Language{english}{en}
+\Declare:Language{esperanto}{eo}
+\Declare:Language{estonian}{et}
+\Declare:Language{finnish}{f\/i}
+\Declare:Language{francais}{fr}
+\Declare:Language{french}{fr}
+\Declare:Language{galician}{gl}
+\Declare:Language{germanb}{de}
+\Declare:Language{german}{de}
+\Declare:Language{greek}{el}
+\Declare:Language{hebrew}{he}
+\Declare:Language{hindi}{hi}
+\Declare:Language{hungarian}{hu}
+\Declare:Language{icelandic}{is}
+\Declare:Language{interlingua}{ia}
+\Declare:Language{irish}{ga}
+\Declare:Language{italian}{it}
+\Declare:Language{kannada}{kn}
+\Declare:Language{khmer}{km}
+\Declare:Language{korean}{ko}
+\Declare:Language{lao}{lo}
+\Declare:Language{latin}{la}
+\Declare:Language{latvian}{lv}
+\Declare:Language{lithuanian}{lt}
+\Declare:Language{lowersorbian}{dsb}
+\Declare:Language{magyar}{hu}
+\Declare:Language{malayalam}{ml}
+\Declare:Language{marathi}{mr}
+\Declare:Language{naustrian}{de}
+\Declare:Language{newzealand}{en}
+\Declare:Language{ngerman}{de}
+\Declare:Language{norsk}{no}
+\Declare:Language{norwegiannynorsk}{nn}
+\Declare:Language{nynorsk}{no}
+\Declare:Language{occitan}{oc}
+\Declare:Language{oldchurchslavonic}{cu}
+\Declare:Language{persian}{fa}
+\Declare:Language{polish}{pl}
+\Declare:Language{polutonikogreek}{el}
+\Declare:Language{portuges}{pt}
+\Declare:Language{portuguese}{pt}
+\Declare:Language{romanian}{ro}
+\Declare:Language{romansh}{rm}
+\Declare:Language{russian}{ru}
+\Declare:Language{samin}{se}
+\Declare:Language{sanskrit}{sa}
+\Declare:Language{scottish}{gd}
+\Declare:Language{serbian}{sr}
+\Declare:Language{serbo-croatian}{sh}
+\Declare:Language{slovak}{sk}
+\Declare:Language{slovene}{sl}
+\Declare:Language{slovenian}{sl}
+\Declare:Language{spanish}{es}
+\Declare:Language{swedish}{sv}
+\Declare:Language{tamil}{ta}
+\Declare:Language{telugu}{te}
+\Declare:Language{thai}{th}
+\Declare:Language{tibetan}{bo}
+\Declare:Language{turkish}{tr}
+\Declare:Language{turkmen}{tk}
+\Declare:Language{ukrainian}{uk}
+\Declare:Language{uppersorbian}{hsb}
+\Declare:Language{urdu}{ur}
+\Declare:Language{vietnamese}{vi}
+\Declare:Language{welsh}{cy}
+\edef\html:xmlns{}
+\NewConfigure{xmlns}[2]{%
+  \ifx\relax#2\relax%
+    \edef\html:xmlns{}%
+  \else%
+    \edef\html:xmlns{\html:xmlns xmlns\ifx\relax#1\relax\else :#1\fi="#2"}%
+  \fi%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{halignTB<>}{tabular}{\HCode{id="TBL-\TableNo"  class="tabular"\Hnewline \GROUPS\Hnewline
+   }<>\HAlign}
+\Css{table.tabular{border-collapse: collapse; border-spacing: 0;}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{book}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+
+\ConfigureEnv{abstract}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<section role="doc-abstract" class="abstract">\Hnewline}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</section>}\par}{}{}
+
+\Css{.abstract{margin:1em;}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+
+\ConfigureEnv{abstract}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<section role="doc-abstract" class="abstract">\Hnewline}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</section>}\par}{}{}
+
+\Css{.abstract{margin:1em;}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsproc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{memoir}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+\ConfigureEnv{abstract}
+{\ifvmode\IgnorePar\fi\EndP\HCode{<section role="doc-abstract" class="abstract">\Hnewline}}
+{\ifvmode\IgnorePar\fi\EndP\HCode{</section>}\par}{}{}
+
+\Css{.abstract{margin:1em;}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrbook}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{scrreprt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{float}
+   {\ifOption{refcaption}{}{\csname par\endcsname\ShowPar \leavevmode}}
+     {\:xhtml{\IgnorePar\EndP}\HCode{<figure class="float"\Hnewline>}}
+   {\ifvmode \IgnorePar \fi\EndP
+     \HCode{</figure>}\csname par\endcsname\ShowPar}
+
+\ConfigureEnv{figure}
+{\:xhtml{\IgnorePar\EndP}\HCode{<figure class="figure">\Hnewline}%
+    \bgroup \Configure{float}{\ShowPar}{}{}%
+   }
+   {\egroup
+   \:xhtml{\IgnorePar\EndP}\HCode{</figure>}\ShowPar
+\par}
+   {}{}
+
+\Css{figure.float, div.figure {margin-left: auto; margin-right: auto;}}
+\Css{figure.float img, figure.figure img {display: block; margin-left: auto; margin-right: auto;}}
+\Css{figure.figure {text-align:center;}}
+
+\Configure{caption}{\:xhtml{\IgnorePar\EndP}\HCode{<figcaption class="caption" ><span class="id">}}
+   {:} {\HCode{</span><span \Hnewline class="content">}}
+   {\HCode{</span></figcaption>}\HCode{<!--tex4ht:label?:
+   \cur:th\:currentlabel\space-->}%
+}
+\Css{figcaption.caption {text-indent:-2em; margin-left:3em; margin-right:1em;
+                  text-align:center;}}
+\Css{figcaption.caption span.id{font-weight: bold; white-space: nowrap; }}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

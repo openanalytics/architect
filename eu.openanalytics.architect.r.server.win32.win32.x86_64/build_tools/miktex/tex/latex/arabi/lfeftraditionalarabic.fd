@@ -1,0 +1,26 @@
+%%
+%% This is file `lfefTraditionalArabic.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{lfefTraditionalArabic.fd}
+         [2006/01/01 v0.1 LaTeX Farsi font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LFE}{ftraditionalarabic}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LFE}{ftraditionalarabic}{m}{n}{%
+   <->  s*[1.25] ftraditionalarabic }{}
+\DeclareFontShape{LFE}{ftraditionalarabic}{bx}{n}{%
+   <->  s*[1.25]  ftraditionalarabicbold }{}
+\DeclareFontShape{LFE}{ftraditionalarabic}{b}{n}{%
+   <->  ssub * ftraditionalarabic/bx/n }{}
+
+\endinput

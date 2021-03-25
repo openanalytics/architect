@@ -1,0 +1,15 @@
+.t5-iwona
+htfcss: t5-anttb  font-weight: bold;
+htfcss: t5-anttbi  font-style:italic; font-weight: bold;
+htfcss: t5-anttcb  font-weight: bold;
+htfcss: t5-anttcbi  font-style:italic; font-weight: bold;
+htfcss: t5-anttcl  font-weight: light;
+htfcss: t5-anttcli  font-weight: light; font-style:italic;
+htfcss: t5-anttcmi  font-style:italic;
+htfcss: t5-anttcri  font-style:italic;
+htfcss: t5-anttl  font-weight: light;
+htfcss: t5-anttli  font-weight: light; font-style:italic;
+htfcss: t5-anttmi  font-style:italic;
+htfcss: t5-anttri  font-style:italic;
+
+

@@ -1,0 +1,27 @@
+%  The size of A4 paper is 210mm x 297mm.
+%  The following setting lets exactly 1in empty from each side of paper
+%  (only the bottom margin with pagination is 1in+7mm) 
+%  and these dimensions are taken into account also when
+%  \magnification is used.
+
+\immediate\message{\string\hsize=159.2 mm \string\vsize=239.2 mm}
+
+\hsize= 159.2 mm
+\vsize= 239.2 mm
+
+{\catcode64=11                          % \catcode`\@=11
+
+\gdef\m@g{\mag\count@
+  \hsize=159.2truemm \vsize=239.2truemm \dimen\footins8truein
+  \ifx\pdfpagewidth\undefined\else     % added by P. O. Nov 2012
+     \recount@true\pdfpagewidth     % \recont@true added by P. O. Apr. 2016
+     \recount@true\pdfpageheight    % because media size is distribution-dependent
+     \ifx\pdfhorigin\undefined\else % corrected by P. O. Jun. 2016
+        \recount@true\pdfhorigin
+        \recount@true\pdfvorigin
+  \fi\fi
+}
+\gdef\recount@true#1{#1=\expandafter\recount@trueA\the#1truept\relax}
+{\catcode`p=12 \gdef\recount@trueA#1p#2{#1}}
+
+}

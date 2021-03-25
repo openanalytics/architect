@@ -1,0 +1,1270 @@
+% html-mml.4ht (2021-02-06-14:21), generated from tex4ht-mathml.tex
+% Copyright 2009-2018 TeX Users Group
+% Copyright 1999-2009 Eitan M. Gurari
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any
+% later version. The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3c or later is part of all distributions
+% of LaTeX version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% The Current Maintainer of this work
+% is the TeX4ht Project <http://tug.org/tex4ht>.
+%
+% If you modify this program, changing the
+% version identification would be appreciated.
+\immediate\write-1{version 2021-02-06-14:21}
+
+\exit:ifnot{amsmath,% 
+array,% 
+color,% 
+frenchb,% 
+latex,% 
+plain,% 
+rlbabel,% 
+tex4ht}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{frames}  \if:Option
+      \Configure{frames-altDOCTYPE}{\Configure{DOCTYPE}{\HCode
+  {<!DOCTYPE html PUBLIC
+     "-//W3C//DTD XHTML 1.1 plus MathML 2.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+     "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd"
+%
+   >\Hnewline
+}}
+}
+   \else
+      \def\:temp{xhtml}
+\ifx \:DTD\:temp
+   \Configure{DOCTYPE}{\HCode
+  {<!DOCTYPE html PUBLIC
+     "-//W3C//DTD XHTML 1.1 plus MathML 2.0//\expandafter
+\ifx \csname a:dtd-lang\endcsname\relax EN\else
+  \csname a:dtd-lang\endcsname
+\fi
+"\Hnewline
+     "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd"
+%
+   >\Hnewline
+}}
+
+\fi
+
+\fi
+\Configure{DviMath}
+    {\a:DviMathML \mathmltrue
+       \ifOption{mml-fonts}{\Configure{htf}{0}{+}{<mstyle\Hnewline
+   class="}{\%s}{-\%s}{x-x-\%d}{}{">}{</mstyle>}%
+}{\NoFonts}%
+       \IgnoreRule \HCode{<!--l.
+       \the\inputlineno-->}\Tg<\a:mathml math\Hnewline
+           \csname a:math-xmlns\endcsname \Hnewline \a:@math>\a:math
+       \edef\sv:ignore{\if:nopar
+    \noexpand\IgnorePar\else \noexpand\ShowPar\fi}%
+\IgnorePar}
+    {\Tg</\a:mathml math>\EndIgnoreRule
+     \ifOption{mml-fonts}{\Configure{htf}{0}{+}{<span\Hnewline
+   class="}{\%s}{-\%s}{x-x-\%d}{}{">}{</span>}%
+}{\EndNoFonts}%
+     \mathmlfalse \b:DviMathML \sv:ignore
+}
+\Css{\a:mathml math { text-indent: 0em; }}
+\Configure{halignTBL}
+   {t}{\ifmathml \HCode{ align="baseline 1" style="\border:lines
+" }\fi}
+   {b}{\ifmathml \HCode{ align="baseline -1" style="\border:lines
+" }\fi}
+   {c}{\ifmathml \HCode{ align="axis" style="\border:lines
+" }\fi}
+   {}
+\Configure{halignTD} {}{}
+   {<}{\ifmathml \HCode{ \a:mathml columnalign="left"}\else
+        \HCode{ style="text-align:left; white-space:nowrap;"}\fi}
+   {-}{\ifmathml \HCode{ \a:mathml columnalign="center"}\else
+        \HCode{ style="text-align:center; white-space:nowrap;"}\fi}
+   {>}{\ifmathml \HCode{ \a:mathml columnalign="right"}\else
+        \HCode{ style="text-align:right; white-space:nowrap;"}\fi}
+   {^}{\ifmathml \HCode{ \a:mathml rowalign="top"}\else
+        \HCode{ style="vertical-align:top; white-space:nowrap;"}\fi}
+   {=}{\ifmathml \HCode{ \a:mathml rowalign="baseline"}\else
+        \HCode{ style="vertical-align:baseline; white-space:nowrap;"}\fi}
+   {|}{\ifmathml \HCode{ \a:mathml rowalign="center"}\else
+        \HCode{ style="vertical-align:middle; white-space:nowrap;"}\fi}
+   {_}{\ifmathml \HCode{ \a:mathml rowalign="bottom"}\else
+        \HCode{ style="vertical-align:bottom; white-space:nowrap;"}\fi}
+   {p}{\ifmathml \HCode{ \a:mathml columnalign="left"}\else
+        \HCode{ style="text-align:left;"}\fi}
+   {}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{latex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{equation}
+  {\IgnorePar\ifvmode\else \HCode{<!--tex4ht:inline-->}\fi
+\EndP
+   \HCode{<table class="equation"><tr><td>}\IgnorePar
+     \Configure{$$}
+   {\Configure{@math}{%\a:mathml
+ display="block"
+%
+                       \mml:class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+  {\ifvmode \IgnorePar\fi\EndP\HCode{</td><td class="eq-no">}}
+  {\HCode{</td></tr></table>}\ShowPar\par{\HCondtrue\noindent}%
+}
+\Css{.equation td{text-align:center; vertical-align:middle; }}
+\Css{td.eq-no{ width:5\%; }}
+\Css{table.equation { width:100\%; }   }
+\Configure{romannumeral}
+   {\ifmtext\else
+      \HCode{<\ifmathml \a:mathml mrow \else span \fi \mml:class="romannumeral">}\fi
+   }
+   {\ifmtext\else \HCode{</\ifmathml \a:mathml mrow\else span\fi>}\fi }
+\Configure{hspace}
+  {\ifmathml \ifmtext \else \Tg<\a:mathml mspace width="\the\tmp:dim"/>\fi\fi}
+  {}{\ifmathml  \else \:nbsp\fi}
+\:CheckOption{new-accents}     \if:Option \else
+   \ifx \mathml:on\:UnDef
+      \Configure{accents}
+        {\ifmmode \expandafter\mathord\fi
+         {\leavevmode
+\if !#1!\ht:special{t4ht@+\string&{35}x#2;}%
+\else \expandafter \ifx\csname U#2#1\endcsname\relax
+    \ht:special{t4ht@+\string&{35}x#2;}%
+\else
+    \ht:special{t4ht@+\string&{35}x\csname U#2#1\endcsname;}%
+\fi \fi x%
+%
+         \ht:special{t4ht@[}\if!#1!x\else#2\fi\ht:special{t4ht@]}}}
+        {\ifmmode
+             \Tg<\a:mathml mrow
+                \mml:class="accent#1">\mathord{#3}\Tg</\a:mathml mrow>%
+          \else \HCode{<span class="accent#1">}#3\HCode{</span>}%
+          \fi
+        }%
+   \fi
+\fi
+
+\Configure{newline}
+  {\ifmtext \ht:special{t4ht@,}%
+\HCode{</\a:mathml mtext><\a:mathml
+                                        mtext \mml:class="newline">}%
+            \ht:special{t4ht@,&\#x00A0;}%
+%
+   \else \Tg<br\Hnewline class="newline" />\fi}
+\Configure{mathml[]}
+  {\edef\MathPar{\ifvmode par-\fi}\IgnorePar\endgraf\EndP
+    \HCode{<div class="\MathPar math-display">}}
+  {\HCode{</div>}\ShowPar\par{\HCondtrue\noindent}%
+}
+\Css{div.math-display, div.par-math-display{text-align:center;}}
+\ConfigureEnv{array}
+   {\PushStack\Col:Marg\AllColMargins
+    \bgroup\Configure{$}{}{}{}}
+   {\egroup \PopStack\Col:Marg\AllColMargins}
+   {}{}
+\def\:MM{\ifmathml \a:mathml m\fi}
+\Configure{HBorder}
+   {<\:MM tr\Hnewline
+       \ifmathml \expandafter\mml:class\else class\fi="hline">}
+   {\ifmathml<\a:mathml mtd><mo> \string&\#x0332; </mo></\a:mathml mtd>
+\else
+            <td><hr\xml:empty></td>\fi}
+   {</\:MM tr>}
+   {<\:MM tr\Hnewline
+       \ifmathml \expandafter\mml:class\else class\fi ="cline">}
+   {<\:MM td></\:MM td>}
+   {\ifmathml<\a:mathml mtd><mo> \string&\#x0332; </mo></\a:mathml mtd>
+\else
+            <td><hr\xml:empty></td>\fi}
+   {</\:MM tr>}
+   {<\:MM tr\Hnewline
+         \ifmathml \expandafter\mml:class\else  class\fi="vspace"
+         style="font-size:\HBorderspace">}
+   {<\:MM td\Hnewline>\ifmathml\else\string&\#x00A0;\fi
+      </\:MM td>}
+   {</\:MM tr>}
+\Configure{halign}
+   {\EndP
+    \PushStack\Table:Stck\TableNo
+    \gHAdvance\Next:TableNo by 1
+    \global\let\TableNo=\Next:TableNo
+    \halignTB{halign}}
+   {\HCode{</\:MT table>}\PopStack\Table:Stck\TableNo}
+   {\HCode{<\:MT tr \Hnewline}\halignTR
+               \HCode{ id="TBL-\TableNo-\HRow-">}}
+   {\HCode{</\:MT tr>}}
+   {\SaveEndP
+ \HCode{<td
+               \ifnum \HMultispan>1 colspan="\HMultispan"\fi}%
+   \halignTD \HCode{\Hnewline
+               id="TBL-\TableNo-\HRow-\HCol">}\ShowPar\par}
+   {\ifvmode \IgnorePar \fi \EndP
+               \HCode{</\:MT td>}\RecallEndP
+}
+\Css{mtr.hline mtd{
+  border-bottom:black solid 1px;
+  padding-top:2px;
+  padding-bottom:0em;
+}}
+\Css{mtr.hline mtd mo{
+  display:none
+}}
+\:CheckOption{fonts} \if:Option
+\Configure{texttt}
+     {\ifmathml \providemtextclass{\mml:class="texttt"
+             mathvariant="monospace" }%
+      \else     \HCode{<span class="texttt">}\NoFonts\fi}
+     {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
+  \Configure{textit}
+     {\ifmathml \providemtextclass{\mml:class="textit"
+             mathvariant="italic" }%
+      \else     \HCode{<span class="textit">}\NoFonts\fi}
+     {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
+  \Configure{textrm}
+     {\ifmathml \providemtextclass{ \mml:class="textrm"
+             mathvariant="normal" }%
+      \else     \HCode{<span class="textrm">}\NoFonts\fi}
+     {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
+  \Configure{textup}
+     {\ifmathml \providemtextclass{ \mml:class="textup"
+             mathvariant="normal" }%
+      \else     \HCode{<span class="textup">}\NoFonts\fi}
+     {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
+  \Configure{textsl}
+     {\ifmathml \providemtextclass{ \mml:class="textst"
+             mathvariant="italic" }%
+      \else     \HCode{<span class="textsl">}\NoFonts\fi}
+     {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
+  \Configure{textsf}
+     {\ifmathml \providemtextclass{ \mml:class="textsf"
+             mathvariant="sans-serif" }%
+      \else     \HCode{<span class="textsf">}\NoFonts\fi}
+     {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
+  \Configure{textbf}
+     {\ifmathml \providemtextclass{ \mml:class="textbf"
+             mathvariant="bold" }%
+      \else     \HCode{<span class="textbf">}\NoFonts\fi}
+     {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
+  \Configure{textsc}
+     {\ifmathml \providemtextclass{ \mml:class="textsc"
+             mathvariant="normal" }%
+      \else     \HCode{<span class="textsc">}\NoFonts\fi}
+     {\ifmathml\else \EndNoFonts\HCode{</span>}\fi}
+  \Configure{emph}
+     {\ifmathml \providemtextclass{ \mml:class="emph"
+             mathvariant="italic" }%
+      \else     \HCode{<span class="emph">}\NoFonts\fi}
+     {\ifmathml\else\EndNoFonts \HCode{</span>}\fi}
+\fi
+\Css{math .texttt { font-family: monospace; }}
+\Css{math .textit { font-style: italic; }}
+\Css{math .textsl { font-style: oblique; }}
+\Css{math .textsf { font-family: sans-serif; }}
+\Css{math .textbf { font-weight: bold; }}
+\:CheckOption{mathjax}\if:Option
+\Configure{MathjaxSource}{https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js}
+\Configure{@HEAD}{\HCode{ <script type="text/javascript" id="MathJax-script" async="async" src="\a:MathjaxSource"></script> \Hnewline}}
+\fi
+\Configure{multicolumn}
+   {\let\sv:VBorder\VBorder
+    \let\VBorder\empty
+    \Configure{VBorder}{}{}{}{}%
+   }
+   {\let\VBorder\sv:VBorder}
+   {\ifmmode \HCode{<\a:mathml mrow\Hnewline \mml:class="multicolumn}%
+       {\Configure{halignTD} {}{}
+   {<}{\HCode{-left}}
+   {-}{\HCode{-center}}
+   {>}{\HCode{-right}}
+   {p}{\HCode{-left}}
+   {}%
+\HColAlign}\HCode{">}\else
+       \ifvmode\IgnorePar\fi
+       \HCode{<div class="multicolumn" }\HColAlign\HCode{>}\fi }
+   {\ifmmode  \HCode{</\a:mathml mrow>}\else
+    \ifvmode\IgnorePar\fi \EndP\HCode{</div>}\fi }
+\def\gob:sp#1{#1}
+
+\Configure{overline}
+   {\bgroup\ifmathml \HCode{<\a:mathml mover  accent="false"\Hnewline
+\mml:class="mml-overline"><\a:mathml mrow>}%
+\else
+         \HCode{<span class="overline">}\fi}
+   {\ifmathml \HCode{</\a:mathml mrow><\a:mathml mo\Hnewline
+ accent="true">&\#x00AF;</\a:mathml mo>%
+</\a:mathml mover>}%
+\else \HCode{</span>}\fi\egroup}
+\Configure{underline}
+   {\bgroup
+    \ifmathml \HCode{<\a:mathml munder \a:mathml accentunder="false"\Hnewline
+\mml:class="mml-underline"><\a:mathml mrow>}%
+%
+    \else \expandafter\everymath
+\expandafter{\expandafter\everymath
+             \expandafter{\the\everymath}}%
+\let\o::@underline:\o:@@underline:
+\def\o:@@underline:{\let\o:@@underline:\o::@underline:}%
+\HCode{<span class="underline">}\fi}
+   {\ifmathml \HCode{</\a:mathml mrow><\a:mathml mo\Hnewline
+accent="true">&\#x0332;</\a:mathml mo></\a:mathml munder>}%
+\else \HCode{</span>}\fi \egroup}
+\Configure{footnote-mark}
+   {\ifmathml \ifmtext \else
+        \HCode{<\a:mathml mrow \mml:class="footnote-mark">}\fi
+    \else \HCode{<span class="footnote-mark">}\fi }
+   {\ifmathml \ifmtext \else \HCode{</\a:mathml mrow>}\fi
+    \else \HCode{</span>}\fi }
+\Configure{thank-mark}
+   {\HCode{<\ifmathml \a:mathml mrow  \expandafter\mml:class\else span class\fi
+                                   ="thank-mark">}}
+   {\HCode{</\ifmathml \a:mathml mrow\else span\fi>}}
+\:CheckOption{fn-in}\if:Option  \else
+   \expandafter\let\csname A:footnote-text\expandafter\endcsname
+                     \csname a:footnote-text\endcsname
+   \expandafter\let\csname B:footnote-text\expandafter\endcsname
+                     \csname b:footnote-text\endcsname
+   \NewConfigure{footnote-text}[2]{%
+      \expandafter\def\csname a:footnote-text\endcsname{%
+         #1%
+         \ifmathml
+             \HCode{<\a:mathml math\Hnewline
+                \csname a:math-xmlns\endcsname \Hnewline \a:@math>%
+                \ifmtext <\a:mathml mtext>\fi}
+         \fi
+         \ifmathml  \fi
+      }%
+      \expandafter\def\csname b:footnote-text\endcsname{%
+         \ifmathml
+            \HCode{\ifmtext</\a:mathml mtext>\fi </\a:mathml math>}%
+         \fi
+         #2%
+      }%
+   }
+   \Configure{footnote-text}
+      {\csname A:footnote-text\endcsname}
+      {\csname B:footnote-text\endcsname}
+\fi
+\let\A:footnotetext=\a:footnotetext
+\let\B:footnotetext=\b:footnotetext
+\let\C:footnotetext=\c:footnotetext
+\NewConfigure{footnotetext}[3]{%
+   \def\a:footnotetext{%
+      \ifmathml \ifmtext  \ht:special{t4ht@,}%
+\fi\fi
+      #1%
+      \ifmathml \ifmtext  \ht:special{t4ht@,}%
+\fi\fi
+   }%
+   \def\b:footnotetext{%
+      \ifmathml \ifmtext  \ht:special{t4ht@,}%
+\fi\fi
+      #2%
+      \ifmathml \ifmtext  \ht:special{t4ht@,}%
+\fi\fi
+   }%
+   \def\c:footnotetext{%
+      \ifmathml \ifmtext  \ht:special{t4ht@,}%
+\fi\fi
+      #3%
+      \ifmathml \ifmtext  \ht:special{t4ht@,&\#x00A0;}%
+\fi\fi
+   }%
+}
+\Configure{footnotetext}
+   {\A:footnotetext}
+   {\B:footnotetext}
+   {\C:footnotetext}
+\Configure{footnotebody}
+   {\tmp:toks=}
+   {\ifmathml \ifmmode $\mbox{$\the\tmp:toks$}$
+              \else $\mbox{\the\tmp:toks}$\fi
+    \else \the\tmp:toks\fi}
+\:CheckOption{mouseover} \if:Option
+   \pend:def\js:on{\ifmathml \ifmtext  \ht:special{t4ht@,}%
+\fi\fi}
+   \append:def\js:on{\ifmathml \ifmtext  \ht:special{t4ht@,&\#x00A0;}%
+\fi\fi}
+\fi
+\def\border:lines{%
+  \ifnum \borderlines>0
+     \ifnum \borderlines>1 border-right:solid 1px black;\fi
+     \ifodd \borderlines border-left:solid 1px black;\fi
+  \fi
+}
+\Configure{VBorder}
+   {\let\VBorder=\empty \let\AllColMargins=\empty
+    \global\let\GROUPS=\empty \HAssign\NewGroup = 0
+    \gHAdvance\Next:TableNo by 1 \global\let\TableNo=\Next:TableNo
+    \HAssign\borderlines = 0
+\global\let\columnlines=\relax
+%
+   }
+   {\ifx \columnlines\relax \gHAssign\borderlines = 1
+                      \else \gHAdvance\borderlines by 2 \fi
+%
+    \xdef\VBorder{\VBorder\ifnum \NewGroup> 0 </colgroup>\fi}
+    \HAssign\NewGroup = 0  \gdef\GROUPS{rules="groups"}}
+   {\Advance:\NewGroup by 1
+    \ifnum \borderlines>1 \gHAdvance\borderlines by -2 \fi
+\ifx \columnlines\relax
+    \global\let\columnlines\empty
+\else
+    \ifnum \NewGroup=1
+       \xdef\columnlines{\columnlines\ifx\columnlines\empty
+                                     \else \space\fi solid}%
+    \else
+       \xdef\columnlines{\columnlines\ifx\columnlines\empty
+                                     \else \space\fi none}%
+    \fi
+\fi
+%
+    \ifnum \NewGroup=1 \xdef\VBorder{\VBorder<colgroup
+        id="TBL-\TableNo-\ar:cnt g">}\fi
+    \xdef\VBorder{\VBorder<col\Hnewline id="TBL-\TableNo
+       -\ar:cnt"\xml:empty>}\xdef\AllColMargins{\AllColMargins1}}
+   {\xdef\AllColMargins{\AllColMargins 0}}
+   \Configure{putHBorder}{\bgroup\ifmathml\mathml:hborder\fi\HCode{\HBorder}\egroup}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ifx \mathdisplay@@pop\:UnDef
+   \ifx \emdf@La\:UnDef
+      \Configure{equation}
+  {\ifvmode \IgnorePar\fi \EndP
+   \HCode{<table class="equation"><tr><td>}%
+   \Configure{$$}{}{}{}%
+\Configure{gather}
+  {\Configure{$$}
+    {\Configure{@math}{\mml:class="equation"}\IgnorePar\EndP\DviMath}
+    {\EndDviMath\EndP}%
+    {}%
+   \IgnorePar
+  }{}{}{}{}{}
+%
+   \IgnorePar
+  }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</td><td class="eq-no">}}
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</td></tr></table>}%
+   \IgnoreIndent\par}
+\Configure{equation*}
+  {\ifvmode \IgnorePar\fi \EndP
+   \HCode{<table class="equation-star"><tr><td>}%
+   \Configure{$$}{}{}{}%
+\Configure{gather}
+  {\Configure{$$}
+    {\Configure{@math}{\mml:class="equation"}\IgnorePar\EndP\DviMath}
+    {\EndDviMath\EndP}%
+    {}%
+   \IgnorePar
+  }{}{}{}{}{}
+%
+   \IgnorePar
+  }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</td></tr></table>}%
+   \IgnoreIndent\par}
+
+   \else
+      \Configure{equation}
+  {\ifvmode \IgnorePar\fi \EndP
+   \HCode{<table class="equation"><tr><td>}%
+   \Configure{gather}
+     {\HCode{<\a:mathml mtable\Hnewline
+        \mml:class="equation"><\a:mathml mtr><\a:mathml mtd>}\IgnorePar
+         \Configure{$$}
+   {\Configure{@math}{%\a:mathml
+ display="block"
+%
+                       \mml:class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+     {\HCode{</\a:mathml mtd></\a:mathml mtr></\a:mathml mtable>}}
+     {}
+     {}
+     {\ifnum\HCol=2 \IgnorePar
+         \HCode{</\a:mathml mtd><\a:mathml mtd>}\fi }
+     {}
+%
+%
+   \IgnorePar
+  }
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{</td><td class="eq-no">}%
+  }
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{</td></tr></table>}%
+   \IgnoreIndent\par}
+\Configure{equation*}
+  {\ifvmode \IgnorePar\fi \EndP
+   \HCode{<table class="equation-star"><tr><td>}%
+   \Configure{gather}
+     {\HCode{<\a:mathml mtable\Hnewline
+        \mml:class="equation"><\a:mathml mtr><\a:mathml mtd>}\IgnorePar
+         \Configure{$$}
+   {\Configure{@math}{%\a:mathml
+ display="block"
+%
+                       \mml:class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+     {\HCode{</\a:mathml mtd></\a:mathml mtr></\a:mathml mtable>}}
+     {}
+     {}
+     {\ifnum\HCol=2 \IgnorePar
+         \HCode{</\a:mathml mtd><\a:mathml mtd>}\fi }
+     {}
+%
+%
+   \IgnorePar
+  }
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{</td></tr></table>}%
+   \IgnoreIndent\par}
+
+   \fi
+\else
+   \Configure{equation}
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{<table class="equation"><tr><td>}%
+   \Configure{gather}
+     {\HCode{<\a:mathml mtable\Hnewline
+        \mml:class="equation"><\a:mathml mtr><\a:mathml mtd>}\IgnorePar
+         \Configure{$$}
+   {\Configure{@math}{%\a:mathml
+ display="block"
+%
+                       \mml:class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+     {\HCode{</\a:mathml mtd></\a:mathml mtr></\a:mathml mtable>}}
+     {}
+     {}
+     {\ifnum\HCol=2 \IgnorePar
+         \HCode{</\a:mathml mtd><\a:mathml mtd>}\fi }
+     {}
+%
+   \Configure{$$}
+   {\Configure{@math}{%\a:mathml
+ display="block"
+%
+                       \mml:class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+%
+  }
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{</td><td class="eq-no">}%
+   }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</td></tr></table>}%
+   \ShowPar\IgnoreIndent\par}
+\Configure{equation*}
+  {\ifvmode \IgnorePar\fi\EndP
+   \HCode{<table class="equation-star"><tr><td>}%
+   \Configure{gather}
+     {\HCode{<\a:mathml mtable\Hnewline
+        \mml:class="equation"><\a:mathml mtr><\a:mathml mtd>}\IgnorePar
+         \Configure{$$}
+   {\Configure{@math}{%\a:mathml
+ display="block"
+%
+                       \mml:class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+}
+     {\HCode{</\a:mathml mtd></\a:mathml mtr></\a:mathml mtable>}}
+     {}
+     {}
+     {\ifnum\HCol=2 \IgnorePar
+         \HCode{</\a:mathml mtd><\a:mathml mtd>}\fi }
+     {}
+%
+   \Configure{$$}
+   {\Configure{@math}{%\a:mathml
+ display="block"
+%
+                       \mml:class="equation"}\IgnorePar\EndP\DviMath}
+   {\EndDviMath\EndP}
+   {\DisplayMathtrue}%
+%
+  }
+  {\ifvmode \IgnorePar\fi\EndP \HCode{</td></tr></table>}%
+   \ShowPar\IgnoreIndent\par}
+
+\fi
+\Configure{@begin}
+  {split}
+  {\let\tagform@=\:gobble }
+\Css{mtd.align-odd{margin-left:2em;   text-align:right;}}
+\Css{mtd.align-even{margin-right:2em; text-align:left;}}
+\Configure{boxed}
+   {\ifmathml \Tg<\a:mathml mrow \mml:class="boxed">%
+    \else     \HCode{<span class="boxed">}\IgnorePar\fi}
+   {\ifmathml \Tg</\a:mathml mrow>%
+    \else \HCode{</span>}\fi}
+\Css{.boxed{border: 1px solid black; padding-left:2px;
+                                     padding-right:2px;}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \:CheckOption{new-accents}     \if:Option \else
+   \ifx \mathml:on\:UnDef
+      \Configure{accents}
+        {\ifmmode \expandafter\mathord\fi
+         {\leavevmode
+\if !#1!\ht:special{t4ht@+\string&{35}x#2;}%
+\else \expandafter \ifx\csname U#2#1\endcsname\relax
+    \ht:special{t4ht@+\string&{35}x#2;}%
+\else
+    \ht:special{t4ht@+\string&{35}x\csname U#2#1\endcsname;}%
+\fi \fi x%
+%
+         \ht:special{t4ht@[}\if!#1!x\else#2\fi\ht:special{t4ht@]}}}
+        {\ifmmode
+             \Tg<\a:mathml mrow
+                \mml:class="accent#1">\mathord{#3}\Tg</\a:mathml mrow>%
+          \else \HCode{<span class="accent#1">}#3\HCode{</span>}%
+          \fi
+        }%
+   \fi
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{array}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \ConfigureEnv{array}
+   {\PushStack\Col:Marg\AllColMargins
+    \bgroup\Configure{$}{}{}{}}
+   {\egroup \PopStack\Col:Marg\AllColMargins}
+   {}{}
+\Configure{multicolumn}
+   {\let\sv:VBorder\VBorder
+    \let\VBorder\empty
+    \Configure{VBorder}{}{}{}{}%
+   }
+   {\let\VBorder\sv:VBorder}
+   {\ifmmode \HCode{<\a:mathml mrow\Hnewline \mml:class="multicolumn}%
+       {\Configure{halignTD} {}{}
+   {<}{\HCode{-left}}
+   {-}{\HCode{-center}}
+   {>}{\HCode{-right}}
+   {p}{\HCode{-left}}
+   {}%
+\HColAlign}\HCode{">}\else
+       \ifvmode\IgnorePar\fi
+       \HCode{<div class="multicolumn" }\HColAlign\HCode{>}\fi }
+   {\ifmmode  \HCode{</\a:mathml mrow>}\else
+    \ifvmode\IgnorePar\fi \EndP\HCode{</div>}\fi }
+\def\gob:sp#1{#1}
+
+\Configure{VBorder}
+   {\let\VBorder=\empty \let\AllColMargins=\empty
+    \global\let\GROUPS=\empty \HAssign\NewGroup = 0
+    \gHAdvance\Next:TableNo by 1 \global\let\TableNo=\Next:TableNo
+    \HAssign\borderlines = 0
+\global\let\columnlines=\relax
+%
+   }
+   {\ifx \columnlines\relax \gHAssign\borderlines = 1
+                      \else \gHAdvance\borderlines by 2 \fi
+%
+    \xdef\VBorder{\VBorder\ifnum \NewGroup> 0 </colgroup>\fi}
+    \HAssign\NewGroup = 0  \gdef\GROUPS{rules="groups"}}
+   {\Advance:\NewGroup by 1
+    \ifnum \borderlines>1 \gHAdvance\borderlines by -2 \fi
+\ifx \columnlines\relax
+    \global\let\columnlines\empty
+\else
+    \ifnum \NewGroup=1
+       \xdef\columnlines{\columnlines\ifx\columnlines\empty
+                                     \else \space\fi solid}%
+    \else
+       \xdef\columnlines{\columnlines\ifx\columnlines\empty
+                                     \else \space\fi none}%
+    \fi
+\fi
+%
+    \ifnum \NewGroup=1 \xdef\VBorder{\VBorder<colgroup
+        id="TBL-\TableNo-\ar:cnt g">}\fi
+    \xdef\VBorder{\VBorder<col\Hnewline id="TBL-\TableNo
+       -\ar:cnt"\xml:empty>}\xdef\AllColMargins{\AllColMargins1}}
+   {\xdef\AllColMargins{\AllColMargins 0}}
+   \Configure{putHBorder}{\bgroup\ifmathml\mathml:hborder\fi\HCode{\HBorder}\egroup}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{color}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{textcolor}
+   {\gHAdvance\textcolorN by 1
+    \Configure{color}%
+      {\Configure{SetHColor}
+           {\Css{.textcolor\textcolorN{color:\HColor}}}}%
+    \HCode{<\ifmathml mstyle\else span\fi
+           \space id="textcolor\textcolorN">}}%
+   {\HCode{</\ifmathml mstyle\else span\fi>}}
+\Configure{textcolor}
+   {\ifmathml
+       \Configure{color}%
+         {\Configure{SetHColor}
+              {\HCode{<mstyle mathcolor="\HColor">}}}%
+    \else
+       \gHAdvance\textcolorN by 1
+       \Configure{color}%
+         {\Configure{SetHColor}
+              {\Css{\#textcolor\textcolorN{color:\HColor}}}}%
+       \HCode{<span id="textcolor\textcolorN">}%
+    \fi
+   }%
+   {\HCode{</\ifmathml mstyle\else span\fi>}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{rlbabel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{moreL}
+  {\ifmathml \ifmtext
+    \leavevmode\special{t4ht@+</\a:mathml mtext><\a:mathml mtext{32}\mml:class="ltr">}x%
+    \def\end:moreRL{\HCode{</\a:mathml mtext><\a:mathml mtext>}}%
+\else
+   \let\end:moreRL=\empty
+\fi
+%
+   \else
+      \ifvmode \let\end:moreRL=\empty
+      \else\HCode{<span dir="ltr" >}%
+        \def\end:moreRL{\HCode{</span>}}%
+      \fi
+   \fi
+  }
+  {\end:moreRL}
+\Configure{moreR}
+  {\ifmathml \ifmtext
+    \leavevmode\special{t4ht@+</\a:mathml mtext><\a:mathml mtext{32}\mml:class="rtl">}x%
+    \def\end:moreRL{\HCode{</\a:mathml mtext><\a:mathml mtext>}}%
+\else
+    \let\end:moreRL=\empty
+\fi
+%
+   \else
+      \ifvmode \let\end:moreRL=\empty
+      \else\HCode{<span dir="rtl" >}\def\end:moreRL{\HCode{</span>}}\fi
+   \fi
+  }
+  {\end:moreRL}
+\Css{.rtl {direction: rtl}
+     .ltr {direction: ltr} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                \ConfigureHinput{frenchb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \Configure{frenchb-nbsp}
+   {\ifmtext \:unicodespace%
+\else\ifmathml
+       \Tg<\a:mathml mspace class="frenchb-nbsp" />%
+    \else
+      \ht:special{t4ht@?unhskip}\HCode{<span class="frenchb-thinspace">}%
+      \:unicodespace%
+\HCode{</span>}%
+    \fi\fi
+    \setbox\tmp:bx=\hbox\bgroup}
+   {\egroup}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  
+\endinput\empty\empty\empty\empty\empty\empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\endinput
+

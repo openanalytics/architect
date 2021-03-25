@@ -1,0 +1,16 @@
+.qx-iwona
+htfcss: qx-anttb  font-weight: bold;
+htfcss: qx-anttbi  font-style:italic; font-weight: bold;
+htfcss: qx-anttcb  font-weight: bold;
+htfcss: qx-anttcbi  font-style:italic; font-weight: bold;
+htfcss: qx-anttcl  font-weight: light;
+htfcss: qx-anttcli  font-weight: light; font-style:italic;
+htfcss: qx-anttcmi  font-style:italic;
+htfcss: qx-anttcri  font-style:italic;
+htfcss: qx-anttl  font-weight: light;
+htfcss: qx-anttli  font-weight: light; font-style:italic;
+htfcss: qx-anttmi  font-style:italic;
+htfcss: qx-anttri  font-style:italic;
+
+
+

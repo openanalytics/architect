@@ -1,0 +1,145 @@
+%
+% Encoding file for some PostScript Arabic fonts to use with the 
+% Arabi package to write Arabic texts with LaTeX
+% 
+%   author = "Y. Jabri",
+%   email = "yjabri@ensa.univ-oujda.ac.ma",
+%   version = "0.1",
+%   date = "January 2006",
+%
+%
+%
+/SimplifiedArabicEncoding [          % now 256 chars follow
+% 0          
+  /alefisolated /alefwithhamzaaboveisolated /alefwithhamzaabovefinal /alefwithhamzabelowisolated
+% 4 
+  /alefwithhamzabelowfinal /alefwithmaddaaboveisolated /alefwithmaddaabovefinal /behmedial
+% 8 
+  /.notdef /behisolated /behisolated /tehmedial
+% 12
+  /.notdef /tehisolated /tehisolated /thehmedial
+% 16 
+ /thehmedial /thehisolated /thehisolated /jeemmedial 
+% 20
+ /jeemmedial /jeemfinal /jeemisolated /hahmedial
+% 24
+ /hahmedial /hahfinal /hahisolated /khahmedial 
+% 28
+ /khahmedial /khahfinal /khahisolated /.notdef
+% 32 
+ /dalisolated /exclam /sukun /numbersign              %OK    
+% 36
+ /dollar /arabicpercentsign /ampersand /quotesingle  %ok
+% 40
+ /parenright /parenleft /asterisk /quotedbl % parentheses were refelcted 
+% 44
+  /arabiccomma /endash /period /slash   %  we should get the "arabicslash" in 4th position 
+% 48
+ /arabicindicdigitzero /arabicindicdigitone /arabicindicdigittwo /arabicindicdigitthree 
+% 52
+ /arabicindicdigitfour /arabicindicdigitfive /arabicindicdigitsix /arabicindicdigitseven
+% 56
+ /arabicindicdigiteight /arabicindicdigitnine /colon /arabicsemicolon %colon ok ?? 
+% 60 
+ /guillemotright /.notdef /guillemotleft /arabicquestionmark
+% 64
+ /thalisolated /aleffinal /.notdef /reh 
+% 68
+ /.nodef /zainisolated /seenmedial /.notdef 
+% 72
+ /seenisolated /yehmedial  /sheenmedial /sheenmedial 
+% 76
+ /sheenisolated /sheenisolated /.notdef /sadmedial 
+% 80
+ /sadisolated /sadisolated /dadmedial /dadmedial 
+% 84 
+ /tehmarbutafinal /wawisolated /tahisolated /tahisolated 
+% 88
+ /tahisolated /alefmaksurafinal /zahisolated  /ornaterightparenthesis
+% 92
+ /zahisolated /ornateleftparenthesis /zahisolated /zahisolated
+% 96
+ /ainmedial /fathaisolated /behmedial /.notdef
+% 100
+ /dalisolated /.notdef /fehmedial /.notdef
+% 104 
+ /hehmedial /kasraisolated /.notdef /kafmedial
+% 108
+  /lammedial /meemmedial /noonmedial /.notdef
+% 112
+ /pehmedial /qafmedial /rehisolated /seenmedial 
+% 116
+ /tehmedial /dammaisolated /.notdef /wawisolated
+% 120
+ /seenisolated /yehmedial /zainisolated /dadisolated 
+% 124
+ /dadisolated /sadmedial /.notdef /.notdef % 
+% 128
+ /.notdef /.notdef /.notdef /.notdef 
+% 132
+ /.notdef /.notdef /.notdef /.notdef 
+% 136
+ /aininitial /ainfinal /ainisolated  /ghaininitial
+% 140
+ /ghainmedial /ghainfinal /ghainisolated /fehinitial
+% 144
+ /fehisolated /fehisolated /qafinitial /qafisolated
+% 148
+ /qafisolated /kafmedial /kafisolated /kafisolated
+% 152
+ /lammedial /lam /lam /meemmedial  % the lamisolated is in fact medial-initial BADD!!
+% 156
+ /meemisolated /meemisolated  /noonmedial /noonisolated
+% 160
+ /noonisolated  /hehinitial /hehfinal /hehisolated
+% 164
+ /wawisolated /wawwithhamzaabove /wawwithhamzaabove /yehmedial
+% 168
+ /yehfinal /yehisolated /tahisolated /alefmaksuraisolated
+% 172
+ /.notdef /tehmarbutaisolated  /lamwithaleffinal /lamwithalefisolated
+% 176      2nd with dd!!!!
+ /lamwithalefhamzaabovefinal /lamwithalefhamzaaboveisolatedd  %with dd at the end!!!! 
+ /lamwithalefhamzabelowfinal /lamwithalefhamzabelowisolated
+% 180      2nd with dd!!!!
+ /lamwithalefmaddaabovefinal /lamwithalefmaddaaboveisolatedd 
+ /yehwithhamzaabovemedial /yehwithhamzaabovemedial
+% 184 
+ /yehwithhamzaabovefinal /yehwithhamzaaboveisolated 
+ /hamza /.notdef
+% 188
+ /.notdef /.notdef /fathatan /dammatan
+% 192
+ /kasratanlow /fathaisolated /dammaisolated /kasraisolated 
+% 196
+ /shaddaisolated /sukunisolated /shaddawithfathatanisolated /shaddawithdammatanisolated
+% 200
+ /shaddawithkasratanlow /shaddawithfathaisolated /shaddawithdammaisolated /shaddawithkasraisolated 
+% 204
+ /shaddaisolated /shaddawithfathaisolated /shaddawithdammaisolated /shaddawithkasraisolated 
+% 208
+ /thal  /.notdef /.notdef /.notdef 
+% 212
+ /.notdef /.notdef /.notdef /.notdef 
+% 216
+ /.notdef /.notdef /.notdef /.notdef 
+% 220
+ /.notdef /.notdef /.notdef /.notdef 
+% 224
+ /.notdef /.notdef /.notdef /.notdef 
+% 228
+ /.notdef /.notdef /.notdef /.notdef 
+% 232
+ /.notdef /.notdef /.notdef /.notdef 
+% 236
+ /.notdef /.notdef /.notdef /.notdef 
+% 240
+ /.notdef /.notdef /.notdef /.notdef 
+% 244
+ /.notdef /.notdef /.notdef /.notdef 
+% 248 
+ /.notdef /.notdef /.notdef /.notdef 
+% 252
+ /allahisolated /.notdef /tatweel /.notdef 
+] def
+

@@ -1,0 +1,164 @@
+mtex-bs 0 160
+'('          ''            0                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+')'          ''            1                          % mtex-bs.htf (symbol)        2001-03-14   %
+'['          ''            2                          % Copyright (C) 2001            Phil Viton %
+']'          ''            3                          %                                          %
+'<font face="SYMBOL">\235\</font>' ''-lfloor     4    % This file can redistributed and/or       %
+'<font face="SYMBOL">\251\</font>' ''-rfloor     5    % modified under the terms of the LaTeX    %
+'<font face="SYMBOL">\233\</font>' ''-lceil      6    % Project Public License Distributed from  %
+'<font face="SYMBOL">\249\</font>' ''-rceil      7    % CTAN archives in directory               %
+'{'          ''                                  8    % macros/latex/base/lppl.txt; either       %
+'}'          ''                                  9    % version 1 of the License, or (at your    %
+'<font face="SYMBOL">\224\</font>' ''<          10    % option) any later version.               %
+'<font face="SYMBOL">\241\</font>' ''>          11    %    However, you are allowed to modify    %
+'|'          ''           12                          % this file without changing its name, if  %
+'||'         ''           13                          % you add a note of your own after this    %
+'/'          ''           14                          % copyright note.                          %
+'\\'         ''           15                          %                                          %
+'('          ''           16                          % I would appreciate being told about      %
+')'          ''           17                          % any bugs                                 %
+'('          ''           18                          %                                          %
+')'          ''           19                          %                          viton.1@osu.edu %
+'['          ''           20                          %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+']'          ''           21
+'<font face="SYMBOL">\235\</font>'       ''-lfloor    22
+'<font face="SYMBOL">\251\</font>'       ''-rfloor    23
+'<font face="SYMBOL">\233\</font>'       ''-lceil     24
+'<font face="SYMBOL">\249\</font>'       ''-rceil     25
+'{'          ''           26
+'}'          ''           27
+'<font face="SYMBOL">\224\</font>'       ''<          28
+'<font face="SYMBOL">\241\</font>'       ''>          29
+'/'          ''           30
+'\\'         ''           31
+'('          ''           32
+')'          ''           33
+'['          ''           34
+']'          ''           35
+'<font face="SYMBOL">\235\</font>'       ''-lfloor    36
+'<font face="SYMBOL">\251\</font>'       ''-rfloor    37
+'<font face="SYMBOL">\233\</font>'       ''-lceil     38
+'<font face="SYMBOL">\249\</font>'       ''-rceil     39
+'{'          ''           40
+'}'          ''           41
+'<font face="SYMBOL">\224\</font>'       ''<          42
+'<font face="SYMBOL">\241\</font>'       ''>          43
+'/'          ''           44
+'\\'         ''           45
+'/'          ''           46
+'\\'         ''           47
+'('          ''           48
+')'          ''           49
+'<font face="SYMBOL">\235\</font>'       ''-lfloor    50
+'<font face="SYMBOL">\251\</font>'       ''-rfloor    51
+'<font face="SYMBOL">\233\</font>'       ''-lceil     52
+'<font face="SYMBOL">\249\</font>'       ''-rceil     53
+''           ''           54
+''           ''           55
+''           ''           56
+''           ''           57
+''           ''           58
+''           ''           59
+'{'          ''           60
+'}'          ''           61
+''           ''           62
+''           ''           63
+''           ''           64
+''           ''           65
+''           ''           66
+''           ''           67
+'<font face="SYMBOL">\224\</font>'       ''<          68
+'<font face="SYMBOL">\241\</font>'       ''>           69
+' |_| '      '1'sqcup     70
+'|_|'        '1'sqcup     71
+' gf '       '3'oint     72
+' gf '       '3'oint     73
+' o. '       '1'odot      74
+' o. '       '1'odot      75
+'<font face="SYMBOL">\197\</font>'       ''oplus     76
+'<font face="SYMBOL" SIZE="+1">\197\</font>'  ''oplus 77
+'<font face="SYMBOL">\196\</font>'       ''otimes     78
+'<font face="SYMBOL" SIZE="+1">\196\</font>' ''otimes 79
+'<font face="SYMBOL">\229\</font>'      ''sum        80
+'<font face="SYMBOL">\213\</font>'      ''prod       81
+'<font face="SYMBOL">\242\</font>' ''-int       82
+'<font face="SYMBOL">\200\</font>'        ''cup        83
+'<font face="SYMBOL">\199\</font>'     ''cap           84
+' U+ '       '1'upplus    85
+'<font face="SYMBOL">\217\</font>'      ''land        86
+'<font face="SYMBOL">\218\</font>'      ''lor          87
+'<font face="SYMBOL">\229\</font>'      ''sum        88
+'<font face="SYMBOL">\213\</font>'      ''prod       89
+'<font face="SYMBOL">\242\</font>' ''-int       90
+'<font face="SYMBOL">\200\</font>'        ''cup        91
+'<font face="SYMBOL">\199\</font>'     ''cap           92
+' U+ '       '1'upplus    93
+'<font face="SYMBOL">\217\</font>'      ''land        94
+'<font face="SYMBOL">\218\</font>'      ''lor         95
+' |_| '      '1'coprod    96
+' |_| '      '1'coprod    97
+''           ''           98
+''           ''           99
+''           ''          100
+''           ''          101
+''           ''          102
+''           ''          103
+'['          ''          104
+']'          ''          105
+'<font face="SYMBOL">\235\</font>'       ''-lfloor   106
+'<font face="SYMBOL">\251\</font>'       ''-rfloor   107
+'<font face="SYMBOL">\233\</font>'       ''-lceil    108
+'<font face="SYMBOL">\249\</font>'       ''-rceil    109
+'{'          ''          110
+'}'          ''          111
+'<font face="SYMBOL">\114\</font>'       ''surd     112
+'<font face="SYMBOL">\114\</font>'       ''surd     113
+'<font face="SYMBOL">\114\</font>'       ''surd     114
+'<font face="SYMBOL">\114\</font>'       ''surd     115
+'<font face="SYMBOL">\114\</font>'       ''surd     116
+''           ''          117
+''           ''          118
+''           ''          119
+'<font face="SYMBOL">\173\</font>'     ''uparrow    120
+'<font face="SYMBOL">\175\</font>'     ''downarrow  121
+''           ''          122
+''           ''          123
+''           ''          124
+''           ''          125
+'<font face="SYMBOL">\221\</font>'     ''Uparrow    126
+'<font face="SYMBOL">\223\</font>'     ''Downarrow 127
+'Mtex-A'          ''            128 the rest of this is fillin, since mtex seems to have 160 chrs
+'Mtex-B'          ''            129 Ths3e characters should never be used directory, but to help
+'Mtex-C'          ''            130 diagnose problems we will just print some text for each of them
+'Mtex-D'          ''            131
+'Mtex-E'          ''            132
+'Mtex-F'          ''            133
+'Mtex-G'          ''            134
+'Mtex-H'          ''            135
+'Mtex-I'          ''            136
+'Mtex-J'          ''            137
+'Mtex-K'          ''            138
+'Mtex-L'          ''            139
+'Mtex-M'          ''            140
+'Mtex-N'          ''            141
+'Mtex-O'          ''            142
+'Mtex-P'          ''            143
+'Mtex-Q'          ''            144
+'Mtex-R'          ''            145
+'Mtex-S'          ''            146
+'Mtex-T'          ''            147
+'Mtex-U'          ''            148
+'Mtex-V'          ''            149
+'Mtex-W'          ''            150
+'Mtex-X'          ''            151
+'Mtex-Y'          ''            152
+'Mtex-Z'          ''            153
+'Mtex-AA'          ''           154
+'Mtex-AB'          ''           155
+'Mtex-AC'          ''           156
+'Mtex-AD'          ''           157
+'Mtex-AE'          ''           158
+'Mtex-AF'          ''           159
+'Mtex-AG'          ''           160
+mtex-bs 0 160
+

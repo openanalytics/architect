@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xtpipes SYSTEM "xtpipes.dtd" >
+<xtpipes preamble="yes" signature="docbook.4xt (2008-11-14-02:41)">
+   <sax content-handler="xtpipes.util.ScriptsManager"
+        lexical-handler="xtpipes.util.ScriptsManagerLH" >
+     <script element="ulink" >
+   <set name="ulink" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      xmlns:db="http://docbook.org/ns/docbook"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+      <xsl:template match=" ulink[
+   @url and starts-with( @url, '#')
+]" >
+   <link>
+      <xsl:attribute name="linkend">
+         <xsl:value-of select=" substring( @url, 2 )" />
+      </xsl:attribute>
+      <xsl:apply-templates select="*|text()|comment()" />
+   </link>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="ulink" />
+</script>
+
+     <script element="tbody" >
+   <set name="dirt" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      xmlns:db="http://docbook.org/ns/docbook"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+      <xsl:template match=" row[
+  (count(child::entry) = 1)
+ and
+  ( normalize-space(child::entry[1]/child::para[1]/child::comment())
+    = 'dirt'
+  )
+]">
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <set name="tbody" >
+      <![CDATA[
+   <xsl:stylesheet version="1.0"
+      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+      xmlns:db="http://docbook.org/ns/docbook"
+   >
+      <xsl:output omit-xml-declaration = "yes" />
+
+      <xsl:template match=" row[ @role = 'hline' ]" />
+<xsl:template match=" row[ @role = 'hline' ]" />
+<xsl:template match=" row[
+       following-sibling::*[1][ self::row[@role = 'hline'] ]
+] ">
+   <xsl:copy>
+      <xsl:attribute name="rowsep">
+         <xsl:text>1</xsl:text>
+      </xsl:attribute>
+      <xsl:apply-templates select="*|@*|text()|comment()" />
+   </xsl:copy>
+</xsl:template>
+<xsl:template match=" row[
+     (@role = 'cline')
+     and
+     preceding-sibling::*[1]
+                         [ self::row[ not(@role) ] ]
+     and
+     (   count(child::entry)
+       = count(preceding-sibling::*[1]/child::entry))
+]" />
+<xsl:template match=" row[
+       not(@role)
+   and
+       following-sibling::*[1][ self::row[@role = 'cline'] ]
+   and
+     (   count(child::entry)
+       = count(following-sibling::*[1]/child::entry))
+] ">
+   <xsl:copy>
+      <xsl:apply-templates select="@*" />
+      <xsl:apply-templates select="*|text()|comment()" mode="cline" />
+   </xsl:copy>
+</xsl:template>
+<xsl:template match=" text()|comment() " mode="cline">
+   <xsl:copy>
+      <xsl:apply-templates select="*|@*|text()|comment()"  />
+   </xsl:copy>
+</xsl:template>
+<xsl:template match="*" mode="cline">
+   <xsl:copy>
+      <xsl:if test="self::entry">
+         <xsl:attribute name="rowsep">
+             <xsl:variable name="pos">
+                <xsl:value-of select="position()" />
+             </xsl:variable>
+             <xsl:value-of select="parent::row
+                                   / following-sibling::*[1]
+                                   / child::entry[position()=$pos]
+                                   / @rowsep
+                                    " />
+          </xsl:attribute>
+      </xsl:if>
+      <xsl:apply-templates select="*|@*|text()|comment()"  />
+   </xsl:copy>
+</xsl:template>
+
+            <xsl:template match="*|@*|text()|comment()" >
+        <xsl:copy>
+          <xsl:apply-templates select="*|@*|text()|comment()" />
+        </xsl:copy>
+      </xsl:template>
+   </xsl:stylesheet>
+]]>
+
+   </set>
+   <xslt name="." xml="." xsl="tbody" />
+   <xslt name="." xml="." xsl="dirt" />
+   <dom name="." xml="." method="cline" class="tex4ht.DbUtilities" />
+</script>
+
+     <script element="para" >
+   <dom name="." xml="." method="para" class="tex4ht.DbUtilities" />
+</script>
+
+   </sax>
+</xtpipes>
+

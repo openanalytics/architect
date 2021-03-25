@@ -1,0 +1,37 @@
+%%
+%% This is file `laeaealmohanadb.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+
+
+\ProvidesFile{laeaealmohanadb.fd}
+         [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+
+\DeclareFontFamily{LAE}{aealmohanadb}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{aealmohanadb}{m}{n}{%
+   <->  s*[1.25] aealmohanadb }{}
+
+%%%%%%% Italicized shape
+\DeclareFontShape{LAE}{cmr}{m}{it}{<-> s*[1.25] ae_almohanad_bolditalic }{}
+\DeclareFontShape{LAE}{cmr}{m}{sl}{<-> s*[1.25] ae_almohanad_bolditalic }{}
+      
+%%%%%%% Bold extended series
+\DeclareFontShape{LAE}{aealmohanadb}{b}{n}{<->  s*[1.25] ae_almohanad_xxbold}{}
+\DeclareFontShape{LAE}{aealmohanadb}{bx}{n}{<->  s*[1.25] ae_almohanad_xxbold}{}
+
+
+%%%%%%% Bold extended (Italic)  series
+\DeclareFontShape{LAE}{aealmohanadb}{bx}{sl}{<->  ssub * aealmohanadb/b/n}{}
+\DeclareFontShape{LAE}{aealmohanadb}{bx}{it}{<->  ssub * aealmohanadb/b/n}{}
+
+
+\endinput
+

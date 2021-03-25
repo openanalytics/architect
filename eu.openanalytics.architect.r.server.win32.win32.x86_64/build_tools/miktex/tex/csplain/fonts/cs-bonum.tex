@@ -1,0 +1,53 @@
+% The file cs-bonum.tex (C) Petr Olsak, 2012, 2016
+% Use "\input cs-bonum" to set the TG Bonum font family in text mode
+
+\ifx\ffdecl\undefined \input ff-mac \fi
+
+\ffdecl [TG Bonum] {\caps} {\rm \bf \it \bi} {} {TX} {8z 8t U}
+
+\ffvars {r}{b}{ri}{bi} 
+\def\caps{\ffsetV{caps}{-sc}\ffsetX}  \def\nocaps{\ffsetV{caps}{}\ffsetX}
+\def\capsV{} 
+
+\ismacro\fotenc{8t}\ifttrue
+
+   \font\tenrm = ec-qbkr  \sizespec
+   \font\tenbf = ec-qbkb  \sizespec
+   \font\tenit = ec-qbkri \sizespec
+   \font\tenbi = ec-qbkbi \sizespec
+
+   \def\ffnamegen{ec-qbk\ffvarV\capsV}
+
+\fi
+
+\ismacro\fotenc{8z}\iftrue
+
+   \font\tenrm = cs-qbkr  \sizespec
+   \font\tenbf = cs-qbkb  \sizespec
+   \font\tenit = cs-qbkri \sizespec
+   \font\tenbi = cs-qbkbi \sizespec
+
+   \def\ffnamegen{cs-qbk\ffvarV\capsV}
+   \input chars-8z
+
+\fi
+
+\ismacro\fotenc{U}\iftrue
+
+   \font\tenrm = "[texgyrebonum-regular]:\fontfeatures"    \sizespec
+   \font\tenbf = "[texgyrebonum-bold]:\fontfeatures"       \sizespec
+   \font\tenit = "[texgyrebonum-italic]:\fontfeatures"     \sizespec
+   \font\tenbi = "[texgyrebonum-bolditalic]:\fontfeatures" \sizespec
+
+   \def\ffnamegen{"[texgyrebonum-\ffvarV]:\capsV\fontfeatures"} 
+
+   \ffvars {regular} {bold} {italic} {bolditalic}
+   \def\caps{\ffsetV{caps}{+smcp;}\ffsetX}
+
+\fi
+\tenrm % don't remember to initialize the family with normal font.
+
+\ifx\loadmathfonts\relax \endinput \fi
+\ifx\mathpreloaded X\else \input tx-math \fi                     
+
+\endinput

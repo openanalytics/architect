@@ -1,0 +1,125 @@
+% \iffalse meta-comment
+%
+% Copyright 2006      Youssef Jabri
+% 
+% 
+% This file is part of the `Arabi' system.
+% -------------------------------------------
+% 
+% It may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3b
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+% and version 1.3b or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% 
+% This file has the LPPL maintenance status "maintained".
+% 
+% 
+% \fi
+%
+% Filename: laeenc.def
+%%
+\ProvidesFile{laeenc.def}
+        [2006/01/01 v0.1 Local Arabic font encoding (test version: may change)]
+        
+\DeclareFontEncoding{LAE}{}{}
+\DeclareFontSubstitution{LAE}{cmr}{m}{n}
+\DeclareErrorFont{LAE}{cmr}{m}{n}{10}
+
+\ProvideTextCommand{\textcopyright}{LAE}{\textcircled{\@latin{c}}}
+\ProvideTextCommand{\textregistered}{LAE}{\textcircled{\scshape%
+                                          \@latin{r}}}
+\ProvideTextCommand{\texttrademark}{LAE}{\textsuperscript{\@latin{TM}}}
+
+\DeclareTextSymbol{\hamza}{LAE}{186}
+\DeclareTextSymbol{\alefmadda}{LAE}{6}
+\DeclareTextSymbol{\alefhamza}{LAE}{2}
+\DeclareTextSymbol{\wawhamza}{LAE}{165}
+\DeclareTextSymbol{\aleflowerhamza}{LAE}{4}
+\DeclareTextSymbol{\yahamza}{LAE}{183}
+\DeclareTextSymbol{\alef}{LAE}{65}
+\DeclareTextSymbol{\baa}{LAE}{98}
+\DeclareTextSymbol{\T}{LAE}{84}   %taa marbuuta
+\DeclareTextSymbol{\taa}{LAE}{116}
+\DeclareTextSymbol{\thaa}{LAE}{16}
+\DeclareTextSymbol{\jeem}{LAE}{20}  %geem 
+\DeclareTextSymbol{\Haa}{LAE}{24}
+\DeclareTextSymbol{\kha}{LAE}{28}
+\DeclareTextSymbol{\dal}{LAE}{100}
+\DeclareTextSymbol{\dhal}{LAE}{64}
+\DeclareTextSymbol{\ra}{LAE}{114}
+\DeclareTextSymbol{\zay}{LAE}{122}
+\DeclareTextSymbol{\seen}{LAE}{115}
+\DeclareTextSymbol{\sheen}{LAE}{75}
+\DeclareTextSymbol{\sad}{LAE}{79}
+\DeclareTextSymbol{\dad}{LAE}{83}
+\DeclareTextSymbol{\Ta}{LAE}{87}
+\DeclareTextSymbol{\za}{LAE}{92}
+\DeclareTextSymbol{\ayn}{LAE}{96}
+\DeclareTextSymbol{\ghayn}{LAE}{140}
+%
+\DeclareTextSymbol{\keshchar}{LAE}{254}%tatweel
+\DeclareTextSymbol{\fa}{LAE}{102}
+\DeclareTextSymbol{\qaf}{LAE}{113}
+\DeclareTextSymbol{\kaf}{LAE}{107}
+\DeclareTextSymbol{\lam}{LAE}{108}
+\DeclareTextSymbol{\meem}{LAE}{109}
+\DeclareTextSymbol{\nun}{LAE}{110}
+\DeclareTextSymbol{\ha}{LAE}{104}
+\DeclareTextSymbol{\waw}{LAE}{119}
+\DeclareTextSymbol{\ya}{LAE}{121}
+\DeclareTextSymbol{\alefmaqsura}{LAE}{89}%170
+%
+%%%%%%%%%%%% Vowels
+%
+% Firt, Vowels that come only at the end of a word
+%
+\DeclareTextSymbol{\nasb}{LAE}{190}
+\DeclareTextSymbol{\raff}{LAE}{191}
+\DeclareTextSymbol{\jarr}{LAE}{192}
+%
+\DeclareTextSymbol{\shaddanasb}{LAE}{198}
+\DeclareTextSymbol{\shaddaraff}{LAE}{199}
+\DeclareTextSymbol{\shaddajarr}{LAE}{200}
+%
+% Then, Vowels that come anywhere in a word
+%
+\DeclareTextSymbol{\fatha}{LAE}{97}
+\DeclareTextSymbol{\damma}{LAE}{117}
+\DeclareTextSymbol{\kasra}{LAE}{105}
+\DeclareTextSymbol{\shadda}{LAE}{204}
+\DeclareTextSymbol{\sukun}{LAE}{34}
+%
+\DeclareTextSymbol{\shaddafatha}{LAE}{201}
+\DeclareTextSymbol{\shaddadamma}{LAE}{202}
+\DeclareTextSymbol{\shaddakasra}{LAE}{203}
+%
+% Some special ones for LAE!
+%
+\DeclareTextCommand{\tatweel}{LAE}{\keshchar}
+\DeclareTextSymbol{\llahchar}{LAE}{252}
+\DeclareTextSymbol{\Decimalchar}{LAE}{251}
+%%
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%%   Digits        \0\1\2\3\4\5\6\7\8\9
+%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%%   Dollar        \$     Percent       \%     Ampersand     \&
+%%   Acute accent  \'     Left paren    \(     Right paren   \)
+%%   Asterisk      \*     Plus          \+     Comma         \,
+%%   Minus         \-     Point         \.     Solidus       \/
+%%   Colon         \:     Semicolon     \;     Less than     \<
+%%   Equals        \=     Greater than  \>     Question mark \?
+%%   Commercial at \@     Left bracket  \[     Backslash     \\
+%%   Right bracket \]     Circumflex    \^     Underscore    \_
+%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%%   Right brace   \}     Tilde         \~}
+%%
+\endinput
+
+
+
+

@@ -1,0 +1,4 @@
+\let\:fnsymbol\@fnsymbol
+\def\@fnsymbol#1{{\hbox{$\:fnsymbol{#1}$}}}
+\Hinput{latex209}
+

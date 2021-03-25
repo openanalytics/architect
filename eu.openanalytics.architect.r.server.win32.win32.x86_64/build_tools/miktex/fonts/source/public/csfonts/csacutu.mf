@@ -1,0 +1,215 @@
+% This is csacutu.mf in text format, as of 89/02/19
+% written by P. Novak, Prague
+% Czech and slovak letters with accents
+% Uppercase roman letters with acute accent
+
+cmchar "The letter A with acute";
+beginchar(cs_AA,13u#,uc_acc_height#,0);
+adjust_fit(cap_serif_fit#,cap_serif_fit#);
+numeric left_stem,right_stem,outer_jut,alpha;
+right_stem=cap_stem-stem_corr;
+left_stem=min(cap_hair if hefty: -3stem_corr fi,right_stem);
+outer_jut=.8cap_jut; x1l=w-x4r=l+letter_fit+outer_jut+.5u; y1=y4=0;
+x2-x1=x4-x3; x3r=x2r+apex_corr; y2=y3=cap_height+apex_o+apex_oo;
+alpha=diag_ratio(2,left_stem,y2-y1,x4r-x1l-apex_corr);
+penpos1(alpha*left_stem,0); penpos2(alpha*left_stem,0);
+penpos3(alpha*right_stem,0); penpos4(alpha*right_stem,0);
+z0=whatever[z1r,z2r]=whatever[z3l,z4l];
+if y0<cap_height-cap_notch_cut: y0:=cap_height-cap_notch_cut;
+ fill z0+.5right{down}...{z4-z3}diag_end(3l,4l,1,1,4r,3r)
+  --diag_end(4r,3r,1,1,2l,1l)--diag_end(2l,1l,1,1,1r,2r){z2-z1}
+  ...{up}z0+.5left--cycle; % left and right diagonals
+else: fill z0--diag_end(0,4l,1,1,4r,3r)--diag_end(4r,3r,1,1,2l,1l)
+  --diag_end(2l,1l,1,1,1r,0)--cycle; fi % left and right diagonals
+penpos5(whatever,angle(z2-z1)); z5=whatever[z1,z2];
+penpos6(whatever,angle(z3-z4)); z6=whatever[z3,z4]; y6=y5;
+if hefty: y5r else: y5 fi =5/12y0;
+y5r-y5l=y6r-y6l=cap_band; penstroke z5e--z6e; % bar line
+if serifs: numeric inner_jut; pickup tiny.nib;
+ prime_points_inside(1,2); prime_points_inside(4,3);
+ if rt x1'r+cap_jut+.5u+1<=lft x4'l-cap_jut: inner_jut=cap_jut;
+ else: rt x1'r+inner_jut+.5u+1=lft x4'l-inner_jut; fi
+ dish_serif(1',2,a,1/2,outer_jut,b,.6,inner_jut)(dark);  % left serif
+ dish_serif(4',3,c,1/2,inner_jut,d,1/3,outer_jut); fi  % right serif
+penlabels(0,1,2,3,4,5,6);
+uc_acute_accent(x2r);
+endchar;
+
+cmchar "The letter E with acute";
+beginchar(cs_EE,12u#-width_adj#,uc_acc_height#,0);
+italcorr h#*slant-beak_jut#-.5u#;
+adjust_fit(cap_serif_fit#,0);
+h':=vround(cap_height-stem_corr);
+pickup tiny.nib; pos1(cap_stem,0); pos2(cap_stem,0);
+lft x1l=lft x2l=hround max(2u,3u-.5cap_stem); top y1=h'; bot y2=0;
+filldraw stroke z1e--z2e; % stem
+pickup crisp.nib; pos3(slab,90); pos4(hair,0);
+top y3r=h'; x3=x1; rt x4r=hround(w-u); y4=good.y(y3l-beak)-eps;
+arm(3,4,e,beak_darkness,beak_jut);  % upper arm and beak
+pos5(cap_bar,-90); pos6(hair,0);
+top y5l=vround(.52[y2,y1]+.5cap_bar); x5=x1;
+pos0(cap_bar,90); pos7(hair,0);
+z0=z5; x6=x7; y6-y5l=y0l-y7;
+if serifs: rt x6r=hround(w-4.4u+.5hair); y6=good.y(y5l+.6beak)+eps;
+ rt x9r=hround(w-.5u);
+else: rt x6r=hround(w-1.5u); y6=y5l+eps; rt x9r=hround(w-.75u); fi
+arm(5,6,f,beak_darkness,0); arm(0,7,g,beak_darkness,0);  % middle arm and serif
+pos8(slab if not serifs:+2stem_corr fi,-90); pos9(hair,0);
+bot y8r=0; x8=x2; y9=good.y(y8l+7/6beak)+eps;
+arm(8,9,h',beak_darkness,1.5beak_jut);  % lower arm and beak
+if serifs: nodish_serif(1,2,a,1/3,cap_jut,b,1/3,.5cap_jut);  % upper serif
+ nodish_serif(2,1,c,1/3,cap_jut,d,1/3,.5cap_jut); fi  % lower serif
+math_fit(0,.5ic#); penlabels(0,1,2,3,4,5,6,7,8,9);
+uc_acute_accent(.5[x3,if serifs: x.e1 else: x4 fi]);
+endchar;
+
+cmchar "The letter I with acute";
+beginchar(cs_II,max(6u#,4u#+cap_stem#),uc_acc_height#,0);
+italcorr cap_height#*slant-.25u#;
+adjust_fit(cap_serif_fit#,cap_serif_fit#);
+pickup tiny.nib; pos1(cap_stem,0); pos2(cap_stem,0);
+lft x1l=lft x2l=hround(.5w-.5cap_stem); top y1=cap_height; bot y2=0;
+filldraw stroke z1e--z2e; % stem
+if serifs: dish_serif(1,2,a,1/3,1.05cap_jut,b,1/3,1.05cap_jut);  % upper serif
+ dish_serif(2,1,c,1/3,1.05cap_jut,d,1/3,1.05cap_jut);  fi % lower serif
+
+if driver_name="sroman": % Variant I for SliTeX fonts by P. MacKay
+ pickup crisp.nib;           % arms based on proportions of uppercase E
+ pos3(slab,90); pos4(slab if not serifs:+2stem_corr fi,-90); 
+ x3=x4=x1; top y3r=cap_height; bot y4r=0;
+ pos5(hair,0); pos6(hair,0); % top and bottom right arms
+ rt x5r=rt x6r=hround(w-u);
+ pos7(hair,180); pos8(hair,180); % top and bottom left arms
+ lft x7r=lft x8r=hround(u);
+ y5=y7=good.y(y3l-beak)-eps; % beak in case we ever want a beaked serif!
+ y6=y8=good.y(y4l+beak)+eps; % watch that this doesn't get too heavy
+ arm(3,5,a,darkness,jut); arm(3,7,b,darkness,jut); % top left and right arms
+ arm(4,6,c,darkness,jut); arm(4,8,d,darkness,jut); % bottom left and right
+ penlabels(1,2,3,4,5,6,7,8);
+else: penlabels(1,2);
+fi math_fit(0,.5ic#); 
+uc_acute_accent(x1);
+endchar;
+
+cmchar "The letter L with acute";
+beginchar(cs_LL,11u#-width_adj#,uc_acc_height#,0);
+adjust_fit(cap_serif_fit#,0);
+pickup tiny.nib; pos1(cap_stem,0); pos2(cap_stem,0);
+lft x1l=lft x2l=hround max(2u,3u-.5cap_stem); top y1=cap_height; bot y2=0;
+filldraw stroke z1e--z2e; % stem
+pickup crisp.nib; pos3(slab,-90); pos4(hair,0);
+bot y3r=0; x3=x2; y4=y3l+7/6beak+eps; rt x4r=hround(w-.75u);
+arm(3,4,e,1.2beak_darkness,beak_jut);  % lower arm and beak
+if serifs: dish_serif(1,2,a,1/3,cap_jut,b,1/3,1.25cap_jut);  % upper serif
+ nodish_serif(2,1,c,1/3,cap_jut,d,1/3,.5cap_jut); fi  % lower serif
+math_fit(0,u#); penlabels(1,2,3,4);
+uc_acute_accent(x1+.5u);
+endchar;
+
+cmchar "The letter O with acute";
+beginchar(cs_OO,14u#-width_adj#,uc_acc_height#,0);
+italcorr .7cap_height#*slant-.5u#;
+adjust_fit(0,0);
+penpos1(vair',90); penpos3(vround(vair+1.5vair_corr),-90);
+penpos2(cap_curve,180); penpos4(cap_curve,0);
+if monospace: x2r=hround 1.5u;
+ interim superness:=sqrt superness;  % make |"O"|, not |"0"|
+else: x2r=hround u; fi
+x4r=w-x2r; x1=x3=.5w; y1r=cap_height+o; y3r=-o;
+y2=y4=.5cap_height-vair_corr; y2l:=y4l:=.52cap_height;
+penstroke pulled_super_arc.e(1,2)(.5superpull)
+ & pulled_super_arc.e(2,3)(.5superpull)
+ & pulled_super_arc.e(3,4)(.5superpull)
+ & pulled_super_arc.e(4,1)(.5superpull) & cycle;  % bowl
+math_fit(-.3cap_height#*slant-.5u#,ic#-.5u#); penlabels(1,2,3,4);
+uc_acute_accent(x1);
+endchar;
+
+cmchar "The letter R with acute";
+beginchar(cs_RR,if serifs: 12u#+.5max(2u#,cap_curve#)
+ else:12.5u#-.5width_adj# fi,uc_acc_height#,0);
+italcorr .75cap_height#*slant- if serifs: 1.75 else: .5 fi\\ u#;
+adjust_fit(cap_serif_fit#,0);
+pickup tiny.nib; pos1(cap_stem',0); pos2(cap_stem',0);
+lft x1l=lft x2l=hround max(2u,3u-.5cap_stem'); top y1=cap_height; bot y2=0;
+filldraw stroke z1e--z2e; % stem
+penpos3(cap_band,90); penpos4(cap_band,90);
+penpos5(cap_curve if hefty:-3stem_corr fi,0);
+penpos6(vair,-90); penpos7(vair,-90);
+z3r=top z1; y4=y3; y5=.5[y4l,y6l]; y6=y7;
+x7=x2; y7l=vround(.5cap_height+.5vair); x4=x6;
+if serifs: x4=.5w-.5u; x5r=hround(w-2.25u);
+else: x4=.5w+.5u; x5r=hround(w-u); fi
+x4l:=x6l:=x4-.125cap_curve;
+fill stroke z3e..pulled_arc.e(4,5) & pulled_arc.e(5,6)..z7e;  % lobe
+if serifs: pos6'(vair,-90); pos0(cap_stem,180);
+ pos8(cap_curve,180); pos9(vair,-90); pos10(hair,0);
+ z6'=z6; lft x0r=lft x8r=hround(x5-2/3u-.5cap_curve);
+ y8=1/3[y2,y7]; y0=3/5[y2,y7]; x9=.5[x8l,x10r];
+ bot y9r=-o; rt x10r=hround(w-.05u); y10=1/4[y2,y7];
+ filldraw stroke z6'e{right}..z0e---z8e....z9e{right}..z10e{up};  % tail
+ nodish_serif(1,2,a,1/3,cap_jut,b,1/3,.5cap_jut);  % upper serif
+ dish_serif(2,1,c,1/3,cap_jut,d,1/3,cap_jut);  % lower serif
+else: penpos8(cap_stem-2stem_corr,0); penpos9(cap_stem,0);
+ x8=x6+.5u; y8=y6; x9r=hround(w-.5u); y9=0;
+ fill z8l--diag_end(8l,9l,.5,1,9r,8r)--z8r--cycle; fi  % tail
+math_fit(0,.75ic#); penlabels(0,1,2,3,4,5,6,7,8,9,10); 
+uc_acute_accent(.5[if serifs: x.b1 else: x4r fi,x4]);
+endchar;
+
+cmchar "The letter U with acute";
+beginchar(cs_UU,13u#+.5width_adj#,uc_acc_height#,0);
+italcorr cap_height#*slant-cap_serif_fit#+cap_jut#-2.5u#+min(.5cap_stem#,u#);
+if monospace: adjust_fit(cap_serif_fit#-.5u#,cap_serif_fit#-.5u#)
+else: adjust_fit(cap_serif_fit#,cap_serif_fit#) fi;
+pickup tiny.nib; pos1(cap_stem,0); pos2(cap_stem,0);
+pos2'(cap_stem,180); z2'=z2;
+pos3(cap_band,-90);
+pos4(cap_hair,0); pos5(cap_hair,0);
+x1=x2; x3=.5[x1,x5]; x4=x5; x1l=w-x5r;
+top y1=top y5=cap_height; y2=y4=1/3cap_height; bot y3r=-o;
+lft x1l=hround max(2u,3u-.5cap_stem);
+filldraw stroke z1e--z2e; % left stem
+filldraw stroke pulled_arc.e(2',3)
+ & pulled_arc.e(3,4)&z4e--z5e; % arc and right stem
+if serifs: dish_serif(1,2,a,1/3,cap_jut,b,1/3,cap_jut); % left serif
+ dish_serif(5,4,c,1/2,cap_jut,d,1/2,cap_jut)(dark); fi  % right serif
+math_fit(-cap_serif_fit#-.3cap_height#*slant-min(cap_height#*slant,u#),
+ max(.5ic#-.5u#,0)); penlabels(1,2,3,4,5);
+uc_acute_accent(x3);
+endchar;
+
+cmchar "The letter Y with acute";
+beginchar(cs_YY,13u#,uc_acc_height#,0);
+italcorr cap_height#*slant+.45u#;
+adjust_fit(cap_serif_fit#,cap_serif_fit#);
+numeric left_stem,right_stem,outer_jut,dy,alpha;
+left_stem=cap_stem-stem_corr;
+right_stem=min(cap_hair if hefty:-2stem_corr fi,left_stem);
+outer_jut=.75cap_jut; x1l=w-x4r=l+letter_fit+outer_jut+.05u;
+x2l=x5l=hround(.5w-.5left_stem); x3r=x5r; y1=y4=cap_height;
+y2=y3=y5=.4cap_height;
+dy=y1-y2; alpha=((x2l-x1l)++dy)/dy;
+penpos1(alpha*left_stem,0); penpos2(alpha*left_stem,0);
+penpos3(alpha*right_stem,0); penpos4(alpha*right_stem,0);
+penpos5(left_stem,0); penpos6(left_stem,0); x5=x6; y6=0;
+z0=whatever[z1r,z2r]=whatever[z3l,z4l];
+if y0>y2+cap_notch_cut: y0:=y2+cap_notch_cut;
+  fill z0+.5right{up}...{z4-z3}diag_end(3l,4l,1,1,4r,3r)--z5r
+    --diag_end(5r,6r,1,1,6l,5l)--z5l--diag_end(2l,1l,1,1,1r,2r){z2-z1}
+    ...{down}z0+.5left--cycle; % diagonals and stem
+else: fill z0--diag_end(0,4l,1,1,4r,3r)--z5r
+    --diag_end(5r,6r,1,1,6l,5l)--z5l
+    --diag_end(2l,1l,1,1,1r,0)--cycle; fi  % diagonals and stem
+if serifs: numeric inner_jut; pickup tiny.nib;
+ prime_points_inside(1,2); prime_points_inside(4,3); prime_points_inside(6,5);
+ if rt x1'r+cap_jut+.5u+1<=lft x4'l-cap_jut: inner_jut=cap_jut;
+ else: rt x1'r+inner_jut+.5u+1=lft x4'l-inner_jut; fi
+ dish_serif(1',2,a,1/3,outer_jut,b,1/2,inner_jut);  % upper left serif
+ dish_serif(4',3,c,.6,inner_jut,d,1/2,outer_jut)(dark);  % upper right serif
+ dish_serif(6',5,e,1/3,cap_jut,f,1/3,cap_jut); fi  % lower serif
+math_fit(.5u#-cap_height#*slant,ic#-4u#);
+penlabels(0,1,2,3,4,5,6); 
+uc_acute_accent(1/2[x2l,x3r]);
+endchar;
+

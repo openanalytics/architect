@@ -1,0 +1,72 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% splitidx.4ht                         2009-05-21-09:32 %
+% Copyright (C) 2003--2009      Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\def\warn:idx#1{%
+  \expandafter\ifx \csname #1warn:idx\endcsname\relax
+     \expandafter\global
+         \expandafter\let \csname #1warn:idx\endcsname\def
+     \:warning{If not done so, the index is to be processed by
+      ^^J\space\space tex '\string\def\string\filename
+         {{#1}{idx}{4dx}{ind}} \noexpand\input\space idxmake.4ht'
+      ^^J\space\space  move #1.4dx #1.idx
+      ^^Jbefore invoking
+      ^^J\space\space  splitindex #1.idx
+      ^^JOn some platforms, the quotation marks ' should be
+      ^^J      replaced by double quotation marks " or eliminated.
+     }%
+     {\Configure{Needs}{File: #1.4idx}\Needs{}}%
+  \fi}
+
+\pend:defII\@@@wrsindex{%
+   \if@splitidx
+      \warn:idx{##1}%
+      \@ifundefined{@indexfile@##1}{}{\html:addr
+              \hbox{\Link-{}{dx\last:haddr
+}\EndLink}%
+      \edef\:temp{\expandafter
+         \write\csname @indexfile@##1\endcsname{\expandafter
+           \string\a:idxmake{\RefFileNumber
+           \FileNumber}{dx\last:haddr
+}{\a:makeindex}}}\:temp}%
+   \else
+      \warn:idx{\jobname}%
+      \html:addr \hbox{\Link-{}{dx\last:haddr
+}\EndLink
+      \edef\:temp{%
+         \write\@indexfile{\expandafter\string\a:idxmake{\RefFileNumber
+           \FileNumber}{dx\last:haddr
+}{\a:makeindex}}}\:temp}%
+   \fi
+}
+\ifx \a:makeindex\:UnDef
+   \NewConfigure{makeindex}{1} \Configure{makeindex}{}
+\fi
+
+\Hinput{splitidx}
+\endinput
+

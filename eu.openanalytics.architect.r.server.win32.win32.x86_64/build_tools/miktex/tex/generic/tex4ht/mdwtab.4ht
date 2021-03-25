@@ -1,0 +1,152 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% mdwtab.4ht                            2009-05-21-09:32 %
+% Copyright (C) 2007--2009       Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\def\:tempc[#1]#2{%
+  \def\Clr{#2}\a:VBorder
+\HAssign\ar:cnt0
+\let\HAlign\empty
+%
+  \edef\tab@restorehlstate{%
+    \global\tab@endheight\the\tab@endheight%
+    \gdef\noexpand\tab@hlstate{\tab@hlstate}%
+  }%
+  \def\tab@hlstate{n}%
+  \colset{tabular}%
+  \tab@initread
+  \let\@sharp\relax                                             % <--------
+  \def\tab@midtext{\tab@setcr\ignorespaces\@sharp\@maybe@unskip}% <---------
+  \def\tab@multicol{\@arstrut\tab@startrow}%
+  \tab@preamble{\tab@multicol\tabskip\z@skip}%
+  \tab@readpreamble{#2}%
+  \tab@leftskip\z@skip%
+  \tab@rightskip\z@skip%
+  \tab@setposn{#1}%
+%  \ifdim\tab@width=\z@%
+%    \def\tab@halign{}%
+%  \else%
+%    \def\tab@halign{to\tab@width}%
+%  \fi%
+  \lineskip\z@\baselineskip\z@%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SaveMkHalignConfig
+\Configure{MkHalign}
+   {\@array:a}%
+   {\@array:b\ProperTrTrue}%
+   {\a:putHBorder\InitHBorder
+    \gHAdvance\cline:cnt by 1
+\expandafter\ifx \csname  cw:cline-\cline:cnt\endcsname \relax \else
+   \Tag{Cline-\cline:cnt}{}%
+\fi
+\expandafter\ifx \csname  cw:Cline-\cline:cnt\endcsname \relax \else
+   \ht:special{t4ht@[}%
+\fi
+%
+    \ifProperTr{\@array:c}}%
+   {\ifProperTr{\@array:d}%
+    \ifomit: \Tag{cline-\cline:cnt}{}\fi
+\expandafter\ifx \csname  cw:Cline-\cline:cnt\endcsname \relax \else
+   \ht:special{t4ht@]}%
+\fi
+\global \omit:false
+%
+    \a:putHBorder\InitHBorder}%
+   {\ifProperTr{\@array:e}\RecallMkHalignConfig   %\recall:ar
+   }%
+   {\ifProperTr{\@array:f}}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \m@th%
+  \def\tabularnewline{\tab@arraycr\tab@penalty}%
+  \tab@setcr%
+  \let\par\@empty%
+  \everycr{}\tabskip\tab@leftskip  \tab@left
+  \edef\:temp{\noexpand\MkHalign \@sharp{\the\tab@preamble}}%
+% \hshow{:temp}%
+  \:temp
+%  \halign\expandafter\bgroup%
+%    \the\tab@preamble\tabskip\tab@rightskip\cr%
+}
+\HLet\@array\:tempc
+\def\:tempc#1{%
+  \@ifundefined{\tab@colset!col.\string#1}{%
+    \tab@err@undef{#1}\tab@mkpreamble%
+  }{%
+    \if c#1\add:ar   -\else
+    \if l#1\add:ar   <\else
+    \if r#1\add:ar   >\else
+    \if p#1\add:ar   p\else
+    \if b#1\add:ar   b\else
+    \if m#1\add:ar   m\else
+    \if |#1\b:VBorder\else
+    \if @#1\d:VBorder \else
+    \fi\fi\fi\fi\fi\fi\fi\fi
+    \@nameuse{\tab@colset!col.\string#1}%
+  }%
+}
+\HLet\tab@mkpreamble@iii\:tempc
+\def\add:ar#1{\HAdvance\ar:cnt by 1
+   \def\ch:class{#1}%
+\c:VBorder
+   \edef\HAlign{\HAlign 0 \ar:cnt\space #1 }}
+\def\HColAlign{\expandafter \ifx\csname
+   \expandafter\string\ch:class :T:D\endcsname\relax \else \csname
+   \expandafter\string\ch:class :T:D\endcsname\fi}
+
+%
+\def\:tempc{\relax
+   \ifx \HCol\:UnDef \else \ifnum\HCol=1 \a:endarray\fi \fi
+   \crcr\ifx \EndPicture\:UnDef \EndMkHalign
+   \else \egroup\fi
+   \tab@right
+   \tab@restorehlstate }
+\HLet\endarray\:tempc
+\pend:def\tabular{\let\@array:a\a:tabular \let\@array:b\b:tabular
+\let\@array:c\c:tabular \let\@array:d\d:tabular
+\let\@array:e\e:tabular \let\@array:f\f:tabular
+}
+\def\endtabular{\endarray}
+\expandafter\pend:defI\csname tabular*\endcsname{
+   \expandafter\let\expandafter\@array:a\csname a:tabular*\endcsname
+   \expandafter\let\expandafter\@array:b\csname b:tabular*\endcsname
+   \expandafter\let\expandafter\@array:c\csname c:tabular*\endcsname
+   \expandafter\let\expandafter\@array:d\csname d:tabular*\endcsname
+   \expandafter\let\expandafter\@array:e\csname e:tabular*\endcsname
+   \expandafter\let\expandafter\@array:f\csname f:tabular*\endcsname
+}
+\expandafter\def\csname endtabular*\endcsname{\endarray}
+\NewConfigure{tabular*}{6}
+\pend:def\smarray{%
+  \let\@array:a\a:smarray \let\@array:b\b:smarray
+  \let\@array:c\c:smarray \let\@array:d\d:smarray
+  \let\@array:e\e:smarray \let\@array:f\f:smarray
+}
+\def\endsmarray{\endarray}
+\NewConfigure{smarray}{6}
+
+\Hinput{mdwtab}
+\endinput
+

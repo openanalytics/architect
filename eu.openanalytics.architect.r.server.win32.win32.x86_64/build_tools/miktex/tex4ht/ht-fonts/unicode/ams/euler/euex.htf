@@ -1,0 +1,121 @@
+euex 8 125
+'&#x007B;' ''  8  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+'&#x007D;' ''  9 % euex.htf                    2020-05-27-14:14 %
+'&#x007B;' '' 10 % Copyright 2000-2009 Eitan M. Gurari %
+'&#x007D;' '' 11 %
+'&#x007B;' '' 12 % This work may be distributed and/or modified under the conditions
+'&#x007D;' '' 13 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x007B;' '' 14 % license or (at your option) any later version. The latest version
+'&#x007D;' '' 15 % of this license is in http://www.latex-project.org/lppl.txt and
+'' ''  16 % version 1.3 or later is part of all distributions of LaTeX version
+'' ''  17 % 2003/12/01 or later.
+'' ''  18 % This work has the LPPL maintenance status "maintained".
+'' ''  19 % Current Maintainer of this work is the TeX4ht Project.
+'' ''  20 %
+'' ''  21 % If you modify this file, changing the
+'' ''  22 % version identification would be appreciated.
+'' ''  23 %
+'&#x21BC;' ''  leftharpoonup    24 % tex4ht@tug.org
+'&#x21BD;' ''  leftharpoondown  25 % https://tug.org/tex4ht
+'&#x21C0;' ''  righttharpoonup  26 %
+'&#x21C1;' ''  rightharpoondown 27 
+'' ''   28
+'' ''   29
+'' ''   30
+'' ''   31
+'&#x2190;' ''  leftarrow          32
+'&#x2192;' ''  rightarrow         33
+'&#x2191;' ''  uparrow            34
+'&#x2193;' ''  downarrow          35
+'&#x2194;' ''  leftrightarrow     36
+'&#x2197;' ''  nearrow            37
+'&#x2198;' ''  searrow            38
+'&#x2243;' ''  symeq              39
+'&#x21D0;' ''  Leftarrow          40
+'&#x21D2;' ''  Rightarrow         41
+'&#x21D1;' ''  Uparrow            42
+'&#x21D3;' ''  Downarrow          43
+'&#x21D4;' ''  Leftrightarrow     44
+'&#x2196;' ''  nwarrow            45
+'&#x2199;' ''  swarrow            46
+'' ''   47
+'' ''   48
+'&#x221E;' ''  infinity           49
+'' ''   50
+'' ''   51
+'' ''   52
+'' ''   53
+'' ''   54
+'' ''   55
+'' ''   56
+'' ''   57
+'' ''   58
+'' ''   59
+'&#x007B;' ''   60
+'&#x007D;' ''   61
+'' ''   62
+'' ''   63
+'' ''   64
+'' ''   65
+'' ''   66
+'' ''   67
+'' ''   68
+'' ''   69
+'' ''   70
+'' ''   71
+'&#x222E;' ''    72
+'&#x222E;' ''    73
+'' ''   74
+'' ''   75
+'' ''   76
+'' ''   77
+'' ''   78
+'' ''   79
+'&#x2211;' ''  sum               80
+'&#x220F;' ''  product           81
+'&#x222B;' ''  integral          82
+'' ''   83
+'' ''   84
+'' ''   85
+'' ''   86
+'' ''   87
+'&#x2211;' ''  sum               80
+'&#x220F;' ''  product           81
+'&#x222B;' ''  integral          82
+'' ''   91
+'' ''   92
+'' ''   93
+'' ''   94
+'' ''   95
+'&#x2210;' ''  coprod            96
+'&#x2210;' ''  coprod            97
+'' ''   98
+'' ''   99
+'' ''  100
+'' ''  101
+'' ''  102
+'' ''  103
+'' ''  104
+'' ''  105
+'' ''  106
+'' ''  107
+'&#x2195;' ''  updownarrow       108
+'&#x21D5;' ''  Updownarrow       109
+'' ''  110
+'' ''  111
+'' ''  112
+'' ''  113
+'' ''  114
+'' ''  115
+'' ''  116
+'' ''  117
+'' ''  118
+'' ''  119
+'' ''  120
+'' ''  121
+'' ''  122
+'' ''  123
+'' ''  124
+'' ''  125
+euex 8 125
+

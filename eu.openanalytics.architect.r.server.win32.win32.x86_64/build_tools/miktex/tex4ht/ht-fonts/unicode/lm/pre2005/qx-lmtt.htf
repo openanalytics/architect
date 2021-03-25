@@ -1,0 +1,261 @@
+qx-lmtt 1 255
+'&#x0394;' '' Delta     1 %
+'' ''                   2 % qx-lmtt.htf (unicode)             2020-05-27-14:14 %
+'' ''                   3 % Copyright (C) 2003-2009 Eitan M. Gurari %
+'' ''                   4 %
+'&#x03A0;' '' Pi        5 % This work may be distributed and/or modified under the conditions
+'&#x03A3;' '' Sigma     6 % of the LaTeX Project Public License, either version 1.3 of this
+'&#x03BC;' '' mu        7 % license or (at your option) any later version. The latest version
+'&#x2026;' '' ellipsis  8 % of this license is in http://www.latex-project.org/lppl.txt and
+'' ''                   9 % version 1.3 or later is part of all distributions of LaTeX version
+'&#x03A9;' '' Omega    10 % 2003/12/01 or later.
+'' ''                  11 % This work has the LPPL maintenance status "maintained".
+'' ''                  12 % Current Maintainer of this work is the TeX4ht Project.
+'' ''                  13 %
+'' ''                  14 % If you modify this file, changing the
+'' ''                  15 % version identification would be appreciated.
+'&#x0131;' '' dotlessi 16 %
+'&#x0237;' '' dotlessj        17 % tex4ht@tug.org
+'&#x02CB;' '' grave    18 % https://tug.org/tex4ht
+'&#x02CA;' '' acute    19 %
+'&#x02C7;' '' caron    20 
+'&#x02D8;' '' breve    21
+'&#x02C9;' '' macron   22
+'&#x02DA;' '' ring     23
+'&#x00B8;' '' cedilla  24
+'&#x00DF;' '' germandbls 25
+'&#x00E6;' '' ae       26
+'&#x0153;' '' oe       27
+'&#x00F8;' '' oslash   28
+'&#x00C6;' '' AE       29
+'&#x0152;' '' OE       30
+'&#x00D8;' '' Oslash   31
+'&#x2423;' '' visiblespace           32
+'!' '' exclam          33
+'&#x201D;' '' quotedblright  34
+'#' '' numbersign      35
+'$' '' dollar          36
+'%' '' percent         37
+'&#x0026;' '' ampersand 38
+'&#x2019;' '' quotesingle 39
+'&#x0028;' '' parenleft       40
+'&#x0029;' '' parenright      41
+'*' '' asterisk        42
+'+' '' plus            43
+',' '' comma           44
+'-' '' hyphen          45 hyphen
+'.' '' period          46
+'/' '' slash           47
+'0' '' zero            48
+'1' '' one             49
+'2' '' two             50
+'3' '' three           51
+'4' '' four            52
+'5' '' five            53
+'6' '' six             54
+'7' '' seven           55
+'8' '' eight           56
+'9' '' nine            57
+':' '' colon           58
+';' '' semicolon       59
+'&#x00A1;' '' exclamdown 60
+'=' '' equal           61
+'&#x00BF;' '' questiondown  62
+'?' '' question  63
+'@' '' at  64 at
+'A' '' A  65 A
+'B' '' B  66 B
+'C' '' C  67 C
+'D' '' D  68 D
+'E' '' E  69 E
+'F' '' F  70 F
+'G' '' G  71 G
+'H' '' H  72 H
+'I' '' I  73 I
+'J' '' J  74 J
+'K' '' K  75 K
+'L' '' L  76 L
+'M' '' M  77 M
+'N' '' N  78 N
+'O' '' O  79 O
+'P' '' P  80 P
+'Q' '' Q  81 Q
+'R' '' R  82 R
+'S' '' S  83 S
+'T' '' T  84 T
+'U' '' U  85 U
+'V' '' V  86 V
+'W' '' W  87 W
+'X' '' X  88 X
+'Y' '' Y  89 Y
+'Z' '' Z  90 Z
+'&#x005B;' '' bracketleft  91
+'&#x201C;' '' quotedblleft  92
+'&#x005D;' '' bracketright  93
+'^' '' asciicircum  94
+'&#x00A8;' '' dotaccent  95
+'&#x2018;' '' quoteleft  96
+'a' '' a  97
+'b' '' b  98
+'c' '' c  99
+'d' '' d  100
+'e' '' e  101
+'f' '' f  102
+'g' '' g  103
+'h' '' h  104
+'i' '' i  105
+'j' '' j  106
+'k' '' k  107
+'l' '' l  108
+'m' '' m  109
+'n' '' n  110
+'o' '' o  111
+'p' '' p  112
+'q' '' q  113
+'r' '' r  114
+'s' '' s  115
+'t' '' t  116
+'u' '' u  117
+'v' '' v  118
+'w' '' w  119
+'x' '' x  120
+'y' '' y  121
+'z' '' z  122
+'&#x2013;' '' endash  123
+'&#x2014;' '' emdash  124
+'&#x02DD;' '' hungarumlaut  125
+'~' '' asciitilde  126
+'&#x00A8;' '' dieresis  127
+'&#x20AC;' '' Euro  128
+'&#x0104;' '' Aogonek  129
+'&#x0106;' '' Cacute  130
+'&#x003E;' '' greater  131
+'' ''          132
+'' ''          133
+'&#x0118;' '' Eogonek  134
+'&#x012E;' '' Iogonek  135
+'&#x003C;' '' less  136
+'' ''          137
+'&#x0141;' '' Lslash  138
+'&#x0143;' '' Nacute  139
+'~' '' asciitilde  140
+'^' '' asciicircum  141
+'' ''          142
+'&#x2020;' '' dagger  143
+'&#x2021;' '' daggerdbl  144
+'&#x015A;' '' Sacute  145
+'&#x0160;' '' Scaron  146
+'&#x0218;' '' Scommaaccent  147
+'&#x2103;' '' degree  148
+'&#x021A;' '' Tcommaaccent  149
+'&#x00CE;' '' ogonek  150
+'&#x0173;' '' Uogonek  151
+'&#x0178;' '' Ydieresis  152
+'&#x0179;' '' Zacute  153
+'&#x017E;' '' Zcaron  154
+'&#x017B;' '' Zdotaccent  155
+'' ''          156
+'&#x007B;' '' braceleft  157
+'&#x007D;' '' braceright  158
+'&#x00A7;' '' section  159
+'' ''          160
+'&#x0105;' '' aogonek  161
+'&#x0107;' '' cacute  162
+'&#x00AE;' '' registered  163
+'&#x00A9;' '' copyright  164
+'&#x00F7;' '' divide  165
+'&#x0119;' '' eogonek  166
+'&#x012E;' '' iogonek  167
+'&#x2212;' '' minus  168
+'&#x00D7;' '' multiply  169
+'&#x0142;' '' lslash  170
+'&#x0144;' '' nacute  171
+'&#x00B1;' '' plusminus  172
+'' ''          173
+'&#x00AB;' '' guillemotleft  174
+'&#x00BB;' '' guillemotright  175
+'&#x00B6;' '' paragraph  176
+'&#x015B;' '' sacute  177
+'&#x0161;' '' scaron          178
+'&#x0219;' '' scommaaccent  179
+'&#x2219;' '' bullet          180
+'&#x021B;' '' tcommaaccent  181
+'' ''          182
+'&#x0172;' '' uogonek  183
+'&#x00FF;' '' ydieresis  184
+'&#x017A;' '' zacute  185
+'&#x017E;' '' zcaron  186
+'&#x017C;' '' zdotaccent  187
+'' ''          188
+'&#x010B;' '' periodcentered  189
+'&#x0022;' '' quotedbl  190
+'&#x0027;' '' quotesingle  191
+'&#x00C0;' '' Agrave  192
+'&#x00C1;' '' Aacute  193
+'&#x00C2;' '' Acircumflex  194
+'&#x00C3;' '' Atilde  195
+'&#x00C4;' '' Adieresis  196
+'&#x00C5;' '' Aring  197
+'&#x005C;' '' backslash  198
+'&#x00C7;' '' Ccedilla  199
+'&#x00C8;' '' Egrave  200
+'&#x00C9;' '' Eacute  201
+'&#x00CA;' '' Ecircumflex  202
+'&#x00CB;' '' Edieresis  203
+'&#x00CC;' '' Igrave  204
+'&#x00CD;' '' Iacute  205
+'&#x00CE;' '' Icircumflex  206
+'&#x00AF;' '' Idieresis  207
+'&#x00D0;' '' Eth  208
+'&#x0143;' '' Ntilde  209
+'&#x00D2;' '' Ograve  210
+'&#x00D3;' '' Oacute  211
+'&#x00D4;' '' Ocircumflex  212
+'&#x00D5;' '' Otilde  213
+'&#x00D6;' '' Odieresis  214
+'&#x20A0;' '' currency  215
+'&#x2030;' '' perthousand  216
+'&#x00D9;' '' Ugrave  217
+'&#x00DA;' '' Uacute  218
+'&#x00DB;' '' Ucircumflex  219
+'&#x00DC;' '' Udieresis  220
+'&#x00DD;' '' Yacute  221
+'&#x00DE;' '' Thorn  222
+'|' '' bar  223
+'&#x00E0;' '' agrave  224
+'&#x00E1;' '' aacute  225
+'&#x00E2;' '' acircumflex  226
+'&#x00E3;' '' atilde  227
+'&#x00E4;' '' adieresis  228
+'&#x00E5;' '' aring  229
+'_' '' underscore  230
+'&#x00E7;' '' ccedilla  231
+'&#x00E8;' '' egrave  232
+'&#x00E9;' '' eacute  233
+'&#x00EA;' '' ecircumflex  234
+'&#x00EB;' '' edieresis  235
+'&#x00EC;' '' igrave  236
+'&#x00ED;' '' iacute  237
+'&#x00EE;' '' icircumflex  238
+'&#x00EF;' '' idieresis  239
+'&#x00F0;' '' eth  240
+'&#x00F1;' '' ntilde  241
+'&#x00F2;' '' ograve  242
+'&#x00F3;' '' oacute  243
+'&#x00F4;' '' ocircumflex  244
+'&#x00F5;' '' otilde  245
+'&#x00F6;' '' odieresis  246
+'&#x2222;' '' anglearc  247
+'&#x2300;' '' diameter  248
+'&#x00F9;' '' ugrave  249
+'&#x00FA;' '' uacute  250
+'&#x00FB;' '' ucircumflex  251
+'&#x00FC;' '' udieresis  252
+'&#x00FD;' '' yacute  253
+'&#x00FE;' '' thorn  254
+'&#x201E;' '' quotedblbase  255
+qx-lmtt 1 255
+htfcss: qx-lmtt font-family: monospace,monospace;
+htfcss: qx-lmtti font-family: monospace,monospace; font-style:italic;
+htfcss: qx-lmtto font-family: monospace,monospace; font-style:italic;
+

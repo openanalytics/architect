@@ -1,0 +1,19 @@
+%%
+%% This is file `laedtpnsp.fd',
+%%
+%% A part of the Arabi package to be used with the Babel system
+%% to write Arabic and/or Farsi
+%% 
+%% Version 0.1
+%% 
+%%
+\ProvidesFile{laedtpnsp.fd}
+        [2006/01/01 v0.1 LaTeX Arabic font description
+         (test version: may change)]
+
+\DeclareFontFamily{LAE}{dtpn}{\hyphenchar\font=-1}% 
+              
+\DeclareFontShape{LAE}{dtpnsp}{m}{n}{<-> s*[1.25] dtpnsp}{}
+\DeclareFontShape{LAE}{dtpnsp}{bx}{n}{<-> s*[1.25] dtpnsp}{}
+
+\endinput

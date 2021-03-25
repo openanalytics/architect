@@ -1,0 +1,7 @@
+.lm-ts1
+htfcss: pcxb font-weight: bold;
+htfcss: pcxbi font-weight: bold; font-style:italic;
+htfcss: pcxbsl font-weight: bold; font-style:italic;
+htfcss: pcxi font-style:italic;
+htfcss: pcxisl font-style:italic;
+

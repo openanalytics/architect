@@ -1,0 +1,2878 @@
+%%  OPmac -- Olsak's PlainTeX macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tech-documentation, Petr Olsak, 2012
+
+\input utf8off \clearmubyte
+
+% This file is encoded in ISO-8859-2 because
+% UTF-8 encTeX has a conflict with DocByTeX
+
+\chyph
+\def\projectversion{July 2019}
+\def\headtitle{OPmac}
+
+\widowpenalty=10000 
+\clubpenalty=10000
+
+\emergencystretch=2em
+\hbadness=2200
+
+\showboxbreadth=1500 \showboxdepth=2
+
+\def\csplain{\CS plain}
+\def\CS{CS}
+
+\input docby.tex
+
+\setlinecomment{\percent} \noactive{\nb\percent} \noactive{\percent\cbrace}
+\noactive{\nb fontdimen} \noactive{\nb empty}
+
+\title OPmac -- roz¹iøující makra plain\TeX{}u
+
+\author Petr Ol¹ák
+
+\centerline{\ulink[http://www.olsak.net/opmac.html]%
+                         {www.olsak.net/opmac.html}}
+
+\def\db{\dg\nb}
+\def\du#1{\api{\nb#1}}
+\let\quotehook=\langleactive
+\def\insdef#1 {\ifirst{docby.tex}{def\nb#1 }{^^B\cbrace}{++}}
+\def\inssdef#1 {\ifirst{docby.tex}{def\nb#1}{\empty}{+-}}
+\bgroup
+   \catcode`\[=1 \catcode`]=2 \catcode`\{=12 \catcode`\}=12
+   \gdef\obrace[{] \gdef\cbrace[}]
+\egroup
+\def\indexhook{%
+   Tuènì je oznaèena strana, kde je slovo
+   dokumentováno, pak následuje seznam v¹ech stran, na kterých se slovo 
+   vyskytuje.
+   \medskip}
+\def\nn#1 {\noactive{\nb#1}} \nn insert \nn undefined
+
+\def\cnvbookmark#1{\lowercase{\lowercase{#1}}}
+\def\bookmarkshook{\lo ìe \lo ¹s \lo èc \lo ør \lo ¾z \lo ýy
+   \lo áa \lo íi \lo ée \lo úu \lo ùu \lo óo \lo òn }
+\def\lo #1#2{\lccode`#1=`#2}
+
+
+\dotoc \bookmarks
+
+\sec Úvod
+%%%%%%%%%
+
+OPmac je balík jednoduchých doplòujících maker k plain\TeX{}u umo¾òující
+u¾ivatelùm základní La\TeX{}ovou funkcionalitu: zmìny velikosti písma,
+automatickou tvorbu obsahu a rejstøíku, práci s {\tt bib} databázemi,
+referencemi, mo¾nost prolo¾ení referencí hyperlinkovými odkazy atd.
+
+
+\sec U¾ivatelská dokumentace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+U¾ivatelská dokumentace je zatím v souboru "opmac-u.tex" a "opmac-u.pdf".
+Do tohoto místa ji zahrnu pozdìji a prolinkuji ji s technickou dokumentací.
+
+
+\sec Technická dokumentace
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Tato èást dokumentace je urèena pro tvùrce maker, kteøí se chtìjí zde
+uvedenými makry inspirovat a pøípadnì je pøizpùsobit svému po¾adavku.
+Pøedpokládá se znalost \TeX{}u, tj. napøíklad aspoò zbì¾ná orientace 
+v~\TeX{}booku naruby. Na tuto knihu je na mnoha místech odkazováno pod
+zkratkou TBN.
+
+
+\subsec Základní makra
+%%%%%%%%%%%%%%%%%%%%%%
+
+Na zaèátku souboru "opmac.tex" zjistíme, zda není soubor ètený podruhé. V
+takovém pøípadì ètení odmítneme. Ptáme se na to, zda je definováno makro \db
+OPmacversion, které vzápìtí definujeme. Je-li nìkdo pøekvapen, proè jsem
+nepou¾il "\expandafter\endpinput\fi", mù¾e si prostudovat TBN, stranu~358,
+heslo "\endinput".
+
+\ifirst {opmac.tex}{OPmacversion}{\empty}{+-}
+
+Dva pracovní registry:
+\dgn \nb tmpnum
+\dgn \nb tmpdim
+
+\inext {newcount}{\empty}{+-}
+
+OPmac nebude nikdy hlásit chyby. Èasto ale bude psát pomocí \db opwarning 
+na terminál varování.
+
+\inext {warning}{\empty}{+-}
+
+Makro \db addto "<makro>{<tokeny>}" pøidá na konec "<makra>" dané "<tokeny>".
+
+\inext {addto}{\empty}{+-}
+
+V OPmac budeme pracovat se seznamem \db protectlist, který bude obsahovat
+makra, je¾ chceme mít tzv. robustní, tj. chceme, aby se pøi "\write" v output
+rutinì neexpandovala. Ka¾dému makru v~seznamu pøedchází "\doprotect", tak¾e
+seznam "\protectlist" vypadá takto:
+
+\def\begtthook{\langleactive}
+\begtt
+\doprotect<makro1> \doprotect<makro2> ...
+\endtt
+
+\def\begtthook{}
+Seznam budeme spou¹tìt v output rutinì s tím, ¾e "\doprotect" tam bude mít
+význam makra, které zaøídí, aby jeho parametr získal význam "\relax".
+Tím bude zabránìno jeho expanzi.
+Naprogramujeme \db addprotect "<makro>", které zaøídí vlo¾ení "<makra>" do seznamu. 
+
+\inext {protectlist}{\empty}{+-}
+
+OPmac u¾ívá v makrech pro speciální vlastnosti PDF výstupu výhradnì
+primitivy pdf\TeX{}u. Lua\TeX{} nám v roce 2016 pøidìlal starosti, proto¾e
+pøedefinoval pdf\TeX{}ové primitivy. Proto pøi detekování nového Lua\TeX{}u
+(to poznáme podle "\pdfextension") nastavíme význam primitivu "\pdfoutput"
+do pùvodního stavu a dále, na konci souboru maker (viz
+sekci~\ilink[zaver]{\numref[zaver]}), voláme speciální soubor
+"opmac-luatex.tex", který nastaví dal¹í pdf\TeX{}ové primitivy podle
+pùvodního významu.
+
+\inext {pdfextension}{\empty}{+-}
+
+Nìkterá makra budou fungovat jen v pdf\TeX{}u pøi nastaveném "\pdfoutput=1".
+Pøipravíme si tedy test \db ifpdftex, který pak pou¾ijeme pøi ètení souboru
+"opmac.tex". Test nikdy nebudeme vkládat do maker, tak¾e pøi ètení souboru
+"opmac.tex" u¾ musí být jasné, zda bude výstup smìrován do DVI nebo PDF.
+Pozdìj¹í zmìna "\pdfoutput" mù¾e zpùsobit potí¾e.
+Xe\TeX{} sice není pdf\TeX, ale po dobu ètení maker jej za pdf\TeX{} budeme
+pova¾ovat a na konci ètení maker (viz sekci~\ilink[zaver]{\numref[zaver]}) 
+to spravíme.
+
+\inext {ifpdftex}{\empty}{+-}
+
+Makra \db sdef a \db sxdef umo¾òují pohodlnì definovat kontrolní sekvence
+ohranièené pomocí "\csname...\endcsname". Stejnì tak \db slet nastaví význam
+sekvencí ohranièených pomocí "\csname...\endcsname".
+
+\inext {sdef}{\empty}{+-}
+
+Makro \db adef umo¾ní nastavit znak na aktivní a rovnou ho definovat, co¾
+normálnì uvnitø maker není jednoduché (TBN str. 25 a 26). 
+Vyu¾ijeme toho, ¾e "~" je aktivní znak a pomocí
+"\lccode" a "\lowercase" jej pøepí¹eme na po¾adovaný znak. Dostaneme tím 
+aktivní token s po¾adovanou ASCII hodnotou a tento token definujeme.
+"\lccode" nastavíme ve skupinì, tak¾e po ukonèení skupiny se vrací k
+výchozí hodnotì.
+
+\inext {adef}{\empty}{+-}
+
+Makrem \db isdefined "{<jméno>}\iftrue" se ptáme, zda je definovaná
+"\csname<jméno>\endcsname". To závìreèné pøipojené "\iftrue" makro se¾ere,
+ale u¾ivatel ho pí¹e zejména z toho dùvodu, aby mu tato konstrukce fungovala
+uvnitø vnoøených "\if..\fi"
+
+\inext {isdefined}{^^B\cbrace}{++}
+
+Makro \db isinlist "<list>{<tokeny>}\iftrue" zjistí, zda "<tokeny>" jsou
+(jako string) obsa¾eny v~makru "<list>". Pøitom se¾ere "\iftrue" ze stejných
+dùvodù, jak je uvedeno pøed chvílí.
+
+\inext {isinlist}{^^B\cbrace}{++}
+
+Makro \db isnextchar "<znak>{<co dìlat pøi ano>}{<co dìlat pøi ne>}" 
+pracuje ponìkud odli¹nì od pøedchozích maker. Zjistí, zda následující znak
+je "<znak>" a pokud ano, vykoná vnitøek první závorky, jinak vykoná vnitøek
+druhé závorky. Pomocí "\futurelet" ulo¾í zkoumaný znak do "\next" a spustí
+\db isnextcharA.
+
+\inext {isnextchar}{\empty}{+-}
+
+Makro \db eoldef "\foo#1{<makro>}" pracuje jako "\def", ale parametr "#1" je
+separován koncem øádku. Tak¾e tøeba
+
+\begtt
+\eoldef\foo#1{param={#1}}
+\foo tady je parametr
+\endtt
+expanduje na "param={tady je parametr}". Implementace se opírá o to, ¾e
+pøi "\eoldef\foo" se definují "\foo" a "\\foo:M".
+Pøitom "\foo" ve skupinì pozmìní catcode znaku pro konec øádku a spustí
+\db eoldefA "\foo". Toto makro naète parametr "#2" do konce øádku (po "^^M"), 
+dále ukonèí skupinu a spustí "\\foo:M{parametr}". Koneènì 
+"\\foo:M" vykoná to, co definoval u¾ivatel.
+
+\inext {eoldef}{\empty}{+-}
+
+Makro \db maybebreak "<rozmìr>" umo¾ní u¾ivateli rozlomit øádek 
+nebo stránku v místì pou¾ití. Pomocné marko \db maybebreakA se spustí po
+naètení parametru. Zlom se uskuteèní, chybí-li do konce
+øádku/stránky zhruba ménì ne¾ "<rozmìr>" místa. Jinak se zlom neuskuteèní a
+nestane se nic. Makro je závislé na módu \TeX{}u (vertikální/horizontální). 
+Chcete-li jím lámat
+stránky, pi¹te tøeba "\par\maybebreak3cm". Makro vyu¾ívá triku, ¾e pøiète a
+odeète stejnou hodnotu rozta¾itelnosti mezery, tak¾e tyto dvì mezery tìsnì
+za sebou se (pøi nezlomení v~"\penalty-130") anulují.
+
+\inext {maybebreak}{^^B\cbrace}{++}
+
+Pøedefinujeme makro \db uv z \csplain{}u. Tam je toto makro navr¾eno tak, aby
+mohlo mít za svùj parametr verbatim text. Dùsledkem toho nefunguje správnì
+kerning. Pova¾uji za lep¹í mít správnì kerning a pøípadné uvozování verbatim
+textù øe¹it tøeba pomocí "\clqq...\crqq".
+
+\inext {def\nb uv}{}{+-}
+
+Knuth v souboru "plain.tex" zanechal øídicí sekvenci "\\" v provizorním stavu
+(cvièení: podívejte se v jakém). Domnívám se, ¾e je lep¹í ji dát jednoznaèný
+význam "\undefined". Nìkterým u¾ivatelùm toti¾ mù¾e OPmac pøipomínat
+La\TeX{} a není tedy vylouèeno, ¾e je napadne psát "\\". Mìli by na to
+dostat jednoznaènou odpovìï: {\tt undefined control sequence}.
+
+\inext {undefined}{}{+-}
+
+Do pracovního souboru urèeného k novému naètení budeme chtít vlo¾it
+komentáøe za znakem procento. K tomu potøebujeme mít procento jako obyèejný
+znak kategorie 12. Na tento znak se v na¹em kódu pøeklopí otazník, Tak¾e 
+\db percent expanduje na znak procento s kategorií 12.
+
+\inext {percent}{}{+-}
+
+Podobnì je naprogramováno makro \db bslash, které vytiskne obyèejné zpìtné
+lomítko:
+
+\inext {bslash}{}{+-}
+
+Makro plain\TeX{}u "\,"
+funguje jen v matematické sazbì. U¾ivatel bude chtít makro èasto
+pou¾ít napøíklad mezi èíslem a jednotkou v textovém módu: "5\,mm", tak¾e
+makro pøedefinujeme.
+
+\inext {muskip}{}{+-}
+
+Definovaná makra chceme pøi "\write" do souboru nechat v pùvodním stavu:
+
+\inext {addprotect}{}{+-}
+
+Makro "\exfont" se vyskytuje v souboru "exchars.tex" z \CS{}plainu.
+Pøíkaz "\addprotect\exfont" zaprotektuje v¹echny znaky deklarované v tomto
+souboru naráz. Podrobnosti lze nalézt v uvedeném souboru.
+
+Makro \db replacestrings "{<string1>}{<string2>}" vymìní v makru "\tmpb"
+ve¹keré výskyty "<string1>" za "<string2>". Pro tento úèel definuje pracovní
+makra \db replacestringsA a \db replacestringsB se separátorem "<string1>". 
+Jak to pracuje je ukázáno na pøíkladu ní¾e.
+Pøed spu¹tìním "\replacestringsA" je tøeba nejprve vyvrhnout obsah "\tmpb"
+do vstupní fronty pomocí "\expandafter". 
+V makru pracujeme s tokeny "!" a "?" kategorie 3, které slou¾í jako
+separátory. Pøedpokládáme, ¾e takové nestandardní tokeny se ve zpracovávaném 
+textu nikdy neobjeví, proto¾e vykøièník a otazník mají normálnì kategorii
+12.
+
+\inext{bgroup}{\empty}{+-}
+
+Jak to pracuje si uká¾eme na pøíkladu "\replacestrings{XX}{YY}", pokud máme
+v "\tmpb" ulo¾en tøeba text "ahaXXuffXXkonec". Makra "\replacestringsA" a 
+"\replacestringsB" jsou v takovém pøípadì definována jako:
+
+\begtt
+\def\replacestringsA #1XX{\def\tmpb{#1}\replacestringsB}
+\def\replacestringsB #1XX{\ifx!#1\relax\else
+   \addto\tmpb{YY#1}\expandafter\replacestringsB\fi}%
+\endtt
+%
+a jednotlivé kroky zpracování probíhají takto:
+
+\begtt
+\replacestringsA ahaXXuffXXkonec?XX!XX
+#1 = "aha" zbytek fronty = "uffXXkonec?XX!"
+\def\tmpb{aha}
+\replacestringsB uffXXkonec?XX!XX
+#1 = "uff" zbytek fronty = "konec?XX!"
+\addto\tmpb{YYuff}, tj. \tmpb obsahuje "ahaYYuff".
+\replacestringsB konec?XX!XX
+#1 = "konec?" zbytek fronty = "!XX"
+\addto\tmpb{YYkonec?}, tj. \tmpb obsahuje "ahaYYuffYYkonec?"
+\replacestringsB !XX
+#1 = ! zbytek fronty prázdný, rekurze konèí
+\endtt
+%
+Dále se pøedefinuje "\def\replacestrin""gsA#1?{\def\tmpb{#1}}" a provede se
+
+\begtt
+\replacestringsA ahaYYuffYYkonec?
+#1 = "ahaYYuffYYkonec"
+\def\tmpb{ahaYYuffYYkonec}
+\endtt
+%
+tedy tímto algoritmem odstraníme koncový otazník. Proè jsme ho tam vlastnì
+dávali? Kdyby tam nebyl, tak by nesprávnì fungovalo
+"\replacestrings{XX}{YY}" pøi "\tmpb" ve tvaru "ahaX".
+
+Makro "\replacestrings" je kompromisem mezi jednoduchostí a pøijatelnými
+mo¾nostmi. Nefunguje nad textem s nespárovanými "\if...\fi" a také
+pøi "\def\tmpb{{aha}XX}\replacestrings{XX}{YY}" se bohu¾el odstraní kuèeravé
+závorky kolem "aha". Mù¾ete tøeba pøidat pøed ka¾dou dvojici takových
+závorek "\empty", abyste mìli jistotu, ¾e závorky nezmizí.
+
+\subsec Globální parametry
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Zaká¾eme vdovy a sirotky a dále nastavíme registry pro listingy tiskového
+materiálu na smysluplnìj¹í hodnoty, ne¾ jsou implicitní.
+
+\inext {widowpenalty}{\empty}{+-}
+
+Následující makra a registry ovlivní chování klíèových maker OPmac zpùsobem,
+jak je popsáno v~komentáøích. Mnohé z tìchto maker a registrù byly zmínìny v
+u¾ivatelské dokumentaci.
+\dgn \nb iindent
+\dgn \nb ttindent
+\dgn \nb ttskip
+\dgn \nb ttpenalty
+\dgn \nb tthook
+\dgn \nb intthook
+\dgn \nb ptthook
+\dgn \nb iiskip
+\dgn \nb itemhook
+\dgn \nb bibskip
+\dgn \nb tabstrut
+\dgn \nb tabiteml
+\dgn \nb tabitemr
+\dgn \nb vvkern
+\dgn \nb hhkern
+\dgn \nb multiskip
+\dgn \nb colsep
+\dgn \nb mnoteindent
+\dgn \nb mnotesize
+\dgn \nb titskip
+\dgn \nb picdir
+\dgn \nb bibtexhook
+\dgn \nb chaphook
+\dgn \nb sechook
+\dgn \nb secchook
+\dgn \nb cnvhook
+\dgn \nb prepghook
+\dgn \nb pghook
+\dgn \nb toclinehook
+\dgn \nb fnotehook
+\dgn \nb mnotehook
+\dgn \nb captionhook
+
+\inext {newdimen}{\count=7 \empty}{+-}
+
+
+
+\subsec Loga
+%%%%%%%%%%%%
+
+V logu \db OPmac je pomocí "\thefontscale" zvìt¹eno písmeno O. Logo \db CS je
+pøepsáno beze zmìny z CS\TeX{}u. Tím snadno vytvoøíme i logo \db csplain.
+
+\inext {def\nb OPmac}{\empty}{+-}
+
+Troufám si tvrdit, ¾e logo \db LaTeX (aèkoli je plain\TeX{}isté asi moc
+nebudou potøebovat) je v~následujícím kódu daleko lépe øe¹eno, ne¾ v
+samotném La\TeX{}u. Poèítá toti¾ ve spolupráci s makrem \db slantcorr 
+i se sklonem písma pøi usazování zmen¹eného A. 
+
+\inext {LaTeX}{\empty}{+-}
+
+Loga se obèas mohou vyskytnout v nadpisech. Zabezpeèíme je tedy proti
+rozboøení pøi zápisu do REF souboru.
+
+\inext {addprotect}{\empty}{+-}
+
+
+\subsec Velikosti fontù, øádkování
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\csplain{} od verze "<Nov. 2012>" definuje makro 
+\db resizefont "<fontselector>", které zmìní
+velikost fontu daného svým pøepínaèem a tento zmìnìný font si ponechá
+stejný pøepínaè. Zmìna velikosti je dána obsahem makra \db sizespec.
+Tam mù¾e být napøíklad napsáno "at13pt" nebo "scaled800".
+Dále CSplain definuje makro 
+\db resizeall, které zmìní velikost
+fontù s registrovanými pøepínaèi. Registrování se provádí makrem
+\db regfont. Implicitnì jsou registrovány pøepínaèe 
+ "\tenrm", "\tenit", "\tenbf", "\tenbi", a "\tentt".
+Do nových velikostí tedy pùjdeme se starými názvy pøepínaèù
+"\ten<nìco>" a to slovo "ten" budeme chápat jen jako historický relikt,
+který nám ov¹em napoví, ¾e kontrolní sekvence je fontovým pøepínaèem. 
+
+OPmac si zjistí, zda je definovaný "\regfont" (tj. je detekován dostateènì
+nový csplain). Pokud ne, upozorní na nedostupnost vicejazyèné podpory na
+terminálu a potøebná makra pro fonty si definuje. Je to kopie kódu ze
+souboru "csfontsm.tex" z balíèku \csplain{}.
+
+\inext {regfont}{\empty}{+-}
+
+Makra "\typosize", "\fontsizex", "\textfontsize", 
+"\setbaselineskip" po¾adují zápis parametru bez jednotky. 
+Jednotkou je \db ptunit, která je nastavena na 1pt. U¾ivatel mù¾e
+jednotku zmìnit (napø. "\ptunit=1mm" pøi návrhu plakátu). Dále \db fontdim
+je registr, který udává aktuální velikost písma.
+
+\inext {ptunit}{\empty}{+-}
+
+Implicitnì jsou zavedeny \CS{}fonty, tak¾e k nim pøidáme AMS fonty z
+"ams-math.tex", které vizuálnì odpovídají. Pozdìji si mù¾e u¾ivatel zavést
+jiné makro (napø. "tx-math.tex") a zavede si tøeba i jiné textové fonty. 
+To nezmìní vlastnosti maker v OPmac, pokud nové soubory maker správnì 
+pøedefinují
+makra "\setmathsizes[<text>/<script>/<scriptscript>]", "\normalmath" a
+"\boldmath". Soubor "ams-math.tex" naèteme jen tehdy, kdy¾ není definováno
+"\normalmath". Je toti¾ mo¾né, ¾e u¾ivatel naèetl matematické makro je¹tì
+pøed zavoláním "\input opmac".
+
+\inext {ams-math}{}{+-}
+
+Po naètení souboru "ams-math.tex" disponujeme makry \db regtfm na registraci
+rùzných metrik pro rùzné designované velikosti fontù a \db whichtfm je
+definováno tak, aby 
+expandovalo na svùj parametr nebo na metriku, která je registrována pro
+velikost \db dgsize. Registrace metrik \CS{}fontù je rovnì¾ provedena
+v souboru {\tt ams-math.tex}. 
+
+Èasto budeme potøebovat odstranit jednotku "pt" ve výpisu "\the<dimen>".
+Provedeme to pomocí "\expandafter\ignorept\the<dimen>". Proto¾e "\the"
+vyrábí znaky pt s kategorií 12, je makro \db ignorept definováno trikem pøes
+"\lowercase". Z otazníku vznikne p kategorie 12 a z vykøièníku vznikne t.
+
+\inext {lccode}{\empty}{+-}
+
+Makra \db typosize a \db typoscale zmìní velikosti a nastavují 
+výchozí font "\tenrm" a výchozí
+matematiku "\normalmath". Nehrajeme si na OFS nebo NFSS, které se sna¾í ctít
+naposledy nastavený duktus a variantu. U¾ivatel si variantu písma a tuèný 
+duktus pro matematiku musí nastavit a¾ po zavolání makra na zmìnu velikosti fontu.
+
+\inext {typosize}{\empty}{+-}
+
+Makro \db fontsizex "[<velikost>]" pøedpokládá svùj parametr bez jednotky.
+Písmeno x v názvu znaèí, ¾e makro není v u¾ivatelské dokumentaci. U¾ivatel
+toti¾ mù¾e pou¾ít "\typosize[<velikost>/]" a tøeba ho napadne si nìjaké
+vlastní makro "\fontsize" definovat.
+Je-li parametr "<velikost>" prázdný, makro "\fontsizex" neudìlá nic. 
+Jinak pomocí "\textfontsize" nastaví
+velikost textových fontù. Dále zavolá 
+"\setmathsizes[\fontsize/.7\fontsize/.5\fontsize]", ov¹em v parametru musí
+odstranit jednotky a parametr pøichystá pro makro "\setmathsizes"
+expandovaný. Pøíkazem "\normalmath" nakonec nastaví matematické fonty do
+nové velikosti.
+
+\inext {fontsizex}{^^B\cbrace}{++}
+
+Makro \db textfontsize "[<velikost>]" pøedpokládá svùj parametr bez
+jednotky. Pøipojí jednotku "\ptunit", nastaví "\dgsize" a "\sizespec" a
+zavolá "\resizeall", co¾ je makro definované v \csplain{}u, které postupnì
+volá "\resizefont" na v¹echny registrované fonty.
+
+\inext {textfontsize}{^^B\cbrace}{++}
+
+Makro \db setbaselineskip "[<velikost>]" pøedpokládá parametr bez jednotky.
+Pøipojí jednotku "\ptunit" a nastaví "\baselineskip" bez dodateèné
+pru¾nosti. Nastaví dal¹í registry, které s "\baselineskip" souvisejí.
+Zámìrnì není nastavena "\topskip", "\splittopskip",
+"\above/belowdisplayskip". Tyto parametry (globální pro celý dokument) by si
+mìl u¾ivatel nastavit sám.
+
+\inext {setbaselineskip}{^^B\cbrace}{++}
+
+Makro \db withoutunit "\makro<dimen>" odstraní jednotku z "<dimen>" a takto
+upravené èíslo vlo¾í do parametru "\makro", které oèekává údaj bez jednotky
+v~hranaté závorce.
+
+\inext {withoutunit}{\empty}{+-}
+
+Makra \db fontscalex "<factor>", \db textfontscale "<factor>" a
+\db scalebaselineskip "<factor>"
+pøepoèítají "<factor>" podle aktuálního "\fontdim" resp. "\baselineskip"
+na absolutní jednotku a zavolají odpovídající makro definované pøed chvílí.
+Na øádku~\cite[typoscale:roundA] je "#1" pøevedeno na "(#1/1000)pt":
+Èíslo 3277sp je $2^{16}/20$sp, tedy 1/20pt. Tato hodnota je nejprve vynásobena
+"#1" a vydìlena 50. Proè bylo èíslo 1000 rozlo¾eno na $20\times50$?
+Aby nedo¹lo k pøeteèení hodnoty typu dimen pøi velkém "#1".
+
+\ilabel [typoscale:roundA] {3277sp}
+
+\inext {fontscalex}{\count=3 ^^B\cbrace}{++}
+
+Makro \db thefontsize si alokuje aktuální font do sekvence \db thefont a
+tento nový fontový pøepínaè podrobí zmìnì velikosti "\resizefont".
+Makro \db thefontscale pøepoèítá parametr na absolutní velikost a zavolá
+"\thefontsize".
+
+\inext {thefontsize}{\count=2 ^^B\cbrace}{++}
+
+Plain\TeX{}ový \db magstep má na konci "\relax", tak¾e nefunguje jako pouze
+expandující makro. My ale "\magstep" oèekáváme v parametrech pøíkazù
+"\typoscale" a podobných, proto v "\magstep" je nahrazeno "\relax" ménì
+drsným "\space". To separuje èíselný parametr dostateènì.
+
+\inext {magstep}{\empty}{+-}
+
+Makro \db typobase nastaví "\baselineskip" a "\fontdim" podle
+\db baselineskipB a \db fontdimB, co¾ jsou makra, která mají ulo¾enu
+základní velikost øádkování a základní velikost písma.
+
+\inext {typobase}{^^B\cbrace}{++}
+
+Makro \db em pøepíná kontextovì do odpovídající varianty a ve spolupráci s
+makry "\additcorr" a "\afteritcorr" pøidává italickou korekci. Makro \db additcorr 
+si pomocí "\lastskip" zapamatuje poslední mezeru, pak ji odstraní, vlo¾í
+italickou korekci a nakonec vrátí tu odstranìnou mezeru.
+Makro \db afteritcorr se probudí k èinnosti na konci skupiny a pøidá
+italickou korekci, pokud nenásleduje teèka nebo èárka.
+
+\inext {def\nb em}{\empty}{+-}
+
+Fontová makra zabezpeèíme proti rozkladu v parametru "\write".
+
+\inext {addprotect}{\empty}{+-}
+
+Makro \db fontfam je definováno v souboru "fontfam.tex". Není úèelné je
+zavádìt pøímo do OPmac, proto¾e makro pøeète také rozsáhlá data o fontech,
+která mohou zbyteènì zatì¾ovat pamì», pokud u¾ivatel "\fontfam" nikdy
+nepou¾ije. Tak¾e tento makro soubor a data jsou pøeèteny a¾ pøi prvním
+pou¾ití "\fontfam". Uvedený soubor maker definuje "\fontfam", tak¾e na
+následujícím øádku nevidíte ¾ádnou rekurzi.
+
+\inext {fontfam}{\empty}{+-}
+
+
+\subsec Texty ve více jazycích
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Makro \db mtext "<znaèka>" je zkratkou za \uv{multilingual text}.
+Toto makro si podle znaèky a aktuálního jazyka (dle registru "\language")
+vyhledá, jaký text má vypsat.
+
+\inext {mtext}{\empty}{+-}
+
+Jednotlivé texty definujeme pomocí "\sdef{mt:<znaèka>:<jazyk>}" takto:
+
+\inext {chap:en}{\empty}{+-}
+
+Nìkteré texty jsou zapsány pomocí "\v" notace. Je lep¹í udìlat to takto
+ne¾ vytvoøit soubor "opmac.tex" závislý na kódování. Aby byla tato notace
+správnì interpretována, spustíme "\csaccents", co¾ je makro \csplain{}u.
+Pokud nìkdo pou¾ívá OPmac s jiným formátem, ne¾ \csplain, neprovede se nic,
+proto¾e konstrukce "\csname csaccents\endcsname" se v takovém pøípadì pøerodí v
+"\relax". Makro "\csaccents" spustíme jen tehdy, pokud je u¾ u¾ivatel
+nespustil pøed "\input opmac". To poznáme podle toho, zda je definovaná
+sekvence "\r".
+
+\inext {}{}{+-}
+
+CSplain od verze "Nov. 2012" pøipravuje následující 
+makra, která konvertují èíslo "\language" na znaèku jazyka pro v¹echny 
+jazyky, které mají nata¾eny vzory dìlení slov. 
+Pro jistotu (pokud je pou¾ita star¹í verze CSplainu) tuto koverzi
+\uv{nauèíme} i makro OPmac:
+
+\inext {sdef}{\empty}{+-}
+
+Je-li detekován místo CSplainu e\TeX, nastavíme znaèky jazykù dle hodnoty
+"\language" v e\TeX{}u:
+
+\inext {uselanguage}{\empty}{+-}
+
+Makro \db isolangset "{<dlouhý-název>}{<iso-zkratka>}" pøiøadí dlohému názvu 
+jazyka (a související hodnotì registu "\language") jeho
+zkratku dle ISO~639-1 pøi pou¾ití formátu generovaného z "etex.src". 
+Naopak, pøi pou¾ití CSplainu makro nedìlá nic, proto¾e ISO
+zkratky a jejich propojení na hodnoty "\language" jsou nastaveny 
+pøímo v CSplainu.
+
+
+\subsec REF soubor
+%%%%%%%%%%%%%%%%%%
+
+OPmac pou¾ívá pro v¹echny potøeby (obsah, reference, citace, rejstøík,
+poznámky na okraji)
+jediný soubor "\jobname.ref" (tzv. REF soubor). 
+Navíc, pokud není potøeba, vùbec tento soubor
+nezakládá. Èasto toti¾ budeme chtít dìlat s OPmac jen jednoduché vìci a je
+únavné poøád na disku kvùli tomu uklízet smetí.
+
+Je potøeba deklarovat souborové deskriptory \db reffile a \db testin:
+
+\inext {newwrite}{\empty}{+-}
+
+Do souboru zapisujeme makrem \db wref "\<sekvence>{<data>}", které vlo¾í do
+"\reffile" øádek obsahující "\<sekvence><data>".
+Implicitnì ale není "\reffile" zalo¾eno, tak¾e implicitní hodnota tohoto
+makra je \db wrefrelax, tedy nedìlej nic.
+
+\inext {wrefrelax}{\empty}{+-}
+
+Makro \db inputref spustíme na konci ètení souboru "opmac.tex", tedy v
+situaci, kdy u¾ budeme mít definovány v¹echny kontrolní sekvence, které se v
+REF souboru mohou vyskytnout. Nyní si toto makro jen pøipravíme.
+Makro ovìøí existenci souboru "\jobname.ref" a pokud existuje, provede
+"\input \jobname.ref". V takovém pøípadì po naètení REF souboru jej 
+pomocí makra "\openrefA" otevøe k~zápisu a pøipraví "\wref" do stavu, kdy toto
+makro bude ukládat data do souboru. 
+
+\inext {inputref}{^^B\cbrace}{+-}
+
+Makro \db openref kdekoli v dokumentu si vynutí zalo¾ení souboru
+"\jobname.ref". Toto makro neprovede nic, je-li REF soubor u¾ zalo¾en. To
+pozná podle toho, ¾e makro "\wref" nemá význam "\wrefrelax". Jestli¾e soubor
+je¹tì není zalo¾en, makro zavolá \db openrefA, které REF soubor zalo¾í,
+pøedefinuje "\wref" a vlo¾í první øádek do souboru. Tím je zaruèeno, ¾e pøi
+pøí¹tím \TeX{}ování dokumentu je soubor neprázdný, tak¾e jej OPmac rovnou
+pøeète a znovu zalo¾í na zaèátku své èinnosti. Nakonec se "\openref"
+zasebevra¾dí, aby se nemuselo pøi opakovaném volání obtì¾ovat vykonávat
+nìjakou práci. Práce u¾ je toti¾ hotova.
+
+\inext {openref}{\count=2 ^^B\cbrace}{++}
+
+Pro zápisy do REF souboru pou¾íváme tuto konvenci: první kontrolní sekvence
+na øádku je v¾dy tvaru "\X<název>", tak¾e máme pøehled, která kontrolní sekvence
+pochází z REF souboru.
+
+Jako první je do REF souboru vlo¾en pøíkaz \db Xrefversion "{<èíslo>}". Pokud
+toto "<èíslo>" mení rovno \db REFversion, REF soubor se nepøeète. Tím
+je zaruèeno, ¾e OPmac nezkolabuje pøi ètení REF souboru kvùli tomu, ¾e je
+zde zmatení verzí. Èíslo verze "\REFversion" zvìt¹ím o jednièku v¾dy, kdy¾ 
+v~budoucí verzi OPmac pøidám nebo uberu v REF souboru nìjakou funkci.
+
+\inext {REFversion}{\empty}{+-}
+
+\subsec Lejblíky a odkazy
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+K vytvoøení zpìtného odkazu provedeme tøi kroky (v tomto poøadí):
+
+\begitems
+\item* V místì "\label[<lejblík>]" si zapamatujeme "<lejblík>".
+\item* V dobì vygenerování èísla (sekce, kapitoly, caption, atd.)
+       propojíme "<lejblík>" s tímto èíslem. Provedeme to
+       pomocí "\sxdef{lab:<lejblík>}{<èíslo>}".
+\item* V místì "\ref[<lejblík>]" vytiskneme "\csname lab:<lejblík>\endcsname", 
+       tedy "<èíslo>".
+\enditems
+
+To je základní idea pro zpìtné odkazy. V takovém pøípadì nepotøebujeme REF
+soubor. Pokud ale chceme dopøedné odkazy, je potøeba pou¾ít REF soubor
+zhruba takto:
+
+\begitems
+\item* V dobì vygenerování èísla (sekce atd.) navíc ulo¾íme informaci 
+       "\Xlabel{<lejblík>}{<èíslo>}" do REF souboru.
+\item* V dobì ètení REF souboru (tedy na zaèátku dokumentu) provede "\Xlabel"
+       pøiøazení pomocí "\sdef{lab:<lejblík>}{<èíslo>}".
+\item* Nyní mù¾e pøijít "\ref[<lejblík>]"
+       se svým "\csname lab:<lejblík>\endcsname" kdekoli v dokumentu.
+\enditems       
+
+Pøejdeme od idejí k implementaci.
+Makro \db label "[<lejblík>]" si pouze zapamatuje "<lejblík>" do makra \db
+lastlabel, aby s touto hodnotou mohlo pozdìji pracovat makro, které automaticky
+generuje nìjaké èíslo. Ostatní balast v kódu (kontrolující definovanost
+makra "\csname l0:<lejblík>\endcsname") je od toho, aby OPmac pohlídal
+pøípadné dvojí pou¾ití stejného "<lejblíku>" a upozornil na to.
+
+\inext {def\nb label}{\empty}{+-}
+
+Makro, které automaticky generuje nìjaké èíslo, má za úkol zavolat
+\db wlabel "<èíslo>". Toto makro propojí "\lastlabel" a "<èíslo>" tak, ¾e
+definuje sekvenci "\lab:\lastlabel" jako makro s hodnotou "<èíslo>".
+Kromì toho zapí¹e expandované "\lastlabel" i "<èíslo>" do
+REF souboru (jen, je-li otevøen, zpìtné reference toti¾ fungují i bez
+souboru). Nakonec vrátí makru "\lastlabel" jeho pùvodní nedefinovanou 
+hodnotu, tj.~lejblík
+u¾ byl pou¾it. Dal¹í makro automaticky generující èíslo zavolá "\wlabel",
+který nyní neprovede nic (pokud tedy u¾ivatel nenapsal dal¹í 
+"\label[<lejblík>]").
+
+\inext {wlabel}{^^B\cbrace}{++}
+
+\goodbreak
+Makro \db ref "[<lejblík>]" zkontroluje definovanost "\lab:<lejblík>".
+Je-li to pravda, vytiskne "\lab:<lejblík>" (krz reflink, aby to bylo
+pøípadnì klikací). Jinak vytiskne dva otazníky a pøedpokládá, ¾e v tomto
+pøípadì jde o dopøednou referenci. Vynutí si tedy otevøení REF souboru
+zavoláním "\openref".
+
+\inext {ref}{^^B\cbrace}{++}
+
+Makro \db pgref "[<lejblík>]" dìlá podobnou práci, jako "\ref", jen s makrem
+"\""pgref:<lejblík>". Toto makro je definováno a¾ pøi znovunaètení REF
+souboru makrem \db Xlabel, proto¾e ke správnému urèení èísla stránky 
+potøebujeme asynchronní "\write".
+
+\inext {pgref}{\empty}{+-}
+
+
+
+\subsec Kapitoly, sekce, podsekce
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Od verze OPmac Jul. 2013 jsou zcela pøepracována pomocná makra pro návrh
+typografie kapitol, sekcí a podsekcí. Nyní má autor typografického návrhu
+lépe pod vlastní kontrolou, co se vkládá do vertikálního seznamu, co¾ je pro
+programování mo¾ných stránkových zlomù a nezlomù dùle¾ité. 
+
+Autor typografie dokumentu by mìl definovat pro
+tisk kapitoly, sekce a podsekce makra "\printchap", "\printsec" a
+"\printsecc". Makra mají jeden parametr "#1", který obsahuje text titulku.
+Typická struktura ka¾dého takového makra je:
+
+\bgroup\def\begtthook{\langleactive}
+\begtt
+\par 
+<penalta obvykle záporná, neboli bonus, pro zlomení stránky pøed nadpisem>
+<mezera pøed nadpisem>
+{<nastavení fontu> \noindent \dotocnum{<znaèka>}#1\nbpar}
+<pøípadné vlo¾ení znaèky (insertmark) pro plovoucí záhlaví>
+\nobreak <mezera pod napisem>
+\endtt
+\par\egroup
+
+Pro realizaci maker "\printchap", "\printsec" a "\printsecc" mù¾e autor
+návrhu vyu¾ít následujících interních maker OPmac:
+
+\begitems
+\item* "\dotocnum{<znaèka>}" -- umístí cíle odkazù, zaøídí obsah, vytiskne "<znaèku>"
+\item* "\thetocnum"  -- "<znaèka>", napø. 3.2.4 pro secc, 3.2 pro sec a 3 pro chap
+\item* "\insertmark{<text>}" -- vlo¾í "\mark" s expandovaným "\thetocnum" 
+        a neexpandovaným "<textem>"
+\item* "\nbpar" -- jako "\par", ale mezi øádky je nezlomitelná mezera
+\item* "\remskip<velikost>" -- mezera (pod nadpisem) odstranitelná 
+        následujícím "\norempenalty"
+\item* "\norempenalty<èíslo>" -- vlo¾í penaltu "<èíslo>" jen pokud nepøedchází 
+       "\remskip"
+\enditems
+
+Aby fungoval obsah a cíle odkazù, je {\it nutné\/} pou¾ít "\dotocnum".
+Parametr makra "\dotocnum" nemusí obsahovat jen "\thetocnum", ale také
+teèky a mezery kolem "<znaèky>". Pøedchází-li "\nonum", makro "\dotocnum"
+nevytiskne celý svùj druhý prametr, tedy vèetnì pøípadného \uv{okolí}
+znaèky. Návrh tisku sekce mù¾e vypadat takto:
+
+\begtt
+\def\printsec#1{\par
+  \norempenalty-500
+  \vskip 12pt plus 2pt
+  {\secfont \noindent \dotocnum{\thetocnum\quad}#1\nbpar}%
+  \placemark{#1}%
+  \nobreak \remskip 6pt plus 1pt
+}
+\endtt
+V tomto návrhu bude nad nadpisem penalta $-500$ (bonus za zlomení nad
+nadpisem), dále je "12pt" mezera, pak je titulek "#1" vyti¹tìný fontem
+"\secfont". Pøed tímto titulkem je èíselná znaèka oddìlená od titulku
+mezerou "\quad". Titulek mù¾e být na více
+øádcích. Proto¾e je ukonèen "\nbpar", nebude povolen mezi jednotlivými øádky
+titulku øádkový zlom. 
+
+Vysvìtlíme si nyní na pøíkladu èinnost a smysl "\remskip" a "\norempenalty".
+Pøedpokládejme pro ilustraci definici "\printsec", jako je uvedená vý¹e.
+Pokud je dále tøeba definice podsedkce "\printsecc" zahájena pøíkazy 
+
+\begtt
+\par \norempenalty-200 \vskip 8pt plus2pt
+\endtt
+%
+pak se mohou dít tyto vìci:
+
+\begitems
+\item* Následuje-li podsekce tìsnì za sekcí, pak se vyma¾e spodní mezera od sekce
+  "6pt plus1pt" a místo ní se vlo¾í mezera "8pt plus2pt". Mezery se tedy
+  nesèítají. Navíc v tomto pøípadì se nevlo¾í penalta $-200$, tak¾e mezi
+  sekcí a podeskcí nedojde nikdy ke stránkovému zlomu.
+\item* Následuje-li za sekcí obyèejný text, pak je pod sekcí a nad textem mezera
+  "6pt plus 1pt", která je nezlomitelná.
+\item* Pøedchází-li pøed podseskcí obyèejný text, pak se vlo¾í pøed nadpisem
+  podsekce "\penalty-200" následovaná "\vskip 8pt plus2pt". Tato mezera je
+  ochotnì zlomitelná (bonus $-200$), tak¾e se mù¾e nadpis podsekce objevit na
+  následující stranì.
+\enditems
+
+Je mo¾né mezeru pod nadpisem slo¾it ze dvou druhù:
+
+\begtt
+\def\printsec{%
+  ...
+  \nobreak \vskip 2pt \remskip 4pt plus1pt}
+\endtt
+
+V tomto pøíkladì se odstraní pøi následující podsekci z celkové mezery 
+"6pt plus1pt" jen její èást "4pt plus1pt".
+
+Defaultní hodnoty maker \db printchap, \db printsec a \db printsecc vypadají
+v OPmac takto:
+
+\inext{printchap}{\count=3 ^^B\cbrace}{++}
+
+Pøíkazem "\firstnoindent" dávají tato makra najevo,
+¾e následující odstavec nebude mít odstavcovou zará¾ku.
+
+{\bf Upozornìní}: Od verze Apr. 2016 jsou makra "\tit", "\chap", "\sec" a
+"\secc" definována pomocí "\eoldef", tedy titulek ve zdrojovém kódu je
+ukonèen koncem øádku a ne následujícím prázdným øádkem. Chcete-li mít del¹í
+titulek ve zdrojovém kódu rozdìlen do více øádkù, ukonèete \uv{pokraèovací
+øádky} symbolem~"%". 
+Pokud chcete makra "\chap", "\sec" atd. pou¾ít uvnitø vlastních maker,
+nelze je pou¾ít pøímo. Mù¾ete to ale vyøe¹it tøeba takto:
+
+\begtt
+\def\mymacro#1{... \csname\string\sec:M\endcsname{#1} ...} 
+\endtt
+
+Makro pro titul \db tit poèítá s tím, ¾e bude titul na více øádcích. Sází ho
+tedy jako odstavec s~pru¾nými "\leftskip" a "\rightskip". 
+
+\inext{tit}{^^B\cbrace}{++}
+
+Fonty pro titul, kapitoly a sekce \db titfont, 
+\db chapfont, \db secfont a \db seccfont 
+jsou definovány jako odpovídající zvìt¹ení a nastavení tuèného duktu.
+Ten je nastaven pomocí \db bfshape jako "\bf" a navíc je ztoto¾nìn
+"\tenit" s "\tenbi", tak¾e kdy¾ nyní u¾ivatel napí¹e "\it", dostane tuènou
+kurzívu. Tuèné varianty matematických fontù se zavedou a¾ pøi pou¾ití
+matematického módu v nadpise (viz "\everymath").
+ 
+\inext{titfont}{\empty}{+-}
+
+V dal¹í èásti této sekce je implementace maker "\chap", "\sec" a "\secc".
+Pro èíslování kapitol, sekcí a podsekcí potøebujeme èítaèe a dal¹í registry:
+
+\dgn \nb chapnum  \dgn \nb secnum \dgn \nb seccnum \dgn \nb nonumnum
+
+\inext{newcount}{newcount}{++}
+
+Makro \db notoc je mo¾no pou¾ít jako prefix pøed "\chap", "\sec", "\secc" s
+tím, ¾e se kapitola, sekce, podsekce nedostane do obsahu. Makro
+\db nonum je mo¾not pou¾ít jako prefix pøed stejnými makry s tím, ¾e
+kapitola, sekce, podsekce nebude mít èíslo. I neèíslovaní kapitola se mù¾e
+dostat do obsahu. Je-li obsah klikací, poøebuje mít svoje referen¹ní èíslo
+pro vytvoøení linku. K tomu slou¾í registr "\nonumnum". 
+
+\inext{notoc}{\empty}{+-}
+
+Makra \db chap, \db sec a \db secc nastaví odpovídající èítaèe, dále vytvoøí
+èíslování pro tisk (sestávající z více èísel) v makrech \db thechapnum,
+\db thesecnum a \db theseccnum. Aktuální èítaè má v¾dy název \db thetocnum.
+S touto hodnotou (nazávisle na tom, zde jde o kapitlu, sekci nebo podsekci,
+bude pracovat "\dotocnum". Dále makra pøipraví obsah makra \db dotocnumafter,
+co¾ je promìnlivá èást makra "\dotocnum".
+Koneènì uvedená makra "\chap", "\sec" a "\secc" 
+zavolají odpovídající makro "\printchap",
+"\printsec" a "\printsecc".
+
+\inext{chap}{\count=3 ^^B\cbrace}{++}
+
+V promìnlivé èásti makra "\dotocnum", tedy v "\dotocnumafter", se øe¹í
+ulo¾ení informací o kapitole, sekci nebo podsekci do obsahu. K tomu je
+vyu¾ito makro \db wtotoc "<úroveò><font>{<text>}", které vytvoøí
+\bgroup\def\begtthook{\langleactive}
+\begtt
+\write\reffile
+  {\string\Xtoc{<úroveò>}{<font>}{<expandovaný thetocnum>}{<text>}{\the\pageno}}
+\endtt
+\par\egroup
+
+\noindent
+Pøitom "<úroveò>" je èíslo rovné nule, jedná-li se o kapitolu, je rovné
+jedné, jedná-li se o sekci a je rovno dvìma, jedná-li se podsekci.
+
+\inext{wtotoc}{^^B\cbrace}{++}
+
+Makro \db wcontents je v kódu ponecháno pro zpìtnou kompatibilitu (ukládalo
+do REF souboru údaje pro obsah "\Xchap", "\Xsec" a "\Xsecc").
+Nìkdy v roce 2016 je pravdìpodobnì zcela odstraním.
+
+\inext{wcontents}{^^B\cbrace}{++}
+
+Makro \db dotocnum "{<text>}" umístí cíl odkazu do místa, které je od
+úèaøí vzdáleno o "\destheight". Toto místo se kryje s horní hranou okna
+prohlí¾eèe po kliknutí na odkaz. Dále toto makro vygeneruje data pro obsah
+pomocí pøedpøipraveného "\dotocnumafter".
+Pokud pøedchází "\notoc", makro nezapí¹e nic do obsahu. Pokud pøedchází
+"\nonum", makro nevytiskne svùj parametr, tak¾e je titulek bez èísla.
+Dále v~takovém pøípadì je pro hyperlinkové odkazy èíslo "\nonumnum" uvozeno
+vykøièníkem, co¾ navazuje v~obsahu na makro "\toclinkA".
+
+\inext{dotocnum}{^^B\cbrace}{++}
+
+V makrech "\chap", "\sec", "\secc" je po zavolání "\printchap", "\printsec"
+nebo "\printsecc" voláno \db resetnonunotoc, které vrátí hodnotu pøepínaèù
+"\ifnonum" a "\ifnotoc" na imlicitní hodnoty. Tím je zaruèeno, ¾e makra
+"\nonum" a "\notoc" ovlivní jen následující kapitolu, sekci nebo podsekci
+a fungují jako prefixy. Makro navíc kvùli pøechodu na verzi OPmac Jul. 2013
+kontroluje, zda makra "\printchap", "\printsec" a "\printsecc" skuteènì
+pou¾ila makro "\dotocnum". Pokud ne, nále¾itì na to upozorní.
+
+\inext{resetnonumnotoc}{^^B\cbrace}{++}
+
+Text titulu sekce a její èíslo jsou vlo¾eny do "\mark", tak¾e tyto údaje
+mù¾ete pou¾ít v plovoucím záhlaví. Tato vlastnost není dokumentována v
+u¾ivatelské èásti, proto¾e je ponìkud techniètìj¹ího charakteru. 
+
+Makro \db insertmark "{<text>}" vlo¾í do "\mark" data ve formátu 
+"{<thetocnum>} {<text>}", 
+tak¾e je mo¾no je pou¾ít pøímo expanzí napø.
+"\firstmark", nebo je oddìlit a zpracovat zvlá¹». Parametru "<text>" je
+zabránìna expanze pomocí prota¾ení tohoto parametru pøes "\toks", viz TBN
+str. 54 dole a strany 55--57. Pøíkaz "\mark" se toti¾ sna¾í o expanzi.
+
+\inext{insertmark}{\empty}{+-}
+
+Pøíklad pou¾ití plovoucího záhlaví v "\headline":
+
+\begtt
+\headline{\expandafter\domark\firstmark\hss}
+\def\domark#1#2{\llap{\it\headsize #1. }\rm\headsize #2}
+\def\headsize{\thefontsize[10]}
+\endtt
+
+Makro "\headsize" v této ukázce zaruèí, ¾e bude mít záhlaví v¾dy
+po¾adovanou velikost. Bez toho ta záruka není, pokud tedy u¾ivatel v sazbì
+dokumentu støídá velikosti písma. Output rutina toti¾ mù¾e pøijít náhle,
+tøeba v okam¾iku, kdy je zapnutá jiná velikost písma.
+
+Pokud chcete kombinovat na levých a pravých stránkách plovoucí záhlaví z
+kapitol a sekcí, inspirujte se v TBN na stranách 259 a 260.
+
+Makro \db remskip "<velikost>" je implimentováno jako "\vskip<velikost>"
+následované smluvenou nezlomitelnou penaltou 11333. Makro \db norempenalty
+pak podle této hodnoty poslední penalty v seznamu vìtví svou èinnost.
+V registru \db remskipamount je ulo¾ena naposledy vlo¾ená mezera z "\remskip".
+
+\inext{remskip}{\empty}{+-}
+
+Makro \db othe pracuje stejnì jako primitiv "\the" s tím rozdílem, ¾e
+nezobrazí nic (a sejme následující teèku), pokud je hodnota registru nulová.
+Tímto zpùsobem lze tisnout dokument jen se sekcemi bez kapitol. Èíslo
+kapitoly se pak nezobrazuje jako "0.", proto¾e se nezobrazuje vùbec.
+
+\inext{othe}{\empty}{+-}
+
+Makro \db afternoindent potlaèí odstavcovou zará¾ku pomocí pøechodného
+naplnìní "\everypar" kódem, který odstraní box vzniklý z "\indent" a
+vyprázdní pomocí \db wipeepar registr "\everypar". 
+Makro \db firstnoindent je ztoto¾nìno s
+"\afternoindent", ale u¾ivatel mù¾e psát "\let\firstnoindent=\relax".
+Pak bude "\afternoindent" pracovat jen za verbatim výpisy.
+
+\inext{afternoindent}{firstnoindent}{++}
+
+Nechceme, aby se nám odstavce tvoøené z titulù kapitol a sekcí rozdìlily do
+více stran. Proto místo pøíkazu "\par" je pou¾ito \db nbpar.
+Koneènì u¾ivatel mù¾e odøádkovat napøíklad v titulu pomocí \db nl.
+Tomuto makru pozdìji v "\output" rutinì zmìníme význam na mezeru.
+
+\inext{nbpar}{\empty}{+-}
+
+
+
+
+
+\subsec Popisky, rovnice
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+Nejprve deklarujeme potøebné èítaèe:
+\dgn \nb tnum \dgn \nb fnum \dgn \nb dnum 
+
+\inext{newcount}{\empty}{+-}
+
+Výchozí hodnoty maker, které se vypisují v místì generovaného èísla jsou:
+
+\inext{thetnum}{\empty}{+-}
+
+Makro \db caption "/<typ> " zvedne èítaè "\<typ>num" o jednièku,
+dále nastaví pru¾né mezery s odsazením "\iindent" a s centrováním posledního
+øádku (viz TBN str.~234), propojí pomocí "\wlabel" èíslo s pøípadným
+lejblíkem a vytiskne zahájení popisku makrem "\printcaption".
+Makro "\caption" tím konèí svou èinnost a dále je zpracován 
+odstavec s~nastavenými
+"\leftskip", "\rightskip". Sekvence "\par" je pøedefinována tak, ¾e první výskyt 
+"\par" (alias prázdného øádku) ukonèí skupinu a tím se v¹echna nastavení 
+vrátí do pùvodního stavu.
+
+\inext{caption}{^^B\cbrace}{++}
+
+Makro \db printcaption "{<slovo>}{<èíslo>}" vytiskne zahájení popisku
+tabulky a obrázku. Za èíslem implicitnì není ¾ádná interpunkce, jen
+"\enspace". Je mo¾né pøedefinovat "\printcaption" s interpunkcí tøeba takto:
+"\def\printcaption#1#2{{\bf#1 #2:}\space}"
+
+\inext{printcaption}{\empty}{+-}
+
+Pøedefinujeme makro z plain\TeX{}u "\endinsert" tak, ¾e dopøedu vlo¾íme
+"\par". Pak bude mo¾né tìsnì za odstavec zahájený pomocí "\caption" vkládat
+"\endinsert". Tì¾ko lze toti¾ pøesvìdèovat u¾ivatele, aby tam dával prázdný
+øádek.
+
+\inext{endinsert}{\empty}{+-}
+
+Makro \db eqmark zvedne "\dnum" o jednièku. 
+V display módu pak pou¾ije primitiv "\eqno", za kterým
+následuje "\thednum". V interním módu (v boxu) vytiskne jen "\thetnum".
+V obou pøípadech propojí pøípadný lejblík s èíslem pomocí makra "\wlabel".
+
+\inext{eqmark}{\empty}{+-}
+
+\subsec Odrá¾ky
+%%%%%%%%%%%%%%%
+
+Odsazení ka¾dé dal¹í vnoøené úrovnì odrá¾ek bude o "\iindent" vìt¹í.
+Jeho hodnota je nastavena na "\parindent" v dobì ètení {\tt opmac.tex}.
+Jestli¾e u¾ivatel pozdìji zmìní "\parindent", mìl by odpovídajícím zpùsobem
+zmìnit "\iindent". Kromì toho deklarujeme èítaè pro odrá¾ky \db itemnum.
+
+\inext{newcount}{\empty}{+-}
+
+Makro \db begitems vlo¾í "\iiskip", zahájí novou skupinu, pronuluje "\itemnum", 
+zvìt¹í odsazení o~"\iindent" a pomocí "\adef" definuje hvìzdièku jako
+aktivní makro, které provede "\startitem". Makro \db enditems ukonèí
+skupinu a vlo¾í "\iiskip".
+
+\inext{begitems}{\empty}{+-}
+
+Makro \db startitem ukonèí pøípadný pøedchozí odstavec, posune èítaè, zahájí
+první odstavec jako "\noindent" a vy¹oupne doleva text definovaný v
+\db printitem, který je implicitnì nastaven makrem "\begitems" na 
+\db normalitem.
+
+\inext{startitem}{\empty}{+-}
+
+Makro \db style "<znak>" pøeète "<znak>" a rozvine jen na makro
+"\item:<znak>". Tato jednotlivá makra jsou definována pomocí "\sdef".
+Není-li makro "\item:<znak>" definováno, pou¾ije se "\normalitem".
+
+\inext{style}{\empty}{+-}
+
+Ètvereèek kreslíme jako "\vrule" odpovídajících rozmìrù makrem 
+\db fullrectangle "{<dimen>}".
+
+\inext{fullrectangle}{\empty}{+-}
+
+Pro pøevod mezi numerickou hodnotou èítaèe a pøíslu¹ným písmenem a, b, c
+atd. je vytvoøeno makro \db athe "<number>".
+
+\inext{athe}{\empty}{+-}
+
+
+\subsec Tvorba obsahu
+%%%%%%%%%%%%%%%%%%%%%
+
+Do \db toclist budeme ukládat data pro obsah.
+Pomocí \db ifischap se budeme ptát, zda v dokumentu jsou kapitoly.
+
+\inext{toclist}{\empty}{+-}
+
+V dobì ètení REF souboru vlo¾íme ve¹kerá data obsahu do makra "\toclist"
+tak, ¾e v tomto bufferu budeme mít za sebou sekvence "\tocline" následované pìti
+parametry, které jsou shodné, jako parametry 
+makra \db Xtoc "<úroveò><info><èíslo><text><strana>".
+
+\inext{Xtoc}{}{++}
+
+Makra \db Xchap, \db Xsec a \db Xsecc pøetrvávají v kódu jen pro zpìtnou
+kompatibilitu a nìkdy v roce 2016 je odstraním.
+
+\inext{Xchap}{\empty}{+-}
+
+Makro \db tocline "{<úroveò>}{<info>}{<èíslo>}{<text>}{<strana>}" vytvoøí
+øádek obsahu. Údaj "<úroveò>" je èíslo 0 pro kapitolu, 1 pro
+sekci a 2 pro podsekci. Údaj "<info>" pou¾ívá OPmac pro informaci 
+o fontu, kterým se má tisknout øádek v obsahu. 
+Øádek obsahu tiskneme jako odstavec, proto¾e "<text>" mù¾e být tøeba
+del¹í. Registr "\leftskip" nastavíme jako souèin "<úroveò>" krát "\iindent".
+Pokud se v~dokumentu vyskytují kapitoly, odsadíme je¹tì o dal¹í "\iindent".
+Registr "\rightskip" nastavíme na 2"\iindent", aby del¹í "<text>" se zalomil
+døív ne¾ v místì, kde jsou stránkové èíslice. Konec odstavce se stránkovou
+èíslicí pak vytáhneme mimo tento rozsah pomocí "\hskip-2\iindent". Odstavec
+pru¾í v "\tocdotfill", proto¾e tento výplnìk má vìt¹í pru¾nost ne¾
+"\parfillskip". Registr "\parfillskip" má "1fil", zatímco "\tocdotfill" má
+pru¾nost "1fill". Makro \db tocdotfill je implementováno pomocí "\leaders"
+jako opakované teèky, které budou lícovat pod sebou.
+
+\inext{tocline}{\empty}{+-}
+
+Makro \db maketoc jednodu¹e spustí "\toclist", Pokud je "\toclist" prázdný,
+upozorní o tom adekvátním zpùsobem na terminál.
+
+\inext{maketoc}{\empty}{+-}
+
+Makro \db toclinkA je citlivé na vykøièník jako první znak argumentu. Pokud
+tam je, vytiskne jen mezeru velikosti 0.8em, jinak vytiskne argument.
+Vykøièník do argumentu dáme v pøípadì kapitol a sekcí prefixovaných
+jako "\nonum". V obsahu pak nechceme mít ¾ádné èíslo, jen pøíslu¹nou mezeru.
+
+\inext{toclinkA}{\empty}{+-}
+
+
+\subsec Sestavení rejstøíku
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Slovo do rejstøíku vlo¾íme pomocí \db iindex "{<heslo>}". Proto¾e výskyt
+slova na stránce není v dobì zpracování znám, je nutné pou¾ít REF soubor s
+asynchronním "\write".
+
+\inext{iindex}{\empty}{+-}
+
+Nyní naprogramujeme ètení parametru makra 
+\db ii "<slovo>,<slovo>,...<slovo> ". Vzhledem k tomu, ¾e za
+pøítomnosti zkratky "@" budeme potøebovat projít seznam slov oddìlených èárkou
+v~parametru je¹tì jednou, zapamatujeme si tento seznam do "\tmp".
+
+\inext{leavevmode}{\empty}{+-}
+
+Makro \db iiA sejme v¾dy jedno slovo ze seznamu. Podle prázdného parametru
+poznáme, ¾e jsme u konce a nedìláme nic. Pøi výskytu "<slovo>=@" (poznáme to
+podle shodnosti parametru s \db iiatsign \unskip),
+spustíme "\iiB", jinak vlo¾íme údaj o slovì do rejstøíku pomocí "\iindex".
+Nakonec makro "\iiA" volá rekurzivnì samo sebe.
+
+\inext{iiA}{\empty}{+-}
+
+Makro \db iiB rovnì¾ sejme v¾dy jedno slovo ze seznamu a na konci volá
+rekurzivnì samo sebe. Toto makro ov¹em za pou¾ití makra \db iiC prohodí poøadí
+prvního podslova pøed prvním lomítkem se zbytkem. Není-li ve slovì lomítko,
+pozná to makro "\iiC" podle toho, ¾e parametr "#2" je prázdný. V takovém pøípadì
+neprovede nic, nebo» slovo je u¾ zaneseno do rejstøíku v makru "\iiA".
+
+\inext{iiB}{\empty}{+-}
+
+Makro \db iid "<slovo> " po¹le slovo do rejstøíku a souèasnì je zopakuje do 
+sazby. Pomocí "\futurelet" a \db iiD zjistí, zda následuje teèka nebo èárka. Pokud
+ne, vlo¾í mezeru.
+
+\inext{iid}{\empty}{+-}
+
+Pøi ètení REF souboru se vykonávají makra \db Xindex "{<heslo>}{<strana>}",
+která postupnì vytváøejí makra tvaru "\,<heslo>", ve kterých je shroma¾ïován
+seznam stránek pro dané "<heslo>".
+Kromì toho ka¾dé makro "\,<heslo>" je vlo¾eno do seznamu \db iilist. 
+Na konci ètení
+REF souboru tedy máme v~"\iilist" seznam v¹ech hesel jako øídicí sekvence (to
+zabere nejmíò místa v \TeX{}u). Ka¾dé
+"\,<heslo>" na konci ètení REF souboru obsahuje dva údaje ve svorkách, první údaj
+obsahuje pomocná data a druhý obsahuje seznam stránek. Tedy "\,<heslo>" je makro
+s obsahem "{<pomocná-data>}{<seznam-stránek>}".
+
+Seznam stránek není jen tupý seznam v¹ech stránek, na kterých se objevil
+záznam "\ii" pro dané slovo. Nìkteré stránky se toti¾ mohou opakovat a my je
+chceme mít jen jednou. Pokud stránky jsou souvisle za sebou: 13, 14, 15, 16,
+chceme navíc takový seznam nahradit zápisem 13--16. Makro 
+"\Xindex{<heslo>}{<strana>}" je z tohoto dùvodu ponìkud sofistikovanìj¹í.
+
+\ilabel [Xindex:first] {firstdata}
+\ilabel [Xindex:second] {seconddata}
+
+\inext{Xindex}{\empty}{+-}
+
+Èinnost makra "\Xindex" si vysvìtlíme za chvíli podrobnìji. Nyní jen
+uvedeme, ¾e "\Xindex" je jen speciální variantou obecného makra 
+\db Xindexg pøi "#1=,". Tak¾e pracuje s kontrolními sekvencemi typu
+"\,<heslo>". Následující text popisuje jen tento pøípad. Makro "\Xindexg"
+je mo¾né pou¾ít pro pralelní vytváøení dal¹ích seznamù stránek
+stejných hesel (napø. seznam vyznaèený kurzívou, tuènì atd.). Jak to udìlat
+je popsáno v OPmac triku 0072.
+
+Údaje o stranách spojených s rejstøíkovým heslem jsou ukládány do makra
+"\,<heslo>" a jsou rozdìleny do dvou èástí ve tvaru "{prvni}{druhy}".
+Definujeme pomocné makro \db firstdata "\,<heslo>"~"\<cs>", které expanduje na
+"\<cs>"~"<první-datový-údaj-hesla>&". Je-li tøeba "\,aa" definováno jako
+"{prvni}{druhy}", pak "\firstdata"~"\,aa"~"\cosi" expanduje na "\cosi"~"prvni&". 
+Tím máme mo¾nost vyzískat data z makra. Podobnì makro 
+\db seconddata "\,<heslo>"~"\<cs>" expanduje na 
+"\<cs>"~"<druhý-datový-údaj-hesla>&". Jsou pou¾ita pomocná makra
+\db firstdataA a \db seconddataA.
+
+\inext{firstdata}{\empty}{+-}
+
+Ne¾ se pustíme do výkladu makra "\Xindex", vysvìtlím, proè pro hesla rejstøíku
+tvoøím jednu øídicí sekvenci, která je makrem se dvìma datovými údaji.
+Mohl bych jednodu¹eji pracovat se dvìma rùznými øídicími sekvencemi,
+napø. "\,<heslo>" a "\:<heslo>". Dùvod je prostý: ¹etøím pamì» \TeX u. Dá se toti¾
+oèekávat, ¾e poèet hesel v rejstøíku mù¾eme poèítat na tisíce a je rozdíl
+alokovat kvùli tomu tisíce kontrolních sekvencí nebo dvojnásobné mno¾ství
+takových sekvencí.
+
+V makru "\Xindex" èteme "\firstdata" na øádku \cite[Xindex:first] 
+a "\seconddata" na øádku \cite[Xindex:second].
+Ètení je provedeno makry \db XindexA a \db XindexB. První úsek dat je tvaru
+"<poslední-strana>/<stav>" a druhý úsek dat obsahuje rozpracovaný seznam stránek.
+Podíváme-li se na definice "\XindexA" a "\XindexB", shledáme, ¾e seznam stránek
+bude ulo¾en v "\tmp", dále "<poslední-strana>" bude v "\tmpa" a "<stav>" je v
+"\tmpb".
+
+\inext{XindexA}{\empty}{+-}
+
+Rozli¹ujeme dva stavy: "<stav>=+", pokud je seznam stránek zakonèen konkrétní
+stránkou. Tato konkrétní stránka je ulo¾ena v "<poslední-strana>". Druhým
+stavem je "<stav>=-", kdy¾ je seznam stránek ukonèen "--" (pøesnìji obsahem
+makra \db iiendash, které mù¾ete snadno pøedefinovat) a v tomto pøípadì
+"<poslední-strana>" obsahuje poslední stránku, na které byl zji¹tìn výskyt
+hesla. Tato strana nemusí být v~seznamu stránek explicitnì uvedena.
+
+Makro "\Xindex{<heslo>}{<strana>}" tedy postupnì vytváøí seznam stran 
+zhruba takto:
+
+\def\begtthook{\langleactive}
+\begtt
+if (první výskyt \,<heslo>) {
+  zalo¾ \,<heslo> do iilist;
+  <seznam-stran> = "<strana>"; <stav> = +; <posledni-strana> = <strana>;
+  return;
+}
+if (<strana> == <empty> || <strana> == <posledni-strana>) return; 
+if (<stav> == +) {
+  if (<strana> == <posledni-strana>+1) { 
+    <seznam-stran> += "--"; 
+    <stav> = - ;
+  }
+else {
+    <seznam-stran> += ", <strana>";
+    <stav> = + ;
+  }
+  else {
+    if (<strana> > <posledni-strana>+1) { 
+      <seznam-stran> += "<posledni-strana>, <strana>";
+      <stav> = + ;  
+    }
+  }
+}    
+<poslední-strana> = <strana>; 
+\endtt
+
+V makru "\Xindex" pracujeme je¹tì se dvìma pomocnými makry 
+\db pgfolioA a \db pgfolioB. Pro kladné stránky se tato makra chovají
+stejnì, jako kdyby tam vùbec nebyla. Ov¹em v plain\TeX{}u
+(viz maro "\folio") se mohou stránkové èíslice vyskytnout 
+na zaèátku dokumentu záporné, v takovém pøípadì se mají tisknout
+øímskými èíslicemi. Proto jsou uvedená makra definována ponìkud chytøeji.
+
+\inext{pgfolioA}{\empty}{+-}
+
+\def\begtthook{}
+Makro \db makeindex nejprve definuje pøechodný význam rekurzivního 
+"\act" tak, aby byly uzavøeny seznamy stránek (tj. aby seznam nekonèil 
+znakem "--") a do první
+datové oblasti ka¾dého makra typu "\,<heslo>" vlo¾í konverzi textu "<heslo>" do
+tvaru vhodného pro abecední øazení èeských slov.
+Pomocí "\expandafter \act \iilist \relax" se
+po¾adovaná èinnost vykoná pro ka¾dý prvek v "\iilist". 
+Dále makro "\makeindex" provede seøazení "\iilist" podle abecedy
+makrem "\dosorting" a nakonec provede tisk jednotlivých hesel. K tomu úèelu 
+znovu pøechodnì pøedefinuje "\act" a pøedlo¾í mu "\iilist".
+
+\ilabel [mkindex:od] {firstdata}
+\ilabel [mkindex:do] {after\nb act}
+\ilabel [mkindex:par] {exhyphenpenalty}
+
+\inext{makeindex}{^^B\cbrace}{++}
+
+Makro \db printiipages sebere z "<druhého-datového-údaje>" seznam stránek a
+jednodu¹e je vytiskne.
+
+\inext{printiipages}{\empty}{+-}
+
+Makro \uv{prepare index item} \db prepii "\,<heslo>" odstraní prostøednictvím
+\db prepiiA z názvu kontrolní sekvence backslash a èárku a zbytek tiskne pomocí
+"\printii". Pokud ale je "\,<heslo>" ulo¾eno v~seznamu "\iispeclist", pak se
+expanduje na sekvenci s názvem "\\,<heslo>", ve které je ulo¾eno, co se
+má místo hesla vytisknout. Data tìchto výjimek jsou pøipravena makrem "\iis"
+
+\inext{prepii}{\empty}{+-}
+
+Kontrolní otázka: proè se nedotazujeme jednodu¹e na to, zda je
+"\\,<heslo>" definovaná øídicí sekvence? Odpovìï: museli bychom ji
+sestavit pomocí "\csname...\endcsname", ale to zalo¾í do \TeX{}ové pamìti
+novou øídicí sekvenci pro ka¾dé heslo v rejstøíku. My se sna¾íme poèet
+tìchto øídicích sekvencí redukovat na minimum. Poèítáme s tím, ¾e obyèejných
+hesel bude tisíce a výjimek jen pár desítek.
+
+Makro \db iis "<heslo> {<text>}" vlo¾í dal¹í údaj do slovníku výjimek pro
+hesla v rejstøíku. Pøesnìji: vlo¾í "\,<heslo>" do \db iispeclist a definuje
+sekvenci "\\,<heslo>" jako "<text>".
+
+\inext{iis}{\empty}{+-}
+
+Makro \uv{print index item} \db printii "<heslo>&" vytiskne jeden údaj do
+rejstøíku. Makro projde prostøednictvím \db printiiA jednotlivá podslova
+oddìlená lomítkem a pøepí¹e je do rejstøíku oddìleny mezerou. Pøitom
+kontroluje, zda se podslova rovnají odpovídajícím podslovùm z pøedchozího
+hesla, které je ulo¾eno v \db previi. Toto porovnání je prota¾eno krz
+"\meaning", proto¾e nechceme porovnávat kategorie, ale jen stringy.
+Pokud se stringy rovnají, místo podslova se vlo¾í \db
+iiemdash, co¾ je pomlka. Na konci èinnosti se
+nastaví "\previi" na \db currii (nové slovo se pro dal¹í zpracování stává
+pøedchozím) a vytiskne se seznam stránek. Makrem \db everyii
+(implicitnì je prázdné) dovolíme u¾ivateli vstoupit do procesu tisku hesla.
+Mù¾e napøíklad psát "\def\everyii{\indent}", pokud chce.
+
+\ilabel [printii:iindent] {iindent}
+\inext{printii}{\empty}{+-}
+
+Makro "\makeindex" nastavuje na øádku \cite[mkindex:par] lokálnì 
+parametry sazby odstavce v rejstøíku. Vlevo
+budeme mít "\leftskip" rovný "\iindent", ale první øádek posuneme o
+"-\iindent" (viz øádek kódu~\cite[printii:iindent]) tak¾e první øádek je
+vystrèen doleva. Vpravo máme pru¾nou mezeru, aby se seznam èísel stran mohl
+rozumnì lámat, kdy¾ je moc dlouhý. 
+
+Pomocné makro \db scanprevii "<expanded-previi>&" se podívá do "\previi", 
+odloupne z nìj úsek pøed prvním lomítkem a tento úsek definuje jako
+"\tmpa". 
+
+\inext{scanprevii}{}{+-}
+
+Výchozí hodnota "\previi" pøed zpracováním prvního slova v rejstøíku je
+prázdná.
+
+\inext{previi}{\empty}{+-}
+
+
+\subsec Abecední øazení rejstøíku
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Nejprve se zamìøíme na vytvoøení makra 
+"\isAleB"~"\,<heslo1>"~"\,<heslo2>", které rozhodne, zda je "<heslo1>" øazeno
+pøed "<heslem2>" nebo ne. Výsledek zkoumání mù¾eme provìøit pomocí "\ifAleB".
+
+Pro porovnání dvou údajù vy¾aduje norma dva prùchody. V prvním (primárním
+øazení) se rozli¹uje jen mezi písmeny A B C È D E F G H Ch I J K L M N O P Q
+R Ø S © T U V W X Y Z ®. Pokud jsou hesla z tohoto pohledu stejná, pak se
+provede druhý prùchod (sekundární øazení), ve kterém jsou øazena
+neakcentovaná písmena pøed pøehlasovaná pøed èárkovaná pøed háèkovaná pøed
+støí¹kovaná pøed krou¾kovaná a dále s nejni¾¹í prioritou malá písmena pøed
+velká. 
+
+Nejprve pøipravíme data pro porovnávací algoritmus.
+
+\inext{sortingdata}{\empty}{+-}
+
+Mezi jednotlivými èárkami v makru \db sortingdata jsou skupiny znakù, které
+se z hlediska prvního prùchodu øadicím algoritmem nerozli¹ují. Jednotlivé
+znaky v "\sortingdata" se rozli¹í pøi pøípadném druhém prùchodu. Øazení
+znakù v "\sortingdata" odpovídá po¾adovanému abecednímu øazení.
+
+Dále je makrem \db setignoredchars vyjmenován seznam znakù, které se pøi
+øazení zcela ignorují (jakoby tam vùbec nebyly). Typicky jde o interpunkci.
+Makro nastaví v¹em tìmto znakùm pomocí "\setlccodes" kód teèky a tato teèka
+se posléze z porovnávaného textu odstraní. Seznam znakù je oddìlen teèkou a
+ukonèen dvojicí "{}{}". Seznam ignorovaných znakù odpovídá pravidlùm èeského
+øazení. Norma doporuèuje sice pro pøípad, kdy se hesla neli¹í jinak ne¾ tìmito znaky, 
+nasadit dal¹í prùchod øazení, ale pro jednoduchost a velkou výjimeènost
+takové situace toto v OPmac implementováno není.
+
+Makra \db specsortingdatacs a \db specsortingdatask deklarují náhrady pøed
+pou¾itím øadicího algoritmu. Jednotivá náhrada je deklarována jako
+"<string1>:<string2>" a je od dal¹í deklarace náhrady oddìlena mezerou.
+Tímto zpùsobem jsou implementovány spøe¾ky ch, Ch a CH, které se nahrazují
+znaky "^^T", "^^U" a "^^V". Ty vystupují v øadicím algoritmu jako jediný
+znak, a mají své místo v makru "\sortingdata" Sloven¹tina má sice dal¹í
+spøe¾ky dz, Dz, DZ, d¾, D¾, D®, ale ty jsou øazeny tìsnì za D, tak¾e jsou
+øazeny správnì i za situace, kdy nejsou nahrazeny jediným znakem. Nicménì,
+pokud by nìkdo chtìl tyto spøe¾ky (napøíklad pro o¹etøování výjimek) pou¾ít
+jako samostatné znaky, mù¾e si definovat své makro "\sortingdata", které by
+obsahovalo
+
+\begtt
+   ...
+   dD\v d\v D,%
+   ^^N^^O^^P,%  dz Dz DZ
+   ^^Q^^R^^S,%  d¾ D¾ D®
+   eE\'e\'E\v e\v E,%
+   ...
+\endtt
+a dále definuje
+\begtt
+\def\specsortingdatask {ch:^^T Ch:^^U CH:^^V
+   dz:^^N Dz:^^O DZ:^^P d\v z:^^Q D\v z:^^R D\v Z:^^S}
+\endtt
+%
+Makra pro spøe¾ky mají název ve tvaru "\specsortingdata<kód jazyka>".
+Pou¾ije se makro odpovídající jazyku podle nastaveného dìlení slov.
+Není-li makro pro pou¾itý jazyk definováno, ¾ádné náhrady se neprovedou.
+Je tøeba upozornit (napøíklad u¾ivatele maïar¹tiny), pokud by se v tìchto
+spøe¾kách chtìli roz¹oupnout, vyhnìte se znakùm "^^I" a "^^M", kterým
+plain\TeX, resp. ini\TeX, nastavuje speciální kategorie.
+
+Implementaci øadicího algoritmu zahájíme makrem \db setprimarysorting, které
+se spustí jednou pøi sestavení rejstøíku, pøeète vý¹e uvedená data a
+pøipraví odpovídající datové stuktury pro první prùchod øadicího algoritmu.
+Hlavní èinností tohoto makra je, ¾e pøipraví "\lccode" znakù vyjmenovaných v
+"\sortingdata" podle jejich vzestupného poøadí, pøitom znakùm v jedné
+skupinì (oddìlené èárkou) pøiøadí stejné "\lccode". Text pøed øazením pak
+budeme konvertovat pou¾itím "\lowercase".
+
+\inext{setprimarysorting}{\empty}{+-}
+
+Vidíme, ¾e makro "\setprimarysorting" nejprve expanduje "\sortingdata",
+aby se realizovaly znaky typu "\v c" podle nastaveného kódování.
+Dìlá to jen tehdy, kdy¾ je definováno makro "\r", tj. uvedené sekvence pro
+akcenty expandují na správné kódy. Rovnì¾ pomocí 
+"\let"\db asciisorting \unskip"=t"
+je mo¾né zabránit pou¾ití "\sortingdata" a øadicí algoritmus øadí podle
+ASCII.
+
+Dále "\setprimarysorting" pøipraví makro
+\db specsortingdata (bez pøípony jazyka) z makra 
+"\specsortingdata<aktuální jazyk>". Nejrve je expanduje a pak pomocí triku s
+"\meaning" za spoluráce s~makrem \db setprimarysortingA pøevede v¹echny znaky 
+v makru na kategorii 12, proto¾e toto budeme pro øadicí algoritmus potøebovat.
+
+Koneènì se v makru "\setprimarysorting" pøipraví (za pou¾ití opakovaného
+volání "\act") "\lccode" v¹ech znakù zmínìných v "\sortingdata".
+Pov¹imneme si, ¾e pro první prùchod dostanou stejný "\lccode" v¹echny znaky
+ve skupinì mezi èárkami. 
+Je to tím, ¾e v makru "\setprimarysorting" se zvedá "\tmpnum" jen v místì
+èárky. Nejni¾¹í hodnotu má mezera vyznaèená v "\sortingdata" pomocí "{ }". 
+Tím je zaruèeno, ¾e krat¹í slovo je øazeno døív ne¾ del¹í slovo se stejným
+zaèátkem, obsahující celé krat¹í slovo (ten~tuèòák$\prec$tento).
+Je sice pravda, ¾e ASCII hodnota mezery je je¹tì men¹í, ale my musíme 
+mezeru nìkam ¹oupnout na jiný kód ne¾ 32, jinak by nám ji nepøeèetlo 
+makro s~neseparovaným parametrem. Ov¹em my budeme chtít mezeru pøeèíst. 
+Makrem "\setignoredchars" se zcela nakonec nastaví ignorovaným znakùm
+"\lccode" teèky.
+
+Makro \db sortingmessage ukládá informaci o pou¾itém "\sortingdata", co¾
+bude pozdìji vypsáno na terminál makrem "\dosorting".
+
+Makro \db setsecondarysorting se volá opakovanì a pøíle¾itostnì pro pøípady,
+kdy jsou hesla z~hlediska primárního øazení toto¾ná. Nastaví jinak "\lccode"
+znakù. Tentokrát mají v¹echny znaky ze "\sortingdata" rozdílný "\lccode", ve
+vzestupném poøadí.
+
+\inext{setsecondarysorting}{\empty}{+-}
+
+Makro \db preparesorting se volá (s nastavenými parametry podle
+"\setprimarysorting") pro ka¾dé heslo jednou. Heslo je ulo¾eno v názvu
+kontrolní sekvence, která je parametrem makra "\preparesorting". Data pro
+primární øazení jsou u¾ pøipravena na øádcích \cite[mkindex:od] a¾
+\cite[mkindex:do] v makru "\makeindex". V pøípadech, kdy jsou dvì hesla
+shodná z hlediska primárního øazení (to nastane asi velmi výjimeènì), je pro
+danou dvojici hesel znovu zavoláno makro "\preparesorting", tentokrát s
+pøednastavenými daty podle "\setsecondarysorting". Makro "\preparesorting"
+má za úkol ulo¾it výsledek své konverze do "\tmpb".
+
+\inext{preparesorting}{\empty}{+-}
+
+V¹imneme si, ¾e "\preparesorting" vykonává jádro své èinnosti v \db
+preparesortingA, které pøebere text hesla extrahovaný do parametru "#3".
+Toto makro pomocí \db preparesortingB opakovanì volá "\replacestrings", aby
+nahradilo spøe¾ky odpovídajícími náhradami. Dále pomocí "\lowercase" provede
+konverzi a koneènì pomocí "\replacestrings{.}{}" odstraní z hesla nejen
+teèky, ale i znaky vyjmenované v makru "\setignoredchars".
+
+Pøipravíme si pomocí "\newif" makro \db ifAleB, kterým ohlásíme výsledek 
+porovnání dvou hesel:
+
+\inext{newif}{\empty}{+-}
+
+Makro \db isAleB "\,<heslo1>"~"\,<heslo2>" spustí\hfil\break 
+"\testAleB"~"<zkonvertované heslo1>&\relax"~"<zkonvertované heslo2>&\relax"~%
+"\,<heslo1>"~"\,<heslo2>".
+
+\inext{isAleB}{^^B\cbrace}{++}
+
+Idea makra \db testAleB lexikograficky porovnávající dvì slova je v tom, ¾e ze
+dvou stringù v~parametru oddìlených "\relax" postupnì odlupuje v¾dy
+první znak "#1" a "#3" z ka¾dého stringu a ten porovnává a samozøejmì pøi rovnosti
+rekurzivnì zavolá samo sebe. Pokud jsme se dostali na konec bez rozhodnutí, co
+je men¹í, narazíme na znak "&". V takovém pøípadì pøestoupíme do
+sekundárního prùchodu.
+
+\inext{testAleB}{^^B\cbrace}{++}
+
+Makro \db testAleBsecondary "\,<heslo1>"~"\,<heslo2>" zalo¾í skupinu, v ní
+nastaví "\lccode" dle sekundárního øazení a pomocí "\preparesorting"
+pøipraví zkonvertovaná data do "\tmpa" a "\tmpb". Na chvosty tìchto dat
+pøidám nulu a jednièku, aby porovnání v¾dy nìjak dopadlo, a spustím
+\db testAleBsecondaryX, co¾ pracuje obdobnì, jako "\testAleB".
+
+\inext{testAleBsecond}{\count=2 ^^B\cbrace}{++}
+
+Nyní mù¾eme pomocí "\isAleB\,<heslo1>\,<heslo2>\ifAleB" rozhodnout, který
+ze dvou daných parametrù má být øazen døíve. Staèí tedy u¾ jen naprogramovat
+celkové øazení seznamu. Toto makro vycházející z algoritmu mergesort 
+vytvoøil mùj syn Miroslav. Makro bylo poprvé pou¾ito v DocBy\TeX{}u, co¾ je
+nástroj, kterým je napøíklad poøízena i tato dokumentace.
+ 
+Makro \db dosorting pomocí pomocného makra "\act" doplní za ka¾dý údaj v
+"\iilist" èárku a dále pøedlo¾í makru "\mergesort" jako parametr obsah
+"\iilist" ukonèený "\end,\end", vyprázdní "\iilist" a spustí "\mergesort".
+
+\inext{dosorting}{\empty}{+-}
+
+Makro \db mergesort pracuje tak, ¾e bere ze vstupní fronty v¾dy dvojici
+skupin
+polo¾ek, ka¾dá skupina je zatøídìná. Skupiny jsou od sebe oddìleny
+èárkami. Tyto dvì skupiny spojí do jedné a zatøídí. Pak pøejde na
+následující dvojici skupin polo¾ek. Jedno zatøídìní tedy vypadá
+napøíklad takto: dvì skupiny: "eimn,bdkz," promìní v~jedinou 
+skupinu "bdeikmnz,". V tomto pøíkladì jsou polo¾ky jednotlivá písmena,
+ve skuteènosti jsou to kontrolní sekvence, které obsahují celá slova.
+
+Na poèátku jsou skupiny jednoprvkové ("\iilist" oddìluje ka¾dou
+polo¾ku èárkou). Makro "\mergesort" v tomto pøípadì projde seznam a vytvoøí
+seznam zatøídìných dvoupolo¾kových skupin, ulo¾ený zpìtnì v
+"\iilist". V dal¹ím prùchodu znovu vyvrhne "\iilist" do vstupní
+fronty,
+vyprázdní ho a startuje znovu. Nyní vznikají ètyøpolo¾kové zatøídìné
+skupiny. Pak osmipolo¾kové~atd. V~závìru (na øádku~\cite[konecsortu]) 
+je první skupina celá setøídìná a druhá obsahuje "\end", tj. 
+v¹echny polo¾ky jsou u¾ setøídìné v první skupinì, tak¾e staèí 
+ji ulo¾it do "\iilist" a ukonèit èinnost. Pomocí \db gobbletoend
+odstraníme druhé "\end" ze vstupního proudu. Makro \db sortreturn ukonèí
+èinnost a¾ po koncové "\relax" a dále vykoná svùj parametr.
+
+\noactive{dvojice}
+\ilabel [merge:porovnani] {isAleB}
+\ilabel [merge:trojka] {mergesort p1+}
+\ilabel [merge:p1] {ifx,}
+\ilabel [merge:p2] {fif\nb mergesort\cbrace}
+\ilabel [konecsortu] {empty\nb iilist}
+\inext {def\nb mergesort }{\empty}{+-}
+
+{\def\quotehook{\catcode`\<12}
+Jádro "\mergesort" vidíme na øádcích~\cite[merge:porovnani]
+a¾~\cite[merge:trojka]. Makro "\mergesort" sejme ze vstupního proudu
+do "#1" první polo¾ku první skupiny, do "#2" zbytek první skupiny a do 
+"#3" první polo¾ku druhé skupiny. Je-li "#1<#3", je do výstupního
+zatøídìného seznamu "\indexbuffer" vlo¾en "#1", ze vstupního proudu je
+"#1" odebrán a "\mergesort" je zavolán znovu. V pøípadì "#3<#1"
+je do "\indexbuffer" vlo¾en "#3", ze vstupního proudu je "#3" odebrán a 
+"\mergesort" je zavolán znovu. Øádky~\cite[merge:p1]
+a¾~\cite[merge:p2] øe¹í pøípady, kdy je jedna ze skupin prázdná: 
+je potøeba vlo¾it do "\indexbuffer" zbytek neprázdné skupiny a pøejít 
+na dal¹í dvojici skupin. Ostatní øádky makra se vyrovnávají se
+skuteèností, ¾e zpracování narazilo na zará¾ku "\end,\end" a je tedy
+potøeba vystartovat dal¹í prùchod.
+\par}
+
+
+\subsec Více sloupcù
+%%%%%%%%%%%%%%%%%%%%
+
+Makro pro sazbu do více sloupcù je pøevzato z TBN, kde je podrobnì
+vysvìtleno na stranách 224 a¾~245. Základní my¹lenka makra spoèívá v tom, ¾e
+se naplní jeden velký "\vbox" (box6) jedním sloupcem a "\endmulti" jej
+rozlomí do sloupcù po¾adované vý¹ky a strèí do sazby. Není k tomu nutno
+mìnit výstupní rutinu. Makro z TBN je zde v OPmac ve dvou vìcech pøepracováno: 
+\begitems
+\item * Dùslednìj¹í balancování sloupcù vyluèující mo¾nost ztráty sazby
+        a umo¾òující mít sazbu s nezlomitelnými mezerami mezi øádky.
+\item * Makro mìøí kumulovanou sazbu a umo¾òuje pøi rozsáhlém mno¾ství
+        tiskového materiálu obejít problém \uv{dimension too large}.
+\enditems 
+
+Makra \db begmulti, \db endmulti, \db corrsize, \db makecolumns a \db
+splitpart pracují zhruba tak, jak je popsáno v TBN.
+
+\ilabel[mul:prevgraf]  {prevgraf}
+
+\inext{mullines}{\count=5 ^^B\cbrace}{++}
+
+Výstup rozlomené sazby do sloupcù probíhá ve dvou re¾imech: kdy¾ je tøeba
+sloupci zaplnit celou stránku, pou¾ijeme "\makecolumns". Toto makro neøe¹í
+otázku, ¾e mù¾e v kumulovaném boxu~6 zbýt nìjaká sazba, proto¾e se
+pøedpokládá, ¾e lámání bude pokraèovat na dal¹í stranì. Pokud ale
+je na aktuální stranì vícesloupcová sazba ukonèena, pou¾ijeme
+propracovanìj¹í \db balancecolumns. Toto makro si zazálohuje materiál
+z~boxu~6 do boxu~7 a jme se zkou¹eti rozlomit box~6 na sloupce s 
+vý¹kou "\dimen0". Pokud ale po rozlomení není výchozí box~6 zcela prázdný, makro
+zvìt¹í krapánek (o 0,2"\baselineskip") po¾adovanou vý¹ku, vrátí se k~zálohované 
+sazbì v boxu~7 a zkusí rozlomit znovu. To opakuje tak dlouho, dokud je box~6
+prázdný.
+
+\inext{balancecolumns}{^^B\cbrace}{++}
+
+Kdy¾ je sazba plnìna do boxu~6, mù¾e ji být tak moc, ¾e se nedá zmìøit jeho
+vý¹ka pomocí "\dimen0=\ht6". Box samotný sice mù¾e být vy¹¹í ne¾ pìt metrù,
+ale "\dimen0" nikoli: objeví se chyba \uv{dimension too large}.
+Z toho dùvodu je v makrech zavedena promìnná \db mullines, která pomocí
+pøedefinovaného "\par" (na øádku \cite[mul:prevgraf]) 
+poèítá poèet øádkù sazby. Je-li "\mullines" vìt¹í ne¾
+"\tmpnum" (co¾ pøi daném "\baselineskip" odpovídá 0,8"\maxdimen"), makro
+pracuje, jakoby vý¹ka boxu 6 byla 0,8"\maxdimen", tedy rozbìhne se
+"\splitpart" a "\makecolumns". Pøitom makro "\makecolumns" sni¾uje hodnotu
+"\mullines" o~poèet vyti¹tìných øádkù, tak¾e pøí¹tì u¾ mù¾e být "\mullines"
+men¹í ne¾ "\tmpnum". K tomu urèitì na nìkolika posledních stránkách dojde,
+tak¾e nakonec "\balancecolumns" pracuje s pøesnou vý¹kou boxu~6. 
+
+ 
+\subsec [barvy] Barvy
+%%%%%%%%%%%%%%%%%%%%%
+
+A¾ po verzi OPmac Nov. 2014 byly barvy implementovány pomocí "\pdfliteral"
+za pou¾ití maker, která sama implementují "\colorstack" pomocí REF
+souboru. V prosinci 2014 jsem se rozhodl tento kód z OPmac odstranit a
+vyu¾ít pøímo primitivní "\pdfcolorstack" (v pdf\TeX{}u od verze 1.40). 
+OPmac se tak zbavil asi 30~øádkù
+pomìrnì komplikovaného kódu a u¹etøil mno¾ství zápisù do REF souboru. Tyto
+zmìny jsou v souladu s~my¹lenkou \uv{v jednoduchosti je síla}. Uvedené rozhodnutí není
+zcela zpìtnì kompatibilní, proto¾e opou¹tí mo¾nost samostatného nastavení
+barvy pro tenké linky a pro text. Domnívám se, ¾e to nevadí, proto¾e pokud
+u¾ivatel potøebuje elementární manipulaci s barvami, pou¾ije sám pøímo
+"\pdfliteral". Makra "\setcmykcolor" se nyní opírají o "\pdfcolorstack" a
+nastavují oba typy barev spoleènì. Bylo sice mo¾né inicializovat dva
+zásobníky barev (pro linky a pro text), ale to by fungovalo jen
+v~pdf\TeX{}u. Nikoli v~Xe\TeX{}u. Cílem ov¹em je, aby se barvy v pdf\TeX{}u a Xe\TeX{}u
+chovaly pokud mo¾no stejnì. Navíc, kdy¾ u¾ivatel napí¹e barevnì odmocninu,
+musí mít oba typy barev zapnuty souèasnì na stejnou hodnotu, jinak má véèko
+odmocniny v jiné barvì ne¾ vodorovnou èáru. Je tedy i pro u¾ivatele
+jednodu¹¹í tyto dva typy barev nerozli¹ovat.
+
+Makro \db localcolor (na rozdíl od pøedchozí verze) pouze 
+nastavuje "\localcolortrue". Podle \db localcolortrue
+resp. \db localcolorfalse se bude vìtvit èinnost pøepínaèù barev, které
+ukládají aktuální barvu do zásobníku. To je tedy druhá mírná odli¹nost od star¹í verze
+OPmac Nov. 2014, kdy makro "\localcolor" pøímo ukládalo aktuální barvu do zásobníku
+barev, zatímco pøepínaèe barev toto neøe¹ily. Pùvodní typické pou¾ití makra
+"\localcolor" není ve sporu s jeho novým významem.
+
+\inext{iflocalcolor}{\empty}{+-}
+
+Makro "\longlocalcolor" døíve umo¾òovalo pøechod barvy na dal¹í stránku,
+nyní je tato vlastnost pøímo øe¹ena díky "\pdfcolorstack", tak¾e netøeba
+rozli¹ovat mezi "\localcolor" a \db longlocalcolor.
+Makro \db linecolor nyní nedìlá nic, proto¾e nerozli¹ujeme mezi barvou linek
+a barvou textu. V pùvodní verzi bylo prefixem pro barvy linek.
+
+\inext{backward}{\empty}{+-}
+
+Pøipravíme barevná makra \db Blue, \db Red, \db Brown, \db Green, \db
+Yellow, \db Cyan, \db Magenta, \db White, \db Grey, \db LightGrey, \db Black. 
+U¾ivatel si mù¾e definovat dal¹í.
+
+\inext{Blue}{\empty}{+-}
+
+OPmac preferuje barevný model CMYK, proto je vý¹e pou¾ito k definici barev
+makro \db setcmykcolor. Je ov¹em mo¾né pou¾ít také \db setrgbcolor, co¾ na RGB
+zaøízeních (monitorech) dá skoro jistì jásavìj¹í barvy. Mù¾ete tedy marka
+pro jednotlivé barvy pøedefinovat, napø. "\def\Red{\setrgbcolor{1 0 0}}",
+ale je vhodné oba barevné modely v jednom dokumentu nemíchat. Tiskárny
+pøijímají jedinì CMYK, ideálnì i s konkrétním barevným profilem.
+
+\inext{setcmykcolor}{setrgbcolor}{++}
+
+Makra \db formatcmyk a \db formatrgb pøipravují argument s po¾adovanou
+barvou do formátu podle PDF standardu, tj. napø. "1 1 0 0 k 1 1 0 0 K"
+v pøípadì CMYK a barvy modré. 
+Pov¹imnìte si, ¾e se souèasnì
+pracuje s barvou textu "<c> <m> <y> <k> k" i s barvou tenkých linek 
+"<c> <m> <y> <k> K". 
+Ponìkud jiný standard je pak pou¾it v souboru
+"opmac-xetex.tex" pøi pou¾ití Xe\TeX{}u. 
+Ve "\write" pøíkazech se sice
+makra "\formatcmyk" a "\setcmykcolor" expandují, ale expanze se zastaví 
+u "\setcolor", proto¾e toto makro je deklarováno pomocí "\addprotect".
+
+\inext{formatcmyk}{\empty}{+-}
+
+Makro \db setcolor "{<barva>}" nastaví po¾adovanou barvu. 
+Nejprve pøepne makro "\ensureblacko" do aktivního stavu. V tomto stavu makro
+setrvá právì tehdy, kdy¾ je v dokumentu pou¾it aspoò jednou pøepínaè barvy.
+Dále makro "\setcolor" nastaví pøi
+"\localcolorfalse" barvu pøímo a pøi "\localocolortrue" barvu vlo¾í do
+zásobníku a pomocí "\aftergroup" zajistí návrat k pùvodní hodnotì.
+Navíc nastaví na odpovídající hodnotu makro "\currentcolor".
+
+\inext{setcolor}{^^B\cbrace}{++}
+
+Makro \db currentcolor je nastaveno na výchozí hodnotu \db pdfblackcolor
+
+\inext{pdfblackcolor}{currentcolor}{++}
+
+Makro \db ensureblacko "{<sazba>}" je pou¾ito pro sazbu záhlaví a zápatí ve
+výstupní rutinì v~makru "\opmacoutput". Implicitnì se "\ensureblacko{<sazba>}" chová
+stejnì jako samotná "<sazba>", ale po pou¾ití pøepínaèe barvy
+"\setcolor" zaène fungovat jako \db ensureblackoA, co¾ zajistí bravu
+"<sazby>" v~èerném. Je to provedeno tak, ¾e je na zaèátku "<sazby>"
+alokována nová úroveò zásobníku barev s výchozí èernou barvou a na konci
+"<sazby>" je tato úroveò zásobníku ukonèena.
+
+\inext{ensureblacko}{\empty}{+-}
+
+Makra \db colorstackpush "{<barva>}" a \db colorstackpop implementují
+práci se zásobníkem barev za pou¾ití odpovídajících \TeX{}ových primitivù.
+Je pou¾it implicitnì inicializovaný zásobník \db colorstackcnt k s èíslem nula
+(dìkuji P. Krajníkovi za tip).
+Není-li pøítomen pdf\TeX{} ve verzi aspoò 1.40, je barva nastavena pomocí
+"\pdfliteral" (co¾ v komplikovanìj¹ích pøípadech pøi pøechodu na dal¹í
+stránky nefunguje správnì), jinak je pou¾it "\pdfcolorstack", který je
+inicializován pomocí "\pdfcolorstackinit". 
+Koneènì makro \db colorstackset "{<barva>}" nastavuje barvu pøímo s
+umístìním této bravy na vrchol zásobníku místo bravy pøedchozí.
+
+\inext{pdfcolorstack}{\empty}{+-}
+
+Makra "\colorstackpush", "\colorstackpop" a "\colorstackset" jsou
+odpovídajícím zpùsobem pøedefinována v souboru "opmac-xetex.tex", aby bylo
+mo¾né pracovat s barvami i v Xe\TeX{}u.
+
+Pøepínaèe barev stejnì jako makra "\localcolor" nebo "\longlocalcolor" se
+mohou vyskytnout v~nadpise. Tak¾e je potøeba je zabezpeèit proti rozsypání.
+
+\inext{addprotect}{\empty}{+-}
+
+Není-li pou¾it pdf\TeX{}, nìkterá makra pro barvu deaktivujeme:
+
+\inext{ifpdftex}{\empty}{+-}
+
+Makro \db draft vlo¾í do "\prepghook" box nulové vý¹ky a ¹íøky "\draftbox",
+který vystrèí svou ¹edou sazbu ven ze svého rozmìru a je ti¹tìn døív, ne¾
+jakýkoli jiný materiál na stránce.
+
+\inext{draft}{}{++}
+
+V makru \db draftbox "{<text>}" je "<text>" otoèen o 55 stupòù, zvìt¹en
+desetkrát a vyti¹tìn v barvì "\LightGrey". K tomu jsou 
+vyu¾ity PDF transformace souøadnic.
+
+\inext{draftbox}{\empty}{+-}
+
+Kdy¾ není pou¾it pdf\TeX{}, barvy nefungují, tak¾e makro "\draft" deaktivujeme.
+
+\inext{ifpdftex}{\empty}{+-}
+
+
+\subsec Klikací odkazy
+%%%%%%%%%%%%%%%%%%%%%%
+
+Makro \db destactive "[<typ>:<lejblík>]" zalo¾í cíl odkazu jen tehdy, kdy¾
+je "<lejblík>" neprázdný. Ve vertikálním módu se nalepí na pøedchozí box
+díky "\prevdepth=-1000pt" a po vlo¾ení boxu s cílem vrátí hodnotu
+"\prevdepth" do pùvodního stavu, aby následující box byl správnì øádkován.
+V horizontálním módu prostì vlo¾í "\destbox". Makro 
+\db destbox "[<typ>:<lejblík>]" vytvoøí box nulové vý¹ky a z~nìj
+vystrèí nahoru cíl klikacího odkazu vzdálený od úèaøí o "\destheight". Internì
+pou¾ije pdf\TeX{}ový primitiv "\pdfdest" s parametrem "xyz", co¾
+charakterizuje obvyklou mo¾nost chování PDF prohlí¾eèe pøi odskoku na cíl.
+Podrobnìji viz manuál k~pdf\TeX{}u. PDF prohlí¾eèe vìt¹inou  
+lícují horní hranu okna pøesnì s~místem cíle, je tedy 
+potøeba cíl umístit ponìkud vý¹e, abychom vidìli i odkazovaný text.
+K~tomu právì slou¾í obsah makra \db destheight.
+
+\inext{dest}{\empty}{+-}
+
+V u¾ivatelské dokumentaci je zmínìno místo "\destactive" makro \db dest
+se stejnými parametry. Toto makro je implicitnì prázdné a tedy neèiné. 
+Teprve "\hyperlinks" je pøinutí k èinnosti.
+
+Nìkdy je úèelné v re¾imu \uv{draft} dokumentu tisknout v místì cílù odkazù
+jména lejblíkù, aby autor vidìl, jaké lejblíky pou¾il a lépe se mu dílo
+modifikovalo. Staèí pøedefinovat pro tento re¾im makro
+"\destbox" tøeba takto:
+
+\begtt
+\def\destbox[#1#2:#3]{\vbox to0pt{\kern-\destheight
+   \pdfdest name{#1#2:#3} xyz\relax
+   \if#1r\llap{\labelfont[\detokenize\expandafter{#3}]}\vss \else 
+   \if#1c\vss\llap{\labelfont[\detokenize\expandafter{\tmpb}] }\kern-\prevdepth
+   \else \vss \fi\fi}}
+\def\labelfont{\localcolor\Red\tt\thefontsize[10]}
+\endtt
+
+Pøi tomto øe¹ení budou lejblíky z "\label" ti¹tìny nahoru v místì cíle
+zatímco lejblíky z~"\bib" a "\bibitem" budou ti¹tìny vedle polo¾ky se seznamem
+literatury. V obou pøípadech budou lejblíky zelené a díky "\llap" neovlivní
+polohu ostatní sazby. 
+
+Klikací text vytvoøí makro \db linkactive "[<typ>:<lejblík>]{<barva>}{<text>}". 
+Makro pou¾ívá
+pdf\TeX{}ový primitiv "\pdfstartlink", ve kterém je vymezena vý¹ka a hloubka
+aktivní plochy. Nakonec pøepne na po¾adovanou "<barvu>" (pokud není èerná),
+vytiskne aktivní "<text>" a pøepne zpìt na èernou barvu. Pdf\TeX{}ový primitiv
+"\pdfendlink" ukonèí sazbu aktivního textu. K pou¾ití je pøipraveno makro
+\db link, které dostane hodnotu "\linkactive" pøi "\hyperlinks", jinak pouze
+pøepí¹e svùj argument.
+
+\inext{link}{\empty}{+-}
+
+Makro \db urllink "[<typ>:<lejblík>]{<text>}" pracuje 
+analogicky jako "\link". Jen navíc pøidává nìkteré
+atributy do PDF výstupu a pracuje s barvou "\urlcolor".
+Toto makro vytvoøí externí odkaz. Je pou¾ito v~makru "\url" 
+prostøednictvím makra "\ulink".
+
+\inext{urllink}{^^B\cbrace}{++}
+
+Makra \db toclink, \db pglink, \db citelink, \db reflink, \db ulink, která se
+specializují na urèitý typ linku, implicitnì nedìlají nic:
+
+\inext{toclink}{\empty}{+-}
+
+Ov¹em po pou¾ití makra \db hyperlinks "{<barva-lok>}{<barva-url>}" se
+uvedená makra "\toclink", "\pglink", "\citelink" a "\reflink" probouzejí k
+¾ivotu. Zde je také definováno makro \db urlcolor.
+
+\inext{hyperlinks}{^^B\cbrace}{+-}
+
+Makro "\toclink" ète parametr ve formátu \uv{èíslo kapitoly, sekce,
+kapitoly.sekce atd.}.
+Makro "\pglink" zase vy¾aduje svùj parametr jen jako èíslo strany. Kdy¾ je dokument
+rozdìlen do blokù a v~ka¾dém je samostatné èíslování stran, respektive bloky
+obsahují samostatné èíslování sekcí, je potøeba rozli¹it mezi tìmito bloky,
+aby interní odkaz pøi "\hyperlinks" v dokumentu byl jednoznaèný. Proto 
+jsou zavedena (implicitnì prázdná) makra \db tocilabel a \db pgilabel.
+Ka¾dý blok v dokumentu by pak mìl mít svùj vlastní "\tocilabel" a
+"\pgilabel" o co¾ se musí programátor maker postarat sám.
+
+
+\inext{tocilabel}{}{+-}
+
+Pdf\TeX{}ové primitivy pro klikací odkazy dovolují dopravit do PDF dal¹í
+atributy odkazu za slovem "attr". Tam je mo¾né dát najevo, ¾e chceme vidìt
+aktivní plochy ve formì rámeèkù. To zaøídí makro \db pdfborder "{<typ>}", které
+expanduje na "attr" "/Border[0 0 0]", pokud není kontrolní sekvence 
+"\<typ>border" definována. Jinak expanduje na "arrt" "/Border[0 0 .6]" a 
+"/C" s obsahem podle "\<typ>border".
+
+\inext{pdfborder}{\empty}{+-}
+
+Pokud je dokument zpracován do DVI výstupu, je vhodné vý¹e zmínìná makra
+deaktivovat:
+
+\inext{ifpdftex}{\empty}{+-}
+
+Makro \db url "{<text>}" se pou¾ívá k tisku URL. Vytiskne "<text>" fontem
+\db urlfont, pøitom kolem znakù lomítko, teèka a dal¹ích pøidává nulovou
+mezeru s dodateènou mírnou rozta¾itelností \db urlskip. Mezera vpravo od
+tìchto znakù je navíc zlomitelná s penaltou definovanou v makru \db
+urlbskip. Dvojité lomítko \db urlslashslash má zlomitelnou mezeru jen na
+konci. Makro "\|" je lokálnì definováno jako prázdné, ale pøi "\urlfont"
+nabývá hodnoty \db urlspecchar. Tak¾e ve skuteèném odkaze se neprojeví, ale
+pøi tisku ano. U¾ivatel si mù¾e "\urlspecchar" definovat dle svých pøedstav
+(napøíklad jako "\hfil\break").
+
+\inext{url}{\empty}{+-}
+   
+Makro "\url{<text>}" pracuje tak, ¾e ulo¾í "<text>" do "\tmpb" a nechá
+vymìnit pøíslu¹né znaky uvnitø "\tmpb" pomocí "\replacestrings".
+Nakonec vytiskne "<text>" prostøednictvím "\ulink".
+
+Aktivní vlnku lze v "<textu>" vymìnit za "\char`\~". Podobnì lze øe¹it
+nìkteré dal¹í znaky, ale ne v¹echny: procento, backlash.
+U tìchto znakù bychom nejprve museli vymìnit jejich
+kategorie. Pak by ale makro "\url" nefungovalo uvnitø parametrù jiných
+maker. V zájmu jednoduchosti makra "\url" to nedìláme. Tak¾e pokud u¾ivatel
+má v URL znak procento, musí psát "\%"
+nebo si zmìní kategorie sám. Podobná poznámka platí pro znaky "{", "}", "\",
+"#" a "$".  %$
+
+
+\subsec Outlines -- obsah v zálo¾ce PDF dokumentu
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Hlavní problém implementace strukturovaného obsahu do zálo¾ky PDF dokumentu
+spoèívá v~tom, ¾e pøi vkládání jednotlivých polo¾ek obsahu je nutno znát
+poèet pøímých potomkù ka¾dé polo¾ky (v~rámci stromové struktury polo¾ek),
+ov¹em tito pøímí potomci budou zaøazeni pozdìji. OPmac tento problém øe¹í
+dvìma prùchody nad daty, které jsou vytvoøeny pro tisk obsahu, tj. v makru
+"\toclist". V prvním prùchodu spoèítá potøebné potomky a ve druhém
+prùchodu zaøadí v¹echny polo¾ky postupnì jako \uv{outlines} do zálo¾ky.
+Pøipomeneme si, ¾e v "\toclist" se nachází seznam maker tvaru
+"\tocline{<odsazení>}{<font>}{<èíslo>}{<text>}{<strana>}".
+Makro \db outlines "{<úroveò>}" nejprve nastaví "\tocline" na hodnotu 
+"\outlinesA" a projde "\toclist". Pak je nastaví na hodnotu "\outlinesB" a 
+znovu projde "\toclist". 
+
+\inext{def\nb outlines}{^^B\cbrace}{++}
+
+V makru \db outlinesA "{<odsazení>}{<info>}{<èíslo>}{<text>}{<strana>}"
+poèítáme potomky. Makro je navr¾eno tak, aby bylo
+snadno roz¹íøitelné na libovolnou úroveò hloubky stromu, nicménì pro potøeby
+OPmac staèí hloubka tøi (kapitoly, sekce, podsekce). Úroveò uzlu pøeèteme v
+parametru "<odsazení>". Pro kapitolu je "<odsazení>"=0, pro sekci je
+"<odsazení>"=1 a pro podsekci je "<odsazení>"=2. 
+Pøedstavme si vedle sebe øadu counterù
+"\count0:\count1:\count2". Pøi sekvenèním ètení jednotlivých uzlù stromu
+si ka¾dý uzel zvìt¹í v této pomyslné øadì hodnotu svého
+counteru o~jednièku. Kapitoly zvìt¹ují "\count0", sekce "\count1", podsekce
+"\count2". Staèí tedy zvìt¹it "\count<odsazení>". Øada counterù pak
+jednoznaènì urèuje zpracovávaný uzel.
+Uzly pro kapitoly mají pøidìlenu kontrolní sekvenci "ol:\the\count0"
+a uzly pro sekce mají pøidìlenu kontrolní sekvenci 
+"ol:\the\count0:\the\count1". Jsou to makra, jejich¾ obsahem je poèet
+potomkù daného uzlu. Makrem \db addoneol "<csname>" zvìt¹íme obsah dané
+kontrolní sekvence o~jednièku. Pøíkazem "\ifcase<odsazení>" øe¹íme, kterému
+rodièi je tøeba zvednout tuto hodnotu. Pøi nule (kapitola) nikomu,
+nebo» daný uzel nemá rodièe. Pøi "<odsazeni>"=1 zvìt¹íme o
+jednièku poèet potomkù nadøazené kapitole a pøi "<odsazeni>"=2 nadøazené
+sekci. Asi by bylo pøehlednìj¹í na zaèátku definovat v¹echny potøebné
+sekvence "ol:<nìco>" a nastavit jim hodnotu~0. Ov¹em ¹etøíme pamìtí i èasem,
+tak¾e zakládáme sekvenci "ol:<nìco>" teprve v makru "\addoneol" a to tehdy,
+kdy¾ je ji poprvé potøeba zvìt¹it o~jednièku.
+
+\inext{outlinesA}{\count=2 ^^B\cbrace}{++}
+
+V makru \db outlinesB "{<odsazení>}{<info>}{<èíslo>}{<text>}{<strana>}"
+vkládáme polo¾ku obsahu do zálo¾ek. 
+Nejprve pøiètením "\count<odsazení>" dostaneme øadu
+"\count0:\count1:\count2" do stejného stavu, jako v pøedchozím prvním prùchodu
+a máme tím jednoznaènì pøidìlen uzel stromu.
+Do "\tmpnum" vlo¾íme údaj o poètu potomkù daného uzlu. K tomu je potøeba
+rozvìtvit výpoèet pøíkazem "\ifcase", proto¾e pro rùznou úroveò uzlu máme
+údaj v~rùznì definovaném makru. Pøíkazem "\protectlist" zastavíme expanze
+pøípadných maker registrovaných pomocí "\addprotect" a definujeme vlnku jako
+mezeru (v zálo¾ce vypadá líp ne¾ vlnka). Dále pomocí "\setcnvcodesA"
+expandujeme "\toasciidata". Pomocí "\setlccodes\toasciidata" pøipravíme 
+"\lccode" znakù tak, aby "\lowercase" odstranil háèky a èárky. To
+vzápìtí provedeme, ale nejprve je¹tì do toho mù¾e promluvit u¾ivatel v makru
+"\cnvhook", které je implicitnì nastaveno na makro prázdné.
+
+\ilabel [outlines:setlccodes] {setlccodes}
+
+\inext{outlinesB}{^^B\cbrace}{++}
+
+Makro \db outlinesC "{<úroveò>}{<lejblík>}{<minus>}{<potomci>}{<text>}"
+koneènì zavolá primitivní 
+"\pdfoutline goto name{<lejblík>} count<minus><potomci> {<text>}".
+a vytvoøí lejblík v dané úrovni zanoøení na
+základì pøedpoèítaného údaje "<potomci>", který obsahuje poèet potomkù právì
+vkládané zálo¾ky. Údaj "<minus>" je (po expanzi)
+prázdný, pokud nechceme mít potomky skryté a obsahuje znak minus, pokud
+chceme mít potomky ve výchozím stavu skryté. 
+Pøipomínám, ¾e v makru \db outlinelevel
+máme makrem "\outlines" pøipravenu úroveò rozevøení, kterou si u¾ivatel
+pøeje. Makro "\outlinesC" je pøipraveno k
+pøedefinování v modulu "opmac-xetex.tex", který pro vytvoøení zálo¾ek
+pou¾ívá "\special" a nepotøebuje znát údaj "<potomci>". Pøíslu¹ný "\special" 
+vyu¾ije pøímo údaj "<úroveò>".
+
+\inext{outlinesC}{}{+-}
+
+Makro \db setcnvcodesA zkontroluje, zda je u¾ivatelem definováno makro
+"\toasciidata<iso-kód>". Pokud je, pou¾ije ho jako "\toasciidata" ke
+konverzi akcentovaných znakù na neakcentované. Jinak 
+podle definovanosti "\r" zkontroluje, zda je zapnutý
+"\csaccents" a pokud je, expanduje interní "\toasciidata". 
+Makro \db toasciidata potøebujeme expandovat, proto¾e 
+neobsahuje pøímý zápis znakù. Dùvod je zøejmý, nechceme, aby se 
+soubor {\tt opmac.tex} stal závislý na pou¾itém kódování. 
+
+\inext{setcnvcodesA}{\count=2 ^^B\cbrace}{++}
+
+Na øádku \cite[outlines:setlccodes]
+se makro \db setlccodes spustí jako "\setlccodes AAÁAÄAáa...{}{}".  
+Toto makro si odloupne dva parametry "xy", provede "\lccode`x=`y" a 
+v~rekurzivním cyklu pokraèuje v~èinnosti, dokud nenarazí na "{}{}".
+
+\inext{setlccodes}{\empty}{+-}
+
+Makro \db insertoutline "{<text>}" vlo¾í jedinou polo¾ku do zálo¾ky. Pro
+tuto polo¾ku se pøedpokládá nulový poèet potomkù. Vyu¾ití: u¾ivatel mù¾e
+takto odkázat na zaèátek nebo konec dokumentu. Jako lejblík je pou¾ito
+"oul:<oulnum>", kde \db oulnum prùbì¾nì zvìt¹ujeme o jednièku.
+
+\inext{oulnum}{\empty}{+-}
+
+Pokud je dokument zpracován do DVI výstupu, je vhodné vý¹e zmínìná makra
+deaktivovat:
+
+\inext{ifpdftex}{\empty}{+-}
+
+
+
+\subsec Verbatim
+%%%%%%%%%%%%%%%%
+
+Verbatim výpisy budou odsazeny o "\ttindent". Je nastaven na hodnotu
+"\parindent" v dobì ètení souboru a spoleènì s "\parindent" by mìl
+u¾ivatel zmìnit i "\ttindent".  Èítaè \db ttline èísluje øádky bì¾ného verbatim výstupu,
+èítaè \db viline èísluje øádky souboru èteného pomoci "\verbinput". Souborový
+deskriptor \db vifile bude pøiøazen souboru v makru "\verbinput".
+
+\inext{newcount}{\empty}{+-}
+
+Makra \db setverb, \db begtt "...\endtt" jsou dokumentována v TBN, str. 29.
+
+\inext{setverb}{testparA}{++}
+
+Makro "\begtt" oèichá na konci své èinnosti, zda se nachází pod "\endtt"
+prázdný øádek (alias "\par"). K tomu slou¾í makra \db testparA (pøeskoèí 
+mezeru, která za "\endtt" v¾dy je), \db testparB (pøeète následující znak
+pomocí "\futurelet") a \db testparC (o¹etøí, zda tento následující znak je
+"\par").
+
+\inext{testparA}{\empty}{+-}
+
+Makro \db printttline vytiskne èíslo øádku.
+
+\inext{printttline}{\empty}{+-}
+
+Makro \db activettchar pracuje podobnì, jako makro "\adef". Navíc
+potøebuje pou¾ít novì naètený znak ve své aktivní kategorii jako separátor
+vymezující konec parametru. Do sekvencí \db savedttchar a \db savedttcharc
+je ulo¾ena ASCII hodnota znaku a jeho pùvodní kategorie.
+
+\inext{activettchar}{\empty}{+-}
+
+Makro \db verbinput si pomocí "\tmpa" ovìøí, zda minule byl èten stejný
+soubor. Pokud ne, otevøe soubor "#2" ke ètení pomocí "\openin" a ulo¾í do
+\db vifilename jméno naposledy otevøeného souboru. Dále zkontroluje pomocí
+"\ifeof", zda je mo¾né ze souboru èíst. Pokud ne, vypí¹e se varování a
+pomocí \db skiptorelax se pøeskoèí zbytek obsahu makra a¾ po "\relax",
+tak¾e se neprovede nic dal¹ího. Je-li soubor úspì¹nì otevøen nebo byl-li
+otevøen ji¾ minule, pustí se makro "\verbinput" do prozkoumání parametru
+"#1" zapsaného v závorce pøed jménem souboru.
+
+\inext{verbinput}{\empty}{+-}
+
+Cílem vyhodnocení parametru v závorce makra "\verbinput" jsou dva údaje: \db
+vinolines bude obsahovat poèet øádkù, které je od zaèátku souboru nutno
+pøeskoèit, ne¾ se má zahájit pøepisování øádkù a \db vidolines bude
+obsahovat poèet øádkù, které se mají pøepsat ze souboru do dokumentu.
+Písmena "vi" na zaèátku tìchto názvù pøedstavují zkratku pro "verbinput".
+Vy¹etøení parametru ukonèeného textem "+\relax" se v makru \db
+viscanparameter vìtví na pøípad, kdy parametr obsahuje symbol "+" a pou¾ije
+se pak \db viscanplus. Druhý pøípad, kdy u¾ivatel nenapsal symbol plus
+(tak¾e parametr "#2" makra "\viscanparameter" je prázdný) je dále 
+vy¹etøen v makru \db viscanminus. Obì makra si oddìlí do svých parametrù
+první a druhou èíslici (ka¾dá z nich mù¾e být prázdná) a nastaví podle
+zdokumentovaných pravidel pro zápis parametru odpovídající interní údaje
+"\vinolines" a "\vidolines". Vychází pøitom z pøedpokladu, ¾e registr
+"\viline" obsahuje èíslo naposledy pøeèteného øádku (nebo nulu, jsme-li na
+zaèátku souboru).
+
+\inext{viscanparameter}{\count=3 ^^B\cbrace}{++}
+
+Makro \db doverbinput provede samotnou práci: pøeskoèí "\vinolines" øádkù a
+pøepí¹e "\vidolines" øádkù. To provede v prvním a druhém cyklu "\loop". Ne¾
+se k tìmto cyklùm dostane, musí udìlat jisté pøípravné práce. Nejprve odeète
+od "\vinolines" poèet u¾ pøeètených øádkù, proto¾e pøi opakovaném ètení
+stejného souboru jej neotevíráme znova, jen pøeskoèíme pøíslu¹ný men¹í poèet
+øádkù. Pokud ale se uká¾e, ¾e rozdíl je záporný (je potøeba se v souboru
+vracet dozadu), makro znovuotevøe soubor ke ètení pomocí "\openin" a upraví
+podle toho pøíslu¹né údaje o øádcích. Pak zahájí skupinu, dále pomocí
+"\setverb" nastaví speciálním znakùm kategorii 12 a pomocí "\adef{ }{ }"
+nastaví mezeøe aktivní kategorii (bude expandovat na neaktivní mezeru jako
+"\space") a také nastaví kategorii 12 znaku, který byl deklarován pomocí
+"\activettchar". Pøipraví odsazení podle "\ttindent" a spustí u¾ivatelský
+"\tthook". Je-li potøeba tisknout èísla øádkù, pøipraví si na to font
+"\sevenrm", který má velikost rovnu 0,7 násobku základní velikosti. A pustí se do
+zmínìných dvou cyklù "\loop". V obou cyklech se mù¾e stát, ¾e narazíme
+neèekanì na konec souboru. To je o¹etøeno testem "\ifeof\vifile" a následnou
+úpravou èítaèe "\tmpnum" tak, abychom okam¾itì vyskoèili z cyklu. Druhý
+cyklus obsahuje je¹tì jeden speciální rys: pøeje-li si u¾ivatel èíst a¾ do
+konce souboru, je nastaveno "\vidolines" na nulu a pøed zahájením cyklu je
+èítaè "\tmpnum" nastaven na "-1". Uvnitø cyklu je pak zaji¹tìno, ¾e v tomto
+pøípadì není èítaè zvìt¹ován o jednièku. Po ukonèení práce v tìchto dvou
+cyklech je ukonèena skupina, vlo¾ena mezera "\ttskip" a makrem "\testparB"
+se ovìøí, zda následuje prázdný øádek.
+
+\inext{doverbinput}{^^B\cbrace}{++}
+
+V prvním cyklu "\loop" v tìle makra "\doverbinput" se opakovanì volá
+\db vireadline, co¾ je makro, které pøeète dal¹í øádek ze souboru. V druhém
+cyklu se opakovanì volá "\vireadline" následované \db viprintline. Toto
+makro vlo¾í pøeètený øádek do "\tmpb". Nakonec se "\tmpb" vytiskne stejným
+zpùsobem, jako pøi pøeètení textu makrem "\begtt".
+
+\inext{vireadline}{\empty}{+-}
+
+
+\subsec Jednoduchá tabulka
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Tabulku makrem "\table" vytvoøíme jako "\vbox", ve kterém je "\halign". Je
+tedy potøeba naèíst deklaraci typu "{llc|rr}" a pøevést ji na deklaraci pro
+"\halign". Tato deklarace obsahuje znak "#" a tento znak se obtí¾nì pøidává
+do tìla maker. Nashromá¾díme tedy postupnì deklaraci pro "\halign" do
+registru typu "\toks", který je nazvaný \db tabdata. Dále definujeme interní
+\db tabstrutA, který bude obsahovat u¾ivatelùv "\tabstrut", ov¹em pøechodnì
+budeme toto makro mìnit. Také deklarujeme èítaè \db colnum, ve kterém budeme
+mít po pøeètení deklarace ulo¾en poèet sloupcù tabulky.
+Dále bìhem skenování "<deklarace>" vytvoøíme makro \db
+ddlinedata, které bude obsahovat "&\dditem &\dditem ..." (poèet tìchto dvojic
+bude roven $n-1$, kde $n$ je poèet sloupcù). Pokud je v deklaraci dvojitá
+svislá èára, bude v makru "\ddlinedata" na pøíslu¹ném místì je¹tì "\vvitem".
+Makro "\ddlinedata" pak pou¾ijeme v "\crli" a v "\tskip", 
+Strýèek Pøíhoda to mù¾e pou¾ít jinde a jinak. Koneènì makro \db vvleft je
+neprázdné, pokud úplnì vlevo tabulky je dvojitá èára.
+
+\inext{newtoks}{\empty}{+-}
+
+Makro \db table "{<deklarace>}{<data>}" vypadá takto:
+
+\inext{table}{\empty}{+-}
+
+Makro \db scantabdata postupnì ète znak po znaku z deklarace "\table" a podle
+pøeèteného znaku ukládá do "\tabdata" odpovídající úsek skuteèné deklarace pro
+"\halign". Volá pøitom "\addtabvrule" nebo "\addtabitem{\tabdeclare<znak>}".
+
+\inext{scantabdata}{^^B\cbrace}{++}
+
+Pomocná makra \db scantabdataA, \db scantabdataB a \db scantabdataE
+øe¹í pøípady, kdy deklarátor nemá nebo má parametr. Dále makra
+\db scantabdataC a \db scantabdataD  se starají o pøípadné opakování úseku
+deklarace.
+
+\inext{scantabdataA}{scantabdataE}{++}
+
+OPmac pøeddefinuje ètyøi "<deklarátory>" pro sloupce tabulky, sice "<znaky>"
+"c", "l", "r", "p" v~makrech \db tabdeclarec, \db tabdeclarel, \db
+tabdeclarer a \db paramtabdeclarep. 
+Je-li deklarátor bez parametru, je tøeba definovat "\tabdeclare<znak>" a
+je-li s parametrem, je tøeba definovat "\paramtabdeclare<znak>".
+V pøípadì typu "p" pøidáváme na konec odstavce (do posledního øádku) strut
+nulové vý¹ky, ale hloubku má podle "\tabstrutA".
+
+\inext{tabdeclarec}{\empty}{+-}
+
+Makro \db unsskip vkládané na konec ka¾dé datové polo¾ky odebere mezeru,
+pokud má nenulovou základní velikost. U¾ivatelé toti¾ nìkdy dávají kolem
+datových polo¾ek mezery a nìkdy ne, pøitom chtìjí, aby se jim to chovalo
+stejnì. Je nároèné si pamatovat, ¾e mezery pøed polo¾kou jsou
+ignorovány primitivem "\halign", ale mezery za polo¾kou jsou podstatné. Tak
+radìji i mezery za polo¾kou udìláme nepodstatné.
+
+\inext{unsskip}{}{++}
+
+Pøíklad: po deklaraci: "{|cr||cl|}" makro "\scantabdata" vytvoøí:
+
+\begtt
+tabdata: \vrule\tabiteml\hfil#\unsskip\hfil\tabitemr\tabstrutA 
+      &\tabiteml\hfil#\unsskip\tabitemr \vrule\kern\vvkern\vrule\tabstrutA 
+      &\tabiteml\hfil#\unsskip\hfil\tabitemr\tabstrutA
+      &\tabiteml#\unsskip\hfil\tabitemr\vrule\tabstrutA
+ddlinedata: &\dditem &\dditem\vvitem &\dditem &\dditem
+\endtt
+
+Makra \db addtabitem, \db addtabdata a \db addtabvrule vlo¾í do "\tabdata" a
+"\ddlinedata" po¾adovaný údaj. Makro "\addtabitem" pozná podle "\colnum=0", 
+zda vkládá data pro první sloupec (nepøidává~"&") nebo pro dal¹í sloupce
+(pøidává~"&"). Makro "\addtabvrule" pozná podle "\tmpa", zda pøed 
+ním pøedchází dal¹í "\vrule". Pokud ano, vlo¾í dodateènou mezeru
+"\kern\vvkern" a pøidá "\vvitem" do "\ddlinedata". 
+
+\inext{addtabitem}{\empty}{+-}
+
+Ne¾ se pustíme do výkladu dal¹ích maker, pøedvedeme pøíklad, ve kterém je
+definován deklarátor "F" pro centrovanou polo¾ku, kde text
+je v rámeèku (deklarátor bez parametru) a dále definujeme analogii
+deklarátoru "p" s parametrem (bude se jmenovat "V"), který umístí odstavce
+rùznì vysoké vedle sebe vertikálnì centrovanì.
+
+\begtt
+\def\tabdeclareF{\tabiteml\hfil\frame{##\unsskip}\hfil\tabitemr}
+\def\paramtabdeclareV#1{\tabiteml{$\vcenter{\hsize=#1
+   \baselineskip=\normalbaselineskip \lineskiplimit=0pt
+   \noindent\vbox{\hbox{\tabstrutA}\kern-\prevdepth}##\unsskip 
+   \vbox to0pt{\vss\hbox{\tabstrutA}}}$}\tabitemr}
+\def\tabstrut{\vrule height 20pt depth10pt width0pt}
+
+\table{V{3cm\raggedright} V{4cm}} {del¹í text & text \cr text & del¹í text}
+\endtt 
+
+Pus»me se nyní do rozboru maker na ukonèení øádkù.
+Makro \db crl pøidá èáru pomocí "\noalign". Makro \db crll pøidá dvojitou
+èáru pomocí "\noalign".
+
+\inext{crl}{\empty}{+-}
+
+Makro \db crli provede "\cr" a dále se vnoøí do øádku tabulky, ve kterém
+klade postupnì následující 
+"\omit\tablinefil &\omit\tablinefil &..." 
+Pøitom v místì dvojité vertikální èáry naklade navíc "\tabvvline".
+Makro \db tablinefil vlo¾í natahovací èáru na ¹íøku celé polo¾ky a makro 
+\db tabvvline vlo¾í dvì "\vrule" vzdáleny od sebe o "\vvkern". Tím vzniká
+pøetrzené místo v postupnì tvoøené lince. Ke správnému nakladení uvedených
+povelù pou¾ije makro "\crli" obsah makra "\ddlinedata" a vlevo pøidává
+"\vvleft". Pøed spu¹tìním makra "\ddlinedata" definuje odpovídajícím
+zpùsobem \db dditem a \db vvitem. Makro \db crlli sestává ze dvou "\crli"
+oddìlených od sebe vertikální mezerou vlo¾enou pomocí "\noalign".
+
+\inext{crli}{\empty}{+-}
+
+Makro \db tskip prostøednictvím \db tskipA pøechodnì vyprázdní "\tabstrut"
+pøedefinováním "\tabstrutA" a také vyprázdní "\dditem" a "\vvitem", aby
+po pou¾ití "\ddlinedata" vznikl øádek tabulky s prázdnými polo¾kami. 
+Øádek je vypodlo¾ený strutem stanovené vý¹ky "\tmpdim".
+Nakonec je potøeba vrátit "\tabstrutA" do pùvodního stavu.
+
+\inext{tskip}{\empty}{+-}
+
+Makro \db mspan "<èíslo>[<deklarace>]{<text>}" pøekoná "<èíslo>" sloupcù a
+dále "<text>" v tomto prostoru formátuje podle "<deklarace>". K tomu úèelu
+provede "\multispan" pomocí "\loop" v \db mspanA a dále 
+vytvoøí lokálnì tabulku "\halign" s jedním sloupcem podle deklarace. Na
+konci makra "\mspanA" potøebujeme získat vzniklý "\hbox" a rozbalit ho
+pomocí "\unhbox".
+
+\inext{mspan}{\empty}{+-}
+
+Globální zmìna ¹íøek v¹ech linek tvoøených pomocí "\vrule" a "\hrule" je
+provedena makry \db rulewidth a \db rulewidthA. My¹lenka je dokumentována v
+TBN na str.~328.
+\dgn \nb orivrule
+\dgn \nb orihrule
+
+\inext{orihrule}{\empty}{+-}
+
+Makro \db frame "{<text>}" vlo¾í vnìj¹í "\hbox{\vrule<vnitøek>\vrule}".
+Uvnitø tohoto boxu se nachází "\vtop{<dal¹í>\kern\vvkern\hrule}", tak¾e "<dal¹í>"
+zùstává na úèaøí. Pøitom "<dal¹í>" je "\vbox{\hrule\kern\vvkern<dal¹í2>}",
+tak¾e "<dal¹í2>" zùstává na úèaøí. V tuto chvíli jsou ji¾ vytvoøeny èáry
+vlevo, vravo, nahoøe i dole. Koneènì "<dal¹í2>" je
+"\hbox{\kern\hhkern<text>\kern\hhkern}".
+
+\inext{frame}{\empty}{+-}
+
+
+\subsec Vlo¾ení obrázku
+%%%%%%%%%%%%%%%%%%%%%%%
+
+Nejprve deklarujeme \db picwidth a \db picheight. Z dùvodu zpìtné
+kompatibility je dále ztoto¾nìn "\picwidth" se sekvencí \db picw.
+
+\inext{picw}{\empty}{+-}
+
+Makro \db inspic je zkratka za pou¾ití primitivù "\pdfximage", 
+"\pdfrefximage" a "\pdflastximage". Kdo si to má poøád pamatovat.
+Není-li aktivován PDF výstup, napí¹eme jen varování a neprovedeme nic.
+
+\inext{ifpdftex}{\empty}{+-}
+
+Makro \db inspicpage mù¾e pøi nata¾ení PDF obsahovat text "page<number>".
+Pak se jako obrázek pou¾ije odpovídající strana PDF dokumentu.
+
+
+\subsec PDF transformace
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+Makro \db pdfscale "{<vodorovnì>}{<svisle>}" pracuje jednodu¹e:
+
+\inext{pdfscale}{\empty}{+-}
+
+Na druhé stranì makro \db pdfrotate "<úhel>" vytvoøí
+"\pdfsetmatrix{"$\cos\varphi\enspace\sin\varphi\enspace
+                {-}\sin\varphi\enspace\cos\varphi$"}",
+co¾ není jednoduché, proto¾e funkce $\cos$, $\sin$ nejsou v \TeX{}u
+implementovány. Balíèek "trig.sty" nabízí vyhodnocování tìchto funkcí pomocí
+Taylorových polynomù, nicménì OPmac nechce být závislý na balíècích a také
+chce ukázat alternativní zpùsob implementace. Makro "\pdfrotate" pracuje
+zhruba takto: je-li argument 0, neprovede nic, je-li argument 90, provede
+otoèení o~90 stupòù. V ostatních pøípadech zavolá makro \db pdfrotateA,
+které rozlo¾í argument na celou "#1" a zlomkovou "#2" èást. V dal¹í èásti 
+na øádcích~\cite[rot:360] a¾ \cite[rot:smallsin] se
+zabývá jen celými stupni. Nejprve pomocí prvního a druhého "\loop" posune
+argument o celé násobky 360 stupòù tak, ¾e poté je argument mezi
+0 a¾ 360 stupni, a pøitom se hodnoty funkcí $\sin$ a $\cos$ nezmìnily.
+Ve tøetím "\loop" postupnì sni¾uje argument o 90 stupòù a pøitom dìlá rotaci
+o 90 stupòù tak dlouho, a¾ máme argument mezi nulou a devadesáti.
+Je-li dále argument vìt¹í ne¾ 44 stupòù, otoèíme se o 45 a sní¾íme argument
+o 45. Je-li dále argument vìt¹í ne¾ 22, otoèíme se o 22 a sní¾íme argument o
+22. Nyní máme argument v mno¾inì $\{0, 1, 2, 3, \ldots, 22\}$. Pro ka¾dý
+prvek z této mno¾iny argumentù máme pøedpøipraveny hodnoty funkcí 
+$\cos$ a $\sin$ v makrech \db smallcos a \db smallsin. Pou¾ijeme je pro
+závìreènou rotaci. Tím máme sazbu otoèenou o celé stupnì.
+Dal¹í èást makra na øádcích \cite[rot:174532] a¾ \cite[rot:else]
+øe¹í jemné dotoèení podle zlomkové èásti argumentu. V intervalu nula a¾
+jeden stupeò aproximujeme funkci $\cos$ konstantní jednièkou a funkci $\sin$
+lineární funkcí $x\cdot \pi/180$. V daném rozmezí je to velmi dobrá
+aproximace.
+
+\ilabel [rot:360] {360}
+\ilabel [rot:smallsin] {smallsin}
+\ilabel [rot:174532] {174532}
+\ilabel [rot:else] {else\space\space\space\space}
+
+\inext{pdfrotate}{\empty}{+-}
+
+Pro pøípad, ¾e nepracujeme s PDF výstupem, definujeme klíèové primitivy
+pdf\TeX{}u jako makra, která nedìlají nic.
+
+\inext{ifpdftex}{\empty}{+-}
+
+
+
+\subsec Poznámky pod èarou a na okraji stránek
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Makro "\fnote" pøedpokládá, ¾e správné èíslo poznámky na dané stránce je
+pøipraveno v makru "\fn:<èíslo>", kde "<èíslo>" je celkové èíslo poznámky napøíè
+celým dokumentem sledované globálním èítaèem \db fnotenum.
+
+\inext{fnotenum}{\empty}{+-}
+
+Makro "\fnote" ohlásí svou existenci do REF souboru záznamem "\Xfnote" (bez
+parametru). Dále vytiskne znaèku pomocí "\fnmarkx" a ve skupinì pøejde na
+men¹í sazbu a zavolá plain\TeX{}ové makro "\vfootnote", které vlo¾í sazbu
+pomocí tzv. insertu (TBN, kapitola~6.7). Plain\TeX{}ové nastavení této
+tøídy insertu není makrem OPmac nijak mìnìno. To v¹e je øe¹eno v interním makru 
+\db fnoteG "{<znaèka>}{<text>}". 
+
+\inext{fnoteG}{^^B\cbrace}{++} 
+
+Koneènì makro \db fnote je implementováno pomocí "\fnoteG" se znaèkou
+"\fnmarkx" zatímco makro \db fnotetext dìlá to samé, ale znaèka v textu je
+prázdná.
+
+\inext{fnote}{fnotetext}{++}
+
+Makro \db fnotemark pøiète lokálnì k "\fnotenum" svùj parametr a vytiskne
+odpovídající znaèku. Celá práce makra probíhá ve skupinì, tak¾e po ukonèení
+makra se "\fnotenum" vrátí do své pùvodní hodnoty.
+Makro \db fnmarkx vytiskne otazník nebo \db thefnote. Pøedpokládá se, ¾e si
+u¾ivatel pøedefinuje "\thefnote" k obrazu svému. Lokální èíslo poznámky na
+stránce má pøipraveno v makru \db locfnum.
+
+\inext{fnotemark}{\empty}{+-}
+
+Pøi ètení REF souboru se pro ka¾dou stranu pøeète nejprve "\Xpage", co¾
+je makro, které pronuluje \db fnotenumlocal. 
+Makru \db Xfnote tedy staèí pozvednout
+"\fnotenumlocal" o jednièku a pomocí 
+"\sxdef" si tuto hodnotu zapamatovat v makru "\fn:<èíslo>".
+
+\inext{Xfnote}{\empty}{+-}
+
+Makro \db runningfnotes vypne lokální èíslování poznámek na ka¾dé stránce.
+Místo toho se budou poznámky èíslovat podle registru "\fnotenum". Ten se
+zvìt¹uje o jednièku v celém dokumentu. Chcete-li mít poznámky èíslované
+zvlá¹» napøíklad v ka¾dé kapitole, je nutno navíc resetovat tento èítaè
+napøíklad pomocí "\addto\chaphook{\global\fnotenum=0}". 
+
+\inext{runningfnotes}{\empty}{+-}
+
+Registr \db mnotenum. 
+globálnì èísluje okrajové poznámky a plní podobnou funkci, jako registr
+"\fnotenum" pro podèárové poznámky. Registr \db mnoteskip udává hodnotu
+vertikálního posunu poznámky.
+
+\inext{mnotenum}{\empty}{+-}
+
+Makro \db mnote ve vertikálním módu zalo¾í box nulové vý¹ky pomocí
+"\mnoteA" a vycouvá na pùvodní místo sazby pomocí "\vskip-\baselineskip". V
+odstavcovém módu toto makro nalepí box nulové vý¹ky pod právì vytvoøený
+øádek v odstavci. Víme, ¾e "\vadjust" nalepí svùj materiál bez mezery pod
+tento øádek. My ov¹em potøebujeme vycouvat nahoru na úèaøí øádku. To nejde
+snadno provést, proto¾e hloubka øádku je promìnlivá. Proto do je øádku
+vlo¾en "\strut" a pøedpokládá se, ¾e nyní má øádek hloubku "\dp\strutbox" a
+o tento rozmìr makro vycouvá nahoru. Vlo¾í po¾adovaný box vý¹ky nula na
+úrovni úèaøí a pak se vrátí na pùvodní místo.
+
+\inext{mnote}{^^B\cbrace}{++}
+
+Makro \db mnoteA si zjistí, zda je v makru "\mn:<èíslo>" ulo¾en primitivní
+pøíkaz "\left" nebo "\right". Podle toho pozná, zda má umístit poznámku
+doleva nebo doprava. Rovnì¾ dá o sobì vìdìt do REF souboru vlo¾ením
+sekvence "\Xmnote" (bez parametru). Sazba musí v obou pøípadech vyprodukovat
+box nulové vý¹ky i hloubky. Proto je "\vtop", uvnitø kterého je text poznámky
+zpracován, vlo¾en pøechodnì do boxu0 a je mu pronulována hloubka. Nulová
+vý¹ka je zaøízena pomocí "\vbox to0pt{\vss\box0}". Vlastní sazbu poznámky
+zahajujeme pomocí "\noindent" s tím, ¾e je pøipraven pru¾ný "\leftskip" nebo
+"\rightskip" podle toho, zda poznámku klademe vlevo nebo vpravo.
+Pøi kladení vlevo musíme pou¾ít "fill", abychom pøeprali natahovací mezeru z
+"\parfillskip".
+
+\inext{mnoteA}{^^B\cbrace}{++}
+
+Makro \db Xmnote pracuje bìhem ètení REF souboru a vyu¾ívá toho, ¾e makro
+"\Xpage" nastavuje èíslo právì procesované strany do registru "\lastpge".
+Tak¾e staèí pou¾ít "\sxdef" následujícím zpùsobem:
+
+\inext{Xmnote}{\empty}{+-}
+
+Makro \db fixmnotes "<token>" definuje interní makro \db mnotesfixed
+s obsahem "\left" nebo "\right" podle pøání u¾ivatele. Makro "\mnoteA" se
+pak na definovanost "\mnotesfixed" ptá a pokud je definované, nepou¾ije
+údaje pøeètené ze souboru.
+
+\inext{fixmnotes}{\empty}{+-}
+
+
+\subsec Bibliografické reference
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Nejprve uvedeme deklarace deskriptoru \db auxfile, stringu \db bibmark a èítaèù 
+\db bibnum a \db lastcitenum.
+
+\inext{auxfile}{\empty}{+-}
+
+Makro \db cite "[<lejblík1>,<lejblík2>,...]" si opakovanì zavolá 
+"\citeA<lejblík-i>", kde se pøipraví èísla citovaných publikací do
+lokálnì tvoøeného seznamu "\savedcites". Poté zavolá "\printsavedcites",
+které lokálnì tvoøený seznam èísel vytiskne. Kromì toho makro "\citeA" udìlá
+plno dal¹ích potøebných vìcí, jak uvidíme za chvíli.
+Makro \db nocite se chová jako "\cite" a¾ na to, ¾e se nic netiskne.
+Makro \db rcite vytiskne èísla publikací, ale bez hranatých závorek kolem.
+Makro \db savedcites je globálnì prázdné a zaplní se v¾dy znovu uvnitø
+skupiny vymezené makrem "\cite" nebo "\nocite" nebo "\rcite".
+
+\inext{cite}{\empty}{+-}
+
+Makro \db citeA "<lejblík>," øe¹í zhruba øeèeno následující vìci:
+
+\begitems
+\item * Zjistí, zda je definován "\csname bib:<lejblík>\endcsname". Pokud ano,
+  pøidá obsah tohoto makra (co¾ je èíslo citovaného záznamu) 
+  do "\savedcites". Pokud ne, pøidá do
+  "\savedcites" otazník a na terminál vypí¹e varování.
+  Kontrolní sekvence "\csname bib:<lejblík>\endcsname" bude obsahovat
+  "<èíslo citace>" po pou¾ití
+  "\bib[<lejblík>]" nebo "\bibitem{<lejblík>}". Tato makra ulo¾í
+  odpovídající informaci do REF souboru, odkud ji pøi opakovaném \TeX{}ování 
+  vyzvedneme. Je to klasická èinnost, kterou provozujeme i u ostatních
+  køí¾ových referencí.
+\item * Ulo¾í o sobì zprávu do bufferu "\citelist". To pou¾ijeme
+  v makrech "\usebibtex" nebo "\usebbl".
+\enditems
+
+Makro "\citeA" je naprogramováno zhruba takto
+
+\def\begtthook{\langleactive}
+\begtt
+function citeA(<lejblík>) {
+  if (<lejblík> == '*') { <zapi¹ do> \citelist '*'; return; }
+  if (\bib:<lejblík> == nedef) {
+    <pøidej do> \citelist <lejblík>;
+    <na terminál:> "Warning, cite [label] unknown";
+    <pøidej do> \savedcites "?,";
+    <lokálnì vypni tøídìní a zkracování seznamu> \savedcites;
+    \bib:<lejblík> = empty;
+    return;
+  if (\bib:<lejblík> == empty) {
+    <pøidej do> \savedcites "?,";
+    <lokálnì vypni tøídìní a zkracování seznamu> \savedcites;
+    return;
+  }
+  if (\bib:<lejblík> konèí znakem '&') {
+    <pøidej do> \citelist <lejblík>;
+    <odstraò znak & z obsahu makra> \bib:<lejblík>;
+  }
+  <pøidej do> \savedcites <expandovaný> "\bib:<lejblík>,";  
+} 
+\endtt
+
+Výklad kódu: Proto¾e chceme ¹etøit pamìtí bufferu "\citelist", zapisujeme
+tam ka¾dý "<lejblík>" jen jednou. Zda se nedeklarovaný "<lejblík>" vyskytl
+poprvé, poznáme podle nedefinované hodnoty "\bib:<lejblík>". Zda se vyskytl
+nedeklarovaný "<lejblík>" pozdìji znovu poznáme podle toho, ¾e má makro 
+"\bib:<lejblík>" hodnotu "empty". Zda se deklarovaný
+"<lejblík>" vyskytl poprvé poznáme podle znaku "&" v~jeho obsahu. 
+
+Návrh kódu v C-like notaci nyní pøevedeme do maker v \TeX{}u:
+
+\inext{citeA}{^^B\cbrace}{++}
+
+Makro snímá svùj parametr jako "#1#2," aby mohly být "<lejblíky>" oddìleny
+pøed èárkou mezerou, která je neseparovaným parametrem "#1" ignorována.
+Asi nejzajímavìj¹í vychytávka v tomto makru se týká testu na znak "&".
+Implicitnì pøi ètení REF souboru se do makra "bib:<lejblík>" ulo¾í
+"\bibnn{<hodnota>}&". Pøíkaz "\if" za sebou totálnì expanduje v¹e
+následující, tak¾e nejprve narazí na "&", pak se obsah "bib:<lejblík>"
+expanduje prostøednictvím \db bibnn "{<hodnota>}" na nic a za tímto 
+\uv{nic} se zjeví druhý znak "&", který se tedy pøilepí na ten první. 
+Ano, je pravda, ¾e tyto dva znaky jsou stejné. 
+Odstranìní tohoto znaku probíhá znovu totální expanzí,
+tentokrát "\bibnn" první parametr "<hodnota>" zopakuje a druhý parametr
+se znakem "&" zahodí.
+
+Makro \db printsavedcites pøípadnì setøídí seznam "\savedcites" 
+podle velikosti zavoláním "\sortcitesA" 
+a dále opakovanì na jednotlivé prvky seznamu zavolá makro
+"\citeB", které prvky seznamu vytiskne a pøípadnì je zkrátí pomocí intervalù
+(místo "3,4,5" pí¹e "3--5"). Pomocnou promìnnou "\tmpb" vyu¾ije makro
+"\citeB", jak uvidíme pozdìji pøi výkladu tohoto makra.
+
+\inext{printsavedcites}{^^B\cbrace}{++}
+
+Makro \db sortcitesA seøadí seznam "\savedcites" podle velikosti. Tak¾e tøeba
+"4,7,3,5," se promìní na "3,4,5,7,". Implicitnì je definováno jako prázdné
+makro, tak¾e øazení se neprovede. Nicménì u¾ivatel ho pou¾itím makra
+\db sortcitations v~hlavièce svého dokumentu probudí k ¾ivotu.
+
+O¾ivené "\sortcitesA" nejprve vyvrhne do ètecí fronty obsah "\savedcites"
+ukonèený dal¹í èárkou (máme zde dvì èárky vedle sebe) a následnì spustí \db
+sortcitesB, které postupnì odebírá jednotlivé prvky ze ètecí fronty, pøedává
+je do novì tvoøeného setøídìného seznamu, kam je vkládá na správné místo.
+Výchozí hodnota novì tvoøeného seznamu obsahuje èíslo "300000", které bude
+v¾dy na konci seznamu, proto¾e se pøedpokládá vìt¹í ne¾ jakýkoli tøídìný
+prvek. Zajímavý trik s "\edef\savedcites{...\expandafter}" zpùsobí, ¾e se
+"\savedcites" nejprve vyvrhne (po aplikaci dvou "\expandafter") do ètecí
+fronty a teprve poté dostane novou hodnotu pomocí "\edef". Na konci makra
+"\sortcitesA" ze seznamu odebereme koncové èíslo "300000".
+
+\inext{sortcitesA}{\count=2 ^^B\cbrace}{++}
+
+Vlo¾ení prvku do zatøídìného seznamu probíhá pomocí \db sortcitesC, co¾ je
+makro, které novì tvoøený seznam, který je nyní také vyvr¾en ve ètecí
+frontì, projde zleva doprava, dokud nenarazí na èíslo vìt¹í ne¾ vkládané.
+Pøi té èinnosti opakovanì sbírá hodnoty a vkládá je zpìt do "\savedcites".
+Je-li zaøazovaný prvek "\tmpa" men¹í ne¾ odebraný prvek z fronty, vlo¾í se
+pomocí \db sortcitesD do "\savedcites" pùvodní "\savedcites" následovaný
+"\tmpa" následovaný testovaným prvkem následovaný zbytkem vstupní
+fronty (a¾ po "\end").
+
+\inext{sortcitesC}{\empty}{+-}
+
+Makro \db citeB "<polo¾ka>," ukonèí èinnost pøi prázdném parametru,
+jinak se po vyti¹tìní "<polo¾ky>" zavolá znova.
+Vytiskne dva otazníky, je-li parametrem otazník, a jinak
+vytiskne prostøednictvím "\printcite" jednu "<polo¾ku>". Kromì toho øe¹í pøi
+nenulovém "\lastcitenum" sluèování po sobì následujících èísel polo¾ek do
+intervalù. Naposledy vyti¹tìnou polo¾ku uchovává v registru "\lastcitenum".
+Pøi pøí¹tím zavolání zvìt¹í "\lastcitenum" o jednièku a srovná ji s
+"<polo¾kou>". Jsou-li si rovny, jde o~následující polo¾ku v øadì a takovou
+polo¾ku netiskneme, nicménì si její hodnotu uchováme v "\tmpb". Pokud je
+mezi souvislou øadou polo¾ek díra, tj. "\lastcitenum" se nerovná
+"<polo¾ce>", pak dovytiskneme pøedchozí interval pomocí 
+"\printdashcite{\the\tmpb}" a následnì vytiskneme i "<polo¾ku>".
+Makro \db shortcitations jednodu¹e nastavuje "\lastcitenum" na nenulovou
+hodnotu a tím probudí k ¾ivotu hlavní èást makra "\citeB".
+
+\inext{citeB}{\empty}{+-}
+
+Èinnost "\cite" je koneènì zavr¹ena voláním maker
+\db printcite "<polo¾ka>" a \db printdashcite "<polo¾ka>". První z nich tiskne jednu 
+polo¾ku oddìlenou od pøípadné
+dal¹í èárkou, druhé tiskne polo¾ku, pøed kterou pøedchází pomlèka
+vyznaèující interval polo¾ek. Pointa makra "\printcite" je v tom, ¾e si samo
+po prvním zavolání upraví separátor \db citesep, který je globálnì a tedy na zaèátku
+èinnosti "\cite" prázdný. Pøi opakovaném volání "\printcite" se tedy
+vytiskne i po¾adovaný separátor. Pomlèka v~"\printdashcite" je schována do
+"\hbox", aby nedocházelo tìsnì za ní ke zlomu øádku.
+
+\inext{printcite}{\empty}{+-}
+
+Pøi pou¾ití \db nonumcitations potlaèíme pøípadné pøedchozí
+"\shortcitations" a "\sortcitations" a dále nastavíme \db citelinkA
+na jinou, ne¾ implicitní prázdnou hodnotu. Makro "\citelinkA" vytiskne 
+"\bim:<èíslo citace>", tedy znaèku citace (je to nastaveno v "\Xbib").
+Není-li znaèka citace známá, vypí¹eme varování a tiskneme "<èíslo citace>".
+Makro \db etalchar je potøebné pøi pou¾ití Bib\TeX{}ového stylu "alpha".
+
+\inext{nonumcitations}{\empty}{+-}
+
+Makro \db ecite "[<lejblík>]{<text>}" nejprve provede 
+"\citeA#1,,,", tedy vlastnì "\nocite[<lejblík>]" a pak si 
+\db eciteB vyzvedne ze "\savedcites"
+první údaj pøed èárkou, tedy "<èíslo citace>", a ulo¾í do "#1". V~"#2" je pøípadný zbytek ze
+"\savedcites" a dále v "#3" pokraèuje "<text>". Makro vytiskne jen
+"<text>", kdy¾ je odkaz nedefinován, jinak vytiskne "<text>" prostøednictvím
+makra "\citelink".
+
+\inext{ecite}{\empty}{+-}
+
+Následuje kód makra \db bib "[<lejblík>]". Nejprve je o¹etøeno, zda je pou¾it
+zkrácený nebo roz¹íøený zápis "\bib[<lejblík>] = {<znaèka>}". Pøípadná
+mezera pøed rovnítkem je odstanìna pomocí triku s~"\rommannumeral", který
+pøi záporném èísle expanduje na prázdný výsledek, ale pøípadná mezera za "`\." pøi
+skenování tohoto èísla je pozøena.
+Pøi zkráceném zápisu makra "\bib" (bez rovnítka)
+se zavolá "\bibB" s prázdným "\bibmark", v druhém pøípadì se
+"\bibmark" nejprve naplní prostøednictvím makra \db bibA.
+Makro \db bibB vlo¾í prostøednictvím
+\db wbib "{<lejblík>}{<èíslo citace>}{<znaèka>}" do REF souboru propojené údaje o
+tom, jaké má "<lejblík>" pøiøazeno "<èíslo citace>" v seznamu literatury.
+Makro "\tmpb" je naplnìno "<lejblíkem>" pro pøípadné pou¾ití v "\dest" (pøi
+draft módu) nebo pro pou¾ití v makru "\printbib".
+Makro "\wbib" pøipojí pøed "\wref" pøíkaz "\immediate", aby byly zapsány
+do REF souboru aktuální hodnoty parametrù.
+
+\inext{bib}{\empty}{+-}
+
+Makro \db Xbib pracuje pøi ètení souboru REF a dìlá to, co jsme si øekli u¾
+døíve: nastaví hodnotu makra "\bib:<lejblík>" na "\bibnn{<èíslo citace>}&".
+Dále definuje "\bim:<èíslo citace>" jako tøetí parametr, který je pøi pou¾ití 
+"\bib" prázdný, ale pøi ètení "*.bbl" souboru vygenerovaného pomocí 
+"alpha.bst" nebo "apalike.bst" tam bude ulo¾ena "<znaèka>". Dále "\Xbib"
+definuje \db lastbibnum jako "<èíslo citace>", tak¾e po pøeètení REF souboru
+obsahuje nejvìt¹í pou¾ité "<èíslo citace>". To se mù¾e hodit, pokud designér
+chce odsadit seznam literatury podle ¹íøky nejvìt¹ího èísla citace. 
+
+\inext{Xbib}{\empty}{+-}
+
+Makro \db printbib se vlo¾í na zaèátek ka¾dého záznamu v seznamu literatury.
+Implicitnì vytiskne "\the\bibnum" v hranaté závorce a pøi "\nonumcitations"
+netiskne nic. V obou pøípadech nastaví odsazení druhého a dal¹ích øádkù 
+odstavce na "\iindent". Designér si mù¾e toto makro pøedefinovat dle svého
+uvá¾ení.
+
+\inext{printbib}{\empty}{+-}
+
+Makro \db addcitelist "{<lejblík>}" pøidá do \db citelist údaj ve tvaru
+\db citeI "[<lejblík>]". Hranaté závorky jsou pou¾ity proto, aby fungoval test
+"\isinlist\citelist{[<lejblík>]}". Jak uvidíme za chvíli, makro
+"\addcitelist" zmìní bìhem èinnosti makra "\usebibtex" svùj význam na
+\db writeaux, aby pøípadné pou¾ití "\cite" a¾ za "\usebibtex" rovnou
+zapisovalo do AUX souboru. Podobnì makro "\addcitelist" zmìní v makru
+"\usebbl" svùj význam \db writeXcite "{<lejblík>}", 
+aby v pøí¹tím prùchodu \TeX{}em
+mìlo makro "\usebbl" pøehled i o výskytech "\cite", které jsou napsány 
+pozdìji, ne¾ "\usebbl".
+
+\inext{addcitelist}{\empty}{+-}
+
+Ne¾ se pustíme do výkladu maker "\usebibtex", "\genbbl" a "\usebbl", uvedeme
+struènì popis èinnosti Bib\TeX{}u. Pøíkaz "bibtex <dokument>" zpùsobí,
+¾e program {\tt bibtex} se podívá do souboru "<dokument>.aux" a tam si v¹ímá
+sekvencí \db bibdata "{<bib-báze>}", \db bibstyle "{<bib-style>}" a \db
+citation "{<lejblík>}". Na základì toho následnì pøeète soubor
+"<bib-báze>.bib" se zdrojovými zápisy bibliografických údajù.
+Pro konverzi tìchto zdrojových zápisù do výstupního souboru "<dokument>.bbl"
+pou¾ije stylový soubor "<bib-style>.bst". Není-li mezi sekvencemi
+"\citation" uvedeno "\citation{*}", program {\tt bibtex} zahrne do výstupu
+jen ty bibliografické údaje, které mají "<lejblík>" shodný s nìkterým z
+"<lejblíkù>" uvedených v parametrech sekvencí "\citation". Ka¾dá sekvence
+"\citation{<lejblík>}" v souboru "<dokument>.aux" typicky odpovídá jednomu
+pou¾ití pøíkazu "\cite[<lejblík>]".
+
+Makro \db usebibtex "{<bib-báze>}{<bst-styl>}" otevøe soubor AUX
+prostøednictvím \db openauxfile "{<bib-báze>}{<bst-styl>}". Napí¹e tam tedy
+po¾adovaná data pro Bib\TeX{}. Dále z "\citelist" pøepí¹e do AUX souboru
+lejbílky ve formátu "\citation{<lejblík>}". Nakonec se uvnitø skupiny pustí do
+ètení souboru BBL prostøednictvím makra "\readbblfile".
+
+\inext{usebibtex}{\count=2 ^^B\cbrace}{++}
+
+Makro \db readbblfile "{<soubor>}" vyzkou¹í, zda je "<soubor>.bbl" pøipraven
+ke ètení. Pokud ne, podá o tom odpovídající zprávu na terminál. Jinak
+nastaví èítaè "\bibnum" na nulu a (vìdomo si toho, ¾e je spu¹tìno ve
+skupinì) pustí se do lokálních re-definic La\TeX{}ových konstrukcí, které se
+typicky v BBL souborech pou¾ívají. Nastaví "\leftskip" na "\iindent" a
+spustí "\bibtexhook". Koneènì naète soubor BBL.
+
+\inext{readbblfile}{^^B\cbrace}{++}
+
+V BBL souboru se vyskytují povely \db bibitem. Za ka¾dým z nich se mo¾ná
+objeví parametr v~hranaté závorce "[<znaèka>]" a následnì je uveden
+"{<lejblík>}". Pak na dal¹ích øádcích jsou bibliografická data jednoho
+záznamu ukonèená prázdným øádkem. Objeví-li se "[<znaèka>]", dává tím
+Bib\TeX{} najevo, ¾e se mù¾e tato "<znaèka>" pou¾ít místo bì¾ného èíslování
+záznamù. Následuje kód, který takové údaje pøeète, vytiskne a vlo¾í do REF
+souboru o tom zprávu prostøednictvím "\wref{<lejblík>}{<èíslo citace>}{<znaèka>}".
+Makro "\tmpb" je naplnìno "<lejblíkem>" pro pøípadné pou¾ití v "\dest" (pøi
+draft módu) nebo pro pou¾ití v makru "\printbib".
+\dgn\nb bibitemB \dgn\nb bibitemC \dgn\nb bibitemD
+
+\inext{bibitem}{^^B\cbrace}{++}
+
+Makro \db genbbl "{<bib-báze>}{<bst-style>}" otevøe AUX soubor a zapí¹e do
+nìj údaje potøebné pro Bib\TeX{} vèetnì "\citation{*}". Poté se makro pokusí
+pøeèíst výstup z Bib\TeX{}u pomocí "\readbblfile". V tomto pøípadì pracuje
+"\bibitem" ve zvlá¹tním re¾imu, kdy netiskne "<hodnoty>", ale "<lejblíky>".
+Z toho dùvodu je pøedefinováno makro "\bibitemC".
+
+\inext{genbbl}{^^B\cbrace}{++}
+
+Makro \db usebbl "/<typ> <bbl-file>" spustí jiné makro s názvem "\bbl:<typ>".
+Tøi taková makra jsou definována pomocí "\sdef". První "\bbl:a" je
+jednoduché: prostì projde BBL soubor a vytiskne údaje z~nìj.
+Druhé makro "\bbl:b" projde BBL
+soubor v re¾imu, pøi kterém jsou bibliografická data ka¾dého záznamu (a¾ po
+prázdný øádek alias "\par") pøeètena do parametru "#2" makra "\bibitemC".
+Celý údaj je pak vyti¹tìn jen za pøedpokladu, ¾e "[<lejblík>]" je pøítomen 
+v seznamu "\citelist". Tøetí makro "\bbl:c" pracuje jako druhé a¾ na to, ¾e
+údaj netiskne, ale zapamatuje si ho do makra "\bb:<lejblík>". Po takovém
+projití BBL souboru je¹tì projde "\citelist", kde se "\citeI[<lejblík>]"
+promìní v "\bb:<lejblík>", tak¾e se záznam vytiskne. Nyní ale v poøadí, v
+jakém jsou "<lejblíky>" zaøazeny do "\citelist".
+
+\inext{usebbl}{\count=3 ^^B\cbrace}{++}
+
+Za zmínku stojí je¹tì práce uvedených maker s "\citelist". Pøed výskytem makra
+"\usebbl" se lejblíky z "\cite" a "\nocite" hromadí v "\citelist". Ov¹em
+dal¹í "\cite" a "\nocite" se mohou vyskytovat za pøíkazem "\usebbl". Pokud
+se tak stane, pracuje "\addcitelist" nyní ve významu "\writeXcite" a ulo¾í
+potøebnou informaci do REF souboru. Pøi dal¹ím \TeX{}ování se tato informace
+pøeète makrem \db Xcite "{<lejblík>}" z REF souboru takto:
+
+\inext{Xcite}{}{++}
+
+\noindent To tedy znamená, ¾e se ulo¾í do seznamu "\citelistB". Koneènì
+makra "\bbl:b" a "\bbl:c" si dva seznamy "\citelist" a "\citelistB" pøed svou
+èinností spojí do seznamu jediného nazvaného "\citelist".
+
+Makro \db usebib je definováno v souboru maker (modulu) "opmac-bib.tex".
+Tuto sadu maker není úèelné zahrnout pøímo do OPmac, proto¾e je závislá na
+externím balíèku "librarian.tex". Soubor maker tedy zavádíme a¾ v pøípadì, ¾e
+u¾ivatel skuteènì pou¾il makro "\usebib". Je pou¾it stejný trik, jako 
+v~pøípadì makra "\fontfam".
+
+\inext{usebib}{}{++}
+
+U¾ivatel nicménì mù¾e makro soubor na zaèátku svého dokumentu volat
+explicitnì pomocí "\input opmac-bib".
+
+
+\subsec Úprava output rutiny
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+OPmac mìní output rutinu proti originální "\plainoutput" jen v nejnutnìj¹ích vìcech.
+Øe¹í následující problémy:
+
+\begitems
+\item * Místo pøímého "\shipout" nechá nejprve box sestavit jako "\box0",
+  pak provede "\protectlist" a pak provede "\shipout\box0". Tím jsou
+  zabezpeèeny tzv. protektované pøíkazy pøi "\write".
+\item * Pomocí "\ensureblacko" jsou øe¹eny barvy záhlaví, zápatí, "\topins"
+  a "\footins".
+\item * Je vlo¾en "\pghook" po sestavení boxù, ale pøed
+  "\shipout". Implicitnì je "\pghook" prázdný. 
+  Mìní jej makro "\margins" pro úèely pravolevého støídání okrajù.
+\item * Makro "\pagecontents" obsahuje navíc "\prepage" (kvùli odkazùm na stránku).
+\enditems
+
+Místo pùvodního makra "\plainoutput" pou¾ívá OPmac makro "\opmacoutput",
+která je obklopeno makry "\begoutput" a "\endoutput". Makro \db begoutput
+zapí¹e do REF souboru údaj o èísle strany a pøedefinuje makra, která se
+mohou vyskytnout v záhlaví èi zápatí stránky, pokud od nich chceme, aby 
+se chovaly jinak ne¾ obvykle. Makro \db endoutput je prázdné a je urèeno 
+pro strýèka Pøíhodu. Makro \db prephoffset je rovnì¾ implictnì prázdné,
+spou¹tí se v "\begoutput" a mù¾e v nìm být nastaveno støídání
+okrajù pro liché a sudé stránky, viz té¾ makro "\margins".
+
+\inext{opmacoutput}{\empty}{+-}
+
+Makro \db opmacoutput se chová analogicky, jako "\plainoutput". Rozdíl je v
+tom, ¾e nejprve sestaví celou stranu do boxu0 a v té dobì expandují makra v
+"\headline" a "\footline". Pak spustí "\pghook" a
+"\protectlist". Makro "\protectlist" nastaví díky \db doprotect kontrolní sekvence
+oznaèené jako "\addprotect<sekvence>" na "\relax", tak¾e bìhem "\shipout" (tedy
+bìhem expanze záznamù "\write") se nebudou expandovat.
+Dal¹í èinnost je zcela shodná s èinností makra "\plainoutput".
+
+\inext{opmacoutput}{doprotect}{++}
+
+Barvy jsou v textu nastaveny pomocí "\pdfcolorstack", tak¾e na zaèátku
+následující strany zaèíná barva, která skonèila na stranì pøedchozí. 
+My ale nechceme, aby
+barva textu ovlivnila barvu záhlaví a zápatí. Proto je sazba "\makeheadline"
+a "\makefootline" realizována pomocí makra "\ensureblacko". 
+
+Makro \db prepage se spustí na zaèátku "\pagecontents" a zajistí ulo¾ení
+cíle pro odskok podle èísla strany. Makra \db preboxcclv a \db postboxcclv
+se spustí na zaèátku a na konci sazby boxu~255, jsou prázdná a zùstávají v
+kódu pro zachování zpìtné kompatibility.
+
+\inext{prepage}{\empty}{+-}
+
+OPmac pøedefinovává makro \db pagecontents z plain\TeX{}u tak, ¾e pøidává
+makra "\prepage", "\preboxcclv" a "\postboxcclv". Také obsah boxù "\topins"
+a "\footins" tiskne pomocí "\ensureblacko".
+
+\inext{catcode}{\empty}{+-}
+
+Kdy¾ bude u¾ivatel mìnit velikost fontù v dokumentu, jistì nechce mít
+stránkovou èíslici poka¾dé jinak velkou. Proto je do "\footline" vlo¾eno
+"\thefontsize". Je nastaveno pevnì na 10pt. Pøedpokládáme, ¾e pokud bude
+nìkdo chtít jinak velkou stránkovou èíslici, jednodu¹e si "\footline"
+nastaví podle svého. Jinak je "\footline" shodná s pùvodním nastavením 
+v~plain\TeX{}u.
+
+\inext{footline}{\empty}{+-}
+
+Makro \db Xpage z REF souboru nastavuje \db lastpage a "\fnotenumlocal".
+S tìmito registry také spolupracují makra "\Xlabel", "\Xmnote" a "\Xfnote".
+ 
+\inext{lastpage}{\empty}{+-}
+
+
+\subsec Okraje
+%%%%%%%%%%%%%%
+
+V registrech \db pgwidth a \db pgheight budeme mít po zavolání "\setpagedimens"
+¹íøku a vý¹ku strany. V~registru \db shiftoffset budeme mít pøípadný rozdíl
+okrajù mezi levou a pravou stránkou.
+
+\inext{pgwidth}{\empty}{+-}
+
+Makro \db margins "/<typ> <formát> (<levý>,<pravý>,<horní>,<dolní>)<jednotka> " 
+si nastaví registry "\pgwidth" a "\pgheight" prostøednictvím "\setpagedimens" a dále v
+souladu s u¾ivatelskou dokumentací nastaví potøebné okraje. V makru "\tmp"
+je schována jednotka, kterou u¾ivatel taky mù¾e zapomenout napsat. V~takovém
+pøípadì vypí¹eme varování a doplníme jednotku "mm". Jakmile mìníme
+"\hoffset" nebo "\voffset", nastavíme je nejprve na "-1in" (tím se dostaneme
+na okraj papíru) a pak budeme po¾adovanou velikost okraje k tìmto registrùm
+pøidávat. Nemohu za to, ¾e Knutha napadla taková ne pøíli¹ podaøená my¹lenka
+dát výchozí bod sazby kamsi doprostøed papíru umístìný pomocí ujetých
+jednotek. Za zmínku stojí je¹tì dvì my¹lenky. Makro \db rbmargin
+"\h(v)offset\h(v)size{<okraj>}" provede výpoèet hodnoty "\hoffset" nebo
+"\voffset" v pøípadì, ¾e je dána protìj¹í hodnota okraje ne¾ je okraj pøímo
+nastavitelný pomocí "\h(v)offset".
+A koneènì posun okraje pøi pøechodu z pravé na levou stránku "\shiftoffset"
+poèítáme jako "\pgwidth"~"-"~"\hsize"~"-"~"2*<levý>" co¾ dá stejnou hodnotu jako
+"<pravý>-<levý>". Zmìna "\hoffset" o tuto hodnotu je provedena v makru
+"\pghook", tedy v "\output" rutinì, schována do skupiny, tak¾e po ukonèení
+"\output" rutiny se vrátí "\hoffset" na pùvodní hodnotu.
+
+\inext{margins}{\empty}{+-}
+
+Makro \db setpagedimens "<formát> " spustí 
+\db setpagedimensB "(<¹íøka>,<vý¹ka>)<jednotka> ", pokud je prvním znakem
+"<formátu>" závorka, jinak spustí \db setpagedimensA, co¾ je makro, které
+pou¾ije definovaný formát, ten expanduje a zavolá "\setpagedimensB". Pomocné
+makro \db setpagedimensC "<reg>=<num>:<jednotka>" pøiøadí do "<reg>" daný
+rozmìr.
+
+\inext{setpagedimens}{\empty}{+-}
+
+Jednotlivé "<formáty>" papíru je potøeba deklarovat.
+
+\inext{sdef}{\empty}{+-}
+
+Makro \db magscale "[<factor>]" zvìt¹í/zmen¹í sazbu nastavením 
+registru "\mag" a definuje dosud prázdné makro \db trueunit hodnotou 
+"true", aby pozdìji pøi èinnosti makra "\setpagedimensA" zùstaly zachovány
+rozmìry stránek. Pokud ale je makro "\magscale" spu¹tìno a¾ po nastavení
+velikosti stránek, jsou tyto velikosti dodateènì korigovány na \uv{true} 
+jednotky pomocí makra \db truedimen.
+
+\inext{trueunit}{\empty}{+-}
+
+\subsec [styly] Pøeddefinované styly
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Makro \db boxlines pracuje obdobnì jako makro plainTeX{}u "\obeylines", ale
+jednotlivé øádky jsou samostatné "\hbox"y rùznì ¹iroké. 
+Proto napøíklad "\vbox{\boxlines <øádky textu>}" vytvoøí "\vbox", který je stejnì
+¹iroký jako nej¹ir¹í øádek v nìm. Toto makro bude pou¾ito v makru
+"\address", které je definováno ve stylu "\letter".
+
+\inext{boxlines}{\empty}{+-}
+
+Toto makro pøi pøechodu do horizontálního módu pomocí "\everypar" tento mód
+okam¾itì uzavøe a otevøe bì¾ný "\hbox\bgroup". V nìm je konc øádku aktivní a
+jakmile k nìmu dojde, provede se \db boxlinesE, co¾ ukonèí skupinu "\hbox"u
+pmocí "\egroup". Nejvíce komplikací pøiná¹í syntaktická alternativa, kdy
+u¾ivatel mù¾e ukonèit skupinu, kterou sám otevøel, explicitním "}", a to
+nejen ve vertikálním módu (to pak funguje správnì), ale také tøeba
+v rámci vnitøního horizontálního módu. Tím se tento mód ukonèí, ale
+neukonèí se u¾ivatelova skupina. Proto pomocí "\aftergroup" iniciaozavén ve
+vnitøním horizontálním módu je za kompletovaným "\hbox"em
+spu¹tìna dvojice maker \db boxlinesC a \db boxlinesD, která zkontroluje,
+zda tìsnì následuje "\empty". To je pøíznak toho, ¾e jsme ukonèili interní
+horizonrální mód pomocí "\boxlinesE". V takovém pøípadì nedìláme nic. Jinak
+ukonèíme i u¾ivatelovu skupinu pomocí "\egroup". Je tam pou¾it
+"\expandafter", proto¾e u¾ivatel mù¾e mít taky své "\aftergroup".
+
+Následují definice maker \db report a \db letter nastavující pøeddefinovaný
+styl dokumentu v souladu s tím, co je o tom psáno v u¾ivatelské dokumentaci.
+\dgn \nb address
+\dgn \nb subject
+\dgn \nb author
+
+\inext{report}{\empty}{+-}
+
+
+\subsec [zaver] Závìr
+%%%%%%%%%%%%%%%%%%%%%
+
+V pøípadì, ¾e je pou¾it Xe\TeX, naèteme dodateèná makra
+ze souboru "opmac-xetex.tex". Tato makra nahrazují nìkterá makra z OPmac
+Xe\TeX-specifickou variantou nebo emulují pdf\TeX{}ové primitivy.
+V pøípadì, ¾e je pou¾it nový LuaTeX, naèteme makra "opmac-luatex.tex", která
+rekonstruují pdf\TeX{}ové primitivy dle pùvodního významu.
+Nakonec pomocí "\inputref" pøeèteme REF soubor (pokud existuje) a vrhneme se
+na zpracování dokumentu, který nám pøipravil u¾ivatel. Pøeji dobré poøízení. 
+
+\inext{version}{\empty}{+-}
+
+\doindex
+
+
+\bye

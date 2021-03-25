@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% aoutput.4ht                           2009-05-21-09:32 %
+% Copyright (C) 2001             Eitan M. Gurari         %
+%                                                        %
+% This work may be distributed and/or modified under the %
+% conditions of the LaTeX Project Public License, either %
+% version 1.3c of this license or (at your option) any   %
+% later version. The latest version of this license is   %
+% in                                                     %
+%   http://www.latex-project.org/lppl.txt                %
+% and version 1.3c or later is part of all distributions %
+% of LaTeX version 2005/12/01 or later.                  %
+%                                                        %
+% This work has the LPPL maintenance status "maintained".%
+%                                                        %
+% This Current Maintainer of this work                   %
+% is Eitan M. Gurari.                                    %
+%                                                        %
+% If you modify this program your changing its signature %
+% with a directive of the following form will be         %
+% appreciated.                                           %
+%            \message{signature}                         %
+%                                                        %
+%                             gurari@cse.ohio-state.edu  %
+%                 http://www.cse.ohio-state.edu/~gurari  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\immediate\write-1{version 2009-05-21-09:32}
+
+\let\:tempc\put@ab@x
+\pend:def\:tempc {%
+   \setbox\a@tempb@x=\hbox{\c:RL \box\a@tempb@x \d:RL}}
+\HLet\put@ab@x\:tempc
+\:CheckOption{RL2LR}\if:Option
+  \def\:tempc{%
+   \ifa@space \putlineb@x
+       {\unhcopy \lineb@x \arab@space \e:RL \unhcopy \wordb@x \f:RL}%
+   \else \add@word   \fi }
+\HLet\addt@line\:tempc
+\def\:tempc{%
+   \putlineb@x {\unhbox \lineb@x \e:RL \unhbox \wordb@x  \f:RL}}
+\HLet\add@word\:tempc
+
+\else
+  \Log:Note{to reverse direction of RL sentences,
+          use the command line option `RL2LR'}
+  \let\:tempc\put@word
+\pend:def\:tempc{\setbox\wordb@x \hbox {\e:RL \unhcopy \wordb@x \f:RL }}
+\HLet\put@word\:tempc
+
+\fi
+
+\Hinput{aoutput}
+\endinput
+

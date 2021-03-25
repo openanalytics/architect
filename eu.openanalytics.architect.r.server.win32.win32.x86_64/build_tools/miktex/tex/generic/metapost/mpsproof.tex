@@ -1,0 +1,135 @@
+% This is a modification of mproof.tex (as found on CTAN in
+% /systems/knuth/local/lib). The name was changed to mpsproof.tex
+% to honor the license restrictions.
+%
+%%%% These are the comments of the original mproof.tex:
+%% To produce proof sheets from MetaPost output (includes date and time):
+%%   tex mproof <MetaPost output file names>
+%%%%
+%
+% In contrast, mpsproof allows either pdftex or ordinary tex to be used:
+%
+%    [pdf]tex mpsproof [\noheaders] <mpost output file names>
+%
+% Examples:     pdftex  mpsproof  figur.1  figur.2
+%               tex  mpsproof  \noheaders  figur.1  figur.2  figur.3
+%
+% With \noheaders, the filenames, datestamp and page numbers are omitted.
+% Using mpsproof one can also produce encapsulated output:
+%
+%    [pdf]tex mpsproof \encapsulate <one_mpost_output_file_name>
+%
+% Examples:     pdftex  mpsproof  \encapsulate  figur.1
+%               tex  mpsproof  \encapsulate  figur.3
+%
+% "Encapsulated" means that the pdf output (or the .ps resulting from
+% dvips mpsproof.dvi), has the same "bounding box" as the MetaPost figure.
+% Actually, it produces a file whose *page size* is the same as that
+% bounding box. The shorthand \bbox can be used in place of 
+% \encapsulate.
+%
+% If pdftex is used and \pdfoutput = 1, the result will be a pdf file,
+% otherwise the result is a dvi file containing dvips graphics \specials.
+%
+% Limitations: the production of pdf requires supp-pdf.tex and the
+% macros therein use up TeX's memory. The specific portion that is used
+% is the "save_size". A lot of short paths is no problem, but a single
+% long path might exceed the limits on your system. On most systems the
+% limit can be increased by editing texmf.cnf.
+%
+% Placed in the public domain by Daniel H. Luecking.
+%
+% Change HISTORY:
+%    2003/04/08 -- Original release
+%    2004/05/02 -- Allow "_" in filenames.
+%    2004/05/07 -- Added the \noheaders option.
+%    2005/10/07 -- Sanitize the filename (\meaning)
+%    2006/04/06 -- Encapsulation added
+%    2006/06/30 -- Better documentation (the above comments)
+%    2008/11/11 -- Make dvi output identical to mproof.tex
+%    2010/10/13 -- Added \bbox (short for \encapsulate)
+%
+% Test for pdf:
+\newif\ifpdf
+\pdffalse
+\ifx\pdfoutput\undefined
+  \else\ifx\pdfoutput\relax
+  \else\ifnum\pdfoutput<1
+  \else \pdftrue
+\fi\fi\fi
+
+% Graphic inclusion macros:
+\ifpdf
+  \input supp-pdf
+  \def\includemps#1{\convertMPtoPDF{#1}{1}{1}}
+  \def\MPSpresets{\pdfoutput=1 \pdfcompresslevel=9
+    \chardef\makeMPintoPDFobject=1\relax}
+  \def\encapspecial{\pdfpageheight=\ht0 \pdfpagewidth=\wd0}
+\else
+  \input epsf
+  \def\includemps#1{\epsfverbosetrue\epsfbox{#1}}
+  \def\MPSpresets{}
+  \def\encapspecial{\special{papersize=\the\wd0,\the\ht0}}
+\fi
+
+\let\EA\expandafter
+\def\EAEAEA{\EA\EA\EA}
+
+\def\processMPfile{%
+  \MPSpresets \hsize=100in \vsize=\hsize
+  \hoffset=-1in \voffset=\hoffset \topskip=0pt
+  \setbox0=\vbox{\hbox{\EA\includemps\EA{\theMPfile}}}%
+  \ifdim\wd0<1in \message{[warning:  width<1in]}\fi
+  \ifdim\ht0<1in \message{[warning: height<1in]}\fi
+  \encapspecial \box0 \end}
+
+% To omit printing of files name, page numbers and date stamp:
+\newif\ifheaders\headerstrue
+\def\noheaders{\headersfalse}
+
+% produce output with same bounding box:
+\newif\ifencapsulate
+\def\encapsulate{\noheaders\encapsulatetrue}
+\let\bbox\encapsulate
+
+\def\maybeprint#1{\ifheaders#1\fi}
+\def\stripprefix#1>{}
+
+\font\textt=cmtex10 \textt
+\def\okbreak{\vfil\penalty2000\vfilneg}
+
+\def\today{\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\day, \number\year}
+\newcount\m \newcount\n
+\n=\time \divide\n 60 \m=-\n \multiply\m 60 \advance\m \time
+\def\hours{\twodigits\n\twodigits\m}
+\def\twodigits#1{\ifnum #1<10 0\fi \number#1}
+
+\footline={\ifheaders\sevenrm\today\ at \hours\hss\tenrm\folio\hss\fi}
+
+% DHL - \convertMPtoPDF redefines \\, so we replace it with \?.
+\def\endit{\?}
+
+\def\munch#1 {\def\theMPfile{#1}%
+  \ifx\theMPfile\endit
+    \EA\endit
+  \else
+    % sanitize the filename:
+    \edef\theMPfile{\EA\stripprefix\meaning\theMPfile}%
+    \ifencapsulate \EAEAEA\processMPfile
+    \else \leavevmode\maybeprint\theMPfile
+      $$\EA\includemps\EA{\theMPfile}$$\par\okbreak%
+    \fi
+  \fi\munch}
+
+\def\?{\let\munch=\relax\def\?{}}
+
+% Encapsulation requires no indentation.
+\everypar{{\ifencapsulate\setbox0=\lastbox\fi}\everypar{}\relax\munchline}
+
+% We need the space before \? to ensure that it doesn't end up
+% in a filename.
+\obeylines\def\munchline#1
+{\catcode`\^^M=5 \munch#1 \? \vfill\end}%
