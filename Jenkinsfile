@@ -29,7 +29,7 @@ pipeline {
         	
         	steps {
         	    dir ("eu.openanalytics.architect.r.server.win32.win32.x86_64") {
-        	            bat "build_tools/build_script/quick-build.bat"
+        	            bat (returnStdout: true, script: 'build_tools/build_script/quick-build.sh')
 				}
         	}
         }
