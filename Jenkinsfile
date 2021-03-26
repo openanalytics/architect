@@ -24,14 +24,13 @@ pipeline {
         
         stage ('Build R for Windows') {
         	agent {
-            	label 'windows'           
+            	label 'any'           
         	}
         	
         	steps {
         	    dir ("eu.openanalytics.architect.r.server.win32.win32.x86_64") {
         	            sh "build_tools/build_script/quick-build.sh"
-        	        }
-
+				}
         	}
         }
 
