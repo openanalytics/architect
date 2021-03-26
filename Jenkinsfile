@@ -24,7 +24,7 @@ pipeline {
         
         stage ('Build R for Windows') {
         	agent {
-            	label 'any'           
+            	label 'windows'           
         	}
         	
         	steps {
