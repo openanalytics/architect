@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Minimal example of building R for Windows.
 # You must run this script inside the rtools40 shell.
 # This builds and checks a single architecture (no manuals or installer)
