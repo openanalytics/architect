@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Minimal example of building R for Windows.
 # You must run this script inside the rtools40 shell.
 # This builds and checks a single architecture (no manuals or installer)
@@ -11,19 +11,14 @@ set -e
 set -x
 
 # Get project base path
-projectBaseDir=$(realpath .)
+#projectBaseDir=/c/Users/sasab/eclipse-workspace/architect/eu.openanalytics.architect.r.server.win32.win32.x86_64
+cd $projectBaseDir
 
 # Set Base Tool Dir
 baseToolDir=$projectBaseDir/build_tools
 
 # Set build path
 buildDir=$projectBaseDir/target/build
-
-# Put pdflatex on the path (needed only for CMD check)
-export PATH="$PATH:$baseToolDir/miktex/bin/x64"
-#pdflatex --version
-texindex --version
-make --version
 
 # 'Install system libs'
 pacman -Syu --noconfirm
@@ -34,7 +29,7 @@ pacman -S --needed --noconfirm mingw-w64-{i686,x86_64}-{cairo,tk,curl}
 # 'Copy R-version and extract (tarball contains recursive symlinks)'
 rm -r --force target/build
 mkdir target/build
-cp $baseToolDir/R/$R_VERSION.tar.gz $buildDir/$R_VERSION.tar.gz
+cp -RL $baseToolDir/R/$R_VERSION.tar.gz $buildDir/$R_VERSION.tar.gz
 cd $buildDir
 MSYS="winsymlinks:lnk" tar -xf $R_VERSION.tar.gz
 cd $buildDir/$R_VERSION
