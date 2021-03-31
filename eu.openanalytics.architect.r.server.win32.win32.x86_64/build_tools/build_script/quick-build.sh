@@ -18,7 +18,7 @@ cd $projectBaseDir
 baseToolDir=$projectBaseDir/build_tools
 
 # Set build path
-buildDir=$projectBaseDir/target/build
+buildDir=$projectBaseDir/buildDir
 
 # 'Install system libs'
 pacman -Syu --noconfirm
@@ -28,8 +28,8 @@ pacman -S --needed --noconfirm mingw-w64-{i686,x86_64}-{cairo,tk,curl}
 
 # 'Copy R-version and extract (tarball contains recursive symlinks)'
 pwd
-rm -r --force target/build
-mkdir target/build
+rm -r --force $buildDir
+mkdir $buildDir
 cp -RL $baseToolDir/R/$R_VERSION.tar.gz $buildDir/$R_VERSION.tar.gz
 cd $buildDir
 MSYS="winsymlinks:lnk" tar -xf $R_VERSION.tar.gz
