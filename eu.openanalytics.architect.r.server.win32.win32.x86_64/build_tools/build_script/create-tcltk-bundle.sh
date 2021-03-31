@@ -12,10 +12,6 @@ done
 rm -f $(find ${OUTPUT} -name *.a)
 
 # Copy to 'Tcl' directory
-
-pwd
-sleep 30s
-
 rm -Rf Tcl && mkdir Tcl
 mkdir -p Tcl/{bin,bin64}
 cp ${OUTPUT}/mingw32/bin/*.dll Tcl/bin/

@@ -4,4 +4,4 @@ set projectBaseDir=%CD%
 
 rem %rToolsDir%\msys2.exe %buildSriptDir%\quick-build.sh
 
-%rToolsDir%\msys2_shell.cmd -no-start -defterm "%buildSriptDir%/quick-build.sh"
+%rToolsDir%\msys2_shell.cmd -no-start -defterm "%buildSriptDir%\quick-build.sh"

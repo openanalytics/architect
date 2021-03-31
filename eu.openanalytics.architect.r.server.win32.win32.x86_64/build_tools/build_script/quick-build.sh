@@ -27,6 +27,7 @@ pacman -S --needed --noconfirm mingw-w64-{i686,x86_64}-{icu,libtiff,libjpeg,libp
 pacman -S --needed --noconfirm mingw-w64-{i686,x86_64}-{cairo,tk,curl}
 
 # 'Copy R-version and extract (tarball contains recursive symlinks)'
+pwd
 rm -r --force target/build
 mkdir target/build
 cp -RL $baseToolDir/R/$R_VERSION.tar.gz $buildDir/$R_VERSION.tar.gz
