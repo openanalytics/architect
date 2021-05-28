@@ -53,7 +53,7 @@
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="com.github.eclipsecolortheme.feature.feature.group" version="0.0.0"/>
-<repository location="http://eclipse-color-theme.github.com/update"/>
+<repository location="https://eclipse-color-theme.github.io/update/"/>
 </location>
 </locations>
 </target>
