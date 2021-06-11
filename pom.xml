@@ -14,6 +14,19 @@
 		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>oa-nexus-releases</id>
+			<name>OpenAnalytics Release Repository</name>
+			<url>https://nexus.openanalytics.eu/repository/releases/</url>
+		</repository>
+		<repository>
+			<id>oa-nexus-snapshots</id>
+			<name>OpenAnalytics Snapshots Repository</name>
+			<url>https://nexus.openanalytics.eu/repository/snapshots/</url>
+		</repository>
+	</repositories> 
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>oa-nexus-snapshots</id>
