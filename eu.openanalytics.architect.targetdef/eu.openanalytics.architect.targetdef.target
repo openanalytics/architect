@@ -36,7 +36,7 @@
 <unit id="org.eclipse.statet.rtm.ftable.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.rtm.ggplot.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.yaml.feature.group" version="0.0.0"/>
-<repository location="https://ci.eclipse.org/statet/job/statet-master/lastSuccessfulBuild/artifact/org.eclipse.statet/releng/statet-repository/target/statet-repository-E202106-incubation-4.4.0-202106042300.zip"/>
+<repository location="mvn:org.eclipse.statet:org.eclipse.statet.repository:4.4.0-202106042300:zip:updatesite"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="eu.openanalytics.architect.fontsize_feature.feature.group" version="0.0.0"/>
