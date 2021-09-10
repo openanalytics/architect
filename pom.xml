@@ -7,12 +7,25 @@
 	<version>1.0.0-SNAPSHOT</version>
 
 	<properties>
-		<tycho.version>1.5.0</tycho.version>
+		<tycho.version>2.3.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<build.tools.url>https://nexus.openanalytics.eu/repository/architect_build_tools</build.tools.url>
 		<maven.install.skip>true</maven.install.skip>
 		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>oa-nexus-releases</id>
+			<name>OpenAnalytics Release Repository</name>
+			<url>https://nexus.openanalytics.eu/repository/releases/</url>
+		</repository>
+		<repository>
+			<id>oa-nexus-snapshots</id>
+			<name>OpenAnalytics Snapshots Repository</name>
+			<url>https://nexus.openanalytics.eu/repository/snapshots/</url>
+		</repository>
+	</repositories>
 
 	<distributionManagement>
 		<snapshotRepository>

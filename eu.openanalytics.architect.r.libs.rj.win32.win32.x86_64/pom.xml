@@ -13,6 +13,31 @@
 		<relativePath>../</relativePath>
 	</parent>
 	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<configuration>
+							<target>
+								<get src="${build.tools.url}/win32/rj.zip" dest="${project.basedir}/rj.zip" />
+								<unzip src="${project.basedir}/rj.zip" dest="${project.basedir}/libs"/>
+								<get src="${build.tools.url}/win32/rj.gd.zip" dest="${project.basedir}/rj.gd.zip" />
+								<unzip src="${project.basedir}/rj.gd.zip" dest="${project.basedir}/libs"/>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
 	<!-- <build>
 		<plugins>
 			<plugin>
