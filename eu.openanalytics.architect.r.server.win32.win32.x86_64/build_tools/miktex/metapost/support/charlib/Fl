@@ -1,9 +1,0 @@
-% $Id: Fl,v 1.2 2004/09/19 21:47:11 karl Exp $
-% Public domain.
-vardef C.Fl(expr n) =
- save p;
- picture p; p="f"infont n;
- for c="f","l":
-  addto p also c infont n shifted(xpart urcorner p-fontsize n/20,0);
- endfor
- p enddef;

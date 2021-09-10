@@ -1,3 +1,0 @@
-PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"
-BINPREF="/mingw$(WIN)/bin/"
-R_LIBS_USER=~/R/win-library/testing

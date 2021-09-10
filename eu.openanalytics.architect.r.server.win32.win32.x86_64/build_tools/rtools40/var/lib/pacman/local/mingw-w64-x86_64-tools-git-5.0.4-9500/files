@@ -1,9 +1,0 @@
-%FILES%
-mingw64/
-mingw64/bin/
-mingw64/bin/gendef.exe
-mingw64/bin/genidl.exe
-mingw64/bin/genlib.exe
-mingw64/bin/genpeimg.exe
-mingw64/bin/widl.exe
-

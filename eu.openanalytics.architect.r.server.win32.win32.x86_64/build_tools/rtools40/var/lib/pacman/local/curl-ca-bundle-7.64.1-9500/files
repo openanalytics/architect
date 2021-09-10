@@ -1,6 +1,0 @@
-%FILES%
-usr/
-usr/ssl/
-usr/ssl/certs/
-usr/ssl/certs/curl-ca-bundle.crt
-
