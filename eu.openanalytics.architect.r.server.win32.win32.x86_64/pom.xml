@@ -36,25 +36,4 @@
 		</plugins>
 	</build>
 	
-<!-- 	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.7</version>
-				<executions>
-					<execution>
-						<phase>generate-resources</phase>
-						<configuration>
-							<target>
-								<ant antfile="build.xml"/>
-							</target>
-						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build> -->
 </project>
