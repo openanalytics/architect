@@ -1,3 +1,8 @@
 target/
 eu.openanalytics.architect.rtools/bin
 eu.openanalytics.architect.ws.updater/bin
+/commons-io/
+/de/
+/io/
+/org/
+/workspace/

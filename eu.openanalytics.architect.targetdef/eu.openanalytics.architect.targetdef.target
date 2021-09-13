@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="eu.openanalytics.architect.targetdef" sequenceNumber="19">
+<?pde version="3.8"?>
+<target name="eu.openanalytics.architect.targetdef" sequenceNumber="19">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.cdt.autotools.feature.group" version="0.0.0"/>
@@ -25,20 +26,6 @@
 <repository location="https://download.eclipse.org/releases/2021-06/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.statet.eutils.autonature.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.eutils.autorun.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.ltk.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.r.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.redocs.tex.r.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.redocs.wikitext.r.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.rj.core.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.rj.eclient.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.rtm.ftable.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.rtm.ggplot.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.statet.yaml.feature.group" version="0.0.0"/>
-<repository location="mvn:org.eclipse.statet:org.eclipse.statet.repository:4.5.0-202109102030:zip"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="eu.openanalytics.architect.fontsize_feature.feature.group" version="0.0.0"/>
 <repository location="http://unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/architect/eu.openanalytics.architect.fontsize.p2repo/1.0.0-SNAPSHOT/eu.openanalytics.architect.fontsize.p2repo-1.0.0-20201215.105807-2"/>
 </location>
@@ -55,5 +42,19 @@
 <unit id="com.github.eclipsecolortheme.feature.feature.group" version="0.0.0"/>
 <repository location="https://eclipse-color-theme.github.io/update/"/>
 </location>
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<repository location="mvn:org.eclipse.statet:org.eclipse.statet.repository:4.5.0-202109102030:zip"/>
+		<unit id="org.eclipse.statet.eutils.autonature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.eutils.autorun.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.ltk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.r.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.redocs.tex.r.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.redocs.wikitext.r.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.rj.core.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.rj.eclient.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.rtm.ftable.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.rtm.ggplot.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.statet.yaml.feature.group" version="0.0.0"/>
+	</location>
 </locations>
 </target>

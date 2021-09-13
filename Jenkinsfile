@@ -21,6 +21,7 @@ pipeline {
                 }
             }
         }
+        
 
         stage('Build and Deploy Windows Installer to nexus') {
         	agent {

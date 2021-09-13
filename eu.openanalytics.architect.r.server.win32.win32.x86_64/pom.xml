@@ -13,7 +13,7 @@
 		<relativePath>../</relativePath>
 	</parent>
 	
-<!-- 	<build>
+	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
@@ -23,7 +23,8 @@
 						<phase>generate-resources</phase>
 						<configuration>
 							<target>
-								<ant antfile="build.xml"/>
+								<get src="${build.tools.url}/win32/R.zip" dest="${project.basedir}/R.zip" />
+								<unzip src="${project.basedir}/R.zip" dest="${project.basedir}"/>
 							</target>
 						</configuration>
 						<goals>
@@ -33,5 +34,6 @@
 				</executions>
 			</plugin>
 		</plugins>
-	</build> -->
+	</build>
+	
 </project>
