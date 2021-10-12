@@ -10,9 +10,9 @@ spec:
      image: maven:3-openjdk-11
      resources:
          requests: 
-             memory: "1024Mi"
+             memory: "2048Mi"
          limits:
-             memory: "1536Mi"
+             memory: "3072Mi"
      command:
      - cat
      tty: true

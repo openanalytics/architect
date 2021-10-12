@@ -13,6 +13,33 @@
 		<relativePath>../</relativePath>
 	</parent>
 	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<phase>generate-resources</phase>
+						<configuration>
+							<target>
+								<get src="${build.tools.url}/win32/rtools40.zip" dest="${project.basedir}/rtools40.zip" />
+								<unzip src="${project.basedir}/rtools40.zip" dest="${project.basedir}" />
+								<copy todir="${project.basedir}/rtools">
+									<fileset dir="${project.basedir}/rtools40">
+									</fileset>
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
 	<!-- <build>
 		<plugins>
 			<plugin>
