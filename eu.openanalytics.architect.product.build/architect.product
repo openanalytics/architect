@@ -36,8 +36,9 @@
             winSmallLow="icons/icon_16_8bit.bmp"
             winMediumHigh="icons/icon_32_32bit.bmp"
             winMediumLow="icons/icon_32_8bit.bmp"
-            winLargeHigh="icons/icon_48_32bit.bmp"
-            winLargeLow="icons/icon_48_8bit.bmp"/>
+            winLargeHigh="icons/icon_64_32bit.bmp"
+            winLargeLow="icons/icon_64_8bit.bmp"
+            winExtraLargeHigh="icons/icon_256_32bit.bmp"/>
       </win>
    </launcher>
 
