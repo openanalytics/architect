@@ -23,7 +23,7 @@
 <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.equinox.ds" version="0.0.0"/>
-<repository location="https://download.eclipse.org/releases/2021-06/"/>
+<repository location="https://download.eclipse.org/releases/2021-12/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="eu.openanalytics.architect.fontsize_feature.feature.group" version="0.0.0"/>
@@ -43,7 +43,7 @@
 <repository location="https://eclipse-color-theme.github.io/update/"/>
 </location>
 	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-		<repository location="mvn:org.eclipse.statet:org.eclipse.statet.repository:4.5.0-202111172100:zip"/>
+		<repository location="mvn:org.eclipse.statet:org.eclipse.statet.repository:4.5.0-202112191300:zip"/>
 		<unit id="org.eclipse.statet.eutils.autonature.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.eutils.autorun.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.ltk.feature.group" version="0.0.0"/>
