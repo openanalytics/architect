@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="0.9.12" useFeatures="true" includeLaunchers="true">
+<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="1.0.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/eu.openanalytics.architect/about_architect.png"/>
@@ -14,7 +14,7 @@
    </configIni>
 
    <launcherArgs>
-      <vmArgs>-Xms512m -Xmx1024m -XX:MaxPermSize=256m -Declipse.p2.unsignedPolicy=allow -Dosgi.requiredJavaVersion=1.8.0
+      <vmArgs>-Xms512m -Xmx1024m -XX:MaxPermSize=256m -Declipse.p2.unsignedPolicy=allow -Dosgi.requiredJavaVersion=11
       </vmArgs>
       <vmArgsMac>-Xms1024m -Xmx2048m -XX:MaxPermSize=256m -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -37,7 +37,8 @@
             winMediumHigh="icons/icon_32_32bit.bmp"
             winMediumLow="icons/icon_32_8bit.bmp"
             winLargeHigh="icons/icon_48_32bit.bmp"
-            winLargeLow="icons/icon_48_8bit.bmp"/>
+            winLargeLow="icons/icon_48_8bit.bmp"
+            winExtraLargeHigh="icons/icon_256_32bit.bmp"/>
       </win>
    </launcher>
 
@@ -70,15 +71,12 @@ Lesser GNU General Public License, version 3.0.
       <feature id="org.eclipse.cdt" installMode="root"/>
       <feature id="org.eclipse.cdt.autotools" installMode="root"/>
       <feature id="org.eclipse.cdt.build.crossgcc" installMode="root"/>
-      <feature id="org.eclipse.cdt.bupc" installMode="root"/>
-      <feature id="org.eclipse.cdt.core.lrparser.feature" installMode="root"/>
       <feature id="org.eclipse.cdt.debug.gdbjtag" installMode="root"/>
       <feature id="org.eclipse.cdt.debug.ui.memory" installMode="root"/>
       <feature id="org.eclipse.cdt.gnu.multicorevisualizer" installMode="root"/>
       <feature id="org.eclipse.cdt.msw" installMode="root"/>
       <feature id="org.eclipse.cdt.testsrunner.feature" installMode="root"/>
       <feature id="org.eclipse.cdt.visualizer" installMode="root"/>
-      <feature id="org.eclipse.cdt.xlc.feature" installMode="root"/>
       <feature id="org.eclipse.egit" installMode="root"/>
       <feature id="org.eclipse.jgit" installMode="root"/>
       <feature id="net.jeeeyul.eclipse.themes.feature" installMode="root"/>

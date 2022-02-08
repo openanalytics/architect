@@ -190,9 +190,8 @@ public class OpenFileHandler implements Listener {
 			return Status.CANCEL_STATUS;
 		}
 		
-		@SuppressWarnings("deprecation")
 		private IEclipsePreferences getAutoRunPreferences() {
-			return new InstanceScope().getNode("de.walware.eutils.autorun");
+			return InstanceScope.INSTANCE.getNode("org.eclipse.statet.eutils.autorun");
 		}
 	}
 }

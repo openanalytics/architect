@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: R Packages rj and rj.gd
 Bundle-SymbolicName: eu.openanalytics.architect.r.libs.rj;singleton:=true
-Bundle-Version: 0.9.12.qualifier
-Bundle-Activator: eu.openanalytics.architect.r.libs.rj.Activator
+Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Open Analytics
+Bundle-Activator: eu.openanalytics.architect.r.libs.rj.Activator
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.statet.rj.server;bundle-version="3.0.0"
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-ActivationPolicy: lazy
+ org.eclipse.statet.rj.server;bundle-version="4.0.0"

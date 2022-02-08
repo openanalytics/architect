@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="eu.openanalytics.architect.targetdef" sequenceNumber="19">
+<?pde version="3.8"?>
+<target name="eu.openanalytics.architect.targetdef" sequenceNumber="19">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.cdt.autotools.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.cdt.build.crossgcc.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.cdt.bupc.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.cdt.core.lrparser.feature.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.cdt.debug.gdbjtag.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.cdt.debug.ui.memory.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.cdt.docker.launcher.feature.group" version="0.0.0"/>
@@ -14,7 +13,6 @@
 <unit id="org.eclipse.cdt.msw.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.cdt.testsrunner.feature.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.cdt.visualizer.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.cdt.xlc.feature.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.epp.mpc.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
@@ -25,10 +23,28 @@
 <unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.rcp.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.equinox.ds" version="0.0.0"/>
-<repository location="http://nexus.openanalytics.eu/nexus/content/repositories/eclipse_2018_12_mirror"/>
+<repository location="https://download.eclipse.org/releases/2021-12/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.statet.eutils.autonature.feature.group" version="0.0.0"/>
+<unit id="eu.openanalytics.architect.fontsize_feature.feature.group" version="0.0.0"/>
+<repository location="http://unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/architect/eu.openanalytics.architect.fontsize.p2repo/1.0.0-SNAPSHOT/eu.openanalytics.architect.fontsize.p2repo-1.0.0-20201215.105807-2"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="eu.openanalytics.sasviewer_feature.feature.group" version="0.0.0"/>
+<repository location="http://unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.0.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.0.0-20201215.143302-11"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="net.jeeeyul.eclipse.themes.feature.feature.group" version="0.0.0"/>
+<unit id="net.jeeeyul.swtend.feature.feature.group" version="0.0.0"/>
+<repository location="http://eclipse.jeeeyul.net/update"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.github.eclipsecolortheme.feature.feature.group" version="0.0.0"/>
+<repository location="https://eclipse-color-theme.github.io/update/"/>
+</location>
+	<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+		<repository location="https://download.eclipse.org/statet/releases/4.5/E202112"/>
+		<unit id="org.eclipse.statet.eutils.autonature.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.eutils.autorun.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.ltk.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.r.feature.group" version="0.0.0"/>
@@ -39,24 +55,6 @@
 <unit id="org.eclipse.statet.rtm.ftable.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.rtm.ggplot.feature.group" version="0.0.0"/>
 <unit id="org.eclipse.statet.yaml.feature.group" version="0.0.0"/>
-<repository location="http://nexus.openanalytics.eu/nexus/service/local/route/p2/thirdparty/de.walware.statet/de.walware.statet-repo/latest"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="eu.openanalytics.architect.fontsize_feature.feature.group" version="0.0.0"/>
-<repository location="http://nexus.openanalytics.eu/nexus/service/local/route/p2/snapshots/eu.openanalytics.architect/eu.openanalytics.architect.fontsize.p2repo/latest"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="eu.openanalytics.sasviewer_feature.feature.group" version="0.0.0"/>
-<repository location="http://nexus.openanalytics.eu/nexus/service/local/route/p2/snapshots/eu.openanalytics.sasviewer/eu.openanalytics.sasviewer.p2repo/latest"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="net.jeeeyul.eclipse.themes.feature.feature.group" version="0.0.0"/>
-<unit id="net.jeeeyul.swtend.feature.feature.group" version="0.0.0"/>
-<repository location="http://eclipse.jeeeyul.net/update"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="com.github.eclipsecolortheme.feature.feature.group" version="0.0.0"/>
-<repository location="http://eclipse-color-theme.github.com/update"/>
-</location>
+	</location>
 </locations>
 </target>

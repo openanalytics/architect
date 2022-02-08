@@ -3,6 +3,8 @@
 	<property file="pandoc.build.properties" />
 	
 	<target name="copy-files">
+		<get src="${pandoc.url}" dest="${pandoc.base.dir}"/>
+		<unzip src="pandoc-${pandoc.version}-windows-x86_64.zip" dest="."/>
 		<copy todir="./pandoc">
             <fileset dir="${pandoc.dir}">
             </fileset>
