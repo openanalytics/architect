@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: R Packages rj and rj.gd
 Bundle-SymbolicName: eu.openanalytics.architect.r.libs.rj;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.1.0.qualifier
 Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.r.libs.rj.Activator
 Bundle-ActivationPolicy: lazy
