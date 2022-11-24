@@ -1,12 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Embedded RTools
 Bundle-SymbolicName: eu.openanalytics.architect.rtools;singleton:=true
+Automatic-Module-Name: eu.openanalytics.architect.rtools
+Bundle-Name: Embedded RTools
 Bundle-Version: 1.1.0.qualifier
 Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.rtools.Activator
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.variables;bundle-version="3.5.0",
  org.eclipse.core.filesystem;bundle-version="1.9.0",
