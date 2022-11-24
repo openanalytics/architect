@@ -7,18 +7,18 @@ Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.Activator
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.ui,
- org.eclipse.ui.ide,
- org.eclipse.ui.console,
+Require-Bundle: org.apache.felix.scr,
+ org.eclipse.text,
  org.eclipse.core.expressions,
  org.eclipse.core.filesystem,
  org.eclipse.core.runtime,
  org.eclipse.core.variables,
  org.eclipse.debug.ui,
- org.eclipse.text,
+ org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.console,
  eu.openanalytics.architect.ws.updater,
  org.eclipse.statet.nico.ui,
  org.eclipse.statet.r.console.ui,
  org.eclipse.statet.r.core,
- org.eclipse.statet.r.ui,
- org.eclipse.equinox.ds
+ org.eclipse.statet.r.ui

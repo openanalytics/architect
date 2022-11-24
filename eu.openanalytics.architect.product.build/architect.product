@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Architect" uid="eu.openanalytics.architect.product" id="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="1.1.0" useFeatures="true" includeLaunchers="true">
+<product name="Architect" id="eu.openanalytics.architect.product" uid="eu.openanalytics.architect.product" application="eu.openanalytics.architect.application" version="1.1.0" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/eu.openanalytics.architect/about_architect.png"/>
@@ -29,7 +29,6 @@
       startupForegroundColor="FFFFFF" />
    <launcher name="architect">
       <macosx icon="icons/mac_icons.icns"/>
-      <solaris/>
       <win useIco="false">
          <bmp
             winSmallHigh="icons/icon_16_32bit.bmp"
@@ -67,7 +66,18 @@ Lesser GNU General Public License, version 3.0.
       <feature id="eu.openanalytics.architect.r" installMode="root"/>
       <feature id="eu.openanalytics.architect.rj" installMode="root"/>
       <feature id="eu.openanalytics.architect.fontsize_feature" installMode="root"/>
-      <feature id="eu.openanalytics.sasviewer_feature" installMode="root"/>
+      
+      <feature id="org.eclipse.platform"/>
+      
+      <feature id="org.eclipse.epp.mpc" installMode="root"/>
+      <feature id="org.eclipse.jgit" installMode="root"/>
+      <feature id="org.eclipse.egit" installMode="root"/>
+      <feature id="org.eclipse.mylyn.wikitext_feature" installMode="root"/>
+      
+      <feature id="org.eclipse.jdt" installMode="root"/>
+      <feature id="org.eclipse.eclemma.feature" installMode="root"/>
+      <feature id="org.eclipse.m2e.feature" installMode="root"/>
+      
       <feature id="org.eclipse.cdt" installMode="root"/>
       <feature id="org.eclipse.cdt.autotools" installMode="root"/>
       <feature id="org.eclipse.cdt.build.crossgcc" installMode="root"/>
@@ -76,33 +86,34 @@ Lesser GNU General Public License, version 3.0.
       <feature id="org.eclipse.cdt.gnu.multicorevisualizer" installMode="root"/>
       <feature id="org.eclipse.cdt.msw" installMode="root"/>
       <feature id="org.eclipse.cdt.testsrunner.feature" installMode="root"/>
-      <feature id="org.eclipse.cdt.visualizer" installMode="root"/>
-      <feature id="org.eclipse.egit" installMode="root"/>
-      <feature id="org.eclipse.jgit" installMode="root"/>
-      <feature id="net.jeeeyul.eclipse.themes.feature" installMode="root"/>
-      <feature id="net.jeeeyul.swtend.feature" installMode="root"/>
-      <feature id="com.github.eclipsecolortheme.feature" installMode="root"/>
-      <feature id="org.eclipse.statet.eutils.autonature" installMode="root"/>
-      <feature id="org.eclipse.statet.eutils.autorun" installMode="root"/>
-      <feature id="org.eclipse.statet.ltk" installMode="root"/>
+      <feature id="org.eclipse.linuxtools.cdt.libhover.feature" installMode="root"/>
+      <feature id="org.eclipse.linuxtools.changelog.c" installMode="root"/>
+      <feature id="org.eclipse.linuxtools.gcov" installMode="root"/>
+      
       <feature id="org.eclipse.statet.r" installMode="root"/>
       <feature id="org.eclipse.statet.redocs.tex.r" installMode="root"/>
       <feature id="org.eclipse.statet.redocs.wikitext.r" installMode="root"/>
-      <feature id="org.eclipse.statet.rj.core" installMode="root"/>
-      <feature id="org.eclipse.statet.rj.eclient" installMode="root"/>
       <feature id="org.eclipse.statet.rtm.ftable" installMode="root"/>
       <feature id="org.eclipse.statet.rtm.ggplot" installMode="root"/>
       <feature id="org.eclipse.statet.yaml" installMode="root"/>
-      <feature id="org.eclipse.platform"/>
-      <feature id="org.eclipse.jdt"/>
-      <feature id="org.eclipse.mylyn_feature"/>
-      <feature id="org.eclipse.epp.mpc"/>
+      
+      <feature id="org.eclipse.statet.rj.core" installMode="root"/>
+      <feature id="org.eclipse.statet.rj.eclient" installMode="root"/>
+      
+      <feature id="org.eclipse.statet.eutils.autonature" installMode="root"/>
+      <feature id="org.eclipse.statet.eutils.autorun" installMode="root"/>
+      
+      <feature id="eu.openanalytics.sasviewer_feature" installMode="root"/>
+      
+      <feature id="com.github.eclipsecolortheme.feature" installMode="root"/>
+      <feature id="net.jeeeyul.eclipse.themes.feature" installMode="root"/>
+      <feature id="net.jeeeyul.swtend.feature" installMode="root"/>
    </features>
 
    <configurations>
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="4" />
