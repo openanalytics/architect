@@ -9,7 +9,7 @@ spec:
     fsGroup: 65534
   containers:
   - name: maven
-    image: maven:3.6-adoptopenjdk-11
+    image: maven:3.8-eclipse-temurin-17
     resources:
       requests: 
         memory: "4Gi"

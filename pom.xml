@@ -1,15 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ #=============================================================================#
+ #=============================================================================#
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>eu.openanalytics.architect</groupId>
 	<artifactId>eu.openanalytics.architect.build</artifactId>
-	<packaging>pom</packaging>
 	<version>1.1.0-SNAPSHOT</version>
-
+	<packaging>pom</packaging>
+	
 	<properties>
-		<tycho.version>2.3.0</tycho.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<tycho.version>3.0.0</tycho.version>
 		<build.tools.url>https://nexus.openanalytics.eu/repository/architect_build_tools</build.tools.url>
+		
 		<maven.install.skip>true</maven.install.skip>
 		<maven.deploy.skip>true</maven.deploy.skip>
 	</properties>
@@ -26,7 +36,7 @@
 			<url>https://nexus.openanalytics.eu/repository/snapshots/</url>
 		</repository>
 	</repositories>
-
+	
 	<distributionManagement>
 		<snapshotRepository>
 			<id>oa-nexus-snapshots</id>
@@ -39,7 +49,7 @@
 			<url>https://nexus.openanalytics.eu/repository/releases/</url>
 		</repository>
 	</distributionManagement>
-
+	
 	<modules>
 		<module>eu.openanalytics.architect.jre</module>
 		<module>eu.openanalytics.architect.targetdef</module>
@@ -73,21 +83,56 @@
 	</modules>
 	
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>3.0.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-maven-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>target-platform-configuration</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-packaging-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-repository-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-p2-director-plugin</artifactId>
+					<version>${tycho.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		
 		<plugins>
-			<plugin>
-				<artifactId>maven-install-plugin</artifactId>
-				<version>2.5</version>
-			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${tycho.version}</version>
 				<extensions>true</extensions>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
-				<version>${tycho.version}</version>
 				<configuration>
 					<target>
 						<artifact>
@@ -98,13 +143,13 @@
 					</target>
 					<environments>
 						<environment>
-							<os>win32</os>
-							<ws>win32</ws>
+							<os>linux</os>
+							<ws>gtk</ws>
 							<arch>x86_64</arch>
 						</environment>
 						<environment>
-							<os>linux</os>
-							<ws>gtk</ws>
+							<os>win32</os>
+							<ws>win32</ws>
 							<arch>x86_64</arch>
 						</environment>
 						<environment>
@@ -117,4 +162,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>

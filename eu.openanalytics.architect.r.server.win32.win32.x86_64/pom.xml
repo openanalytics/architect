@@ -1,35 +1,40 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ #=============================================================================#
+ #=============================================================================#
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>eu.openanalytics.architect</groupId>
-	<artifactId>eu.openanalytics.architect.r.server.win32.win32.x86_64</artifactId>
-	<packaging>eclipse-plugin</packaging>
-	<version>1.1.0-SNAPSHOT</version>
 	
 	<parent>
 		<groupId>eu.openanalytics.architect</groupId>
 		<artifactId>eu.openanalytics.architect.build</artifactId>
 		<version>1.1.0-SNAPSHOT</version>
-		<relativePath>../</relativePath>
 	</parent>
+	
+	<groupId>eu.openanalytics.architect</groupId>
+	<artifactId>eu.openanalytics.architect.r.server.win32.win32.x86_64</artifactId>
+	<packaging>eclipse-plugin</packaging>
 	
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.8</version>
 				<executions>
 					<execution>
 						<phase>generate-resources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
 						<configuration>
 							<target>
 								<get src="${build.tools.url}/win32/R.zip" dest="${project.basedir}/R.zip" />
 								<unzip src="${project.basedir}/R.zip" dest="${project.basedir}"/>
 							</target>
 						</configuration>
-						<goals>
-							<goal>run</goal>
-						</goals>
 					</execution>
 				</executions>
 			</plugin>
