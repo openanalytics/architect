@@ -61,13 +61,13 @@ Lesser GNU General Public License, version 3.0.
    </plugins>
 
    <features>
-      <feature id="eu.openanalytics.architect.jre" installMode="root"/>
       <feature id="eu.openanalytics.architect.base" installMode="root"/>
       <feature id="eu.openanalytics.architect.r" installMode="root"/>
       <feature id="eu.openanalytics.architect.rj" installMode="root"/>
       <feature id="eu.openanalytics.architect.fontsize_feature" installMode="root"/>
       
       <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.justj.openjdk.hotspot.jre.full" installMode="root"/>
       
       <feature id="org.eclipse.epp.mpc" installMode="root"/>
       <feature id="org.eclipse.jgit" installMode="root"/>
