@@ -10,7 +10,7 @@
       <setup
             id="eu.openanalytics.r.server"
             name="Embedded R Server"
-            version="2.14.0">
+            version="4.2.2">
       </setup>
    </extension>
 

@@ -1,31 +1,86 @@
-<project name="eu.openanalytics.architect.installer" default="make-installer">
+<project name="eu.openanalytics.architect.installer" default="make-zip">
 	
-	<property file="build.properties" />
+	<property file="build.properties"/>
+	<property name="build.product.dir" value="${build.dir}\f"/>
 	
-	<target name="prepare-installer">
-		<delete dir="${build.dir}" />
-		<mkdir dir="${build.dir}"/>
-		<get src="${product.url}" dest="${build.dir}/product.zip"/>
-		<unzip dest="${build.dir}/f">
-			<fileset file="${build.dir}/product.zip"/>
-		</unzip>
-		<delete file="${build.dir}/product.zip" />
+	<target name="clean">
+		<delete dir="${build.dir}"/>
 	</target>
 	
+	<macrodef name="x-unzip">
+		<attribute name="archiveFile" doubleexpanding="false"/>
+		<attribute name="dest" doubleexpanding="false"/>
+		<sequential>
+			<exec executable="${basedir}\utils\7z.exe" dir="${build.dir}" failonerror="true">
+				<arg value="x"/><arg value="-tzip"/>
+				<arg value="-bb0"/><arg value="-bd"/>
+				<arg file="@{archiveFile}"/>
+				<arg value="-o@{dest}"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	<macrodef name="x-zip">
+		<attribute name="dir" doubleexpanding="false"/>
+		<attribute name="archiveFile" doubleexpanding="false"/>
+		<sequential>
+			<exec executable="${basedir}\utils\7z.exe" dir="${build.dir}" failonerror="true">
+				<arg value="a"/><arg value="-tzip"/>
+				<arg value="-bb0"/><arg value="-bd"/>
+				<arg file="@{archiveFile}"/>
+				<arg value="@{dir}/*"/>
+			</exec>
+		</sequential>
+	</macrodef>
+	
+	<target name="prepare-installer">
+		<macrodef name="x-unzipToBundle">
+			<attribute name="archiveFile" doubleexpanding="false"/>
+			<attribute name="bundle" doubleexpanding="false"/>
+			<attribute name="dir" doubleexpanding="false"/>
+			<sequential>
+				<local name="bundle.dir"/>
+				<pathconvert property="bundle.dir" setonempty="false">
+					<dirset dir="${build.product.dir}\plugins" includes="@{bundle}_*"/>
+				</pathconvert>
+				<delete dir="${bundle.dir}\@{dir}"/>
+				<x-unzip archiveFile="@{archiveFile}" dest="${bundle.dir}\@{dir}"/>
+			</sequential>
+		</macrodef>
+		
+		<delete dir="${build.product.dir}"/>
+		<mkdir dir="${build.product.dir}"/>
+		
+		<get src="${build.product.url}" dest="${build.dir}/product.zip"/>
+		<x-unzip archiveFile="${build.dir}\product.zip" dest="${build.product.dir}"/>
+		<delete file="${build.dir}/product.zip"/>
+		
+		<get dest="${build.dir}/">
+			<url url="${build.tools.url}/${r.key}/r.zip"/>
+			<url url="${build.tools.url}/${r.key}/r-library-rj.zip"/>
+			<url url="${build.tools.url}/${rtools.key}/rtools.zip"/>
+		</get>
+		<x-unzipToBundle archiveFile="${build.dir}\r.zip" bundle="eu.openanalytics.architect.r.server.win32.win32.x86_64" dir="R"/>
+		<x-unzipToBundle archiveFile="${build.dir}\r-library-rj.zip" bundle="eu.openanalytics.architect.r.libs.rj.win32.win32.x86_64" dir="libs"/>
+		<x-unzipToBundle archiveFile="${build.dir}\rtools.zip" bundle="eu.openanalytics.architect.rtools.win32.win32.x86_64" dir="rtools"/>
+	</target>
+	
+	<target name="make-zip" depends="prepare-installer">
+		<x-zip archiveFile="${project.build.directory}\architect.zip" dir="${build.product.dir}" />
+	</target>
 	<target name="make-installer" depends="prepare-installer">
 		<copy todir="${build.dir}">
-			<fileset dir=".">
+			<fileset dir="${basedir}">
 				<include name="*.nsi" />
 				<include name="*.ico" />
 				<include name="*.bmp" />
 			</fileset>
 		</copy>
-		<exec executable="${nsisMaker}" dir="${build.dir}" failonerror="true">
+		<exec executable="${basedir}\tools\nsis\makensis.exe" dir="${build.dir}" failonerror="true">
 			<arg value="architect_x86_64.nsi" />
 		</exec>
-		<delete dir="${build.dir}/f" />
+		<delete dir="${build.product.dir}" />
 		<move todir="${project.build.directory}">
-		    <fileset dir="${build.dir}"/>
+			<fileset dir="${build.dir}"/>
 		</move>
 	</target>
 

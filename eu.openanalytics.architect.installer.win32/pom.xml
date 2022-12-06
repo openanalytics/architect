@@ -62,8 +62,14 @@
 						</goals>
 						<configuration>
 							<target>
-								<ant antfile="build.xml"/>
-								<attachartifact file="target/setup.exe" type="exe"/>
+								<property name="basedir" value="${project.basedir}"/>
+								<ant antfile="build.xml">
+									<target name="make-zip"/>
+									<!-- target name="make-installer"/ -->
+									<target name="clean"/>
+								</ant>
+								<attachartifact file="${project.build.directory}/architect.zip" type="zip"/>
+								<!-- attachartifact file="${project.build.directory}/setup.exe" type="exe"/ -->
 							</target>
 						</configuration>
 					</execution>
