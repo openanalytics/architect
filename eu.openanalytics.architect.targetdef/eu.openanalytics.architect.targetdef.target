@@ -9,7 +9,7 @@
 		</location>
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://download.eclipse.org/releases/2022-12/202211251000"/>
+			<repository location="https://download.eclipse.org/releases/2022-12/202212071000"/>
 			<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
 			
