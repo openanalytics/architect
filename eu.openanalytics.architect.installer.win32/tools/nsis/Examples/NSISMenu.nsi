@@ -77,8 +77,11 @@ ReadRegDWORD $UseLightTheme HKCU "Software\Microsoft\Windows\CurrentVersion\Them
 StrCmp $UseLightTheme "" 0 +2
 StrCpy $UseLightTheme 1 ; Default
 
-StrCmp $UseLightTheme "0" 0 +2
-System::Call 'USER32::SetProp(p$hWndParent,t"UseImmersiveDarkModeColors",i1)'
+StrCmp $UseLightTheme "0" 0 +5
+System::Call 'DWMAPI::DwmSetWindowAttribute(p$hWndParent,i20,*i1,i4)i.r0' ; 20H1
+IntCmp $0 0 +3 +3
+System::Call 'DWMAPI::DwmSetWindowAttribute(p$hWndParent,i19,*i1,i4)i.r0' ; ; 19H1
+System::Call 'USER32::SetProp(p$hWndParent,t"UseImmersiveDarkModeColors",i1)' ; 1809
 FunctionEnd
 
 !define SetCtlColors "!insertmacro SetCtlColors "
@@ -155,10 +158,14 @@ nsDialogs::CreateControl ${__NSD_Label_CLASS} ${__NSD_Label_STYLE} ${__NSD_Label
 Pop $0
 ${SetCtlColors} $0 0xffffff 0xffffff ${CB_HEADER}
 
-nsDialogs::CreateControl ${__NSD_Icon_CLASS} ${__NSD_Icon_STYLE}|${SS_CENTERIMAGE}|${SS_CENTER} ${__NSD_Icon_EXSTYLE} 0 0 33u ${UY_HEADER}u ""
+; CCv5 does not paint the background outside of the icon correctly when SS_CENTERIMAGE is used so we have to overlay a small icon on top of the background
+nsDialogs::CreateControl ${__NSD_Icon_CLASS} ${__NSD_Icon_STYLE} ${__NSD_Icon_EXSTYLE} 4u 4u 33u ${UY_HEADER}u ""
 Pop $0
 ${SetCtlColors} $0 "" "" ${CB_HEADER}
 ${NSD_SetIconFromInstaller} $0 $1
+nsDialogs::CreateControl ${__NSD_Icon_CLASS} ${__NSD_Icon_STYLE}|${SS_CENTERIMAGE}|${SS_CENTER} ${__NSD_Icon_EXSTYLE} 0 0 33u ${UY_HEADER}u ""
+Pop $0
+${SetCtlColors} $0 "" "" ${CB_HEADER}
 
 CreateFont $1 "Trebuchet MS" 17
 !searchreplace VERSTR "${NSIS_VERSION}" "v" ""
@@ -202,7 +209,7 @@ ${SetCtlColors} $0 ${CT_PAGE} ${CB_PAGE}
 ;"Project Tracker" "http://sourceforge.net/tracker/?group_id=22049"
 !insertmacro CreateSimpleLink "Bug Tracker" "http://sourceforge.net/tracker/?group_id=22049&atid=373085" ${UX_W}
 !insertmacro CreateSimpleLink "Stackoverflow" "http://stackoverflow.com/questions/tagged/nsis" ${UX_W}
-!insertmacro CreateSimpleLink "Slack collaboration hub" "${WWW}/r/Slack" ${UX_W}
+!insertmacro CreateSimpleLink "Chat" "${WWW}/r/Chat" ${UX_W}
 ;insertmacro CreateSimpleLink "IRC channel" "irc://irc.landoleet.org/nsis" ${UX_W}
 ;"Pastebin" "http://nsis.pastebin.com/index/1FtyKP89"
 ;"Search" "http://www.google.com/cse/home?cx=005317984255499820329:c_glv1-6a6a"

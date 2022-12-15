@@ -91,7 +91,6 @@ Function checkForSpaces
 FunctionEnd
 
 Function onDirectoryLeave
- 
   Call supportsShortPaths
   Pop $0
   StrCmp $0 1 NoSpaces
@@ -100,17 +99,17 @@ Function onDirectoryLeave
   Call checkForSpaces
   Pop $0
   StrCmp $0 0 NoSpaces
- 
+  
   StrCmp $0 1 0 +3
     StrCpy $1 ""
   Goto +2
     StrCpy $1 "s"
- 
+  
   MessageBox MB_OK|MB_ICONEXCLAMATION "If you install Architect into a path with spaces on this system, R will not function properly."
   Abort
- 
+  
   NoSpaces:
- 
+  
 FunctionEnd
 
 ;--------------------------------
@@ -147,14 +146,14 @@ Section "Architect" SecInstall
   SetOutPath $INSTDIR
   
   ; Unzip program files
-  File /r f\*.*
-
+  File /a /r f\*.*
+  
   ; Create Desktop & Start Menu shortcuts
   CreateShortCut "$DESKTOP\Architect.lnk" "$INSTDIR\architect.exe" ""
   CreateDirectory "$SMPROGRAMS\Architect"
   CreateShortCut "$SMPROGRAMS\Architect\Architect.lnk" "$INSTDIR\architect.exe"
   CreateShortCut "$SMPROGRAMS\Architect\Uninstall Architect.lnk" "$INSTDIR\uninstall.exe"
-
+  
   ; Give full control to everyone. Required for updates and temp folder usage.
   ; AccessControl::GrantOnFile "$INSTDIR" "(BU)" "FullAccess"
   
@@ -166,7 +165,7 @@ Section "Architect" SecInstall
   WriteRegStr HKCR "ArchitectFile" "" "Architect File"
   WriteRegStr HKCR "ArchitectFile\DefaultIcon" "" "$INSTDIR\architect.exe"
   WriteRegStr HKCR "ArchitectFile\shell\Open\Command" "" '"$INSTDIR\architect.exe" "%1"'
-    
+  
   ; Write registry keys for uninstallation
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Architect" "DisplayName" "Architect (remove only)"
   WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\Architect" "UninstallString" "$INSTDIR\uninstall.exe"
@@ -202,10 +201,10 @@ Section "Uninstall"
   delete "$INSTDIR\.eclipseproduct"
   delete "$INSTDIR\uninstall.exe"
   delete "$INSTDIR\eclipsec.exe"
-      
+  
   RMDir /r "$SMPROGRAMS\Architect"
   delete "$DESKTOP\Architect.lnk"
-
+  
   Push "$INSTDIR"
 	Call un.isEmptyDir
   Pop $0

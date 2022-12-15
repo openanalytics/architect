@@ -39,9 +39,12 @@ Header file for creating custom installer pages with nsDialogs
 !define /ifndef WS_CLIPSIBLINGS      0x04000000
 !define /ifndef WS_CLIPCHILDREN      0x02000000
 !define /ifndef WS_MAXIMIZE          0x01000000
+!define /ifndef WS_BORDER            0x00800000
 !define /ifndef WS_VSCROLL           0x00200000
 !define /ifndef WS_HSCROLL           0x00100000
 !define /ifndef WS_GROUP             0x00020000
+!define /ifndef WS_MINIMIZEBOX       0x00020000
+!define /ifndef WS_MAXIMIZEBOX       0x00010000
 !define /ifndef WS_TABSTOP           0x00010000
 
 !define ES_LEFT              0x00000000
@@ -291,6 +294,14 @@ Header file for creating custom installer pages with nsDialogs
 !define __NSD_RadioButton_STYLE ${DEFAULT_STYLES}|${WS_TABSTOP}|${BS_TEXT}|${BS_VCENTER}|${BS_AUTORADIOBUTTON}|${BS_MULTILINE}
 !define __NSD_RadioButton_EXSTYLE 0
 
+!define __NSD_FirstRadioButton_CLASS ${__NSD_RadioButton_CLASS}
+!define __NSD_FirstRadioButton_STYLE ${DEFAULT_STYLES}|${WS_TABSTOP}|${WS_GROUP}|${BS_TEXT}|${BS_VCENTER}|${BS_AUTORADIOBUTTON}|${BS_MULTILINE}
+!define __NSD_FirstRadioButton_EXSTYLE ${__NSD_RadioButton_EXSTYLE}
+
+!define __NSD_AdditionalRadioButton_CLASS ${__NSD_RadioButton_CLASS}
+!define __NSD_AdditionalRadioButton_STYLE ${DEFAULT_STYLES}|${BS_TEXT}|${BS_VCENTER}|${BS_AUTORADIOBUTTON}|${BS_MULTILINE}
+!define __NSD_AdditionalRadioButton_EXSTYLE ${__NSD_RadioButton_EXSTYLE}
+
 !define __NSD_Text_CLASS EDIT
 !define __NSD_Text_STYLE ${DEFAULT_STYLES}|${WS_TABSTOP}|${ES_AUTOHSCROLL}
 !define __NSD_Text_EXSTYLE ${WS_EX_WINDOWEDGE}|${WS_EX_CLIENTEDGE}
@@ -406,6 +417,8 @@ Header file for creating custom installer pages with nsDialogs
 !insertmacro __NSD_DefineControl GroupBox
 !insertmacro __NSD_DefineControl CheckBox
 !insertmacro __NSD_DefineControl RadioButton
+!insertmacro __NSD_DefineControl FirstRadioButton
+!insertmacro __NSD_DefineControl AdditionalRadioButton
 !insertmacro __NSD_DefineControl Text
 !insertmacro __NSD_DefineControl MLText
 !insertmacro __NSD_DefineControl Password
