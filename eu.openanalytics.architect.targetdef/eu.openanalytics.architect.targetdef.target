@@ -37,7 +37,7 @@
 		</location>
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://download.eclipse.org/statet/integration/latest/E202212"/>
+			<repository location="https://download.eclipse.org/statet/releases/4.7.0/E202212"/>
 			<unit id="org.eclipse.statet.r.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.statet.redocs.tex.r.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.statet.redocs.wikitext.r.feature.group" version="0.0.0"/>
