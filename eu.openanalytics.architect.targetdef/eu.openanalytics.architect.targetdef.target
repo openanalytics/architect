@@ -59,7 +59,7 @@
 		</location>
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.0.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.0.0-20201215.143302-11"/>
+			<repository location="https://unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.1.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.1.0-20230414.175155-4"/>
 			<unit id="eu.openanalytics.sasviewer_feature.feature.group" version="0.0.0"/>
 		</location>
 		
