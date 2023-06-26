@@ -2,7 +2,7 @@
 <feature
       id="eu.openanalytics.architect.rj"
       label="R Packages rj and rj.gd"
-      version="1.1.0.qualifier"
+      version="1.2.0.qualifier"
       provider-name="Open Analytics"
       plugin="eu.openanalytics.architect.r.libs.rj">
 

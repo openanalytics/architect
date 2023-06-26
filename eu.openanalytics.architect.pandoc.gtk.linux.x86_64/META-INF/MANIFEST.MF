@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: eu.openanalytics.architect.pandoc.gtk.linux.x86_64
 Bundle-Name: Pandoc Linux binaries
-Bundle-Version: 1.1.0.qualifier
+Bundle-Version: 1.2.0.qualifier
 Bundle-Vendor: Open Analytics
 Fragment-Host: eu.openanalytics.architect.pandoc
 Eclipse-BundleShape: dir
