@@ -22,7 +22,8 @@ pipeline {
 						withEnv(['MAVEN_OPTS+MEM=-Xmx3584m -Xms3584m']) {
 							sh "mvn deploy\
 									--batch-mode -s $MAVEN_SETTINGS_RSB\
-									-Dmaven.test.failure.ignore=true"
+									-Dmaven.test.failure.ignore=true\
+									-Daether.connector.http.reuseConnections=false"
 						}
 					}
 				}
