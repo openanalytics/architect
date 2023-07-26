@@ -41,6 +41,7 @@
 ;   8.1
 ;   2012R2
 ;   10
+;   11
 ;
 ;   Note: Windows 8.1 and later will be detected as Windows 8 unless ManifestSupportedOS is set correctly!
 ;
@@ -548,6 +549,8 @@
   !insertmacro __WinVer_DefineOSTest ${Test} 2012R2 '${Suffix}'
   !insertmacro __WinVer_DefineOSTest ${Test} 10     '${Suffix}'
   !insertmacro __WinVer_DefineOSTest ${Test} 2016   '${Suffix}'
+  !define /IfNDef AtLeastWin11 'U>= WinVer_BuildNumCheck 22000'
+  !define /IfNDef AtMostWin11  'U<= WinVer_BuildNumCheck 22000'
 !macroend
 
 !insertmacro __WinVer_DefineOSTests AtLeast ""
@@ -652,7 +655,9 @@
 # Windows as a Service macros
 
 !macro WinVer_WaaS id build fu codename marketingname
-  !if "${id}" == ${fu}
+  !if "${id}" == "?"
+    # Ignore
+  !else if "${id}" == ${fu}
     !define WinVer_WaaS_Build ${build}
   !else if "${id}" == "${codename}"
     !define WinVer_WaaS_Build ${build}
@@ -662,7 +667,7 @@
 !macroend
 
 !macro _WinVer_WaaS op id _t _f
-  !insertmacro WinVer_WaaS "${id}" 10240 1507 "Threshold"   "RTM" ; 10240.16384
+  !insertmacro WinVer_WaaS "${id}" 10240 1507 "Threshold"   "Windows 10" ; 10240.16384
   !insertmacro WinVer_WaaS "${id}" 10586 1511 "Threshold 2" "November Update" ; 10586.0?
   !insertmacro WinVer_WaaS "${id}" 14393 1607 "Redstone"    "Anniversary Update" ; 14393.10
   !insertmacro WinVer_WaaS "${id}" 15063 1703 "Redstone 2"  "Creators Update" ; 15063.13
@@ -674,6 +679,10 @@
   !insertmacro WinVer_WaaS "${id}" 19041 2004 "20H1"        "May 2020 Update" ; 19041.264?
   !insertmacro WinVer_WaaS "${id}" 19042 20H2 "20H2"        "October 2020 Update" ; 19042.572? A.K.A. 2009
   !insertmacro WinVer_WaaS "${id}" 19043 21H1 "21H1"        "May 2021 Update" ; 19043.928
+  !insertmacro WinVer_WaaS "${id}" 19044 21H2 "21H2"        "November 2021 Update" ; 19044.1288
+  !insertmacro WinVer_WaaS "${id}" 19045 "?"  "?"           "October 2022 Update" ; 19045.2130 22H2
+  !insertmacro WinVer_WaaS "${id}" 22000 "?"  "Sun Valley"  "Windows 11" ; 10.0.22000.194 21H2
+  !insertmacro WinVer_WaaS "${id}" 22621 22H2 "Sun Valley 2" "2022 Update" ; 10.0.22621.521
 
   !ifmacrodef WinVerExternal_WaaS_MapToBuild
     !insertmacro WinVerExternal_WaaS_MapToBuild ${op} "${id}" WinVer_WaaS_Build
