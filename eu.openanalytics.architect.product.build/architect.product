@@ -108,8 +108,10 @@ Lesser GNU General Public License, version 3.0.
       <feature id="eu.openanalytics.sasviewer_feature" installMode="root"/>
       
       <feature id="com.github.eclipsecolortheme.feature" installMode="root"/>
+<!--
       <feature id="net.jeeeyul.eclipse.themes.feature" installMode="root"/>
       <feature id="net.jeeeyul.swtend.feature" installMode="root"/>
+-->
    </features>
 
    <configurations>

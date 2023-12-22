@@ -63,12 +63,14 @@
 			<unit id="eu.openanalytics.sasviewer_feature.feature.group" version="0.0.0"/>
 		</location>
 		
+<!--
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
 			<repository location="http://eclipse.jeeeyul.net/update"/>
 			<unit id="net.jeeeyul.eclipse.themes.feature.feature.group" version="0.0.0"/>
 			<unit id="net.jeeeyul.swtend.feature.feature.group" version="0.0.0"/>
 		</location>
+-->
 		<location  type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
 			<repository location="https://eclipse-color-theme.github.io/update"/>
