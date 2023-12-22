@@ -9,7 +9,7 @@
 		</location>
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://download.eclipse.org/releases/2023-06/202306141000"/>
+			<repository location="https://download.eclipse.org/releases/2023-12/202312061001"/>
 			<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
 			
@@ -37,7 +37,7 @@
 		</location>
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://download.eclipse.org/statet/releases/4.8.0/E202306"/>
+			<repository location="https://download.eclipse.org/statet/integration/4.9/latest/E202312"/>
 			<unit id="org.eclipse.statet.r.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.statet.redocs.tex.r.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.statet.redocs.wikitext.r.feature.group" version="0.0.0"/>
@@ -59,7 +59,7 @@
 		</location>
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.2.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.2.0-20230720.082952-9"/>
+			<repository location="https://unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.3.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.3.0-20231218.121831-2"/>
 			<unit id="eu.openanalytics.sasviewer_feature.feature.group" version="0.0.0"/>
 		</location>
 		
