@@ -11,7 +11,7 @@
 	
 	<groupId>eu.openanalytics.architect</groupId>
 	<artifactId>eu.openanalytics.architect.build</artifactId>
-	<version>1.2.0-SNAPSHOT</version>
+	<version>1.3.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
 	<properties>
@@ -199,7 +199,7 @@
 						<artifact>
 							<groupId>eu.openanalytics.architect</groupId>
 							<artifactId>eu.openanalytics.architect.targetdef</artifactId>
-							<version>1.2.0-SNAPSHOT</version>
+							<version>1.3.0-SNAPSHOT</version>
 						</artifact>
 					</target>
 				</configuration>

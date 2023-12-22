@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-SymbolicName: eu.openanalytics.architect.ws.updater;singleton:=true
 Automatic-Module-Name: eu.openanalytics.architect.ws.updater
 Bundle-Name: Workspace Updater
-Bundle-Version: 1.2.0.qualifier
+Bundle-Version: 1.3.0.qualifier
 Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.ws.updater.Activator
 Bundle-ActivationPolicy: lazy
