@@ -7,7 +7,7 @@ Bundle-Version: 1.4.0.qualifier
 Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.ws.updater.Activator
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources;bundle-version="3.8.1"

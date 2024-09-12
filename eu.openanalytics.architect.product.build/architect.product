@@ -16,7 +16,7 @@
    <launcherArgs>
       <programArgs>--launcher.defaultAction openFile --launcher.appendVmargs
       </programArgs>
-      <vmArgs>--add-modules ALL-SYSTEM -Xms512m -Xmx2048m -Declipse.p2.unsignedPolicy=allow -Dosgi.requiredJavaVersion=17
+      <vmArgs>--add-modules ALL-SYSTEM -Xms512m -Xmx2048m -Declipse.p2.unsignedPolicy=allow -Dosgi.requiredJavaVersion=21
       </vmArgs>
       <vmArgsMac>-Xms1024m -Xmx2048m -XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -44,7 +44,7 @@
    </launcher>
 
    <vm>
-      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17</windows>
+      <windows include="false">org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-21</windows>
    </vm>
 
    <license>
@@ -74,7 +74,7 @@ Lesser GNU General Public License, version 3.0.
       <feature id="org.eclipse.epp.mpc" installMode="root"/>
       <feature id="org.eclipse.jgit" installMode="root"/>
       <feature id="org.eclipse.egit" installMode="root"/>
-      <feature id="org.eclipse.mylyn.wikitext_feature" installMode="root"/>
+      <feature id="org.eclipse.mylyn.wikitext.feature" installMode="root"/>
       
       <feature id="org.eclipse.jdt" installMode="root"/>
       <feature id="org.eclipse.eclemma.feature" installMode="root"/>

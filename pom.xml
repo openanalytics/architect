@@ -22,7 +22,7 @@
 		<maven.install.skip>true</maven.install.skip>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		
-		<java.platform.version>17</java.platform.version>
+		<java.platform.version>21</java.platform.version>
 		<maven.compiler.release>${java.platform.version}</maven.compiler.release>
 	</properties>
 	
@@ -206,7 +206,7 @@
 							<arch>x86_64</arch>
 						</environment>
 					</environments>
-					<executionEnvironment>org.eclipse.justj.openjdk.hotspot.jre.full-17</executionEnvironment>
+					<executionEnvironment>org.eclipse.justj.openjdk.hotspot.jre.full-21</executionEnvironment>
 					<target>
 						<artifact>
 							<groupId>eu.openanalytics.architect</groupId>
