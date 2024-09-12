@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-SymbolicName: eu.openanalytics.architect.r.libs.rj;singleton:=true
 Automatic-Module-Name: eu.openanalytics.architect.r.libs.rj
 Bundle-Name: R Packages rj and rj.gd
-Bundle-Version: 1.3.0.qualifier
+Bundle-Version: 1.4.0.qualifier
 Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.r.libs.rj.Activator
 Bundle-ActivationPolicy: lazy

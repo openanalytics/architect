@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-SymbolicName: eu.openanalytics.architect.rtools;singleton:=true
 Automatic-Module-Name: eu.openanalytics.architect.rtools
 Bundle-Name: Embedded RTools
-Bundle-Version: 1.3.0.qualifier
+Bundle-Version: 1.4.0.qualifier
 Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.rtools.Activator
 Bundle-ActivationPolicy: lazy

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-SymbolicName: eu.openanalytics.architect.r.libs.user;singleton:=true
 Automatic-Module-Name: eu.openanalytics.architect.r.libs.user
 Bundle-Name: R User Libs
-Bundle-Version: 1.3.0.qualifier
+Bundle-Version: 1.4.0.qualifier
 Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.r.libs.user.Activator
 Bundle-ActivationPolicy: lazy

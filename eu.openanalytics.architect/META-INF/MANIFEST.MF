@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-SymbolicName: eu.openanalytics.architect;singleton:=true
 Automatic-Module-Name: eu.openanalytics.architect
 Bundle-Name: Architect
-Bundle-Version: 1.3.0.qualifier
+Bundle-Version: 1.4.0.qualifier
 Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.Activator
 Bundle-ActivationPolicy: lazy
