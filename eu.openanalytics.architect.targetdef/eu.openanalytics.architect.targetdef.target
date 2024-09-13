@@ -54,12 +54,12 @@
 		
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/architect/eu.openanalytics.architect.fontsize.p2repo/1.0.0-SNAPSHOT/eu.openanalytics.architect.fontsize.p2repo-1.0.0-20201215.105807-2"/>
+			<repository location="https://oa-prod-nexus-unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/architect/eu.openanalytics.architect.fontsize.p2repo/1.0.0-SNAPSHOT/eu.openanalytics.architect.fontsize.p2repo-1.0.0-20240913.110247-4/"/>
 			<unit id="eu.openanalytics.architect.fontsize_feature.feature.group" version="0.0.0"/>
 		</location>
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.4.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.4.0-20240912.200449-2"/>
+			<repository location="https://oa-prod-nexus-unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.4.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.4.0-20240913.105556-5"/>
 			<unit id="eu.openanalytics.sasviewer_feature.feature.group" version="0.0.0"/>
 		</location>
 		
