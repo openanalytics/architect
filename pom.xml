@@ -18,6 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
 		<tycho.version>4.0.8</tycho.version>
+		<jdt.ecj.version>3.39.0</jdt.ecj.version>
 		
 		<maven.install.skip>true</maven.install.skip>
 		<maven.deploy.skip>true</maven.deploy.skip>
@@ -131,8 +132,16 @@
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-compiler-plugin</artifactId>
 					<version>${tycho.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.eclipse.jdt</groupId>
+							<artifactId>ecj</artifactId>
+							<version>${jdt.ecj.version}</version>
+						</dependency>
+					</dependencies>
 					<configuration>
 						<pomOnlyDependencies>ignore</pomOnlyDependencies>
+						<useProjectSettings>true</useProjectSettings>
 						<strictCompilerTarget>true</strictCompilerTarget>
 					</configuration>
 				</plugin>
