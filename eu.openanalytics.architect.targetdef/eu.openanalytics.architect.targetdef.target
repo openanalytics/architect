@@ -37,7 +37,7 @@
 		</location>
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://download.eclipse.org/statet/integration/4.10/latest/E202409"/>
+			<repository location="https://download.eclipse.org/statet/releases/4.10/E202409"/>
 			<unit id="org.eclipse.statet.r.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.statet.redocs.tex.r.feature.group" version="0.0.0"/>
 			<unit id="org.eclipse.statet.redocs.wikitext.r.feature.group" version="0.0.0"/>
@@ -59,7 +59,7 @@
 		</location>
 		<location type="InstallableUnit" includeMode="planner"
 				includeAllPlatforms="false" includeConfigurePhase="false" includeSource="true">
-			<repository location="https://oa-prod-nexus-unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.4.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.4.0-20240918.203444-7"/>
+			<repository location="https://oa-prod-nexus-unzip-plugin.s3-eu-west-1.amazonaws.com/snapshots/eu/openanalytics/sasviewer/eu.openanalytics.sasviewer.p2repo/1.4.0-SNAPSHOT/eu.openanalytics.sasviewer.p2repo-1.4.0-20250317.113714-16"/>
 			<unit id="eu.openanalytics.sasviewer_feature.feature.group" version="0.0.0"/>
 		</location>
 		
