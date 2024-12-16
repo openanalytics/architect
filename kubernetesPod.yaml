@@ -10,8 +10,9 @@ spec:
   containers:
   - name: maven
     image: library/maven:3.9-eclipse-temurin-21
+    imagePullPolicy: Always
     resources:
-      requests: 
+      requests:
         memory: "4Gi"
         cpu: "1500m"
       limits:

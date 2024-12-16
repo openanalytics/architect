@@ -10,7 +10,9 @@ pipeline {
 		stage('Build and Deploy to nexus') {
 			agent {
 				kubernetes {
+					inheritFrom 'default'
 					yamlFile 'kubernetesPod.yaml'
+					yamlMergeStrategy merge()
 					defaultContainer 'maven'
 					workspaceVolume dynamicPVC(accessModes: 'ReadWriteOnce', requestsSize: '40Gi')
 				}
