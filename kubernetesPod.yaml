@@ -11,6 +11,7 @@ spec:
   - name: jnlp
     securityContext:
       privileged: true
+      runAsUser: 0
   - name: maven
     image: library/maven:3.9-eclipse-temurin-21
     imagePullPolicy: Always
