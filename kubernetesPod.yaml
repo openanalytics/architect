@@ -8,7 +8,7 @@ spec:
   securityContext:
     fsGroup: 1000
     runAsUser: 1000
-    fsGroupChangePolicy: "OnRootMismatch"
+    fsGroupChangePolicy: "Always"
   containers:
   - name: maven
     image: library/maven:3.9-eclipse-temurin-21
