@@ -14,7 +14,7 @@ pipeline {
 					yamlFile 'kubernetesPod.yaml'
 					yamlMergeStrategy merge()
 					defaultContainer 'maven'
-					workspaceVolume dynamicPVC(accessModes: 'ReadWriteOnce', requestsSize: '40Gi')
+					workspaceVolume genericEphemeralVolume(accessModes: 'ReadWriteOnce', requestsSize: '40Gi')
 				}
 			}
 			
