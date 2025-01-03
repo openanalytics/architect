@@ -6,7 +6,9 @@ metadata:
     ci: architect-build
 spec:
   securityContext:
-    fsGroup: 65534
+    fsGroup: 1000
+    runAsUser: 1000
+    fsGroupChangePolicy: "OnRootMismatch"
   containers:
   - name: maven
     image: library/maven:3.9-eclipse-temurin-21
