@@ -17,7 +17,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
-		<tycho.version>4.0.11</tycho.version>
+		<tycho.version>4.0.12</tycho.version>
 		<jdt.ecj.version>3.40.0</jdt.ecj.version>
 		
 		<maven.install.skip>true</maven.install.skip>
