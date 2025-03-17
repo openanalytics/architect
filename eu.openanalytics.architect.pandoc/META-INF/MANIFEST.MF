@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-SymbolicName: eu.openanalytics.architect.pandoc;singleton:=true
 Automatic-Module-Name: eu.openanalytics.architect.pandoc
 Bundle-Name: Pandoc
-Bundle-Version: 1.4.0.qualifier
+Bundle-Version: 1.5.0.qualifier
 Bundle-Vendor: Open Analytics
 Bundle-Activator: eu.openanalytics.architect.pandoc.Activator
 Bundle-ActivationPolicy: lazy

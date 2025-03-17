@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: eu.openanalytics.architect.r.libs.user.cocoa.macosx.x86_64
 Bundle-Name: R User Libs MacOSX
-Bundle-Version: 1.4.0.qualifier
+Bundle-Version: 1.5.0.qualifier
 Bundle-Vendor: Open Analytics
-Fragment-Host: eu.openanalytics.architect.r.libs.user;bundle-version="[1.4.0,1.4.1)"
+Fragment-Host: eu.openanalytics.architect.r.libs.user;bundle-version="[1.5.0,1.5.1)"
 Eclipse-BundleShape: dir
