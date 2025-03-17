@@ -10,4 +10,4 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.statet.rj.server;bundle-version="[4.10.0,4.11.0)"
+ org.eclipse.statet.rj.server;bundle-version="[4.11.0,4.12.0)"
